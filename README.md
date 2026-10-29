@@ -32,6 +32,10 @@ The FOMC held at 3.75%–4.00% on a 10–2 vote. Equities read *"the accumulatio
 
 The full postmortem, including the three design defects this exposed, is in [`docs/lessons-2026-10-28.md`](docs/lessons-2026-10-28.md).
 
+![Call vs outcome](reports/2026-10-27_levels.png)
+
+![Predicted vs actual](reports/2026-10-28_scorecard.png)
+
 ---
 
 ## How it works
@@ -117,6 +121,9 @@ That regenerates:
 - `reports/2026-10-28_scorecard.md`
 - `reports/2026-10-28_scorecard.png`
 - `reports/2026-10-27_dashboard.html`
+
+Open the dashboard directly in a browser — it embeds both charts, so it works as a single
+file.
 
 TypeScript pipeline:
 
