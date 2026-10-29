@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+node_modules/
+dist/
+.env
+.DS_Store
+
+# Raw per-run fetch dumps are reproducible; keep the committed history file.
+data/raw/2026-*/
+data/raw/20*/
+!data/raw/history_1mo.json

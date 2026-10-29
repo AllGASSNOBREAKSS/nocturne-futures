@@ -1,0 +1,223 @@
+{
+  "call_id": "2026-10-27",
+  "session": "2026-10-28",
+  "published_at": "2026-10-27T20:55:00-04:00",
+  "engine": "nocturne v0.1.0",
+  "macro": {
+    "fed_funds": "3.75%–4.00%",
+    "last_action": "2026-09-16: +25bp, 12–0 vote",
+    "consensus": "hold at 4.00% (ForexFactory)",
+    "ust_2y": 4.7,
+    "ust_10y": 4.99,
+    "ust_30y": 5.3,
+    "dxy": 102.36,
+    "vix": 17.52,
+    "wti": 100.37,
+    "data_timestamp": "2026-10-27T20:51:00-04:00",
+    "events": [
+      {
+        "time": "08:30 ET",
+        "event": "UK Autumn Budget; US goods trade balance",
+        "note": "secondary for US indices, can move DXY"
+      },
+      {
+        "time": "09:45 ET",
+        "event": "Bank of Canada decision",
+        "note": "consensus +25bp to 2.50%"
+      },
+      {
+        "time": "10:30 ET",
+        "event": "EIA crude inventories",
+        "note": "oil near $100 keeps inflation risk bid"
+      },
+      {
+        "time": "14:00 ET",
+        "event": "FOMC statement",
+        "note": "hold at 4.00% expected"
+      },
+      {
+        "time": "14:30 ET",
+        "event": "Powell press conference",
+        "note": "main event risk of the day"
+      },
+      {
+        "time": "16:05 ET",
+        "event": "Microsoft and Alphabet earnings",
+        "note": "NQ's larger event; ~$7.8T combined market cap"
+      }
+    ]
+  },
+  "instruments": {
+    "ES": {
+      "symbol": "ES=F",
+      "name": "E-mini S&P 500",
+      "contract": "Dec 2026",
+      "tick": 0.25,
+      "multiplier": 50,
+      "last": 7763.5,
+      "prior_close": 7758.25,
+      "rth_open": 7734.75,
+      "rth_high": 7772.75,
+      "rth_low": 7712.5,
+      "rth_close": 7758.0,
+      "vwap": 7750.12,
+      "overnight_high": 7764.25,
+      "overnight_low": 7699.75,
+      "atr14": 80.55,
+      "sma20": 7777.76,
+      "sma50": 7730.02,
+      "sma200": 7328.38,
+      "high_52w": 7897.5,
+      "low_52w": 6353.25,
+      "vol20": 9.9
+    },
+    "NQ": {
+      "symbol": "NQ=F",
+      "name": "E-mini Nasdaq-100",
+      "contract": "Dec 2026",
+      "tick": 0.25,
+      "multiplier": 20,
+      "last": 29858.0,
+      "prior_close": 29812.0,
+      "rth_open": 29561.25,
+      "rth_high": 29881.25,
+      "rth_low": 29494.5,
+      "rth_close": 29813.25,
+      "vwap": 29721.86,
+      "overnight_high": 29867.25,
+      "overnight_low": 29288.0,
+      "atr14": 577.64,
+      "sma20": 30357.54,
+      "sma50": 29955.33,
+      "sma200": 28004.29,
+      "high_52w": 31616.5,
+      "low_52w": 22961.5,
+      "vol20": 19.1
+    },
+    "GC": {
+      "symbol": "GC=F",
+      "name": "Gold",
+      "contract": "Dec 2026",
+      "tick": 0.1,
+      "multiplier": 100,
+      "last": 4078.1,
+      "prior_close": 4074.6,
+      "rth_open": 4034.8,
+      "rth_high": 4079.4,
+      "rth_low": 4034.6,
+      "rth_close": 4074.9,
+      "vwap": 4063.95,
+      "overnight_high": 4084.1,
+      "overnight_low": 4001.6,
+      "atr14": 65.5,
+      "sma20": 4143.59,
+      "sma50": 4325.94,
+      "sma200": 4528.66,
+      "high_52w": 5586.2,
+      "low_52w": 3901.3,
+      "vol20": 15.4
+    },
+    "SI": {
+      "symbol": "SI=F",
+      "name": "Silver",
+      "contract": "Dec 2026",
+      "tick": 0.005,
+      "multiplier": 5000,
+      "last": 54.49,
+      "prior_close": 54.293,
+      "rth_open": 53.82,
+      "rth_high": 54.64,
+      "rth_low": 53.8,
+      "rth_close": 54.51,
+      "vwap": 54.37,
+      "overnight_high": 54.6,
+      "overnight_low": 52.71,
+      "atr14": 1.14,
+      "sma20": 58.02,
+      "sma50": 62.59,
+      "sma200": 71.42,
+      "high_52w": 121.3,
+      "low_52w": 46.325,
+      "vol20": 33.9
+    }
+  },
+  "bias": {
+    "ES": "neutral-bearish",
+    "NQ": "neutral-bearish",
+    "GC": "bearish",
+    "SI": "bearish"
+  },
+  "confidence": {
+    "ES": 0.55,
+    "NQ": 0.55,
+    "GC": 0.58,
+    "SI": 0.6
+  },
+  "predicted_close": {
+    "ES": [7745.0, 7755.0],
+    "NQ": [29750.0, 29820.0],
+    "GC": [4050.0, 4065.0],
+    "SI": [54.1, 54.25]
+  },
+  "predicted_range": {
+    "ES": [7700.0, 7800.0],
+    "NQ": [29300.0, 30050.0],
+    "GC": [3990.0, 4100.0],
+    "SI": [52.7, 55.3]
+  },
+  "sigma_close": {
+    "ES": [65.0, 85.0],
+    "NQ": [380.0, 450.0],
+    "GC": [40.0, 50.0],
+    "SI": [0.95, 1.2]
+  },
+  "levels": {
+    "ES": { "r2": 7812.0, "r1": 7773.0, "pivot": 7750.0, "s1": 7712.0, "s2": 7648.0 },
+    "NQ": { "r2": 30113.0, "r1": 29881.0, "pivot": 29722.0, "s1": 29494.0, "s2": 29288.0 },
+    "GC": { "r2": 4130.0, "r1": 4084.0, "pivot": 4064.0, "s1": 4035.0, "s2": 4000.0 },
+    "SI": { "r2": 55.5, "r1": 54.64, "pivot": 54.4, "s1": 53.8, "s2": 53.0 }
+  },
+  "scenarios": [
+    {
+      "name": "hawkish_hold",
+      "label": "Hawkish hold",
+      "probability": 0.4,
+      "closes": {
+        "ES": [7720.0, 7745.0],
+        "NQ": [29550.0, 29700.0],
+        "GC": [4025.0, 4045.0],
+        "SI": [53.2, 53.6]
+      }
+    },
+    {
+      "name": "dovish_hold",
+      "label": "Dovish hold",
+      "probability": 0.42,
+      "closes": {
+        "ES": [7790.0, 7825.0],
+        "NQ": [30200.0, 30350.0],
+        "GC": [4115.0, 4140.0],
+        "SI": [55.8, 56.3]
+      }
+    },
+    {
+      "name": "hike_25bp",
+      "label": "Hike 25bp",
+      "probability": 0.18,
+      "closes": {
+        "ES": [7620.0, 7670.0],
+        "NQ": [28950.0, 29100.0],
+        "GC": [3950.0, 3980.0],
+        "SI": [51.3, 51.8]
+      }
+    }
+  ],
+  "sources": [
+    "Yahoo Finance chart API: ES=F, NQ=F, GC=F, SI=F, ^VIX, DX-Y.NYB, ^TNX, accessed 2026-10-27 20:51 ET",
+    "US Treasury daily yield curve, 2026-10-27",
+    "Federal Reserve FOMC calendar and 2026-09-16 statement",
+    "ForexFactory weekly economic calendar, 2026-10-26 to 2026-10-30",
+    "Nasdaq earnings calendar, 2026-10-28",
+    "Motley Fool market midday, 2026-10-27"
+  ]
+}

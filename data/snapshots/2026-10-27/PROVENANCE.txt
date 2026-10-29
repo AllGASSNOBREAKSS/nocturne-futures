@@ -1,0 +1,6 @@
+call_id: 2026-10-27
+session: 2026-10-28
+published_at: 2026-10-27T20:55:00-04:00
+data_timestamp: 2026-10-27T20:51:00-04:00
+call_sha256: 90cefbcd641aca64b21d6942dd16c8422df0fdb56c7a830fc8bacaf022451aab
+actual_sha256: ab1b37147c6f1262adc460c57952fe8dc304f6363a54faffa8793ac3fc20b716

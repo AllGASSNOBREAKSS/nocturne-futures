@@ -1,0 +1,39 @@
+# Instrument registry. `tick` and `multiplier` are the CME/COMEX contract specs
+# used to translate point moves into dollars per contract.
+instruments:
+  - code: ES
+    symbol: "ES=F"
+    name: "E-mini S&P 500"
+    contract: "Dec 2026"
+    exchange: "CME"
+    tick: 0.25
+    multiplier: 50
+    cash_proxy: "^GSPC"
+    session_close_et: "16:00"
+  - code: NQ
+    symbol: "NQ=F"
+    name: "E-mini Nasdaq-100"
+    contract: "Dec 2026"
+    exchange: "CME"
+    tick: 0.25
+    multiplier: 20
+    cash_proxy: "^NDX"
+    session_close_et: "16:00"
+  - code: GC
+    symbol: "GC=F"
+    name: "Gold"
+    contract: "Dec 2026"
+    exchange: "COMEX"
+    tick: 0.10
+    multiplier: 100
+    cash_proxy: null
+    session_close_et: "13:30"
+  - code: SI
+    symbol: "SI=F"
+    name: "Silver"
+    contract: "Dec 2026"
+    exchange: "COMEX"
+    tick: 0.005
+    multiplier: 5000
+    cash_proxy: null
+    session_close_et: "13:30"

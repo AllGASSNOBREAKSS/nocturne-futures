@@ -1,0 +1,54 @@
+{
+  "session": "2026-10-28",
+  "as_of": "2026-10-28T16:00:00-04:00",
+  "settlement_note": "CME equity index futures settle at 16:00 ET; COMEX metals settle at 13:30 ET. `close` is the official daily settlement used for scoring; `close_4pm` is the 16:00 ET mark for transparency.",
+  "instruments": {
+    "ES": {
+      "open": 7761.75,
+      "high": 7819.5,
+      "low": 7750.25,
+      "close": 7783.25,
+      "close_4pm": 7784.5
+    },
+    "NQ": {
+      "open": 29814.25,
+      "high": 30178.0,
+      "low": 29674.25,
+      "close": 29979.5,
+      "close_4pm": 29990.75
+    },
+    "GC": {
+      "open": 4073.6,
+      "high": 4097.2,
+      "low": 4036.9,
+      "close": 4051.6,
+      "close_4pm": 4089.1
+    },
+    "SI": {
+      "open": 53.925,
+      "high": 53.925,
+      "low": 53.405,
+      "close": 53.457,
+      "close_4pm": 54.39,
+      "data_quality": "Yahoo daily bar prints high = open (53.925); 5-minute data shows an intraday high near 54.40. Range scoring is unaffected because both values sit inside the 52.70–55.30 envelope."
+    }
+  },
+  "context": {
+    "summary": "The FOMC held the target range at 3.75%–4.00% on a 10–2 vote. Equities rallied through resistance, the 10-year yield rose to 5.045%, and metals settled lower. ES +0.32%, NQ +0.56%, gold -0.56%, silver -1.54%.",
+    "statement_quote": "Inflation remains elevated. The accumulation of more information will help the Committee determine the policy stance appropriate to ensure a timely return of inflation to the Committee's 2 percent goal. The Committee will deliver price stability.",
+    "dissents": "Lisa D. Cook and Beth M. Hammack dissented, preferring a 25bp hike.",
+    "spx": 7743.98,
+    "ndx": 26549.85,
+    "vix": 16.91,
+    "ust_10y": 5.045,
+    "dxy": 102.19
+  },
+  "postmortem": [
+    "Gold was the clean hit: the 4,084 resistance capped the high at 4,097, the 4,035 support held within 2 points, and the settlement landed inside the 4,050–4,065 band.",
+    "Silver's direction and downside target were right — settled 53.46 against a 54.10–54.25 call, with the 53.00 support holding within 0.41 — but the close band was too high.",
+    "ES and NQ were wrong on direction. Both opened near the prior close, made their low in the first 15 minutes (09:45 ET), then rallied through R1 and R2, peaking at 14:35–14:40 ET after the statement.",
+    "The Fed held, but the phrase 'the accumulation of more information' was read as patience. Equities treated the hold as a relief signal even though two members voted to hike.",
+    "The single-axis hawkish/dovish map was too coarse: a patient hold lifted equities while a higher long end (10Y 5.045%) pressured gold. The model needs a second axis for real yields."
+  ],
+  "calibration_note": "Direction 2/4, close band 1/4, range 2/4 full plus 2/4 partial, mean absolute close error 0.64%. Only one of four settlements landed inside a published scenario bucket, which is the clearest defect: the three named scenarios left gaps between 7,745–7,790 on ES and 29,700–30,200 on NQ. v0.2 should output a continuous distribution over price buckets, or five overlapping quantile buckets, instead of three narrow named bands."
+}
