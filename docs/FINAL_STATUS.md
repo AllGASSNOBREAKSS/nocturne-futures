@@ -38,8 +38,9 @@ existing TypeScript validation helper and the dated call/report pipeline.
 
 ## 2. Real evidence
 
-**Tests:** `105 passed, 1 skipped` (`python -m pytest`). The skip is the native
-parity test because the C++ toolchain is absent.
+**Tests:** `121 passed, 1 skipped` without the native module; `122 passed` with
+it (`python -m pytest`). The skip is the native parity test when the module is
+not on `PYTHONPATH`.
 
 **NQ model (daily, 15 years):**
 

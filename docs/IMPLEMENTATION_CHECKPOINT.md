@@ -103,7 +103,7 @@ Phase 8 — safety
 ## Verification
 
 ```bash
-python -m pytest -q                 # 105 passed, 1 skipped (native parity)
+python -m pytest -q                 # 121 passed, 1 skipped (122 with native)
 python -m nocturne audit
 python -m nocturne train --instrument NQ
 python -m nocturne forecast --instrument NQ
