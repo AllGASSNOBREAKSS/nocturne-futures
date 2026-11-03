@@ -13,7 +13,7 @@ from ..contracts import Prediction
 from ..journal import PredictionJournal
 from ..ml.registry import load_metadata, latest_model_id
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[3]
 
 
 class ForecastService:
