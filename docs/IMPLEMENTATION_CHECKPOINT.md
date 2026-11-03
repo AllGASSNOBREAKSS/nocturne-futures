@@ -39,6 +39,7 @@ cd ts && npm run validate -- ../data/snapshots/2026-10-27/call.json
 
 ## Next exact step
 
-Phase 1 is implemented. Phase 2 next: true trade-derived volume profile,
-POC/VAH/VAL/HVN/LVN, TPO profile, IB/opening range, AMT state, and synthetic
-golden fixtures. Then commit and push before Phase 3.
+Phase 2 is implemented. Phase 3 next: ORB/IB, VWAP pullback and VAH/VAL
+rejection strategy specs, an event-driven bar backtester with costs and
+conservative intrabar ambiguity, and walk-forward evaluation. Then commit and
+push before Phase 4.

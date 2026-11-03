@@ -31,13 +31,13 @@ A milestone is `DONE` only when code, tests, and a runnable command exist.
 
 | Item | Status | Evidence |
 |---|---|---|
-| True trade-derived volume profile | PLANNED | Requires synthetic fixtures; live data blocked |
-| POC/VAH/VAL with deterministic tie-break | PLANNED | — |
-| HVN/LVN with smoothing/prominence | PLANNED | — |
-| TPO profile, separate from volume | PLANNED | — |
-| IB / opening range | PLANNED | — |
-| AMT balance/acceptance/value migration | PLANNED | — |
-| Bar-approximation profile, explicitly labeled | PLANNED | Never called exchange-accurate |
+| True trade-derived volume profile | DONE | `auction/volume_profile.py`; live data DATA_BLOCKED, synthetic fixtures pass |
+| POC/VAH/VAL with deterministic tie-break | DONE | 70% expansion, nearest-VWAP tie-break, 6 tests |
+| HVN/LVN with smoothing/prominence | DONE | Smoothed local extrema, configurable |
+| TPO profile, separate from volume | DONE | `auction/tpo.py`; TPO-vs-volume test |
+| IB / opening range | DONE | `auction/session.py`, 4 tests |
+| AMT balance/acceptance/value migration | DONE | `auction/state.py`, 4 tests |
+| Bar-approximation profile, explicitly labeled | DONE | `BAR_APPROXIMATION`; never called exchange-accurate |
 
 ## Phase 3 — Strategy research and backtester
 
