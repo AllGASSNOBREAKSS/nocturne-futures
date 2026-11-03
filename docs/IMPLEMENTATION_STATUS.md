@@ -158,5 +158,7 @@ No calibrated model or profitable strategy is claimed. The existing 15-year
 direction baseline did **not** beat the always-up/frequency rate on ES, NQ, or
 GC. The 2026-10-30 and 2026-11-02 calls are recorded misses and must remain in
 the archive. Phase 3A found no strategy that survives the development/holdout
-and cost-stress gates. New modules will report `DATA_BLOCKED` where the required
-data does not exist.
+and cost-stress gates. Phase 3B's target-first model is **NO_PROMOTION** (AUC
+0.41, ECE 0.15, 22-row test); Forecast V1 is research-only `NO_TRADE` with null
+probabilities. New modules will report `DATA_BLOCKED` where the required data
+does not exist.

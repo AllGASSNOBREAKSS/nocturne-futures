@@ -1,7 +1,7 @@
 # Implementation Checkpoint
 
 **Date:** 2026-11-03  
-**Branch:** `feat/phase3a` (merged to `main`)  
+**Branch:** `feat/phase3b` (merged to `main`)  
 **Base:** `f3ac7f9`  
 **Latest backend commit:** see `git log --oneline -1`
 
