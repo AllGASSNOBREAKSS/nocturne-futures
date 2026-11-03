@@ -47,7 +47,9 @@ days were not scored. Full row-level predictions:
 
 Frequency Brier is 0.521407 NQ / 0.525225 ES for direction and 0.229892 / 0.225232
 for consolidation. Paired three-day block intervals versus frequency are negative
-for the full models. That is aggregate probability-loss evidence, not directional
+for all four LightGBM models (NQ direction [-0.0444, -0.0320], ES direction
+[-0.0474, -0.0350], NQ consolidation [-0.0778, -0.0672], ES consolidation
+[-0.0755, -0.0652]). That is aggregate probability-loss evidence, not directional
 trading skill. Direction remains dominated by neutral predictions; it is not
 useful for bull/bear decisions.
 
@@ -107,10 +109,12 @@ strategy/model inference.
 Fixed development replay generated 12 frozen forecasts (six NQ, six ES) at 16:00
 UTC every fifth development session. All 12 V1 horizons matured. The latest 20%
 was excluded. These are very small samples and cannot establish calibration.
-Range coverage was mixed: NQ P80 covered 4/4 BALANCED, 1/1 STRESS, 0/1 TREND_DOWN;
-ES P80 covered 2/4 BALANCED and 0/1 TREND_UP. ASIA bundle windows were
-`DATA_BLOCKED` due incomplete five-minute cache coverage. This is honest missing
-data, not a negative forecast.
+Range coverage was mixed. Across all V1 replay groups, NQ P80 covered 5/6 and ES
+P80 covered 4/6; P50 covered 3/6 and 2/6. P90 covered 5/6 for both. Session
+bundle NEW_YORK P80 covered 2/4 for both instruments. These counts are far too
+small for calibration claims. ASIA bundle windows were `DATA_BLOCKED` due
+incomplete five-minute cache coverage. This is honest missing data, not a
+negative forecast.
 
 ## 6. Strategy research
 
