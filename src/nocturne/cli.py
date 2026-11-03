@@ -64,7 +64,12 @@ def _audit() -> int:
             f"  {spec.instrument_id:4s} {spec.venue:5s} tick={spec.tick_size:<10.6f} "
             f"mult={spec.multiplier:<7.1f} months={spec.contract_months}"
         )
-    print("\nDATA")
+    print("\nMARKET DATA (backend)")
+    market_dir = ROOT / "data" / "market" / "daily"
+    for path in sorted(market_dir.glob("*.csv")):
+        rows = sum(1 for _ in path.open("r", encoding="utf-8")) - 1
+        print(f"  {path.name:8s} {rows:5d} rows")
+    print("\nRESEARCH DATA (frozen)")
     for path in sorted(CSV_DIR.glob("*.csv")):
         rows = sum(1 for _ in path.open("r", encoding="utf-8")) - 1
         print(f"  {path.name:8s} {rows:5d} rows")

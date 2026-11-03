@@ -13,13 +13,15 @@ from ..contracts import Prediction
 from ..journal import PredictionJournal
 from ..ml.registry import load_metadata, latest_model_id
 
+ROOT = Path(__file__).resolve().parents[2]
+
 
 class ForecastService:
     def __init__(
         self,
-        journal_root: str | Path = "data/journal",
-        registry_root: str | Path = "models/registry",
-        forecast_root: str | Path = "data/forecasts",
+        journal_root: str | Path = ROOT / "data" / "journal",
+        registry_root: str | Path = ROOT / "models" / "registry",
+        forecast_root: str | Path = ROOT / "data" / "forecasts",
     ):
         self.journal = PredictionJournal(journal_root)
         self.registry_root = Path(registry_root)
