@@ -76,25 +76,25 @@ A milestone is `DONE` only when code, tests, and a runnable command exist.
 
 | Item | Status | Evidence |
 |---|---|---|
-| Typed trade/quote/book interfaces | PLANNED | — |
-| Aggressor classification + CVD | PLANNED | — |
-| Footprint / DOM imbalance | PLANNED | — |
-| C++ kernels | TOOLCHAIN_BLOCKED | No cmake/g++/pybind11 |
+| Typed trade/quote/book interfaces | DONE | `orderflow/tape.py`, `orderflow/depth.py` |
+| Aggressor classification + CVD | DONE | Quote/tick rule with confidence; 6 tests |
+| Footprint / DOM imbalance | DONE | Footprint by side; top-k book imbalance |
+| C++ kernels | TOOLCHAIN_BLOCKED | No cmake/g++/pybind11; Python reference only |
 
 ## Phase 7 — Knowledge / discretion
 
 | Item | Status | Evidence |
 |---|---|---|
-| Analyst thesis record | PLANNED | — |
-| Vault indexing | DATA_BLOCKED | Private vault; do not publish |
+| Analyst thesis record | DONE | `knowledge/thesis.py`, 3 tests |
+| Vault indexing | DATA_BLOCKED | Private vault; not published |
 
 ## Phase 8 — Hardening
 
 | Item | Status | Evidence |
 |---|---|---|
-| CI Python + TypeScript | PARTIAL | Existing CI; v2 tests to be added |
-| Drift/coverage/latency monitoring | PLANNED | — |
-| Promotion/rollback | PLANNED | — |
+| CI Python + TypeScript | DONE | `.github/workflows/ci.yml`; pytest + tsc |
+| Drift/coverage/latency monitoring | PARTIAL | Health, coverage, staleness gates; no drift dashboard |
+| Promotion/rollback | PARTIAL | Versioned registry + RESEARCH_ONLY gate; manual rollback |
 
 ## Current truth boundary
 

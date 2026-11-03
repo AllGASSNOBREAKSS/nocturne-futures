@@ -201,6 +201,23 @@ def make_forecast(
         )
 
     from .contracts import Target
+    from .risk import RiskContext, evaluate_risk
+
+    risk = evaluate_risk(
+        RiskContext(
+            now=datetime.now(UTC),
+            watermark=asof,
+            coverage=1.0,
+            critical_day_state="NORMAL",
+            minutes_to_event=None,
+            atr_percentile=None,
+            market_open=True,
+            signal_expires_at=asof + timedelta(days=5),
+            duplicate=False,
+            expected_value_points=None,
+        )
+    )
+    decision = Decision.WAIT if risk.allow_new_risk else Decision.NO_TRADE
 
     prediction = Prediction(
         prediction_id=f"{instrument_id.upper()}-{asof.strftime('%Y%m%d')}-{datetime.now(UTC).strftime('%H%M%S')}",
@@ -211,7 +228,7 @@ def make_forecast(
         expires_at_utc=asof + timedelta(days=5),
         horizon_seconds=5 * 86400,
         bias=bias,
-        decision=Decision.WAIT,
+        decision=decision,
         market_regime="TREND_UP" if float(latest["sma50_dist"]) > 0 else "TREND_DOWN",
         critical_day_state="NORMAL",
         strategy_id="research_daily_barrier",
@@ -236,6 +253,7 @@ def make_forecast(
             "RESEARCH_ONLY",
             "MODEL_NOT_PROMOTED",
             f"CALIBRATED_P_TP_FIRST={probability:.4f}",
+            *risk.reason_codes,
         ],
         research_status=ResearchStatus.RESEARCH_ONLY,
         latency_ms=None,
