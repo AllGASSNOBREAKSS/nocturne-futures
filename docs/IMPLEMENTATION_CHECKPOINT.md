@@ -3,8 +3,9 @@
 ## Current resume point — Phase 3E, 2026-11-03
 
 Branch `feat/phase3e`, base `8bb874b` (Phase 3D release, remote CI success).
-Read `PHASE3E_FINDINGS.md` and `PHASE3E_PROTOCOL.md` before changing experiments.
-Decision remains **NO_PROMOTION / NO_TRADE**.
+Milestone `b758ddf` and documentation correction `b81f556` are pushed; both
+GitHub CI runs passed. Read `PHASE3E_FINDINGS.md` and `PHASE3E_PROTOCOL.md` before
+changing experiments. Decision remains **NO_PROMOTION / NO_TRADE**.
 
 Implemented: authenticated Databento/ALFRED adapters (fixture-tested only; keys
 absent), raw-contract and source-comparison validation, LightGBM feature

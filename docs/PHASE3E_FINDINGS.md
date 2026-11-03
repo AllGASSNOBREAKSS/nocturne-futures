@@ -166,8 +166,8 @@ Frontend, TradingView automation and brokerage execution were not modified.
 ## 8. Verification and remaining dependencies
 
 Native-enabled suite at this checkpoint: **184 passed**. CLI audit passes. TypeScript
-was not changed. GitHub CI for the prior Phase 3D release passed; Phase 3E CI must
-be checked after pushing.
+was not changed. Both Phase 3E pushes passed GitHub CI:
+`b758ddf` and documentation correction `b81f556`.
 
 Remaining external dependencies: licensed raw-contract one/five-minute history,
 ticks/trades/depth/MBO, actual VX futures, authorized point-in-time release
