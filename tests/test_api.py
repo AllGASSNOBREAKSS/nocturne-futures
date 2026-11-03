@@ -86,3 +86,10 @@ def test_forecast_v1_absent_is_explicit(tmp_path):
     assert response.status_code == 200
     assert response.json()["forecast"] is None
     assert response.json()["reason"] == "NO_V1_FORECAST"
+
+
+def test_forecast_bundle_absent_is_explicit(tmp_path):
+    response = client(tmp_path).get("/v1/forecast/bundle?instrument=NQ")
+    assert response.status_code == 200
+    assert response.json()["bundle"] is None
+    assert response.json()["reason"] == "NO_BUNDLE_FORECAST"

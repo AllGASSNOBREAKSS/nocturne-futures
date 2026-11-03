@@ -1,0 +1,1752 @@
+{
+  "phase": "3B.3",
+  "instrument": "NQ",
+  "coverage": {
+    "rows": 147,
+    "days": 49,
+    "sessions": {
+      "ASIA": 49,
+      "LONDON": 49,
+      "NEW_YORK": 49
+    },
+    "direction": {
+      "BULL": 72,
+      "BEAR": 69,
+      "NEUTRAL": 6
+    },
+    "range_state": {
+      "EXPANSION": 56,
+      "CONSOLIDATION": 47,
+      "NORMAL": 44
+    },
+    "split": {
+      "direction_train": 87,
+      "direction_validation": 30,
+      "direction_test": 30,
+      "consolidation_train": 87,
+      "consolidation_validation": 30,
+      "consolidation_test": 30
+    },
+    "nq_data": {
+      "instrument": "NQ",
+      "interval": "5m",
+      "rows": 13566,
+      "first": "2026-08-25 04:05:00+00:00",
+      "last": "2026-11-03 20:23:59+00:00",
+      "source": "yahoo_public_unofficial",
+      "sha256": "ab0c21a68df27d4e1a4985d9c5b4c700f219d7135d814b7288d6e9df5a624952",
+      "fetched_at": "2026-11-03T20:34:04.244691+00:00"
+    },
+    "es_data": {
+      "instrument": "ES",
+      "interval": "5m",
+      "rows": 13567,
+      "first": "2026-08-25 04:05:00+00:00",
+      "last": "2026-11-03 20:24:07+00:00",
+      "source": "yahoo_public_unofficial",
+      "sha256": "ab26cc443615c2a15f08d36d23dbb720d0cc2abef4d947bd7eaa5b80433a9909",
+      "fetched_at": "2026-11-03T20:34:08.038052+00:00"
+    }
+  },
+  "direction": {
+    "frequency": {
+      "metrics": {
+        "n": 30,
+        "log_loss": 0.865033,
+        "brier": 0.594953,
+        "accuracy": 0.4,
+        "ece": 0.197701,
+        "confusion": [
+          [
+            0,
+            0,
+            18
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            12
+          ]
+        ],
+        "per_class_recall": {
+          "BEAR": 0.0,
+          "NEUTRAL": null,
+          "BULL": 1.0
+        }
+      },
+      "predictions": [
+        {
+          "signal_id": "2026-10-20|ASIA",
+          "day": "2026-10-20",
+          "session": "ASIA",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-20|LONDON",
+          "day": "2026-10-20",
+          "session": "LONDON",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-20|NEW_YORK",
+          "day": "2026-10-20",
+          "session": "NEW_YORK",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-21|ASIA",
+          "day": "2026-10-21",
+          "session": "ASIA",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-21|LONDON",
+          "day": "2026-10-21",
+          "session": "LONDON",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-21|NEW_YORK",
+          "day": "2026-10-21",
+          "session": "NEW_YORK",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-22|ASIA",
+          "day": "2026-10-22",
+          "session": "ASIA",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-22|LONDON",
+          "day": "2026-10-22",
+          "session": "LONDON",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-22|NEW_YORK",
+          "day": "2026-10-22",
+          "session": "NEW_YORK",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-23|ASIA",
+          "day": "2026-10-23",
+          "session": "ASIA",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-23|LONDON",
+          "day": "2026-10-23",
+          "session": "LONDON",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-23|NEW_YORK",
+          "day": "2026-10-23",
+          "session": "NEW_YORK",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-26|ASIA",
+          "day": "2026-10-26",
+          "session": "ASIA",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-26|LONDON",
+          "day": "2026-10-26",
+          "session": "LONDON",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-26|NEW_YORK",
+          "day": "2026-10-26",
+          "session": "NEW_YORK",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-27|ASIA",
+          "day": "2026-10-27",
+          "session": "ASIA",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-27|LONDON",
+          "day": "2026-10-27",
+          "session": "LONDON",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-27|NEW_YORK",
+          "day": "2026-10-27",
+          "session": "NEW_YORK",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-28|ASIA",
+          "day": "2026-10-28",
+          "session": "ASIA",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-28|LONDON",
+          "day": "2026-10-28",
+          "session": "LONDON",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-28|NEW_YORK",
+          "day": "2026-10-28",
+          "session": "NEW_YORK",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-29|ASIA",
+          "day": "2026-10-29",
+          "session": "ASIA",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-29|LONDON",
+          "day": "2026-10-29",
+          "session": "LONDON",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-29|NEW_YORK",
+          "day": "2026-10-29",
+          "session": "NEW_YORK",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-30|ASIA",
+          "day": "2026-10-30",
+          "session": "ASIA",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-30|LONDON",
+          "day": "2026-10-30",
+          "session": "LONDON",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-30|NEW_YORK",
+          "day": "2026-10-30",
+          "session": "NEW_YORK",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-11-02|ASIA",
+          "day": "2026-11-02",
+          "session": "ASIA",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-11-02|LONDON",
+          "day": "2026-11-02",
+          "session": "LONDON",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-11-02|NEW_YORK",
+          "day": "2026-11-02",
+          "session": "NEW_YORK",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.3333333333333333,
+          "p_neutral": 0.06896551724137931,
+          "p_bull": 0.5977011494252874,
+          "predicted": "BULL"
+        }
+      ]
+    },
+    "logistic": {
+      "metrics": {
+        "n": 30,
+        "log_loss": 2.527203,
+        "brier": 0.997447,
+        "accuracy": 0.4,
+        "ece": 0.519791,
+        "confusion": [
+          [
+            0,
+            1,
+            17
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            12
+          ]
+        ],
+        "per_class_recall": {
+          "BEAR": 0.0,
+          "NEUTRAL": null,
+          "BULL": 1.0
+        }
+      },
+      "predictions": [
+        {
+          "signal_id": "2026-10-20|ASIA",
+          "day": "2026-10-20",
+          "session": "ASIA",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.014086926290993316,
+          "p_neutral": 0.011288331514570999,
+          "p_bull": 0.9746247421944357,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-20|LONDON",
+          "day": "2026-10-20",
+          "session": "LONDON",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.050859736918495206,
+          "p_neutral": 0.014835046251781486,
+          "p_bull": 0.9343052168297235,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-20|NEW_YORK",
+          "day": "2026-10-20",
+          "session": "NEW_YORK",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.03239620002804523,
+          "p_neutral": 0.027965183223305958,
+          "p_bull": 0.9396386167486487,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-21|ASIA",
+          "day": "2026-10-21",
+          "session": "ASIA",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.06113528214594917,
+          "p_neutral": 0.006451566223860644,
+          "p_bull": 0.9324131516301902,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-21|LONDON",
+          "day": "2026-10-21",
+          "session": "LONDON",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.16956643247642253,
+          "p_neutral": 0.017904634744543693,
+          "p_bull": 0.8125289327790338,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-21|NEW_YORK",
+          "day": "2026-10-21",
+          "session": "NEW_YORK",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.010676048864543517,
+          "p_neutral": 0.003809397643726266,
+          "p_bull": 0.9855145534917303,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-22|ASIA",
+          "day": "2026-10-22",
+          "session": "ASIA",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.06570645068900846,
+          "p_neutral": 0.061745666468526264,
+          "p_bull": 0.8725478828424652,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-22|LONDON",
+          "day": "2026-10-22",
+          "session": "LONDON",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.24702549168322366,
+          "p_neutral": 0.06062910007603161,
+          "p_bull": 0.6923454082407448,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-22|NEW_YORK",
+          "day": "2026-10-22",
+          "session": "NEW_YORK",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.0020506265725596354,
+          "p_neutral": 0.6621284386493469,
+          "p_bull": 0.3358209347780935,
+          "predicted": "NEUTRAL"
+        },
+        {
+          "signal_id": "2026-10-23|ASIA",
+          "day": "2026-10-23",
+          "session": "ASIA",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.07186602499117949,
+          "p_neutral": 0.023906138890652365,
+          "p_bull": 0.9042278361181681,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-23|LONDON",
+          "day": "2026-10-23",
+          "session": "LONDON",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.036847373416014836,
+          "p_neutral": 0.0072777875057148805,
+          "p_bull": 0.9558748390782702,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-23|NEW_YORK",
+          "day": "2026-10-23",
+          "session": "NEW_YORK",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.03823031503302442,
+          "p_neutral": 0.01355872732248215,
+          "p_bull": 0.9482109576444934,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-26|ASIA",
+          "day": "2026-10-26",
+          "session": "ASIA",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.0014622896581395549,
+          "p_neutral": 0.0062342942821396775,
+          "p_bull": 0.9923034160597207,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-26|LONDON",
+          "day": "2026-10-26",
+          "session": "LONDON",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.0064799760217896145,
+          "p_neutral": 0.014153930979194125,
+          "p_bull": 0.9793660929990163,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-26|NEW_YORK",
+          "day": "2026-10-26",
+          "session": "NEW_YORK",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.0013733576496678486,
+          "p_neutral": 0.0006351859080309657,
+          "p_bull": 0.9979914564423013,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-27|ASIA",
+          "day": "2026-10-27",
+          "session": "ASIA",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.006717980823760962,
+          "p_neutral": 0.003971431957819299,
+          "p_bull": 0.9893105872184198,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-27|LONDON",
+          "day": "2026-10-27",
+          "session": "LONDON",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.049067349362973946,
+          "p_neutral": 0.03770749437978068,
+          "p_bull": 0.9132251562572453,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-27|NEW_YORK",
+          "day": "2026-10-27",
+          "session": "NEW_YORK",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.011115533985921317,
+          "p_neutral": 0.0009760182360938842,
+          "p_bull": 0.9879084477779849,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-28|ASIA",
+          "day": "2026-10-28",
+          "session": "ASIA",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.17626651660715184,
+          "p_neutral": 0.06969766808308688,
+          "p_bull": 0.7540358153097613,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-28|LONDON",
+          "day": "2026-10-28",
+          "session": "LONDON",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.038637366188218204,
+          "p_neutral": 0.0032160384643971493,
+          "p_bull": 0.9581465953473847,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-28|NEW_YORK",
+          "day": "2026-10-28",
+          "session": "NEW_YORK",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.00039436436686038335,
+          "p_neutral": 0.003333322469705018,
+          "p_bull": 0.9962723131634346,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-29|ASIA",
+          "day": "2026-10-29",
+          "session": "ASIA",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.06082027668958239,
+          "p_neutral": 0.03019610734479343,
+          "p_bull": 0.9089836159656242,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-29|LONDON",
+          "day": "2026-10-29",
+          "session": "LONDON",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.14827671531189127,
+          "p_neutral": 0.01790385873567452,
+          "p_bull": 0.8338194259524342,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-29|NEW_YORK",
+          "day": "2026-10-29",
+          "session": "NEW_YORK",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.02721867644980476,
+          "p_neutral": 0.028947369325274017,
+          "p_bull": 0.9438339542249213,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-30|ASIA",
+          "day": "2026-10-30",
+          "session": "ASIA",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.04525433406756573,
+          "p_neutral": 0.08645123967656419,
+          "p_bull": 0.8682944262558702,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-30|LONDON",
+          "day": "2026-10-30",
+          "session": "LONDON",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.07174361769727043,
+          "p_neutral": 0.0789827942918288,
+          "p_bull": 0.8492735880109007,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-30|NEW_YORK",
+          "day": "2026-10-30",
+          "session": "NEW_YORK",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 3.727443667025116e-08,
+          "p_neutral": 0.20024145621793346,
+          "p_bull": 0.7997585065076298,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-11-02|ASIA",
+          "day": "2026-11-02",
+          "session": "ASIA",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.015354030815888944,
+          "p_neutral": 0.142037264384061,
+          "p_bull": 0.84260870480005,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-11-02|LONDON",
+          "day": "2026-11-02",
+          "session": "LONDON",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.009363609601650497,
+          "p_neutral": 0.04541358301283032,
+          "p_bull": 0.9452228073855192,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-11-02|NEW_YORK",
+          "day": "2026-11-02",
+          "session": "NEW_YORK",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 7.300103089341555e-06,
+          "p_neutral": 0.4190039737890103,
+          "p_bull": 0.5809887261079003,
+          "predicted": "BULL"
+        }
+      ]
+    },
+    "gbm": {
+      "metrics": {
+        "n": 30,
+        "log_loss": 1.37814,
+        "brier": 0.922375,
+        "accuracy": 0.2667,
+        "ece": 0.478905,
+        "confusion": [
+          [
+            1,
+            0,
+            17
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            5,
+            0,
+            7
+          ]
+        ],
+        "per_class_recall": {
+          "BEAR": 0.0556,
+          "NEUTRAL": null,
+          "BULL": 0.5833
+        }
+      },
+      "predictions": [
+        {
+          "signal_id": "2026-10-20|ASIA",
+          "day": "2026-10-20",
+          "session": "ASIA",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.02466300646652032,
+          "p_neutral": 0.008836747849591327,
+          "p_bull": 0.9665002456838884,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-20|LONDON",
+          "day": "2026-10-20",
+          "session": "LONDON",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.1531320158655289,
+          "p_neutral": 0.09725526202984476,
+          "p_bull": 0.7496127221046263,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-20|NEW_YORK",
+          "day": "2026-10-20",
+          "session": "NEW_YORK",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.08235609763887367,
+          "p_neutral": 0.09425522948922799,
+          "p_bull": 0.8233886728718984,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-21|ASIA",
+          "day": "2026-10-21",
+          "session": "ASIA",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.017057360989505634,
+          "p_neutral": 0.0022430756393601236,
+          "p_bull": 0.9806995633711342,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-21|LONDON",
+          "day": "2026-10-21",
+          "session": "LONDON",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.07895303845035592,
+          "p_neutral": 0.007575398203811382,
+          "p_bull": 0.9134715633458327,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-21|NEW_YORK",
+          "day": "2026-10-21",
+          "session": "NEW_YORK",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.11822848311460969,
+          "p_neutral": 0.008475537316223879,
+          "p_bull": 0.8732959795691665,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-22|ASIA",
+          "day": "2026-10-22",
+          "session": "ASIA",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.3198537721441069,
+          "p_neutral": 0.19696070352491218,
+          "p_bull": 0.48318552433098083,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-22|LONDON",
+          "day": "2026-10-22",
+          "session": "LONDON",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.21112420514982744,
+          "p_neutral": 0.01518328944439514,
+          "p_bull": 0.7736925054057775,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-22|NEW_YORK",
+          "day": "2026-10-22",
+          "session": "NEW_YORK",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.3704631001814654,
+          "p_neutral": 0.21336888657566996,
+          "p_bull": 0.4161680132428646,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-23|ASIA",
+          "day": "2026-10-23",
+          "session": "ASIA",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.0387057933277913,
+          "p_neutral": 0.045592401751438985,
+          "p_bull": 0.9157018049207697,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-23|LONDON",
+          "day": "2026-10-23",
+          "session": "LONDON",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.012588394821751638,
+          "p_neutral": 0.005546746969520475,
+          "p_bull": 0.9818648582087279,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-23|NEW_YORK",
+          "day": "2026-10-23",
+          "session": "NEW_YORK",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.07035994067756222,
+          "p_neutral": 0.13030990781374288,
+          "p_bull": 0.7993301515086949,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-26|ASIA",
+          "day": "2026-10-26",
+          "session": "ASIA",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.24312823342044476,
+          "p_neutral": 0.02129314611640119,
+          "p_bull": 0.735578620463154,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-26|LONDON",
+          "day": "2026-10-26",
+          "session": "LONDON",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.7968102542090189,
+          "p_neutral": 0.021766067489517718,
+          "p_bull": 0.1814236783014634,
+          "predicted": "BEAR"
+        },
+        {
+          "signal_id": "2026-10-26|NEW_YORK",
+          "day": "2026-10-26",
+          "session": "NEW_YORK",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.4086058372557417,
+          "p_neutral": 0.02018170432354788,
+          "p_bull": 0.5712124584207104,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-27|ASIA",
+          "day": "2026-10-27",
+          "session": "ASIA",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.4829632117348483,
+          "p_neutral": 0.1667146749322111,
+          "p_bull": 0.35032211333294055,
+          "predicted": "BEAR"
+        },
+        {
+          "signal_id": "2026-10-27|LONDON",
+          "day": "2026-10-27",
+          "session": "LONDON",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.7761538292987656,
+          "p_neutral": 0.029223041243840005,
+          "p_bull": 0.1946231294573944,
+          "predicted": "BEAR"
+        },
+        {
+          "signal_id": "2026-10-27|NEW_YORK",
+          "day": "2026-10-27",
+          "session": "NEW_YORK",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.5233069989844336,
+          "p_neutral": 0.02421397042104991,
+          "p_bull": 0.45247903059451655,
+          "predicted": "BEAR"
+        },
+        {
+          "signal_id": "2026-10-28|ASIA",
+          "day": "2026-10-28",
+          "session": "ASIA",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.5339243666476517,
+          "p_neutral": 0.006454443514990868,
+          "p_bull": 0.45962118983735745,
+          "predicted": "BEAR"
+        },
+        {
+          "signal_id": "2026-10-28|LONDON",
+          "day": "2026-10-28",
+          "session": "LONDON",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.24823509018131612,
+          "p_neutral": 0.0034569632760232277,
+          "p_bull": 0.7483079465426608,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-28|NEW_YORK",
+          "day": "2026-10-28",
+          "session": "NEW_YORK",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.4456265360628447,
+          "p_neutral": 0.008635626732116097,
+          "p_bull": 0.5457378372050392,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-29|ASIA",
+          "day": "2026-10-29",
+          "session": "ASIA",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.1255618522354842,
+          "p_neutral": 0.031708592853537554,
+          "p_bull": 0.8427295549109782,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-29|LONDON",
+          "day": "2026-10-29",
+          "session": "LONDON",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.14574781435479503,
+          "p_neutral": 0.008657868931054163,
+          "p_bull": 0.8455943167141509,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-29|NEW_YORK",
+          "day": "2026-10-29",
+          "session": "NEW_YORK",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.09167024467722844,
+          "p_neutral": 0.021878058878878975,
+          "p_bull": 0.8864516964438927,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-30|ASIA",
+          "day": "2026-10-30",
+          "session": "ASIA",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.09448632711791058,
+          "p_neutral": 0.019964720756046748,
+          "p_bull": 0.8855489521260426,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-30|LONDON",
+          "day": "2026-10-30",
+          "session": "LONDON",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.32552587968872515,
+          "p_neutral": 0.0758337252504063,
+          "p_bull": 0.5986403950608685,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-10-30|NEW_YORK",
+          "day": "2026-10-30",
+          "session": "NEW_YORK",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.15073258733631317,
+          "p_neutral": 0.014460099320386702,
+          "p_bull": 0.8348073133433,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-11-02|ASIA",
+          "day": "2026-11-02",
+          "session": "ASIA",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.21660019621407228,
+          "p_neutral": 0.030083815512007988,
+          "p_bull": 0.7533159882739197,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-11-02|LONDON",
+          "day": "2026-11-02",
+          "session": "LONDON",
+          "y": 0,
+          "direction": "BEAR",
+          "p_bear": 0.1434162004025756,
+          "p_neutral": 0.02916418849117703,
+          "p_bull": 0.8274196111062474,
+          "predicted": "BULL"
+        },
+        {
+          "signal_id": "2026-11-02|NEW_YORK",
+          "day": "2026-11-02",
+          "session": "NEW_YORK",
+          "y": 2,
+          "direction": "BULL",
+          "p_bear": 0.501734883637694,
+          "p_neutral": 0.04096298713653088,
+          "p_bull": 0.45730212922577507,
+          "predicted": "BEAR"
+        }
+      ]
+    }
+  },
+  "consolidation": {
+    "frequency": {
+      "metrics": {
+        "n": 30,
+        "base_rate": 0.3667,
+        "brier": 0.233333,
+        "log_loss": 0.659619,
+        "accuracy": 0.6333,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "ece": 0.033333,
+        "reliability": [
+          {
+            "bin_low": 0.3,
+            "bin_high": 0.4,
+            "n": 30,
+            "mean_predicted": 0.3333,
+            "observed_rate": 0.3667
+          }
+        ],
+        "auc": 0.5
+      },
+      "predictions": [
+        {
+          "signal_id": "2026-10-20|ASIA",
+          "y": 0,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-10-20|LONDON",
+          "y": 0,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-10-20|NEW_YORK",
+          "y": 1,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-10-21|ASIA",
+          "y": 0,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-10-21|LONDON",
+          "y": 1,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-10-21|NEW_YORK",
+          "y": 0,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-10-22|ASIA",
+          "y": 1,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-10-22|LONDON",
+          "y": 0,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-10-22|NEW_YORK",
+          "y": 1,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-10-23|ASIA",
+          "y": 0,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-10-23|LONDON",
+          "y": 0,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-10-23|NEW_YORK",
+          "y": 0,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-10-26|ASIA",
+          "y": 0,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-10-26|LONDON",
+          "y": 0,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-10-26|NEW_YORK",
+          "y": 0,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-10-27|ASIA",
+          "y": 1,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-10-27|LONDON",
+          "y": 1,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-10-27|NEW_YORK",
+          "y": 1,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-10-28|ASIA",
+          "y": 0,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-10-28|LONDON",
+          "y": 0,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-10-28|NEW_YORK",
+          "y": 0,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-10-29|ASIA",
+          "y": 0,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-10-29|LONDON",
+          "y": 0,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-10-29|NEW_YORK",
+          "y": 0,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-10-30|ASIA",
+          "y": 1,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-10-30|LONDON",
+          "y": 1,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-10-30|NEW_YORK",
+          "y": 1,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-11-02|ASIA",
+          "y": 0,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-11-02|LONDON",
+          "y": 0,
+          "p": 0.3333333333333333
+        },
+        {
+          "signal_id": "2026-11-02|NEW_YORK",
+          "y": 1,
+          "p": 0.3333333333333333
+        }
+      ]
+    },
+    "logistic": {
+      "metrics": {
+        "n": 30,
+        "base_rate": 0.3667,
+        "brier": 0.149628,
+        "log_loss": 0.46768,
+        "accuracy": 0.8,
+        "precision": 1.0,
+        "recall": 0.4545,
+        "f1": 0.625,
+        "ece": 0.192536,
+        "reliability": [
+          {
+            "bin_low": 0.0,
+            "bin_high": 0.1,
+            "n": 3,
+            "mean_predicted": 0.0872,
+            "observed_rate": 0.0
+          },
+          {
+            "bin_low": 0.1,
+            "bin_high": 0.2,
+            "n": 6,
+            "mean_predicted": 0.1426,
+            "observed_rate": 0.1667
+          },
+          {
+            "bin_low": 0.2,
+            "bin_high": 0.3,
+            "n": 9,
+            "mean_predicted": 0.2541,
+            "observed_rate": 0.1111
+          },
+          {
+            "bin_low": 0.3,
+            "bin_high": 0.4,
+            "n": 4,
+            "mean_predicted": 0.3417,
+            "observed_rate": 0.25
+          },
+          {
+            "bin_low": 0.4,
+            "bin_high": 0.5,
+            "n": 3,
+            "mean_predicted": 0.4621,
+            "observed_rate": 1.0
+          },
+          {
+            "bin_low": 0.5,
+            "bin_high": 0.6,
+            "n": 3,
+            "mean_predicted": 0.5609,
+            "observed_rate": 1.0
+          },
+          {
+            "bin_low": 0.6,
+            "bin_high": 0.7,
+            "n": 2,
+            "mean_predicted": 0.6071,
+            "observed_rate": 1.0
+          }
+        ],
+        "auc": 0.8995
+      },
+      "predictions": [
+        {
+          "signal_id": "2026-10-20|ASIA",
+          "y": 0,
+          "p": 0.25509157633528484
+        },
+        {
+          "signal_id": "2026-10-20|LONDON",
+          "y": 0,
+          "p": 0.29344145388449083
+        },
+        {
+          "signal_id": "2026-10-20|NEW_YORK",
+          "y": 1,
+          "p": 0.5745201870985028
+        },
+        {
+          "signal_id": "2026-10-21|ASIA",
+          "y": 0,
+          "p": 0.2278140951077364
+        },
+        {
+          "signal_id": "2026-10-21|LONDON",
+          "y": 1,
+          "p": 0.16434890545133501
+        },
+        {
+          "signal_id": "2026-10-21|NEW_YORK",
+          "y": 0,
+          "p": 0.2766315162564942
+        },
+        {
+          "signal_id": "2026-10-22|ASIA",
+          "y": 1,
+          "p": 0.513755473327151
+        },
+        {
+          "signal_id": "2026-10-22|LONDON",
+          "y": 0,
+          "p": 0.11300685052609667
+        },
+        {
+          "signal_id": "2026-10-22|NEW_YORK",
+          "y": 1,
+          "p": 0.5945520917078957
+        },
+        {
+          "signal_id": "2026-10-23|ASIA",
+          "y": 0,
+          "p": 0.14997588673114653
+        },
+        {
+          "signal_id": "2026-10-23|LONDON",
+          "y": 0,
+          "p": 0.12200887154909898
+        },
+        {
+          "signal_id": "2026-10-23|NEW_YORK",
+          "y": 0,
+          "p": 0.22548352988413745
+        },
+        {
+          "signal_id": "2026-10-26|ASIA",
+          "y": 0,
+          "p": 0.3236589308073852
+        },
+        {
+          "signal_id": "2026-10-26|LONDON",
+          "y": 0,
+          "p": 0.2791665116337671
+        },
+        {
+          "signal_id": "2026-10-26|NEW_YORK",
+          "y": 0,
+          "p": 0.3467060389864625
+        },
+        {
+          "signal_id": "2026-10-27|ASIA",
+          "y": 1,
+          "p": 0.4959937668207196
+        },
+        {
+          "signal_id": "2026-10-27|LONDON",
+          "y": 1,
+          "p": 0.4809047620211376
+        },
+        {
+          "signal_id": "2026-10-27|NEW_YORK",
+          "y": 1,
+          "p": 0.25808984291351195
+        },
+        {
+          "signal_id": "2026-10-28|ASIA",
+          "y": 0,
+          "p": 0.11107196824101133
+        },
+        {
+          "signal_id": "2026-10-28|LONDON",
+          "y": 0,
+          "p": 0.09154321610122561
+        },
+        {
+          "signal_id": "2026-10-28|NEW_YORK",
+          "y": 0,
+          "p": 0.22609646408111672
+        },
+        {
+          "signal_id": "2026-10-29|ASIA",
+          "y": 0,
+          "p": 0.379013134496216
+        },
+        {
+          "signal_id": "2026-10-29|LONDON",
+          "y": 0,
+          "p": 0.1953316859510531
+        },
+        {
+          "signal_id": "2026-10-29|NEW_YORK",
+          "y": 0,
+          "p": 0.24485854356305403
+        },
+        {
+          "signal_id": "2026-10-30|ASIA",
+          "y": 1,
+          "p": 0.31761742602359033
+        },
+        {
+          "signal_id": "2026-10-30|LONDON",
+          "y": 1,
+          "p": 0.4094498199778564
+        },
+        {
+          "signal_id": "2026-10-30|NEW_YORK",
+          "y": 1,
+          "p": 0.6102708502878978
+        },
+        {
+          "signal_id": "2026-11-02|ASIA",
+          "y": 0,
+          "p": 0.08955942957029812
+        },
+        {
+          "signal_id": "2026-11-02|LONDON",
+          "y": 0,
+          "p": 0.08039307330642977
+        },
+        {
+          "signal_id": "2026-11-02|NEW_YORK",
+          "y": 1,
+          "p": 0.6039002160330335
+        }
+      ]
+    },
+    "gbm": {
+      "metrics": {
+        "n": 30,
+        "base_rate": 0.3667,
+        "brier": 0.194747,
+        "log_loss": 0.577906,
+        "accuracy": 0.6333,
+        "precision": 0.5,
+        "recall": 0.0909,
+        "f1": 0.1538,
+        "ece": 0.168965,
+        "reliability": [
+          {
+            "bin_low": 0.0,
+            "bin_high": 0.1,
+            "n": 10,
+            "mean_predicted": 0.0786,
+            "observed_rate": 0.2
+          },
+          {
+            "bin_low": 0.1,
+            "bin_high": 0.2,
+            "n": 8,
+            "mean_predicted": 0.1576,
+            "observed_rate": 0.125
+          },
+          {
+            "bin_low": 0.2,
+            "bin_high": 0.3,
+            "n": 1,
+            "mean_predicted": 0.222,
+            "observed_rate": 0.0
+          },
+          {
+            "bin_low": 0.3,
+            "bin_high": 0.4,
+            "n": 5,
+            "mean_predicted": 0.3803,
+            "observed_rate": 0.8
+          },
+          {
+            "bin_low": 0.4,
+            "bin_high": 0.5,
+            "n": 4,
+            "mean_predicted": 0.4501,
+            "observed_rate": 0.75
+          },
+          {
+            "bin_low": 0.5,
+            "bin_high": 0.6,
+            "n": 2,
+            "mean_predicted": 0.5367,
+            "observed_rate": 0.5
+          }
+        ],
+        "auc": 0.7656
+      },
+      "predictions": [
+        {
+          "signal_id": "2026-10-20|ASIA",
+          "y": 0,
+          "p": 0.06504548470559719
+        },
+        {
+          "signal_id": "2026-10-20|LONDON",
+          "y": 0,
+          "p": 0.19338874706134873
+        },
+        {
+          "signal_id": "2026-10-20|NEW_YORK",
+          "y": 1,
+          "p": 0.37493088952869474
+        },
+        {
+          "signal_id": "2026-10-21|ASIA",
+          "y": 0,
+          "p": 0.37947852497056944
+        },
+        {
+          "signal_id": "2026-10-21|LONDON",
+          "y": 1,
+          "p": 0.07090249968904552
+        },
+        {
+          "signal_id": "2026-10-21|NEW_YORK",
+          "y": 0,
+          "p": 0.13062764127713275
+        },
+        {
+          "signal_id": "2026-10-22|ASIA",
+          "y": 1,
+          "p": 0.3879652006958339
+        },
+        {
+          "signal_id": "2026-10-22|LONDON",
+          "y": 0,
+          "p": 0.0742276464811192
+        },
+        {
+          "signal_id": "2026-10-22|NEW_YORK",
+          "y": 1,
+          "p": 0.37091748418906567
+        },
+        {
+          "signal_id": "2026-10-23|ASIA",
+          "y": 0,
+          "p": 0.06866106019818728
+        },
+        {
+          "signal_id": "2026-10-23|LONDON",
+          "y": 0,
+          "p": 0.08480252235142634
+        },
+        {
+          "signal_id": "2026-10-23|NEW_YORK",
+          "y": 0,
+          "p": 0.5420242324604533
+        },
+        {
+          "signal_id": "2026-10-26|ASIA",
+          "y": 0,
+          "p": 0.22203387883901574
+        },
+        {
+          "signal_id": "2026-10-26|LONDON",
+          "y": 0,
+          "p": 0.13332366509869092
+        },
+        {
+          "signal_id": "2026-10-26|NEW_YORK",
+          "y": 0,
+          "p": 0.4103059285075711
+        },
+        {
+          "signal_id": "2026-10-27|ASIA",
+          "y": 1,
+          "p": 0.43245302517966444
+        },
+        {
+          "signal_id": "2026-10-27|LONDON",
+          "y": 1,
+          "p": 0.5314195657554527
+        },
+        {
+          "signal_id": "2026-10-27|NEW_YORK",
+          "y": 1,
+          "p": 0.486243845467886
+        },
+        {
+          "signal_id": "2026-10-28|ASIA",
+          "y": 0,
+          "p": 0.18115220495577072
+        },
+        {
+          "signal_id": "2026-10-28|LONDON",
+          "y": 0,
+          "p": 0.0769302559765793
+        },
+        {
+          "signal_id": "2026-10-28|NEW_YORK",
+          "y": 0,
+          "p": 0.07306943850774981
+        },
+        {
+          "signal_id": "2026-10-29|ASIA",
+          "y": 0,
+          "p": 0.18312929098637007
+        },
+        {
+          "signal_id": "2026-10-29|LONDON",
+          "y": 0,
+          "p": 0.13592964872149696
+        },
+        {
+          "signal_id": "2026-10-29|NEW_YORK",
+          "y": 0,
+          "p": 0.09116072577685691
+        },
+        {
+          "signal_id": "2026-10-30|ASIA",
+          "y": 1,
+          "p": 0.0985691887457763
+        },
+        {
+          "signal_id": "2026-10-30|LONDON",
+          "y": 1,
+          "p": 0.3880971865693945
+        },
+        {
+          "signal_id": "2026-10-30|NEW_YORK",
+          "y": 1,
+          "p": 0.18113584270249491
+        },
+        {
+          "signal_id": "2026-11-02|ASIA",
+          "y": 0,
+          "p": 0.08222846416392934
+        },
+        {
+          "signal_id": "2026-11-02|LONDON",
+          "y": 0,
+          "p": 0.12201174541067374
+        },
+        {
+          "signal_id": "2026-11-02|NEW_YORK",
+          "y": 1,
+          "p": 0.4712324118054954
+        }
+      ]
+    }
+  },
+  "decisions": {
+    "direction": "NO_PROMOTION",
+    "consolidation": "NO_PROMOTION",
+    "direction_reason": "best=frequency; test n=30; log_loss=0.8650; frequency=0.8650",
+    "consolidation_reason": "best=logistic; test n=30; brier=0.1496; frequency=0.2333; auc=0.8995; ece=0.1925"
+  }
+}

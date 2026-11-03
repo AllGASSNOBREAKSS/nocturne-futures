@@ -1,0 +1,59 @@
+{
+  "instrument": "NQ",
+  "v1_forecasts": 1,
+  "v1_matured": 0,
+  "v1_not_matured": 1,
+  "bundles": 1,
+  "bundle_outcomes": [
+    {
+      "bundle_id": "bf21f05e6bcfd47b",
+      "as_of": "2026-11-03T20:28:59+00:00",
+      "outcomes": {
+        "ASIA": {
+          "status": "NOT_MATURED",
+          "session_date": "2026-11-04",
+          "window_start_utc": "2026-11-04T00:00:00+00:00",
+          "window_end_utc": "2026-11-04T08:00:00+00:00"
+        },
+        "LONDON": {
+          "status": "NOT_MATURED",
+          "session_date": "2026-11-04",
+          "window_start_utc": "2026-11-04T08:00:00+00:00",
+          "window_end_utc": "2026-11-04T13:00:00+00:00"
+        },
+        "NEW_YORK": {
+          "status": "NOT_MATURED",
+          "session_date": "2026-11-04",
+          "window_start_utc": "2026-11-04T14:30:00+00:00",
+          "window_end_utc": "2026-11-04T21:00:00+00:00"
+        },
+        "NEXT_DAY": {
+          "status": "NOT_MATURED",
+          "session_date": "2026-11-04",
+          "window_start_utc": "2026-11-04T14:30:00+00:00",
+          "window_end_utc": "2026-11-04T21:00:00+00:00"
+        }
+      }
+    }
+  ],
+  "v1_outcomes": [
+    {
+      "forecast_id": "d467cc2a4d7c39cb",
+      "instrument": "NQ",
+      "asof": "2026-11-03T20:28:59+00:00",
+      "status": "NOT_MATURED",
+      "horizon_bars": 78,
+      "realized_high": null,
+      "realized_low": null,
+      "realized_range": null,
+      "p50_covered": null,
+      "p80_covered": null,
+      "p90_covered": null,
+      "direction_outcome": "UNVALIDATED_DIRECTION",
+      "target_touches": [],
+      "notes": [
+        "no bars after as_of"
+      ]
+    }
+  ]
+}

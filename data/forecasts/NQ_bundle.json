@@ -1,0 +1,410 @@
+{
+  "bundle_id": "bf21f05e6bcfd47b",
+  "instrument": "NQ",
+  "as_of": "2026-11-03T20:28:59+00:00",
+  "outlooks": {
+    "ASIA": {
+      "session": "ASIA",
+      "session_date": "2026-11-04",
+      "window_start_utc": "2026-11-04T00:00:00+00:00",
+      "window_end_utc": "2026-11-04T08:00:00+00:00",
+      "as_of": "2026-11-03T20:28:59+00:00",
+      "expected_range": {
+        "asof": "2026-11-03 20:28:59+00:00",
+        "horizon_bars": 96,
+        "sample_n": 3368,
+        "bucket": 3,
+        "bucket_n": 3368,
+        "atr": 33.1786,
+        "p50": 281.75,
+        "p80": 445.25,
+        "p90": 561.5,
+        "p_ge_200": 0.7898,
+        "p_ge_350": 0.3515,
+        "p_ge_500": 0.1482
+      },
+      "market_regime": "COMPRESSION",
+      "direction": "NEUTRAL",
+      "direction_probability": null,
+      "consolidation_probability": 0.6167,
+      "targets": [
+        {
+          "level": 28318.5,
+          "zone_low": 28318.0,
+          "zone_high": 28319.0,
+          "probability_before_stop": null,
+          "touch_probability": 0.4667,
+          "touch_method": "EMPIRICAL_FORWARD_MFE_WIDENED",
+          "touch_sample_n": 15,
+          "target_horizon": "next_session",
+          "level_type": "POC"
+        },
+        {
+          "level": 28304.1965,
+          "zone_low": 28303.6965,
+          "zone_high": 28304.6965,
+          "probability_before_stop": null,
+          "touch_probability": 0.5238,
+          "touch_method": "EMPIRICAL_FORWARD_MFE_WIDENED",
+          "touch_sample_n": 21,
+          "target_horizon": "next_session",
+          "level_type": "VWAP_LOWER"
+        },
+        {
+          "level": 28337.3393,
+          "zone_low": 28336.8393,
+          "zone_high": 28337.8393,
+          "probability_before_stop": null,
+          "touch_probability": 0.7059,
+          "touch_method": "EMPIRICAL_FORWARD_MFE_WIDENED",
+          "touch_sample_n": 17,
+          "target_horizon": "next_session",
+          "level_type": "VWAP"
+        },
+        {
+          "level": 28292.0,
+          "zone_low": 28291.5,
+          "zone_high": 28292.5,
+          "probability_before_stop": null,
+          "touch_probability": 0.5455,
+          "touch_method": "EMPIRICAL_FORWARD_MFE_WIDENED",
+          "touch_sample_n": 22,
+          "target_horizon": "next_session",
+          "level_type": "VAL"
+        },
+        {
+          "level": 28353.8929,
+          "zone_low": 28353.3929,
+          "zone_high": 28354.3929,
+          "probability_before_stop": null,
+          "touch_probability": 0.6667,
+          "touch_method": "EMPIRICAL_FORWARD_MFE_WIDENED",
+          "touch_sample_n": 18,
+          "target_horizon": "next_session",
+          "level_type": "VOL_UPPER"
+        }
+      ],
+      "decision": "NO_TRADE",
+      "validation_status": "research_only",
+      "critical_day": "NORMAL",
+      "data_provenance": {
+        "profile_method": "BAR_APPROXIMATION",
+        "level_count": 25,
+        "regime_reasons": [
+          "adx=35.85",
+          "efficiency=0.16",
+          "overlap=1.00",
+          "vol_pct=0.20"
+        ],
+        "range_horizon_bars": 96,
+        "range_sample_n": 3368,
+        "direction_model": "none",
+        "target_probability_model": "none"
+      }
+    },
+    "LONDON": {
+      "session": "LONDON",
+      "session_date": "2026-11-04",
+      "window_start_utc": "2026-11-04T08:00:00+00:00",
+      "window_end_utc": "2026-11-04T13:00:00+00:00",
+      "as_of": "2026-11-03T20:28:59+00:00",
+      "expected_range": {
+        "asof": "2026-11-03 20:28:59+00:00",
+        "horizon_bars": 60,
+        "sample_n": 3376,
+        "bucket": 3,
+        "bucket_n": 3376,
+        "atr": 33.1786,
+        "p50": 223.5,
+        "p80": 354.25,
+        "p90": 470.0,
+        "p_ge_200": 0.5986,
+        "p_ge_350": 0.2044,
+        "p_ge_500": 0.0877
+      },
+      "market_regime": "COMPRESSION",
+      "direction": "NEUTRAL",
+      "direction_probability": null,
+      "consolidation_probability": 0.6167,
+      "targets": [
+        {
+          "level": 28318.5,
+          "zone_low": 28318.0,
+          "zone_high": 28319.0,
+          "probability_before_stop": null,
+          "touch_probability": 0.6667,
+          "touch_method": "EMPIRICAL_FORWARD_MFE_WIDENED",
+          "touch_sample_n": 24,
+          "target_horizon": "next_session",
+          "level_type": "POC"
+        },
+        {
+          "level": 28304.1965,
+          "zone_low": 28303.6965,
+          "zone_high": 28304.6965,
+          "probability_before_stop": null,
+          "touch_probability": 0.7222,
+          "touch_method": "EMPIRICAL_FORWARD_MFE_WIDENED",
+          "touch_sample_n": 36,
+          "target_horizon": "next_session",
+          "level_type": "VWAP_LOWER"
+        },
+        {
+          "level": 28337.3393,
+          "zone_low": 28336.8393,
+          "zone_high": 28337.8393,
+          "probability_before_stop": null,
+          "touch_probability": 0.8485,
+          "touch_method": "EMPIRICAL_FORWARD_MFE_WIDENED",
+          "touch_sample_n": 33,
+          "target_horizon": "next_session",
+          "level_type": "VWAP"
+        },
+        {
+          "level": 28292.0,
+          "zone_low": 28291.5,
+          "zone_high": 28292.5,
+          "probability_before_stop": null,
+          "touch_probability": 0.7436,
+          "touch_method": "EMPIRICAL_FORWARD_MFE_WIDENED",
+          "touch_sample_n": 39,
+          "target_horizon": "next_session",
+          "level_type": "VAL"
+        },
+        {
+          "level": 28353.8929,
+          "zone_low": 28353.3929,
+          "zone_high": 28354.3929,
+          "probability_before_stop": null,
+          "touch_probability": 0.8286,
+          "touch_method": "EMPIRICAL_FORWARD_MFE_WIDENED",
+          "touch_sample_n": 35,
+          "target_horizon": "next_session",
+          "level_type": "VOL_UPPER"
+        }
+      ],
+      "decision": "NO_TRADE",
+      "validation_status": "research_only",
+      "critical_day": "NORMAL",
+      "data_provenance": {
+        "profile_method": "BAR_APPROXIMATION",
+        "level_count": 25,
+        "regime_reasons": [
+          "adx=35.85",
+          "efficiency=0.16",
+          "overlap=1.00",
+          "vol_pct=0.20"
+        ],
+        "range_horizon_bars": 60,
+        "range_sample_n": 3376,
+        "direction_model": "none",
+        "target_probability_model": "none"
+      }
+    },
+    "NEW_YORK": {
+      "session": "NEW_YORK",
+      "session_date": "2026-11-04",
+      "window_start_utc": "2026-11-04T14:30:00+00:00",
+      "window_end_utc": "2026-11-04T21:00:00+00:00",
+      "as_of": "2026-11-03T20:28:59+00:00",
+      "expected_range": {
+        "asof": "2026-11-03 20:28:59+00:00",
+        "horizon_bars": 78,
+        "sample_n": 3373,
+        "bucket": 3,
+        "bucket_n": 3373,
+        "atr": 33.1786,
+        "p50": 260.0,
+        "p80": 402.4,
+        "p90": 511.75,
+        "p_ge_200": 0.705,
+        "p_ge_350": 0.2704,
+        "p_ge_500": 0.1121
+      },
+      "market_regime": "COMPRESSION",
+      "direction": "NEUTRAL",
+      "direction_probability": null,
+      "consolidation_probability": 0.6167,
+      "targets": [
+        {
+          "level": 28318.5,
+          "zone_low": 28318.0,
+          "zone_high": 28319.0,
+          "probability_before_stop": null,
+          "touch_probability": 0.5789,
+          "touch_method": "EMPIRICAL_FORWARD_MFE_WIDENED",
+          "touch_sample_n": 19,
+          "target_horizon": "next_session",
+          "level_type": "POC"
+        },
+        {
+          "level": 28304.1965,
+          "zone_low": 28303.6965,
+          "zone_high": 28304.6965,
+          "probability_before_stop": null,
+          "touch_probability": 0.6154,
+          "touch_method": "EMPIRICAL_FORWARD_MFE_WIDENED",
+          "touch_sample_n": 26,
+          "target_horizon": "next_session",
+          "level_type": "VWAP_LOWER"
+        },
+        {
+          "level": 28337.3393,
+          "zone_low": 28336.8393,
+          "zone_high": 28337.8393,
+          "probability_before_stop": null,
+          "touch_probability": 0.7619,
+          "touch_method": "EMPIRICAL_FORWARD_MFE_WIDENED",
+          "touch_sample_n": 21,
+          "target_horizon": "next_session",
+          "level_type": "VWAP"
+        },
+        {
+          "level": 28292.0,
+          "zone_low": 28291.5,
+          "zone_high": 28292.5,
+          "probability_before_stop": null,
+          "touch_probability": 0.6296,
+          "touch_method": "EMPIRICAL_FORWARD_MFE_WIDENED",
+          "touch_sample_n": 27,
+          "target_horizon": "next_session",
+          "level_type": "VAL"
+        },
+        {
+          "level": 28353.8929,
+          "zone_low": 28353.3929,
+          "zone_high": 28354.3929,
+          "probability_before_stop": null,
+          "touch_probability": 0.7273,
+          "touch_method": "EMPIRICAL_FORWARD_MFE_WIDENED",
+          "touch_sample_n": 22,
+          "target_horizon": "next_session",
+          "level_type": "VOL_UPPER"
+        }
+      ],
+      "decision": "NO_TRADE",
+      "validation_status": "research_only",
+      "critical_day": "NORMAL",
+      "data_provenance": {
+        "profile_method": "BAR_APPROXIMATION",
+        "level_count": 25,
+        "regime_reasons": [
+          "adx=35.85",
+          "efficiency=0.16",
+          "overlap=1.00",
+          "vol_pct=0.20"
+        ],
+        "range_horizon_bars": 78,
+        "range_sample_n": 3373,
+        "direction_model": "none",
+        "target_probability_model": "none"
+      }
+    }
+  },
+  "next_day": {
+    "session": "NEW_YORK",
+    "session_date": "2026-11-04",
+    "window_start_utc": "2026-11-04T14:30:00+00:00",
+    "window_end_utc": "2026-11-04T21:00:00+00:00",
+    "as_of": "2026-11-03T20:28:59+00:00",
+    "expected_range": {
+      "asof": "2026-11-03 20:28:59+00:00",
+      "horizon_bars": 78,
+      "sample_n": 3373,
+      "bucket": 3,
+      "bucket_n": 3373,
+      "atr": 33.1786,
+      "p50": 260.0,
+      "p80": 402.4,
+      "p90": 511.75,
+      "p_ge_200": 0.705,
+      "p_ge_350": 0.2704,
+      "p_ge_500": 0.1121
+    },
+    "market_regime": "COMPRESSION",
+    "direction": "NEUTRAL",
+    "direction_probability": null,
+    "consolidation_probability": 0.6167,
+    "targets": [
+      {
+        "level": 28318.5,
+        "zone_low": 28318.0,
+        "zone_high": 28319.0,
+        "probability_before_stop": null,
+        "touch_probability": 0.5789,
+        "touch_method": "EMPIRICAL_FORWARD_MFE_WIDENED",
+        "touch_sample_n": 19,
+        "target_horizon": "next_session",
+        "level_type": "POC"
+      },
+      {
+        "level": 28304.1965,
+        "zone_low": 28303.6965,
+        "zone_high": 28304.6965,
+        "probability_before_stop": null,
+        "touch_probability": 0.6154,
+        "touch_method": "EMPIRICAL_FORWARD_MFE_WIDENED",
+        "touch_sample_n": 26,
+        "target_horizon": "next_session",
+        "level_type": "VWAP_LOWER"
+      },
+      {
+        "level": 28337.3393,
+        "zone_low": 28336.8393,
+        "zone_high": 28337.8393,
+        "probability_before_stop": null,
+        "touch_probability": 0.7619,
+        "touch_method": "EMPIRICAL_FORWARD_MFE_WIDENED",
+        "touch_sample_n": 21,
+        "target_horizon": "next_session",
+        "level_type": "VWAP"
+      },
+      {
+        "level": 28292.0,
+        "zone_low": 28291.5,
+        "zone_high": 28292.5,
+        "probability_before_stop": null,
+        "touch_probability": 0.6296,
+        "touch_method": "EMPIRICAL_FORWARD_MFE_WIDENED",
+        "touch_sample_n": 27,
+        "target_horizon": "next_session",
+        "level_type": "VAL"
+      },
+      {
+        "level": 28353.8929,
+        "zone_low": 28353.3929,
+        "zone_high": 28354.3929,
+        "probability_before_stop": null,
+        "touch_probability": 0.7273,
+        "touch_method": "EMPIRICAL_FORWARD_MFE_WIDENED",
+        "touch_sample_n": 22,
+        "target_horizon": "next_session",
+        "level_type": "VOL_UPPER"
+      }
+    ],
+    "decision": "NO_TRADE",
+    "validation_status": "research_only",
+    "critical_day": "NORMAL",
+    "data_provenance": {
+      "profile_method": "BAR_APPROXIMATION",
+      "level_count": 25,
+      "regime_reasons": [
+        "adx=35.85",
+        "efficiency=0.16",
+        "overlap=1.00",
+        "vol_pct=0.20"
+      ],
+      "range_horizon_bars": 78,
+      "range_sample_n": 3373,
+      "direction_model": "none",
+      "target_probability_model": "none"
+    }
+  },
+  "critical_day": "NORMAL",
+  "data_provenance": {
+    "bars": "data/market/intraday",
+    "calendar_source": "D:\\nocturne-futures\\data\\macro\\sample_events.json",
+    "calendar_point_in_time": true,
+    "research_only": true
+  }
+}

@@ -1,7 +1,7 @@
 # Implementation Checkpoint
 
 **Date:** 2026-11-03  
-**Branch:** `feat/phase3b` (merged to `main`)  
+**Branch:** `feat/phase3b3` (merged to `main`)
 **Base:** `f3ac7f9`  
 **Latest backend commit:** see `git log --oneline -1`
 
@@ -9,7 +9,7 @@
 
 Completed on 2026-11-03:
 
-- Reproduced the suite: **137 passed + 1 native skip**; **138 passed** with the
+- Reproduced the suite: **154 passed + 1 native skip**; **155 passed** with the
   C++ module on PYTHONPATH.
 - Built the C++20 `nocturne_native` kernel with MSVC 19.51 and pybind11 3.1;
   the parity test passes. CI now has an Ubuntu native build/parity job.
@@ -75,7 +75,7 @@ Completed on 2026-11-03:
 Verification commands:
 
 ```bash
-python -m pytest -q                 # 137 passed, 1 skipped (138 with native)
+python -m pytest -q                 # 154 passed, 1 skipped (155 with native)
 python scripts/train_target_model.py
 python -m nocturne forecast-v1 --instrument NQ
 python -m nocturne levels --instrument NQ
@@ -90,6 +90,54 @@ Next exact step: expand the target dataset beyond 60 days, rerun the grouped
 target model with feature ablations, and require holdout Brier improvement with
 AUC ≥ 0.55 and ECE ≤ 0.05 before shadow promotion. Build session-specific
 datasets rather than pooling all sessions.
+
+## Phase 3B.3 / 3C — sessions, reachability and macro risk
+
+Completed on 2026-11-03:
+
+- Added `sessions.py`: DST-aware ASIA/LONDON/PREMARKET/NEW_YORK analytical
+  windows, exchange RTH/OVERNIGHT/ETH, early-close dates and point-in-time
+  `SessionSnapshot`.
+- Added `research/session_dataset.py`: 147 rows / 49 days; next-same-session
+  direction (BULL 72 / BEAR 69 / NEUTRAL 6) and range-state labels.
+- Added `ml/session_model.py`: frequency, logistic and GBM direction models with
+  multiclass Brier/log-loss/ECE/confusion, plus consolidation evaluation.
+- Results: direction frequency log loss 0.8650 beats logistic 2.5272 and GBM
+  1.3781; NEUTRAL is absent from the 30-row test split. Consolidation logistic
+  Brier 0.1496 / AUC 0.8995 / ECE 0.1925 vs frequency 0.2333; **NO_PROMOTION**
+  because ECE and sample size fail the gate.
+- Added `price_levels/reachability.py`: empirical forward-MFE touch probability
+  conditioned on ATR distance; explicitly not target-before-stop.
+- Added `macro/calendar.py` and `data/macro/sample_events.json`: point-in-time
+  event schema/store, `upcoming`/`recent`/`event_risk`, and critical-day states
+  with `directional_bias=None`. The sample has null consensus; no authorized
+  live calendar is wired.
+- Added `forecast/bundle.py`: ASIA/LONDON/NY/NEXT_DAY research outlooks with
+  expected range, levels, touch probabilities and `NO_TRADE`.
+- Added `forecast/evaluation.py` and `scripts/evaluate_forecasts.py`: realized
+  range, p50/p80/p90 coverage, target touches and explicit `NOT_MATURED`.
+- Added `docs/PHASE3B3_FINDINGS.md`,
+  `reports/phase3b3_session_models.md/json`,
+  `reports/forecast_evaluation.json`.
+
+Verification commands:
+
+```bash
+python -m pytest -q                 # 154 passed, 1 skipped (155 with native)
+python scripts/train_session_models.py
+python -m nocturne forecast-bundle --instrument NQ
+python -m nocturne evaluate-forecast --instrument NQ
+python scripts/evaluate_forecasts.py
+```
+
+Blocked: authorized economic-calendar/news history, authentic tick/DOM/true
+volume-at-price, CFE VX futures. Current V1 forecast is `NOT_MATURED`; no model
+or forecast is promoted.
+
+Next exact step: add an authorized point-in-time calendar adapter, expand the
+session dataset beyond 60 days, and rerun session models with purged walk-forward
+splits. Promotion gates: holdout Brier improvement, AUC ≥ 0.55, ECE ≤ 0.05 and
+adequate sample size.
 
 ## Completed
 
@@ -148,7 +196,7 @@ Phase 8 — safety
 ## Verification
 
 ```bash
-python -m pytest -q                 # 137 passed, 1 skipped (138 with native)
+python -m pytest -q                 # 154 passed, 1 skipped (155 with native)
 python -m nocturne audit
 python -m nocturne train --instrument NQ
 python -m nocturne forecast --instrument NQ

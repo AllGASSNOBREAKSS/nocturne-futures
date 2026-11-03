@@ -116,3 +116,32 @@ Current regime labels use ADX, range efficiency, overlap and volatility
 percentile. Future-regime probabilities come from historical transitions of the
 same rules, not from an unvalidated classifier. They are research estimates and
 are reported with their limitations.
+
+## AD-018 — Asia/London/New York are analytical windows
+
+ASIA, LONDON, PREMARKET and NEW_YORK are documented America/New_York analytical
+windows, not official exchange sessions. RTH, OVERNIGHT and ETH use the exchange
+calendar. Early-close dates are explicit. Every session snapshot is point-in-time
+and records `available_at` provenance.
+
+## AD-019 — Critical-day risk has no directional bias
+
+Critical-day detection is an event-risk overlay. It may return `PRE_EVENT_LOCK`,
+`SCHEDULED_HIGH_IMPACT`, `LIQUIDITY_STRESS`, `NORMAL` or `DATA_UNAVAILABLE`.
+`directional_bias` is always null. An event alert must not be interpreted as a
+bullish or bearish signal.
+
+## AD-020 — Reachability is not target-before-stop
+
+`price_levels/reachability.py` estimates the probability that a level is touched
+within a horizon, conditioned on ATR-normalized distance. It is not the
+probability that a target is reached before a stop. Forecast targets keep
+`probability_before_stop` null and expose the touch estimate separately with its
+method and sample size.
+
+## AD-021 — The committed calendar is a sample, not live consensus
+
+`data/macro/sample_events.json` is a public-schedule sample with null consensus
+and actual values. It exists to exercise the schema and critical-day rules.
+Production ingestion requires an authorized point-in-time provider, publication
+and availability timestamps, and licensing compliance.

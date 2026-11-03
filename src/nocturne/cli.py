@@ -180,6 +180,13 @@ def main(argv: list[str] | None = None) -> int:
     forecast_v1 = sub.add_parser("forecast-v1", help="build the structured research forecast")
     forecast_v1.add_argument("--instrument", default="NQ")
 
+    forecast_bundle = sub.add_parser("forecast-bundle", help="build the multi-session research bundle")
+    forecast_bundle.add_argument("--instrument", default="NQ")
+
+    evaluate_forecast = sub.add_parser("evaluate-forecast", help="evaluate a matured Forecast V1 artifact")
+    evaluate_forecast.add_argument("--instrument", default="NQ")
+    evaluate_forecast.add_argument("--horizon", type=int, default=78)
+
     levels_cmd = sub.add_parser("levels", help="print significant price levels")
     levels_cmd.add_argument("--instrument", default="NQ")
 
@@ -249,6 +256,26 @@ def main(argv: list[str] | None = None) -> int:
 
         forecast = build_forecast_v1(args.instrument)
         print(forecast.model_dump_json(indent=2))
+        return 0
+    if args.command == "forecast-bundle":
+        from .forecast import build_forecast_bundle
+
+        bundle = build_forecast_bundle(args.instrument)
+        print(bundle.model_dump_json(indent=2))
+        return 0
+    if args.command == "evaluate-forecast":
+        from .backtest.data import load_intraday
+        from .forecast.evaluation import evaluate_forecast
+        from .forecast.v1 import ForecastV1
+
+        path = ROOT / "data" / "forecasts" / f"{args.instrument.upper()}_v1.json"
+        if not path.exists():
+            print(json.dumps({"status": "NO_FORECAST", "instrument": args.instrument.upper()}, indent=2))
+            return 0
+        forecast = ForecastV1.model_validate_json(path.read_text(encoding="utf-8"))
+        bars, _ = load_intraday(args.instrument)
+        result = evaluate_forecast(forecast, bars, horizon_bars=args.horizon)
+        print(json.dumps(result.to_dict(), indent=2))
         return 0
     if args.command in {"levels", "range", "regime"}:
         from .backtest.data import add_session_column, load_intraday

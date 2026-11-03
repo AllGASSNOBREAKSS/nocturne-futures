@@ -21,6 +21,7 @@ No endpoint places an order, modifies a position, or talks to a broker.
 | GET | `/v1/intermarket/state` | ES/NQ/VIX/ZN/ZB context |
 | GET | `/v1/premarket/state` | overnight gap/range, prior RTH, leadership |
 | GET | `/v1/forecast/v1?instrument=NQ` | research-only Forecast V1 |
+| GET | `/v1/forecast/bundle?instrument=NQ` | ASIA/LONDON/NY/NEXT_DAY research bundle |
 | GET | `/v1/events/upcoming` | events or `NO_AUTHORIZED_CALENDAR_ADAPTER` |
 | GET | `/v1/models/status` | registry metadata |
 
@@ -75,3 +76,30 @@ The API never fills a missing value with a synthetic one.
 The contract still provides the market regime, empirical expected range,
 candidate entry zone, significant levels and data provenance. A missing
 validated model does not produce a fabricated confidence number.
+
+## Forecast bundle
+
+`GET /v1/forecast/bundle?instrument=NQ` returns
+`data/forecasts/NQ_bundle.json`. It contains `ASIA`, `LONDON`, `NEW_YORK` and
+`NEXT_DAY` outlooks. Every outlook has:
+
+- `decision = "NO_TRADE"`
+- `validation_status = "research_only"`
+- `direction_probability = null`
+- `probability_before_stop = null`
+
+Targets may carry an empirical `touch_probability` with `touch_method` and
+`touch_sample_n`. This is a conditional forward-MFE touch estimate, **not** a
+target-before-stop probability.
+
+`critical_day` is one of `NORMAL`, `SCHEDULED_HIGH_IMPACT`, `PRE_EVENT_LOCK`,
+`LIQUIDITY_STRESS` or `DATA_UNAVAILABLE`. Critical-day output never contains a
+directional bias. The committed calendar is a public-schedule sample, not live
+consensus.
+
+## Evaluation
+
+`python -m nocturne evaluate-forecast --instrument NQ` evaluates the stored V1
+artifact when future bars exist. `python scripts/evaluate_forecasts.py` evaluates
+the V1 and bundle journals. A forecast without enough future bars returns
+`status = "NOT_MATURED"`; it is never scored against incomplete data.

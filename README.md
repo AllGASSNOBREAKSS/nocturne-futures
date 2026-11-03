@@ -40,9 +40,15 @@
 | Regime engine | `regime.py` | Implemented; current + empirical transitions |
 | Structured Forecast V1 | `forecast/v1.py` | Implemented; research-only, null probabilities |
 | Forecast API | `api/app.py` | `GET /v1/forecast/v1` |
+| Session engine | `sessions.py` | Implemented; DST and early-close tests |
+| Session direction / consolidation | `ml/session_model.py` | Research; **NO_PROMOTION** |
+| Level reachability | `price_levels/reachability.py` | Empirical touch probability; not target-before-stop |
+| Macro calendar / critical day | `macro/calendar.py` | Sample schedule only; authorized adapter blocked |
+| Multi-session bundle | `forecast/bundle.py` | Research-only; `NO_TRADE` |
+| Forecast evaluation | `forecast/evaluation.py` | Implemented; explicit `NOT_MATURED` |
 
-**Test suite:** 137 tests passing, plus one native parity test that is skipped
-unless the C++ module is built. With the module on `PYTHONPATH`, 138 pass.
+**Test suite:** 154 tests passing, plus one native parity test that is skipped
+unless the C++ module is built. With the module on `PYTHONPATH`, 155 pass.
 
 ---
 
@@ -59,6 +65,8 @@ python -m nocturne context
 python -m nocturne study
 python -m nocturne dataset --instrument NQ --strategy vwap
 python -m nocturne forecast-v1 --instrument NQ
+python -m nocturne forecast-bundle --instrument NQ
+python -m nocturne evaluate-forecast --instrument NQ
 python -m nocturne levels --instrument NQ
 python -m nocturne range --instrument NQ
 python -m nocturne regime --instrument NQ
@@ -66,6 +74,8 @@ python -m nocturne backtest --instrument NQ
 python -m nocturne serve --host 127.0.0.1 --port 8000
 python scripts/ml_audit.py
 python scripts/train_target_model.py
+python scripts/train_session_models.py
+python scripts/evaluate_forecasts.py
 ```
 
 TypeScript pipeline:
@@ -211,6 +221,39 @@ That is a class-shift artifact, not ranking skill. Full report:
 - **Forecast V1:** research-only, `decision=NO_TRADE`, null probabilities, with
   levels, range, regime and provenance.
 
+### Phase 3B.3 session models
+
+49 days × 3 analytical sessions = 147 rows; chronological day split 87/30/30.
+Direction is BEAR/NEUTRAL/BULL over the next same session; consolidation is next
+session range ≤ 0.8× current range.
+
+| Task | Model | Test metric | Result |
+|---|---|---|---|
+| Direction | Frequency | Log loss 0.8650 / acc 0.400 | **baseline wins** |
+| Direction | Logistic | Log loss 2.5272 / acc 0.400 | no |
+| Direction | GBM | Log loss 1.3781 / acc 0.267 | no |
+| Consolidation | Frequency | Brier 0.2333 / acc 0.633 | baseline |
+| Consolidation | Logistic | Brier 0.1496 / AUC 0.8995 / ECE 0.1925 | promising, not calibrated |
+| Consolidation | GBM | Brier 0.1947 / AUC 0.7656 / ECE 0.1690 | no |
+
+**NO_PROMOTION.** NEUTRAL is only 6/147 and absent from the 30-row test split.
+The consolidation logistic model has a lower Brier and high AUC, but ECE 0.19
+and a 30-row test set are not enough for promotion. Details:
+[`docs/PHASE3B3_FINDINGS.md`](docs/PHASE3B3_FINDINGS.md).
+
+### Reachability, macro and multi-session contracts
+
+- **Reachability:** empirical touch probability conditioned on ATR distance; it
+  is not a target-before-stop probability. Forecast targets carry
+  `touch_probability`, `touch_method`, `touch_sample_n`.
+- **Macro:** `CalendarStore` + `EconomicEvent` + critical-day states. The
+  committed calendar is an explicitly labelled public-schedule sample with null
+  consensus; no authorized live calendar adapter is wired.
+- **Bundle:** ASIA, LONDON, NEW_YORK and NEXT_DAY outlooks; all research-only
+  `NO_TRADE` with null direction and target-before-stop probabilities.
+- **Evaluation:** `evaluate_forecast` / `evaluate_bundle`; `NOT_MATURED` is
+  explicit. Current V1 artifact is not yet matured.
+
 ---
 
 ## Read-only API
@@ -261,6 +304,7 @@ src/nocturne/
   contracts.py          Pydantic event/level/prediction contracts
   instruments.py        NQ, MNQ, ES, MES, VX, ZN, ZB
   market_clock.py       sessions, DST, holidays, rolls
+  sessions.py           analytical Asia/London/NY windows + snapshots
   storage/              append-only JSONL event store
   adapters/             Yahoo bar adapter
   auction/              volume profile, TPO, IB, AMT state
@@ -269,11 +313,12 @@ src/nocturne/
   premarket.py          machine-readable premarket state
   strategies/           ORB, VWAP pullback, VAH/VAL rejection
   backtest/             event-driven bar backtester + held-out study
-  price_levels/         candidate zones, clustering, touch statistics
-  forecast/             Forecast V1 contract + journal
+  price_levels/         candidate zones, clustering, touch/reachability
+  forecast/             V1, multi-session bundle, evaluation + journals
+  macro/                economic events, calendar store, critical-day rules
   regime.py             current regime + empirical transitions
-  research/             features, labels, range, target dataset, training frame
-  ml/                   baselines, target model, calibration, registry
+  research/             features, labels, range, session/target datasets
+  ml/                   baselines, target/session models, calibration, registry
   risk/                 deterministic NO_TRADE gates
   journal/              append-only predictions and outcomes
   api/                  read-only FastAPI
@@ -282,16 +327,17 @@ native/                 C++20 volume kernel + pybind11 + parity test
 data/
   market/daily/         current backend bars
   market/intraday/      cached 5m bars (sha256, reproducible)
-  research/             target-level datasets
-  forecasts/            Forecast V1 artifacts
+  research/             target-level + session datasets
+  forecasts/            Forecast V1 and bundle artifacts
+  macro/                sample public schedule (not live consensus)
   studies/daily_15y/    frozen 15-year research bars
   snapshots/            dated call artifacts
-  journal/              prediction + forecast journals
+  journal/              prediction + forecast + bundle journals
 models/registry/        versioned model metadata + artifacts
-docs/                   audit, status, architecture, Phase 3A/3B findings
-reports/                call, scorecard, charts, backtest ledgers, ML audit
-scripts/                refresh data, run study, ML audit, target model
-tests/                  137 tests + optional native parity
+docs/                   audit, status, architecture, Phase 3A/3B/3B.3 findings
+reports/                call, scorecard, backtest ledgers, ML/session audits
+scripts/                refresh data, study, ML audit, target/session models, evaluation
+tests/                  154 tests + optional native parity
 ts/                     TypeScript fetch + zod validation
 ```
 
@@ -313,16 +359,19 @@ close error. It is a historical research artifact, not a model track record.
 
 ## Roadmap
 
-- **Immediate (Phase 3C):** expand the target dataset beyond 60 days (licensed
-  1-minute/tick history), build session-specific datasets for Asia, London and
-  New York, and rerun the target model with feature ablations. Require holdout
-  Brier improvement **plus AUC ≥ 0.55 and ECE ≤ 0.05** before shadow promotion.
+- **Immediate (Phase 3C):** add an authorized point-in-time economic calendar and
+  news adapter, expand the session dataset beyond 60 days, and rerun direction and
+  consolidation models with purged walk-forward splits and session-specific
+  samples. Require holdout Brier improvement **plus AUC ≥ 0.55 and ECE ≤ 0.05**
+  before shadow promotion.
+- **Reachability:** calibrate the empirical touch probabilities by horizon and
+  regime; keep them distinct from target-before-stop probabilities.
 - **Target geometry:** rebuild ORB around a tighter stop or full-session horizon
   and evaluate once on the existing holdout.
 - **Data:** true trade-by-price and licensed tick/DOM adapters; CFE VX futures;
-  point-in-time economic calendar.
+  authorized economic calendar and news history.
 - **Then:** purged walk-forward with event embargo; calibration by regime;
-  empirical level-ranking calibration.
+  empirical level-ranking calibration; critical-day ML only with adequate history.
 - **Only after evidence:** model promotion, paper shadowing, and a separate
   review for any execution path.
 

@@ -134,6 +134,38 @@ Phase 3B evidence:
 - Forecast V1: `decision=NO_TRADE`, `validation_status=research_only`,
   `direction_probability=null`, `target.probability_before_stop=null`.
 
+## Phase 3B.3 / 3C — sessions, reachability and macro risk
+
+| Item | Status | Evidence |
+|---|---|---|
+| DST-aware analytical session windows | DONE | `sessions.py`; DST/Asia/early-close tests |
+| Point-in-time session snapshots | DONE | open/high/low/VWAP/IB/profile/prior levels |
+| Session direction baseline | DONE | 147 rows / 49 days; **NO_PROMOTION** |
+| Session consolidation baseline | DONE | logistic Brier 0.1496, AUC 0.8995, ECE 0.1925; **NO_PROMOTION** |
+| Conditional level reachability | DONE | `price_levels/reachability.py`; empirical touch probability |
+| Economic event schema/store | DONE | `macro/calendar.py`; sample schedule only |
+| Critical-day rules | DONE | `NORMAL`/`SCHEDULED_HIGH_IMPACT`/`PRE_EVENT_LOCK`/`LIQUIDITY_STRESS`/`DATA_UNAVAILABLE` |
+| Authorized calendar/news adapter | **DATA_BLOCKED** | No provider credentials or licensed history |
+| Multi-session outlook bundle | DONE | ASIA/LONDON/NY/NEXT_DAY; research-only `NO_TRADE` |
+| Forecast outcome evaluation | DONE | `forecast/evaluation.py`; explicit `NOT_MATURED` |
+| Session-specific promoted models | **NO_PROMOTION** | Sample too small; NEUTRAL 6/147 |
+
+Phase 3B.3 evidence:
+
+- Session dataset: 147 rows, 49 days, 49 per session; direction labels BULL 72 /
+  BEAR 69 / NEUTRAL 6; range states EXPANSION 56 / CONSOLIDATION 47 / NORMAL 44.
+- Direction test: frequency log loss 0.8650; logistic 2.5272; GBM 1.3781.
+  NEUTRAL is absent from the 30-row test split.
+- Consolidation test: frequency Brier 0.2333; logistic 0.1496 (AUC 0.8995,
+  ECE 0.1925); GBM 0.1947. ECE and sample size fail the promotion gate.
+- Reachability: empirical forward-MFE touch probability conditioned on ATR
+  distance; **not** target-before-stop. Forecast targets record method/sample size.
+- Macro: six-event public-schedule sample with null consensus; critical-day output
+  has `directional_bias = None`. No authorized live calendar.
+- Bundle: ASIA expected range p50 281.75 / p80 445.25 / p90 561.50; P(≥200)
+  0.7898, P(≥350) 0.3515, P(≥500) 0.1482; `decision=NO_TRADE`.
+- Evaluation: current V1 artifact is `NOT_MATURED`; no outcome is claimed.
+
 ## Phase 3A evidence
 
 - **ORB timeouts:** median risk 208.9 NQ points, median MFE 0.26R, 4.5% reach
@@ -149,8 +181,8 @@ Phase 3B evidence:
   the threshold strategy loses after costs; p ≥ 0.55/0.60 is sparse.
 - **Target dataset:** `data/research/target_dataset_NQ_vwap.csv` has 84 rows,
   32 TP / 33 SL / 19 timeout; ORB actual targets are 2 TP / 3 SL / 127 timeout.
-- **Native parity:** MSVC 19.51 build; parity test passes; 138 tests with the
-  module, 137 + 1 skipped without.
+- **Native parity:** MSVC 19.51 build; parity test passes; 155 tests with the
+  module, 154 + 1 skipped without.
 
 ## Current truth boundary
 
@@ -160,5 +192,6 @@ GC. The 2026-10-30 and 2026-11-02 calls are recorded misses and must remain in
 the archive. Phase 3A found no strategy that survives the development/holdout
 and cost-stress gates. Phase 3B's target-first model is **NO_PROMOTION** (AUC
 0.41, ECE 0.15, 22-row test); Forecast V1 is research-only `NO_TRADE` with null
-probabilities. New modules will report `DATA_BLOCKED` where the required data
-does not exist.
+probabilities. Phase 3B.3 session models are **NO_PROMOTION**; the macro calendar
+is a sample schedule, not live consensus. New modules will report `DATA_BLOCKED`
+where the required data does not exist.

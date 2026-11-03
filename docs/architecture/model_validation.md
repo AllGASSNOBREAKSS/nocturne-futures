@@ -120,6 +120,22 @@ logistic 0.2735, GBM 0.2447. The GBM’s AUC is 0.411, ECE 0.154, test n=22, and
 the test positive rate is 0.636 vs 0.443 in training. **NO_PROMOTION.** Full
 report: `docs/PHASE3B_FINDINGS.md`.
 
+## Phase 3B.3 session models
+
+Session dataset: 147 rows across 49 days (ASIA/LONDON/NEW_YORK), chronological
+day split 87/30/30. Direction target is BEAR/NEUTRAL/BULL over the next same
+session; consolidation is next-session range ≤ 0.8× current range.
+
+Direction test log loss: frequency 0.8650, logistic 2.5272, GBM 1.3781.
+NEUTRAL is only 6/147 and absent from the test split. **NO_PROMOTION.**
+
+Consolidation test Brier: frequency 0.2333, logistic 0.1496 (AUC 0.8995, ECE
+0.1925), GBM 0.1947. The logistic result is promising but fails the calibration
+and sample-size gates. **NO_PROMOTION.**
+
+Level reachability is an empirical forward-MFE touch probability, not a
+target-before-stop probability. Full report: `docs/PHASE3B3_FINDINGS.md`.
+
 ## Reproduce
 
 ```bash

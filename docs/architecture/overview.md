@@ -65,6 +65,29 @@ data/forecasts/NQ_v1.json → GET /v1/forecast/v1
 The forecast is intentionally `NO_TRADE` while the target model is
 `NO_PROMOTION`.
 
+## Phase 3B.3 flow
+
+```text
+5m bars + prior levels + ES/VIX context
+        │
+        ▼
+sessions.py (DST-aware snapshots)
+        │
+        ▼
+research/session_dataset.py (next-session labels)
+        │
+        ▼
+ml/session_model.py (direction / consolidation; NO_PROMOTION)
+        │
+        ├── price_levels/reachability.py (touch probability)
+        ├── macro/calendar.py (event risk; no direction)
+        ▼
+forecast/bundle.py (ASIA/LONDON/NY/NEXT_DAY; NO_TRADE)
+        │
+        ▼
+forecast/evaluation.py (range coverage, target touches, NOT_MATURED)
+```
+
 ## Component map
 
 | Component | Module | Status |
@@ -92,6 +115,13 @@ The forecast is intentionally `NO_TRADE` while the target model is
 | Expected-range model | `research/range_model.py` | Implemented, 2 tests |
 | Regime engine | `regime.py` | Implemented, 2 tests |
 | Forecast V1 | `forecast/v1.py` | Implemented, 2 tests |
+| Session windows / snapshots | `sessions.py` | Implemented, 5 tests |
+| Session dataset | `research/session_dataset.py` | Implemented |
+| Session direction models | `ml/session_model.py` | Research; **NO_PROMOTION** |
+| Level reachability | `price_levels/reachability.py` | Implemented, 2 tests |
+| Macro calendar / critical day | `macro/calendar.py` | Sample schedule only |
+| Multi-session bundle | `forecast/bundle.py` | Implemented, 2 tests |
+| Forecast evaluation | `forecast/evaluation.py` | Implemented, 2 tests |
 | Baselines / calibration | `ml/` | Implemented, 4 tests |
 | Risk gates | `risk/gates.py` | Implemented, 6 tests |
 | Journal | `journal/store.py` | Implemented, 3 tests |

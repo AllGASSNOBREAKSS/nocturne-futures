@@ -76,6 +76,12 @@ class ForecastService:
             return {"forecast": None, "reason": "NO_V1_FORECAST"}
         return json.loads(path.read_text(encoding="utf-8"))
 
+    def forecast_bundle(self, instrument_id: str) -> dict:
+        path = self.forecast_root / f"{instrument_id.upper()}_bundle.json"
+        if not path.exists():
+            return {"bundle": None, "reason": "NO_BUNDLE_FORECAST"}
+        return json.loads(path.read_text(encoding="utf-8"))
+
     def events_upcoming(self) -> dict:
         path = self.forecast_root / "events.json"
         if not path.exists():

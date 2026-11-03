@@ -13,12 +13,15 @@ from datetime import datetime
 from pathlib import Path
 from typing import Literal
 
+import numpy as np
 from pydantic import BaseModel, ConfigDict, Field
 
 from ..backtest.data import ROOT, add_session_column, load_intraday
 from ..instruments import InstrumentSpec, get_instrument
+from ..macro.calendar import CalendarStore, detect_critical_day, load_sample_calendar
 from ..market_clock import ensure_utc, session_date
 from ..price_levels import build_levels
+from ..price_levels.reachability import estimate_touch_probability
 from ..regime import classify_regime
 from ..research.range_model import expected_range
 
@@ -33,6 +36,9 @@ class ForecastTarget(BaseModel):
     zone_low: float
     zone_high: float
     probability_before_stop: float | None = None
+    touch_probability: float | None = None
+    touch_method: str | None = None
+    touch_sample_n: int | None = None
     target_horizon: str
     level_type: str
 
@@ -99,6 +105,7 @@ def build_forecast_from_bars(
     spec: InstrumentSpec,
     asof: datetime,
     contract: str | None = None,
+    calendar: CalendarStore | None = None,
 ) -> ForecastV1:
     asof = ensure_utc(asof)
     frame = add_session_column(bars, spec)
@@ -111,6 +118,8 @@ def build_forecast_from_bars(
     level_set = build_levels(frame, spec, day, asof)
     regime = classify_regime(frame, asof)
     range_forecast = expected_range(frame, horizon_bars=78, asof=asof)
+    calendar = calendar or load_sample_calendar()
+    critical = detect_critical_day(calendar, asof)
 
     if regime.label == "TREND_UP":
         direction = "BULLISH"
@@ -136,17 +145,24 @@ def build_forecast_from_bars(
         candidates = sorted(level_set.levels, key=lambda level: abs(level.price - current_price))
         stop = None
 
-    targets = [
-        ForecastTarget(
-            level=level.price,
-            zone_low=round(level.zone_low - 2 * spec.tick_size, 4),
-            zone_high=round(level.zone_high + 2 * spec.tick_size, 4),
-            probability_before_stop=None,
-            target_horizon="session",
-            level_type=level.level_type,
+    targets = []
+    for level in candidates[:3]:
+        touch = estimate_touch_probability(frame, level.price, horizon_bars=78, asof=asof)
+        targets.append(
+            ForecastTarget(
+                level=level.price,
+                zone_low=round(level.zone_low - 2 * spec.tick_size, 4),
+                zone_high=round(level.zone_high + 2 * spec.tick_size, 4),
+                probability_before_stop=None,
+                touch_probability=(
+                    touch.probability if np.isfinite(touch.probability) else None
+                ),
+                touch_method=touch.method,
+                touch_sample_n=touch.sample_n,
+                target_horizon="session",
+                level_type=level.level_type,
+            )
         )
-        for level in candidates[:3]
-    ]
     nearest = _nearest(level_set.levels, current_price)
     entry_zone = (
         {
@@ -187,8 +203,8 @@ def build_forecast_from_bars(
         candidate_entry_zone=entry_zone,
         stop_loss=round(stop, 4) if stop is not None else None,
         targets=targets,
-        critical_day="NORMAL",
-        macro_warnings=["CALENDAR_NOT_CONFIGURED", "VX_FUTURES_UNAVAILABLE"],
+        critical_day=critical.state,
+        macro_warnings=["CALENDAR_SAMPLE_ONLY", "VX_FUTURES_UNAVAILABLE", *critical.reasons],
         expected_value_after_costs=None,
         model_version="none",
         validation_status="research_only",
@@ -200,6 +216,9 @@ def build_forecast_from_bars(
             "regime_reasons": regime.reasons,
             "range_sample_n": range_forecast.sample_n,
             "range_bucket": range_forecast.bucket,
+            "calendar_source": critical.data_quality.get("calendar_source"),
+            "calendar_event_count": critical.data_quality.get("event_count"),
+            "calendar_point_in_time": critical.data_quality.get("point_in_time"),
         },
         strategy_id=None,
         signal_id=None,

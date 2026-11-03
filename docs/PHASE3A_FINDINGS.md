@@ -178,7 +178,7 @@ nocturne_native.cp314-win_amd64.pyd
 tests/test_native_parity.py -> passed
 ```
 
-With the module on `PYTHONPATH`: **138 passed**. Without it: **137 passed,
+With the module on `PYTHONPATH`: **155 passed**. Without it: **154 passed,
 1 skipped**. CI adds an Ubuntu native build/parity job.
 
 ## 6. Still blocked
