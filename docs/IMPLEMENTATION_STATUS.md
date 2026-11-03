@@ -11,6 +11,10 @@ Research-only: 86 complete-session rows and separate 10,344 NQ / 10,336 ES
 two-hour observations. Better hourly Brier does not satisfy promotion; direction
 recall is poor. No production model probabilities enabled. `NO_TRADE` remains.
 
+Follow-up implemented fixed 200/350/500-point barrier/cost diagnostics and grouped
+journal coverage/touch-loss monitoring. Updated native-enabled suite: 176 passed.
+No matured journal outcomes exist; monitor scores remain null.
+
 Blocked/unfinished: licensed contract/roll-resolved intraday expansion, PIT macro
 consensus/news, independent final evaluation, advanced target/cost research,
 LightGBM, validated fusion and monitoring/rollback. Older milestone descriptions

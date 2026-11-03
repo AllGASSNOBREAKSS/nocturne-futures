@@ -22,6 +22,8 @@ class TargetDatasetConfig:
     ambiguous_policy: str = "AMBIGUOUS"
     slippage_ticks: float = 0.0
     target_multiples: tuple[float, ...] | None = None
+    target_points: tuple[float, ...] | None = None
+    commission_per_side: float = 2.5
 
 
 def _entry_index(frame: pd.DataFrame, asof: datetime) -> int | None:
@@ -40,6 +42,10 @@ def build_strategy_target_dataset(
     config = config or TargetDatasetConfig()
     if config.horizon_bars < 1:
         raise ValueError("horizon must be positive")
+    if config.slippage_ticks < 0 or config.commission_per_side < 0:
+        raise ValueError("costs must be nonnegative")
+    if config.target_points and (config.target_multiples or min(config.target_points) <= 0):
+        raise ValueError("positive point targets must be separate from R targets")
     frame = bars.copy()
     frame["timestamp"] = pd.to_datetime(frame["timestamp"], utc=True)
     frame["available_at"] = pd.to_datetime(frame["available_at"], utc=True)
@@ -58,7 +64,10 @@ def build_strategy_target_dataset(
         risk = abs(entry - stop)
         if risk <= 0 or direction * (entry - stop) <= 0:
             continue
-        if config.target_multiples:
+        if config.target_points:
+            targets = [(f"POINTS_{points:g}", entry + direction * points, points / risk)
+                       for points in config.target_points]
+        elif config.target_multiples:
             targets = [
                 (f"TP{i + 1}", entry + direction * risk * multiple, multiple)
                 for i, multiple in enumerate(config.target_multiples)
@@ -115,6 +124,23 @@ def build_strategy_target_dataset(
             if not contiguous or (outcome == "TIMEOUT" and not complete):
                 outcome = "CENSORED"
 
+            # Each row is a separate hypothetical full-size exit, never a
+            # portfolio or partial-exit ledger. Gap stops fill adversely at open.
+            exit_idx = None
+            exit_price = None
+            if outcome == "TP_FIRST":
+                exit_idx, exit_price = t_idx, target_price
+            elif outcome == "SL_FIRST":
+                exit_idx = stop_idx
+                opening = float(frame.open.iloc[stop_idx])
+                exit_price = min(stop, opening) if direction == 1 else max(stop, opening)
+            elif outcome == "TIMEOUT":
+                exit_idx, exit_price = end_idx, float(frame.close.iloc[end_idx])
+            if exit_price is not None:
+                exit_price -= direction * slip
+            net = (direction * (exit_price - entry) * spec.multiplier
+                   - 2 * config.commission_per_side) if exit_price is not None else None
+
             rows.append(
                 {
                     "strategy_id": signal.strategy_id,
@@ -136,6 +162,14 @@ def build_strategy_target_dataset(
                     "horizon_bars": config.horizon_bars,
                     "outcome": outcome,
                     "target_first": None if outcome in {"CENSORED", "AMBIGUOUS"} else outcome == "TP_FIRST",
+                    "target_touched": (t_idx is not None) if contiguous and (complete or t_idx is not None) else None,
+                    "touch_definition": "bar_extreme_reaches_target_even_after_stop",
+                    "exit_price": exit_price,
+                    "exit_time": frame.available_at.iloc[exit_idx] if exit_idx is not None else None,
+                    "hypothetical_net_dollars": net,
+                    "commission_round_trip": 2 * config.commission_per_side,
+                    "slippage_ticks_per_side": config.slippage_ticks,
+                    "cost_definition": "one_contract_independent_candidate_not_portfolio_pnl",
                     "bars_to_target": (t_idx - entry_idx) if t_idx is not None else None,
                     "bars_to_stop": (stop_idx - entry_idx) if stop_idx is not None else None,
                     "mfe_points": round(mfe, 4),

@@ -68,6 +68,8 @@ def build_dataset(
     force: bool = False,
     horizon_bars: int = 24,
     target_multiples: tuple[float, ...] | None = None,
+    target_points: tuple[float, ...] | None = None,
+    slippage_ticks: float = 0.0,
 ) -> tuple[pd.DataFrame, dict]:
     from ..research.target_dataset import TargetDatasetConfig, build_strategy_target_dataset
 
@@ -84,7 +86,8 @@ def build_dataset(
                 signals.get(day, []),
                 rth,
                 spec,
-                TargetDatasetConfig(horizon_bars=horizon_bars, target_multiples=target_multiples),
+                TargetDatasetConfig(horizon_bars=horizon_bars, target_multiples=target_multiples,
+                                    target_points=target_points, slippage_ticks=slippage_ticks),
             )
         )
     frame = pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()

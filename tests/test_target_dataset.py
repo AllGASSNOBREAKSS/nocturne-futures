@@ -112,3 +112,27 @@ def test_bar_after_exact_horizon_does_not_count():
     result = build_strategy_target_dataset([signal(targets=(110.0,))], bars, NQ,
                                            TargetDatasetConfig(horizon_bars=1))
     assert result.iloc[0].outcome == "TIMEOUT"
+
+
+def test_touch_after_stop_is_not_target_first_and_costs_include_both_sides():
+    bars = pd.DataFrame([bar(START + timedelta(minutes=5), 103, 104, 99, 100),
+                         bar(START + timedelta(minutes=10), 100, 110, 99, 109)])
+    result = build_strategy_target_dataset([signal(targets=(109.0,))], bars, NQ,
+                 TargetDatasetConfig(horizon_bars=2, slippage_ticks=1))
+    row = result.iloc[0]
+    assert row.outcome == "SL_FIRST"
+    assert row.target_touched
+    assert not row.target_first
+    assert row.entry_price == 103.25
+    assert row.exit_price == 99.75
+    assert row.hypothetical_net_dollars == -75.0
+
+
+def test_fixed_point_candidate_and_adverse_gap_stop():
+    bars = pd.DataFrame([bar(START + timedelta(minutes=5), 103, 104, 102, 103),
+                         bar(START + timedelta(minutes=10), 95, 98, 94, 96)])
+    result = build_strategy_target_dataset([signal()], bars, NQ,
+                 TargetDatasetConfig(horizon_bars=2, target_points=(200, 350, 500), slippage_ticks=1))
+    assert result.target_price.tolist() == [303.25, 453.25, 603.25]
+    assert result.exit_price.eq(94.75).all()
+    assert result.hypothetical_net_dollars.eq(-175).all()

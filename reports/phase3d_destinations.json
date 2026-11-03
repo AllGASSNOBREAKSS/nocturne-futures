@@ -1,0 +1,1062 @@
+{
+  "decision": "NO_PROMOTION",
+  "dataset": "previously_examined_5min_cache",
+  "protocol_sha256": "ee76d570a305fdce8093daba821527854c74ca083021d0926ee535172202b3f2",
+  "event": "fixed point targets with original strategy stops; capped at RTH data end",
+  "costs": "1 or 3 ticks per side plus $2.50 commission per side; one hypothetical contract",
+  "limitations": [
+    "bar-extreme reach, not guaranteed limit-order fill",
+    "same-bar ambiguity is unscored",
+    "no portfolio aggregation",
+    "no probability model trained; rates are retrospective"
+  ],
+  "experiments": {
+    "orb_24bars_1ticks": {
+      "POINTS_200": {
+        "rows": 35,
+        "signals": 35,
+        "first": "2026-08-25 14:35:00+00:00",
+        "last": "2026-10-21 15:10:00+00:00",
+        "outcomes": {
+          "TIMEOUT": 28,
+          "CENSORED": 3,
+          "TP_FIRST": 3,
+          "SL_FIRST": 1
+        },
+        "horizon_complete": 32,
+        "touch_observed_n": 32,
+        "touch_rate_observed": 0.09375,
+        "target_first_observed_n": 32,
+        "target_first_observed": {
+          "mean": 0.09375,
+          "low": 0.0,
+          "high": 0.25,
+          "groups": 32,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 207.75,
+        "target_r_median": 0.9627,
+        "mfe_points_median": 50.25,
+        "hypothetical_net_mean_observed": -52.03125,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      },
+      "POINTS_350": {
+        "rows": 35,
+        "signals": 35,
+        "first": "2026-08-25 14:35:00+00:00",
+        "last": "2026-10-21 15:10:00+00:00",
+        "outcomes": {
+          "TIMEOUT": 31,
+          "CENSORED": 3,
+          "SL_FIRST": 1
+        },
+        "horizon_complete": 32,
+        "touch_observed_n": 32,
+        "touch_rate_observed": 0.0,
+        "target_first_observed_n": 32,
+        "target_first_observed": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0,
+          "groups": 32,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 207.75,
+        "target_r_median": 1.6847,
+        "mfe_points_median": 50.25,
+        "hypothetical_net_mean_observed": -120.9375,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      },
+      "POINTS_500": {
+        "rows": 35,
+        "signals": 35,
+        "first": "2026-08-25 14:35:00+00:00",
+        "last": "2026-10-21 15:10:00+00:00",
+        "outcomes": {
+          "TIMEOUT": 31,
+          "CENSORED": 3,
+          "SL_FIRST": 1
+        },
+        "horizon_complete": 32,
+        "touch_observed_n": 32,
+        "touch_rate_observed": 0.0,
+        "target_first_observed_n": 32,
+        "target_first_observed": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0,
+          "groups": 32,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 207.75,
+        "target_r_median": 2.4067,
+        "mfe_points_median": 50.25,
+        "hypothetical_net_mean_observed": -120.9375,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      }
+    },
+    "orb_24bars_3ticks": {
+      "POINTS_200": {
+        "rows": 35,
+        "signals": 35,
+        "first": "2026-08-25 14:35:00+00:00",
+        "last": "2026-10-21 15:10:00+00:00",
+        "outcomes": {
+          "TIMEOUT": 28,
+          "CENSORED": 3,
+          "TP_FIRST": 3,
+          "SL_FIRST": 1
+        },
+        "horizon_complete": 32,
+        "touch_observed_n": 32,
+        "touch_rate_observed": 0.09375,
+        "target_first_observed_n": 32,
+        "target_first_observed": {
+          "mean": 0.09375,
+          "low": 0.0,
+          "high": 0.25,
+          "groups": 32,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 208.25,
+        "target_r_median": 0.9604,
+        "mfe_points_median": 49.75,
+        "hypothetical_net_mean_observed": -71.09375,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      },
+      "POINTS_350": {
+        "rows": 35,
+        "signals": 35,
+        "first": "2026-08-25 14:35:00+00:00",
+        "last": "2026-10-21 15:10:00+00:00",
+        "outcomes": {
+          "TIMEOUT": 31,
+          "CENSORED": 3,
+          "SL_FIRST": 1
+        },
+        "horizon_complete": 32,
+        "touch_observed_n": 32,
+        "touch_rate_observed": 0.0,
+        "target_first_observed_n": 32,
+        "target_first_observed": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0,
+          "groups": 32,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 208.25,
+        "target_r_median": 1.6807,
+        "mfe_points_median": 49.75,
+        "hypothetical_net_mean_observed": -140.9375,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      },
+      "POINTS_500": {
+        "rows": 35,
+        "signals": 35,
+        "first": "2026-08-25 14:35:00+00:00",
+        "last": "2026-10-21 15:10:00+00:00",
+        "outcomes": {
+          "TIMEOUT": 31,
+          "CENSORED": 3,
+          "SL_FIRST": 1
+        },
+        "horizon_complete": 32,
+        "touch_observed_n": 32,
+        "touch_rate_observed": 0.0,
+        "target_first_observed_n": 32,
+        "target_first_observed": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0,
+          "groups": 32,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 208.25,
+        "target_r_median": 2.401,
+        "mfe_points_median": 49.75,
+        "hypothetical_net_mean_observed": -140.9375,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      }
+    },
+    "orb_78bars_1ticks": {
+      "POINTS_200": {
+        "rows": 35,
+        "signals": 35,
+        "first": "2026-08-25 14:35:00+00:00",
+        "last": "2026-10-21 15:10:00+00:00",
+        "outcomes": {
+          "CENSORED": 24,
+          "SL_FIRST": 6,
+          "TP_FIRST": 5
+        },
+        "horizon_complete": 0,
+        "touch_observed_n": 5,
+        "touch_rate_observed": 1.0,
+        "target_first_observed_n": 11,
+        "target_first_observed": {
+          "mean": 0.45454545454545453,
+          "low": 0.09090909090909091,
+          "high": 0.8181818181818182,
+          "groups": 11,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 207.75,
+        "target_r_median": 0.9627,
+        "mfe_points_median": 77.25,
+        "hypothetical_net_mean_observed": -400.45454545454544,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      },
+      "POINTS_350": {
+        "rows": 35,
+        "signals": 35,
+        "first": "2026-08-25 14:35:00+00:00",
+        "last": "2026-10-21 15:10:00+00:00",
+        "outcomes": {
+          "CENSORED": 27,
+          "SL_FIRST": 6,
+          "TP_FIRST": 2
+        },
+        "horizon_complete": 0,
+        "touch_observed_n": 2,
+        "touch_rate_observed": 1.0,
+        "target_first_observed_n": 8,
+        "target_first_observed": {
+          "mean": 0.25,
+          "low": 0.0,
+          "high": 0.5,
+          "groups": 8,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 207.75,
+        "target_r_median": 1.6847,
+        "mfe_points_median": 77.25,
+        "hypothetical_net_mean_observed": -1296.875,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      },
+      "POINTS_500": {
+        "rows": 35,
+        "signals": 35,
+        "first": "2026-08-25 14:35:00+00:00",
+        "last": "2026-10-21 15:10:00+00:00",
+        "outcomes": {
+          "CENSORED": 29,
+          "SL_FIRST": 6
+        },
+        "horizon_complete": 0,
+        "touch_observed_n": 0,
+        "touch_rate_observed": null,
+        "target_first_observed_n": 6,
+        "target_first_observed": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0,
+          "groups": 6,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 207.75,
+        "target_r_median": 2.4067,
+        "mfe_points_median": 77.25,
+        "hypothetical_net_mean_observed": -4059.1666666666665,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      }
+    },
+    "orb_78bars_3ticks": {
+      "POINTS_200": {
+        "rows": 35,
+        "signals": 35,
+        "first": "2026-08-25 14:35:00+00:00",
+        "last": "2026-10-21 15:10:00+00:00",
+        "outcomes": {
+          "CENSORED": 24,
+          "SL_FIRST": 6,
+          "TP_FIRST": 5
+        },
+        "horizon_complete": 0,
+        "touch_observed_n": 5,
+        "touch_rate_observed": 1.0,
+        "target_first_observed_n": 11,
+        "target_first_observed": {
+          "mean": 0.45454545454545453,
+          "low": 0.09090909090909091,
+          "high": 0.8181818181818182,
+          "groups": 11,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 208.25,
+        "target_r_median": 0.9604,
+        "mfe_points_median": 76.75,
+        "hypothetical_net_mean_observed": -415.90909090909093,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      },
+      "POINTS_350": {
+        "rows": 35,
+        "signals": 35,
+        "first": "2026-08-25 14:35:00+00:00",
+        "last": "2026-10-21 15:10:00+00:00",
+        "outcomes": {
+          "CENSORED": 27,
+          "SL_FIRST": 6,
+          "TP_FIRST": 2
+        },
+        "horizon_complete": 0,
+        "touch_observed_n": 2,
+        "touch_rate_observed": 1.0,
+        "target_first_observed_n": 8,
+        "target_first_observed": {
+          "mean": 0.25,
+          "low": 0.0,
+          "high": 0.5,
+          "groups": 8,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 208.25,
+        "target_r_median": 1.6807,
+        "mfe_points_median": 76.75,
+        "hypothetical_net_mean_observed": -1314.375,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      },
+      "POINTS_500": {
+        "rows": 35,
+        "signals": 35,
+        "first": "2026-08-25 14:35:00+00:00",
+        "last": "2026-10-21 15:10:00+00:00",
+        "outcomes": {
+          "CENSORED": 29,
+          "SL_FIRST": 6
+        },
+        "horizon_complete": 0,
+        "touch_observed_n": 0,
+        "touch_rate_observed": null,
+        "target_first_observed_n": 6,
+        "target_first_observed": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0,
+          "groups": 6,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 208.25,
+        "target_r_median": 2.401,
+        "mfe_points_median": 76.75,
+        "hypothetical_net_mean_observed": -4079.1666666666665,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      }
+    },
+    "vwap_24bars_1ticks": {
+      "POINTS_200": {
+        "rows": 33,
+        "signals": 33,
+        "first": "2026-08-25 16:30:00+00:00",
+        "last": "2026-10-15 14:20:00+00:00",
+        "outcomes": {
+          "SL_FIRST": 16,
+          "TIMEOUT": 13,
+          "TP_FIRST": 3,
+          "CENSORED": 1
+        },
+        "horizon_complete": 32,
+        "touch_observed_n": 32,
+        "touch_rate_observed": 0.125,
+        "target_first_observed_n": 32,
+        "target_first_observed": {
+          "mean": 0.09375,
+          "low": 0.0,
+          "high": 0.1570312499999993,
+          "groups": 32,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 57.11189999999988,
+        "target_r_median": 3.5019,
+        "mfe_points_median": 72.5,
+        "hypothetical_net_mean_observed": 120.23943528466589,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      },
+      "POINTS_350": {
+        "rows": 33,
+        "signals": 33,
+        "first": "2026-08-25 16:30:00+00:00",
+        "last": "2026-10-15 14:20:00+00:00",
+        "outcomes": {
+          "SL_FIRST": 16,
+          "TIMEOUT": 15,
+          "TP_FIRST": 1,
+          "CENSORED": 1
+        },
+        "horizon_complete": 32,
+        "touch_observed_n": 32,
+        "touch_rate_observed": 0.03125,
+        "target_first_observed_n": 32,
+        "target_first_observed": {
+          "mean": 0.03125,
+          "low": 0.0,
+          "high": 0.09375,
+          "groups": 32,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 57.11189999999988,
+        "target_r_median": 6.1283,
+        "mfe_points_median": 72.5,
+        "hypothetical_net_mean_observed": 165.5519352846659,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      },
+      "POINTS_500": {
+        "rows": 33,
+        "signals": 33,
+        "first": "2026-08-25 16:30:00+00:00",
+        "last": "2026-10-15 14:20:00+00:00",
+        "outcomes": {
+          "SL_FIRST": 16,
+          "TIMEOUT": 15,
+          "TP_FIRST": 1,
+          "CENSORED": 1
+        },
+        "horizon_complete": 32,
+        "touch_observed_n": 32,
+        "touch_rate_observed": 0.03125,
+        "target_first_observed_n": 32,
+        "target_first_observed": {
+          "mean": 0.03125,
+          "low": 0.0,
+          "high": 0.09375,
+          "groups": 32,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 57.11189999999988,
+        "target_r_median": 8.7547,
+        "mfe_points_median": 72.5,
+        "hypothetical_net_mean_observed": 259.3019352846659,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      }
+    },
+    "vwap_24bars_3ticks": {
+      "POINTS_200": {
+        "rows": 33,
+        "signals": 33,
+        "first": "2026-08-25 16:30:00+00:00",
+        "last": "2026-10-15 14:20:00+00:00",
+        "outcomes": {
+          "SL_FIRST": 16,
+          "TIMEOUT": 13,
+          "TP_FIRST": 3,
+          "CENSORED": 1
+        },
+        "horizon_complete": 32,
+        "touch_observed_n": 32,
+        "touch_rate_observed": 0.125,
+        "target_first_observed_n": 32,
+        "target_first_observed": {
+          "mean": 0.09375,
+          "low": 0.0,
+          "high": 0.1570312499999993,
+          "groups": 32,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 57.61189999999988,
+        "target_r_median": 3.4715,
+        "mfe_points_median": 72.0,
+        "hypothetical_net_mean_observed": 101.17693528466589,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      },
+      "POINTS_350": {
+        "rows": 33,
+        "signals": 33,
+        "first": "2026-08-25 16:30:00+00:00",
+        "last": "2026-10-15 14:20:00+00:00",
+        "outcomes": {
+          "SL_FIRST": 16,
+          "TIMEOUT": 15,
+          "TP_FIRST": 1,
+          "CENSORED": 1
+        },
+        "horizon_complete": 32,
+        "touch_observed_n": 32,
+        "touch_rate_observed": 0.03125,
+        "target_first_observed_n": 32,
+        "target_first_observed": {
+          "mean": 0.03125,
+          "low": 0.0,
+          "high": 0.09375,
+          "groups": 32,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 57.61189999999988,
+        "target_r_median": 6.0751,
+        "mfe_points_median": 72.0,
+        "hypothetical_net_mean_observed": 145.8644352846659,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      },
+      "POINTS_500": {
+        "rows": 33,
+        "signals": 33,
+        "first": "2026-08-25 16:30:00+00:00",
+        "last": "2026-10-15 14:20:00+00:00",
+        "outcomes": {
+          "SL_FIRST": 16,
+          "TIMEOUT": 15,
+          "TP_FIRST": 1,
+          "CENSORED": 1
+        },
+        "horizon_complete": 32,
+        "touch_observed_n": 32,
+        "touch_rate_observed": 0.03125,
+        "target_first_observed_n": 32,
+        "target_first_observed": {
+          "mean": 0.03125,
+          "low": 0.0,
+          "high": 0.09375,
+          "groups": 32,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 57.61189999999988,
+        "target_r_median": 8.6788,
+        "mfe_points_median": 72.0,
+        "hypothetical_net_mean_observed": 239.6144352846659,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      }
+    },
+    "vwap_78bars_1ticks": {
+      "POINTS_200": {
+        "rows": 33,
+        "signals": 33,
+        "first": "2026-08-25 16:30:00+00:00",
+        "last": "2026-10-15 14:20:00+00:00",
+        "outcomes": {
+          "SL_FIRST": 19,
+          "CENSORED": 10,
+          "TP_FIRST": 4
+        },
+        "horizon_complete": 0,
+        "touch_observed_n": 6,
+        "touch_rate_observed": 1.0,
+        "target_first_observed_n": 23,
+        "target_first_observed": {
+          "mean": 0.17391304347826086,
+          "low": 0.043478260869565216,
+          "high": 0.2608695652173913,
+          "groups": 23,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 57.11189999999988,
+        "target_r_median": 3.5019,
+        "mfe_points_median": 96.75,
+        "hypothetical_net_mean_observed": -360.4761345454861,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      },
+      "POINTS_350": {
+        "rows": 33,
+        "signals": 33,
+        "first": "2026-08-25 16:30:00+00:00",
+        "last": "2026-10-15 14:20:00+00:00",
+        "outcomes": {
+          "SL_FIRST": 20,
+          "CENSORED": 11,
+          "TP_FIRST": 2
+        },
+        "horizon_complete": 0,
+        "touch_observed_n": 2,
+        "touch_rate_observed": 1.0,
+        "target_first_observed_n": 22,
+        "target_first_observed": {
+          "mean": 0.09090909090909091,
+          "low": 0.0,
+          "high": 0.18181818181818182,
+          "groups": 22,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 57.11189999999988,
+        "target_r_median": 6.1283,
+        "mfe_points_median": 96.75,
+        "hypothetical_net_mean_observed": -516.353477540033,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      },
+      "POINTS_500": {
+        "rows": 33,
+        "signals": 33,
+        "first": "2026-08-25 16:30:00+00:00",
+        "last": "2026-10-15 14:20:00+00:00",
+        "outcomes": {
+          "SL_FIRST": 20,
+          "CENSORED": 12,
+          "TP_FIRST": 1
+        },
+        "horizon_complete": 0,
+        "touch_observed_n": 1,
+        "touch_rate_observed": 1.0,
+        "target_first_observed_n": 21,
+        "target_first_observed": {
+          "mean": 0.047619047619047616,
+          "low": 0.0,
+          "high": 0.14285714285714285,
+          "groups": 21,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 57.11189999999988,
+        "target_r_median": 8.7547,
+        "mfe_points_median": 96.75,
+        "hypothetical_net_mean_observed": -730.9417383752727,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      }
+    },
+    "vwap_78bars_3ticks": {
+      "POINTS_200": {
+        "rows": 33,
+        "signals": 33,
+        "first": "2026-08-25 16:30:00+00:00",
+        "last": "2026-10-15 14:20:00+00:00",
+        "outcomes": {
+          "SL_FIRST": 19,
+          "CENSORED": 10,
+          "TP_FIRST": 4
+        },
+        "horizon_complete": 0,
+        "touch_observed_n": 6,
+        "touch_rate_observed": 1.0,
+        "target_first_observed_n": 23,
+        "target_first_observed": {
+          "mean": 0.17391304347826086,
+          "low": 0.043478260869565216,
+          "high": 0.2608695652173913,
+          "groups": 23,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 57.61189999999988,
+        "target_r_median": 3.4715,
+        "mfe_points_median": 96.25,
+        "hypothetical_net_mean_observed": -378.7370041107035,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      },
+      "POINTS_350": {
+        "rows": 33,
+        "signals": 33,
+        "first": "2026-08-25 16:30:00+00:00",
+        "last": "2026-10-15 14:20:00+00:00",
+        "outcomes": {
+          "SL_FIRST": 20,
+          "CENSORED": 11,
+          "TP_FIRST": 2
+        },
+        "horizon_complete": 0,
+        "touch_observed_n": 2,
+        "touch_rate_observed": 1.0,
+        "target_first_observed_n": 22,
+        "target_first_observed": {
+          "mean": 0.09090909090909091,
+          "low": 0.0,
+          "high": 0.18181818181818182,
+          "groups": 22,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 57.61189999999988,
+        "target_r_median": 6.0751,
+        "mfe_points_median": 96.25,
+        "hypothetical_net_mean_observed": -535.4443866309422,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      },
+      "POINTS_500": {
+        "rows": 33,
+        "signals": 33,
+        "first": "2026-08-25 16:30:00+00:00",
+        "last": "2026-10-15 14:20:00+00:00",
+        "outcomes": {
+          "SL_FIRST": 20,
+          "CENSORED": 12,
+          "TP_FIRST": 1
+        },
+        "horizon_complete": 0,
+        "touch_observed_n": 1,
+        "touch_rate_observed": 1.0,
+        "target_first_observed_n": 21,
+        "target_first_observed": {
+          "mean": 0.047619047619047616,
+          "low": 0.0,
+          "high": 0.14285714285714285,
+          "groups": 21,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 57.61189999999988,
+        "target_r_median": 8.6788,
+        "mfe_points_median": 96.25,
+        "hypothetical_net_mean_observed": -750.4655478990823,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      }
+    },
+    "value_24bars_1ticks": {
+      "POINTS_200": {
+        "rows": 22,
+        "signals": 22,
+        "first": "2026-08-26 13:35:00+00:00",
+        "last": "2026-10-21 13:45:00+00:00",
+        "outcomes": {
+          "SL_FIRST": 14,
+          "TIMEOUT": 5,
+          "TP_FIRST": 2,
+          "CENSORED": 1
+        },
+        "horizon_complete": 20,
+        "touch_observed_n": 21,
+        "touch_rate_observed": 0.09523809523809523,
+        "target_first_observed_n": 21,
+        "target_first_observed": {
+          "mean": 0.09523809523809523,
+          "low": 0.0,
+          "high": 0.23809523809523808,
+          "groups": 21,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 60.0,
+        "target_r_median": 3.34645,
+        "mfe_points_median": 95.5,
+        "hypothetical_net_mean_observed": -209.52380952380952,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      },
+      "POINTS_350": {
+        "rows": 22,
+        "signals": 22,
+        "first": "2026-08-26 13:35:00+00:00",
+        "last": "2026-10-21 13:45:00+00:00",
+        "outcomes": {
+          "SL_FIRST": 14,
+          "TIMEOUT": 6,
+          "CENSORED": 2
+        },
+        "horizon_complete": 20,
+        "touch_observed_n": 20,
+        "touch_rate_observed": 0.0,
+        "target_first_observed_n": 20,
+        "target_first_observed": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0,
+          "groups": 20,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 60.0,
+        "target_r_median": 5.856199999999999,
+        "mfe_points_median": 95.5,
+        "hypothetical_net_mean_observed": -463.0,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      },
+      "POINTS_500": {
+        "rows": 22,
+        "signals": 22,
+        "first": "2026-08-26 13:35:00+00:00",
+        "last": "2026-10-21 13:45:00+00:00",
+        "outcomes": {
+          "SL_FIRST": 14,
+          "TIMEOUT": 6,
+          "CENSORED": 2
+        },
+        "horizon_complete": 20,
+        "touch_observed_n": 20,
+        "touch_rate_observed": 0.0,
+        "target_first_observed_n": 20,
+        "target_first_observed": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0,
+          "groups": 20,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 60.0,
+        "target_r_median": 8.366,
+        "mfe_points_median": 95.5,
+        "hypothetical_net_mean_observed": -463.0,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      }
+    },
+    "value_24bars_3ticks": {
+      "POINTS_200": {
+        "rows": 22,
+        "signals": 22,
+        "first": "2026-08-26 13:35:00+00:00",
+        "last": "2026-10-21 13:45:00+00:00",
+        "outcomes": {
+          "SL_FIRST": 14,
+          "TIMEOUT": 5,
+          "TP_FIRST": 2,
+          "CENSORED": 1
+        },
+        "horizon_complete": 20,
+        "touch_observed_n": 21,
+        "touch_rate_observed": 0.09523809523809523,
+        "target_first_observed_n": 21,
+        "target_first_observed": {
+          "mean": 0.09523809523809523,
+          "low": 0.0,
+          "high": 0.23809523809523808,
+          "groups": 21,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 60.5,
+        "target_r_median": 3.3185000000000002,
+        "mfe_points_median": 95.0,
+        "hypothetical_net_mean_observed": -228.57142857142858,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      },
+      "POINTS_350": {
+        "rows": 22,
+        "signals": 22,
+        "first": "2026-08-26 13:35:00+00:00",
+        "last": "2026-10-21 13:45:00+00:00",
+        "outcomes": {
+          "SL_FIRST": 14,
+          "TIMEOUT": 6,
+          "CENSORED": 2
+        },
+        "horizon_complete": 20,
+        "touch_observed_n": 20,
+        "touch_rate_observed": 0.0,
+        "target_first_observed_n": 20,
+        "target_first_observed": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0,
+          "groups": 20,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 60.5,
+        "target_r_median": 5.807449999999999,
+        "mfe_points_median": 95.0,
+        "hypothetical_net_mean_observed": -483.0,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      },
+      "POINTS_500": {
+        "rows": 22,
+        "signals": 22,
+        "first": "2026-08-26 13:35:00+00:00",
+        "last": "2026-10-21 13:45:00+00:00",
+        "outcomes": {
+          "SL_FIRST": 14,
+          "TIMEOUT": 6,
+          "CENSORED": 2
+        },
+        "horizon_complete": 20,
+        "touch_observed_n": 20,
+        "touch_rate_observed": 0.0,
+        "target_first_observed_n": 20,
+        "target_first_observed": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0,
+          "groups": 20,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 60.5,
+        "target_r_median": 8.29635,
+        "mfe_points_median": 95.0,
+        "hypothetical_net_mean_observed": -483.0,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      }
+    },
+    "value_78bars_1ticks": {
+      "POINTS_200": {
+        "rows": 22,
+        "signals": 22,
+        "first": "2026-08-26 13:35:00+00:00",
+        "last": "2026-10-21 13:45:00+00:00",
+        "outcomes": {
+          "SL_FIRST": 15,
+          "CENSORED": 5,
+          "TP_FIRST": 2
+        },
+        "horizon_complete": 0,
+        "touch_observed_n": 2,
+        "touch_rate_observed": 1.0,
+        "target_first_observed_n": 17,
+        "target_first_observed": {
+          "mean": 0.11764705882352941,
+          "low": 0.0,
+          "high": 0.29411764705882354,
+          "groups": 17,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 60.0,
+        "target_r_median": 3.34645,
+        "mfe_points_median": 104.25,
+        "hypothetical_net_mean_observed": -527.3529411764706,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      },
+      "POINTS_350": {
+        "rows": 22,
+        "signals": 22,
+        "first": "2026-08-26 13:35:00+00:00",
+        "last": "2026-10-21 13:45:00+00:00",
+        "outcomes": {
+          "SL_FIRST": 15,
+          "CENSORED": 7
+        },
+        "horizon_complete": 0,
+        "touch_observed_n": 0,
+        "touch_rate_observed": null,
+        "target_first_observed_n": 15,
+        "target_first_observed": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0,
+          "groups": 15,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 60.0,
+        "target_r_median": 5.856199999999999,
+        "mfe_points_median": 104.25,
+        "hypothetical_net_mean_observed": -1129.6666666666667,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      },
+      "POINTS_500": {
+        "rows": 22,
+        "signals": 22,
+        "first": "2026-08-26 13:35:00+00:00",
+        "last": "2026-10-21 13:45:00+00:00",
+        "outcomes": {
+          "SL_FIRST": 15,
+          "CENSORED": 7
+        },
+        "horizon_complete": 0,
+        "touch_observed_n": 0,
+        "touch_rate_observed": null,
+        "target_first_observed_n": 15,
+        "target_first_observed": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0,
+          "groups": 15,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 60.0,
+        "target_r_median": 8.366,
+        "mfe_points_median": 104.25,
+        "hypothetical_net_mean_observed": -1129.6666666666667,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      }
+    },
+    "value_78bars_3ticks": {
+      "POINTS_200": {
+        "rows": 22,
+        "signals": 22,
+        "first": "2026-08-26 13:35:00+00:00",
+        "last": "2026-10-21 13:45:00+00:00",
+        "outcomes": {
+          "SL_FIRST": 15,
+          "CENSORED": 5,
+          "TP_FIRST": 2
+        },
+        "horizon_complete": 0,
+        "touch_observed_n": 2,
+        "touch_rate_observed": 1.0,
+        "target_first_observed_n": 17,
+        "target_first_observed": {
+          "mean": 0.11764705882352941,
+          "low": 0.0,
+          "high": 0.29411764705882354,
+          "groups": 17,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 60.5,
+        "target_r_median": 3.3185000000000002,
+        "mfe_points_median": 103.75,
+        "hypothetical_net_mean_observed": -546.1764705882352,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      },
+      "POINTS_350": {
+        "rows": 22,
+        "signals": 22,
+        "first": "2026-08-26 13:35:00+00:00",
+        "last": "2026-10-21 13:45:00+00:00",
+        "outcomes": {
+          "SL_FIRST": 15,
+          "CENSORED": 7
+        },
+        "horizon_complete": 0,
+        "touch_observed_n": 0,
+        "touch_rate_observed": null,
+        "target_first_observed_n": 15,
+        "target_first_observed": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0,
+          "groups": 15,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 60.5,
+        "target_r_median": 5.807449999999999,
+        "mfe_points_median": 103.75,
+        "hypothetical_net_mean_observed": -1149.6666666666667,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      },
+      "POINTS_500": {
+        "rows": 22,
+        "signals": 22,
+        "first": "2026-08-26 13:35:00+00:00",
+        "last": "2026-10-21 13:45:00+00:00",
+        "outcomes": {
+          "SL_FIRST": 15,
+          "CENSORED": 7
+        },
+        "horizon_complete": 0,
+        "touch_observed_n": 0,
+        "touch_rate_observed": null,
+        "target_first_observed_n": 15,
+        "target_first_observed": {
+          "mean": 0.0,
+          "low": 0.0,
+          "high": 0.0,
+          "groups": 15,
+          "block_groups": 3,
+          "repetitions": 1000
+        },
+        "risk_points_median": 60.5,
+        "target_r_median": 8.29635,
+        "mfe_points_median": 103.75,
+        "hypothetical_net_mean_observed": -1149.6666666666667,
+        "censoring_warning": "observed-outcome rates can be biased by censoring; not calibrated probabilities"
+      }
+    }
+  },
+  "source": {
+    "instrument": "NQ",
+    "interval": "5m",
+    "rows": 13566,
+    "first": "2026-08-25 04:05:00+00:00",
+    "last": "2026-11-03 20:23:59+00:00",
+    "source": "yahoo_public_unofficial",
+    "sha256": "ab0c21a68df27d4e1a4985d9c5b4c700f219d7135d814b7288d6e9df5a624952",
+    "fetched_at": "2026-11-03T20:34:04.244691+00:00"
+  },
+  "dataset_sha256": "4f929d6681af193f36fc4c9fbd83369f0734c1c24d720748ab7740b31d70754c"
+}

@@ -3,6 +3,10 @@
 ## Current resume point — Phase 3D, 2026-11-03
 
 Branch `feat/phase3d`, base `64041fa`; obtain milestone hash with `git log -1`.
+First milestone `c8744b3` pushed and remote CI passed. Follow-up implements fixed
+200/350/500-point candidate diagnostics with costs and descriptive grouped
+journal monitoring. Reproduce with `python scripts/phase3d_destinations.py` and
+`python scripts/evaluate_forecasts.py`. Neither enables promotion or trading.
 See `PHASE3D_FINDINGS.md` and `PHASE3D_PROTOCOL.md` before changing experiments.
 Historical sections below describe earlier milestones and are superseded here.
 
@@ -28,8 +32,10 @@ Acquisition: `python scripts/expand_history.py fred-context` or `yahoo-hourly`.
 Authorized exports: `python scripts/expand_history.py import-csv --help`.
 Avoid replacing the frozen input CSVs when reproducing stored results.
 
-Verified locally: 170 tests with native; TypeScript typecheck; CLI audit.
-Hourly final rerun adds aggregate AUC; inspect its report before resuming.
+Verified locally after destination/monitoring/provenance follow-up: 176 tests with native;
+TypeScript typecheck and CLI audit passed at the preceding milestone.
+Hourly final rerun completed: expanding consolidation GBM AUC 0.83617 NQ /
+0.83661 ES. This does not override provenance or independent-validation gates.
 Next: review class-conditional calibration and target horizon/cost experiments;
 obtain licensed contract history and PIT economic vintages. Preserve quarantine
 and protocol; do not optimize against unscored final days. Remaining gates and

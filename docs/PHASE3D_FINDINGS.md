@@ -101,6 +101,38 @@ context, not live event consensus or ALFRED vintage integration.
 
 ## Verification and remaining work
 
+### Follow-up: fixed destinations and journal monitoring
+
+`scripts/phase3d_destinations.py` evaluates predeclared 200/350/500-point
+candidates at 24/78 bars with original stops, 1/3-tick-per-side slippage and
+$2.50-per-side commissions. See `PHASE3D_DESTINATION_PROTOCOL.md`,
+`reports/phase3d_destinations.json` and the row-level dataset. Touch after stop is
+explicitly distinct from target-first. The most recent fifth of signal days is
+unscored. No target probability model is trained.
+
+At 24 bars and one tick, ORB has 3 target-first events at 200 points and none at
+350/500 (35 candidates per distance). VWAP has 3/1/1 (33 per distance); value
+has 2/0/0 (22 per distance). The 78-bar configurations are heavily censored because
+signals occur after RTH opens. Observed event rates and hypothetical net means
+are conditional on ascertainable outcomes and can be biased. They are not a
+portfolio backtest, evidence of profitability, or deployable probabilities.
+
+`forecast/monitoring.py` and `reports/forecast_monitoring.json` now summarize
+status, matured range coverage and descriptive touch Brier by instrument,
+horizon, model/method lineage, regime and event state where recorded. Unknown
+metadata remains explicit. The evaluation job routes each forecast to its own
+instrument's bars. No matured forecasts currently exist, so coverage/Brier stay
+null. Drift-reference monitoring and automatic rollback remain unfinished.
+
+The first Phase 3D milestone `c8744b3` was pushed; GitHub CI completed successfully:
+https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/41735272788
+
+Follow-up verification: 176 native-enabled tests pass. A Git byte-level audit
+found that the initial staging had normalized some CSV line endings before the
+attributes were applied. Re-staging under `-text` preserves the original bytes
+and restores manifest reproducibility. Added tests verify frozen raw/normalized
+history and research dataset hashes on future checkouts.
+
 Baseline reproduced: 154 passed, one native skip. Updated: 169 passed, one skip;
 170 passed with native enabled. TypeScript typecheck and CLI audit pass. No C++
 changes. Remote CI is checked separately after pushing; local success is not a
@@ -109,6 +141,6 @@ claim that remote CI passed.
 Still required: authorized contract-level intraday history, explicit roll and
 holiday reconciliation, point-in-time release/consensus/news feeds, a genuinely
 fresh final period, LightGBM comparison, horizon-specific target calibration,
-200/350/500-point barrier and cost studies, survival/competing risks, validated
-fusion, replay monitoring/drift/rollback, and 30m/1h/premarket/remainder-of-day
+independent large-target/cost validation, survival/competing risks, validated
+fusion, replay drift/rollback, and 30m/1h/premarket/remainder-of-day
 contracts. No claims of completed monitoring, profitable strategy, or promotion.

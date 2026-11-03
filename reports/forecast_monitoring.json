@@ -1,0 +1,307 @@
+{
+  "groups": [
+    {
+      "instrument": "NQ",
+      "horizon": "ASIA",
+      "model_version": "complete_session_empirical",
+      "regime": "COMPRESSION",
+      "event_state": "DATA_UNAVAILABLE",
+      "forecasts": 1,
+      "matured": 0,
+      "status_counts": {
+        "NOT_MATURED": 1
+      },
+      "range_coverage": {
+        "p50": {
+          "n": 0,
+          "coverage": null
+        },
+        "p80": {
+          "n": 0,
+          "coverage": null
+        },
+        "p90": {
+          "n": 0,
+          "coverage": null
+        }
+      },
+      "touch_probability_pairs": 0,
+      "touch_brier_descriptive": null,
+      "sample_status": "NO_MATURED_FORECASTS",
+      "independence": "not_established; repeated forecasts and targets may overlap"
+    },
+    {
+      "instrument": "NQ",
+      "horizon": "ASIA",
+      "model_version": "legacy_unvalidated",
+      "regime": "COMPRESSION",
+      "event_state": "NORMAL",
+      "forecasts": 1,
+      "matured": 0,
+      "status_counts": {
+        "NOT_MATURED": 1
+      },
+      "range_coverage": {
+        "p50": {
+          "n": 0,
+          "coverage": null
+        },
+        "p80": {
+          "n": 0,
+          "coverage": null
+        },
+        "p90": {
+          "n": 0,
+          "coverage": null
+        }
+      },
+      "touch_probability_pairs": 0,
+      "touch_brier_descriptive": null,
+      "sample_status": "NO_MATURED_FORECASTS",
+      "independence": "not_established; repeated forecasts and targets may overlap"
+    },
+    {
+      "instrument": "NQ",
+      "horizon": "LONDON",
+      "model_version": "complete_session_empirical",
+      "regime": "COMPRESSION",
+      "event_state": "DATA_UNAVAILABLE",
+      "forecasts": 1,
+      "matured": 0,
+      "status_counts": {
+        "NOT_MATURED": 1
+      },
+      "range_coverage": {
+        "p50": {
+          "n": 0,
+          "coverage": null
+        },
+        "p80": {
+          "n": 0,
+          "coverage": null
+        },
+        "p90": {
+          "n": 0,
+          "coverage": null
+        }
+      },
+      "touch_probability_pairs": 0,
+      "touch_brier_descriptive": null,
+      "sample_status": "NO_MATURED_FORECASTS",
+      "independence": "not_established; repeated forecasts and targets may overlap"
+    },
+    {
+      "instrument": "NQ",
+      "horizon": "LONDON",
+      "model_version": "legacy_unvalidated",
+      "regime": "COMPRESSION",
+      "event_state": "NORMAL",
+      "forecasts": 1,
+      "matured": 0,
+      "status_counts": {
+        "NOT_MATURED": 1
+      },
+      "range_coverage": {
+        "p50": {
+          "n": 0,
+          "coverage": null
+        },
+        "p80": {
+          "n": 0,
+          "coverage": null
+        },
+        "p90": {
+          "n": 0,
+          "coverage": null
+        }
+      },
+      "touch_probability_pairs": 0,
+      "touch_brier_descriptive": null,
+      "sample_status": "NO_MATURED_FORECASTS",
+      "independence": "not_established; repeated forecasts and targets may overlap"
+    },
+    {
+      "instrument": "NQ",
+      "horizon": "NEW_YORK",
+      "model_version": "complete_session_empirical",
+      "regime": "COMPRESSION",
+      "event_state": "DATA_UNAVAILABLE",
+      "forecasts": 1,
+      "matured": 0,
+      "status_counts": {
+        "NOT_MATURED": 1
+      },
+      "range_coverage": {
+        "p50": {
+          "n": 0,
+          "coverage": null
+        },
+        "p80": {
+          "n": 0,
+          "coverage": null
+        },
+        "p90": {
+          "n": 0,
+          "coverage": null
+        }
+      },
+      "touch_probability_pairs": 0,
+      "touch_brier_descriptive": null,
+      "sample_status": "NO_MATURED_FORECASTS",
+      "independence": "not_established; repeated forecasts and targets may overlap"
+    },
+    {
+      "instrument": "NQ",
+      "horizon": "NEW_YORK",
+      "model_version": "legacy_unvalidated",
+      "regime": "COMPRESSION",
+      "event_state": "NORMAL",
+      "forecasts": 1,
+      "matured": 0,
+      "status_counts": {
+        "NOT_MATURED": 1
+      },
+      "range_coverage": {
+        "p50": {
+          "n": 0,
+          "coverage": null
+        },
+        "p80": {
+          "n": 0,
+          "coverage": null
+        },
+        "p90": {
+          "n": 0,
+          "coverage": null
+        }
+      },
+      "touch_probability_pairs": 0,
+      "touch_brier_descriptive": null,
+      "sample_status": "NO_MATURED_FORECASTS",
+      "independence": "not_established; repeated forecasts and targets may overlap"
+    },
+    {
+      "instrument": "NQ",
+      "horizon": "NEXT_DAY",
+      "model_version": "complete_session_empirical",
+      "regime": "COMPRESSION",
+      "event_state": "DATA_UNAVAILABLE",
+      "forecasts": 1,
+      "matured": 0,
+      "status_counts": {
+        "NOT_MATURED": 1
+      },
+      "range_coverage": {
+        "p50": {
+          "n": 0,
+          "coverage": null
+        },
+        "p80": {
+          "n": 0,
+          "coverage": null
+        },
+        "p90": {
+          "n": 0,
+          "coverage": null
+        }
+      },
+      "touch_probability_pairs": 0,
+      "touch_brier_descriptive": null,
+      "sample_status": "NO_MATURED_FORECASTS",
+      "independence": "not_established; repeated forecasts and targets may overlap"
+    },
+    {
+      "instrument": "NQ",
+      "horizon": "NEXT_DAY",
+      "model_version": "legacy_unvalidated",
+      "regime": "COMPRESSION",
+      "event_state": "NORMAL",
+      "forecasts": 1,
+      "matured": 0,
+      "status_counts": {
+        "NOT_MATURED": 1
+      },
+      "range_coverage": {
+        "p50": {
+          "n": 0,
+          "coverage": null
+        },
+        "p80": {
+          "n": 0,
+          "coverage": null
+        },
+        "p90": {
+          "n": 0,
+          "coverage": null
+        }
+      },
+      "touch_probability_pairs": 0,
+      "touch_brier_descriptive": null,
+      "sample_status": "NO_MATURED_FORECASTS",
+      "independence": "not_established; repeated forecasts and targets may overlap"
+    },
+    {
+      "instrument": "NQ",
+      "horizon": "new_york_session",
+      "model_version": "none",
+      "regime": "COMPRESSION",
+      "event_state": "unknown",
+      "forecasts": 1,
+      "matured": 0,
+      "status_counts": {
+        "NOT_MATURED": 1
+      },
+      "range_coverage": {
+        "p50": {
+          "n": 0,
+          "coverage": null
+        },
+        "p80": {
+          "n": 0,
+          "coverage": null
+        },
+        "p90": {
+          "n": 0,
+          "coverage": null
+        }
+      },
+      "touch_probability_pairs": 0,
+      "touch_brier_descriptive": null,
+      "sample_status": "NO_MATURED_FORECASTS",
+      "independence": "not_established; repeated forecasts and targets may overlap"
+    },
+    {
+      "instrument": "NQ",
+      "horizon": "next_78_observed_5m_bars",
+      "model_version": "none",
+      "regime": "COMPRESSION",
+      "event_state": "unknown",
+      "forecasts": 1,
+      "matured": 0,
+      "status_counts": {
+        "NOT_MATURED": 1
+      },
+      "range_coverage": {
+        "p50": {
+          "n": 0,
+          "coverage": null
+        },
+        "p80": {
+          "n": 0,
+          "coverage": null
+        },
+        "p90": {
+          "n": 0,
+          "coverage": null
+        }
+      },
+      "touch_probability_pairs": 0,
+      "touch_brier_descriptive": null,
+      "sample_status": "NO_MATURED_FORECASTS",
+      "independence": "not_established; repeated forecasts and targets may overlap"
+    }
+  ],
+  "decision": "NO_PROMOTION",
+  "automatic_rollback": false,
+  "drift_alerts": "UNAVAILABLE_WITHOUT_VALIDATED_REFERENCE"
+}

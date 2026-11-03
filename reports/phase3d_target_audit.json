@@ -27,7 +27,7 @@
         "sha256": "ab0c21a68df27d4e1a4985d9c5b4c700f219d7135d814b7288d6e9df5a624952",
         "fetched_at": "2026-11-03T20:34:04.244691+00:00"
       },
-      "sha256": "0a1aa4461a8a45acd1bbf554380b4062352d93f7334f2686dac71c4c8dc75f32",
+      "sha256": "a8f76a8b7ce431bc2cd82838a089d3321cc2b039db7c3aa5b08de16a7750c06c",
       "cost_evaluation": "Use existing event-driven backtester. Correlated target rows are not independent trades.",
       "time_to_target": "bars_to_target is zero-based from entry bar; intrabar time unknown"
     },
@@ -55,7 +55,7 @@
         "sha256": "ab0c21a68df27d4e1a4985d9c5b4c700f219d7135d814b7288d6e9df5a624952",
         "fetched_at": "2026-11-03T20:34:04.244691+00:00"
       },
-      "sha256": "7c5c5f2454cbbb1ef49a60c504ad35e831f88c10f978e384a1286e373a7a3730",
+      "sha256": "02a7a0fc74f4df09a7a5f348890cc647c2e1818c9d2c60632d1c88bae90668c6",
       "cost_evaluation": "Use existing event-driven backtester. Correlated target rows are not independent trades.",
       "time_to_target": "bars_to_target is zero-based from entry bar; intrabar time unknown"
     },
@@ -83,7 +83,7 @@
         "sha256": "ab0c21a68df27d4e1a4985d9c5b4c700f219d7135d814b7288d6e9df5a624952",
         "fetched_at": "2026-11-03T20:34:04.244691+00:00"
       },
-      "sha256": "bf2d337e997281be7d0f37dc68b298e40de77e8ef3890a28f2eec5af8135ec92",
+      "sha256": "56f28ae38d7d6df39322ee009041659aa5ea631374fee4016ff64e5ae4b52766",
       "cost_evaluation": "Use existing event-driven backtester. Correlated target rows are not independent trades.",
       "time_to_target": "bars_to_target is zero-based from entry bar; intrabar time unknown"
     }

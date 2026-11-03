@@ -1,5 +1,8 @@
 {
   "instrument": "NQ",
+  "instruments": [
+    "NQ"
+  ],
   "v1_forecasts": 2,
   "v1_matured": 0,
   "v1_not_matured": 2,
