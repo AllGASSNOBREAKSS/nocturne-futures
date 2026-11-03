@@ -1,0 +1,73 @@
+{
+  "model_id": "NQ-frequency-20261103T165121",
+  "instrument_id": "NQ",
+  "model_type": "frequency",
+  "version": "0.2.0",
+  "created_at": "2026-11-03T16:51:21.406321+00:00",
+  "feature_columns": [
+    "ret1",
+    "ret5",
+    "ret20",
+    "atr_pct",
+    "sma20_dist",
+    "sma50_dist",
+    "vol20",
+    "range_pct",
+    "gap",
+    "dow_1",
+    "dow_2",
+    "dow_3",
+    "dow_4"
+  ],
+  "train_start": "2012-01-09",
+  "train_end": "2023-11-02",
+  "test_start": "2015-09-29",
+  "test_end": "2026-10-21",
+  "metrics": {
+    "n": 2162,
+    "base_rate": 0.4218,
+    "brier": 0.247639,
+    "log_loss": 0.688853,
+    "accuracy": 0.562,
+    "ece": 0.049132,
+    "reliability": [
+      {
+        "bin_low": 0.2,
+        "bin_high": 0.3,
+        "n": 42,
+        "mean_predicted": 0.2844,
+        "observed_rate": 0.5476
+      },
+      {
+        "bin_low": 0.3,
+        "bin_high": 0.4,
+        "n": 630,
+        "mean_predicted": 0.3664,
+        "observed_rate": 0.4333
+      },
+      {
+        "bin_low": 0.4,
+        "bin_high": 0.5,
+        "n": 1301,
+        "mean_predicted": 0.4408,
+        "observed_rate": 0.4143
+      },
+      {
+        "bin_low": 0.5,
+        "bin_high": 0.6,
+        "n": 189,
+        "mean_predicted": 0.5056,
+        "observed_rate": 0.4074
+      }
+    ]
+  },
+  "dataset_sha256": "147b385bce3fde70526c8a1b592e0510e089cd48a70d4d7ba8438229715d45ea",
+  "calibration": "platt",
+  "coefficients": {},
+  "notes": [
+    "promotion_status=RESEARCH_ONLY",
+    "baseline_frequency_brier=0.247639",
+    "walk_forward_chronological=true",
+    "same_bar_ambiguity=EXCLUDED"
+  ]
+}

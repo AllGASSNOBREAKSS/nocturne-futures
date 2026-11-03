@@ -39,6 +39,8 @@ cd ts && npm run validate -- ../data/snapshots/2026-10-27/call.json
 
 ## Next exact step
 
-Phase 3 is implemented. Phase 4 next: triple-barrier labels, historical-frequency
-and logistic baselines, calibration (Brier/log loss/ECE), model registry,
-forecast journal and read-only FastAPI. Then commit and push before Phase 5.
+Phase 4 is implemented and the first NQ model is trained. The frequency baseline
+is best (Brier 0.2474), logistic 0.2493 and boosted 0.2488; no model beats the
+frequency baseline, so promotion status is `RESEARCH_ONLY`. Phase 5 next:
+ES/NQ relative state, VX proxy labeling, ZN/ZB adapters and PremarketState.
+Then commit and push before Phase 6.

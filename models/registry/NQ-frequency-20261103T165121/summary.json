@@ -1,0 +1,165 @@
+{
+  "instrument": "NQ",
+  "model_id": "NQ-frequency-20261103T165121",
+  "best_model": "frequency",
+  "promotion_status": "RESEARCH_ONLY",
+  "samples": 2935,
+  "models": {
+    "frequency": {
+      "n": 2162,
+      "base_rate": 0.4218,
+      "brier": 0.247639,
+      "log_loss": 0.688853,
+      "accuracy": 0.562,
+      "ece": 0.049132,
+      "reliability": [
+        {
+          "bin_low": 0.2,
+          "bin_high": 0.3,
+          "n": 42,
+          "mean_predicted": 0.2844,
+          "observed_rate": 0.5476
+        },
+        {
+          "bin_low": 0.3,
+          "bin_high": 0.4,
+          "n": 630,
+          "mean_predicted": 0.3664,
+          "observed_rate": 0.4333
+        },
+        {
+          "bin_low": 0.4,
+          "bin_high": 0.5,
+          "n": 1301,
+          "mean_predicted": 0.4408,
+          "observed_rate": 0.4143
+        },
+        {
+          "bin_low": 0.5,
+          "bin_high": 0.6,
+          "n": 189,
+          "mean_predicted": 0.5056,
+          "observed_rate": 0.4074
+        }
+      ]
+    },
+    "logistic": {
+      "n": 2162,
+      "base_rate": 0.4218,
+      "brier": 0.249523,
+      "log_loss": 0.693081,
+      "accuracy": 0.5574,
+      "ece": 0.076474,
+      "reliability": [
+        {
+          "bin_low": 0.1,
+          "bin_high": 0.2,
+          "n": 10,
+          "mean_predicted": 0.1885,
+          "observed_rate": 0.6
+        },
+        {
+          "bin_low": 0.2,
+          "bin_high": 0.3,
+          "n": 81,
+          "mean_predicted": 0.2624,
+          "observed_rate": 0.3951
+        },
+        {
+          "bin_low": 0.3,
+          "bin_high": 0.4,
+          "n": 642,
+          "mean_predicted": 0.366,
+          "observed_rate": 0.472
+        },
+        {
+          "bin_low": 0.4,
+          "bin_high": 0.5,
+          "n": 1212,
+          "mean_predicted": 0.4427,
+          "observed_rate": 0.4002
+        },
+        {
+          "bin_low": 0.5,
+          "bin_high": 0.6,
+          "n": 199,
+          "mean_predicted": 0.5208,
+          "observed_rate": 0.3769
+        },
+        {
+          "bin_low": 0.6,
+          "bin_high": 0.7,
+          "n": 12,
+          "mean_predicted": 0.6386,
+          "observed_rate": 0.5
+        },
+        {
+          "bin_low": 0.7,
+          "bin_high": 0.8,
+          "n": 5,
+          "mean_predicted": 0.7145,
+          "observed_rate": 0.8
+        },
+        {
+          "bin_low": 0.8,
+          "bin_high": 0.9,
+          "n": 1,
+          "mean_predicted": 0.8202,
+          "observed_rate": 1.0
+        }
+      ]
+    },
+    "hist_gradient_boosting": {
+      "n": 2162,
+      "base_rate": 0.4218,
+      "brier": 0.248944,
+      "log_loss": 0.691812,
+      "accuracy": 0.5726,
+      "ece": 0.066881,
+      "reliability": [
+        {
+          "bin_low": 0.2,
+          "bin_high": 0.3,
+          "n": 76,
+          "mean_predicted": 0.2768,
+          "observed_rate": 0.5263
+        },
+        {
+          "bin_low": 0.3,
+          "bin_high": 0.4,
+          "n": 697,
+          "mean_predicted": 0.366,
+          "observed_rate": 0.4419
+        },
+        {
+          "bin_low": 0.4,
+          "bin_high": 0.5,
+          "n": 1179,
+          "mean_predicted": 0.4421,
+          "observed_rate": 0.3944
+        },
+        {
+          "bin_low": 0.5,
+          "bin_high": 0.6,
+          "n": 177,
+          "mean_predicted": 0.531,
+          "observed_rate": 0.4689
+        },
+        {
+          "bin_low": 0.6,
+          "bin_high": 0.7,
+          "n": 26,
+          "mean_predicted": 0.6283,
+          "observed_rate": 0.4615
+        },
+        {
+          "bin_low": 0.7,
+          "bin_high": 0.8,
+          "n": 7,
+          "mean_predicted": 0.7351,
+          "observed_rate": 0.5714
+        }
+      ]
+    }
+  }
+}

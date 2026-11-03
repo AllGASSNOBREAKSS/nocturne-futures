@@ -54,13 +54,13 @@ A milestone is `DONE` only when code, tests, and a runnable command exist.
 
 | Item | Status | Evidence |
 |---|---|---|
-| Triple-barrier labels | PLANNED | — |
-| Historical-frequency baseline | PLANNED | — |
-| Logistic baseline | PLANNED | — |
-| Gradient-boosted challenger (sklearn) | PLANNED | — |
-| Calibration (Brier, reliability, ECE) | PLANNED | — |
-| Model registry | PLANNED | — |
-| Read-only forecast API + journal | PLANNED | — |
+| Triple-barrier labels | DONE | `research/labels.py`, 4 tests; ambiguity excluded |
+| Historical-frequency baseline | DONE | `ml/baseline.py`; NQ walk-forward Brier 0.2474 |
+| Logistic baseline | DONE | NQ Brier 0.2493 (worse than frequency) |
+| Gradient-boosted challenger (sklearn) | DONE | NQ Brier 0.2488 (worse than frequency) |
+| Calibration (Brier, reliability, ECE) | DONE | `ml/calibration.py`, Platt + metrics |
+| Model registry | DONE | `models/registry/NQ-frequency-*`, metadata + joblib |
+| Read-only forecast API + journal | DONE | FastAPI, append-only JSONL, 7 API tests |
 
 ## Phase 5 — Intermarket / premarket
 
