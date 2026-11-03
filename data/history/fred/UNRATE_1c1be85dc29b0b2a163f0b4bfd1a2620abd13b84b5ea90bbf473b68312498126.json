@@ -1,0 +1,16 @@
+{
+  "series": "UNRATE",
+  "description": "BLS unemployment (seasonally adjusted, revisable)",
+  "source": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=UNRATE&cosd=1986-01-01&coed=2026-11-03",
+  "sha256": "1c1be85dc29b0b2a163f0b4bfd1a2620abd13b84b5ea90bbf473b68312498126",
+  "normalized_sha256": "bc0737c0e50df43e92ec7b3905b1bf3e58e133ea9ab784433bb3671e503e24cd",
+  "rows": 489,
+  "observations": 488,
+  "first": "1986-01-01",
+  "last": "2026-09-01",
+  "received_at": "2026-11-03T22:41:28.461999+00:00",
+  "vintage": "latest_at_download",
+  "historical_feature_eligible": false,
+  "consensus_available": false,
+  "publication_times_available": false
+}

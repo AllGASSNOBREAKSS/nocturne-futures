@@ -39,12 +39,21 @@ def test_forecast_evaluation_uses_only_future_bars():
     bars = frame()
     asof = datetime(2026, 11, 2, 16, 0, tzinfo=UTC)
     forecast = build_forecast_from_bars(bars, NQ, asof)
-    evaluation = evaluate_forecast(forecast, bars, horizon_bars=78)
+    evaluation = evaluate_forecast(forecast, bars, horizon_bars=12)
     assert evaluation.status == "EVALUATED"
     assert evaluation.realized_range is not None and evaluation.realized_range > 0
     assert evaluation.p50_covered is not None
     assert len(evaluation.target_touches) == len(forecast.targets)
     assert evaluation.direction_outcome == "UNVALIDATED_DIRECTION"
+
+
+def test_partial_horizon_is_not_scored():
+    bars = frame()
+    asof = datetime(2026, 11, 2, 16, 0, tzinfo=UTC)
+    forecast = build_forecast_from_bars(bars, NQ, asof)
+    result = evaluate_forecast(forecast, bars, horizon_bars=78)
+    assert result.status == "NOT_MATURED"
+    assert result.realized_range is None
 
 
 def test_unmatured_bundle_is_explicit():

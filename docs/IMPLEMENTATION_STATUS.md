@@ -1,5 +1,21 @@
 # Implementation Status
 
+## Phase 3D update (2026-11-03)
+
+Operational: public two-year hourly NQ/ES ingestion, official FRED latest-vintage
+context, authorized CSV import with checksums/revision rejection, grouped purged
+expanding/rolling validation, calibration and block intervals. See
+`PHASE3D_FINDINGS.md` for exact evidence and limitations.
+
+Research-only: 86 complete-session rows and separate 10,344 NQ / 10,336 ES
+two-hour observations. Better hourly Brier does not satisfy promotion; direction
+recall is poor. No production model probabilities enabled. `NO_TRADE` remains.
+
+Blocked/unfinished: licensed contract/roll-resolved intraday expansion, PIT macro
+consensus/news, independent final evaluation, advanced target/cost research,
+LightGBM, validated fusion and monitoring/rollback. Older milestone descriptions
+below must not be read as completing those gates.
+
 **Last updated:** 2026-11-03  
 **Branch:** `feat/backend-v2`
 

@@ -93,6 +93,22 @@ def test_timeout_dataset():
             bar(START + timedelta(minutes=10), 103, 103.5, 102.5, 103),
         ]
     )
-    frame = build_strategy_target_dataset([signal(targets=(110.0,), horizon=2)], bars, NQ)
+    frame = build_strategy_target_dataset([signal(targets=(110.0,), horizon=2)], bars, NQ,
+                                          TargetDatasetConfig(horizon_bars=2))
     assert frame.iloc[0]["outcome"] == "TIMEOUT"
     assert bool(frame.iloc[0]["target_first"]) is False
+
+
+def test_truncated_horizon_is_censored_and_not_stop_loss():
+    bars = pd.DataFrame([bar(START + timedelta(minutes=5), 103, 104, 102, 103)])
+    result = build_strategy_target_dataset([signal(targets=(110.0,))], bars, NQ)
+    assert result.iloc[0].outcome == "CENSORED"
+    assert pd.isna(result.iloc[0].target_first)
+
+
+def test_bar_after_exact_horizon_does_not_count():
+    bars = pd.DataFrame([bar(START + timedelta(minutes=5), 103, 104, 102, 103),
+                         bar(START + timedelta(minutes=10), 103, 111, 102, 110)])
+    result = build_strategy_target_dataset([signal(targets=(110.0,))], bars, NQ,
+                                           TargetDatasetConfig(horizon_bars=1))
+    assert result.iloc[0].outcome == "TIMEOUT"

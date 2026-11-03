@@ -2,6 +2,25 @@
 
 **Date:** 2026-11-03
 
+## Phase 3D — horizon contracts and independent evidence
+
+- Public hourly futures proxies are a separate two-hour research stream, never
+  upsampled into five-minute session or barrier data. Contract/roll mapping is
+  unknown, which blocks production promotion.
+- Official FRED current-vintage context is stored separately and excluded from
+  historical features until publication/vintage records are available.
+- Raw/normalized/checksum manifests use CSV without a new columnar dependency.
+  Conflicting revisions fail closed; no automatic back-adjustment or gap filling.
+- Inclusive label-end purging and one-hour embargo operate on whole signal/day
+  groups. Calibration is time-separated. The final 20% is unscored, but dates
+  inspected previously are not called an untouched final holdout.
+- Complete session grids and exact bar-count barrier horizons replace permissive
+  partial labels. Right-censoring is distinct from timeout and stop loss.
+- Keep existing promotion gates. Aggregate Brier improvements do not override
+  weak class recall, unknown roll provenance or missing independent validation.
+- Production session probabilities cannot reuse immediate rolling-bar event
+  estimates. Return null when the correct event has no validated model.
+
 ## AD-001 — Modular monolith, Python-first
 
 The existing repository is a small Python package plus a TypeScript ingestion

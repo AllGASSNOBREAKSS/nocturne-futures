@@ -84,6 +84,8 @@ def _evaluate(
     predictions = test[meta_columns].copy()
     predictions["p"] = probability
     metrics = classification_metrics(test["y"].to_numpy(), probability)
+    metrics["uncalibrated"] = classification_metrics(test.y.to_numpy(), model.predict_proba(test[feature_columns])[:, 1])
+    metrics["calibration_status"] = "time_separated_platt" if validation.y.nunique() == 2 else "unavailable_missing_classes"
     if test["y"].nunique() == 2:
         metrics["auc"] = round(float(roc_auc_score(test["y"], probability)), 4)
     coefficients = {}

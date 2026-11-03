@@ -147,12 +147,18 @@ def session_snapshot(
     frame = bars.copy()
     frame["timestamp"] = pd.to_datetime(frame["timestamp"], utc=True)
     frame["available_at"] = pd.to_datetime(frame["available_at"], utc=True)
-    known = frame[frame["available_at"] <= asof]
+    known = frame[frame["available_at"] <= asof].sort_values("timestamp")
     current = known[
         (known["timestamp"] >= window.start_utc) & (known["timestamp"] < window.end_utc)
     ].sort_values("timestamp")
     if current.empty:
         return None
+
+    # This path consumes the cached 5-minute bars. Elapsed wall time alone does
+    # not prove a complete observation; missing/duplicate bars invalidate labels.
+    expected_stamps = pd.date_range(window.start_utc, window.end_utc, freq="5min", inclusive="left")
+    complete = (asof >= window.end_utc and len(current) == len(expected_stamps)
+                and pd.DatetimeIndex(current.timestamp).equals(expected_stamps))
 
     close = float(current["close"].iloc[-1])
     open_price = float(current["open"].iloc[0])
@@ -163,8 +169,9 @@ def session_snapshot(
     range_points = high - low
     returns = np.log(current["close"] / current["close"].shift(1)).dropna()
     efficiency = (
-        abs(close - open_price) / float(current["close"].diff().abs().sum())
-        if current["close"].diff().abs().sum() > 0
+        abs(close - open_price) / (abs(float(current["close"].iloc[0]) - open_price)
+                                 + float(current["close"].diff().abs().sum()))
+        if abs(float(current["close"].iloc[0]) - open_price) + current["close"].diff().abs().sum() > 0
         else 0.0
     )
     vwap = None
@@ -205,7 +212,7 @@ def session_snapshot(
         start_utc=window.start_utc.isoformat(),
         end_utc=window.end_utc.isoformat(),
         asof=asof.isoformat(),
-        complete=asof >= window.end_utc,
+        complete=complete,
         bars=int(len(current)),
         open=round(open_price, 4),
         high=round(high, 4),
@@ -232,7 +239,9 @@ def session_snapshot(
         compression=bool(np.isfinite(atr) and atr > 0 and range_points / atr < 0.8),
         data_quality={
             "bar_count": int(len(current)),
-            "complete": bool(asof >= window.end_utc),
+            "complete": bool(complete),
+            "expected_bars": len(expected_stamps),
+            "feature_available_at": current.available_at.max().isoformat(),
             "profile_method": profile_method,
             "event_data_available": False,
         },

@@ -1,0 +1,16 @@
+{
+  "series": "CPIAUCSL",
+  "description": "BLS CPI (seasonally adjusted, revisable)",
+  "source": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCSL&cosd=1986-01-01&coed=2026-11-03",
+  "sha256": "1101a98a89f1ffffdc965a477bda07195a76c74c15c2b8573c31dc800a29c9e3",
+  "normalized_sha256": "5075c3c7264becaee00fde7b25b2af2a3a5e155321eed5b9217c86f8f6f5e375",
+  "rows": 489,
+  "observations": 488,
+  "first": "1986-01-01",
+  "last": "2026-09-01",
+  "received_at": "2026-11-03T22:41:27.983522+00:00",
+  "vintage": "latest_at_download",
+  "historical_feature_eligible": false,
+  "consensus_available": false,
+  "publication_times_available": false
+}

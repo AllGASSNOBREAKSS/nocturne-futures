@@ -1,0 +1,16 @@
+{
+  "series": "DGS10",
+  "description": "Federal Reserve H.15 10-year Treasury yield",
+  "source": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10&cosd=1986-01-01&coed=2026-11-03",
+  "sha256": "dca33af2e62df05185b6ce299e13856815e8b166082500cb86162f1df32b21d4",
+  "normalized_sha256": "1dc0bc8c8d8aca93115ffcaf67b41625dc2c5501719ef704f74d1b434164d917",
+  "rows": 10653,
+  "observations": 10215,
+  "first": "1986-01-02",
+  "last": "2026-11-02",
+  "received_at": "2026-11-03T22:41:22.356347+00:00",
+  "vintage": "latest_at_download",
+  "historical_feature_eligible": false,
+  "consensus_available": false,
+  "publication_times_available": false
+}

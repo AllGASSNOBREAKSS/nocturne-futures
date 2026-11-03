@@ -28,6 +28,7 @@ class EconomicEvent(BaseModel):
     event_type: str
     scheduled_at: datetime
     available_at: datetime
+    schedule_available_at: datetime | None = None
     consensus: float | None = None
     actual: float | None = None
     prior: float | None = None
@@ -59,16 +60,33 @@ class CalendarStore:
         ]
 
     def append(self, event: EconomicEvent) -> None:
-        if any(item.event_id == event.event_id for item in self.all()):
-            return
+        for item in self.all():
+            if item.event_id == event.event_id and item.available_at == event.available_at:
+                if item != event:
+                    raise ValueError("conflicting event vintage")
+                return
         with self.path.open("a", encoding="utf-8") as handle:
             handle.write(event.model_dump_json() + "\n")
 
     def upcoming(self, asof: datetime, horizon_hours: int = 24) -> list[EconomicEvent]:
         asof = _utc(asof)
         end = asof + timedelta(hours=horizon_hours)
+        visible = {}
+        for event in self.all():
+            # A release timestamp is not proof that its schedule or consensus
+            # was known beforehand. Legacy sample rows have no such evidence.
+            if event.schedule_available_at is None or _utc(event.schedule_available_at) > asof:
+                continue
+            if not asof <= _utc(event.scheduled_at) <= end:
+                continue
+            if _utc(event.available_at) > asof:
+                event = event.model_copy(update={"actual": None, "prior": None,
+                                                "revised_prior": None, "consensus": None})
+            previous = visible.get(event.event_id)
+            if previous is None or event.schedule_available_at > previous.schedule_available_at:
+                visible[event.event_id] = event
         return sorted(
-            [event for event in self.all() if asof <= _utc(event.scheduled_at) <= end],
+            visible.values(),
             key=lambda event: _utc(event.scheduled_at),
         )
 
@@ -133,7 +151,8 @@ def detect_critical_day(
     )
 
     reasons: list[str] = []
-    if not calendar.all():
+    if not any(e.schedule_available_at is not None and _utc(e.schedule_available_at) <= asof
+               and e.source != "public_schedule_sample" for e in calendar.all()):
         state = "DATA_UNAVAILABLE"
         reasons.append("NO_AUTHORIZED_CALENDAR")
     elif within_hour:
@@ -164,7 +183,7 @@ def detect_critical_day(
             "calendar_source": str(calendar.path),
             "event_count": len(events),
             "high_impact_count": len(high),
-            "point_in_time": True,
+            "point_in_time": all(e.schedule_available_at is not None for e in high) and state != "DATA_UNAVAILABLE",
             "directional_bias_defined": False,
         },
     )

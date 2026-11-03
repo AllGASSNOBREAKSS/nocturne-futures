@@ -14,6 +14,7 @@ from pathlib import Path
 from typing import Literal
 
 import numpy as np
+import pandas as pd
 from pydantic import BaseModel, ConfigDict, Field
 
 from ..backtest.data import ROOT, add_session_column, load_intraday
@@ -98,16 +99,33 @@ def _next_window(spec: InstrumentSpec, session: str, asof: datetime):
 
 
 def _consolidation(regime) -> float | None:
-    if not regime.future_probabilities:
+    # A 24-bar transition frequency is not a calibrated next-session event.
+    return None
+
+
+def _session_range_history(bars, spec, session, asof):
+    """Whole matching analytical windows; never mix rolling bar horizons."""
+    known = bars[bars.available_at <= asof].sort_values("timestamp")
+    values = []
+    for day in sorted(known.session.unique()):
+        if not is_trading_day(day):
+            continue
+        window = session_window_for(spec, session, day)
+        if window.end_utc > asof:
+            continue
+        sample = known[(known.timestamp >= window.start_utc) & (known.timestamp < window.end_utc)]
+        grid = pd.date_range(window.start_utc, window.end_utc, freq="5min", inclusive="left")
+        if pd.DatetimeIndex(sample.timestamp).equals(grid):
+            values.append(float(sample.high.max() - sample.low.min()))
+    if len(values) < 20:
         return None
-    return round(
-        sum(
-            probability
-            for label, probability in regime.future_probabilities.items()
-            if label in {"BALANCED", "CHOP", "COMPRESSION", "TRANSITION"}
-        ),
-        4,
-    )
+    values = np.asarray(values)
+    return {"event": "full_analytical_session_high_minus_low", "session": session,
+            "method": "unconditional_complete_same_session_empirical", "validation_status": "research_only",
+            "sample_n": len(values), "p50": float(np.quantile(values, .5)),
+            "p80": float(np.quantile(values, .8)), "p90": float(np.quantile(values, .9)),
+            "p_ge_200": float((values >= 200).mean()), "p_ge_350": float((values >= 350).mean()),
+            "p_ge_500": float((values >= 500).mean()), "asof": asof.isoformat()}
 
 
 def _outlook(
@@ -120,23 +138,14 @@ def _outlook(
     critical,
 ) -> SessionOutlook:
     horizon = SESSION_HORIZONS[window.session]
-    try:
-        range_forecast = expected_range(bars, horizon_bars=horizon, asof=asof)
-        expected = range_forecast.to_dict()
-    except ValueError:
-        expected = None
+    expected = _session_range_history(bars, spec, window.session, asof)
 
     current_price = float(bars[bars["available_at"] <= asof]["close"].iloc[-1])
     candidates = sorted(levels.levels, key=lambda level: abs(level.price - current_price))[:5]
     targets = []
     for level in candidates:
-        try:
-            touch = estimate_touch_probability(bars, level.price, horizon_bars=horizon, asof=asof)
-            probability = touch.probability if np.isfinite(touch.probability) else None
-            method = touch.method
-            sample_n = touch.sample_n
-        except ValueError:
-            probability, method, sample_n = None, "UNAVAILABLE", 0
+        # Immediate forward-bar estimates do not model a delayed session window.
+        probability, method, sample_n = None, "UNVALIDATED_SESSION_TOUCH", 0
         targets.append(
             ForecastTarget(
                 level=level.price,
@@ -174,6 +183,7 @@ def _outlook(
             "range_sample_n": expected.get("sample_n") if expected else None,
             "direction_model": "none",
             "target_probability_model": "none",
+            "range_status": "research_only" if expected else "INSUFFICIENT_COMPLETE_SESSIONS",
         },
     )
 
@@ -203,7 +213,7 @@ def build_bundle_from_bars(
     next_day_window = session_window_for(spec, "NEW_YORK", next_trading_day(day))
     next_day = _outlook(next_day_window, frame, spec, asof, regime, levels, critical)
 
-    bundle_id = hashlib.sha1(f"{spec.instrument_id}|{asof.isoformat()}|bundle-v1".encode()).hexdigest()[:16]
+    bundle_id = hashlib.sha1(f"{spec.instrument_id}|{asof.isoformat()}|bundle-phase3d".encode()).hexdigest()[:16]
     return ForecastBundle(
         bundle_id=bundle_id,
         instrument=spec.instrument_id,

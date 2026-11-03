@@ -1,0 +1,16 @@
+{
+  "series": "DGS2",
+  "description": "Federal Reserve H.15 2-year Treasury yield",
+  "source": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS2&cosd=1986-01-01&coed=2026-11-03",
+  "sha256": "9f1abe23ce92d005d28dfe2e88f4e802bf85bf8544256381f4b92095fd974eec",
+  "normalized_sha256": "f850758949607d405c667ad34b825f6317c7606632040fabe3f2a0cf9abcf87d",
+  "rows": 10653,
+  "observations": 10215,
+  "first": "1986-01-02",
+  "last": "2026-11-02",
+  "received_at": "2026-11-03T22:41:24.488253+00:00",
+  "vintage": "latest_at_download",
+  "historical_feature_eligible": false,
+  "consensus_available": false,
+  "publication_times_available": false
+}

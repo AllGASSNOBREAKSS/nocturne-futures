@@ -49,15 +49,17 @@ def evaluate_forecast(
     asof = pd.Timestamp(forecast.as_of)
     if asof.tzinfo is None:
         asof = asof.tz_localize("UTC")
-    future = frame[frame["available_at"] > asof].head(horizon_bars)
-    if future.empty:
+    if horizon_bars < 1:
+        raise ValueError("horizon_bars must be positive")
+    future = frame[(frame["timestamp"] >= asof) & (frame["available_at"] > asof)].head(horizon_bars)
+    if len(future) < horizon_bars:
         return ForecastEvaluation(
             forecast_id=forecast.forecast_id,
             instrument=forecast.instrument,
             asof=forecast.as_of,
             status="NOT_MATURED",
             horizon_bars=horizon_bars,
-            notes=["no bars after as_of"],
+            notes=[f"only {len(future)} of {horizon_bars} required future bars"],
         )
     high = float(future["high"].max())
     low = float(future["low"].min())
@@ -131,13 +133,18 @@ def evaluate_bundle(bundle: ForecastBundle, bars: pd.DataFrame) -> dict:
             & (frame["timestamp"] >= start)
             & (frame["timestamp"] < end)
         ]
-        if window.empty:
+        if frame.empty or frame.available_at.max() < end:
             results[name] = {
                 "status": "NOT_MATURED",
                 "session_date": outlook.session_date,
                 "window_start_utc": outlook.window_start_utc,
                 "window_end_utc": outlook.window_end_utc,
             }
+            continue
+        expected_stamps = pd.date_range(start, end, freq="5min", inclusive="left")
+        if not pd.DatetimeIndex(window.timestamp).equals(expected_stamps):
+            results[name] = {"status": "DATA_BLOCKED", "reason": "INCOMPLETE_SESSION_BARS",
+                             "session_date": outlook.session_date}
             continue
         high = float(window["high"].max())
         low = float(window["low"].min())

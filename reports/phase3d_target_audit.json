@@ -1,0 +1,91 @@
+{
+  "status": "RESEARCH_ONLY",
+  "promotion": "NO_PROMOTION",
+  "datasets": {
+    "orb": {
+      "rows": 132,
+      "signals": 44,
+      "outcomes": {
+        "TIMEOUT": 115,
+        "CENSORED": 12,
+        "SL_FIRST": 3,
+        "TP_FIRST": 2
+      },
+      "event": "TP_FIRST before SL within exactly 24 observed 5-minute bars",
+      "timeouts": "no target-first event, not a realized stop loss",
+      "censoring": "incomplete horizon or internal data gap; excluded from binary event rate",
+      "event_rate": 0.016666666666666666,
+      "risk_points_median": 208.625,
+      "target_distance_points_median": 412.75,
+      "source": {
+        "instrument": "NQ",
+        "interval": "5m",
+        "rows": 13566,
+        "first": "2026-08-25 04:05:00+00:00",
+        "last": "2026-11-03 20:23:59+00:00",
+        "source": "yahoo_public_unofficial",
+        "sha256": "ab0c21a68df27d4e1a4985d9c5b4c700f219d7135d814b7288d6e9df5a624952",
+        "fetched_at": "2026-11-03T20:34:04.244691+00:00"
+      },
+      "sha256": "0a1aa4461a8a45acd1bbf554380b4062352d93f7334f2686dac71c4c8dc75f32",
+      "cost_evaluation": "Use existing event-driven backtester. Correlated target rows are not independent trades.",
+      "time_to_target": "bars_to_target is zero-based from entry bar; intrabar time unknown"
+    },
+    "vwap": {
+      "rows": 84,
+      "signals": 42,
+      "outcomes": {
+        "SL_FIRST": 33,
+        "TP_FIRST": 32,
+        "TIMEOUT": 19
+      },
+      "event": "TP_FIRST before SL within exactly 24 observed 5-minute bars",
+      "timeouts": "no target-first event, not a realized stop loss",
+      "censoring": "incomplete horizon or internal data gap; excluded from binary event rate",
+      "event_rate": 0.38095238095238093,
+      "risk_points_median": 60.87214999999924,
+      "target_distance_points_median": 90.0974499999993,
+      "source": {
+        "instrument": "NQ",
+        "interval": "5m",
+        "rows": 13566,
+        "first": "2026-08-25 04:05:00+00:00",
+        "last": "2026-11-03 20:23:59+00:00",
+        "source": "yahoo_public_unofficial",
+        "sha256": "ab0c21a68df27d4e1a4985d9c5b4c700f219d7135d814b7288d6e9df5a624952",
+        "fetched_at": "2026-11-03T20:34:04.244691+00:00"
+      },
+      "sha256": "7c5c5f2454cbbb1ef49a60c504ad35e831f88c10f978e384a1286e373a7a3730",
+      "cost_evaluation": "Use existing event-driven backtester. Correlated target rows are not independent trades.",
+      "time_to_target": "bars_to_target is zero-based from entry bar; intrabar time unknown"
+    },
+    "value": {
+      "rows": 28,
+      "signals": 28,
+      "outcomes": {
+        "SL_FIRST": 14,
+        "TP_FIRST": 10,
+        "TIMEOUT": 4
+      },
+      "event": "TP_FIRST before SL within exactly 24 observed 5-minute bars",
+      "timeouts": "no target-first event, not a realized stop loss",
+      "censoring": "incomplete horizon or internal data gap; excluded from binary event rate",
+      "event_rate": 0.35714285714285715,
+      "risk_points_median": 65.0,
+      "target_distance_points_median": 73.375,
+      "source": {
+        "instrument": "NQ",
+        "interval": "5m",
+        "rows": 13566,
+        "first": "2026-08-25 04:05:00+00:00",
+        "last": "2026-11-03 20:23:59+00:00",
+        "source": "yahoo_public_unofficial",
+        "sha256": "ab0c21a68df27d4e1a4985d9c5b4c700f219d7135d814b7288d6e9df5a624952",
+        "fetched_at": "2026-11-03T20:34:04.244691+00:00"
+      },
+      "sha256": "bf2d337e997281be7d0f37dc68b298e40de77e8ef3890a28f2eec5af8135ec92",
+      "cost_evaluation": "Use existing event-driven backtester. Correlated target rows are not independent trades.",
+      "time_to_target": "bars_to_target is zero-based from entry bar; intrabar time unknown"
+    }
+  }
+}

@@ -38,8 +38,11 @@ def build_strategy_target_dataset(
     config: TargetDatasetConfig | None = None,
 ) -> pd.DataFrame:
     config = config or TargetDatasetConfig()
+    if config.horizon_bars < 1:
+        raise ValueError("horizon must be positive")
     frame = bars.copy()
     frame["timestamp"] = pd.to_datetime(frame["timestamp"], utc=True)
+    frame["available_at"] = pd.to_datetime(frame["available_at"], utc=True)
     frame = frame.sort_values("timestamp").reset_index(drop=True)
     slip = config.slippage_ticks * spec.tick_size
     rows: list[dict] = []
@@ -53,7 +56,7 @@ def build_strategy_target_dataset(
         entry = float(entry_bar["open"]) + direction * slip
         stop = signal.stop
         risk = abs(entry - stop)
-        if risk <= 0:
+        if risk <= 0 or direction * (entry - stop) <= 0:
             continue
         if config.target_multiples:
             targets = [
@@ -62,7 +65,11 @@ def build_strategy_target_dataset(
             ]
         else:
             targets = [(t.label, t.price, t.r_multiple) for t in signal.targets]
-        end_idx = min(entry_idx + config.horizon_bars, len(frame) - 1)
+        end_idx = min(entry_idx + config.horizon_bars - 1, len(frame) - 1)
+        complete = end_idx - entry_idx + 1 == config.horizon_bars
+        timestamps = frame.timestamp.iloc[entry_idx:end_idx + 1]
+        contiguous = timestamps.diff().dropna().eq(pd.Timedelta("5min")).all()
+        complete = complete and contiguous
 
         stop_idx: int | None = None
         target_idx: dict[int, int] = {}
@@ -90,6 +97,8 @@ def build_strategy_target_dataset(
 
         for i, target in enumerate(targets):
             label, target_price, target_r = target
+            if direction * (target_price - entry) <= 0:
+                continue  # opening gap already beyond target: no reachable entry setup
             t_idx = target_idx.get(i)
             if t_idx is None and stop_idx is None:
                 outcome = "TIMEOUT"
@@ -103,12 +112,20 @@ def build_strategy_target_dataset(
                 outcome = "TP_FIRST"
             else:
                 outcome = "SL_FIRST"
+            if not contiguous or (outcome == "TIMEOUT" and not complete):
+                outcome = "CENSORED"
 
             rows.append(
                 {
                     "strategy_id": signal.strategy_id,
                     "instrument_id": signal.instrument_id,
                     "signal_asof": signal.asof,
+                    "signal_id": f"{signal.instrument_id}|{signal.strategy_id}|{signal.asof.isoformat()}",
+                    "feature_available_at": signal.asof,
+                    "label_end": frame.available_at.iloc[end_idx],
+                    "label_definition": "target-before-stop-within-h-bars-v2",
+                    "horizon_complete": bool(complete),
+                    "excursion_definition": "full_observed_horizon_not_executable_exit_pnl",
                     "side": signal.side,
                     "entry_time": entry_bar["timestamp"],
                     "entry_price": round(entry, 4),
@@ -118,7 +135,7 @@ def build_strategy_target_dataset(
                     "r_multiple": round(abs(target_price - entry) / risk, 4),
                     "horizon_bars": config.horizon_bars,
                     "outcome": outcome,
-                    "target_first": outcome == "TP_FIRST",
+                    "target_first": None if outcome in {"CENSORED", "AMBIGUOUS"} else outcome == "TP_FIRST",
                     "bars_to_target": (t_idx - entry_idx) if t_idx is not None else None,
                     "bars_to_stop": (stop_idx - entry_idx) if stop_idx is not None else None,
                     "mfe_points": round(mfe, 4),

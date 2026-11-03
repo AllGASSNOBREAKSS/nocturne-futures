@@ -23,7 +23,7 @@ class TouchProbability:
     horizon_bars: int
     direction: str
     distance_atr: float
-    probability: float
+    probability: float | None
     sample_n: int
     tolerance_atr: float
     method: str
@@ -98,17 +98,17 @@ def estimate_touch_probability(
         touched, count = sample(max(tolerance_atr, 0.75))
         used_tolerance = max(tolerance_atr, 0.75)
         method = "EMPIRICAL_FORWARD_MFE_WIDENED"
-    if count == 0:
+    if count < min_samples:
         return TouchProbability(
             level=round(float(level), 4),
             asof=str(asof or frame["available_at"].iloc[-1]),
             horizon_bars=horizon_bars,
             direction=direction,
             distance_atr=round(current_distance, 4),
-            probability=float("nan"),
-            sample_n=0,
+            probability=None,
+            sample_n=count,
             tolerance_atr=used_tolerance,
-            method="NO_COMPARABLE_HISTORY",
+            method="INSUFFICIENT_COMPARABLE_HISTORY",
         )
     return TouchProbability(
         level=round(float(level), 4),

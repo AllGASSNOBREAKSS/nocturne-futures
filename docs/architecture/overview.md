@@ -7,6 +7,29 @@
 
 ## Runtime flow
 
+### Phase 3D research flow (current)
+
+```mermaid
+flowchart TD
+    A[Public hourly NQ / ES] --> B[Raw bytes + checksum manifests]
+    C[Authorized CSV exports] --> B
+    B --> D[Validated normalized OHLCV]
+    D --> E[Separate two-hour labels]
+    F[Cached five-minute bars] --> G[Complete analytical-session labels]
+    E --> H[Grouped purged walk-forward]
+    G --> H
+    H --> I[Time-separated calibration]
+    I --> J[Day-block uncertainty + class metrics]
+    J --> K[NO_PROMOTION]
+    L[Official FRED latest vintages] --> M[Context only: excluded from historical features]
+    K --> N[Read-only forecasts: null unvalidated probabilities]
+```
+
+The DOT research diagram source is updated for Phase 3D. Existing rendered
+SVG/PNG diagrams above are earlier architectural illustrations; Graphviz was
+unavailable for regeneration in this environment. This diagram and
+`../PHASE3D_FINDINGS.md` describe current implementation and blockers.
+
 ```text
 Yahoo / Treasury / Fed / calendar
         │

@@ -1,5 +1,14 @@
 # Model Validation
 
+Phase 3D implementation and frozen objectives are documented in
+`../PHASE3D_PROTOCOL.md`. `research/validation.py` implements forward-only
+day/signal grouping, inclusive label-end purging, elapsed embargo, rolling and
+expanding folds, holdout quarantine and day-block bootstrap. Reports in
+`reports/phase3d*validation.json` include actual fold counts, dates, class balance,
+calibration and uncertainty. Current-vintage FRED values are not model features.
+All models remain research-only. Previously inspected history is not a fresh
+final holdout, even when withheld from these reruns.
+
 **Instrument:** NQ  
 **Data:** 15 years of daily front-month bars, extended to 2026-11-02 in
 `data/market/daily/NQ.csv`.  

@@ -8,6 +8,23 @@
 
 ## What is implemented
 
+### Phase 3D checkpoint — 2026-11-03
+
+Two years of public hourly NQ/ES history and about 40 years of official FRED
+context are now downloaded with checksums. Hourly research uses a separate
+two-hour contract; it does not extend five-minute session coverage. Latest-vintage
+FRED values are excluded from historical model features.
+
+Purged, day/signal-grouped expanding and rolling validation, time-separated
+calibration and moving-block uncertainty are implemented. Rebuilt complete-session
+data contain 86 rows; hourly datasets contain 10,344 NQ and 10,336 ES rows.
+Hourly Brier improvements are retrospective evidence, **not promotion**. Direction
+class recall remains weak. Production probabilities remain null and `NO_TRADE`.
+
+See [Phase 3D findings](docs/PHASE3D_FINDINGS.md),
+[fixed protocol](docs/PHASE3D_PROTOCOL.md) and
+[checkpoint](docs/IMPLEMENTATION_CHECKPOINT.md) for commands, evidence and blockers.
+
 | Capability | Module | Status |
 |---|---|---|
 | Canonical event, level and prediction contracts | `contracts.py` | Implemented |

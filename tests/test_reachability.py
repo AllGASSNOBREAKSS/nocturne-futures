@@ -34,8 +34,9 @@ def test_near_level_is_more_reachable_than_far_level():
     far = estimate_touch_probability(bars, 110.0, horizon_bars=12, asof=asof)
     assert 0.0 <= near.probability <= 1.0
     assert near.sample_n > 0
-    assert far.probability != far.probability or far.probability == 0.0
-    assert near.probability >= far.probability if far.probability == far.probability else True
+    assert far.probability is None or far.probability == 0.0
+    if far.probability is not None:
+        assert near.probability >= far.probability
 
 
 def test_reachability_does_not_use_future_bars():

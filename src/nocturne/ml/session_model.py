@@ -105,6 +105,7 @@ def multiclass_metrics(y: np.ndarray, probabilities: np.ndarray) -> dict:
         "ece": round(ece, 6),
         "confusion": matrix.tolist(),
         "per_class_recall": recalls,
+        "balanced_accuracy": float(np.mean([x for x in recalls.values() if x is not None])),
     }
 
 
@@ -136,6 +137,9 @@ def evaluate_direction_split(
         raw_test = _align_classes(model, model.predict_proba(test[feature_columns]))
         probabilities = _calibrate(raw_validation, validation["y"].to_numpy(), raw_test)
         results[name] = _result(name, test, probabilities)
+        results[name].metrics["uncalibrated"] = multiclass_metrics(test.y.to_numpy(), raw_test)
+        results[name].metrics["calibration_status"] = (
+            "time_separated_logistic" if validation.y.nunique() == 3 else "unavailable_missing_classes")
     return results
 
 

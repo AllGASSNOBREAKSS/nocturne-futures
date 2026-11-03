@@ -13,6 +13,7 @@ import numpy as np
 import pandas as pd
 
 from ..instruments import InstrumentSpec
+from ..market_clock import is_trading_day, next_trading_day
 from ..sessions import SessionSnapshot, session_snapshot
 
 SESSIONS = ("ASIA", "LONDON", "NEW_YORK")
@@ -64,7 +65,8 @@ def build_session_dataset(
     es_spec: InstrumentSpec | None = None,
 ) -> pd.DataFrame:
     es_spec = es_spec or spec
-    days = sorted({pd.Timestamp(value).date() for value in nq_bars["session"].unique()})
+    days = sorted({pd.Timestamp(value).date() for value in nq_bars["session"].unique()
+                   if is_trading_day(pd.Timestamp(value).date())})
     snapshots: dict[tuple[date, str], SessionSnapshot] = {}
     for day in days:
         for session in sessions:
@@ -80,7 +82,7 @@ def build_session_dataset(
 
     rows = []
     for index, day in enumerate(days[:-1]):
-        next_day = days[index + 1]
+        next_day = next_trading_day(day)
         for session in sessions:
             current = snapshots.get((day, session))
             following = snapshots.get((next_day, session))
@@ -99,6 +101,15 @@ def build_session_dataset(
             else:
                 direction = "NEUTRAL"
             range_ratio = following.range_points / current.range_points
+            current_minutes = (pd.Timestamp(current.end_utc) - pd.Timestamp(current.start_utc)).total_seconds() / 60
+            future_minutes = (pd.Timestamp(following.end_utc) - pd.Timestamp(following.start_utc)).total_seconds() / 60
+            # Square-root time scaling is a research comparator, not an assumed
+            # diffusion law. Keep the original same-session label unchanged.
+            duration_ratio = range_ratio * np.sqrt(current_minutes / future_minutes)
+            direction_scale = current.atr * np.sqrt(future_minutes / 5)
+            normalized_direction = (following.close - current.close) / direction_scale
+            previous_days = [d for d in days[:index] if (d, session) in snapshots]
+            prior_snapshot = snapshots.get((previous_days[-1], session)) if previous_days else None
             if range_ratio <= 0.8:
                 range_state = "CONSOLIDATION"
             elif range_ratio >= 1.2:
@@ -112,6 +123,18 @@ def build_session_dataset(
                 {
                     "signal_id": f"{day.isoformat()}|{session}",
                     "day": day.isoformat(),
+                    "feature_available_at": current.end_utc,
+                    "label_start": current.end_utc,
+                    "label_end": following.end_utc,
+                    "label_window_start": following.start_utc,
+                    "feature_version": "session-v2-complete-5min",
+                    "current_minutes": current_minutes,
+                    "future_minutes": future_minutes,
+                    "duration_normalized_ratio": float(duration_ratio),
+                    "duration_consolidation": int(duration_ratio <= 0.8),
+                    "scaled_direction": "BULL" if normalized_direction > 0.5 else "BEAR" if normalized_direction < -0.5 else "NEUTRAL",
+                    "persistence_direction": "BULL" if current.return_pct > threshold_pct else "BEAR" if current.return_pct < -threshold_pct else "NEUTRAL",
+                    "persistence_consolidation": int(current.range_points <= 0.8 * prior_snapshot.range_points) if prior_snapshot and prior_snapshot.range_points else None,
                     "session": session,
                     "day_of_week": day.weekday(),
                     "current_return_pct": current.return_pct,

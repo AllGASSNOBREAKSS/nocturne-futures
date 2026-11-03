@@ -1,0 +1,16 @@
+{
+  "series": "DFF",
+  "description": "Federal Reserve effective federal funds rate",
+  "source": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFF&cosd=1986-01-01&coed=2026-11-03",
+  "sha256": "a788c2eed737d5b1e0a9da77fb30a8410a44b78f28e9fea826cdd3d071e77631",
+  "normalized_sha256": "4c6717aa12b76ddfcd2f15f526d3dc4132225e687c0462f57639c91656999451",
+  "rows": 14916,
+  "observations": 14916,
+  "first": "1986-01-01",
+  "last": "2026-11-02",
+  "received_at": "2026-11-03T22:41:27.466599+00:00",
+  "vintage": "latest_at_download",
+  "historical_feature_eligible": false,
+  "consensus_available": false,
+  "publication_times_available": false
+}

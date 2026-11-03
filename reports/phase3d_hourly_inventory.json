@@ -1,0 +1,58 @@
+[
+  {
+    "status": "FETCHED",
+    "raw_json_sha256": "29dcb5b56f15fd6a125ef7ff99383c8e3c438eae57bff7abd9cb8b3e4c676f50",
+    "provider": "yahoo_public_unofficial",
+    "instrument": "NQ",
+    "interval": "1h",
+    "price_basis": "unknown",
+    "license_scope": "research_context_not_exchange_feed",
+    "raw_sha256": "99c574d26baef1f11a42d2b2301ff612073c73cdce81bf8d420fbc900b4d479a",
+    "normalized_sha256": "99c574d26baef1f11a42d2b2301ff612073c73cdce81bf8d420fbc900b4d479a",
+    "normalized_path": "normalized/99c574d26baef1f11a42d2b2301ff612073c73cdce81bf8d420fbc900b4d479a.csv",
+    "quality": {
+      "rows": 11433,
+      "invalid_rows": 0,
+      "duplicate_keys": 0,
+      "zero_volume_rows": 415,
+      "first": "2024-11-03T23:00:00+00:00",
+      "last": "2026-11-03T21:00:00+00:00",
+      "gap_intervals": 514,
+      "gap_definition": "elapsed gaps; includes closures, not an exchange missing-bar count",
+      "contract_ids_available": false,
+      "usable_rows": 11433
+    },
+    "received_at": "2026-11-03T22:48:06.015904+00:00",
+    "availability_assumption": "export available_at; historical provider vintage unverified",
+    "five_minute_session_eligible": false,
+    "limitation": "hourly bars cannot resolve 09:30 boundaries or 5-minute barriers"
+  },
+  {
+    "status": "FETCHED",
+    "raw_json_sha256": "43fea5e3eebaea904da1ce9f1a0f210456710e2829b156284092bad27079480b",
+    "provider": "yahoo_public_unofficial",
+    "instrument": "ES",
+    "interval": "1h",
+    "price_basis": "unknown",
+    "license_scope": "research_context_not_exchange_feed",
+    "raw_sha256": "f788e3ff79ca1582c5d419cd3fd7940d2bc91dec39c187f559bff4c43aba6569",
+    "normalized_sha256": "f788e3ff79ca1582c5d419cd3fd7940d2bc91dec39c187f559bff4c43aba6569",
+    "normalized_path": "normalized/f788e3ff79ca1582c5d419cd3fd7940d2bc91dec39c187f559bff4c43aba6569.csv",
+    "quality": {
+      "rows": 11435,
+      "invalid_rows": 0,
+      "duplicate_keys": 0,
+      "zero_volume_rows": 421,
+      "first": "2024-11-03T23:00:00+00:00",
+      "last": "2026-11-03T21:00:00+00:00",
+      "gap_intervals": 518,
+      "gap_definition": "elapsed gaps; includes closures, not an exchange missing-bar count",
+      "contract_ids_available": false,
+      "usable_rows": 11435
+    },
+    "received_at": "2026-11-03T22:48:06.535191+00:00",
+    "availability_assumption": "export available_at; historical provider vintage unverified",
+    "five_minute_session_eligible": false,
+    "limitation": "hourly bars cannot resolve 09:30 boundaries or 5-minute barriers"
+  }
+]

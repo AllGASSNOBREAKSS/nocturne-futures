@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 from nocturne.macro.calendar import (
     CalendarStore,
@@ -17,6 +17,7 @@ def event(event_id, scheduled, importance="HIGH"):
         event_type="TEST",
         scheduled_at=scheduled,
         available_at=scheduled,
+        schedule_available_at=scheduled - timedelta(days=7),
         source="test",
         importance=importance,
         instruments=["NQ"],
@@ -62,5 +63,18 @@ def test_empty_calendar_is_explicit(tmp_path):
 def test_sample_calendar_is_loaded():
     store = load_sample_calendar()
     upcoming = store.upcoming(datetime(2026, 11, 3, 14, 0, tzinfo=UTC), horizon_hours=24 * 10)
-    assert any(item.event_id == "nfp-2026-11-06" for item in upcoming)
-    assert all(item.consensus is None for item in upcoming)
+    assert upcoming == []  # sample schedule has no historical availability proof
+
+
+def test_schedule_and_release_vintages_do_not_leak(tmp_path):
+    store = CalendarStore(tmp_path / "events.jsonl")
+    release = datetime(2026, 11, 3, 14, 30, tzinfo=UTC)
+    item = event("e1", release).model_copy(update={"actual": 9.0, "consensus": 8.0})
+    store.append(item)
+    prior = release - timedelta(minutes=30)
+    assert store.upcoming(prior)[0].actual is None
+    assert store.upcoming(prior)[0].consensus is None
+    assert store.recent(prior) == []
+    revised = item.model_copy(update={"available_at": release + timedelta(days=1), "actual": 10.0})
+    store.append(revised)
+    assert [e.actual for e in store.recent(release)] == [9.0]

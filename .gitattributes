@@ -1,0 +1,4 @@
+# Preserve exact bytes for SHA-256 provenance across Windows/Linux checkouts.
+data/history/** -text
+data/research/*phase3d.csv -text
+docs/PHASE3D_PROTOCOL.md text eol=lf

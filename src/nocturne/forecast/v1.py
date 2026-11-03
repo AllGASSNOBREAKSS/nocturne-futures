@@ -155,11 +155,11 @@ def build_forecast_from_bars(
                 zone_high=round(level.zone_high + 2 * spec.tick_size, 4),
                 probability_before_stop=None,
                 touch_probability=(
-                    touch.probability if np.isfinite(touch.probability) else None
+                    touch.probability if touch.probability is not None and np.isfinite(touch.probability) else None
                 ),
                 touch_method=touch.method,
                 touch_sample_n=touch.sample_n,
-                target_horizon="session",
+                target_horizon="next_78_observed_5m_bars",
                 level_type=level.level_type,
             )
         )
@@ -175,26 +175,17 @@ def build_forecast_from_bars(
         else None
     )
 
-    consolidation = None
-    if regime.future_probabilities:
-        consolidation = round(
-            sum(
-                probability
-                for label, probability in regime.future_probabilities.items()
-                if label in {"BALANCED", "CHOP", "COMPRESSION", "TRANSITION"}
-            ),
-            4,
-        )
+    consolidation = None  # 24-bar transition counts are not a validated 78-bar forecast
 
     forecast_id = hashlib.sha1(
-        f"{spec.instrument_id}|{asof.isoformat()}|v1".encode()
+        f"{spec.instrument_id}|{asof.isoformat()}|v1-phase3d".encode()
     ).hexdigest()[:16]
     return ForecastV1(
         forecast_id=forecast_id,
         instrument=spec.instrument_id,
         contract=contract,
         as_of=asof.isoformat(),
-        forecast_horizon="new_york_session",
+        forecast_horizon="next_78_observed_5m_bars",
         market_regime=regime.label,
         direction=direction,
         direction_probability=None,

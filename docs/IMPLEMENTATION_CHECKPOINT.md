@@ -1,5 +1,40 @@
 # Implementation Checkpoint
 
+## Current resume point — Phase 3D, 2026-11-03
+
+Branch `feat/phase3d`, base `64041fa`; obtain milestone hash with `git log -1`.
+See `PHASE3D_FINDINGS.md` and `PHASE3D_PROTOCOL.md` before changing experiments.
+Historical sections below describe earlier milestones and are superseded here.
+
+Implemented public hourly NQ/ES expansion, official FRED context acquisition,
+authorized CSV import, historical inventory, purged grouped walk-forward,
+block uncertainty, complete-session labels, two-hour models, corrected target
+censoring, forecast horizon guards and macro availability handling.
+No model promoted. APIs remain research-only/NO_TRADE.
+
+Reproduce without network:
+
+```powershell
+python scripts/history_inventory.py
+python scripts/phase3d_research.py
+python scripts/phase3d_hourly.py
+python scripts/phase3d_targets.py
+python scripts/evaluate_forecasts.py
+python -m pytest
+$env:PYTHONPATH='D:\nocturne-futures\native\build'; python -m pytest
+```
+
+Acquisition: `python scripts/expand_history.py fred-context` or `yahoo-hourly`.
+Authorized exports: `python scripts/expand_history.py import-csv --help`.
+Avoid replacing the frozen input CSVs when reproducing stored results.
+
+Verified locally: 170 tests with native; TypeScript typecheck; CLI audit.
+Hourly final rerun adds aggregate AUC; inspect its report before resuming.
+Next: review class-conditional calibration and target horizon/cost experiments;
+obtain licensed contract history and PIT economic vintages. Preserve quarantine
+and protocol; do not optimize against unscored final days. Remaining gates and
+data blockers are enumerated in `PHASE3D_FINDINGS.md`.
+
 **Date:** 2026-11-03  
 **Branch:** `feat/phase3b3` (merged to `main`)
 **Base:** `f3ac7f9`  

@@ -1,9 +1,9 @@
 {
-  "forecast_id": "d467cc2a4d7c39cb",
+  "forecast_id": "fa3a1abfe7000479",
   "instrument": "NQ",
   "contract": null,
   "as_of": "2026-11-03T20:28:59+00:00",
-  "forecast_horizon": "new_york_session",
+  "forecast_horizon": "next_78_observed_5m_bars",
   "market_regime": "COMPRESSION",
   "direction": "NEUTRAL",
   "direction_probability": null,
@@ -21,7 +21,7 @@
     "p_ge_350": 0.2704,
     "p_ge_500": 0.1121
   },
-  "consolidation_probability": 0.6167,
+  "consolidation_probability": null,
   "candidate_entry_zone": {
     "low": 28318.0,
     "high": 28319.0,
@@ -35,10 +35,10 @@
       "zone_low": 28318.0,
       "zone_high": 28319.0,
       "probability_before_stop": null,
-      "touch_probability": 0.5789,
-      "touch_method": "EMPIRICAL_FORWARD_MFE_WIDENED",
+      "touch_probability": null,
+      "touch_method": "INSUFFICIENT_COMPARABLE_HISTORY",
       "touch_sample_n": 19,
-      "target_horizon": "session",
+      "target_horizon": "next_78_observed_5m_bars",
       "level_type": "POC"
     },
     {
@@ -49,7 +49,7 @@
       "touch_probability": 0.6154,
       "touch_method": "EMPIRICAL_FORWARD_MFE_WIDENED",
       "touch_sample_n": 26,
-      "target_horizon": "session",
+      "target_horizon": "next_78_observed_5m_bars",
       "level_type": "VWAP_LOWER"
     },
     {
@@ -60,14 +60,15 @@
       "touch_probability": 0.7619,
       "touch_method": "EMPIRICAL_FORWARD_MFE_WIDENED",
       "touch_sample_n": 21,
-      "target_horizon": "session",
+      "target_horizon": "next_78_observed_5m_bars",
       "level_type": "VWAP"
     }
   ],
-  "critical_day": "NORMAL",
+  "critical_day": "DATA_UNAVAILABLE",
   "macro_warnings": [
     "CALENDAR_SAMPLE_ONLY",
-    "VX_FUTURES_UNAVAILABLE"
+    "VX_FUTURES_UNAVAILABLE",
+    "NO_AUTHORIZED_CALENDAR"
   ],
   "expected_value_after_costs": null,
   "model_version": "none",
@@ -86,8 +87,8 @@
     "range_sample_n": 3373,
     "range_bucket": 3,
     "calendar_source": "D:\\nocturne-futures\\data\\macro\\sample_events.json",
-    "calendar_event_count": 1,
-    "calendar_point_in_time": true
+    "calendar_event_count": 0,
+    "calendar_point_in_time": false
   },
   "strategy_id": null,
   "signal_id": null,

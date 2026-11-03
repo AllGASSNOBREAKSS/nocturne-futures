@@ -1,0 +1,24 @@
+{
+  "provider": "yahoo_public_unofficial",
+  "instrument": "NQ",
+  "interval": "1h",
+  "price_basis": "unknown",
+  "license_scope": "research_context_not_exchange_feed",
+  "raw_sha256": "99c574d26baef1f11a42d2b2301ff612073c73cdce81bf8d420fbc900b4d479a",
+  "normalized_sha256": "99c574d26baef1f11a42d2b2301ff612073c73cdce81bf8d420fbc900b4d479a",
+  "normalized_path": "normalized/99c574d26baef1f11a42d2b2301ff612073c73cdce81bf8d420fbc900b4d479a.csv",
+  "quality": {
+    "rows": 11433,
+    "invalid_rows": 0,
+    "duplicate_keys": 0,
+    "zero_volume_rows": 415,
+    "first": "2024-11-03T23:00:00+00:00",
+    "last": "2026-11-03T21:00:00+00:00",
+    "gap_intervals": 514,
+    "gap_definition": "elapsed gaps; includes closures, not an exchange missing-bar count",
+    "contract_ids_available": false,
+    "usable_rows": 11433
+  },
+  "received_at": "2026-11-03T22:48:06.015904+00:00",
+  "availability_assumption": "export available_at; historical provider vintage unverified"
+}

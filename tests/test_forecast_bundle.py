@@ -44,8 +44,9 @@ def test_bundle_is_research_only():
         assert outlook.direction_probability is None
         assert outlook.targets
         assert all(target.probability_before_stop is None for target in outlook.targets)
-        assert outlook.expected_range is not None
-        assert outlook.expected_range["p50"] <= outlook.expected_range["p80"]
+        assert outlook.expected_range is None  # only one synthetic session, not 20
+        assert outlook.consolidation_probability is None
+        assert all(target.touch_probability is None for target in outlook.targets)
 
 
 def test_bundle_journal_is_idempotent(tmp_path):
