@@ -1,0 +1,27 @@
+{
+  "session_date": "2026-11-03",
+  "asof": "2026-11-03T16:56:44.357308+00:00",
+  "nq_gap": 0.004584,
+  "nq_overnight_high": 28426.5,
+  "nq_overnight_low": 28038.25,
+  "nq_prior_rth_high": 28891.25,
+  "nq_prior_rth_low": 28101.75,
+  "nq_prior_rth_close": 28138.75,
+  "es_gap": 0.000495,
+  "es_overnight_high": 7604.75,
+  "es_overnight_low": 7546.0,
+  "es_prior_rth_high": 7693.75,
+  "es_prior_rth_low": 7570.75,
+  "es_prior_rth_close": 7576.25,
+  "leadership": "NQ_LED",
+  "vix_state": "ELEVATED",
+  "events": [],
+  "flags": [
+    "OVERNIGHT_PROVISIONAL",
+    "CALENDAR_NOT_CONFIGURED"
+  ],
+  "data_quality": {
+    "missing": false,
+    "coverage": 1.0
+  }
+}

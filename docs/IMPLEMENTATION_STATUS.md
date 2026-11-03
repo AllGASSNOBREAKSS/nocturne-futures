@@ -66,11 +66,11 @@ A milestone is `DONE` only when code, tests, and a runnable command exist.
 
 | Item | Status | Evidence |
 |---|---|---|
-| ES/NQ relative state | PLANNED | — |
-| VX curve (CFE) | DATA_BLOCKED | `^VIX` spot proxy only |
-| ZN/ZB adapters | PLANNED | Yahoo proxies, unverified |
-| PremarketState | PLANNED | — |
-| Event/critical-day gates | PLANNED | — |
+| ES/NQ relative state | DONE | `intermarket/context.py`; beta 1.82, corr 0.95 on 2026-11-02 |
+| VX curve (CFE) | DATA_BLOCKED | `^VIX` spot proxy only; flag `VX_FUTURES_UNAVAILABLE` |
+| ZN/ZB adapters | DONE | Yahoo front-month proxies; flag `ZN_ZB_YAHOO_PROXY` |
+| PremarketState | DONE | `premarket.py`; real 2026-11-03 state built |
+| Event/critical-day gates | PLANNED | Phase 8 |
 
 ## Phase 6 — Tape / DOM
 

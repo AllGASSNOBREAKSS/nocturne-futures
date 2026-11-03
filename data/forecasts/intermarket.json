@@ -1,0 +1,20 @@
+{
+  "asof": "2026-11-02",
+  "es_return_1d": -0.00417,
+  "nq_return_1d": -0.011337,
+  "relative_1d": -0.007167,
+  "beta_20d": 1.8158,
+  "corr_20d": 0.9477,
+  "spread_z_20d": -1.7562,
+  "vix_level": 21.41,
+  "vix_change_5d": 0.16422,
+  "vx_futures_available": false,
+  "vix_proxy": "VIX_SPOT_PROXY",
+  "zn_return_1d": 0.002051,
+  "zb_return_1d": 0.005515,
+  "dxy_level": null,
+  "flags": [
+    "VX_FUTURES_UNAVAILABLE",
+    "ZN_ZB_YAHOO_PROXY"
+  ]
+}

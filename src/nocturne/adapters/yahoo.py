@@ -87,6 +87,9 @@ def events_from_chart(
             continue
         bar_start = datetime.fromtimestamp(stamp, UTC)
         bar_end = bar_start + duration
+        if bar_end > received:
+            # Incomplete current bar: do not admit it into replay.
+            continue
         open_ = quote["open"][index] if quote["open"][index] is not None else close
         high = quote["high"][index] if quote["high"][index] is not None else close
         low = quote["low"][index] if quote["low"][index] is not None else close

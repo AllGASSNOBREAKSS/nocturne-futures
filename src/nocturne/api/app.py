@@ -49,6 +49,10 @@ def create_app(service: ForecastService | None = None) -> FastAPI:
     def intermarket_state() -> dict:
         return service.intermarket_state()
 
+    @app.get("/v1/premarket/state")
+    def premarket_state() -> dict:
+        return service.premarket_state()
+
     @app.get("/v1/events/upcoming")
     def events_upcoming() -> dict:
         return service.events_upcoming()

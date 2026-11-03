@@ -152,6 +152,9 @@ def main(argv: list[str] | None = None) -> int:
     serve.add_argument("--host", default="127.0.0.1")
     serve.add_argument("--port", type=int, default=8000)
 
+    context = sub.add_parser("context", help="build intermarket and premarket artifacts")
+    context.add_argument("--offline", action="store_true", help="skip Yahoo intraday fetch")
+
     args = parser.parse_args(argv)
 
     if args.command == "audit":
@@ -162,6 +165,12 @@ def main(argv: list[str] | None = None) -> int:
         return _forecast(args.instrument)
     if args.command == "serve":
         return _serve(args.host, args.port)
+    if args.command == "context":
+        from .context_builder import build_context
+
+        result = build_context(offline=args.offline)
+        print(json.dumps(result, indent=2)[:2000])
+        return 0
 
     if args.command == "build":
         call = _call_for_date(args.date)
