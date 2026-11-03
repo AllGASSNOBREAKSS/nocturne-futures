@@ -40,7 +40,7 @@ def bar_quality(frame, interval="5min"):
             "last": stamps.max().isoformat() if len(stamps) else None,
             "gap_intervals": int((gaps > pd.Timedelta(interval)).sum()),
             "gap_definition": "elapsed gaps; includes closures, not an exchange missing-bar count",
-            "contract_ids_available": "contract_id" in frame and frame.contract_id.notna().all(),
+            "contract_ids_available": bool("contract_id" in frame and frame.contract_id.notna().all()),
             "usable_rows": int((~invalid & ~frame.duplicated(keys)).sum())}
 
 

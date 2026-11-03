@@ -1,0 +1,164 @@
+{
+  "bundle": {
+    "as_of": "2026-09-30T16:00:00+00:00",
+    "bundle_id": "595e53bc3bf01c76",
+    "outcomes": {
+      "ASIA": {
+        "reason": "INCOMPLETE_SESSION_BARS",
+        "session_date": "2026-10-01",
+        "status": "DATA_BLOCKED"
+      },
+      "LONDON": {
+        "direction_outcome": "UNVALIDATED_DIRECTION",
+        "p50_covered": false,
+        "p80_covered": false,
+        "p90_covered": false,
+        "realized_high": 31043.25,
+        "realized_low": 30757.75,
+        "realized_range": 285.5,
+        "session_date": "2026-10-01",
+        "status": "EVALUATED",
+        "target_touches": [
+          {
+            "level": 30878.875,
+            "touch_probability": null,
+            "touched": true
+          },
+          {
+            "level": 30894.75,
+            "touch_probability": null,
+            "touched": true
+          },
+          {
+            "level": 30854.7512,
+            "touch_probability": null,
+            "touched": true
+          },
+          {
+            "level": 30906.0,
+            "touch_probability": null,
+            "touched": true
+          },
+          {
+            "level": 30842.0,
+            "touch_probability": null,
+            "touched": true
+          }
+        ]
+      },
+      "NEW_YORK": {
+        "direction_outcome": "UNVALIDATED_DIRECTION",
+        "p50_covered": false,
+        "p80_covered": true,
+        "p90_covered": true,
+        "realized_high": 30883.5,
+        "realized_low": 30529.25,
+        "realized_range": 354.25,
+        "session_date": "2026-10-01",
+        "status": "EVALUATED",
+        "target_touches": [
+          {
+            "level": 30878.875,
+            "touch_probability": null,
+            "touched": true
+          },
+          {
+            "level": 30894.75,
+            "touch_probability": null,
+            "touched": false
+          },
+          {
+            "level": 30854.7512,
+            "touch_probability": null,
+            "touched": true
+          },
+          {
+            "level": 30906.0,
+            "touch_probability": null,
+            "touched": false
+          },
+          {
+            "level": 30842.0,
+            "touch_probability": null,
+            "touched": true
+          }
+        ]
+      },
+      "NEXT_DAY": {
+        "direction_outcome": "UNVALIDATED_DIRECTION",
+        "p50_covered": false,
+        "p80_covered": true,
+        "p90_covered": true,
+        "realized_high": 30883.5,
+        "realized_low": 30529.25,
+        "realized_range": 354.25,
+        "session_date": "2026-10-01",
+        "status": "EVALUATED",
+        "target_touches": [
+          {
+            "level": 30878.875,
+            "touch_probability": null,
+            "touched": true
+          },
+          {
+            "level": 30894.75,
+            "touch_probability": null,
+            "touched": false
+          },
+          {
+            "level": 30854.7512,
+            "touch_probability": null,
+            "touched": true
+          },
+          {
+            "level": 30906.0,
+            "touch_probability": null,
+            "touched": false
+          },
+          {
+            "level": 30842.0,
+            "touch_probability": null,
+            "touched": true
+          }
+        ]
+      }
+    }
+  },
+  "evaluation_input_sha256": "2564a2530919a0dfa01e089683cd55b1dd1380d0882dfcdc06acb6a3810dcec1",
+  "replay_id": "29c59197ee0b34c32b1245ca",
+  "v1": {
+    "asof": "2026-09-30T16:00:00+00:00",
+    "direction_outcome": "UNVALIDATED_DIRECTION",
+    "forecast_id": "efb8fb5a2c41a28f",
+    "horizon_bars": 78,
+    "instrument": "NQ",
+    "notes": [],
+    "p50_covered": false,
+    "p80_covered": true,
+    "p90_covered": true,
+    "realized_high": 30896.75,
+    "realized_low": 30636.5,
+    "realized_range": 260.25,
+    "status": "EVALUATED",
+    "target_touches": [
+      {
+        "level": 30878.875,
+        "level_type": "CONFLUENCE",
+        "touch_probability": 0.9242,
+        "touched": true
+      },
+      {
+        "level": 30894.75,
+        "level_type": "IB_HIGH",
+        "touch_probability": 0.9231,
+        "touched": true
+      },
+      {
+        "level": 30854.7512,
+        "level_type": "VWAP_UPPER",
+        "touch_probability": 0.9524,
+        "touched": true
+      }
+    ]
+  }
+}

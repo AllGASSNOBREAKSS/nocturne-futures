@@ -8,6 +8,20 @@
 
 ## What is implemented
 
+### Phase 3E checkpoint — 2026-11-03
+
+Authenticated Databento and ALFRED adapters are implemented and fixture-tested;
+no credentials were present, so real licensed downloads remain **DATA_BLOCKED**.
+LightGBM ablations, two-hour range quantiles, nested-target monotonicity audits,
+immutable development replay and fail-closed promotion evidence are implemented.
+All models remain `NO_PROMOTION`; forecasts remain `NO_TRADE`.
+
+Replay produced 12 frozen development forecasts, all matured. ASIA replay windows
+are blocked by incomplete cache coverage. See
+[Phase 3E findings](docs/PHASE3E_FINDINGS.md),
+[protocol](docs/PHASE3E_PROTOCOL.md) and
+[checkpoint](docs/IMPLEMENTATION_CHECKPOINT.md).
+
 ### Phase 3D checkpoint — 2026-11-03
 
 Two years of public hourly NQ/ES history and about 40 years of official FRED

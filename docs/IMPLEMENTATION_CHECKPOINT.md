@@ -1,49 +1,46 @@
 # Implementation Checkpoint
 
-## Current resume point — Phase 3D, 2026-11-03
+## Current resume point — Phase 3E, 2026-11-03
 
-Branch `feat/phase3d`, base `64041fa`; obtain milestone hash with `git log -1`.
-First milestone `c8744b3` pushed and remote CI passed. Follow-up implements fixed
-200/350/500-point candidate diagnostics with costs and descriptive grouped
-journal monitoring. Reproduce with `python scripts/phase3d_destinations.py` and
-`python scripts/evaluate_forecasts.py`. Neither enables promotion or trading.
-See `PHASE3D_FINDINGS.md` and `PHASE3D_PROTOCOL.md` before changing experiments.
-Historical sections below describe earlier milestones and are superseded here.
+Branch `feat/phase3e`, base `8bb874b` (Phase 3D release, remote CI success).
+Read `PHASE3E_FINDINGS.md` and `PHASE3E_PROTOCOL.md` before changing experiments.
+Decision remains **NO_PROMOTION / NO_TRADE**.
 
-Implemented public hourly NQ/ES expansion, official FRED context acquisition,
-authorized CSV import, historical inventory, purged grouped walk-forward,
-block uncertainty, complete-session labels, two-hour models, corrected target
-censoring, forecast horizon guards and macro availability handling.
-No model promoted. APIs remain research-only/NO_TRADE.
+Implemented: authenticated Databento/ALFRED adapters (fixture-tested only; keys
+absent), raw-contract and source-comparison validation, LightGBM feature
+ablations, time-separated two-hour range quantiles, nested-target monotonicity
+audit, immutable development replay, fail-closed promotion evidence, and a
+development-only strategy/cost audit.
 
-Reproduce without network:
+Reproduce offline (input files are frozen; do not replace them):
 
 ```powershell
-python scripts/history_inventory.py
-python scripts/phase3d_research.py
-python scripts/phase3d_hourly.py
-python scripts/phase3d_targets.py
-python scripts/evaluate_forecasts.py
-python -m pytest
+python scripts/phase3e_providers.py inventory
+python scripts/phase3e_ablation.py
+python scripts/phase3e_quantiles.py
+python scripts/phase3e_target_diagnostics.py
+python scripts/phase3e_replay.py
+python scripts/phase3e_promotion.py
+python scripts/phase3e_strategies.py
 $env:PYTHONPATH='D:\nocturne-futures\native\build'; python -m pytest
 ```
 
-Acquisition: `python scripts/expand_history.py fred-context` or `yahoo-hourly`.
-Authorized exports: `python scripts/expand_history.py import-csv --help`.
-Avoid replacing the frozen input CSVs when reproducing stored results.
+External fetch commands (require entitlement): `phase3e_providers.py databento`
+and `phase3e_providers.py alfred`. Licensed downloads are gitignored.
 
-Verified locally after destination/monitoring/provenance follow-up: 176 tests with native;
-TypeScript typecheck and CLI audit passed at the preceding milestone.
-Hourly final rerun completed: expanding consolidation GBM AUC 0.83617 NQ /
-0.83661 ES. This does not override provenance or independent-validation gates.
-Next: review class-conditional calibration and target horizon/cost experiments;
-obtain licensed contract history and PIT economic vintages. Preserve quarantine
-and protocol; do not optimize against unscored final days. Remaining gates and
-data blockers are enumerated in `PHASE3D_FINDINGS.md`.
+Verification: 184 native-enabled tests passed, including the final strategy audit.
+Replay wrote 12 frozen development forecasts; all 12 V1 horizons matured. ASIA
+replay windows are DATA_BLOCKED due incomplete cache coverage. No production
+probabilities changed.
 
-**Date:** 2026-11-03  
-**Branch:** `feat/phase3b3` (merged to `main`)
-**Base:** `f3ac7f9`  
+Next: inspect `phase3e_strategies.json` when available; obtain licensed
+contract-level history and PIT macro vintages; then evaluate class-conditional
+direction calibration and target survival models on independent data. Do not
+tune against the unscored final fifth. Remaining blockers and exact metrics are
+in `PHASE3E_FINDINGS.md`.
+
+**Date:** 2026-11-03
+**Previous branch:** `feat/phase3d`
 **Latest backend commit:** see `git log --oneline -1`
 
 ## Phase 3A — backtest validation and predictive foundation

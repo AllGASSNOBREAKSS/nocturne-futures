@@ -1,0 +1,122 @@
+{
+  "NQ_direction_lightgbm_without_none": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "two_contiguous_future_hours"
+    ]
+  },
+  "NQ_direction_logistic_without_none": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "two_contiguous_future_hours"
+    ]
+  },
+  "NQ_consolidation_lightgbm_without_none": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "two_contiguous_future_hours"
+    ]
+  },
+  "NQ_consolidation_logistic_without_none": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "two_contiguous_future_hours"
+    ]
+  },
+  "ES_direction_lightgbm_without_none": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "two_contiguous_future_hours"
+    ]
+  },
+  "ES_direction_logistic_without_none": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "two_contiguous_future_hours"
+    ]
+  },
+  "ES_consolidation_lightgbm_without_none": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "two_contiguous_future_hours"
+    ]
+  },
+  "ES_consolidation_logistic_without_none": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "two_contiguous_future_hours"
+    ]
+  }
+}

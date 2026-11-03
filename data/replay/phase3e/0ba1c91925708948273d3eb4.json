@@ -1,0 +1,473 @@
+{
+  "asof": "2026-09-09T16:00:00+00:00",
+  "bundle": {
+    "as_of": "2026-09-09T16:00:00+00:00",
+    "bundle_id": "a67ae0768b15cc0b",
+    "critical_day": "DATA_UNAVAILABLE",
+    "data_provenance": {
+      "bars": "data/market/intraday",
+      "calendar_point_in_time": false,
+      "calendar_source": "D:\\nocturne-futures\\data\\macro\\sample_events.json",
+      "research_only": true
+    },
+    "instrument": "ES",
+    "next_day": {
+      "as_of": "2026-09-09T16:00:00+00:00",
+      "consolidation_probability": null,
+      "critical_day": "DATA_UNAVAILABLE",
+      "data_provenance": {
+        "direction_model": "none",
+        "level_count": 16,
+        "profile_method": "BAR_APPROXIMATION",
+        "range_horizon_bars": 78,
+        "range_sample_n": null,
+        "range_status": "INSUFFICIENT_COMPLETE_SESSIONS",
+        "regime_reasons": [
+          "adx=31.89",
+          "efficiency=0.04",
+          "overlap=1.00",
+          "vol_pct=0.98"
+        ],
+        "target_probability_model": "none"
+      },
+      "decision": "NO_TRADE",
+      "direction": "NEUTRAL",
+      "direction_probability": null,
+      "expected_range": null,
+      "market_regime": "STRESS",
+      "session": "NEW_YORK",
+      "session_date": "2026-09-10",
+      "targets": [
+        {
+          "level": 7641.7861,
+          "level_type": "CONFLUENCE",
+          "probability_before_stop": null,
+          "target_horizon": "next_session",
+          "touch_method": "UNVALIDATED_SESSION_TOUCH",
+          "touch_probability": null,
+          "touch_sample_n": 0,
+          "zone_high": 7643.0,
+          "zone_low": 7640.75
+        },
+        {
+          "level": 7638.5,
+          "level_type": "HVN",
+          "probability_before_stop": null,
+          "target_horizon": "next_session",
+          "touch_method": "UNVALIDATED_SESSION_TOUCH",
+          "touch_probability": null,
+          "touch_sample_n": 0,
+          "zone_high": 7639.0,
+          "zone_low": 7638.0
+        },
+        {
+          "level": 7644.3333,
+          "level_type": "CONFLUENCE",
+          "probability_before_stop": null,
+          "target_horizon": "next_session",
+          "touch_method": "UNVALIDATED_SESSION_TOUCH",
+          "touch_probability": null,
+          "touch_sample_n": 0,
+          "zone_high": 7645.0,
+          "zone_low": 7643.5
+        },
+        {
+          "level": 7636.0,
+          "level_type": "LVN",
+          "probability_before_stop": null,
+          "target_horizon": "next_session",
+          "touch_method": "UNVALIDATED_SESSION_TOUCH",
+          "touch_probability": null,
+          "touch_sample_n": 0,
+          "zone_high": 7636.5,
+          "zone_low": 7635.5
+        },
+        {
+          "level": 7633.9018,
+          "level_type": "CONFLUENCE",
+          "probability_before_stop": null,
+          "target_horizon": "next_session",
+          "touch_method": "UNVALIDATED_SESSION_TOUCH",
+          "touch_probability": null,
+          "touch_sample_n": 0,
+          "zone_high": 7635.25,
+          "zone_low": 7632.5536
+        }
+      ],
+      "validation_status": "research_only",
+      "window_end_utc": "2026-09-10T20:00:00+00:00",
+      "window_start_utc": "2026-09-10T13:30:00+00:00"
+    },
+    "outlooks": {
+      "ASIA": {
+        "as_of": "2026-09-09T16:00:00+00:00",
+        "consolidation_probability": null,
+        "critical_day": "DATA_UNAVAILABLE",
+        "data_provenance": {
+          "direction_model": "none",
+          "level_count": 16,
+          "profile_method": "BAR_APPROXIMATION",
+          "range_horizon_bars": 96,
+          "range_sample_n": null,
+          "range_status": "INSUFFICIENT_COMPLETE_SESSIONS",
+          "regime_reasons": [
+            "adx=31.89",
+            "efficiency=0.04",
+            "overlap=1.00",
+            "vol_pct=0.98"
+          ],
+          "target_probability_model": "none"
+        },
+        "decision": "NO_TRADE",
+        "direction": "NEUTRAL",
+        "direction_probability": null,
+        "expected_range": null,
+        "market_regime": "STRESS",
+        "session": "ASIA",
+        "session_date": "2026-09-10",
+        "targets": [
+          {
+            "level": 7641.7861,
+            "level_type": "CONFLUENCE",
+            "probability_before_stop": null,
+            "target_horizon": "next_session",
+            "touch_method": "UNVALIDATED_SESSION_TOUCH",
+            "touch_probability": null,
+            "touch_sample_n": 0,
+            "zone_high": 7643.0,
+            "zone_low": 7640.75
+          },
+          {
+            "level": 7638.5,
+            "level_type": "HVN",
+            "probability_before_stop": null,
+            "target_horizon": "next_session",
+            "touch_method": "UNVALIDATED_SESSION_TOUCH",
+            "touch_probability": null,
+            "touch_sample_n": 0,
+            "zone_high": 7639.0,
+            "zone_low": 7638.0
+          },
+          {
+            "level": 7644.3333,
+            "level_type": "CONFLUENCE",
+            "probability_before_stop": null,
+            "target_horizon": "next_session",
+            "touch_method": "UNVALIDATED_SESSION_TOUCH",
+            "touch_probability": null,
+            "touch_sample_n": 0,
+            "zone_high": 7645.0,
+            "zone_low": 7643.5
+          },
+          {
+            "level": 7636.0,
+            "level_type": "LVN",
+            "probability_before_stop": null,
+            "target_horizon": "next_session",
+            "touch_method": "UNVALIDATED_SESSION_TOUCH",
+            "touch_probability": null,
+            "touch_sample_n": 0,
+            "zone_high": 7636.5,
+            "zone_low": 7635.5
+          },
+          {
+            "level": 7633.9018,
+            "level_type": "CONFLUENCE",
+            "probability_before_stop": null,
+            "target_horizon": "next_session",
+            "touch_method": "UNVALIDATED_SESSION_TOUCH",
+            "touch_probability": null,
+            "touch_sample_n": 0,
+            "zone_high": 7635.25,
+            "zone_low": 7632.5536
+          }
+        ],
+        "validation_status": "research_only",
+        "window_end_utc": "2026-09-10T07:00:00+00:00",
+        "window_start_utc": "2026-09-09T23:00:00+00:00"
+      },
+      "LONDON": {
+        "as_of": "2026-09-09T16:00:00+00:00",
+        "consolidation_probability": null,
+        "critical_day": "DATA_UNAVAILABLE",
+        "data_provenance": {
+          "direction_model": "none",
+          "level_count": 16,
+          "profile_method": "BAR_APPROXIMATION",
+          "range_horizon_bars": 60,
+          "range_sample_n": null,
+          "range_status": "INSUFFICIENT_COMPLETE_SESSIONS",
+          "regime_reasons": [
+            "adx=31.89",
+            "efficiency=0.04",
+            "overlap=1.00",
+            "vol_pct=0.98"
+          ],
+          "target_probability_model": "none"
+        },
+        "decision": "NO_TRADE",
+        "direction": "NEUTRAL",
+        "direction_probability": null,
+        "expected_range": null,
+        "market_regime": "STRESS",
+        "session": "LONDON",
+        "session_date": "2026-09-10",
+        "targets": [
+          {
+            "level": 7641.7861,
+            "level_type": "CONFLUENCE",
+            "probability_before_stop": null,
+            "target_horizon": "next_session",
+            "touch_method": "UNVALIDATED_SESSION_TOUCH",
+            "touch_probability": null,
+            "touch_sample_n": 0,
+            "zone_high": 7643.0,
+            "zone_low": 7640.75
+          },
+          {
+            "level": 7638.5,
+            "level_type": "HVN",
+            "probability_before_stop": null,
+            "target_horizon": "next_session",
+            "touch_method": "UNVALIDATED_SESSION_TOUCH",
+            "touch_probability": null,
+            "touch_sample_n": 0,
+            "zone_high": 7639.0,
+            "zone_low": 7638.0
+          },
+          {
+            "level": 7644.3333,
+            "level_type": "CONFLUENCE",
+            "probability_before_stop": null,
+            "target_horizon": "next_session",
+            "touch_method": "UNVALIDATED_SESSION_TOUCH",
+            "touch_probability": null,
+            "touch_sample_n": 0,
+            "zone_high": 7645.0,
+            "zone_low": 7643.5
+          },
+          {
+            "level": 7636.0,
+            "level_type": "LVN",
+            "probability_before_stop": null,
+            "target_horizon": "next_session",
+            "touch_method": "UNVALIDATED_SESSION_TOUCH",
+            "touch_probability": null,
+            "touch_sample_n": 0,
+            "zone_high": 7636.5,
+            "zone_low": 7635.5
+          },
+          {
+            "level": 7633.9018,
+            "level_type": "CONFLUENCE",
+            "probability_before_stop": null,
+            "target_horizon": "next_session",
+            "touch_method": "UNVALIDATED_SESSION_TOUCH",
+            "touch_probability": null,
+            "touch_sample_n": 0,
+            "zone_high": 7635.25,
+            "zone_low": 7632.5536
+          }
+        ],
+        "validation_status": "research_only",
+        "window_end_utc": "2026-09-10T12:00:00+00:00",
+        "window_start_utc": "2026-09-10T07:00:00+00:00"
+      },
+      "NEW_YORK": {
+        "as_of": "2026-09-09T16:00:00+00:00",
+        "consolidation_probability": null,
+        "critical_day": "DATA_UNAVAILABLE",
+        "data_provenance": {
+          "direction_model": "none",
+          "level_count": 16,
+          "profile_method": "BAR_APPROXIMATION",
+          "range_horizon_bars": 78,
+          "range_sample_n": null,
+          "range_status": "INSUFFICIENT_COMPLETE_SESSIONS",
+          "regime_reasons": [
+            "adx=31.89",
+            "efficiency=0.04",
+            "overlap=1.00",
+            "vol_pct=0.98"
+          ],
+          "target_probability_model": "none"
+        },
+        "decision": "NO_TRADE",
+        "direction": "NEUTRAL",
+        "direction_probability": null,
+        "expected_range": null,
+        "market_regime": "STRESS",
+        "session": "NEW_YORK",
+        "session_date": "2026-09-10",
+        "targets": [
+          {
+            "level": 7641.7861,
+            "level_type": "CONFLUENCE",
+            "probability_before_stop": null,
+            "target_horizon": "next_session",
+            "touch_method": "UNVALIDATED_SESSION_TOUCH",
+            "touch_probability": null,
+            "touch_sample_n": 0,
+            "zone_high": 7643.0,
+            "zone_low": 7640.75
+          },
+          {
+            "level": 7638.5,
+            "level_type": "HVN",
+            "probability_before_stop": null,
+            "target_horizon": "next_session",
+            "touch_method": "UNVALIDATED_SESSION_TOUCH",
+            "touch_probability": null,
+            "touch_sample_n": 0,
+            "zone_high": 7639.0,
+            "zone_low": 7638.0
+          },
+          {
+            "level": 7644.3333,
+            "level_type": "CONFLUENCE",
+            "probability_before_stop": null,
+            "target_horizon": "next_session",
+            "touch_method": "UNVALIDATED_SESSION_TOUCH",
+            "touch_probability": null,
+            "touch_sample_n": 0,
+            "zone_high": 7645.0,
+            "zone_low": 7643.5
+          },
+          {
+            "level": 7636.0,
+            "level_type": "LVN",
+            "probability_before_stop": null,
+            "target_horizon": "next_session",
+            "touch_method": "UNVALIDATED_SESSION_TOUCH",
+            "touch_probability": null,
+            "touch_sample_n": 0,
+            "zone_high": 7636.5,
+            "zone_low": 7635.5
+          },
+          {
+            "level": 7633.9018,
+            "level_type": "CONFLUENCE",
+            "probability_before_stop": null,
+            "target_horizon": "next_session",
+            "touch_method": "UNVALIDATED_SESSION_TOUCH",
+            "touch_probability": null,
+            "touch_sample_n": 0,
+            "zone_high": 7635.25,
+            "zone_low": 7632.5536
+          }
+        ],
+        "validation_status": "research_only",
+        "window_end_utc": "2026-09-10T20:00:00+00:00",
+        "window_start_utc": "2026-09-10T13:30:00+00:00"
+      }
+    }
+  },
+  "forecast": {
+    "as_of": "2026-09-09T16:00:00+00:00",
+    "calibration_version": null,
+    "candidate_entry_zone": {
+      "high": 7643.0,
+      "level_id": "87a076053a09",
+      "level_type": "CONFLUENCE",
+      "low": 7640.75
+    },
+    "consolidation_probability": null,
+    "contract": null,
+    "critical_day": "DATA_UNAVAILABLE",
+    "data_provenance": {
+      "bars": "data/market/intraday",
+      "calendar_event_count": 0,
+      "calendar_point_in_time": false,
+      "calendar_source": "D:\\nocturne-futures\\data\\macro\\sample_events.json",
+      "level_count": 16,
+      "profile_method": "BAR_APPROXIMATION",
+      "range_bucket": 3,
+      "range_sample_n": 683,
+      "regime_reasons": [
+        "adx=31.89",
+        "efficiency=0.04",
+        "overlap=1.00",
+        "vol_pct=0.98"
+      ]
+    },
+    "decision": "NO_TRADE",
+    "direction": "NEUTRAL",
+    "direction_probability": null,
+    "expected_range": {
+      "asof": "2026-09-09 16:00:00+00:00",
+      "atr": 8.1964,
+      "bucket": 3,
+      "bucket_n": 683,
+      "horizon_bars": 78,
+      "p50": 32.75,
+      "p80": 52.0,
+      "p90": 66.5,
+      "p_ge_200": 0.0,
+      "p_ge_350": 0.0,
+      "p_ge_500": 0.0,
+      "sample_n": 683
+    },
+    "expected_value_after_costs": null,
+    "forecast_horizon": "next_78_observed_5m_bars",
+    "forecast_id": "f02e5496cd36237b",
+    "instrument": "ES",
+    "macro_warnings": [
+      "CALENDAR_SAMPLE_ONLY",
+      "VX_FUTURES_UNAVAILABLE",
+      "NO_AUTHORIZED_CALENDAR"
+    ],
+    "market_regime": "STRESS",
+    "model_version": "none",
+    "signal_id": null,
+    "stop_loss": null,
+    "strategy_id": null,
+    "targets": [
+      {
+        "level": 7641.7861,
+        "level_type": "CONFLUENCE",
+        "probability_before_stop": null,
+        "target_horizon": "next_78_observed_5m_bars",
+        "touch_method": "EMPIRICAL_FORWARD_MFE_WIDENED",
+        "touch_probability": 1.0,
+        "touch_sample_n": 41,
+        "zone_high": 7643.0,
+        "zone_low": 7640.75
+      },
+      {
+        "level": 7638.5,
+        "level_type": "HVN",
+        "probability_before_stop": null,
+        "target_horizon": "next_78_observed_5m_bars",
+        "touch_method": "EMPIRICAL_FORWARD_MFE",
+        "touch_probability": 0.8929,
+        "touch_sample_n": 28,
+        "zone_high": 7639.0,
+        "zone_low": 7638.0
+      },
+      {
+        "level": 7644.3333,
+        "level_type": "CONFLUENCE",
+        "probability_before_stop": null,
+        "target_horizon": "next_78_observed_5m_bars",
+        "touch_method": "EMPIRICAL_FORWARD_MFE",
+        "touch_probability": 1.0,
+        "touch_sample_n": 30,
+        "zone_high": 7645.0,
+        "zone_low": 7643.5
+      }
+    ],
+    "validation_status": "research_only"
+  },
+  "input_sha256": "7376d5ffd0dccb33607516e472cf3cccd0429acfdd37d8a6a4c19d08eceed3e8",
+  "instrument": "ES",
+  "known_rows": 2813,
+  "last_available_at": "2026-09-09T16:00:00+00:00",
+  "limitations": [
+    "bar-end availability proxy; historical corrections unknown",
+    "not live shadow or actual execution",
+    "no validated strategy/model inference"
+  ],
+  "mode": "retrospective_replay",
+  "replay_id": "0ba1c91925708948273d3eb4",
+  "version": "phase3e-replay-v1"
+}

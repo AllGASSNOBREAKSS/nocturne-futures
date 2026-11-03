@@ -20,3 +20,6 @@ native/build.bat
 
 # Scratch files.
 temp_*.json
+
+# Entitlement-dependent downloads are private; commit only permitted inventories.
+data/licensed/

@@ -1,0 +1,686 @@
+{
+  "mode": "retrospective_development_only",
+  "holdout_scored": false,
+  "selection": "16:00 UTC every fifth development session after ten-session warmup",
+  "runs": [
+    {
+      "replay_id": "057fe9158149f7e9c364ed8d",
+      "instrument": "NQ",
+      "asof": "2026-09-09 16:00:00+00:00",
+      "source": {
+        "instrument": "NQ",
+        "interval": "5m",
+        "rows": 13566,
+        "first": "2026-08-25 04:05:00+00:00",
+        "last": "2026-11-03 20:23:59+00:00",
+        "source": "yahoo_public_unofficial",
+        "sha256": "ab0c21a68df27d4e1a4985d9c5b4c700f219d7135d814b7288d6e9df5a624952",
+        "fetched_at": "2026-11-03T20:34:04.244691+00:00"
+      },
+      "status": "EVALUATED"
+    },
+    {
+      "replay_id": "c8a2cfa1c061d1ef22b57583",
+      "instrument": "NQ",
+      "asof": "2026-09-16 16:00:00+00:00",
+      "source": {
+        "instrument": "NQ",
+        "interval": "5m",
+        "rows": 13566,
+        "first": "2026-08-25 04:05:00+00:00",
+        "last": "2026-11-03 20:23:59+00:00",
+        "source": "yahoo_public_unofficial",
+        "sha256": "ab0c21a68df27d4e1a4985d9c5b4c700f219d7135d814b7288d6e9df5a624952",
+        "fetched_at": "2026-11-03T20:34:04.244691+00:00"
+      },
+      "status": "EVALUATED"
+    },
+    {
+      "replay_id": "2c962736820fb1bc248d081f",
+      "instrument": "NQ",
+      "asof": "2026-09-23 16:00:00+00:00",
+      "source": {
+        "instrument": "NQ",
+        "interval": "5m",
+        "rows": 13566,
+        "first": "2026-08-25 04:05:00+00:00",
+        "last": "2026-11-03 20:23:59+00:00",
+        "source": "yahoo_public_unofficial",
+        "sha256": "ab0c21a68df27d4e1a4985d9c5b4c700f219d7135d814b7288d6e9df5a624952",
+        "fetched_at": "2026-11-03T20:34:04.244691+00:00"
+      },
+      "status": "EVALUATED"
+    },
+    {
+      "replay_id": "29c59197ee0b34c32b1245ca",
+      "instrument": "NQ",
+      "asof": "2026-09-30 16:00:00+00:00",
+      "source": {
+        "instrument": "NQ",
+        "interval": "5m",
+        "rows": 13566,
+        "first": "2026-08-25 04:05:00+00:00",
+        "last": "2026-11-03 20:23:59+00:00",
+        "source": "yahoo_public_unofficial",
+        "sha256": "ab0c21a68df27d4e1a4985d9c5b4c700f219d7135d814b7288d6e9df5a624952",
+        "fetched_at": "2026-11-03T20:34:04.244691+00:00"
+      },
+      "status": "EVALUATED"
+    },
+    {
+      "replay_id": "82fc4f2b73261c69047c9c43",
+      "instrument": "NQ",
+      "asof": "2026-10-07 16:00:00+00:00",
+      "source": {
+        "instrument": "NQ",
+        "interval": "5m",
+        "rows": 13566,
+        "first": "2026-08-25 04:05:00+00:00",
+        "last": "2026-11-03 20:23:59+00:00",
+        "source": "yahoo_public_unofficial",
+        "sha256": "ab0c21a68df27d4e1a4985d9c5b4c700f219d7135d814b7288d6e9df5a624952",
+        "fetched_at": "2026-11-03T20:34:04.244691+00:00"
+      },
+      "status": "EVALUATED"
+    },
+    {
+      "replay_id": "b588ca6ec7cc0fd8c735042d",
+      "instrument": "NQ",
+      "asof": "2026-10-14 16:00:00+00:00",
+      "source": {
+        "instrument": "NQ",
+        "interval": "5m",
+        "rows": 13566,
+        "first": "2026-08-25 04:05:00+00:00",
+        "last": "2026-11-03 20:23:59+00:00",
+        "source": "yahoo_public_unofficial",
+        "sha256": "ab0c21a68df27d4e1a4985d9c5b4c700f219d7135d814b7288d6e9df5a624952",
+        "fetched_at": "2026-11-03T20:34:04.244691+00:00"
+      },
+      "status": "EVALUATED"
+    },
+    {
+      "replay_id": "0ba1c91925708948273d3eb4",
+      "instrument": "ES",
+      "asof": "2026-09-09 16:00:00+00:00",
+      "source": {
+        "instrument": "ES",
+        "interval": "5m",
+        "rows": 13567,
+        "first": "2026-08-25 04:05:00+00:00",
+        "last": "2026-11-03 20:24:07+00:00",
+        "source": "yahoo_public_unofficial",
+        "sha256": "ab26cc443615c2a15f08d36d23dbb720d0cc2abef4d947bd7eaa5b80433a9909",
+        "fetched_at": "2026-11-03T20:34:08.038052+00:00"
+      },
+      "status": "EVALUATED"
+    },
+    {
+      "replay_id": "a2a3a6872e1eff5ff342b1d5",
+      "instrument": "ES",
+      "asof": "2026-09-16 16:00:00+00:00",
+      "source": {
+        "instrument": "ES",
+        "interval": "5m",
+        "rows": 13567,
+        "first": "2026-08-25 04:05:00+00:00",
+        "last": "2026-11-03 20:24:07+00:00",
+        "source": "yahoo_public_unofficial",
+        "sha256": "ab26cc443615c2a15f08d36d23dbb720d0cc2abef4d947bd7eaa5b80433a9909",
+        "fetched_at": "2026-11-03T20:34:08.038052+00:00"
+      },
+      "status": "EVALUATED"
+    },
+    {
+      "replay_id": "a978c382e7c837fa4c5d8c07",
+      "instrument": "ES",
+      "asof": "2026-09-23 16:00:00+00:00",
+      "source": {
+        "instrument": "ES",
+        "interval": "5m",
+        "rows": 13567,
+        "first": "2026-08-25 04:05:00+00:00",
+        "last": "2026-11-03 20:24:07+00:00",
+        "source": "yahoo_public_unofficial",
+        "sha256": "ab26cc443615c2a15f08d36d23dbb720d0cc2abef4d947bd7eaa5b80433a9909",
+        "fetched_at": "2026-11-03T20:34:08.038052+00:00"
+      },
+      "status": "EVALUATED"
+    },
+    {
+      "replay_id": "b24dfdbed0dd50e0f8de7c6d",
+      "instrument": "ES",
+      "asof": "2026-09-30 16:00:00+00:00",
+      "source": {
+        "instrument": "ES",
+        "interval": "5m",
+        "rows": 13567,
+        "first": "2026-08-25 04:05:00+00:00",
+        "last": "2026-11-03 20:24:07+00:00",
+        "source": "yahoo_public_unofficial",
+        "sha256": "ab26cc443615c2a15f08d36d23dbb720d0cc2abef4d947bd7eaa5b80433a9909",
+        "fetched_at": "2026-11-03T20:34:08.038052+00:00"
+      },
+      "status": "EVALUATED"
+    },
+    {
+      "replay_id": "1c8e7213ec39b0559529c3ff",
+      "instrument": "ES",
+      "asof": "2026-10-07 16:00:00+00:00",
+      "source": {
+        "instrument": "ES",
+        "interval": "5m",
+        "rows": 13567,
+        "first": "2026-08-25 04:05:00+00:00",
+        "last": "2026-11-03 20:24:07+00:00",
+        "source": "yahoo_public_unofficial",
+        "sha256": "ab26cc443615c2a15f08d36d23dbb720d0cc2abef4d947bd7eaa5b80433a9909",
+        "fetched_at": "2026-11-03T20:34:08.038052+00:00"
+      },
+      "status": "EVALUATED"
+    },
+    {
+      "replay_id": "8b88edca58035a069f2e6539",
+      "instrument": "ES",
+      "asof": "2026-10-14 16:00:00+00:00",
+      "source": {
+        "instrument": "ES",
+        "interval": "5m",
+        "rows": 13567,
+        "first": "2026-08-25 04:05:00+00:00",
+        "last": "2026-11-03 20:24:07+00:00",
+        "source": "yahoo_public_unofficial",
+        "sha256": "ab26cc443615c2a15f08d36d23dbb720d0cc2abef4d947bd7eaa5b80433a9909",
+        "fetched_at": "2026-11-03T20:34:08.038052+00:00"
+      },
+      "status": "EVALUATED"
+    }
+  ],
+  "monitoring": {
+    "groups": [
+      {
+        "instrument": "ES",
+        "horizon": "ASIA",
+        "model_version": "phase3e-replay-v1",
+        "regime": "unknown",
+        "event_state": "unknown",
+        "forecasts": 6,
+        "matured": 0,
+        "status_counts": {
+          "DATA_BLOCKED": 6
+        },
+        "range_coverage": {
+          "p50": {
+            "n": 0,
+            "coverage": null
+          },
+          "p80": {
+            "n": 0,
+            "coverage": null
+          },
+          "p90": {
+            "n": 0,
+            "coverage": null
+          }
+        },
+        "touch_probability_pairs": 0,
+        "touch_brier_descriptive": null,
+        "sample_status": "NO_MATURED_FORECASTS",
+        "independence": "not_established; repeated forecasts and targets may overlap"
+      },
+      {
+        "instrument": "ES",
+        "horizon": "LONDON",
+        "model_version": "phase3e-replay-v1",
+        "regime": "unknown",
+        "event_state": "unknown",
+        "forecasts": 6,
+        "matured": 6,
+        "status_counts": {
+          "EVALUATED": 6
+        },
+        "range_coverage": {
+          "p50": {
+            "n": 3,
+            "coverage": 0.3333333333333333
+          },
+          "p80": {
+            "n": 3,
+            "coverage": 0.6666666666666666
+          },
+          "p90": {
+            "n": 3,
+            "coverage": 0.6666666666666666
+          }
+        },
+        "touch_probability_pairs": 0,
+        "touch_brier_descriptive": null,
+        "sample_status": "RETROSPECTIVE_ONLY",
+        "independence": "not_established; repeated forecasts and targets may overlap"
+      },
+      {
+        "instrument": "ES",
+        "horizon": "NEW_YORK",
+        "model_version": "phase3e-replay-v1",
+        "regime": "unknown",
+        "event_state": "unknown",
+        "forecasts": 6,
+        "matured": 6,
+        "status_counts": {
+          "EVALUATED": 6
+        },
+        "range_coverage": {
+          "p50": {
+            "n": 4,
+            "coverage": 0.0
+          },
+          "p80": {
+            "n": 4,
+            "coverage": 0.5
+          },
+          "p90": {
+            "n": 4,
+            "coverage": 0.75
+          }
+        },
+        "touch_probability_pairs": 0,
+        "touch_brier_descriptive": null,
+        "sample_status": "RETROSPECTIVE_ONLY",
+        "independence": "not_established; repeated forecasts and targets may overlap"
+      },
+      {
+        "instrument": "ES",
+        "horizon": "NEXT_DAY",
+        "model_version": "phase3e-replay-v1",
+        "regime": "unknown",
+        "event_state": "unknown",
+        "forecasts": 6,
+        "matured": 6,
+        "status_counts": {
+          "EVALUATED": 6
+        },
+        "range_coverage": {
+          "p50": {
+            "n": 4,
+            "coverage": 0.0
+          },
+          "p80": {
+            "n": 4,
+            "coverage": 0.5
+          },
+          "p90": {
+            "n": 4,
+            "coverage": 0.75
+          }
+        },
+        "touch_probability_pairs": 0,
+        "touch_brier_descriptive": null,
+        "sample_status": "RETROSPECTIVE_ONLY",
+        "independence": "not_established; repeated forecasts and targets may overlap"
+      },
+      {
+        "instrument": "ES",
+        "horizon": "next_78_observed_5m_bars",
+        "model_version": "phase3e-replay-v1",
+        "regime": "BALANCED",
+        "event_state": "unknown",
+        "forecasts": 2,
+        "matured": 2,
+        "status_counts": {
+          "EVALUATED": 2
+        },
+        "range_coverage": {
+          "p50": {
+            "n": 2,
+            "coverage": 0.5
+          },
+          "p80": {
+            "n": 2,
+            "coverage": 0.5
+          },
+          "p90": {
+            "n": 2,
+            "coverage": 0.5
+          }
+        },
+        "touch_probability_pairs": 3,
+        "touch_brier_descriptive": 0.3209966533333333,
+        "sample_status": "RETROSPECTIVE_ONLY",
+        "independence": "not_established; repeated forecasts and targets may overlap"
+      },
+      {
+        "instrument": "ES",
+        "horizon": "next_78_observed_5m_bars",
+        "model_version": "phase3e-replay-v1",
+        "regime": "STRESS",
+        "event_state": "unknown",
+        "forecasts": 1,
+        "matured": 1,
+        "status_counts": {
+          "EVALUATED": 1
+        },
+        "range_coverage": {
+          "p50": {
+            "n": 1,
+            "coverage": 1.0
+          },
+          "p80": {
+            "n": 1,
+            "coverage": 1.0
+          },
+          "p90": {
+            "n": 1,
+            "coverage": 1.0
+          }
+        },
+        "touch_probability_pairs": 3,
+        "touch_brier_descriptive": 0.0038234699999999977,
+        "sample_status": "RETROSPECTIVE_ONLY",
+        "independence": "not_established; repeated forecasts and targets may overlap"
+      },
+      {
+        "instrument": "ES",
+        "horizon": "next_78_observed_5m_bars",
+        "model_version": "phase3e-replay-v1",
+        "regime": "TRANSITION",
+        "event_state": "unknown",
+        "forecasts": 1,
+        "matured": 1,
+        "status_counts": {
+          "EVALUATED": 1
+        },
+        "range_coverage": {
+          "p50": {
+            "n": 1,
+            "coverage": 1.0
+          },
+          "p80": {
+            "n": 1,
+            "coverage": 1.0
+          },
+          "p90": {
+            "n": 1,
+            "coverage": 1.0
+          }
+        },
+        "touch_probability_pairs": 3,
+        "touch_brier_descriptive": 0.09674305999999999,
+        "sample_status": "RETROSPECTIVE_ONLY",
+        "independence": "not_established; repeated forecasts and targets may overlap"
+      },
+      {
+        "instrument": "ES",
+        "horizon": "next_78_observed_5m_bars",
+        "model_version": "phase3e-replay-v1",
+        "regime": "TREND_DOWN",
+        "event_state": "unknown",
+        "forecasts": 1,
+        "matured": 1,
+        "status_counts": {
+          "EVALUATED": 1
+        },
+        "range_coverage": {
+          "p50": {
+            "n": 1,
+            "coverage": 0.0
+          },
+          "p80": {
+            "n": 1,
+            "coverage": 1.0
+          },
+          "p90": {
+            "n": 1,
+            "coverage": 1.0
+          }
+        },
+        "touch_probability_pairs": 1,
+        "touch_brier_descriptive": 0.0,
+        "sample_status": "RETROSPECTIVE_ONLY",
+        "independence": "not_established; repeated forecasts and targets may overlap"
+      },
+      {
+        "instrument": "ES",
+        "horizon": "next_78_observed_5m_bars",
+        "model_version": "phase3e-replay-v1",
+        "regime": "TREND_UP",
+        "event_state": "unknown",
+        "forecasts": 1,
+        "matured": 1,
+        "status_counts": {
+          "EVALUATED": 1
+        },
+        "range_coverage": {
+          "p50": {
+            "n": 1,
+            "coverage": 0.0
+          },
+          "p80": {
+            "n": 1,
+            "coverage": 0.0
+          },
+          "p90": {
+            "n": 1,
+            "coverage": 0.0
+          }
+        },
+        "touch_probability_pairs": 3,
+        "touch_brier_descriptive": 0.14224927,
+        "sample_status": "RETROSPECTIVE_ONLY",
+        "independence": "not_established; repeated forecasts and targets may overlap"
+      },
+      {
+        "instrument": "NQ",
+        "horizon": "ASIA",
+        "model_version": "phase3e-replay-v1",
+        "regime": "unknown",
+        "event_state": "unknown",
+        "forecasts": 6,
+        "matured": 0,
+        "status_counts": {
+          "DATA_BLOCKED": 6
+        },
+        "range_coverage": {
+          "p50": {
+            "n": 0,
+            "coverage": null
+          },
+          "p80": {
+            "n": 0,
+            "coverage": null
+          },
+          "p90": {
+            "n": 0,
+            "coverage": null
+          }
+        },
+        "touch_probability_pairs": 0,
+        "touch_brier_descriptive": null,
+        "sample_status": "NO_MATURED_FORECASTS",
+        "independence": "not_established; repeated forecasts and targets may overlap"
+      },
+      {
+        "instrument": "NQ",
+        "horizon": "LONDON",
+        "model_version": "phase3e-replay-v1",
+        "regime": "unknown",
+        "event_state": "unknown",
+        "forecasts": 6,
+        "matured": 6,
+        "status_counts": {
+          "EVALUATED": 6
+        },
+        "range_coverage": {
+          "p50": {
+            "n": 3,
+            "coverage": 0.3333333333333333
+          },
+          "p80": {
+            "n": 3,
+            "coverage": 0.6666666666666666
+          },
+          "p90": {
+            "n": 3,
+            "coverage": 0.6666666666666666
+          }
+        },
+        "touch_probability_pairs": 0,
+        "touch_brier_descriptive": null,
+        "sample_status": "RETROSPECTIVE_ONLY",
+        "independence": "not_established; repeated forecasts and targets may overlap"
+      },
+      {
+        "instrument": "NQ",
+        "horizon": "NEW_YORK",
+        "model_version": "phase3e-replay-v1",
+        "regime": "unknown",
+        "event_state": "unknown",
+        "forecasts": 6,
+        "matured": 6,
+        "status_counts": {
+          "EVALUATED": 6
+        },
+        "range_coverage": {
+          "p50": {
+            "n": 4,
+            "coverage": 0.0
+          },
+          "p80": {
+            "n": 4,
+            "coverage": 0.5
+          },
+          "p90": {
+            "n": 4,
+            "coverage": 0.5
+          }
+        },
+        "touch_probability_pairs": 0,
+        "touch_brier_descriptive": null,
+        "sample_status": "RETROSPECTIVE_ONLY",
+        "independence": "not_established; repeated forecasts and targets may overlap"
+      },
+      {
+        "instrument": "NQ",
+        "horizon": "NEXT_DAY",
+        "model_version": "phase3e-replay-v1",
+        "regime": "unknown",
+        "event_state": "unknown",
+        "forecasts": 6,
+        "matured": 6,
+        "status_counts": {
+          "EVALUATED": 6
+        },
+        "range_coverage": {
+          "p50": {
+            "n": 4,
+            "coverage": 0.0
+          },
+          "p80": {
+            "n": 4,
+            "coverage": 0.5
+          },
+          "p90": {
+            "n": 4,
+            "coverage": 0.5
+          }
+        },
+        "touch_probability_pairs": 0,
+        "touch_brier_descriptive": null,
+        "sample_status": "RETROSPECTIVE_ONLY",
+        "independence": "not_established; repeated forecasts and targets may overlap"
+      },
+      {
+        "instrument": "NQ",
+        "horizon": "next_78_observed_5m_bars",
+        "model_version": "phase3e-replay-v1",
+        "regime": "BALANCED",
+        "event_state": "unknown",
+        "forecasts": 4,
+        "matured": 4,
+        "status_counts": {
+          "EVALUATED": 4
+        },
+        "range_coverage": {
+          "p50": {
+            "n": 4,
+            "coverage": 0.5
+          },
+          "p80": {
+            "n": 4,
+            "coverage": 0.75
+          },
+          "p90": {
+            "n": 4,
+            "coverage": 0.75
+          }
+        },
+        "touch_probability_pairs": 9,
+        "touch_brier_descriptive": 0.10663331111111113,
+        "sample_status": "RETROSPECTIVE_ONLY",
+        "independence": "not_established; repeated forecasts and targets may overlap"
+      },
+      {
+        "instrument": "NQ",
+        "horizon": "next_78_observed_5m_bars",
+        "model_version": "phase3e-replay-v1",
+        "regime": "STRESS",
+        "event_state": "unknown",
+        "forecasts": 1,
+        "matured": 1,
+        "status_counts": {
+          "EVALUATED": 1
+        },
+        "range_coverage": {
+          "p50": {
+            "n": 1,
+            "coverage": 1.0
+          },
+          "p80": {
+            "n": 1,
+            "coverage": 1.0
+          },
+          "p90": {
+            "n": 1,
+            "coverage": 1.0
+          }
+        },
+        "touch_probability_pairs": 3,
+        "touch_brier_descriptive": 0.025553416666666665,
+        "sample_status": "RETROSPECTIVE_ONLY",
+        "independence": "not_established; repeated forecasts and targets may overlap"
+      },
+      {
+        "instrument": "NQ",
+        "horizon": "next_78_observed_5m_bars",
+        "model_version": "phase3e-replay-v1",
+        "regime": "TREND_DOWN",
+        "event_state": "unknown",
+        "forecasts": 1,
+        "matured": 1,
+        "status_counts": {
+          "EVALUATED": 1
+        },
+        "range_coverage": {
+          "p50": {
+            "n": 1,
+            "coverage": 0.0
+          },
+          "p80": {
+            "n": 1,
+            "coverage": 0.0
+          },
+          "p90": {
+            "n": 1,
+            "coverage": 1.0
+          }
+        },
+        "touch_probability_pairs": 0,
+        "touch_brier_descriptive": null,
+        "sample_status": "RETROSPECTIVE_ONLY",
+        "independence": "not_established; repeated forecasts and targets may overlap"
+      }
+    ],
+    "decision": "NO_PROMOTION",
+    "automatic_rollback": false,
+    "drift_alerts": "UNAVAILABLE_WITHOUT_VALIDATED_REFERENCE"
+  }
+}

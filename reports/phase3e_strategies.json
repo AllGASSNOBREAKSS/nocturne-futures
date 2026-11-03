@@ -1,0 +1,1515 @@
+{
+  "decision": "NO_PROMOTION",
+  "holdout_scored": false,
+  "instruments": {
+    "NQ": {
+      "strategies": {
+        "orb": {
+          "costs": {
+            "1": {
+              "trades": 34,
+              "wins": 13,
+              "win_rate": 0.3824,
+              "net_dollars": -9270.0,
+              "net_points": -437.88,
+              "gross_win": 20695.0,
+              "gross_loss": 29965.0,
+              "profit_factor": 0.6906,
+              "expectancy_dollars": -272.65,
+              "max_drawdown_dollars": 18730.0,
+              "by_side": {
+                "LONG": {
+                  "trades": 21,
+                  "net_dollars": -5905.0
+                },
+                "SHORT": {
+                  "trades": 13,
+                  "net_dollars": -3365.0
+                }
+              },
+              "by_outcome": {
+                "STOP": 1,
+                "TIMEOUT": 32,
+                "TP_THEN_TIMEOUT": 1
+              }
+            },
+            "3": {
+              "trades": 34,
+              "wins": 13,
+              "win_rate": 0.3824,
+              "net_dollars": -10290.0,
+              "net_points": -454.88,
+              "gross_win": 20305.0,
+              "gross_loss": 30595.0,
+              "profit_factor": 0.6637,
+              "expectancy_dollars": -302.65,
+              "max_drawdown_dollars": 19540.0,
+              "by_side": {
+                "LONG": {
+                  "trades": 21,
+                  "net_dollars": -6535.0
+                },
+                "SHORT": {
+                  "trades": 13,
+                  "net_dollars": -3755.0
+                }
+              },
+              "by_outcome": {
+                "STOP": 1,
+                "TIMEOUT": 32,
+                "TP_THEN_TIMEOUT": 1
+              }
+            },
+            "4": {
+              "trades": 34,
+              "wins": 13,
+              "win_rate": 0.3824,
+              "net_dollars": -10800.0,
+              "net_points": -463.38,
+              "gross_win": 20110.0,
+              "gross_loss": 30910.0,
+              "profit_factor": 0.6506,
+              "expectancy_dollars": -317.65,
+              "max_drawdown_dollars": 19945.0,
+              "by_side": {
+                "LONG": {
+                  "trades": 21,
+                  "net_dollars": -6850.0
+                },
+                "SHORT": {
+                  "trades": 13,
+                  "net_dollars": -3950.0
+                }
+              },
+              "by_outcome": {
+                "STOP": 1,
+                "TIMEOUT": 32,
+                "TP_THEN_TIMEOUT": 1
+              }
+            }
+          },
+          "regimes": {
+            "STRESS": {
+              "trades": 14,
+              "wins": 6,
+              "win_rate": 0.4286,
+              "net_dollars": -4400.0,
+              "net_points": -209.5,
+              "gross_win": 9970.0,
+              "gross_loss": 14370.0,
+              "profit_factor": 0.6938,
+              "expectancy_dollars": -314.29,
+              "max_drawdown_dollars": 9530.0,
+              "by_side": {
+                "LONG": {
+                  "trades": 8,
+                  "net_dollars": -915.0
+                },
+                "SHORT": {
+                  "trades": 6,
+                  "net_dollars": -3485.0
+                }
+              },
+              "by_outcome": {
+                "STOP": 1,
+                "TIMEOUT": 13
+              }
+            },
+            "TREND_UP": {
+              "trades": 4,
+              "wins": 1,
+              "win_rate": 0.25,
+              "net_dollars": -2695.0,
+              "net_points": -131.75,
+              "gross_win": 105.0,
+              "gross_loss": 2800.0,
+              "profit_factor": 0.0375,
+              "expectancy_dollars": -673.75,
+              "max_drawdown_dollars": 2800.0,
+              "by_side": {
+                "LONG": {
+                  "trades": 4,
+                  "net_dollars": -2695.0
+                },
+                "SHORT": {
+                  "trades": 0,
+                  "net_dollars": 0
+                }
+              },
+              "by_outcome": {
+                "TIMEOUT": 4
+              }
+            },
+            "BALANCED": {
+              "trades": 7,
+              "wins": 3,
+              "win_rate": 0.4286,
+              "net_dollars": -1430.0,
+              "net_points": -66.25,
+              "gross_win": 2450.0,
+              "gross_loss": 3880.0,
+              "profit_factor": 0.6314,
+              "expectancy_dollars": -204.29,
+              "max_drawdown_dollars": 3880.0,
+              "by_side": {
+                "LONG": {
+                  "trades": 5,
+                  "net_dollars": 680.0
+                },
+                "SHORT": {
+                  "trades": 2,
+                  "net_dollars": -2110.0
+                }
+              },
+              "by_outcome": {
+                "TIMEOUT": 7
+              }
+            },
+            "COMPRESSION": {
+              "trades": 3,
+              "wins": 0,
+              "win_rate": 0.0,
+              "net_dollars": -3555.0,
+              "net_points": -175.5,
+              "gross_win": 0,
+              "gross_loss": 3555.0,
+              "profit_factor": 0.0,
+              "expectancy_dollars": -1185.0,
+              "max_drawdown_dollars": 3555.0,
+              "by_side": {
+                "LONG": {
+                  "trades": 1,
+                  "net_dollars": -430.0
+                },
+                "SHORT": {
+                  "trades": 2,
+                  "net_dollars": -3125.0
+                }
+              },
+              "by_outcome": {
+                "TIMEOUT": 3
+              }
+            },
+            "EXPANSION": {
+              "trades": 6,
+              "wins": 3,
+              "win_rate": 0.5,
+              "net_dollars": 2810.0,
+              "net_points": 145.12,
+              "gross_win": 8170.0,
+              "gross_loss": 5360.0,
+              "profit_factor": 1.5243,
+              "expectancy_dollars": 468.33,
+              "max_drawdown_dollars": 3615.0,
+              "by_side": {
+                "LONG": {
+                  "trades": 3,
+                  "net_dollars": -2545.0
+                },
+                "SHORT": {
+                  "trades": 3,
+                  "net_dollars": 5355.0
+                }
+              },
+              "by_outcome": {
+                "TIMEOUT": 5,
+                "TP_THEN_TIMEOUT": 1
+              }
+            }
+          },
+          "source": {
+            "instrument": "NQ",
+            "interval": "5m",
+            "rows": 13566,
+            "first": "2026-08-25 04:05:00+00:00",
+            "last": "2026-11-03 20:23:59+00:00",
+            "source": "yahoo_public_unofficial",
+            "sha256": "ab0c21a68df27d4e1a4985d9c5b4c700f219d7135d814b7288d6e9df5a624952",
+            "fetched_at": "2026-11-03T20:34:04.244691+00:00"
+          },
+          "expectancy_block_interval": {
+            "mean": -272.6470588235294,
+            "low": -819.5,
+            "high": 378.7573529411764,
+            "groups": 34,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "vwap": {
+          "costs": {
+            "1": {
+              "trades": 35,
+              "wins": 21,
+              "win_rate": 0.6,
+              "net_dollars": 4575.8,
+              "net_points": 257.16,
+              "gross_win": 19909.41,
+              "gross_loss": 15333.61,
+              "profit_factor": 1.2984,
+              "expectancy_dollars": 130.74,
+              "max_drawdown_dollars": 3932.21,
+              "by_side": {
+                "LONG": {
+                  "trades": 35,
+                  "net_dollars": 4575.8
+                },
+                "SHORT": {
+                  "trades": 0,
+                  "net_dollars": 0
+                }
+              },
+              "by_outcome": {
+                "STOP": 13,
+                "TIMEOUT": 5,
+                "TP2": 6,
+                "TP_THEN_STOP": 6,
+                "TP_THEN_TIMEOUT": 5
+              }
+            },
+            "3": {
+              "trades": 35,
+              "wins": 21,
+              "win_rate": 0.6,
+              "net_dollars": 3555.8,
+              "net_points": 241.16,
+              "gross_win": 19309.41,
+              "gross_loss": 15753.61,
+              "profit_factor": 1.2257,
+              "expectancy_dollars": 101.59,
+              "max_drawdown_dollars": 4112.21,
+              "by_side": {
+                "LONG": {
+                  "trades": 35,
+                  "net_dollars": 3555.8
+                },
+                "SHORT": {
+                  "trades": 0,
+                  "net_dollars": 0
+                }
+              },
+              "by_outcome": {
+                "STOP": 13,
+                "TIMEOUT": 5,
+                "TP2": 6,
+                "TP_THEN_STOP": 6,
+                "TP_THEN_TIMEOUT": 5
+              }
+            },
+            "4": {
+              "trades": 35,
+              "wins": 21,
+              "win_rate": 0.6,
+              "net_dollars": 3045.8,
+              "net_points": 233.16,
+              "gross_win": 19009.41,
+              "gross_loss": 15963.61,
+              "profit_factor": 1.1908,
+              "expectancy_dollars": 87.02,
+              "max_drawdown_dollars": 4202.21,
+              "by_side": {
+                "LONG": {
+                  "trades": 35,
+                  "net_dollars": 3045.8
+                },
+                "SHORT": {
+                  "trades": 0,
+                  "net_dollars": 0
+                }
+              },
+              "by_outcome": {
+                "STOP": 13,
+                "TIMEOUT": 5,
+                "TP2": 6,
+                "TP_THEN_STOP": 6,
+                "TP_THEN_TIMEOUT": 5
+              }
+            }
+          },
+          "regimes": {
+            "BALANCED": {
+              "trades": 4,
+              "wins": 2,
+              "win_rate": 0.5,
+              "net_dollars": 766.03,
+              "net_points": 41.55,
+              "gross_win": 2095.94,
+              "gross_loss": 1329.91,
+              "profit_factor": 1.576,
+              "expectancy_dollars": 191.51,
+              "max_drawdown_dollars": 1329.91,
+              "by_side": {
+                "LONG": {
+                  "trades": 4,
+                  "net_dollars": 766.03
+                },
+                "SHORT": {
+                  "trades": 0,
+                  "net_dollars": 0
+                }
+              },
+              "by_outcome": {
+                "STOP": 2,
+                "TP2": 1,
+                "TP_THEN_TIMEOUT": 1
+              }
+            },
+            "STRESS": {
+              "trades": 19,
+              "wins": 14,
+              "win_rate": 0.7368,
+              "net_dollars": 7995.29,
+              "net_points": 415.39,
+              "gross_win": 14765.27,
+              "gross_loss": 6769.98,
+              "profit_factor": 2.181,
+              "expectancy_dollars": 420.8,
+              "max_drawdown_dollars": 3038.12,
+              "by_side": {
+                "LONG": {
+                  "trades": 19,
+                  "net_dollars": 7995.29
+                },
+                "SHORT": {
+                  "trades": 0,
+                  "net_dollars": 0
+                }
+              },
+              "by_outcome": {
+                "STOP": 5,
+                "TIMEOUT": 3,
+                "TP2": 3,
+                "TP_THEN_STOP": 5,
+                "TP_THEN_TIMEOUT": 3
+              }
+            },
+            "EXPANSION": {
+              "trades": 10,
+              "wins": 4,
+              "win_rate": 0.4,
+              "net_dollars": -3756.62,
+              "net_points": -179.96,
+              "gross_win": 2642.02,
+              "gross_loss": 6398.64,
+              "profit_factor": 0.4129,
+              "expectancy_dollars": -375.66,
+              "max_drawdown_dollars": 5066.2,
+              "by_side": {
+                "LONG": {
+                  "trades": 10,
+                  "net_dollars": -3756.62
+                },
+                "SHORT": {
+                  "trades": 0,
+                  "net_dollars": 0
+                }
+              },
+              "by_outcome": {
+                "STOP": 5,
+                "TIMEOUT": 2,
+                "TP2": 1,
+                "TP_THEN_STOP": 1,
+                "TP_THEN_TIMEOUT": 1
+              }
+            },
+            "COMPRESSION": {
+              "trades": 1,
+              "wins": 1,
+              "win_rate": 1.0,
+              "net_dollars": 406.18,
+              "net_points": 21.18,
+              "gross_win": 406.18,
+              "gross_loss": 0,
+              "profit_factor": null,
+              "expectancy_dollars": 406.18,
+              "max_drawdown_dollars": 0.0,
+              "by_side": {
+                "LONG": {
+                  "trades": 1,
+                  "net_dollars": 406.18
+                },
+                "SHORT": {
+                  "trades": 0,
+                  "net_dollars": 0
+                }
+              },
+              "by_outcome": {
+                "TP2": 1
+              }
+            },
+            "TRANSITION": {
+              "trades": 1,
+              "wins": 0,
+              "win_rate": 0.0,
+              "net_dollars": -835.08,
+              "net_points": -41.0,
+              "gross_win": 0,
+              "gross_loss": 835.08,
+              "profit_factor": 0.0,
+              "expectancy_dollars": -835.08,
+              "max_drawdown_dollars": 835.08,
+              "by_side": {
+                "LONG": {
+                  "trades": 1,
+                  "net_dollars": -835.08
+                },
+                "SHORT": {
+                  "trades": 0,
+                  "net_dollars": 0
+                }
+              },
+              "by_outcome": {
+                "STOP": 1
+              }
+            }
+          },
+          "source": {
+            "instrument": "NQ",
+            "interval": "5m",
+            "rows": 13566,
+            "first": "2026-08-25 04:05:00+00:00",
+            "last": "2026-11-03 20:23:59+00:00",
+            "source": "yahoo_public_unofficial",
+            "sha256": "ab0c21a68df27d4e1a4985d9c5b4c700f219d7135d814b7288d6e9df5a624952",
+            "fetched_at": "2026-11-03T20:34:04.244691+00:00"
+          },
+          "expectancy_block_interval": {
+            "mean": 130.73714285714283,
+            "low": -150.68730714285712,
+            "high": 445.35574999999983,
+            "groups": 35,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "value": {
+          "costs": {
+            "1": {
+              "trades": 21,
+              "wins": 11,
+              "win_rate": 0.5238,
+              "net_dollars": 1310.0,
+              "net_points": 81.25,
+              "gross_win": 10675.0,
+              "gross_loss": 9365.0,
+              "profit_factor": 1.1399,
+              "expectancy_dollars": 62.38,
+              "max_drawdown_dollars": 4160.0,
+              "by_side": {
+                "LONG": {
+                  "trades": 11,
+                  "net_dollars": -710.0
+                },
+                "SHORT": {
+                  "trades": 10,
+                  "net_dollars": 2020.0
+                }
+              },
+              "by_outcome": {
+                "POC": 9,
+                "STOP": 9,
+                "TIMEOUT": 3
+              }
+            },
+            "3": {
+              "trades": 21,
+              "wins": 10,
+              "win_rate": 0.4762,
+              "net_dollars": 680.0,
+              "net_points": 70.75,
+              "gross_win": 10345.0,
+              "gross_loss": 9665.0,
+              "profit_factor": 1.0704,
+              "expectancy_dollars": 32.38,
+              "max_drawdown_dollars": 4280.0,
+              "by_side": {
+                "LONG": {
+                  "trades": 11,
+                  "net_dollars": -1040.0
+                },
+                "SHORT": {
+                  "trades": 10,
+                  "net_dollars": 1720.0
+                }
+              },
+              "by_outcome": {
+                "POC": 9,
+                "STOP": 9,
+                "TIMEOUT": 3
+              }
+            },
+            "4": {
+              "trades": 21,
+              "wins": 10,
+              "win_rate": 0.4762,
+              "net_dollars": 365.0,
+              "net_points": 65.5,
+              "gross_win": 10195.0,
+              "gross_loss": 9830.0,
+              "profit_factor": 1.0371,
+              "expectancy_dollars": 17.38,
+              "max_drawdown_dollars": 4340.0,
+              "by_side": {
+                "LONG": {
+                  "trades": 11,
+                  "net_dollars": -1205.0
+                },
+                "SHORT": {
+                  "trades": 10,
+                  "net_dollars": 1570.0
+                }
+              },
+              "by_outcome": {
+                "POC": 9,
+                "STOP": 9,
+                "TIMEOUT": 3
+              }
+            }
+          },
+          "regimes": {
+            "STRESS": {
+              "trades": 11,
+              "wins": 6,
+              "win_rate": 0.5455,
+              "net_dollars": -1200.0,
+              "net_points": -51.75,
+              "gross_win": 4330.0,
+              "gross_loss": 5530.0,
+              "profit_factor": 0.783,
+              "expectancy_dollars": -109.09,
+              "max_drawdown_dollars": 2885.0,
+              "by_side": {
+                "LONG": {
+                  "trades": 5,
+                  "net_dollars": -1180.0
+                },
+                "SHORT": {
+                  "trades": 6,
+                  "net_dollars": -20.0
+                }
+              },
+              "by_outcome": {
+                "POC": 4,
+                "STOP": 5,
+                "TIMEOUT": 2
+              }
+            },
+            "EXPANSION": {
+              "trades": 7,
+              "wins": 4,
+              "win_rate": 0.5714,
+              "net_dollars": 3235.0,
+              "net_points": 167.0,
+              "gross_win": 4740.0,
+              "gross_loss": 1505.0,
+              "profit_factor": 3.1495,
+              "expectancy_dollars": 462.14,
+              "max_drawdown_dollars": 725.0,
+              "by_side": {
+                "LONG": {
+                  "trades": 3,
+                  "net_dollars": 1195.0
+                },
+                "SHORT": {
+                  "trades": 4,
+                  "net_dollars": 2040.0
+                }
+              },
+              "by_outcome": {
+                "POC": 4,
+                "STOP": 2,
+                "TIMEOUT": 1
+              }
+            },
+            "BALANCED": {
+              "trades": 2,
+              "wins": 0,
+              "win_rate": 0.0,
+              "net_dollars": -2330.0,
+              "net_points": -115.0,
+              "gross_win": 0,
+              "gross_loss": 2330.0,
+              "profit_factor": 0.0,
+              "expectancy_dollars": -1165.0,
+              "max_drawdown_dollars": 2330.0,
+              "by_side": {
+                "LONG": {
+                  "trades": 2,
+                  "net_dollars": -2330.0
+                },
+                "SHORT": {
+                  "trades": 0,
+                  "net_dollars": 0
+                }
+              },
+              "by_outcome": {
+                "STOP": 2
+              }
+            },
+            "COMPRESSION": {
+              "trades": 1,
+              "wins": 1,
+              "win_rate": 1.0,
+              "net_dollars": 1605.0,
+              "net_points": 81.0,
+              "gross_win": 1605.0,
+              "gross_loss": 0,
+              "profit_factor": null,
+              "expectancy_dollars": 1605.0,
+              "max_drawdown_dollars": 0.0,
+              "by_side": {
+                "LONG": {
+                  "trades": 1,
+                  "net_dollars": 1605.0
+                },
+                "SHORT": {
+                  "trades": 0,
+                  "net_dollars": 0
+                }
+              },
+              "by_outcome": {
+                "POC": 1
+              }
+            }
+          },
+          "source": {
+            "instrument": "NQ",
+            "interval": "5m",
+            "rows": 13566,
+            "first": "2026-08-25 04:05:00+00:00",
+            "last": "2026-11-03 20:23:59+00:00",
+            "source": "yahoo_public_unofficial",
+            "sha256": "ab0c21a68df27d4e1a4985d9c5b4c700f219d7135d814b7288d6e9df5a624952",
+            "fetched_at": "2026-11-03T20:34:04.244691+00:00"
+          },
+          "expectancy_block_interval": {
+            "mean": 62.38095238095238,
+            "low": -306.8809523809524,
+            "high": 599.6488095238094,
+            "groups": 21,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        }
+      },
+      "daily_pnl_correlation": {
+        "orb": {
+          "orb": 1.0,
+          "vwap": 0.018312962976137853,
+          "value": 0.1340438203768472
+        },
+        "vwap": {
+          "orb": 0.018312962976137853,
+          "vwap": 1.0,
+          "value": 0.19179095865241547
+        },
+        "value": {
+          "orb": 0.1340438203768472,
+          "vwap": 0.19179095865241547,
+          "value": 1.0
+        }
+      },
+      "correlation_days": 40,
+      "no_signal_day_policy": "zero return; missing market sessions not invented"
+    },
+    "ES": {
+      "strategies": {
+        "orb": {
+          "costs": {
+            "1": {
+              "trades": 36,
+              "wins": 13,
+              "win_rate": 0.3611,
+              "net_dollars": -5087.5,
+              "net_points": -80.0,
+              "gross_win": 12840.0,
+              "gross_loss": 17927.5,
+              "profit_factor": 0.7162,
+              "expectancy_dollars": -141.32,
+              "max_drawdown_dollars": 8262.5,
+              "by_side": {
+                "LONG": {
+                  "trades": 14,
+                  "net_dollars": 255.0
+                },
+                "SHORT": {
+                  "trades": 22,
+                  "net_dollars": -5342.5
+                }
+              },
+              "by_outcome": {
+                "STOP": 4,
+                "TIMEOUT": 29,
+                "TP_THEN_STOP": 1,
+                "TP_THEN_TIMEOUT": 2
+              }
+            },
+            "3": {
+              "trades": 36,
+              "wins": 13,
+              "win_rate": 0.3611,
+              "net_dollars": -7775.0,
+              "net_points": -97.75,
+              "gross_win": 11877.5,
+              "gross_loss": 19652.5,
+              "profit_factor": 0.6044,
+              "expectancy_dollars": -215.97,
+              "max_drawdown_dollars": 10465.0,
+              "by_side": {
+                "LONG": {
+                  "trades": 14,
+                  "net_dollars": -795.0
+                },
+                "SHORT": {
+                  "trades": 22,
+                  "net_dollars": -6980.0
+                }
+              },
+              "by_outcome": {
+                "STOP": 4,
+                "TIMEOUT": 29,
+                "TP_THEN_STOP": 1,
+                "TP_THEN_TIMEOUT": 2
+              }
+            },
+            "4": {
+              "trades": 36,
+              "wins": 13,
+              "win_rate": 0.3611,
+              "net_dollars": -9118.75,
+              "net_points": -106.62,
+              "gross_win": 11396.25,
+              "gross_loss": 20515.0,
+              "profit_factor": 0.5555,
+              "expectancy_dollars": -253.3,
+              "max_drawdown_dollars": 11658.75,
+              "by_side": {
+                "LONG": {
+                  "trades": 14,
+                  "net_dollars": -1320.0
+                },
+                "SHORT": {
+                  "trades": 22,
+                  "net_dollars": -7798.75
+                }
+              },
+              "by_outcome": {
+                "STOP": 4,
+                "TIMEOUT": 29,
+                "TP_THEN_STOP": 1,
+                "TP_THEN_TIMEOUT": 2
+              }
+            }
+          },
+          "regimes": {
+            "STRESS": {
+              "trades": 16,
+              "wins": 7,
+              "win_rate": 0.4375,
+              "net_dollars": -1113.75,
+              "net_points": -12.62,
+              "gross_win": 6556.25,
+              "gross_loss": 7670.0,
+              "profit_factor": 0.8548,
+              "expectancy_dollars": -69.61,
+              "max_drawdown_dollars": 4532.5,
+              "by_side": {
+                "LONG": {
+                  "trades": 8,
+                  "net_dollars": 410.0
+                },
+                "SHORT": {
+                  "trades": 8,
+                  "net_dollars": -1523.75
+                }
+              },
+              "by_outcome": {
+                "STOP": 2,
+                "TIMEOUT": 13,
+                "TP_THEN_STOP": 1
+              }
+            },
+            "TREND_DOWN": {
+              "trades": 4,
+              "wins": 1,
+              "win_rate": 0.25,
+              "net_dollars": -2595.0,
+              "net_points": -49.5,
+              "gross_win": 145.0,
+              "gross_loss": 2740.0,
+              "profit_factor": 0.0529,
+              "expectancy_dollars": -648.75,
+              "max_drawdown_dollars": 2740.0,
+              "by_side": {
+                "LONG": {
+                  "trades": 0,
+                  "net_dollars": 0
+                },
+                "SHORT": {
+                  "trades": 4,
+                  "net_dollars": -2595.0
+                }
+              },
+              "by_outcome": {
+                "TIMEOUT": 4
+              }
+            },
+            "EXPANSION": {
+              "trades": 7,
+              "wins": 2,
+              "win_rate": 0.2857,
+              "net_dollars": -25.0,
+              "net_points": 3.75,
+              "gross_win": 3112.5,
+              "gross_loss": 3137.5,
+              "profit_factor": 0.992,
+              "expectancy_dollars": -3.57,
+              "max_drawdown_dollars": 3137.5,
+              "by_side": {
+                "LONG": {
+                  "trades": 2,
+                  "net_dollars": 190.0
+                },
+                "SHORT": {
+                  "trades": 5,
+                  "net_dollars": -215.0
+                }
+              },
+              "by_outcome": {
+                "STOP": 1,
+                "TIMEOUT": 5,
+                "TP_THEN_TIMEOUT": 1
+              }
+            },
+            "BALANCED": {
+              "trades": 5,
+              "wins": 1,
+              "win_rate": 0.2,
+              "net_dollars": -2400.0,
+              "net_points": -45.0,
+              "gross_win": 557.5,
+              "gross_loss": 2957.5,
+              "profit_factor": 0.1885,
+              "expectancy_dollars": -480.0,
+              "max_drawdown_dollars": 2957.5,
+              "by_side": {
+                "LONG": {
+                  "trades": 2,
+                  "net_dollars": 2.5
+                },
+                "SHORT": {
+                  "trades": 3,
+                  "net_dollars": -2402.5
+                }
+              },
+              "by_outcome": {
+                "STOP": 1,
+                "TIMEOUT": 4
+              }
+            },
+            "COMPRESSION": {
+              "trades": 2,
+              "wins": 1,
+              "win_rate": 0.5,
+              "net_dollars": 1393.75,
+              "net_points": 29.12,
+              "gross_win": 1598.75,
+              "gross_loss": 205.0,
+              "profit_factor": 7.7988,
+              "expectancy_dollars": 696.88,
+              "max_drawdown_dollars": 205.0,
+              "by_side": {
+                "LONG": {
+                  "trades": 0,
+                  "net_dollars": 0
+                },
+                "SHORT": {
+                  "trades": 2,
+                  "net_dollars": 1393.75
+                }
+              },
+              "by_outcome": {
+                "TIMEOUT": 1,
+                "TP_THEN_TIMEOUT": 1
+              }
+            },
+            "TREND_UP": {
+              "trades": 2,
+              "wins": 1,
+              "win_rate": 0.5,
+              "net_dollars": -347.5,
+              "net_points": -5.75,
+              "gross_win": 870.0,
+              "gross_loss": 1217.5,
+              "profit_factor": 0.7146,
+              "expectancy_dollars": -173.75,
+              "max_drawdown_dollars": 1217.5,
+              "by_side": {
+                "LONG": {
+                  "trades": 2,
+                  "net_dollars": -347.5
+                },
+                "SHORT": {
+                  "trades": 0,
+                  "net_dollars": 0
+                }
+              },
+              "by_outcome": {
+                "TIMEOUT": 2
+              }
+            }
+          },
+          "source": {
+            "instrument": "ES",
+            "interval": "5m",
+            "rows": 13567,
+            "first": "2026-08-25 04:05:00+00:00",
+            "last": "2026-11-03 20:24:07+00:00",
+            "source": "yahoo_public_unofficial",
+            "sha256": "ab26cc443615c2a15f08d36d23dbb720d0cc2abef4d947bd7eaa5b80433a9909",
+            "fetched_at": "2026-11-03T20:34:08.038052+00:00"
+          },
+          "expectancy_block_interval": {
+            "mean": -141.31944444444446,
+            "low": -425.73784722222223,
+            "high": 205.59461805555554,
+            "groups": 36,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "vwap": {
+          "costs": {
+            "1": {
+              "trades": 34,
+              "wins": 15,
+              "win_rate": 0.4412,
+              "net_dollars": -4736.25,
+              "net_points": -73.72,
+              "gross_win": 4919.93,
+              "gross_loss": 9656.18,
+              "profit_factor": 0.5095,
+              "expectancy_dollars": -139.3,
+              "max_drawdown_dollars": 6891.06,
+              "by_side": {
+                "LONG": {
+                  "trades": 34,
+                  "net_dollars": -4736.25
+                },
+                "SHORT": {
+                  "trades": 0,
+                  "net_dollars": 0
+                }
+              },
+              "by_outcome": {
+                "STOP": 17,
+                "TIMEOUT": 5,
+                "TP2": 5,
+                "TP_THEN_STOP": 5,
+                "TP_THEN_TIMEOUT": 2
+              }
+            },
+            "3": {
+              "trades": 34,
+              "wins": 13,
+              "win_rate": 0.3824,
+              "net_dollars": -7311.25,
+              "net_points": -91.22,
+              "gross_win": 3846.63,
+              "gross_loss": 11157.88,
+              "profit_factor": 0.3447,
+              "expectancy_dollars": -215.04,
+              "max_drawdown_dollars": 8516.06,
+              "by_side": {
+                "LONG": {
+                  "trades": 34,
+                  "net_dollars": -7311.25
+                },
+                "SHORT": {
+                  "trades": 0,
+                  "net_dollars": 0
+                }
+              },
+              "by_outcome": {
+                "STOP": 17,
+                "TIMEOUT": 5,
+                "TP2": 5,
+                "TP_THEN_STOP": 6,
+                "TP_THEN_TIMEOUT": 1
+              }
+            },
+            "4": {
+              "trades": 34,
+              "wins": 11,
+              "win_rate": 0.3235,
+              "net_dollars": -8692.5,
+              "net_points": -101.85,
+              "gross_win": 3276.2,
+              "gross_loss": 11968.7,
+              "profit_factor": 0.2737,
+              "expectancy_dollars": -255.66,
+              "max_drawdown_dollars": 9585.56,
+              "by_side": {
+                "LONG": {
+                  "trades": 34,
+                  "net_dollars": -8692.5
+                },
+                "SHORT": {
+                  "trades": 0,
+                  "net_dollars": 0
+                }
+              },
+              "by_outcome": {
+                "STOP": 17,
+                "TIMEOUT": 5,
+                "TP2": 5,
+                "TP_THEN_STOP": 7
+              }
+            }
+          },
+          "regimes": {
+            "BALANCED": {
+              "trades": 6,
+              "wins": 2,
+              "win_rate": 0.3333,
+              "net_dollars": -1416.9,
+              "net_points": -24.64,
+              "gross_win": 283.27,
+              "gross_loss": 1700.17,
+              "profit_factor": 0.1666,
+              "expectancy_dollars": -236.15,
+              "max_drawdown_dollars": 1700.17,
+              "by_side": {
+                "LONG": {
+                  "trades": 6,
+                  "net_dollars": -1416.9
+                },
+                "SHORT": {
+                  "trades": 0,
+                  "net_dollars": 0
+                }
+              },
+              "by_outcome": {
+                "STOP": 3,
+                "TIMEOUT": 1,
+                "TP_THEN_STOP": 1,
+                "TP_THEN_TIMEOUT": 1
+              }
+            },
+            "STRESS": {
+              "trades": 13,
+              "wins": 4,
+              "win_rate": 0.3077,
+              "net_dollars": -2990.26,
+              "net_points": -51.8,
+              "gross_win": 1914.62,
+              "gross_loss": 4904.88,
+              "profit_factor": 0.3904,
+              "expectancy_dollars": -230.02,
+              "max_drawdown_dollars": 3447.54,
+              "by_side": {
+                "LONG": {
+                  "trades": 13,
+                  "net_dollars": -2990.26
+                },
+                "SHORT": {
+                  "trades": 0,
+                  "net_dollars": 0
+                }
+              },
+              "by_outcome": {
+                "STOP": 8,
+                "TIMEOUT": 1,
+                "TP2": 2,
+                "TP_THEN_STOP": 1,
+                "TP_THEN_TIMEOUT": 1
+              }
+            },
+            "EXPANSION": {
+              "trades": 10,
+              "wins": 5,
+              "win_rate": 0.5,
+              "net_dollars": -523.06,
+              "net_points": -4.21,
+              "gross_win": 2258.74,
+              "gross_loss": 2781.8,
+              "profit_factor": 0.812,
+              "expectancy_dollars": -52.31,
+              "max_drawdown_dollars": 2543.36,
+              "by_side": {
+                "LONG": {
+                  "trades": 10,
+                  "net_dollars": -523.06
+                },
+                "SHORT": {
+                  "trades": 0,
+                  "net_dollars": 0
+                }
+              },
+              "by_outcome": {
+                "STOP": 5,
+                "TP2": 3,
+                "TP_THEN_STOP": 2
+              }
+            },
+            "TRANSITION": {
+              "trades": 2,
+              "wins": 1,
+              "win_rate": 0.5,
+              "net_dollars": -161.83,
+              "net_points": -2.04,
+              "gross_win": 107.5,
+              "gross_loss": 269.33,
+              "profit_factor": 0.3991,
+              "expectancy_dollars": -80.91,
+              "max_drawdown_dollars": 269.33,
+              "by_side": {
+                "LONG": {
+                  "trades": 2,
+                  "net_dollars": -161.83
+                },
+                "SHORT": {
+                  "trades": 0,
+                  "net_dollars": 0
+                }
+              },
+              "by_outcome": {
+                "STOP": 1,
+                "TIMEOUT": 1
+              }
+            },
+            "COMPRESSION": {
+              "trades": 2,
+              "wins": 2,
+              "win_rate": 1.0,
+              "net_dollars": 60.8,
+              "net_points": 2.47,
+              "gross_win": 60.8,
+              "gross_loss": 0,
+              "profit_factor": null,
+              "expectancy_dollars": 30.4,
+              "max_drawdown_dollars": 0.0,
+              "by_side": {
+                "LONG": {
+                  "trades": 2,
+                  "net_dollars": 60.8
+                },
+                "SHORT": {
+                  "trades": 0,
+                  "net_dollars": 0
+                }
+              },
+              "by_outcome": {
+                "TIMEOUT": 1,
+                "TP_THEN_STOP": 1
+              }
+            },
+            "TREND_UP": {
+              "trades": 1,
+              "wins": 1,
+              "win_rate": 1.0,
+              "net_dollars": 295.0,
+              "net_points": 6.5,
+              "gross_win": 295.0,
+              "gross_loss": 0,
+              "profit_factor": null,
+              "expectancy_dollars": 295.0,
+              "max_drawdown_dollars": 0.0,
+              "by_side": {
+                "LONG": {
+                  "trades": 1,
+                  "net_dollars": 295.0
+                },
+                "SHORT": {
+                  "trades": 0,
+                  "net_dollars": 0
+                }
+              },
+              "by_outcome": {
+                "TIMEOUT": 1
+              }
+            }
+          },
+          "source": {
+            "instrument": "ES",
+            "interval": "5m",
+            "rows": 13567,
+            "first": "2026-08-25 04:05:00+00:00",
+            "last": "2026-11-03 20:24:07+00:00",
+            "source": "yahoo_public_unofficial",
+            "sha256": "ab26cc443615c2a15f08d36d23dbb720d0cc2abef4d947bd7eaa5b80433a9909",
+            "fetched_at": "2026-11-03T20:34:08.038052+00:00"
+          },
+          "expectancy_block_interval": {
+            "mean": -139.30147058823528,
+            "low": -339.2387794117647,
+            "high": 67.27449264705879,
+            "groups": 34,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "value": {
+          "costs": {
+            "1": {
+              "trades": 21,
+              "wins": 15,
+              "win_rate": 0.7143,
+              "net_dollars": 2682.5,
+              "net_points": 66.25,
+              "gross_win": 6425.0,
+              "gross_loss": 3742.5,
+              "profit_factor": 1.7168,
+              "expectancy_dollars": 127.74,
+              "max_drawdown_dollars": 3117.5,
+              "by_side": {
+                "LONG": {
+                  "trades": 10,
+                  "net_dollars": 1150.0
+                },
+                "SHORT": {
+                  "trades": 11,
+                  "net_dollars": 1532.5
+                }
+              },
+              "by_outcome": {
+                "POC": 12,
+                "STOP": 6,
+                "TIMEOUT": 3
+              }
+            },
+            "3": {
+              "trades": 21,
+              "wins": 12,
+              "win_rate": 0.5714,
+              "net_dollars": 1107.5,
+              "net_points": 55.75,
+              "gross_win": 5377.5,
+              "gross_loss": 4270.0,
+              "profit_factor": 1.2594,
+              "expectancy_dollars": 52.74,
+              "max_drawdown_dollars": 3567.5,
+              "by_side": {
+                "LONG": {
+                  "trades": 10,
+                  "net_dollars": 400.0
+                },
+                "SHORT": {
+                  "trades": 11,
+                  "net_dollars": 707.5
+                }
+              },
+              "by_outcome": {
+                "POC": 12,
+                "STOP": 6,
+                "TIMEOUT": 3
+              }
+            },
+            "4": {
+              "trades": 21,
+              "wins": 11,
+              "win_rate": 0.5238,
+              "net_dollars": 320.0,
+              "net_points": 50.5,
+              "gross_win": 4957.5,
+              "gross_loss": 4637.5,
+              "profit_factor": 1.069,
+              "expectancy_dollars": 15.24,
+              "max_drawdown_dollars": 3865.0,
+              "by_side": {
+                "LONG": {
+                  "trades": 10,
+                  "net_dollars": 25.0
+                },
+                "SHORT": {
+                  "trades": 11,
+                  "net_dollars": 295.0
+                }
+              },
+              "by_outcome": {
+                "POC": 12,
+                "STOP": 6,
+                "TIMEOUT": 3
+              }
+            }
+          },
+          "regimes": {
+            "STRESS": {
+              "trades": 10,
+              "wins": 8,
+              "win_rate": 0.8,
+              "net_dollars": 1637.5,
+              "net_points": 38.75,
+              "gross_win": 4047.5,
+              "gross_loss": 2410.0,
+              "profit_factor": 1.6795,
+              "expectancy_dollars": 163.75,
+              "max_drawdown_dollars": 2410.0,
+              "by_side": {
+                "LONG": {
+                  "trades": 6,
+                  "net_dollars": 2257.5
+                },
+                "SHORT": {
+                  "trades": 4,
+                  "net_dollars": -620.0
+                }
+              },
+              "by_outcome": {
+                "POC": 6,
+                "STOP": 2,
+                "TIMEOUT": 2
+              }
+            },
+            "TREND_DOWN": {
+              "trades": 2,
+              "wins": 1,
+              "win_rate": 0.5,
+              "net_dollars": -60.0,
+              "net_points": 0.0,
+              "gross_win": 282.5,
+              "gross_loss": 342.5,
+              "profit_factor": 0.8248,
+              "expectancy_dollars": -30.0,
+              "max_drawdown_dollars": 342.5,
+              "by_side": {
+                "LONG": {
+                  "trades": 1,
+                  "net_dollars": -342.5
+                },
+                "SHORT": {
+                  "trades": 1,
+                  "net_dollars": 282.5
+                }
+              },
+              "by_outcome": {
+                "POC": 1,
+                "STOP": 1
+              }
+            },
+            "EXPANSION": {
+              "trades": 4,
+              "wins": 4,
+              "win_rate": 1.0,
+              "net_dollars": 1130.0,
+              "net_points": 25.0,
+              "gross_win": 1130.0,
+              "gross_loss": 0,
+              "profit_factor": null,
+              "expectancy_dollars": 282.5,
+              "max_drawdown_dollars": 0.0,
+              "by_side": {
+                "LONG": {
+                  "trades": 1,
+                  "net_dollars": 70.0
+                },
+                "SHORT": {
+                  "trades": 3,
+                  "net_dollars": 1060.0
+                }
+              },
+              "by_outcome": {
+                "POC": 4
+              }
+            },
+            "BALANCED": {
+              "trades": 4,
+              "wins": 2,
+              "win_rate": 0.5,
+              "net_dollars": 330.0,
+              "net_points": 9.0,
+              "gross_win": 965.0,
+              "gross_loss": 635.0,
+              "profit_factor": 1.5197,
+              "expectancy_dollars": 82.5,
+              "max_drawdown_dollars": 635.0,
+              "by_side": {
+                "LONG": {
+                  "trades": 1,
+                  "net_dollars": -480.0
+                },
+                "SHORT": {
+                  "trades": 3,
+                  "net_dollars": 810.0
+                }
+              },
+              "by_outcome": {
+                "POC": 1,
+                "STOP": 2,
+                "TIMEOUT": 1
+              }
+            },
+            "TRANSITION": {
+              "trades": 1,
+              "wins": 0,
+              "win_rate": 0.0,
+              "net_dollars": -355.0,
+              "net_points": -6.5,
+              "gross_win": 0,
+              "gross_loss": 355.0,
+              "profit_factor": 0.0,
+              "expectancy_dollars": -355.0,
+              "max_drawdown_dollars": 355.0,
+              "by_side": {
+                "LONG": {
+                  "trades": 1,
+                  "net_dollars": -355.0
+                },
+                "SHORT": {
+                  "trades": 0,
+                  "net_dollars": 0
+                }
+              },
+              "by_outcome": {
+                "STOP": 1
+              }
+            }
+          },
+          "source": {
+            "instrument": "ES",
+            "interval": "5m",
+            "rows": 13567,
+            "first": "2026-08-25 04:05:00+00:00",
+            "last": "2026-11-03 20:24:07+00:00",
+            "source": "yahoo_public_unofficial",
+            "sha256": "ab26cc443615c2a15f08d36d23dbb720d0cc2abef4d947bd7eaa5b80433a9909",
+            "fetched_at": "2026-11-03T20:34:08.038052+00:00"
+          },
+          "expectancy_block_interval": {
+            "mean": 127.73809523809524,
+            "low": -247.6488095238095,
+            "high": 404.56845238095235,
+            "groups": 21,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        }
+      },
+      "daily_pnl_correlation": {
+        "orb": {
+          "orb": 1.0,
+          "vwap": 0.23254528541639044,
+          "value": 0.16491198277283486
+        },
+        "vwap": {
+          "orb": 0.23254528541639044,
+          "vwap": 1.0,
+          "value": -0.04557180732266996
+        },
+        "value": {
+          "orb": 0.16491198277283486,
+          "vwap": -0.04557180732266996,
+          "value": 1.0
+        }
+      },
+      "correlation_days": 40,
+      "no_signal_day_policy": "zero return; missing market sessions not invented"
+    }
+  },
+  "limitations": [
+    "retrospective development",
+    "independent strategy ledgers, not joint portfolio",
+    "regimes measured before entry from trailing bars only",
+    "small samples; no regime selection fitted"
+  ]
+}

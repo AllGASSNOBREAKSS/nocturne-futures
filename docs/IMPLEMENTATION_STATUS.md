@@ -1,5 +1,23 @@
 # Implementation Status
 
+## Phase 3E update (2026-11-03)
+
+Operational: authenticated raw-contract Databento and ALFRED adapter interfaces,
+contract/source validation, LightGBM ablations, range quantiles, nested-target
+audits, immutable development replay and fail-closed promotion evidence.
+Databento/ALFRED keys are absent, so no real licensed download occurred; adapters
+were tested only with synthetic HTTP fixtures.
+
+Research-only: direction remains weak (BEAR recall near zero); consolidation and
+range quantiles improve probability/pinball loss on retrospective development
+folds. All promotion assessments are `NO_PROMOTION`; production probabilities
+remain null and `NO_TRADE` remains. See `PHASE3E_FINDINGS.md` for exact metrics.
+
+Blocked/unfinished: licensed five-minute/tick/depth/MBO history, actual VX
+futures, PIT release schedules/consensus/news, independent future holdout,
+validated fusion and monitoring/rollback. Older milestone descriptions below must
+not be read as completing those gates.
+
 ## Phase 3D update (2026-11-03)
 
 Operational: public two-year hourly NQ/ES ingestion, official FRED latest-vintage

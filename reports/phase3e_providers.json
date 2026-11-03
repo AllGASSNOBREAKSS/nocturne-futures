@@ -1,0 +1,16 @@
+{
+  "databento": {
+    "credential_present": false,
+    "real_data_status": "DATA_BLOCKED"
+  },
+  "alfred": {
+    "credential_present": false,
+    "real_data_status": "DATA_BLOCKED"
+  },
+  "unsupported_real_data": [
+    "licensed ticks/depth/MBO",
+    "VX futures",
+    "historical consensus",
+    "authorized news"
+  ]
+}

@@ -1,5 +1,8 @@
 # Preserve exact bytes for SHA-256 provenance across Windows/Linux checkouts.
 data/history/** -text whitespace=cr-at-eol
 data/research/*phase3d.csv -text whitespace=cr-at-eol
+data/replay/** -text
+reports/*.csv.gz -text
+reports/*_predictions.csv.gz -text
 docs/PHASE3D_PROTOCOL.md text eol=lf
 docs/PHASE3D_DESTINATION_PROTOCOL.md text eol=lf

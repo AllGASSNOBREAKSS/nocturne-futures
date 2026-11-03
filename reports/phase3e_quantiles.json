@@ -1,0 +1,106 @@
+{
+  "decision": "NO_PROMOTION",
+  "event": "next_two_contiguous_hourly_bars_high_minus_low",
+  "holdout_scored": false,
+  "protocol_sha256": "c9099331992e1b8e631aa4769a705ceb648e836230549e19f968cd9bf0639d12",
+  "instruments": {
+    "NQ": {
+      "source_sha256": "33928e22dae2da36e7f1cc26be53a6cbcc496de4c7372054779b9b260a626709",
+      "summary": {
+        "0.5": {
+          "n": 6786,
+          "pinball_loss": 22.026741072845464,
+          "coverage": 0.44326554671382257,
+          "baseline_coverage": 0.4245505452402004,
+          "paired_loss_interval": {
+            "mean": -11.895635879703901,
+            "low": -13.270672409505636,
+            "high": -10.46811169695698,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "0.8": {
+          "n": 6786,
+          "pinball_loss": 20.894204806686943,
+          "coverage": 0.7418213969938108,
+          "baseline_coverage": 0.7440318302387268,
+          "paired_loss_interval": {
+            "mean": -12.019305361305978,
+            "low": -13.595132690803977,
+            "high": -10.429859896107688,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "0.9": {
+          "n": 6786,
+          "pinball_loss": 15.88678352177326,
+          "coverage": 0.8644267609784851,
+          "baseline_coverage": 0.8642793987621574,
+          "paired_loss_interval": {
+            "mean": -8.412501034666464,
+            "low": -9.754427611663795,
+            "high": -7.016982541197987,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        }
+      },
+      "raw_crossing_rows": 77,
+      "negative_values_clipped": 0
+    },
+    "ES": {
+      "source_sha256": "02e1284a75738a3a2a900eaae692318e596abcf3e1b59d231bc38b236fc1e4d7",
+      "summary": {
+        "0.5": {
+          "n": 6777,
+          "pinball_loss": 4.60169865851089,
+          "coverage": 0.4447395602774089,
+          "baseline_coverage": 0.43898480153460234,
+          "paired_loss_interval": {
+            "mean": -2.584537876829231,
+            "low": -2.9359419040864205,
+            "high": -2.254910490789135,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "0.8": {
+          "n": 6777,
+          "pinball_loss": 4.556426291499485,
+          "coverage": 0.7472332890659584,
+          "baseline_coverage": 0.7559392061384094,
+          "paired_loss_interval": {
+            "mean": -2.548155381807287,
+            "low": -2.8950575956268394,
+            "high": -2.217746378561977,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "0.9": {
+          "n": 6777,
+          "pinball_loss": 3.603325474228162,
+          "coverage": 0.8611480005902317,
+          "baseline_coverage": 0.8760513501549358,
+          "paired_loss_interval": {
+            "mean": -1.7907227772105265,
+            "low": -2.069645509503981,
+            "high": -1.515665898882369,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        }
+      },
+      "raw_crossing_rows": 157,
+      "negative_values_clipped": 0
+    }
+  }
+}

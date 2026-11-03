@@ -1,0 +1,152 @@
+{
+  "bundle": {
+    "as_of": "2026-10-14T16:00:00+00:00",
+    "bundle_id": "bc6e047587c43709",
+    "outcomes": {
+      "ASIA": {
+        "reason": "INCOMPLETE_SESSION_BARS",
+        "session_date": "2026-10-15",
+        "status": "DATA_BLOCKED"
+      },
+      "LONDON": {
+        "direction_outcome": "UNVALIDATED_DIRECTION",
+        "p50_covered": true,
+        "p80_covered": true,
+        "p90_covered": true,
+        "realized_high": 7755.75,
+        "realized_low": 7730.5,
+        "realized_range": 25.25,
+        "session_date": "2026-10-15",
+        "status": "EVALUATED",
+        "target_touches": [
+          {
+            "level": 7782.875,
+            "touch_probability": null,
+            "touched": false
+          },
+          {
+            "level": 7786.375,
+            "touch_probability": null,
+            "touched": false
+          },
+          {
+            "level": 7776.8214,
+            "touch_probability": null,
+            "touched": true
+          },
+          {
+            "level": 7788.8036,
+            "touch_probability": null,
+            "touched": false
+          },
+          {
+            "level": 7797.9318,
+            "touch_probability": null,
+            "touched": false
+          }
+        ]
+      },
+      "NEW_YORK": {
+        "direction_outcome": "UNVALIDATED_DIRECTION",
+        "p50_covered": false,
+        "p80_covered": false,
+        "p90_covered": false,
+        "realized_high": 7801.75,
+        "realized_low": 7717.25,
+        "realized_range": 84.5,
+        "session_date": "2026-10-15",
+        "status": "EVALUATED",
+        "target_touches": [
+          {
+            "level": 7782.875,
+            "touch_probability": null,
+            "touched": true
+          },
+          {
+            "level": 7786.375,
+            "touch_probability": null,
+            "touched": true
+          },
+          {
+            "level": 7776.8214,
+            "touch_probability": null,
+            "touched": true
+          },
+          {
+            "level": 7788.8036,
+            "touch_probability": null,
+            "touched": true
+          },
+          {
+            "level": 7797.9318,
+            "touch_probability": null,
+            "touched": true
+          }
+        ]
+      },
+      "NEXT_DAY": {
+        "direction_outcome": "UNVALIDATED_DIRECTION",
+        "p50_covered": false,
+        "p80_covered": false,
+        "p90_covered": false,
+        "realized_high": 7801.75,
+        "realized_low": 7717.25,
+        "realized_range": 84.5,
+        "session_date": "2026-10-15",
+        "status": "EVALUATED",
+        "target_touches": [
+          {
+            "level": 7782.875,
+            "touch_probability": null,
+            "touched": true
+          },
+          {
+            "level": 7786.375,
+            "touch_probability": null,
+            "touched": true
+          },
+          {
+            "level": 7776.8214,
+            "touch_probability": null,
+            "touched": true
+          },
+          {
+            "level": 7788.8036,
+            "touch_probability": null,
+            "touched": true
+          },
+          {
+            "level": 7797.9318,
+            "touch_probability": null,
+            "touched": true
+          }
+        ]
+      }
+    }
+  },
+  "evaluation_input_sha256": "47c9e44122c3204fdd977b0f2906836f34e4bbe5f3212bb3204a4b60a0d17ef7",
+  "replay_id": "8b88edca58035a069f2e6539",
+  "v1": {
+    "asof": "2026-10-14T16:00:00+00:00",
+    "direction_outcome": "UNVALIDATED_DIRECTION",
+    "forecast_id": "4cf2529695126e16",
+    "horizon_bars": 78,
+    "instrument": "ES",
+    "notes": [],
+    "p50_covered": false,
+    "p80_covered": true,
+    "p90_covered": true,
+    "realized_high": 7784.75,
+    "realized_low": 7741.0,
+    "realized_range": 43.75,
+    "status": "EVALUATED",
+    "target_touches": [
+      {
+        "level": 7776.8214,
+        "level_type": "CONFLUENCE",
+        "touch_probability": 1.0,
+        "touched": true
+      }
+    ]
+  }
+}

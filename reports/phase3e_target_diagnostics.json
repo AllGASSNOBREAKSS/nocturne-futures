@@ -1,0 +1,286 @@
+{
+  "decision": "NO_PROMOTION",
+  "nested": {
+    "comparisons": 856,
+    "violations": [],
+    "unknowns": "censored/ambiguous outcomes excluded; no imputation"
+  },
+  "timing": {
+    "orb_24bars_1ticks": {
+      "POINTS_200": {
+        "rows": 35,
+        "observed_touches": 3,
+        "median_bars_to_touch_upper_bound": 16.0,
+        "p90_bars_to_touch_upper_bound": 22.4,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      },
+      "POINTS_350": {
+        "rows": 35,
+        "observed_touches": 0,
+        "median_bars_to_touch_upper_bound": null,
+        "p90_bars_to_touch_upper_bound": null,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      },
+      "POINTS_500": {
+        "rows": 35,
+        "observed_touches": 0,
+        "median_bars_to_touch_upper_bound": null,
+        "p90_bars_to_touch_upper_bound": null,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      }
+    },
+    "orb_24bars_3ticks": {
+      "POINTS_200": {
+        "rows": 35,
+        "observed_touches": 3,
+        "median_bars_to_touch_upper_bound": 16.0,
+        "p90_bars_to_touch_upper_bound": 22.4,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      },
+      "POINTS_350": {
+        "rows": 35,
+        "observed_touches": 0,
+        "median_bars_to_touch_upper_bound": null,
+        "p90_bars_to_touch_upper_bound": null,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      },
+      "POINTS_500": {
+        "rows": 35,
+        "observed_touches": 0,
+        "median_bars_to_touch_upper_bound": null,
+        "p90_bars_to_touch_upper_bound": null,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      }
+    },
+    "orb_78bars_1ticks": {
+      "POINTS_200": {
+        "rows": 35,
+        "observed_touches": 5,
+        "median_bars_to_touch_upper_bound": 24.0,
+        "p90_bars_to_touch_upper_bound": 49.6,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      },
+      "POINTS_350": {
+        "rows": 35,
+        "observed_touches": 2,
+        "median_bars_to_touch_upper_bound": 47.5,
+        "p90_bars_to_touch_upper_bound": 49.5,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      },
+      "POINTS_500": {
+        "rows": 35,
+        "observed_touches": 0,
+        "median_bars_to_touch_upper_bound": null,
+        "p90_bars_to_touch_upper_bound": null,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      }
+    },
+    "orb_78bars_3ticks": {
+      "POINTS_200": {
+        "rows": 35,
+        "observed_touches": 5,
+        "median_bars_to_touch_upper_bound": 24.0,
+        "p90_bars_to_touch_upper_bound": 49.6,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      },
+      "POINTS_350": {
+        "rows": 35,
+        "observed_touches": 2,
+        "median_bars_to_touch_upper_bound": 47.5,
+        "p90_bars_to_touch_upper_bound": 49.5,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      },
+      "POINTS_500": {
+        "rows": 35,
+        "observed_touches": 0,
+        "median_bars_to_touch_upper_bound": null,
+        "p90_bars_to_touch_upper_bound": null,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      }
+    },
+    "value_24bars_1ticks": {
+      "POINTS_200": {
+        "rows": 22,
+        "observed_touches": 2,
+        "median_bars_to_touch_upper_bound": 6.5,
+        "p90_bars_to_touch_upper_bound": 7.7,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      },
+      "POINTS_350": {
+        "rows": 22,
+        "observed_touches": 0,
+        "median_bars_to_touch_upper_bound": null,
+        "p90_bars_to_touch_upper_bound": null,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      },
+      "POINTS_500": {
+        "rows": 22,
+        "observed_touches": 0,
+        "median_bars_to_touch_upper_bound": null,
+        "p90_bars_to_touch_upper_bound": null,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      }
+    },
+    "value_24bars_3ticks": {
+      "POINTS_200": {
+        "rows": 22,
+        "observed_touches": 2,
+        "median_bars_to_touch_upper_bound": 6.5,
+        "p90_bars_to_touch_upper_bound": 7.7,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      },
+      "POINTS_350": {
+        "rows": 22,
+        "observed_touches": 0,
+        "median_bars_to_touch_upper_bound": null,
+        "p90_bars_to_touch_upper_bound": null,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      },
+      "POINTS_500": {
+        "rows": 22,
+        "observed_touches": 0,
+        "median_bars_to_touch_upper_bound": null,
+        "p90_bars_to_touch_upper_bound": null,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      }
+    },
+    "value_78bars_1ticks": {
+      "POINTS_200": {
+        "rows": 22,
+        "observed_touches": 2,
+        "median_bars_to_touch_upper_bound": 6.5,
+        "p90_bars_to_touch_upper_bound": 7.7,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      },
+      "POINTS_350": {
+        "rows": 22,
+        "observed_touches": 0,
+        "median_bars_to_touch_upper_bound": null,
+        "p90_bars_to_touch_upper_bound": null,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      },
+      "POINTS_500": {
+        "rows": 22,
+        "observed_touches": 0,
+        "median_bars_to_touch_upper_bound": null,
+        "p90_bars_to_touch_upper_bound": null,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      }
+    },
+    "value_78bars_3ticks": {
+      "POINTS_200": {
+        "rows": 22,
+        "observed_touches": 2,
+        "median_bars_to_touch_upper_bound": 6.5,
+        "p90_bars_to_touch_upper_bound": 7.7,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      },
+      "POINTS_350": {
+        "rows": 22,
+        "observed_touches": 0,
+        "median_bars_to_touch_upper_bound": null,
+        "p90_bars_to_touch_upper_bound": null,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      },
+      "POINTS_500": {
+        "rows": 22,
+        "observed_touches": 0,
+        "median_bars_to_touch_upper_bound": null,
+        "p90_bars_to_touch_upper_bound": null,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      }
+    },
+    "vwap_24bars_1ticks": {
+      "POINTS_200": {
+        "rows": 33,
+        "observed_touches": 4,
+        "median_bars_to_touch_upper_bound": 15.5,
+        "p90_bars_to_touch_upper_bound": 20.8,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      },
+      "POINTS_350": {
+        "rows": 33,
+        "observed_touches": 1,
+        "median_bars_to_touch_upper_bound": 13.0,
+        "p90_bars_to_touch_upper_bound": 13.0,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      },
+      "POINTS_500": {
+        "rows": 33,
+        "observed_touches": 1,
+        "median_bars_to_touch_upper_bound": 22.0,
+        "p90_bars_to_touch_upper_bound": 22.0,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      }
+    },
+    "vwap_24bars_3ticks": {
+      "POINTS_200": {
+        "rows": 33,
+        "observed_touches": 4,
+        "median_bars_to_touch_upper_bound": 15.5,
+        "p90_bars_to_touch_upper_bound": 20.8,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      },
+      "POINTS_350": {
+        "rows": 33,
+        "observed_touches": 1,
+        "median_bars_to_touch_upper_bound": 13.0,
+        "p90_bars_to_touch_upper_bound": 13.0,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      },
+      "POINTS_500": {
+        "rows": 33,
+        "observed_touches": 1,
+        "median_bars_to_touch_upper_bound": 22.0,
+        "p90_bars_to_touch_upper_bound": 22.0,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      }
+    },
+    "vwap_78bars_1ticks": {
+      "POINTS_200": {
+        "rows": 33,
+        "observed_touches": 6,
+        "median_bars_to_touch_upper_bound": 20.0,
+        "p90_bars_to_touch_upper_bound": 51.0,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      },
+      "POINTS_350": {
+        "rows": 33,
+        "observed_touches": 2,
+        "median_bars_to_touch_upper_bound": 37.5,
+        "p90_bars_to_touch_upper_bound": 57.1,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      },
+      "POINTS_500": {
+        "rows": 33,
+        "observed_touches": 1,
+        "median_bars_to_touch_upper_bound": 22.0,
+        "p90_bars_to_touch_upper_bound": 22.0,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      }
+    },
+    "vwap_78bars_3ticks": {
+      "POINTS_200": {
+        "rows": 33,
+        "observed_touches": 6,
+        "median_bars_to_touch_upper_bound": 20.0,
+        "p90_bars_to_touch_upper_bound": 51.0,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      },
+      "POINTS_350": {
+        "rows": 33,
+        "observed_touches": 2,
+        "median_bars_to_touch_upper_bound": 37.5,
+        "p90_bars_to_touch_upper_bound": 57.1,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      },
+      "POINTS_500": {
+        "rows": 33,
+        "observed_touches": 1,
+        "median_bars_to_touch_upper_bound": 22.0,
+        "p90_bars_to_touch_upper_bound": 22.0,
+        "interpretation": "conditional_on_observed_touch; not a survival estimate"
+      }
+    }
+  }
+}
