@@ -74,12 +74,22 @@ def reliability_table(y: np.ndarray, p: np.ndarray, bins: int = 10) -> list[dict
 
 
 def classification_metrics(y: np.ndarray, p: np.ndarray) -> dict:
+    y = np.asarray(y, dtype=float)
+    p = np.asarray(p, dtype=float)
+    predicted = p >= 0.5
+    tp = float(((predicted == 1) & (y == 1)).sum())
+    precision = tp / float(predicted.sum()) if predicted.sum() else 0.0
+    recall = tp / float((y == 1).sum()) if (y == 1).sum() else 0.0
+    f1 = 2 * precision * recall / (precision + recall) if precision + recall else 0.0
     return {
         "n": int(len(y)),
         "base_rate": round(float(np.mean(y)), 4),
         "brier": round(brier_score(y, p), 6),
         "log_loss": round(log_loss(y, p), 6),
         "accuracy": round(accuracy(y, p), 4),
+        "precision": round(float(precision), 4),
+        "recall": round(float(recall), 4),
+        "f1": round(float(f1), 4),
         "ece": round(expected_calibration_error(y, p), 6),
         "reliability": reliability_table(y, p),
     }

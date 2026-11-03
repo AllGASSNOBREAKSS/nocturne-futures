@@ -20,6 +20,7 @@ No endpoint places an order, modifies a position, or talks to a broker.
 | GET | `/v1/levels?instrument=NQ` | level artifact or explicit reason |
 | GET | `/v1/intermarket/state` | ES/NQ/VIX/ZN/ZB context |
 | GET | `/v1/premarket/state` | overnight gap/range, prior RTH, leadership |
+| GET | `/v1/forecast/v1?instrument=NQ` | research-only Forecast V1 |
 | GET | `/v1/events/upcoming` | events or `NO_AUTHORIZED_CALENDAR_ADAPTER` |
 | GET | `/v1/models/status` | registry metadata |
 
@@ -59,3 +60,18 @@ trade recommendation.
 - No calendar adapter: `{"events": [], "reason": "NO_AUTHORIZED_CALENDAR_ADAPTER"}`.
 
 The API never fills a missing value with a synthetic one.
+
+## Forecast V1
+
+`GET /v1/forecast/v1?instrument=NQ` returns the artifact in
+`data/forecasts/NQ_v1.json`. It is research-only:
+
+- `validation_status = "research_only"`
+- `decision = "NO_TRADE"`
+- `direction_probability = null`
+- every `target.probability_before_stop = null`
+- `model_version = "none"`
+
+The contract still provides the market regime, empirical expected range,
+candidate entry zone, significant levels and data provenance. A missing
+validated model does not produce a fabricated confidence number.

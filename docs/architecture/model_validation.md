@@ -111,6 +111,15 @@ The ORB actual-target set is not trainable (2 positives). The VWAP set is the
 first usable candidate; any model must split chronologically and leave the last
 40% untouched.
 
+## Phase 3B target-first model
+
+A second experiment used the VWAP, revised-ORB and value-area target datasets
+with point-in-time intraday features and signal-grouped chronological splits:
+123 binary rows from 75 signals, base rate 0.520. Test Brier: frequency 0.2688,
+logistic 0.2735, GBM 0.2447. The GBM’s AUC is 0.411, ECE 0.154, test n=22, and
+the test positive rate is 0.636 vs 0.443 in training. **NO_PROMOTION.** Full
+report: `docs/PHASE3B_FINDINGS.md`.
+
 ## Reproduce
 
 ```bash

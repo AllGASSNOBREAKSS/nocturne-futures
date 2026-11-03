@@ -13,6 +13,7 @@ import sys
 from pathlib import Path
 
 import pandas as pd
+import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
@@ -20,6 +21,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from nocturne.backtest.data import add_session_column, load_intraday  # noqa: E402
 from nocturne.instruments import get_instrument  # noqa: E402
 from nocturne.ml.target_model import evaluate_folds, evaluate_split  # noqa: E402
+from nocturne.ml.calibration import classification_metrics  # noqa: E402
 from nocturne.research.target_training import (  # noqa: E402
     build_training_frame,
     expanding_folds,
@@ -27,6 +29,28 @@ from nocturne.research.target_training import (  # noqa: E402
     prepare_binary,
     split_by_signal,
 )
+
+
+def economic(preds: pd.DataFrame, test: pd.DataFrame, threshold: float) -> dict:
+    merged = preds.merge(
+        test[["signal_id", "r_multiple", "risk_atr", "atr14"]],
+        on=["signal_id", "r_multiple"],
+        how="left",
+    )
+    trades = merged[merged["p"] >= threshold].copy()
+    if trades.empty:
+        return {"threshold": threshold, "trades": 0}
+    trades["r"] = np.where(trades["y"] == 1, trades["r_multiple"], -1.0)
+    trades["dollars"] = trades["r"] * trades["risk_atr"] * trades["atr14"] * 20.0 - 15.0
+    equity = trades["dollars"].cumsum()
+    return {
+        "threshold": threshold,
+        "trades": int(len(trades)),
+        "win_rate": round(float((trades["dollars"] > 0).mean()), 4),
+        "avg_r": round(float(trades["r"].mean()), 4),
+        "net_dollars": round(float(trades["dollars"].sum()), 2),
+        "max_drawdown_dollars": round(float((equity.cummax() - equity).max()), 2),
+    }
 
 
 def main() -> int:
@@ -48,13 +72,24 @@ def main() -> int:
     results = evaluate_split(train, validation, test, feature_columns)
     folds = expanding_folds(binary, n_folds=3)
     fold_summary = evaluate_folds(folds, feature_columns)
+    best_test = min(results, key=lambda name: results[name].metrics["brier"])
+    best_predictions = results[best_test].predictions
+    by_strategy = {}
+    for strategy, group in best_predictions.groupby("strategy_id"):
+        if len(group) >= 5 and group["y"].nunique() == 2:
+            by_strategy[strategy] = classification_metrics(
+                group["y"].to_numpy(), group["p"].to_numpy()
+            )
+    economic_results = {
+        name: [economic(result.predictions, test, threshold) for threshold in (0.50, 0.55, 0.60)]
+        for name, result in results.items()
+    }
 
     class_balance = {
         "train": round(float(train["y"].mean()), 4),
         "validation": round(float(validation["y"].mean()), 4),
         "test": round(float(test["y"].mean()), 4),
     }
-    best_test = min(results, key=lambda name: results[name].metrics["brier"])
     best_auc = results[best_test].metrics.get("auc")
     decision = "NO_PROMOTION"
     if (
@@ -113,6 +148,8 @@ def main() -> int:
             for name, result in results.items()
         },
         "walk_forward": fold_summary,
+        "by_strategy": by_strategy,
+        "economic": economic_results,
     }
     (ROOT / "reports").mkdir(exist_ok=True)
     (ROOT / "reports" / "phase3b_target_model.json").write_text(
@@ -127,14 +164,15 @@ def main() -> int:
         f"Strategies: {coverage['by_strategy']}.",
         f"Split: train {len(train)} / validation {len(validation)} / test {len(test)} rows.",
         "",
-        "| Model | Brier | Log loss | Accuracy | ECE | AUC |",
-        "|---|---:|---:|---:|---:|---:|",
+        "| Model | Brier | Log loss | Accuracy | Precision | Recall | ECE | AUC |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for name, result in results.items():
         metrics = result.metrics
         lines.append(
             f"| {name} | {metrics['brier']:.4f} | {metrics['log_loss']:.4f} | "
-            f"{metrics['accuracy']:.3f} | {metrics['ece']:.4f} | {metrics.get('auc', '-')} |"
+            f"{metrics['accuracy']:.3f} | {metrics['precision']:.3f} | "
+            f"{metrics['recall']:.3f} | {metrics['ece']:.4f} | {metrics.get('auc', '-')} |"
         )
     lines.extend(
         [
@@ -149,6 +187,46 @@ def main() -> int:
         lines.append(
             f"| {name} | {len(summary['folds'])} | {summary['mean_brier']:.4f} | "
             f"{summary['mean_log_loss']:.4f} | {summary['mean_accuracy']:.3f} |"
+        )
+    if by_strategy:
+        lines.extend(
+            [
+                "",
+                "## By strategy (best test model)",
+                "",
+                "| Strategy | n | Brier | Accuracy | Precision | Recall |",
+                "|---|---:|---:|---:|---:|---:|",
+            ]
+        )
+        for strategy, metrics in by_strategy.items():
+            lines.append(
+                f"| {strategy} | {metrics['n']} | {metrics['brier']:.4f} | "
+                f"{metrics['accuracy']:.3f} | {metrics['precision']:.3f} | "
+                f"{metrics['recall']:.3f} |"
+            )
+    if economic_results:
+        lines.extend(
+            [
+                "",
+                "## Economic threshold (best test model, $15 round trip)",
+                "",
+                "| Threshold | Trades | Win % | Avg R | Net $ | Max DD $ |",
+                "|---:|---:|---:|---:|---:|---:|",
+            ]
+        )
+        for item in economic_results[best_test]:
+            if item.get("trades", 0) == 0:
+                lines.append(f"| {item['threshold']:.2f} | 0 | - | - | - | - |")
+                continue
+            lines.append(
+                f"| {item['threshold']:.2f} | {item['trades']} | "
+                f"{100 * item['win_rate']:.1f} | {item['avg_r']:.3f} | "
+                f"{item['net_dollars']:.2f} | {item['max_drawdown_dollars']:.2f} |"
+            )
+        lines.append("")
+        lines.append(
+            "Thresholds are diagnostic only. All best-model test probabilities were "
+            "above 0.60, so the positive net is a class-shift artifact, not evidence of edge."
         )
     lines.extend(
         [

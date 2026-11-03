@@ -96,6 +96,9 @@
         "brier": 0.26878,
         "log_loss": 0.730885,
         "accuracy": 0.3636,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
         "ece": 0.193326,
         "reliability": [
           {
@@ -295,6 +298,9 @@
         "brier": 0.27347,
         "log_loss": 0.775197,
         "accuracy": 0.5909,
+        "precision": 0.6471,
+        "recall": 0.7857,
+        "f1": 0.7097,
         "ece": 0.20007,
         "reliability": [
           {
@@ -563,6 +569,9 @@
         "brier": 0.244662,
         "log_loss": 0.696104,
         "accuracy": 0.6818,
+        "precision": 0.6842,
+        "recall": 0.9286,
+        "f1": 0.7879,
         "ece": 0.153537,
         "reliability": [
           {
@@ -853,5 +862,150 @@
       "mean_log_loss": 0.81449,
       "mean_accuracy": 0.6304
     }
+  },
+  "by_strategy": {
+    "opening_range_ib_breakout_retest": {
+      "n": 9,
+      "base_rate": 0.8889,
+      "brier": 0.151635,
+      "log_loss": 0.486048,
+      "accuracy": 0.7778,
+      "precision": 0.875,
+      "recall": 0.875,
+      "f1": 0.875,
+      "ece": 0.178138,
+      "reliability": [
+        {
+          "bin_low": 0.4,
+          "bin_high": 0.5,
+          "n": 1,
+          "mean_predicted": 0.4924,
+          "observed_rate": 1.0
+        },
+        {
+          "bin_low": 0.6,
+          "bin_high": 0.7,
+          "n": 1,
+          "mean_predicted": 0.6838,
+          "observed_rate": 1.0
+        },
+        {
+          "bin_low": 0.7,
+          "bin_high": 0.8,
+          "n": 6,
+          "mean_predicted": 0.7365,
+          "observed_rate": 0.8333
+        },
+        {
+          "bin_low": 0.8,
+          "bin_high": 0.9,
+          "n": 1,
+          "mean_predicted": 0.8014,
+          "observed_rate": 1.0
+        }
+      ]
+    },
+    "vwap_value_aligned_pullback": {
+      "n": 9,
+      "base_rate": 0.5556,
+      "brier": 0.319883,
+      "log_loss": 0.869202,
+      "accuracy": 0.5556,
+      "precision": 0.5556,
+      "recall": 1.0,
+      "f1": 0.7143,
+      "ece": 0.31257,
+      "reliability": [
+        {
+          "bin_low": 0.6,
+          "bin_high": 0.7,
+          "n": 5,
+          "mean_predicted": 0.6565,
+          "observed_rate": 0.8
+        },
+        {
+          "bin_low": 0.7,
+          "bin_high": 0.8,
+          "n": 3,
+          "mean_predicted": 0.7648,
+          "observed_rate": 0.3333
+        },
+        {
+          "bin_low": 0.8,
+          "bin_high": 0.9,
+          "n": 1,
+          "mean_predicted": 0.8015,
+          "observed_rate": 0.0
+        }
+      ]
+    }
+  },
+  "economic": {
+    "frequency": [
+      {
+        "threshold": 0.5,
+        "trades": 0
+      },
+      {
+        "threshold": 0.55,
+        "trades": 0
+      },
+      {
+        "threshold": 0.6,
+        "trades": 0
+      }
+    ],
+    "logistic": [
+      {
+        "threshold": 0.5,
+        "trades": 17,
+        "win_rate": 0.6471,
+        "avg_r": 0.2005,
+        "net_dollars": 16580.33,
+        "max_drawdown_dollars": 6311.81
+      },
+      {
+        "threshold": 0.55,
+        "trades": 13,
+        "win_rate": 0.6154,
+        "avg_r": 0.1428,
+        "net_dollars": 12292.37,
+        "max_drawdown_dollars": 5160.0
+      },
+      {
+        "threshold": 0.6,
+        "trades": 13,
+        "win_rate": 0.6154,
+        "avg_r": 0.1428,
+        "net_dollars": 12292.37,
+        "max_drawdown_dollars": 5160.0
+      }
+    ],
+    "gbm": [
+      {
+        "threshold": 0.5,
+        "trades": 19,
+        "win_rate": 0.6842,
+        "avg_r": 0.3233,
+        "net_dollars": 24727.87,
+        "max_drawdown_dollars": 6311.81
+      },
+      {
+        "threshold": 0.55,
+        "trades": 19,
+        "win_rate": 0.6842,
+        "avg_r": 0.3233,
+        "net_dollars": 24727.87,
+        "max_drawdown_dollars": 6311.81
+      },
+      {
+        "threshold": 0.6,
+        "trades": 19,
+        "win_rate": 0.6842,
+        "avg_r": 0.3233,
+        "net_dollars": 24727.87,
+        "max_drawdown_dollars": 6311.81
+      }
+    ]
   }
 }

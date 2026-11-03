@@ -4,11 +4,11 @@ Binary rows: **123** from **75** signals; base rate **0.520**.
 Strategies: {'vwap_value_aligned_pullback': 65, 'opening_range_ib_breakout_retest': 42, 'vah_val_failed_auction': 16}.
 Split: train 79 / validation 22 / test 22 rows.
 
-| Model | Brier | Log loss | Accuracy | ECE | AUC |
-|---|---:|---:|---:|---:|---:|
-| frequency | 0.2688 | 0.7309 | 0.364 | 0.1933 | 0.5 |
-| logistic | 0.2735 | 0.7752 | 0.591 | 0.2001 | 0.4554 |
-| gbm | 0.2447 | 0.6961 | 0.682 | 0.1535 | 0.4107 |
+| Model | Brier | Log loss | Accuracy | Precision | Recall | ECE | AUC |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| frequency | 0.2688 | 0.7309 | 0.364 | 0.000 | 0.000 | 0.1933 | 0.5 |
+| logistic | 0.2735 | 0.7752 | 0.591 | 0.647 | 0.786 | 0.2001 | 0.4554 |
+| gbm | 0.2447 | 0.6961 | 0.682 | 0.684 | 0.929 | 0.1535 | 0.4107 |
 
 ## Expanding-window folds
 
@@ -17,6 +17,23 @@ Split: train 79 / validation 22 / test 22 rows.
 | frequency | 3 | 0.2801 | 0.7539 | 0.330 |
 | logistic | 3 | 0.2687 | 0.7739 | 0.608 |
 | gbm | 3 | 0.2652 | 0.8145 | 0.630 |
+
+## By strategy (best test model)
+
+| Strategy | n | Brier | Accuracy | Precision | Recall |
+|---|---:|---:|---:|---:|---:|
+| opening_range_ib_breakout_retest | 9 | 0.1516 | 0.778 | 0.875 | 0.875 |
+| vwap_value_aligned_pullback | 9 | 0.3199 | 0.556 | 0.556 | 1.000 |
+
+## Economic threshold (best test model, $15 round trip)
+
+| Threshold | Trades | Win % | Avg R | Net $ | Max DD $ |
+|---:|---:|---:|---:|---:|---:|
+| 0.50 | 19 | 68.4 | 0.323 | 24727.87 | 6311.81 |
+| 0.55 | 19 | 68.4 | 0.323 | 24727.87 | 6311.81 |
+| 0.60 | 19 | 68.4 | 0.323 | 24727.87 | 6311.81 |
+
+Thresholds are diagnostic only. All best-model test probabilities were above 0.60, so the positive net is a class-shift artifact, not evidence of edge.
 
 ## Decision
 

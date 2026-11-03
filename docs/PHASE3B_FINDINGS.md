@@ -20,11 +20,17 @@ Data: VWAP + revised-ORB + value-area target datasets, 60 days of 5-minute NQ ba
 
 Test results:
 
-| Model | Brier | Log loss | Accuracy | ECE | AUC |
-|---|---:|---:|---:|---:|---:|
-| Frequency | 0.2688 | 0.7309 | 0.364 | 0.1933 | 0.500 |
-| Logistic | 0.2735 | 0.7752 | 0.591 | 0.2001 | 0.455 |
-| GBM | **0.2447** | 0.6961 | 0.682 | 0.1535 | 0.411 |
+| Model | Brier | Log loss | Accuracy | Precision | Recall | ECE | AUC |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Frequency | 0.2688 | 0.7309 | 0.364 | 0.000 | 0.000 | 0.1933 | 0.500 |
+| Logistic | 0.2735 | 0.7752 | 0.591 | 0.647 | 0.786 | 0.2001 | 0.455 |
+| GBM | **0.2447** | 0.6961 | 0.682 | 0.684 | 0.929 | 0.1535 | 0.411 |
+
+The GBM’s test probabilities were all above 0.60, so precision/recall at 0.5
+and the threshold economic table do not separate outcomes. A threshold strategy
+shows +$24,728 on 19 test trades, but that is the same class-shift artifact, not
+an edge. Per-strategy Brier is 0.1516 for ORB (n=9) and 0.3199 for VWAP (n=9);
+both are too small to validate.
 
 Expanding-window folds:
 
