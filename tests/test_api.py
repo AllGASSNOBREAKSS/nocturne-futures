@@ -79,3 +79,10 @@ def test_market_state(tmp_path):
     response = client(tmp_path).get("/v1/market-state?instrument=NQ")
     assert response.status_code == 200
     assert response.json()["regime"] == "TREND_DOWN"
+
+
+def test_forecast_v1_absent_is_explicit(tmp_path):
+    response = client(tmp_path).get("/v1/forecast/v1?instrument=NQ")
+    assert response.status_code == 200
+    assert response.json()["forecast"] is None
+    assert response.json()["reason"] == "NO_V1_FORECAST"

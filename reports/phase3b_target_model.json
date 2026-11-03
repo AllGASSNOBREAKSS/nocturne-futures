@@ -1,0 +1,857 @@
+{
+  "phase": "3B.1",
+  "instrument": "NQ",
+  "coverage": {
+    "target_rows": 244,
+    "feature_rows": 244,
+    "binary_rows": 123,
+    "signals": 75,
+    "base_rate": 0.5203,
+    "by_strategy": {
+      "vwap_value_aligned_pullback": 65,
+      "opening_range_ib_breakout_retest": 42,
+      "vah_val_failed_auction": 16
+    },
+    "by_outcome": {
+      "TIMEOUT": 113,
+      "TP_FIRST": 66,
+      "SL_FIRST": 65
+    },
+    "feature_non_null": {
+      "time_of_day_min": 1.0,
+      "atr_pct": 1.0,
+      "rv20": 1.0,
+      "or15_size_atr": 0.992,
+      "ib60_size_atr": 0.634,
+      "dist_vwap_atr": 1.0,
+      "dist_poc_atr": 1.0,
+      "dist_vah_atr": 1.0,
+      "dist_val_atr": 1.0,
+      "dist_session_high_atr": 1.0,
+      "dist_session_low_atr": 1.0,
+      "dist_prior_high_atr": 0.984,
+      "dist_prior_low_atr": 0.984,
+      "dist_prior_close_atr": 0.984,
+      "dist_overnight_high_atr": 1.0,
+      "dist_overnight_low_atr": 1.0,
+      "mom5": 1.0,
+      "mom20": 1.0,
+      "trend_strength": 1.0,
+      "range_compression": 1.0,
+      "vol_percentile": 1.0,
+      "es_nq_relative_1h": 1.0,
+      "vix_level": 1.0,
+      "vix_change_5d": 1.0,
+      "risk_atr": 1.0,
+      "target_distance_atr": 1.0,
+      "r_multiple": 1.0,
+      "horizon_bars": 1.0,
+      "strategy_opening_range_ib_breakout_retest": 1.0,
+      "strategy_vah_val_failed_auction": 1.0,
+      "strategy_vwap_value_aligned_pullback": 1.0,
+      "side_LONG": 1.0,
+      "side_SHORT": 1.0
+    },
+    "nq_data": {
+      "instrument": "NQ",
+      "interval": "5m",
+      "rows": 13566,
+      "first": "2026-08-25 04:05:00+00:00",
+      "last": "2026-11-03 20:23:59+00:00",
+      "source": "yahoo_public_unofficial",
+      "sha256": "ab0c21a68df27d4e1a4985d9c5b4c700f219d7135d814b7288d6e9df5a624952",
+      "fetched_at": "2026-11-03T20:34:04.244691+00:00"
+    },
+    "es_data": {
+      "instrument": "ES",
+      "interval": "5m",
+      "rows": 13567,
+      "first": "2026-08-25 04:05:00+00:00",
+      "last": "2026-11-03 20:24:07+00:00",
+      "source": "yahoo_public_unofficial",
+      "sha256": "ab26cc443615c2a15f08d36d23dbb720d0cc2abef4d947bd7eaa5b80433a9909",
+      "fetched_at": "2026-11-03T20:34:08.038052+00:00"
+    }
+  },
+  "split": {
+    "train_rows": 79,
+    "train_signals": 45,
+    "validation_rows": 22,
+    "validation_signals": 15,
+    "test_rows": 22,
+    "test_signals": 15,
+    "class_balance": {
+      "train": 0.443,
+      "validation": 0.6818,
+      "test": 0.6364
+    }
+  },
+  "decision": "NO_PROMOTION",
+  "decision_reason": "Best test Brier is 0.2447 (gbm); AUC=0.4107; ECE=0.1535; test n=22; test positive rate=0.636 vs train 0.443. A Brier gain without ranking skill or calibration is a class-shift artifact, not a validated edge.",
+  "test": {
+    "frequency": {
+      "metrics": {
+        "n": 22,
+        "base_rate": 0.6364,
+        "brier": 0.26878,
+        "log_loss": 0.730885,
+        "accuracy": 0.3636,
+        "ece": 0.193326,
+        "reliability": [
+          {
+            "bin_low": 0.4,
+            "bin_high": 0.5,
+            "n": 22,
+            "mean_predicted": 0.443,
+            "observed_rate": 0.6364
+          }
+        ],
+        "auc": 0.5
+      },
+      "predictions": [
+        {
+          "signal_id": "vwap_value_aligned_pullback|2026-10-23 14:00:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "vwap_value_aligned_pullback",
+          "r_multiple": 1.0206,
+          "p": 0.4430379746835443
+        },
+        {
+          "signal_id": "vwap_value_aligned_pullback|2026-10-28 16:05:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "vwap_value_aligned_pullback",
+          "r_multiple": 0.9073,
+          "p": 0.4430379746835443
+        },
+        {
+          "signal_id": "vwap_value_aligned_pullback|2026-10-28 16:05:00+00:00",
+          "y": 0,
+          "outcome": "SL_FIRST",
+          "strategy_id": "vwap_value_aligned_pullback",
+          "r_multiple": 1.8609,
+          "p": 0.4430379746835443
+        },
+        {
+          "signal_id": "vwap_value_aligned_pullback|2026-10-29 14:15:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "vwap_value_aligned_pullback",
+          "r_multiple": 0.9631,
+          "p": 0.4430379746835443
+        },
+        {
+          "signal_id": "vwap_value_aligned_pullback|2026-10-30 14:00:00+00:00",
+          "y": 0,
+          "outcome": "SL_FIRST",
+          "strategy_id": "vwap_value_aligned_pullback",
+          "r_multiple": 1.0161,
+          "p": 0.4430379746835443
+        },
+        {
+          "signal_id": "vwap_value_aligned_pullback|2026-10-30 14:00:00+00:00",
+          "y": 0,
+          "outcome": "SL_FIRST",
+          "strategy_id": "vwap_value_aligned_pullback",
+          "r_multiple": 2.0241,
+          "p": 0.4430379746835443
+        },
+        {
+          "signal_id": "vwap_value_aligned_pullback|2026-11-02 15:15:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "vwap_value_aligned_pullback",
+          "r_multiple": 0.9859,
+          "p": 0.4430379746835443
+        },
+        {
+          "signal_id": "vwap_value_aligned_pullback|2026-11-02 15:15:00+00:00",
+          "y": 0,
+          "outcome": "SL_FIRST",
+          "strategy_id": "vwap_value_aligned_pullback",
+          "r_multiple": 1.9788,
+          "p": 0.4430379746835443
+        },
+        {
+          "signal_id": "vwap_value_aligned_pullback|2026-11-03 15:10:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "vwap_value_aligned_pullback",
+          "r_multiple": 1.0316,
+          "p": 0.4430379746835443
+        },
+        {
+          "signal_id": "opening_range_ib_breakout_retest|2026-10-22 14:35:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "opening_range_ib_breakout_retest",
+          "r_multiple": 0.5,
+          "p": 0.4430379746835443
+        },
+        {
+          "signal_id": "opening_range_ib_breakout_retest|2026-10-26 14:40:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "opening_range_ib_breakout_retest",
+          "r_multiple": 0.5,
+          "p": 0.4430379746835443
+        },
+        {
+          "signal_id": "opening_range_ib_breakout_retest|2026-10-27 14:55:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "opening_range_ib_breakout_retest",
+          "r_multiple": 0.5,
+          "p": 0.4430379746835443
+        },
+        {
+          "signal_id": "opening_range_ib_breakout_retest|2026-10-30 16:05:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "opening_range_ib_breakout_retest",
+          "r_multiple": 0.5,
+          "p": 0.4430379746835443
+        },
+        {
+          "signal_id": "opening_range_ib_breakout_retest|2026-10-30 16:05:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "opening_range_ib_breakout_retest",
+          "r_multiple": 1.0,
+          "p": 0.4430379746835443
+        },
+        {
+          "signal_id": "opening_range_ib_breakout_retest|2026-10-30 16:05:00+00:00",
+          "y": 0,
+          "outcome": "SL_FIRST",
+          "strategy_id": "opening_range_ib_breakout_retest",
+          "r_multiple": 1.5,
+          "p": 0.4430379746835443
+        },
+        {
+          "signal_id": "opening_range_ib_breakout_retest|2026-11-02 17:25:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "opening_range_ib_breakout_retest",
+          "r_multiple": 0.5,
+          "p": 0.4430379746835443
+        },
+        {
+          "signal_id": "opening_range_ib_breakout_retest|2026-11-02 17:25:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "opening_range_ib_breakout_retest",
+          "r_multiple": 1.0,
+          "p": 0.4430379746835443
+        },
+        {
+          "signal_id": "opening_range_ib_breakout_retest|2026-11-02 17:25:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "opening_range_ib_breakout_retest",
+          "r_multiple": 1.5,
+          "p": 0.4430379746835443
+        },
+        {
+          "signal_id": "vah_val_failed_auction|2026-10-23 13:45:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "vah_val_failed_auction",
+          "r_multiple": 1.7337,
+          "p": 0.4430379746835443
+        },
+        {
+          "signal_id": "vah_val_failed_auction|2026-10-27 13:50:00+00:00",
+          "y": 0,
+          "outcome": "SL_FIRST",
+          "strategy_id": "vah_val_failed_auction",
+          "r_multiple": 0.4578,
+          "p": 0.4430379746835443
+        },
+        {
+          "signal_id": "vah_val_failed_auction|2026-11-02 15:40:00+00:00",
+          "y": 0,
+          "outcome": "SL_FIRST",
+          "strategy_id": "vah_val_failed_auction",
+          "r_multiple": 0.7794,
+          "p": 0.4430379746835443
+        },
+        {
+          "signal_id": "vah_val_failed_auction|2026-11-03 14:45:00+00:00",
+          "y": 0,
+          "outcome": "SL_FIRST",
+          "strategy_id": "vah_val_failed_auction",
+          "r_multiple": 4.1522,
+          "p": 0.4430379746835443
+        }
+      ],
+      "coefficients": {}
+    },
+    "logistic": {
+      "metrics": {
+        "n": 22,
+        "base_rate": 0.6364,
+        "brier": 0.27347,
+        "log_loss": 0.775197,
+        "accuracy": 0.5909,
+        "ece": 0.20007,
+        "reliability": [
+          {
+            "bin_low": 0.3,
+            "bin_high": 0.4,
+            "n": 2,
+            "mean_predicted": 0.3718,
+            "observed_rate": 0.5
+          },
+          {
+            "bin_low": 0.4,
+            "bin_high": 0.5,
+            "n": 3,
+            "mean_predicted": 0.4435,
+            "observed_rate": 0.6667
+          },
+          {
+            "bin_low": 0.5,
+            "bin_high": 0.6,
+            "n": 4,
+            "mean_predicted": 0.5195,
+            "observed_rate": 0.75
+          },
+          {
+            "bin_low": 0.6,
+            "bin_high": 0.7,
+            "n": 2,
+            "mean_predicted": 0.6318,
+            "observed_rate": 0.5
+          },
+          {
+            "bin_low": 0.7,
+            "bin_high": 0.8,
+            "n": 5,
+            "mean_predicted": 0.7734,
+            "observed_rate": 0.8
+          },
+          {
+            "bin_low": 0.8,
+            "bin_high": 0.9,
+            "n": 6,
+            "mean_predicted": 0.8595,
+            "observed_rate": 0.5
+          }
+        ],
+        "auc": 0.4554
+      },
+      "predictions": [
+        {
+          "signal_id": "vwap_value_aligned_pullback|2026-10-23 14:00:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "vwap_value_aligned_pullback",
+          "r_multiple": 1.0206,
+          "p": 0.5024055604745123
+        },
+        {
+          "signal_id": "vwap_value_aligned_pullback|2026-10-28 16:05:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "vwap_value_aligned_pullback",
+          "r_multiple": 0.9073,
+          "p": 0.7897774035514777
+        },
+        {
+          "signal_id": "vwap_value_aligned_pullback|2026-10-28 16:05:00+00:00",
+          "y": 0,
+          "outcome": "SL_FIRST",
+          "strategy_id": "vwap_value_aligned_pullback",
+          "r_multiple": 1.8609,
+          "p": 0.8814555160142762
+        },
+        {
+          "signal_id": "vwap_value_aligned_pullback|2026-10-29 14:15:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "vwap_value_aligned_pullback",
+          "r_multiple": 0.9631,
+          "p": 0.7757821227279219
+        },
+        {
+          "signal_id": "vwap_value_aligned_pullback|2026-10-30 14:00:00+00:00",
+          "y": 0,
+          "outcome": "SL_FIRST",
+          "strategy_id": "vwap_value_aligned_pullback",
+          "r_multiple": 1.0161,
+          "p": 0.5155702610766418
+        },
+        {
+          "signal_id": "vwap_value_aligned_pullback|2026-10-30 14:00:00+00:00",
+          "y": 0,
+          "outcome": "SL_FIRST",
+          "strategy_id": "vwap_value_aligned_pullback",
+          "r_multiple": 2.0241,
+          "p": 0.7896872293422064
+        },
+        {
+          "signal_id": "vwap_value_aligned_pullback|2026-11-02 15:15:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "vwap_value_aligned_pullback",
+          "r_multiple": 0.9859,
+          "p": 0.7654169638893086
+        },
+        {
+          "signal_id": "vwap_value_aligned_pullback|2026-11-02 15:15:00+00:00",
+          "y": 0,
+          "outcome": "SL_FIRST",
+          "strategy_id": "vwap_value_aligned_pullback",
+          "r_multiple": 1.9788,
+          "p": 0.882458416953649
+        },
+        {
+          "signal_id": "vwap_value_aligned_pullback|2026-11-03 15:10:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "vwap_value_aligned_pullback",
+          "r_multiple": 1.0316,
+          "p": 0.5359879512375513
+        },
+        {
+          "signal_id": "opening_range_ib_breakout_retest|2026-10-22 14:35:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "opening_range_ib_breakout_retest",
+          "r_multiple": 0.5,
+          "p": 0.5241089009629925
+        },
+        {
+          "signal_id": "opening_range_ib_breakout_retest|2026-10-26 14:40:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "opening_range_ib_breakout_retest",
+          "r_multiple": 0.5,
+          "p": 0.8325565360831638
+        },
+        {
+          "signal_id": "opening_range_ib_breakout_retest|2026-10-27 14:55:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "opening_range_ib_breakout_retest",
+          "r_multiple": 0.5,
+          "p": 0.7461717357473475
+        },
+        {
+          "signal_id": "opening_range_ib_breakout_retest|2026-10-30 16:05:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "opening_range_ib_breakout_retest",
+          "r_multiple": 0.5,
+          "p": 0.37722200724692045
+        },
+        {
+          "signal_id": "opening_range_ib_breakout_retest|2026-10-30 16:05:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "opening_range_ib_breakout_retest",
+          "r_multiple": 1.0,
+          "p": 0.4607089168830732
+        },
+        {
+          "signal_id": "opening_range_ib_breakout_retest|2026-10-30 16:05:00+00:00",
+          "y": 0,
+          "outcome": "SL_FIRST",
+          "strategy_id": "opening_range_ib_breakout_retest",
+          "r_multiple": 1.5,
+          "p": 0.6481914662555419
+        },
+        {
+          "signal_id": "opening_range_ib_breakout_retest|2026-11-02 17:25:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "opening_range_ib_breakout_retest",
+          "r_multiple": 0.5,
+          "p": 0.6153622479058121
+        },
+        {
+          "signal_id": "opening_range_ib_breakout_retest|2026-11-02 17:25:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "opening_range_ib_breakout_retest",
+          "r_multiple": 1.0,
+          "p": 0.8215797969993945
+        },
+        {
+          "signal_id": "opening_range_ib_breakout_retest|2026-11-02 17:25:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "opening_range_ib_breakout_retest",
+          "r_multiple": 1.5,
+          "p": 0.8922767388980458
+        },
+        {
+          "signal_id": "vah_val_failed_auction|2026-10-23 13:45:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "vah_val_failed_auction",
+          "r_multiple": 1.7337,
+          "p": 0.44000204317528624
+        },
+        {
+          "signal_id": "vah_val_failed_auction|2026-10-27 13:50:00+00:00",
+          "y": 0,
+          "outcome": "SL_FIRST",
+          "strategy_id": "vah_val_failed_auction",
+          "r_multiple": 0.4578,
+          "p": 0.36638464101754853
+        },
+        {
+          "signal_id": "vah_val_failed_auction|2026-11-02 15:40:00+00:00",
+          "y": 0,
+          "outcome": "SL_FIRST",
+          "strategy_id": "vah_val_failed_auction",
+          "r_multiple": 0.7794,
+          "p": 0.42988468204679814
+        },
+        {
+          "signal_id": "vah_val_failed_auction|2026-11-03 14:45:00+00:00",
+          "y": 0,
+          "outcome": "SL_FIRST",
+          "strategy_id": "vah_val_failed_auction",
+          "r_multiple": 4.1522,
+          "p": 0.846767242025184
+        }
+      ],
+      "coefficients": {
+        "time_of_day_min": 0.280972,
+        "atr_pct": -0.339392,
+        "rv20": -0.102879,
+        "or15_size_atr": 0.66866,
+        "ib60_size_atr": 0.233166,
+        "dist_vwap_atr": 0.321794,
+        "dist_poc_atr": -0.172987,
+        "dist_vah_atr": -0.077964,
+        "dist_val_atr": 0.848523,
+        "dist_session_high_atr": -0.776846,
+        "dist_session_low_atr": 0.380499,
+        "dist_prior_high_atr": -0.173066,
+        "dist_prior_low_atr": -0.627954,
+        "dist_prior_close_atr": -0.033775,
+        "dist_overnight_high_atr": -0.433123,
+        "dist_overnight_low_atr": 0.439171,
+        "mom5": -0.077046,
+        "mom20": 0.319836,
+        "trend_strength": -0.598159,
+        "range_compression": 0.292271,
+        "vol_percentile": 1.246745,
+        "es_nq_relative_1h": 0.10645,
+        "vix_level": 0.208783,
+        "vix_change_5d": 0.302793,
+        "risk_atr": 0.170836,
+        "target_distance_atr": -0.54377,
+        "r_multiple": -0.755021,
+        "horizon_bars": -0.080632,
+        "strategy_opening_range_ib_breakout_retest": -0.080632,
+        "strategy_vah_val_failed_auction": 0.244416,
+        "strategy_vwap_value_aligned_pullback": -0.064011,
+        "side_LONG": -0.112521,
+        "side_SHORT": 0.112521
+      }
+    },
+    "gbm": {
+      "metrics": {
+        "n": 22,
+        "base_rate": 0.6364,
+        "brier": 0.244662,
+        "log_loss": 0.696104,
+        "accuracy": 0.6818,
+        "ece": 0.153537,
+        "reliability": [
+          {
+            "bin_low": 0.4,
+            "bin_high": 0.5,
+            "n": 3,
+            "mean_predicted": 0.4899,
+            "observed_rate": 0.3333
+          },
+          {
+            "bin_low": 0.6,
+            "bin_high": 0.7,
+            "n": 6,
+            "mean_predicted": 0.6611,
+            "observed_rate": 0.8333
+          },
+          {
+            "bin_low": 0.7,
+            "bin_high": 0.8,
+            "n": 11,
+            "mean_predicted": 0.752,
+            "observed_rate": 0.6364
+          },
+          {
+            "bin_low": 0.8,
+            "bin_high": 0.9,
+            "n": 2,
+            "mean_predicted": 0.8014,
+            "observed_rate": 0.5
+          }
+        ],
+        "auc": 0.4107
+      },
+      "predictions": [
+        {
+          "signal_id": "vwap_value_aligned_pullback|2026-10-23 14:00:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "vwap_value_aligned_pullback",
+          "r_multiple": 1.0206,
+          "p": 0.6696561529979562
+        },
+        {
+          "signal_id": "vwap_value_aligned_pullback|2026-10-28 16:05:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "vwap_value_aligned_pullback",
+          "r_multiple": 0.9073,
+          "p": 0.6496623884077632
+        },
+        {
+          "signal_id": "vwap_value_aligned_pullback|2026-10-28 16:05:00+00:00",
+          "y": 0,
+          "outcome": "SL_FIRST",
+          "strategy_id": "vwap_value_aligned_pullback",
+          "r_multiple": 1.8609,
+          "p": 0.8014565519402689
+        },
+        {
+          "signal_id": "vwap_value_aligned_pullback|2026-10-29 14:15:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "vwap_value_aligned_pullback",
+          "r_multiple": 0.9631,
+          "p": 0.6923196912391961
+        },
+        {
+          "signal_id": "vwap_value_aligned_pullback|2026-10-30 14:00:00+00:00",
+          "y": 0,
+          "outcome": "SL_FIRST",
+          "strategy_id": "vwap_value_aligned_pullback",
+          "r_multiple": 1.0161,
+          "p": 0.6647815327155995
+        },
+        {
+          "signal_id": "vwap_value_aligned_pullback|2026-10-30 14:00:00+00:00",
+          "y": 0,
+          "outcome": "SL_FIRST",
+          "strategy_id": "vwap_value_aligned_pullback",
+          "r_multiple": 2.0241,
+          "p": 0.773310164215139
+        },
+        {
+          "signal_id": "vwap_value_aligned_pullback|2026-11-02 15:15:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "vwap_value_aligned_pullback",
+          "r_multiple": 0.9859,
+          "p": 0.7222934628403982
+        },
+        {
+          "signal_id": "vwap_value_aligned_pullback|2026-11-02 15:15:00+00:00",
+          "y": 0,
+          "outcome": "SL_FIRST",
+          "strategy_id": "vwap_value_aligned_pullback",
+          "r_multiple": 1.9788,
+          "p": 0.7987358273327441
+        },
+        {
+          "signal_id": "vwap_value_aligned_pullback|2026-11-03 15:10:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "vwap_value_aligned_pullback",
+          "r_multiple": 1.0316,
+          "p": 0.6062470837553184
+        },
+        {
+          "signal_id": "opening_range_ib_breakout_retest|2026-10-22 14:35:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "opening_range_ib_breakout_retest",
+          "r_multiple": 0.5,
+          "p": 0.4923587879571129
+        },
+        {
+          "signal_id": "opening_range_ib_breakout_retest|2026-10-26 14:40:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "opening_range_ib_breakout_retest",
+          "r_multiple": 0.5,
+          "p": 0.7811463503985032
+        },
+        {
+          "signal_id": "opening_range_ib_breakout_retest|2026-10-27 14:55:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "opening_range_ib_breakout_retest",
+          "r_multiple": 0.5,
+          "p": 0.6837755024536776
+        },
+        {
+          "signal_id": "opening_range_ib_breakout_retest|2026-10-30 16:05:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "opening_range_ib_breakout_retest",
+          "r_multiple": 0.5,
+          "p": 0.7038123574578382
+        },
+        {
+          "signal_id": "opening_range_ib_breakout_retest|2026-10-30 16:05:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "opening_range_ib_breakout_retest",
+          "r_multiple": 1.0,
+          "p": 0.710798608079137
+        },
+        {
+          "signal_id": "opening_range_ib_breakout_retest|2026-10-30 16:05:00+00:00",
+          "y": 0,
+          "outcome": "SL_FIRST",
+          "strategy_id": "opening_range_ib_breakout_retest",
+          "r_multiple": 1.5,
+          "p": 0.7729022508553964
+        },
+        {
+          "signal_id": "opening_range_ib_breakout_retest|2026-11-02 17:25:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "opening_range_ib_breakout_retest",
+          "r_multiple": 0.5,
+          "p": 0.7253025828253901
+        },
+        {
+          "signal_id": "opening_range_ib_breakout_retest|2026-11-02 17:25:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "opening_range_ib_breakout_retest",
+          "r_multiple": 1.0,
+          "p": 0.7253025828253901
+        },
+        {
+          "signal_id": "opening_range_ib_breakout_retest|2026-11-02 17:25:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "opening_range_ib_breakout_retest",
+          "r_multiple": 1.5,
+          "p": 0.8013589392239463
+        },
+        {
+          "signal_id": "vah_val_failed_auction|2026-10-23 13:45:00+00:00",
+          "y": 1,
+          "outcome": "TP_FIRST",
+          "strategy_id": "vah_val_failed_auction",
+          "r_multiple": 1.7337,
+          "p": 0.7763376963042216
+        },
+        {
+          "signal_id": "vah_val_failed_auction|2026-10-27 13:50:00+00:00",
+          "y": 0,
+          "outcome": "SL_FIRST",
+          "strategy_id": "vah_val_failed_auction",
+          "r_multiple": 0.4578,
+          "p": 0.4814986427474289
+        },
+        {
+          "signal_id": "vah_val_failed_auction|2026-11-02 15:40:00+00:00",
+          "y": 0,
+          "outcome": "SL_FIRST",
+          "strategy_id": "vah_val_failed_auction",
+          "r_multiple": 0.7794,
+          "p": 0.49588756892490427
+        },
+        {
+          "signal_id": "vah_val_failed_auction|2026-11-03 14:45:00+00:00",
+          "y": 0,
+          "outcome": "SL_FIRST",
+          "strategy_id": "vah_val_failed_auction",
+          "r_multiple": 4.1522,
+          "p": 0.7817457680637379
+        }
+      ],
+      "coefficients": {}
+    }
+  },
+  "walk_forward": {
+    "frequency": {
+      "folds": [
+        0,
+        1,
+        2
+      ],
+      "brier": [
+        0.267183,
+        0.306944,
+        0.266287
+      ],
+      "log_loss": [
+        0.727809,
+        0.808174,
+        0.725848
+      ],
+      "accuracy": [
+        0.4211,
+        0.2,
+        0.3684
+      ],
+      "mean_brier": 0.280138,
+      "mean_log_loss": 0.753944,
+      "mean_accuracy": 0.3298
+    },
+    "logistic": {
+      "folds": [
+        0,
+        1,
+        2
+      ],
+      "brier": [
+        0.348512,
+        0.197906,
+        0.259643
+      ],
+      "log_loss": [
+        1.00089,
+        0.589607,
+        0.731351
+      ],
+      "accuracy": [
+        0.5263,
+        0.6667,
+        0.6316
+      ],
+      "mean_brier": 0.268687,
+      "mean_log_loss": 0.773949,
+      "mean_accuracy": 0.6082
+    },
+    "gbm": {
+      "folds": [
+        0,
+        1,
+        2
+      ],
+      "brier": [
+        0.358619,
+        0.188059,
+        0.248832
+      ],
+      "log_loss": [
+        1.142509,
+        0.565514,
+        0.735446
+      ],
+      "accuracy": [
+        0.5263,
+        0.7333,
+        0.6316
+      ],
+      "mean_brier": 0.26517,
+      "mean_log_loss": 0.81449,
+      "mean_accuracy": 0.6304
+    }
+  }
+}

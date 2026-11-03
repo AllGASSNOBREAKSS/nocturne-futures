@@ -104,6 +104,36 @@ A milestone is `DONE` only when code, tests, and a runnable command exist.
 | Drift/coverage/latency monitoring | PARTIAL | Health, coverage, staleness gates; no drift dashboard |
 | Promotion/rollback | PARTIAL | Versioned registry + RESEARCH_ONLY gate; manual rollback |
 
+## Phase 3B — Predictive Intelligence V1
+
+| Item | Status | Evidence |
+|---|---|---|
+| Point-in-time intraday features | DONE | `research/intraday_features.py`; 2 leakage tests |
+| Signal-grouped chronological split | DONE | `research/target_training.py`; group-disjoint tests |
+| Target-first model experiment | DONE | 123 binary rows / 75 signals; `reports/phase3b_target_model.*` |
+| Target-first promotion | **NO_PROMOTION** | GBM Brier 0.2447 but AUC 0.41, ECE 0.15, test n=22 |
+| Significant price-level engine | DONE | `price_levels/engine.py`; confluence + touch/reaction stats |
+| Expected-range model | DONE | `research/range_model.py`; empirical ATR-bucket quantiles |
+| Regime engine | DONE | `regime.py`; current state + empirical transitions |
+| Structured Forecast V1 | DONE | `forecast/v1.py`; research-only, null probabilities |
+| Forecast API | DONE | `GET /v1/forecast/v1` |
+| Multi-session models | PARTIAL | Asia/London/NY levels exist; no separate models |
+| Macro / order-flow integration | DATA_BLOCKED | Unchanged from Phase 3A |
+
+Phase 3B evidence:
+
+- Target model: frequency Brier 0.2688, logistic 0.2735, GBM 0.2447 on the
+  test split; GBM AUC 0.4107, ECE 0.1535, test positive rate 0.636 vs train
+  0.443. The Brier gain is a class-shift artifact, not skill.
+- Level engine: prior RTH/week, overnight, Asia/London/NY, IB/OR, POC/VAH/VAL,
+  HVN/LVN, VWAP/vol bands; 8-tick clustering; empirical touch/reaction stats.
+- Range: NQ full-session p50 260, p80 402, p90 512; P(≥200) 0.705,
+  P(≥350) 0.270, P(≥500) 0.112.
+- Regime: NQ COMPRESSION, ADX 35.85, efficiency 0.16, vol percentile 0.20;
+  future probabilities COMPRESSION 0.33 / BALANCED 0.25 / TREND_DOWN 0.14.
+- Forecast V1: `decision=NO_TRADE`, `validation_status=research_only`,
+  `direction_probability=null`, `target.probability_before_stop=null`.
+
 ## Phase 3A evidence
 
 - **ORB timeouts:** median risk 208.9 NQ points, median MFE 0.26R, 4.5% reach
@@ -119,8 +149,8 @@ A milestone is `DONE` only when code, tests, and a runnable command exist.
   the threshold strategy loses after costs; p ≥ 0.55/0.60 is sparse.
 - **Target dataset:** `data/research/target_dataset_NQ_vwap.csv` has 84 rows,
   32 TP / 33 SL / 19 timeout; ORB actual targets are 2 TP / 3 SL / 127 timeout.
-- **Native parity:** MSVC 19.51 build; parity test passes; 122 tests with the
-  module, 121 + 1 skipped without.
+- **Native parity:** MSVC 19.51 build; parity test passes; 138 tests with the
+  module, 137 + 1 skipped without.
 
 ## Current truth boundary
 

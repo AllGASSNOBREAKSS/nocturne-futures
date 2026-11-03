@@ -53,6 +53,10 @@ def create_app(service: ForecastService | None = None) -> FastAPI:
     def premarket_state() -> dict:
         return service.premarket_state()
 
+    @app.get("/v1/forecast/v1")
+    def forecast_v1(instrument: str = Query(..., min_length=1)) -> dict:
+        return service.forecast_v1(instrument)
+
     @app.get("/v1/events/upcoming")
     def events_upcoming() -> dict:
         return service.events_upcoming()

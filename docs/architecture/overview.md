@@ -36,6 +36,35 @@ levels/ (candidate zones)                        ml/ baselines + calibration
                  api/ (read-only FastAPI)
 ```
 
+## Phase 3B flow
+
+```text
+5m bars + prior levels + VIX/ES context
+        │
+        ▼
+research/intraday_features.py (point-in-time)
+        │
+        ▼
+research/target_training.py (signal-grouped split)
+        │
+        ▼
+ml/target_model.py (frequency / logistic / GBM + Platt)
+        │
+        ├── reports/phase3b_target_model.{json,md}
+        │
+        ▼
+price_levels/engine.py + research/range_model.py + regime.py
+        │
+        ▼
+forecast/v1.py (research-only contract; null probabilities)
+        │
+        ▼
+data/forecasts/NQ_v1.json → GET /v1/forecast/v1
+```
+
+The forecast is intentionally `NO_TRADE` while the target model is
+`NO_PROMOTION`.
+
 ## Component map
 
 | Component | Module | Status |
@@ -56,6 +85,13 @@ levels/ (candidate zones)                        ml/ baselines + calibration
 | Strategy specs | `strategies/` | 3 candidates, 6 tests |
 | Backtester | `backtest/engine.py` | Implemented, 5 tests |
 | Labels / features | `research/` | Implemented, 6 tests |
+| Point-in-time intraday features | `research/intraday_features.py` | Implemented, 2 leakage tests |
+| Target training / grouped splits | `research/target_training.py` | Implemented, 4 tests |
+| Target-first model | `ml/target_model.py` | Implemented; **NO_PROMOTION** |
+| Price-level engine | `price_levels/engine.py` | Implemented, 3 tests |
+| Expected-range model | `research/range_model.py` | Implemented, 2 tests |
+| Regime engine | `regime.py` | Implemented, 2 tests |
+| Forecast V1 | `forecast/v1.py` | Implemented, 2 tests |
 | Baselines / calibration | `ml/` | Implemented, 4 tests |
 | Risk gates | `risk/gates.py` | Implemented, 6 tests |
 | Journal | `journal/store.py` | Implemented, 3 tests |

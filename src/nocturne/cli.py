@@ -177,6 +177,18 @@ def main(argv: list[str] | None = None) -> int:
     dataset.add_argument("--tag", default="", help="suffix for the output file")
     dataset.add_argument("--force", action="store_true")
 
+    forecast_v1 = sub.add_parser("forecast-v1", help="build the structured research forecast")
+    forecast_v1.add_argument("--instrument", default="NQ")
+
+    levels_cmd = sub.add_parser("levels", help="print significant price levels")
+    levels_cmd.add_argument("--instrument", default="NQ")
+
+    range_cmd = sub.add_parser("range", help="print empirical expected range")
+    range_cmd.add_argument("--instrument", default="NQ")
+
+    regime_cmd = sub.add_parser("regime", help="print current regime and transition probabilities")
+    regime_cmd.add_argument("--instrument", default="NQ")
+
     args = parser.parse_args(argv)
 
     if args.command == "audit":
@@ -231,6 +243,36 @@ def main(argv: list[str] | None = None) -> int:
         print(f"target_first    {int(frame['target_first'].sum()) if len(frame) else 0}")
         print(f"data            {meta['first']} -> {meta['last']} ({meta['rows']} bars)")
         print(f"saved           {path.relative_to(ROOT)}")
+        return 0
+    if args.command == "forecast-v1":
+        from .forecast import build_forecast_v1
+
+        forecast = build_forecast_v1(args.instrument)
+        print(forecast.model_dump_json(indent=2))
+        return 0
+    if args.command in {"levels", "range", "regime"}:
+        from .backtest.data import add_session_column, load_intraday
+        from .instruments import get_instrument
+        from .market_clock import session_date
+
+        spec = get_instrument(args.instrument)
+        bars, meta = load_intraday(args.instrument)
+        bars = add_session_column(bars, spec)
+        asof = bars["available_at"].iloc[-1].to_pydatetime()
+        if args.command == "levels":
+            from .price_levels import build_levels
+
+            level_set = build_levels(bars, spec, session_date(asof, spec), asof)
+            print(json.dumps(level_set.to_dict(), indent=2)[:6000])
+            return 0
+        if args.command == "range":
+            from .research.range_model import expected_range
+
+            print(json.dumps(expected_range(bars, horizon_bars=78, asof=asof).to_dict(), indent=2))
+            return 0
+        from .regime import classify_regime
+
+        print(json.dumps(classify_regime(bars, asof=asof).to_dict(), indent=2))
         return 0
 
     if args.command == "build":

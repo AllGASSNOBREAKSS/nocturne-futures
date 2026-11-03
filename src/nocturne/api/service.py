@@ -70,6 +70,12 @@ class ForecastService:
             return {"state": None, "reason": "NOT_BUILT"}
         return json.loads(path.read_text(encoding="utf-8"))
 
+    def forecast_v1(self, instrument_id: str) -> dict:
+        path = self.forecast_root / f"{instrument_id.upper()}_v1.json"
+        if not path.exists():
+            return {"forecast": None, "reason": "NO_V1_FORECAST"}
+        return json.loads(path.read_text(encoding="utf-8"))
+
     def events_upcoming(self) -> dict:
         path = self.forecast_root / "events.json"
         if not path.exists():

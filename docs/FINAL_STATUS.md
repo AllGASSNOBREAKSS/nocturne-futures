@@ -7,9 +7,13 @@
 **Backend head:** see `git log --oneline -1`
 
 > **Phase 3A update (2026-11-03):** the backtest audit and ML foundation are
-> complete. Native parity is now built and passing; the suite is 121 passed + 1
-> optional native test (122 with the module). No strategy or model is promoted.
+> complete. Native parity is now built and passing; the suite is 137 passed + 1
+> optional native test (138 with the module). No strategy or model is promoted.
 > See `docs/PHASE3A_FINDINGS.md`.
+>
+> **Phase 3B update:** target-first model, level/range/regime engines and
+> Forecast V1 are implemented. The target model is `NO_PROMOTION`; Forecast V1 is
+> research-only `NO_TRADE`. See `docs/PHASE3B_FINDINGS.md`.
 
 ## 1. What was delivered
 
@@ -38,7 +42,7 @@ existing TypeScript validation helper and the dated call/report pipeline.
 
 ## 2. Real evidence
 
-**Tests:** `121 passed, 1 skipped` without the native module; `122 passed` with
+**Tests:** `137 passed, 1 skipped` without the native module; `138 passed` with
 it (`python -m pytest`). The skip is the native parity test when the module is
 not on `PYTHONPATH`.
 

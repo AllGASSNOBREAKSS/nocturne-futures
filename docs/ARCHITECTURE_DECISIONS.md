@@ -81,3 +81,38 @@ stored event records its source and license scope.
 The dated call artifacts, scorecards, 15-year study, and TypeScript validation
 remain. New backend modules are additive. The existing CLI subcommands continue
 to work.
+
+## AD-013 — Signal-grouped chronological splits
+
+Multiple candidate targets from one signal are correlated examples. All rows
+from one `signal_id` stay in the same train, validation or test partition. The
+target model uses chronological signal splits and expanding folds; it does not
+randomly shuffle rows.
+
+## AD-014 — Research forecasts use null probabilities
+
+`Forecast V1` never invents direction or target probabilities. When no validated
+model exists, `direction_probability` and every `target.probability_before_stop`
+are `null`, `validation_status` is `research_only`, and `decision` is `NO_TRADE`.
+Levels, range and regime may still be published as research context.
+
+## AD-015 — Level strength is confluence plus empirical interaction
+
+A level zone records its independent structural sources, touch count and
+reaction rate. Ranking is by confluence, then empirical reaction rate, then touch
+count. It is not an arbitrary score. Touch statistics use only bars available at
+the as-of timestamp.
+
+## AD-016 — Range forecasts are empirical and volatility-conditioned
+
+The expected-range model uses the historical distribution of forward high-low
+ranges, conditioned on the current ATR quartile. It reports the sample size and
+bucket. It does not force 200/350/500-point targets; those are probabilities, not
+promises.
+
+## AD-017 — Current regime is rules-based; future regime is empirical
+
+Current regime labels use ADX, range efficiency, overlap and volatility
+percentile. Future-regime probabilities come from historical transitions of the
+same rules, not from an unvalidated classifier. They are research estimates and
+are reported with their limitations.

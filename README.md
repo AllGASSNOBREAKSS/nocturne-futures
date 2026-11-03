@@ -33,9 +33,16 @@
 | Read-only FastAPI | `api/` | Implemented |
 | Analyst thesis registry | `knowledge/` | Implemented |
 | C++ profile/replay kernels | `native/` | Built; parity passes (MSVC/CI) |
+| Point-in-time intraday features | `research/intraday_features.py` | Implemented; 2 leakage tests |
+| Target-first probability experiment | `ml/target_model.py` | Implemented; **NO_PROMOTION** |
+| Significant price-level engine | `price_levels/` | Implemented; confluence + empirical touch stats |
+| Expected-range model | `research/range_model.py` | Implemented; ATR-bucket quantiles |
+| Regime engine | `regime.py` | Implemented; current + empirical transitions |
+| Structured Forecast V1 | `forecast/v1.py` | Implemented; research-only, null probabilities |
+| Forecast API | `api/app.py` | `GET /v1/forecast/v1` |
 
-**Test suite:** 121 tests passing, plus one native parity test that is skipped
-unless the C++ module is built. With the module on `PYTHONPATH`, 122 pass.
+**Test suite:** 137 tests passing, plus one native parity test that is skipped
+unless the C++ module is built. With the module on `PYTHONPATH`, 138 pass.
 
 ---
 
@@ -51,9 +58,14 @@ python -m nocturne forecast --instrument NQ
 python -m nocturne context
 python -m nocturne study
 python -m nocturne dataset --instrument NQ --strategy vwap
+python -m nocturne forecast-v1 --instrument NQ
+python -m nocturne levels --instrument NQ
+python -m nocturne range --instrument NQ
+python -m nocturne regime --instrument NQ
 python -m nocturne backtest --instrument NQ
 python -m nocturne serve --host 127.0.0.1 --port 8000
 python scripts/ml_audit.py
+python scripts/train_target_model.py
 ```
 
 TypeScript pipeline:
@@ -168,6 +180,37 @@ distribution, not better skill. At p ≥ 0.50 the threshold strategy loses after
 costs; p ≥ 0.55/0.60 is positive on only 42/18 trades and is not validated.
 Full audit: [`docs/PHASE3A_FINDINGS.md`](docs/PHASE3A_FINDINGS.md).
 
+### Phase 3B target-first model
+
+Combined VWAP + revised-ORB + value datasets, point-in-time intraday features,
+signal-grouped chronological split:
+
+| Item | Value |
+|---|---:|
+| Binary rows / signals | 123 / 75 |
+| Base rate | 0.520 |
+| Test rows | 22 |
+| Frequency Brier | 0.2688 |
+| Logistic Brier | 0.2735 |
+| GBM Brier | **0.2447** |
+
+**NO_PROMOTION.** The GBM’s lower Brier comes with **AUC 0.411** (worse than
+random), **ECE 0.154**, and a test positive rate of 0.636 vs 0.443 in training.
+That is a class-shift artifact, not ranking skill. Full report:
+[`docs/PHASE3B_FINDINGS.md`](docs/PHASE3B_FINDINGS.md).
+
+### Levels, range and regime
+
+- **Level engine:** prior RTH/week, overnight, Asia/London/NY, IB/OR, POC/VAH/VAL,
+  HVN/LVN, VWAP and volatility bands, clustered at 8 NQ ticks with empirical
+  touch/reaction statistics.
+- **Expected range:** NQ full-session p50 **260**, p80 **402**, p90 **512** points;
+  P(≥200) **0.705**, P(≥350) **0.270**, P(≥500) **0.112**.
+- **Regime:** current NQ state **COMPRESSION**, ADX 35.85, volatility percentile
+  0.20; empirical 24-bar transitions are reported, not asserted.
+- **Forecast V1:** research-only, `decision=NO_TRADE`, null probabilities, with
+  levels, range, regime and provenance.
+
 ---
 
 ## Read-only API
@@ -226,8 +269,11 @@ src/nocturne/
   premarket.py          machine-readable premarket state
   strategies/           ORB, VWAP pullback, VAH/VAL rejection
   backtest/             event-driven bar backtester + held-out study
-  research/             features, labels, walk-forward, target dataset
-  ml/                   baselines, calibration, registry
+  price_levels/         candidate zones, clustering, touch statistics
+  forecast/             Forecast V1 contract + journal
+  regime.py             current regime + empirical transitions
+  research/             features, labels, range, target dataset, training frame
+  ml/                   baselines, target model, calibration, registry
   risk/                 deterministic NO_TRADE gates
   journal/              append-only predictions and outcomes
   api/                  read-only FastAPI
@@ -237,14 +283,15 @@ data/
   market/daily/         current backend bars
   market/intraday/      cached 5m bars (sha256, reproducible)
   research/             target-level datasets
+  forecasts/            Forecast V1 artifacts
   studies/daily_15y/    frozen 15-year research bars
   snapshots/            dated call artifacts
-  journal/              prediction journal
+  journal/              prediction + forecast journals
 models/registry/        versioned model metadata + artifacts
-docs/                   audit, status, architecture, Phase 3A findings
+docs/                   audit, status, architecture, Phase 3A/3B findings
 reports/                call, scorecard, charts, backtest ledgers, ML audit
-scripts/                refresh data, run study, ML audit
-tests/                  121 tests + optional native parity
+scripts/                refresh data, run study, ML audit, target model
+tests/                  137 tests + optional native parity
 ts/                     TypeScript fetch + zod validation
 ```
 
@@ -266,14 +313,16 @@ close error. It is a historical research artifact, not a model track record.
 
 ## Roadmap
 
-- **Immediate (Phase 3B):** train the first target-first model on the VWAP
-  target dataset with a chronological split; require a Brier improvement over
-  frequency on the untouched holdout. Rebuild ORB geometry with a tighter stop
-  or full-session horizon and evaluate it once on the existing holdout.
+- **Immediate (Phase 3C):** expand the target dataset beyond 60 days (licensed
+  1-minute/tick history), build session-specific datasets for Asia, London and
+  New York, and rerun the target model with feature ablations. Require holdout
+  Brier improvement **plus AUC ≥ 0.55 and ECE ≤ 0.05** before shadow promotion.
+- **Target geometry:** rebuild ORB around a tighter stop or full-session horizon
+  and evaluate once on the existing holdout.
 - **Data:** true trade-by-price and licensed tick/DOM adapters; CFE VX futures;
   point-in-time economic calendar.
-- **Then:** purged walk-forward with event embargo; ablation of AMT, profile,
-  order flow, intermarket and macro features; calibration by regime.
+- **Then:** purged walk-forward with event embargo; calibration by regime;
+  empirical level-ranking calibration.
 - **Only after evidence:** model promotion, paper shadowing, and a separate
   review for any execution path.
 

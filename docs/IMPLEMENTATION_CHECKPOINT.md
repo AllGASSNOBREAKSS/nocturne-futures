@@ -9,8 +9,8 @@
 
 Completed on 2026-11-03:
 
-- Reproduced the suite: **121 passed + 1 native skip**; **122 passed** with the
-  C++ module on PYTHONPATH`.
+- Reproduced the suite: **137 passed + 1 native skip**; **138 passed** with the
+  C++ module on PYTHONPATH.
 - Built the C++20 `nocturne_native` kernel with MSVC 19.51 and pybind11 3.1;
   the parity test passes. CI now has an Ubuntu native build/parity job.
 - Fixed backtest accounting: commission per partial exit, `gross_dollars`,
@@ -45,6 +45,51 @@ Blocked: true tick/DOM/volume-at-price, CFE VX futures, point-in-time calendar.
 Next exact step: train a target-first model on
 `data/research/target_dataset_NQ_vwap.csv` with a chronological split; require a
 holdout Brier improvement over frequency before adding features.
+
+## Phase 3B — predictive intelligence V1
+
+Completed on 2026-11-03:
+
+- Added point-in-time intraday features: time of day, ATR, realized vol, OR/IB
+  size, distance from VWAP/POC/VAH/VAL/session/prior/overnight levels, momentum,
+  trend strength, range compression, volatility percentile, ES/NQ relative,
+  VIX, risk/target ATR.
+- Added signal-grouped chronological splits so multiple targets from one signal
+  never cross train/test.
+- Combined VWAP + revised-ORB + value datasets: 123 binary rows from 75 signals,
+  base rate 0.520. Test: frequency Brier 0.2688, logistic 0.2735, GBM 0.2447;
+  GBM AUC 0.4107, ECE 0.1535. **NO_PROMOTION** due to class shift and no ranking
+  skill.
+- Added `price_levels/engine.py`: prior RTH/week, overnight, Asia/London/NY,
+  IB/OR, POC/VAH/VAL, HVN/LVN, VWAP/vol bands, 8-tick clustering, empirical
+  touch/reaction stats.
+- Added `research/range_model.py`: empirical forward-range quantiles by ATR
+  bucket; NQ p50 260, p80 402, p90 512; P(≥200) 0.705, P(≥350) 0.270,
+  P(≥500) 0.112.
+- Added `regime.py`: ADX/efficiency/overlap/vol-percentile state and empirical
+  transition probabilities. Current NQ state: COMPRESSION.
+- Added `forecast/v1.py` and `GET /v1/forecast/v1`; research-only contract with
+  null probabilities and `decision=NO_TRADE`.
+- Added `docs/PHASE3B_FINDINGS.md`, `reports/phase3b_target_model.md/json`.
+
+Verification commands:
+
+```bash
+python -m pytest -q                 # 137 passed, 1 skipped (138 with native)
+python scripts/train_target_model.py
+python -m nocturne forecast-v1 --instrument NQ
+python -m nocturne levels --instrument NQ
+python -m nocturne range --instrument NQ
+python -m nocturne regime --instrument NQ
+```
+
+Blocked: authentic tick/DOM/volume-at-price, CFE VX futures, point-in-time
+calendar. No model or forecast is promoted.
+
+Next exact step: expand the target dataset beyond 60 days, rerun the grouped
+target model with feature ablations, and require holdout Brier improvement with
+AUC ≥ 0.55 and ECE ≤ 0.05 before shadow promotion. Build session-specific
+datasets rather than pooling all sessions.
 
 ## Completed
 
@@ -103,7 +148,7 @@ Phase 8 — safety
 ## Verification
 
 ```bash
-python -m pytest -q                 # 121 passed, 1 skipped (122 with native)
+python -m pytest -q                 # 137 passed, 1 skipped (138 with native)
 python -m nocturne audit
 python -m nocturne train --instrument NQ
 python -m nocturne forecast --instrument NQ
