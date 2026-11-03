@@ -43,12 +43,12 @@ A milestone is `DONE` only when code, tests, and a runnable command exist.
 
 | Item | Status | Evidence |
 |---|---|---|
-| ORB/IB strategy spec | PLANNED | — |
-| VWAP pullback strategy spec | PLANNED | — |
-| VAH/VAL rejection strategy spec | PLANNED | — |
-| Event-driven bar backtester with costs | PLANNED | — |
-| Conservative intrabar ambiguity | PLANNED | — |
-| Walk-forward evaluation | PLANNED | — |
+| ORB/IB strategy spec | DONE | `strategies/opening_range.py`, 3 tests |
+| VWAP pullback strategy spec | DONE | `strategies/vwap_pullback.py`, 2 tests |
+| VAH/VAL rejection strategy spec | DONE | `strategies/value_rejection.py`, 1 test |
+| Event-driven bar backtester with costs | DONE | `backtest/engine.py`, 5 tests |
+| Conservative intrabar ambiguity | DONE | Stop-first on same-bar stop+target |
+| Walk-forward evaluation | PARTIAL | Chronological split implemented; full rolling report pending |
 
 ## Phase 4 — ML prediction v1
 

@@ -39,7 +39,6 @@ cd ts && npm run validate -- ../data/snapshots/2026-10-27/call.json
 
 ## Next exact step
 
-Phase 2 is implemented. Phase 3 next: ORB/IB, VWAP pullback and VAH/VAL
-rejection strategy specs, an event-driven bar backtester with costs and
-conservative intrabar ambiguity, and walk-forward evaluation. Then commit and
-push before Phase 4.
+Phase 3 is implemented. Phase 4 next: triple-barrier labels, historical-frequency
+and logistic baselines, calibration (Brier/log loss/ECE), model registry,
+forecast journal and read-only FastAPI. Then commit and push before Phase 5.
