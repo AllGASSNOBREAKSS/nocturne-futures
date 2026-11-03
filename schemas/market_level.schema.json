@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nocturne.example.invalid/schemas/market_level.schema.json",
+  "title": "Nocturne as-of price level zone",
+  "type": "object",
+  "required": [
+    "level_id",
+    "instrument_id",
+    "source_type",
+    "session_type",
+    "asof_utc",
+    "lower_price_ticks",
+    "upper_price_ticks",
+    "quality"
+  ],
+  "properties": {
+    "level_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "instrument_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "contract_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_type": {
+      "enum": [
+        "POC",
+        "VAH",
+        "VAL",
+        "HVN",
+        "LVN",
+        "TPO_POC",
+        "TPO_VAH",
+        "TPO_VAL",
+        "IB_HIGH",
+        "IB_LOW",
+        "VWAP",
+        "SESSION_HIGH",
+        "SESSION_LOW",
+        "SWING",
+        "VOLATILITY_PROJECTION",
+        "OTHER"
+      ]
+    },
+    "session_type": {
+      "enum": [
+        "RTH",
+        "ETH",
+        "OVERNIGHT",
+        "COMPOSITE",
+        "CUSTOM"
+      ]
+    },
+    "asof_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "valid_until_utc": {
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "lower_price_ticks": {
+      "type": "integer"
+    },
+    "upper_price_ticks": {
+      "type": "integer"
+    },
+    "calculation_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profile_window": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "volume_profile_method": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "data_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "quality": {
+      "type": "object",
+      "properties": {
+        "stale": {
+          "type": "boolean"
+        },
+        "missing": {
+          "type": "boolean"
+        },
+        "out_of_order": {
+          "type": "boolean"
+        },
+        "coverage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

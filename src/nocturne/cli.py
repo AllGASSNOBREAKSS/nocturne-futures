@@ -155,6 +155,11 @@ def main(argv: list[str] | None = None) -> int:
     context = sub.add_parser("context", help="build intermarket and premarket artifacts")
     context.add_argument("--offline", action="store_true", help="skip Yahoo intraday fetch")
 
+    backtest = sub.add_parser("backtest", help="run a strategy on fetched intraday bars")
+    backtest.add_argument("--instrument", default="NQ")
+    backtest.add_argument("--strategy", default="orb", choices=["orb"])
+    backtest.add_argument("--days", type=int, default=60)
+
     args = parser.parse_args(argv)
 
     if args.command == "audit":
@@ -170,6 +175,14 @@ def main(argv: list[str] | None = None) -> int:
 
         result = build_context(offline=args.offline)
         print(json.dumps(result, indent=2)[:2000])
+        return 0
+    if args.command == "backtest":
+        from .backtest.runner import run_orb, save_report
+
+        summary, trades = run_orb(args.instrument, days=args.days)
+        path = save_report(ROOT / "reports", f"backtest_{args.strategy}_{args.instrument}", summary, trades)
+        print(json.dumps(summary, indent=2))
+        print(f"saved {path.relative_to(ROOT)}")
         return 0
 
     if args.command == "build":

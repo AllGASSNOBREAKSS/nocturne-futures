@@ -2,45 +2,90 @@
 
 **Date:** 2026-11-03  
 **Branch:** `feat/backend-v2`  
-**Baseline commit:** `f3ac7f9`
+**Base:** `f3ac7f9`  
+**Latest backend commit:** see `git log --oneline -1`
 
-## Completed in this checkpoint
+## Completed
 
-1. Read the full v2 architecture package (README, system architecture, AMT/order
-   flow, quant models, intermarket, schemas, scorecard).
-2. Audited the existing repository: 12 tests pass; call/report pipeline, 15-year
-   study, and TypeScript validation work.
-3. Recorded the gap analysis in `docs/CURRENT_SYSTEM_AUDIT.md`.
-4. Recorded the milestone status in `docs/IMPLEMENTATION_STATUS.md`.
-5. Recorded architecture decisions in `docs/ARCHITECTURE_DECISIONS.md`.
-6. Created the `feat/backend-v2` branch.
-7. Installed Pydantic, FastAPI, uvicorn, jsonschema, and httpx for the v2 backend.
+Phase 0 — audit
+- Read the full v2 package; audited the existing repo.
+- Documented the gap analysis, decisions and status.
 
-## Commands verified
+Phase 1 — contracts and data
+- Pydantic event/level/prediction contracts.
+- Instrument registry (NQ, MNQ, ES, MES, VX, ZN, ZB).
+- DST-safe sessions, holidays, roll dates.
+- Append-only JSONL event store with as-of replay.
+- Yahoo bar adapter with provenance and incomplete-bar rejection.
+
+Phase 2 — auction
+- True trade-derived volume profile with POC/VAH/VAL, HVN/LVN and conservation.
+- TPO profile, separate from volume.
+- IB, opening range and VWAP.
+- AMT balance/acceptance/value migration.
+
+Phase 3 — strategies and backtest
+- ORB/IB, VWAP pullback, VAH/VAL rejection.
+- Bar backtester with costs, gap handling, stop-first ambiguity and a defined
+  50/50 TP1/TP2 exit schedule.
+- Real 60-day NQ 5m ORB result: 44 trades, 50% win, +$8,137.50, PF 1.247,
+  max drawdown $16,105, 40/44 timeouts. Not promoted.
+
+Phase 4 — models and API
+- Triple-barrier labels and leak-safe features.
+- Frequency, logistic and HistGradientBoosting baselines.
+- Chronological walk-forward + Platt calibration.
+- NQ result: frequency best (Brier 0.2474); logistic 0.2493; boosted 0.2488.
+  `RESEARCH_ONLY`; no promotion.
+- Model registry, append-only journal, read-only FastAPI.
+
+Phase 5 — context
+- ES/NQ relative state, beta, correlation, spread z-score.
+- `^VIX` spot proxy (CFE VX blocked), ZN/ZB Yahoo proxies.
+- Premarket state built from real 15m bars: 2026-11-03 NQ gap +0.46%,
+  ES +0.05%, NQ led, VIX 21.41, ZN/ZB connected.
+
+Phase 6 — order flow interfaces
+- Typed trades/quotes, aggressor classification, CVD, footprint.
+- Book reconstruction with sequence-gap invalidation.
+- Data gate returns `UNAVAILABLE` without tick/quote history.
+
+Phase 7 — knowledge
+- Analyst thesis registry, separate from runtime inputs.
+
+Phase 8 — safety
+- Deterministic risk gates: stale data, low coverage, event lock, extreme
+  volatility, expired signal, duplicate, negative EV -> `NO_TRADE`.
+- Read-only API; no broker adapter or order endpoint.
+
+## Verification
 
 ```bash
-python -m pytest -q                     # 12 passed
-python -m nocturne build --date 2026-10-27
-cd ts && npm run typecheck
-cd ts && npm run validate -- ../data/snapshots/2026-10-27/call.json
+python -m pytest -q                 # 105 passed, 1 skipped (native parity)
+python -m nocturne audit
+python -m nocturne train --instrument NQ
+python -m nocturne forecast --instrument NQ
+python -m nocturne context
+python -m nocturne backtest --instrument NQ --days 60
+python -m nocturne serve
 ```
 
 ## Blockers
 
-- No tick, DOM, MBO, footprint, or true traded volume-at-price history. These
-  modules can be implemented and tested with fixtures, but cannot be trained or
-  claimed as live features. Mark `DATA_BLOCKED`.
-- No CFE VX futures history. `^VIX` spot is a labeled proxy only.
-- No C++ toolchain (`cmake`, `g++`, `pybind11`). Native kernels are deferred.
-- No LightGBM install. sklearn's `HistGradientBoostingClassifier` is the
-  gradient-boosted challenger for now.
-- No licensed economic calendar redistribution. ForexFactory is used locally as a
-  reference only; do not commit its raw payloads.
+- No true trade-by-price, tick, quote, DOM, or MBO history. Profile/order-flow
+  code is tested with fixtures; live features are `DATA_BLOCKED`.
+- No CFE VX futures history. `^VIX` spot is a labelled proxy.
+- No licensed economic calendar redistribution; event gate is not wired to a
+  live calendar.
+- No C++ toolchain. Native source and parity contract exist, but no native
+  module is built or claimed.
 
 ## Next exact step
 
-Phase 4 is implemented and the first NQ model is trained. The frequency baseline
-is best (Brier 0.2474), logistic 0.2493 and boosted 0.2488; no model beats the
-frequency baseline, so promotion status is `RESEARCH_ONLY`. Phase 5 next:
-ES/NQ relative state, VX proxy labeling, ZN/ZB adapters and PremarketState.
-Then commit and push before Phase 6.
+1. Connect an authorized trade-by-price adapter and replace the bar
+   approximation in the profile demo.
+2. Add CFE VX front/back futures and a point-in-time calendar adapter.
+3. Run the ORB/VWAP/value strategies across ES and NQ with a held-out final
+   window and 2–4 tick cost stress.
+4. Only after those gates: consider promotion, paper shadowing and a separate
+   execution review.

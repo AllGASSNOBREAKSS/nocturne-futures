@@ -1,0 +1,238 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nocturne.example.invalid/schemas/prediction.schema.json",
+  "title": "Nocturne read-only versioned prediction",
+  "type": "object",
+  "required": [
+    "prediction_id",
+    "instrument_id",
+    "asof_utc",
+    "data_watermark_utc",
+    "horizon_seconds",
+    "bias",
+    "decision",
+    "market_regime",
+    "critical_day_state",
+    "strategy_id",
+    "model_version",
+    "entry",
+    "stop",
+    "targets",
+    "data_quality",
+    "reason_codes",
+    "research_status"
+  ],
+  "properties": {
+    "prediction_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "instrument_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "contract_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "asof_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "data_watermark_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expires_at_utc": {
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "horizon_seconds": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "bias": {
+      "enum": [
+        "BULLISH",
+        "BEARISH",
+        "NEUTRAL"
+      ]
+    },
+    "decision": {
+      "enum": [
+        "LONG",
+        "SHORT",
+        "WAIT",
+        "NO_TRADE"
+      ]
+    },
+    "market_regime": {
+      "type": "string",
+      "minLength": 1
+    },
+    "critical_day_state": {
+      "type": "string",
+      "minLength": 1
+    },
+    "strategy_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "strategy_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "model_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "feature_snapshot_hash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "p_entry_fill": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1
+    },
+    "entry": {
+      "$ref": "#/$defs/zone"
+    },
+    "stop": {
+      "$ref": "#/$defs/zone"
+    },
+    "targets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "target_id",
+          "zone",
+          "event_definition",
+          "p_target_before_stop_given_fill"
+        ],
+        "properties": {
+          "target_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "zone": {
+            "$ref": "#/$defs/zone"
+          },
+          "event_definition": {
+            "type": "string",
+            "minLength": 1
+          },
+          "p_target_before_stop_given_fill": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1
+          },
+          "p_timeout_given_fill": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1
+          },
+          "time_to_target_seconds_p50": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "expected_net_value_points": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "data_quality": {
+      "type": "object",
+      "properties": {
+        "stale": {
+          "type": "boolean"
+        },
+        "missing": {
+          "type": "boolean"
+        },
+        "out_of_order": {
+          "type": "boolean"
+        },
+        "coverage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "reason_codes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "research_status": {
+      "enum": [
+        "ILLUSTRATIVE",
+        "RESEARCH_ONLY",
+        "VALIDATED_SHADOW",
+        "PAPER_TESTED",
+        "LIVE_APPROVED"
+      ]
+    },
+    "latency_ms": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    }
+  },
+  "$defs": {
+    "zone": {
+      "type": "object",
+      "required": [
+        "lower_price_ticks",
+        "upper_price_ticks"
+      ],
+      "properties": {
+        "lower_price_ticks": {
+          "type": "integer"
+        },
+        "upper_price_ticks": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

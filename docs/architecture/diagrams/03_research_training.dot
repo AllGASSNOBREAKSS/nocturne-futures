@@ -1,0 +1,28 @@
+digraph Research {
+  graph [rankdir=TB, splines=polyline, bgcolor="#0b1220", pad="0.32", nodesep="0.32", ranksep="0.42", fontname="Inter", label="NOCTURNE | OFFLINE RESEARCH, PYTHON/C++ & MODEL GOVERNANCE", labelloc="t", fontsize=22, fontcolor="#eff6ff"];
+  node [shape=box, style="filled,rounded", fontname="Inter", fontsize=12, color="#405470", fillcolor="#1b2a40", fontcolor="#e8f0fa", penwidth=1.2, margin="0.19,0.13"];
+  edge [color="#8fa4c0", arrowsize=0.75, penwidth=1.25];
+  vault [label="OBSIDIAN RESEARCH\nVault notes • wikilinks • provenance"];
+  data [label="VERIFIED HISTORICAL MARKET SOURCES\nNQ/ES • optional tick/DOM • VX • ZN/ZB • macro"];
+  review [label="HUMAN-REVIEWED HYPOTHESIS REGISTRY\nFormal rules + no private-note publication", fillcolor="#19474a"];
+  clean [label="AS-OF DATA / SESSION / ROLL VALIDATION\nNo look-ahead • real data-availability times", fillcolor="#19474a"];
+  feature [label="FEATURE BUILDERS\nAMT/POC/VAH/VAL/TPO • order flow • intermarket", fillcolor="#19474a"];
+  rules [label="DETERMINISTIC STRATEGIES\nORB/IB • VWAP • auctions • macro", fillcolor="#19474a"];
+  labels [label="PATH-DEPENDENT OUTCOME LABELS\nEntry fill • TP/SL/timeout • ambiguous bars", fillcolor="#334364"];
+  backtest [label="EVENT-DRIVEN REPLAY & EXECUTION SIM\nCost • spreads • slippage • roll/session clock", fillcolor="#334364"];
+  train [label="PYTHON TRAINING + STATISTICAL BASELINES\nHistorical freq / logistic → LightGBM / quantiles", fillcolor="#403660"];
+  math [label="STOCHASTIC + TIME SERIES CHALLENGERS\nGARCH/HAR-RV • state space • diffusion nulls", fillcolor="#403660"];
+  test [label="PURGED WALK-FORWARD + HELD-OUT VALIDATION\nCalibration • EV • drawdown • regime breakdown", fillcolor="#403660"];
+  native [label="OPTIONAL C++20 HOTPATH AFTER PROFILING\nTape/DOM replay • profile bins • parity fixtures", fillcolor="#344154"];
+  decide [shape=diamond, style="filled", label="REAL INCREMENTAL\nVALUE + SAFE\nPERFORMANCE?", fillcolor="#60442e", color="#d49a61", width=2.5, height=1.2];
+  promote [label="VERSIONED MODEL REGISTRY\nExplicit promotion • rollback • signed lineage", fillcolor="#205646"];
+  reject [label="REJECT / RETAIN FOR RESEARCH\nNegative evidence recorded", fillcolor="#633a3a"];
+  forecast [label="READ-ONLY ONLINE INFERENCE\nFrozen model and documented data gates", fillcolor="#205646"];
+  outcome [label="ACTUAL FUTURE OUTCOMES\nShadow/paper results • drift/coverage reports", fillcolor="#34435f"];
+  vault -> review -> rules; data -> clean -> feature; clean -> backtest; feature -> labels; rules -> labels; labels -> backtest;
+  feature -> train; backtest -> train; train -> test; math -> test;
+  native -> backtest [style=dashed]; native -> feature [style=dashed];
+  test -> decide; decide -> promote [label="pass", fontcolor="#c9d5e8"]; decide -> reject [label="fail", fontcolor="#c9d5e8"];
+  promote -> forecast -> outcome; outcome -> review [style=dashed, label="new hypothesis evidence", fontcolor="#c9d5e8"];
+  outcome -> test [style=dashed, label="monitor / next experiment", fontcolor="#c9d5e8"];
+}

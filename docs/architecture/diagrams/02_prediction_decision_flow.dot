@@ -1,0 +1,24 @@
+digraph Prediction {
+  graph [rankdir=TB, splines=polyline, bgcolor="#0b1220", pad="0.32", nodesep="0.34", ranksep="0.38", fontname="Inter", label="NOCTURNE | PRICE-LEVEL & TARGET-PROBABILITY DECISION PATH", labelloc="t", fontsize=22, fontcolor="#eff6ff"];
+  node [shape=box, style="filled,rounded", fontname="Inter", fontsize=12, color="#3d5371", fillcolor="#1b2a40", fontcolor="#e8f0fa", penwidth=1.2, margin="0.18,0.14"];
+  edge [color="#91a5c2", arrowsize=0.75, penwidth=1.3];
+  snapshot [label="POINT-IN-TIME VERIFIED SNAPSHOT\nMarket data • session • profile • news • cross-market"];
+  filter [label="CLOCK / CONTRACT / LICENSE / DATA-QUALITY FILTER", fillcolor="#36465c"];
+  candidate [label="AUCTION + STRUCTURE LEVEL CANDIDATES\nDeveloping POC • VAH/VAL • HVN/LVN • IB • prior extremes • VWAP", fillcolor="#15454a"];
+  scenarios [label="STRATEGY SETUP GENERATION\nEntry zone • invalidation • targets • horizon • exit schedule", fillcolor="#15454a"];
+  fill [label="ENTRY FILL MODEL\nP(fill) • fee/spread/slippage • no-fill state"];
+  labels [label="CALIBRATED COMPETING OUTCOME MODELS\nP(target first | fill) • P(stop first | fill) • P(timeout | fill)", fillcolor="#403663"];
+  range [label="RANGE + STOCHASTIC BENCHMARKS\nQuantile MAE/MFE • volatility • first-passage nulls", fillcolor="#403663"];
+  regime [label="REGIME / CRITICAL DAY MODEL\nNormal • event lock • volatility stress • liquidity stress", fillcolor="#403663"];
+  consistency [label="TARGET NESTING + CALIBRATION CHECKS\nSame stop/horizon • no fake confidence", fillcolor="#293e60"];
+  rank [label="SCENARIO EXPECTED VALUE RANKING\nTarget distance and time • risk/reward • partial exits", fillcolor="#293e60"];
+  decision [shape=diamond, style="filled", label="VALID DATA +\nPOSITIVE NET EV +\nPOLICY PASSED?", fillcolor="#60442e", color="#c99451", width=2.7, height=1.2];
+  eligible [label="VERSIONED ELIGIBLE SCENARIO\nLONG / SHORT with entry, stop, TP1-TP3 + probabilities", fillcolor="#205646"];
+  no [label="WAIT / NO_TRADE\nReason codes and unavailable inputs", fillcolor="#633a3a"];
+  journal [label="IMMUTABLE PREDICTION + OUTCOME JOURNAL\nForecast vs realized path • as-of lineage • model version", fillcolor="#34435f"];
+  snapshot -> filter -> candidate -> scenarios -> fill -> labels -> consistency -> rank -> decision;
+  snapshot -> range; snapshot -> regime; range -> consistency; regime -> rank;
+  decision -> eligible [label="yes", fontcolor="#b5cce3"];
+  decision -> no [label="no", fontcolor="#b5cce3"];
+  eligible -> journal; no -> journal;
+}

@@ -1,0 +1,55 @@
+digraph NocturneRuntime {
+  graph [rankdir=TB, splines=polyline, bgcolor="#0b1220", pad="0.35", nodesep="0.3", ranksep="0.45", fontname="Inter", label="NOCTURNE FUTURES | END-TO-END BACKEND ARCHITECTURE v2", labelloc="t", fontsize=24, fontcolor="#eff6ff"];
+  node [shape=box, style="rounded,filled", fontname="Inter", fontsize=12, fontcolor="#e8f0fa", color="#334155", fillcolor="#17243a", penwidth=1.25, margin="0.2,0.14"];
+  edge [color="#7e92ad", arrowsize=0.7, penwidth=1.3];
+  subgraph cluster_sources {
+    label="1 / AUTHORIZED MARKET + RESEARCH SOURCES"; fontname="Inter"; fontcolor="#b6c9e7"; color="#3c526e"; style="rounded";
+    nq [label="NQ + ES futures\nTrades • OHLCV • quotes"];
+    vx [label="CFE VX + CBOT ZN/ZB\nIntermarket futures"];
+    depth [label="Licensed order-flow feeds\nTape • DOM • MBO [optional]"];
+    mac [label="Official macro + licensed news\nCalendar • releases • revisions"];
+    vault [label="Obsidian vault\nStrategy research • notes", fillcolor="#25334b"];
+    {rank=same; nq; vx; depth; mac; vault;}
+  }
+  subgraph cluster_ingest {
+    label="2 / CANONICAL DATA LAYER"; fontcolor="#b6c9e7"; color="#3c526e"; style="rounded";
+    normalize [label="Instrument registry + event clock\nExpiry/rolls • UTC • as-of availability", fillcolor="#1a3450"];
+    quality [label="Feed & quality gates\nMissing • stale • sequence • license", fillcolor="#1a3450"];
+    raw [label="Immutable history + feature snapshots\nParquet / SQL • deterministic replay", fillcolor="#1a3450"];
+  }
+  subgraph cluster_context {
+    label="3 / OBSERVABLE MARKET STATE & STRATEGY CONTEXT"; fontcolor="#b6c9e7"; color="#3c526e"; style="rounded";
+    auction [label="AUCTION + VOLUME PROFILE\nPOC • VAH/VAL • HVN/LVN • IB • TPO", fillcolor="#164e53"];
+    orderflow [label="TAPE + DOM [ENTITLEMENT-GATED]\nCVD • footprint • imbalance • book", fillcolor="#164e53"];
+    cross [label="INTERMARKET + PREMARKET\nES/NQ • VX curve • ZN/ZB • events", fillcolor="#164e53"];
+    strategies [label="VERSIONED STRATEGIES\nORB • VWAP • value acceptance/rejection", fillcolor="#164e53"];
+    {rank=same; auction; orderflow; cross; strategies;}
+  }
+  subgraph cluster_ml {
+    label="4 / PYTHON QUANT + MACHINE LEARNING"; fontcolor="#b6c9e7"; color="#3c526e"; style="rounded";
+    regime [label="Regime + critical-day state\nVolatility • event risk", fillcolor="#3b315c"];
+    barriers [label="LightGBM / baseline\nTarget-before-stop probability", fillcolor="#3b315c"];
+    excursions [label="Quantile / time-series\nExpected range • MAE/MFE", fillcolor="#3b315c"];
+    {rank=same; regime; barriers; excursions;}
+  }
+  optimizer [label="5 / CALIBRATED SCENARIOS & TARGET RANKING\nCandidate entry • stop • TP1/2/3 • time-to-target • net EV", fillcolor="#213d65", color="#5687c7", penwidth=2];
+  risk [label="6 / DETERMINISTIC RISK + DATA GATE\nLONG / SHORT / WAIT / NO_TRADE • event locks • stale-feed fail closed", fillcolor="#5a352b", color="#d49a61", penwidth=2];
+  api [label="7 / READ-ONLY FORECAST API + OUTCOME JOURNAL\nVersioned evidence • model/data lineage • future frontend consumer", fillcolor="#21493b", color="#64b69a", penwidth=2];
+  offline [label="OFFLINE PYTHON RESEARCH / TRAINING\nWalk-forward • backtest • calibration • gated model registry", fillcolor="#3b315c"];
+  native [label="OPTIONAL C++20 KERNELS\nTick replay • profile aggregation • DOM reconstruction\nOnly after benchmarks + Python parity", fillcolor="#344154"];
+  future [label="FUTURE ONLY: UI • TradingView levels • paper/live execution\nOut of current build scope", fillcolor="#292e3a", color="#59677a"];
+  nq -> normalize; vx -> normalize; depth -> normalize; mac -> normalize;
+  vault -> strategies [style=dashed, color="#a5a6c8", label="reviewed rules", fontcolor="#bbc5dd", fontsize=9];
+  normalize -> quality -> raw;
+  raw -> auction; raw -> orderflow; raw -> cross; raw -> strategies;
+  auction -> strategies;
+  auction -> regime; orderflow -> barriers; cross -> regime; strategies -> barriers;
+  strategies -> excursions; cross -> excursions;
+  regime -> optimizer; barriers -> optimizer; excursions -> optimizer;
+  optimizer -> risk -> api;
+  api -> offline [style=dashed, color="#bbc3d8", label="outcome evaluation", fontcolor="#bbc5dd", fontsize=9];
+  offline -> barriers [style=dashed, color="#bbc3d8", label="promoted model", fontcolor="#bbc5dd", fontsize=9];
+  native -> orderflow [style=dashed, color="#8796ae"];
+  native -> auction [style=dashed, color="#8796ae"];
+  api -> future [style=dotted, color="#7b879a", label="deferred", fontcolor="#bbc5dd", fontsize=9];
+}

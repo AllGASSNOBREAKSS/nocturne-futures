@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nocturne.example.invalid/schemas/market_event.schema.json",
+  "title": "Nocturne canonical market event",
+  "type": "object",
+  "required": [
+    "event_id",
+    "source",
+    "instrument_id",
+    "event_type",
+    "event_time_utc",
+    "available_at_utc",
+    "received_at_utc",
+    "payload",
+    "quality"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "instrument_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "contract_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "venue": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "event_type": {
+      "enum": [
+        "trade",
+        "bar",
+        "quote",
+        "book_snapshot",
+        "book_delta",
+        "economic_release",
+        "news_headline",
+        "options_snapshot",
+        "market_status"
+      ]
+    },
+    "event_time_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "available_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "received_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source_sequence": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "source_revision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "license_scope": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object"
+    },
+    "quality": {
+      "type": "object",
+      "properties": {
+        "stale": {
+          "type": "boolean"
+        },
+        "missing": {
+          "type": "boolean"
+        },
+        "out_of_order": {
+          "type": "boolean"
+        },
+        "coverage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

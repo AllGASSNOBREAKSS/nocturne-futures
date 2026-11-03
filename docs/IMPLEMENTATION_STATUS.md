@@ -46,9 +46,9 @@ A milestone is `DONE` only when code, tests, and a runnable command exist.
 | ORB/IB strategy spec | DONE | `strategies/opening_range.py`, 3 tests |
 | VWAP pullback strategy spec | DONE | `strategies/vwap_pullback.py`, 2 tests |
 | VAH/VAL rejection strategy spec | DONE | `strategies/value_rejection.py`, 1 test |
-| Event-driven bar backtester with costs | DONE | `backtest/engine.py`, 5 tests |
+| Event-driven bar backtester with costs | DONE | `backtest/engine.py`, 5 tests; ORB ledger committed |
 | Conservative intrabar ambiguity | DONE | Stop-first on same-bar stop+target |
-| Walk-forward evaluation | PARTIAL | Chronological split implemented; full rolling report pending |
+| Walk-forward evaluation | PARTIAL | Chronological split implemented; ORB is a single 60-day sample |
 
 ## Phase 4 — ML prediction v1
 
@@ -70,7 +70,7 @@ A milestone is `DONE` only when code, tests, and a runnable command exist.
 | VX curve (CFE) | DATA_BLOCKED | `^VIX` spot proxy only; flag `VX_FUTURES_UNAVAILABLE` |
 | ZN/ZB adapters | DONE | Yahoo front-month proxies; flag `ZN_ZB_YAHOO_PROXY` |
 | PremarketState | DONE | `premarket.py`; real 2026-11-03 state built |
-| Event/critical-day gates | PLANNED | Phase 8 |
+| Event/critical-day gates | PARTIAL | Risk gates implemented; live calendar adapter not wired |
 
 ## Phase 6 — Tape / DOM
 
