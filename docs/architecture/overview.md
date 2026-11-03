@@ -86,10 +86,10 @@ The platform distinguishes **available** from **blocked**:
 
 ## C++ boundary
 
-`cmake`, `g++` and `pybind11` are not installed. The Python reference is the
-source of truth. Native kernels for profile aggregation and book replay are
-deferred (`TOOLCHAIN_BLOCKED`); no native artifact is claimed. The intended
-parity harness is documented in `docs/ARCHITECTURE_DECISIONS.md` (AD-009).
+The C++20 kernel was built locally with MSVC 19.51 and pybind11 3.1; the parity
+test passes. CI builds it on Ubuntu. The Python reference remains the source of
+truth; the native path is optional and only used for the profiled aggregation
+kernel.
 
 ## Safety boundary
 

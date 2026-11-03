@@ -32,10 +32,10 @@
 | Forecast journal | `journal/` | Append-only |
 | Read-only FastAPI | `api/` | Implemented |
 | Analyst thesis registry | `knowledge/` | Implemented |
-| C++ profile/replay kernels | `native/` | **TOOLCHAIN_BLOCKED** |
+| C++ profile/replay kernels | `native/` | Built; parity passes (MSVC/CI) |
 
-**Test suite:** 105 tests passing, plus one optional native parity test skipped
-until the C++ toolchain is available.
+**Test suite:** 121 tests passing, plus one native parity test that is skipped
+unless the C++ module is built. With the module on `PYTHONPATH`, 122 pass.
 
 ---
 
@@ -49,8 +49,11 @@ python -m nocturne audit
 python -m nocturne train --instrument NQ
 python -m nocturne forecast --instrument NQ
 python -m nocturne context
-python -m nocturne backtest --instrument NQ --days 60
+python -m nocturne study
+python -m nocturne dataset --instrument NQ --strategy vwap
+python -m nocturne backtest --instrument NQ
 python -m nocturne serve --host 127.0.0.1 --port 8000
+python scripts/ml_audit.py
 ```
 
 TypeScript pipeline:
@@ -121,21 +124,25 @@ described as exchange-accurate POC/VAH/VAL.
 | **VWAP pullback** | pullback to rising VWAP, close above | 3-bar low / VWAP − 0.75 ATR | 1R/2R |
 | **VAH/VAL rejection** | excursion beyond value, close back inside | beyond excursion | prior POC |
 
-**ORB on NQ, 60 days of 5-minute bars** (`python -m nocturne backtest --instrument NQ --days 60`):
+**Phase 3A held-out study** (`python -m nocturne study`): first 60% development,
+last 40% holdout, $2.50/contract/side, 1-tick slippage.
 
-| Metric | Value |
-|---|---:|
-| Trades | 44 |
-| Win rate | 50.0% |
-| Net | **+$8,137.50** |
-| Profit factor | 1.247 |
-| Max drawdown | **$16,105.00** |
-| Timeout exits | 40 / 44 |
+| Instrument | Strategy | Dev net $ | Holdout net $ | Dev PF | Holdout PF |
+|---|---|---:|---:|---:|---:|
+| NQ | ORB | **−18,730** | **+23,670** | 0.313 | 4.799 |
+| NQ | VWAP | +1,911 | +8,398 | 1.160 | 2.285 |
+| NQ | value | +2,935 | −6,170 | 1.538 | 0.475 |
+| ES | ORB | −5,853 | +3,665 | 0.580 | 1.531 |
+| ES | VWAP | −5,342 | +1,149 | 0.401 | 1.358 |
+| ES | value | −320 | +2,030 | 0.902 | 1.907 |
 
-This is **not** a validated edge. Forty of 44 trades exited at the horizon, the
-P&L is concentrated on the short side, and the drawdown is roughly twice the
-net profit. The raw ledger is in `reports/backtest_orb_NQ.json`. Full specs and
-caveats: [`docs/STRATEGY_SPECS.md`](docs/STRATEGY_SPECS.md).
+**The ORB timeouts are explained:** median risk is **208.9 NQ points**,
+median MFE is **0.26R**, only **4.5%** of trades reach 1R, **0%** reach 2R, and
+all 41 timeouts had MFE below 1R. The 60-minute IB is too wide for a 24-bar
+horizon. The ORB sign flip between development and holdout is regime dependence,
+not an edge. No strategy is promoted. Full evidence:
+[`docs/PHASE3A_FINDINGS.md`](docs/PHASE3A_FINDINGS.md) and
+[`docs/STRATEGY_SPECS.md`](docs/STRATEGY_SPECS.md).
 
 ---
 
@@ -153,6 +160,13 @@ slice:
 
 The frequency baseline wins; no model is promoted. `RESEARCH_ONLY` is the
 correct status. Details: [`docs/architecture/model_validation.md`](docs/architecture/model_validation.md).
+
+**Phase 3A audit:** four label geometries (1.5/1.0/5d, 1.0/1.0/3d, 1.0/0.5/5d,
+2.0/1.0/10d) all had frequency as the best Brier. The lower Brier in the
+tight-stop and long-horizon configs (0.232) reflects a more imbalanced class
+distribution, not better skill. At p ≥ 0.50 the threshold strategy loses after
+costs; p ≥ 0.55/0.60 is positive on only 42/18 trades and is not validated.
+Full audit: [`docs/PHASE3A_FINDINGS.md`](docs/PHASE3A_FINDINGS.md).
 
 ---
 
@@ -211,22 +225,26 @@ src/nocturne/
   intermarket/          ES/NQ, VIX proxy, ZN/ZB context
   premarket.py          machine-readable premarket state
   strategies/           ORB, VWAP pullback, VAH/VAL rejection
-  backtest/             event-driven bar backtester
-  research/             features, labels, walk-forward
+  backtest/             event-driven bar backtester + held-out study
+  research/             features, labels, walk-forward, target dataset
   ml/                   baselines, calibration, registry
   risk/                 deterministic NO_TRADE gates
   journal/              append-only predictions and outcomes
   api/                  read-only FastAPI
   knowledge/            analyst thesis registry
+native/                 C++20 volume kernel + pybind11 + parity test
 data/
   market/daily/         current backend bars
+  market/intraday/      cached 5m bars (sha256, reproducible)
+  research/             target-level datasets
   studies/daily_15y/    frozen 15-year research bars
   snapshots/            dated call artifacts
   journal/              prediction journal
 models/registry/        versioned model metadata + artifacts
-docs/                   audit, status, architecture, strategy specs
-reports/                generated call, scorecard, charts, backtest ledger
-tests/                  105 tests
+docs/                   audit, status, architecture, Phase 3A findings
+reports/                call, scorecard, charts, backtest ledgers, ML audit
+scripts/                refresh data, run study, ML audit
+tests/                  121 tests + optional native parity
 ts/                     TypeScript fetch + zod validation
 ```
 
@@ -248,8 +266,12 @@ close error. It is a historical research artifact, not a model track record.
 
 ## Roadmap
 
-- **Next:** true trade-by-price and licensed tick/DOM adapters; VX futures;
-  event calendar with point-in-time vintages; five-bucket probability output.
+- **Immediate (Phase 3B):** train the first target-first model on the VWAP
+  target dataset with a chronological split; require a Brier improvement over
+  frequency on the untouched holdout. Rebuild ORB geometry with a tighter stop
+  or full-session horizon and evaluate it once on the existing holdout.
+- **Data:** true trade-by-price and licensed tick/DOM adapters; CFE VX futures;
+  point-in-time economic calendar.
 - **Then:** purged walk-forward with event embargo; ablation of AMT, profile,
   order flow, intermarket and macro features; calibration by regime.
 - **Only after evidence:** model promotion, paper shadowing, and a separate

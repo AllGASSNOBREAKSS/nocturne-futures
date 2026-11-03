@@ -1,0 +1,1448 @@
+{
+  "strategy": "vwap",
+  "instrument": "NQ",
+  "data": {
+    "instrument": "NQ",
+    "interval": "5m",
+    "rows": 13566,
+    "first": "2026-08-25 04:05:00+00:00",
+    "last": "2026-11-03 20:23:59+00:00",
+    "source": "yahoo_public_unofficial",
+    "sha256": "ab0c21a68df27d4e1a4985d9c5b4c700f219d7135d814b7288d6e9df5a624952",
+    "fetched_at": "2026-11-03T20:34:04.244691+00:00"
+  },
+  "sessions": {
+    "total": 50,
+    "development": 30,
+    "holdout": 20
+  },
+  "splits": {
+    "development": {
+      "slip_1": {
+        "trades": 27,
+        "wins": 16,
+        "win_rate": 0.5926,
+        "net_dollars": 1911.32,
+        "net_points": 117.44,
+        "gross_win": 13838.5,
+        "gross_loss": 11927.18,
+        "profit_factor": 1.1602,
+        "expectancy_dollars": 70.79,
+        "max_drawdown_dollars": 3932.21,
+        "by_side": {
+          "LONG": {
+            "trades": 27,
+            "net_dollars": 1911.32
+          },
+          "SHORT": {
+            "trades": 0,
+            "net_dollars": 0
+          }
+        },
+        "by_outcome": {
+          "STOP": 10,
+          "TIMEOUT": 4,
+          "TP2": 5,
+          "TP_THEN_STOP": 5,
+          "TP_THEN_TIMEOUT": 3
+        }
+      },
+      "trades": [
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-08-25 16:30:00+00:00",
+          "entry_price": 29294.5,
+          "stop_price": 29257.7809,
+          "target_prices": [
+            29329.719122132312,
+            29365.688244264624
+          ],
+          "exit_time": "2026-08-25 16:50:00+00:00",
+          "exit_price": 29257.7809,
+          "outcome": "STOP",
+          "points": -36.7191,
+          "dollars": -749.38,
+          "gross_dollars": -734.38,
+          "costs": 15.0,
+          "risk_points": 36.7191,
+          "mfe_points": 5.25,
+          "mae_points": -39.5,
+          "mfe_r": 0.143,
+          "mae_r": -1.0757,
+          "bars_held": 4,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-08-26 14:10:00+00:00",
+          "entry_price": 29282.5,
+          "stop_price": 29225.2246,
+          "target_prices": [
+            29337.27540332238,
+            29393.30080664476
+          ],
+          "exit_time": "2026-08-26 14:20:00+00:00",
+          "exit_price": 29225.2246,
+          "outcome": "STOP",
+          "points": -57.2754,
+          "dollars": -1160.51,
+          "gross_dollars": -1145.51,
+          "costs": 15.0,
+          "risk_points": 57.2754,
+          "mfe_points": 1.25,
+          "mae_points": -82.5,
+          "mfe_r": 0.0218,
+          "mae_r": -1.4404,
+          "bars_held": 2,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-08-27 14:05:00+00:00",
+          "entry_price": 29536.5,
+          "stop_price": 29423.75,
+          "target_prices": [
+            29647.25,
+            29759.0
+          ],
+          "exit_time": "2026-08-27 15:35:00+00:00",
+          "exit_price": 29557.0,
+          "outcome": "TIMEOUT",
+          "points": 20.5,
+          "dollars": 395.0,
+          "gross_dollars": 410.0,
+          "costs": 15.0,
+          "risk_points": 112.75,
+          "mfe_points": 98.5,
+          "mae_points": -34.5,
+          "mfe_r": 0.8736,
+          "mae_r": -0.306,
+          "bars_held": 18,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-08-31 15:30:00+00:00",
+          "entry_price": 29420.75,
+          "stop_price": 29392.4737,
+          "target_prices": [
+            29449.52634872268,
+            29478.05269744536
+          ],
+          "exit_time": "2026-08-31 15:30:00+00:00",
+          "exit_price": 29392.4737,
+          "outcome": "STOP",
+          "points": -28.2763,
+          "dollars": -580.53,
+          "gross_dollars": -565.53,
+          "costs": 15.0,
+          "risk_points": 28.2763,
+          "mfe_points": 4.0,
+          "mae_points": -34.5,
+          "mfe_r": 0.1415,
+          "mae_r": -1.2201,
+          "bars_held": 0,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-09-01 14:00:00+00:00",
+          "entry_price": 29109.0,
+          "stop_price": 29109.0,
+          "target_prices": [
+            29150.941270566727,
+            29198.882541133455
+          ],
+          "exit_time": "2026-09-01 14:30:00+00:00",
+          "exit_price": 29198.8825,
+          "outcome": "TP2",
+          "points": 65.9119,
+          "dollars": 1300.74,
+          "gross_dollars": 1318.24,
+          "costs": 17.5,
+          "risk_points": 53.9413,
+          "mfe_points": 104.25,
+          "mae_points": -23.75,
+          "mfe_r": 1.9327,
+          "mae_r": -0.4403,
+          "bars_held": 6,
+          "target_fills": [
+            "TP1",
+            "TP2"
+          ],
+          "stop_moved": true
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-09-02 15:00:00+00:00",
+          "entry_price": 29119.75,
+          "stop_price": 29119.75,
+          "target_prices": [
+            29159.652729663536,
+            29199.05545932707
+          ],
+          "exit_time": "2026-09-02 15:25:00+00:00",
+          "exit_price": 29199.0555,
+          "outcome": "TP2",
+          "points": 59.6041,
+          "dollars": 1174.58,
+          "gross_dollars": 1192.08,
+          "costs": 17.5,
+          "risk_points": 38.9027,
+          "mfe_points": 88.75,
+          "mae_points": -13.5,
+          "mfe_r": 2.2813,
+          "mae_r": -0.347,
+          "bars_held": 5,
+          "target_fills": [
+            "TP1",
+            "TP2"
+          ],
+          "stop_moved": true
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-09-03 14:00:00+00:00",
+          "entry_price": 29332.0,
+          "stop_price": 29257.0938,
+          "target_prices": [
+            29408.906165948796,
+            29484.812331897592
+          ],
+          "exit_time": "2026-09-03 14:00:00+00:00",
+          "exit_price": 29257.0938,
+          "outcome": "STOP",
+          "points": -74.9062,
+          "dollars": -1513.12,
+          "gross_dollars": -1498.12,
+          "costs": 15.0,
+          "risk_points": 74.9062,
+          "mfe_points": 1.25,
+          "mae_points": -81.75,
+          "mfe_r": 0.0167,
+          "mae_r": -1.0914,
+          "bars_held": 0,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-09-04 14:10:00+00:00",
+          "entry_price": 29645.5,
+          "stop_price": 29596.5289,
+          "target_prices": [
+            29692.471096692465,
+            29740.44219338493
+          ],
+          "exit_time": "2026-09-04 14:10:00+00:00",
+          "exit_price": 29596.5289,
+          "outcome": "STOP",
+          "points": -48.9711,
+          "dollars": -994.42,
+          "gross_dollars": -979.42,
+          "costs": 15.0,
+          "risk_points": 48.9711,
+          "mfe_points": 9.25,
+          "mae_points": -51.5,
+          "mfe_r": 0.1889,
+          "mae_r": -1.0516,
+          "bars_held": 0,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-09-08 14:55:00+00:00",
+          "entry_price": 29550.25,
+          "stop_price": 29550.25,
+          "target_prices": [
+            29611.148081682928,
+            29673.046163365856
+          ],
+          "exit_time": "2026-09-08 16:25:00+00:00",
+          "exit_price": 29567.75,
+          "outcome": "TP_THEN_TIMEOUT",
+          "points": 39.199,
+          "dollars": 766.48,
+          "gross_dollars": 783.98,
+          "costs": 17.5,
+          "risk_points": 62.8981,
+          "mfe_points": 95.0,
+          "mae_points": -10.25,
+          "mfe_r": 1.5104,
+          "mae_r": -0.163,
+          "bars_held": 18,
+          "target_fills": [
+            "TP1"
+          ],
+          "stop_moved": true
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-09-09 14:30:00+00:00",
+          "entry_price": 29535.0,
+          "stop_price": 29459.5,
+          "target_prices": [
+            29610.5,
+            29686.0
+          ],
+          "exit_time": "2026-09-09 15:05:00+00:00",
+          "exit_price": 29459.5,
+          "outcome": "STOP",
+          "points": -75.5,
+          "dollars": -1525.0,
+          "gross_dollars": -1510.0,
+          "costs": 15.0,
+          "risk_points": 75.5,
+          "mfe_points": 27.25,
+          "mae_points": -101.0,
+          "mfe_r": 0.3609,
+          "mae_r": -1.3377,
+          "bars_held": 7,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-09-10 14:05:00+00:00",
+          "entry_price": 29148.75,
+          "stop_price": 29148.75,
+          "target_prices": [
+            29216.650150480375,
+            29284.55030096075
+          ],
+          "exit_time": "2026-09-10 15:35:00+00:00",
+          "exit_price": 29242.0,
+          "outcome": "TP_THEN_TIMEOUT",
+          "points": 80.5751,
+          "dollars": 1594.0,
+          "gross_dollars": 1611.5,
+          "costs": 17.5,
+          "risk_points": 67.9002,
+          "mfe_points": 126.25,
+          "mae_points": -42.0,
+          "mfe_r": 1.8593,
+          "mae_r": -0.6186,
+          "bars_held": 18,
+          "target_fills": [
+            "TP1"
+          ],
+          "stop_moved": true
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-09-11 14:00:00+00:00",
+          "entry_price": 29473.25,
+          "stop_price": 29360.9926,
+          "target_prices": [
+            29581.507384251465,
+            29691.76476850293
+          ],
+          "exit_time": "2026-09-11 14:40:00+00:00",
+          "exit_price": 29360.9926,
+          "outcome": "STOP",
+          "points": -112.2574,
+          "dollars": -2260.15,
+          "gross_dollars": -2245.15,
+          "costs": 15.0,
+          "risk_points": 112.2574,
+          "mfe_points": 0.0,
+          "mae_points": -120.0,
+          "mfe_r": 0.0,
+          "mae_r": -1.069,
+          "bars_held": 8,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-09-14 14:30:00+00:00",
+          "entry_price": 29006.5,
+          "stop_price": 29006.5,
+          "target_prices": [
+            29064.611945126624,
+            29122.223890253248
+          ],
+          "exit_time": "2026-09-14 15:30:00+00:00",
+          "exit_price": 29122.2239,
+          "outcome": "TP2",
+          "points": 86.9179,
+          "dollars": 1720.86,
+          "gross_dollars": 1738.36,
+          "costs": 17.5,
+          "risk_points": 57.1119,
+          "mfe_points": 454.0,
+          "mae_points": -50.75,
+          "mfe_r": 7.9493,
+          "mae_r": -0.8886,
+          "bars_held": 12,
+          "target_fills": [
+            "TP1",
+            "TP2"
+          ],
+          "stop_moved": true
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-09-15 14:00:00+00:00",
+          "entry_price": 29429.75,
+          "stop_price": 29388.2855,
+          "target_prices": [
+            29470.21453659981,
+            29511.179073199623
+          ],
+          "exit_time": "2026-09-15 14:05:00+00:00",
+          "exit_price": 29388.2855,
+          "outcome": "STOP",
+          "points": -41.4645,
+          "dollars": -844.29,
+          "gross_dollars": -829.29,
+          "costs": 15.0,
+          "risk_points": 41.4645,
+          "mfe_points": 2.25,
+          "mae_points": -59.0,
+          "mfe_r": 0.0543,
+          "mae_r": -1.4229,
+          "bars_held": 1,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-09-16 14:05:00+00:00",
+          "entry_price": 29435.5,
+          "stop_price": 29435.5,
+          "target_prices": [
+            29473.070702750265,
+            29510.89140550053
+          ],
+          "exit_time": "2026-09-16 14:35:00+00:00",
+          "exit_price": 29435.5,
+          "outcome": "TP_THEN_STOP",
+          "points": 18.7854,
+          "dollars": 358.21,
+          "gross_dollars": 375.71,
+          "costs": 17.5,
+          "risk_points": 38.0707,
+          "mfe_points": 41.5,
+          "mae_points": -17.5,
+          "mfe_r": 1.0901,
+          "mae_r": -0.4597,
+          "bars_held": 6,
+          "target_fills": [
+            "TP1"
+          ],
+          "stop_moved": true
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-09-17 14:05:00+00:00",
+          "entry_price": 29675.5,
+          "stop_price": 29675.5,
+          "target_prices": [
+            29730.715117626733,
+            29785.930235253465
+          ],
+          "exit_time": "2026-09-17 14:50:00+00:00",
+          "exit_price": 29675.5,
+          "outcome": "TP_THEN_STOP",
+          "points": 27.6076,
+          "dollars": 534.65,
+          "gross_dollars": 552.15,
+          "costs": 17.5,
+          "risk_points": 55.2151,
+          "mfe_points": 72.5,
+          "mae_points": -36.0,
+          "mfe_r": 1.313,
+          "mae_r": -0.652,
+          "bars_held": 9,
+          "target_fills": [
+            "TP1"
+          ],
+          "stop_moved": true
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-09-18 18:15:00+00:00",
+          "entry_price": 29753.75,
+          "stop_price": 29753.75,
+          "target_prices": [
+            29767.95593410187,
+            29781.911868203737
+          ],
+          "exit_time": "2026-09-18 18:30:00+00:00",
+          "exit_price": 29781.9119,
+          "outcome": "TP2",
+          "points": 21.1839,
+          "dollars": 406.18,
+          "gross_dollars": 423.68,
+          "costs": 17.5,
+          "risk_points": 13.7059,
+          "mfe_points": 34.25,
+          "mae_points": -0.75,
+          "mfe_r": 2.4989,
+          "mae_r": -0.0547,
+          "bars_held": 3,
+          "target_fills": [
+            "TP1",
+            "TP2"
+          ],
+          "stop_moved": true
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-09-22 14:00:00+00:00",
+          "entry_price": 30930.0,
+          "stop_price": 30850.9254,
+          "target_prices": [
+            31010.57463915121,
+            31090.399278302422
+          ],
+          "exit_time": "2026-09-22 15:30:00+00:00",
+          "exit_price": 30924.0,
+          "outcome": "TIMEOUT",
+          "points": -6.0,
+          "dollars": -135.0,
+          "gross_dollars": -120.0,
+          "costs": 15.0,
+          "risk_points": 79.0746,
+          "mfe_points": 67.5,
+          "mae_points": -39.5,
+          "mfe_r": 0.8536,
+          "mae_r": -0.4995,
+          "bars_held": 18,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-09-23 15:25:00+00:00",
+          "entry_price": 30807.25,
+          "stop_price": 30755.0,
+          "target_prices": [
+            30863.0,
+            30917.0
+          ],
+          "exit_time": "2026-09-23 15:40:00+00:00",
+          "exit_price": 30755.0,
+          "outcome": "STOP",
+          "points": -52.25,
+          "dollars": -1060.0,
+          "gross_dollars": -1045.0,
+          "costs": 15.0,
+          "risk_points": 52.25,
+          "mfe_points": 10.25,
+          "mae_points": -53.25,
+          "mfe_r": 0.1962,
+          "mae_r": -1.0191,
+          "bars_held": 3,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-09-24 14:00:00+00:00",
+          "entry_price": 30579.0,
+          "stop_price": 30579.0,
+          "target_prices": [
+            30637.34597901942,
+            30695.441958038842
+          ],
+          "exit_time": "2026-09-24 14:40:00+00:00",
+          "exit_price": 30579.0,
+          "outcome": "TP_THEN_STOP",
+          "points": 29.173,
+          "dollars": 565.96,
+          "gross_dollars": 583.46,
+          "costs": 17.5,
+          "risk_points": 57.846,
+          "mfe_points": 60.75,
+          "mae_points": -16.5,
+          "mfe_r": 1.0502,
+          "mae_r": -0.2852,
+          "bars_held": 8,
+          "target_fills": [
+            "TP1"
+          ],
+          "stop_moved": true
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-09-25 15:15:00+00:00",
+          "entry_price": 30821.5,
+          "stop_price": 30767.0112,
+          "target_prices": [
+            30873.988762944005,
+            30927.47752588801
+          ],
+          "exit_time": "2026-09-25 15:35:00+00:00",
+          "exit_price": 30767.0112,
+          "outcome": "STOP",
+          "points": -54.4888,
+          "dollars": -1104.78,
+          "gross_dollars": -1089.78,
+          "costs": 15.0,
+          "risk_points": 54.4888,
+          "mfe_points": 39.0,
+          "mae_points": -57.5,
+          "mfe_r": 0.7157,
+          "mae_r": -1.0553,
+          "bars_held": 4,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-09-28 17:10:00+00:00",
+          "entry_price": 30569.5,
+          "stop_price": 30569.5,
+          "target_prices": [
+            30614.28119302689,
+            30659.31238605378
+          ],
+          "exit_time": "2026-09-28 17:15:00+00:00",
+          "exit_price": 30659.3124,
+          "outcome": "TP2",
+          "points": 67.2968,
+          "dollars": 1328.44,
+          "gross_dollars": 1345.94,
+          "costs": 17.5,
+          "risk_points": 45.2812,
+          "mfe_points": 124.5,
+          "mae_points": -2.25,
+          "mfe_r": 2.7495,
+          "mae_r": -0.0497,
+          "bars_held": 1,
+          "target_fills": [
+            "TP1",
+            "TP2"
+          ],
+          "stop_moved": true
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-09-29 14:15:00+00:00",
+          "entry_price": 30628.25,
+          "stop_price": 30628.25,
+          "target_prices": [
+            30687.494296508936,
+            30747.23859301787
+          ],
+          "exit_time": "2026-09-29 15:00:00+00:00",
+          "exit_price": 30628.25,
+          "outcome": "TP_THEN_STOP",
+          "points": 29.6221,
+          "dollars": 574.94,
+          "gross_dollars": 592.44,
+          "costs": 17.5,
+          "risk_points": 60.2443,
+          "mfe_points": 78.0,
+          "mae_points": -30.0,
+          "mfe_r": 1.2947,
+          "mae_r": -0.498,
+          "bars_held": 9,
+          "target_fills": [
+            "TP1"
+          ],
+          "stop_moved": true
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-09-30 14:00:00+00:00",
+          "entry_price": 30841.5,
+          "stop_price": 30710.3011,
+          "target_prices": [
+            30971.69889604576,
+            31102.39779209152
+          ],
+          "exit_time": "2026-09-30 15:30:00+00:00",
+          "exit_price": 30859.5,
+          "outcome": "TIMEOUT",
+          "points": 18.0,
+          "dollars": 345.0,
+          "gross_dollars": 360.0,
+          "costs": 15.0,
+          "risk_points": 131.1989,
+          "mfe_points": 53.25,
+          "mae_points": -61.25,
+          "mfe_r": 0.4059,
+          "mae_r": -0.4668,
+          "bars_held": 18,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-10-02 14:00:00+00:00",
+          "entry_price": 31185.75,
+          "stop_price": 31185.75,
+          "target_prices": [
+            31275.84618461195,
+            31366.9423692239
+          ],
+          "exit_time": "2026-10-02 14:50:00+00:00",
+          "exit_price": 31185.75,
+          "outcome": "TP_THEN_STOP",
+          "points": 45.0481,
+          "dollars": 883.46,
+          "gross_dollars": 900.96,
+          "costs": 17.5,
+          "risk_points": 92.0962,
+          "mfe_points": 96.75,
+          "mae_points": -28.75,
+          "mfe_r": 1.0505,
+          "mae_r": -0.3122,
+          "bars_held": 10,
+          "target_fills": [
+            "TP1"
+          ],
+          "stop_moved": true
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-10-05 14:10:00+00:00",
+          "entry_price": 31177.0,
+          "stop_price": 31177.0,
+          "target_prices": [
+            31240.5,
+            31303.25
+          ],
+          "exit_time": "2026-10-05 15:40:00+00:00",
+          "exit_price": 31240.25,
+          "outcome": "TP_THEN_TIMEOUT",
+          "points": 63.375,
+          "dollars": 1250.0,
+          "gross_dollars": 1267.5,
+          "costs": 17.5,
+          "risk_points": 62.0,
+          "mfe_points": 77.75,
+          "mae_points": -17.75,
+          "mfe_r": 1.254,
+          "mae_r": -0.2863,
+          "bars_held": 18,
+          "target_fills": [
+            "TP1"
+          ],
+          "stop_moved": true
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-10-06 14:00:00+00:00",
+          "entry_price": 31548.75,
+          "stop_price": 31475.3389,
+          "target_prices": [
+            31622.16105238675,
+            31695.5721047735
+          ],
+          "exit_time": "2026-10-06 15:30:00+00:00",
+          "exit_price": 31581.5,
+          "outcome": "TIMEOUT",
+          "points": 32.75,
+          "dollars": 640.0,
+          "gross_dollars": 655.0,
+          "costs": 15.0,
+          "risk_points": 73.4111,
+          "mfe_points": 67.75,
+          "mae_points": -68.75,
+          "mfe_r": 0.9229,
+          "mae_r": -0.9365,
+          "bars_held": 18,
+          "target_fills": [],
+          "stop_moved": false
+        }
+      ],
+      "slip_2": {
+        "trades": 27,
+        "wins": 16,
+        "win_rate": 0.5926,
+        "net_dollars": 1518.82,
+        "net_points": 111.32,
+        "gross_win": 13611.0,
+        "gross_loss": 12092.18,
+        "profit_factor": 1.1256,
+        "expectancy_dollars": 56.25,
+        "max_drawdown_dollars": 4022.21,
+        "by_side": {
+          "LONG": {
+            "trades": 27,
+            "net_dollars": 1518.82
+          },
+          "SHORT": {
+            "trades": 0,
+            "net_dollars": 0
+          }
+        },
+        "by_outcome": {
+          "STOP": 10,
+          "TIMEOUT": 4,
+          "TP2": 5,
+          "TP_THEN_STOP": 5,
+          "TP_THEN_TIMEOUT": 3
+        }
+      },
+      "slip_3": {
+        "trades": 27,
+        "wins": 16,
+        "win_rate": 0.5926,
+        "net_dollars": 1126.32,
+        "net_points": 105.19,
+        "gross_win": 13383.5,
+        "gross_loss": 12257.18,
+        "profit_factor": 1.0919,
+        "expectancy_dollars": 41.72,
+        "max_drawdown_dollars": 4112.21,
+        "by_side": {
+          "LONG": {
+            "trades": 27,
+            "net_dollars": 1126.32
+          },
+          "SHORT": {
+            "trades": 0,
+            "net_dollars": 0
+          }
+        },
+        "by_outcome": {
+          "STOP": 10,
+          "TIMEOUT": 4,
+          "TP2": 5,
+          "TP_THEN_STOP": 5,
+          "TP_THEN_TIMEOUT": 3
+        }
+      },
+      "slip_4": {
+        "trades": 27,
+        "wins": 16,
+        "win_rate": 0.5926,
+        "net_dollars": 733.82,
+        "net_points": 99.07,
+        "gross_win": 13156.0,
+        "gross_loss": 12422.18,
+        "profit_factor": 1.0591,
+        "expectancy_dollars": 27.18,
+        "max_drawdown_dollars": 4202.21,
+        "by_side": {
+          "LONG": {
+            "trades": 27,
+            "net_dollars": 733.82
+          },
+          "SHORT": {
+            "trades": 0,
+            "net_dollars": 0
+          }
+        },
+        "by_outcome": {
+          "STOP": 10,
+          "TIMEOUT": 4,
+          "TP2": 5,
+          "TP_THEN_STOP": 5,
+          "TP_THEN_TIMEOUT": 3
+        }
+      }
+    },
+    "holdout": {
+      "slip_1": {
+        "trades": 15,
+        "wins": 11,
+        "win_rate": 0.7333,
+        "net_dollars": 8397.94,
+        "net_points": 432.4,
+        "gross_win": 14935.29,
+        "gross_loss": 6537.35,
+        "profit_factor": 2.2846,
+        "expectancy_dollars": 559.86,
+        "max_drawdown_dollars": 3130.92,
+        "by_side": {
+          "LONG": {
+            "trades": 15,
+            "net_dollars": 8397.94
+          },
+          "SHORT": {
+            "trades": 0,
+            "net_dollars": 0
+          }
+        },
+        "by_outcome": {
+          "STOP": 4,
+          "TIMEOUT": 1,
+          "TP2": 2,
+          "TP_THEN_STOP": 4,
+          "TP_THEN_TIMEOUT": 4
+        }
+      },
+      "trades": [
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-10-07 14:15:00+00:00",
+          "entry_price": 31219.0,
+          "stop_price": 31219.0,
+          "target_prices": [
+            31267.364843108386,
+            31315.22968621677
+          ],
+          "exit_time": "2026-10-07 14:50:00+00:00",
+          "exit_price": 31219.0,
+          "outcome": "TP_THEN_STOP",
+          "points": 24.1824,
+          "dollars": 466.15,
+          "gross_dollars": 483.65,
+          "costs": 17.5,
+          "risk_points": 47.3648,
+          "mfe_points": 69.25,
+          "mae_points": -18.5,
+          "mfe_r": 1.4621,
+          "mae_r": -0.3906,
+          "bars_held": 7,
+          "target_fills": [
+            "TP1"
+          ],
+          "stop_moved": true
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-10-08 15:00:00+00:00",
+          "entry_price": 31268.75,
+          "stop_price": 31227.8153,
+          "target_prices": [
+            31311.184655758378,
+            31352.869311516755
+          ],
+          "exit_time": "2026-10-08 15:10:00+00:00",
+          "exit_price": 31227.8153,
+          "outcome": "STOP",
+          "points": -40.9347,
+          "dollars": -833.69,
+          "gross_dollars": -818.69,
+          "costs": 15.0,
+          "risk_points": 40.9347,
+          "mfe_points": 4.25,
+          "mae_points": -44.75,
+          "mfe_r": 0.1038,
+          "mae_r": -1.0932,
+          "bars_held": 2,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-10-09 15:20:00+00:00",
+          "entry_price": 31065.5,
+          "stop_price": 31065.5,
+          "target_prices": [
+            31112.75,
+            31159.75
+          ],
+          "exit_time": "2026-10-09 16:50:00+00:00",
+          "exit_price": 31096.75,
+          "outcome": "TP_THEN_TIMEOUT",
+          "points": 39.25,
+          "dollars": 767.5,
+          "gross_dollars": 785.0,
+          "costs": 17.5,
+          "risk_points": 46.75,
+          "mfe_points": 57.0,
+          "mae_points": -41.5,
+          "mfe_r": 1.2193,
+          "mae_r": -0.8877,
+          "bars_held": 18,
+          "target_fills": [
+            "TP1"
+          ],
+          "stop_moved": true
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-10-12 16:05:00+00:00",
+          "entry_price": 30963.5,
+          "stop_price": 30922.496,
+          "target_prices": [
+            31005.003993725408,
+            31046.257987450816
+          ],
+          "exit_time": "2026-10-12 16:25:00+00:00",
+          "exit_price": 30922.496,
+          "outcome": "STOP",
+          "points": -41.004,
+          "dollars": -835.08,
+          "gross_dollars": -820.08,
+          "costs": 15.0,
+          "risk_points": 41.004,
+          "mfe_points": 16.25,
+          "mae_points": -47.75,
+          "mfe_r": 0.3963,
+          "mae_r": -1.1645,
+          "bars_held": 4,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-10-13 14:25:00+00:00",
+          "entry_price": 30786.25,
+          "stop_price": 30700.117,
+          "target_prices": [
+            30871.38297330653,
+            30957.015946613057
+          ],
+          "exit_time": "2026-10-13 14:50:00+00:00",
+          "exit_price": 30700.117,
+          "outcome": "STOP",
+          "points": -86.133,
+          "dollars": -1737.66,
+          "gross_dollars": -1722.66,
+          "costs": 15.0,
+          "risk_points": 86.133,
+          "mfe_points": 6.25,
+          "mae_points": -94.5,
+          "mfe_r": 0.0726,
+          "mae_r": -1.0971,
+          "bars_held": 5,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-10-15 14:20:00+00:00",
+          "entry_price": 29825.25,
+          "stop_price": 29825.25,
+          "target_prices": [
+            29963.841001724984,
+            30100.68200344997
+          ],
+          "exit_time": "2026-10-15 15:50:00+00:00",
+          "exit_price": 29968.0,
+          "outcome": "TP_THEN_TIMEOUT",
+          "points": 140.6705,
+          "dollars": 2795.91,
+          "gross_dollars": 2813.41,
+          "costs": 17.5,
+          "risk_points": 135.091,
+          "mfe_points": 236.5,
+          "mae_points": -59.75,
+          "mfe_r": 1.7507,
+          "mae_r": -0.4423,
+          "bars_held": 18,
+          "target_fills": [
+            "TP1"
+          ],
+          "stop_moved": true
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-10-19 14:35:00+00:00",
+          "entry_price": 29779.0,
+          "stop_price": 29779.0,
+          "target_prices": [
+            29843.044966125108,
+            29907.339932250215
+          ],
+          "exit_time": "2026-10-19 15:15:00+00:00",
+          "exit_price": 29907.3399,
+          "outcome": "TP2",
+          "points": 96.1924,
+          "dollars": 1906.35,
+          "gross_dollars": 1923.85,
+          "costs": 17.5,
+          "risk_points": 64.545,
+          "mfe_points": 132.5,
+          "mae_points": -13.75,
+          "mfe_r": 2.0528,
+          "mae_r": -0.213,
+          "bars_held": 8,
+          "target_fills": [
+            "TP1",
+            "TP2"
+          ],
+          "stop_moved": true
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-10-20 15:15:00+00:00",
+          "entry_price": 29744.25,
+          "stop_price": 29636.2409,
+          "target_prices": [
+            29850.759074043784,
+            29958.01814808757
+          ],
+          "exit_time": "2026-10-20 16:45:00+00:00",
+          "exit_price": 29751.75,
+          "outcome": "TIMEOUT",
+          "points": 7.5,
+          "dollars": 135.0,
+          "gross_dollars": 150.0,
+          "costs": 15.0,
+          "risk_points": 108.0091,
+          "mfe_points": 58.5,
+          "mae_points": -44.25,
+          "mfe_r": 0.5416,
+          "mae_r": -0.4097,
+          "bars_held": 18,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-10-21 14:45:00+00:00",
+          "entry_price": 29884.5,
+          "stop_price": 29884.5,
+          "target_prices": [
+            29969.108611380234,
+            30052.217222760468
+          ],
+          "exit_time": "2026-10-21 15:45:00+00:00",
+          "exit_price": 30052.2172,
+          "outcome": "TP2",
+          "points": 126.1629,
+          "dollars": 2505.76,
+          "gross_dollars": 2523.26,
+          "costs": 17.5,
+          "risk_points": 81.6086,
+          "mfe_points": 167.75,
+          "mae_points": -8.0,
+          "mfe_r": 2.0555,
+          "mae_r": -0.098,
+          "bars_held": 12,
+          "target_fills": [
+            "TP1",
+            "TP2"
+          ],
+          "stop_moved": true
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-10-23 14:00:00+00:00",
+          "entry_price": 29168.0,
+          "stop_price": 29168.0,
+          "target_prices": [
+            29316.20177381229,
+            29463.153547624577
+          ],
+          "exit_time": "2026-10-23 15:30:00+00:00",
+          "exit_price": 29286.5,
+          "outcome": "TP_THEN_TIMEOUT",
+          "points": 133.3509,
+          "dollars": 2649.52,
+          "gross_dollars": 2667.02,
+          "costs": 17.5,
+          "risk_points": 145.7018,
+          "mfe_points": 158.0,
+          "mae_points": -92.5,
+          "mfe_r": 1.0844,
+          "mae_r": -0.6349,
+          "bars_held": 18,
+          "target_fills": [
+            "TP1"
+          ],
+          "stop_moved": true
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-10-28 16:05:00+00:00",
+          "entry_price": 29863.75,
+          "stop_price": 29863.75,
+          "target_prices": [
+            29897.75,
+            29933.75
+          ],
+          "exit_time": "2026-10-28 16:55:00+00:00",
+          "exit_price": 29863.75,
+          "outcome": "TP_THEN_STOP",
+          "points": 17.0,
+          "dollars": 322.5,
+          "gross_dollars": 340.0,
+          "costs": 17.5,
+          "risk_points": 38.0,
+          "mfe_points": 56.75,
+          "mae_points": -36.25,
+          "mfe_r": 1.4934,
+          "mae_r": -0.9539,
+          "bars_held": 10,
+          "target_fills": [
+            "TP1"
+          ],
+          "stop_moved": true
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-10-29 14:15:00+00:00",
+          "entry_price": 29552.25,
+          "stop_price": 29552.25,
+          "target_prices": [
+            29669.410446186226,
+            29789.070892372452
+          ],
+          "exit_time": "2026-10-29 15:45:00+00:00",
+          "exit_price": 29593.25,
+          "outcome": "TP_THEN_TIMEOUT",
+          "points": 79.0802,
+          "dollars": 1564.1,
+          "gross_dollars": 1581.6,
+          "costs": 17.5,
+          "risk_points": 122.1604,
+          "mfe_points": 124.75,
+          "mae_points": -103.25,
+          "mfe_r": 1.0212,
+          "mae_r": -0.8452,
+          "bars_held": 18,
+          "target_fills": [
+            "TP1"
+          ],
+          "stop_moved": true
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-10-30 14:00:00+00:00",
+          "entry_price": 28842.0,
+          "stop_price": 28686.2039,
+          "target_prices": [
+            28999.796092957105,
+            29156.59218591421
+          ],
+          "exit_time": "2026-10-30 14:10:00+00:00",
+          "exit_price": 28686.2039,
+          "outcome": "STOP",
+          "points": -155.7961,
+          "dollars": -3130.92,
+          "gross_dollars": -3115.92,
+          "costs": 15.0,
+          "risk_points": 155.7961,
+          "mfe_points": 16.75,
+          "mae_points": -163.75,
+          "mfe_r": 0.1075,
+          "mae_r": -1.0511,
+          "bars_held": 2,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-11-02 15:15:00+00:00",
+          "entry_price": 28770.75,
+          "stop_price": 28770.75,
+          "target_prices": [
+            28875.25,
+            28980.75
+          ],
+          "exit_time": "2026-11-02 15:50:00+00:00",
+          "exit_price": 28770.75,
+          "outcome": "TP_THEN_STOP",
+          "points": 52.25,
+          "dollars": 1027.5,
+          "gross_dollars": 1045.0,
+          "costs": 17.5,
+          "risk_points": 106.5,
+          "mfe_points": 120.5,
+          "mae_points": -22.75,
+          "mfe_r": 1.1315,
+          "mae_r": -0.2136,
+          "bars_held": 7,
+          "target_fills": [
+            "TP1"
+          ],
+          "stop_moved": true
+        },
+        {
+          "strategy_id": "vwap_value_aligned_pullback",
+          "instrument_id": "NQ",
+          "side": "LONG",
+          "entry_time": "2026-11-03 15:10:00+00:00",
+          "entry_price": 28327.25,
+          "stop_price": 28327.25,
+          "target_prices": [
+            28408.5,
+            28488.75
+          ],
+          "exit_time": "2026-11-03 16:20:00+00:00",
+          "exit_price": 28327.25,
+          "outcome": "TP_THEN_STOP",
+          "points": 40.625,
+          "dollars": 795.0,
+          "gross_dollars": 812.5,
+          "costs": 17.5,
+          "risk_points": 79.25,
+          "mfe_points": 116.25,
+          "mae_points": -38.5,
+          "mfe_r": 1.4669,
+          "mae_r": -0.4858,
+          "bars_held": 14,
+          "target_fills": [
+            "TP1"
+          ],
+          "stop_moved": true
+        }
+      ],
+      "slip_2": {
+        "trades": 15,
+        "wins": 11,
+        "win_rate": 0.7333,
+        "net_dollars": 8182.94,
+        "net_points": 429.15,
+        "gross_win": 14780.29,
+        "gross_loss": 6597.35,
+        "profit_factor": 2.2403,
+        "expectancy_dollars": 545.53,
+        "max_drawdown_dollars": 3145.92,
+        "by_side": {
+          "LONG": {
+            "trades": 15,
+            "net_dollars": 8182.94
+          },
+          "SHORT": {
+            "trades": 0,
+            "net_dollars": 0
+          }
+        },
+        "by_outcome": {
+          "STOP": 4,
+          "TIMEOUT": 1,
+          "TP2": 2,
+          "TP_THEN_STOP": 4,
+          "TP_THEN_TIMEOUT": 4
+        }
+      },
+      "slip_3": {
+        "trades": 15,
+        "wins": 11,
+        "win_rate": 0.7333,
+        "net_dollars": 7967.94,
+        "net_points": 425.9,
+        "gross_win": 14625.29,
+        "gross_loss": 6657.35,
+        "profit_factor": 2.1969,
+        "expectancy_dollars": 531.2,
+        "max_drawdown_dollars": 3160.92,
+        "by_side": {
+          "LONG": {
+            "trades": 15,
+            "net_dollars": 7967.94
+          },
+          "SHORT": {
+            "trades": 0,
+            "net_dollars": 0
+          }
+        },
+        "by_outcome": {
+          "STOP": 4,
+          "TIMEOUT": 1,
+          "TP2": 2,
+          "TP_THEN_STOP": 4,
+          "TP_THEN_TIMEOUT": 4
+        }
+      },
+      "slip_4": {
+        "trades": 15,
+        "wins": 11,
+        "win_rate": 0.7333,
+        "net_dollars": 7752.94,
+        "net_points": 422.65,
+        "gross_win": 14470.29,
+        "gross_loss": 6717.35,
+        "profit_factor": 2.1542,
+        "expectancy_dollars": 516.86,
+        "max_drawdown_dollars": 3175.92,
+        "by_side": {
+          "LONG": {
+            "trades": 15,
+            "net_dollars": 7752.94
+          },
+          "SHORT": {
+            "trades": 0,
+            "net_dollars": 0
+          }
+        },
+        "by_outcome": {
+          "STOP": 4,
+          "TIMEOUT": 1,
+          "TP2": 2,
+          "TP_THEN_STOP": 4,
+          "TP_THEN_TIMEOUT": 4
+        }
+      }
+    }
+  }
+}

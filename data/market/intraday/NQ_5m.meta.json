@@ -1,0 +1,10 @@
+{
+  "instrument": "NQ",
+  "interval": "5m",
+  "rows": 13566,
+  "first": "2026-08-25 04:05:00+00:00",
+  "last": "2026-11-03 20:23:59+00:00",
+  "source": "yahoo_public_unofficial",
+  "sha256": "ab0c21a68df27d4e1a4985d9c5b4c700f219d7135d814b7288d6e9df5a624952",
+  "fetched_at": "2026-11-03T20:34:04.244691+00:00"
+}

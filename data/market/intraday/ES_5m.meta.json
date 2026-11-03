@@ -1,0 +1,10 @@
+{
+  "instrument": "ES",
+  "interval": "5m",
+  "rows": 13567,
+  "first": "2026-08-25 04:05:00+00:00",
+  "last": "2026-11-03 20:24:07+00:00",
+  "source": "yahoo_public_unofficial",
+  "sha256": "ab26cc443615c2a15f08d36d23dbb720d0cc2abef4d947bd7eaa5b80433a9909",
+  "fetched_at": "2026-11-03T20:34:08.038052+00:00"
+}

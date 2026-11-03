@@ -38,39 +38,58 @@ edge. All use RTH bars and the session clock.
 - **Known limitation:** the demo uses a **bar-approximation** profile. It is
   labelled `BAR_APPROXIMATION`; it is not exchange-accurate volume-at-price.
 
-## Backtest: ORB on NQ, 60 days of 5-minute bars
+## Phase 3A held-out study
 
 Command:
 
 ```bash
-python -m nocturne backtest --instrument NQ --days 60
+python -m nocturne study
 ```
 
-Result (costs: $2.50/contract/side, 1 tick slippage, 1 contract):
+Chronological split: first 60% development, last 40% holdout. Costs:
+$2.50/contract/side, 1-tick base slippage, 1 contract.
 
-| Metric | Value |
-|---|---:|
-| Trades | 44 |
-| Win rate | 50.0% |
-| Net dollars | **+$8,137.50** |
-| Net points | +439.88 |
-| Profit factor | 1.247 |
-| Expectancy | +$184.94/trade |
-| Max drawdown | **$16,105.00** |
-| Long side | +$292.50 |
-| Short side | +$7,845.00 |
-| Timeout exits | 40 / 44 |
+| Instrument | Strategy | Split | Trades | Win % | Net $ | PF | Max DD $ | Timeouts |
+|---|---|---|---:|---:|---:|---:|---:|---:|
+| NQ | ORB | development | 27 | 29.6 | −18,730 | 0.313 | 18,730 | 26 |
+| NQ | ORB | holdout | 17 | 76.5 | +23,670 | 4.799 | 2,855 | 15 |
+| NQ | VWAP | development | 27 | 59.3 | +1,911 | 1.160 | 3,932 | 4 |
+| NQ | VWAP | holdout | 15 | 73.3 | +8,398 | 2.285 | 3,131 | 1 |
+| NQ | value | development | 16 | 56.2 | +2,935 | 1.538 | 4,160 | 3 |
+| NQ | value | holdout | 12 | 25.0 | −6,170 | 0.475 | 6,555 | 1 |
+| ES | ORB | development | 27 | 33.3 | −5,853 | 0.580 | 7,438 | 23 |
+| ES | ORB | holdout | 19 | 47.4 | +3,665 | 1.531 | 2,410 | 16 |
+| ES | VWAP | development | 28 | 35.7 | −5,342 | 0.401 | 6,891 | 4 |
+| ES | VWAP | holdout | 14 | 64.3 | +1,149 | 1.358 | 2,080 | 1 |
+| ES | value | development | 14 | 64.3 | −320 | 0.902 | 2,765 | 2 |
+| ES | value | holdout | 14 | 64.3 | +2,030 | 1.907 | 1,165 | 1 |
+
+Cost stress (holdout net dollars):
+
+| Instrument | Strategy | 1 tick | 2 ticks | 3 ticks | 4 ticks |
+|---|---|---:|---:|---:|---:|
+| NQ | ORB | 23,670 | 23,415 | 23,160 | 22,905 |
+| NQ | VWAP | 8,398 | 8,183 | 7,968 | 7,753 |
+| NQ | value | −6,170 | −6,350 | −6,530 | −6,710 |
+| ES | ORB | 3,665 | 2,953 | 2,240 | 1,528 |
+| ES | VWAP | 1,149 | 549 | 49 | −595 |
+| ES | value | 2,030 | 1,505 | 980 | 455 |
+
+### Why 41 ORB trades timed out
+
+Median risk (entry to opposite IB) is **208.9 NQ points**; median MFE is only
+**0.26R**; 4.5% of trades reach 1R and 0% reach 2R. All 41 timeouts had MFE
+below 1R. The 60-minute IB is too wide for a 24-bar horizon, so the 1R/2R/3R
+targets are structurally unreachable.
 
 ### Honest reading
 
-- The result is **not** a validated edge. Forty of 44 trades exited at the
-  horizon, not at a target. The strategy is effectively a directional hold with
-  a wide stop, and the P&L is concentrated on the short side.
-- The sample is 60 days in one regime. It is not walk-forward parameter
-  selection, and it does not include a second instrument.
-- The max drawdown is roughly twice the net profit. Position sizing would need
-  to be conservative even if the result survived out-of-sample testing.
-- The raw trade ledger is committed at `reports/backtest_orb_NQ.json`.
+- The ORB development is deeply negative and the holdout is strongly positive:
+  a regime sign flip, not an edge. Fifteen of 17 holdout trades still time out.
+- NQ VWAP is positive in both splits; ES VWAP is negative in development. The
+  value strategy flips sign between instruments and splits.
+- No strategy survives the promotion gate. The raw ledgers are in
+  `reports/phase3a_*.json`; the summary is `reports/phase3a_backtests.md`.
 
 ## Promotion rule
 

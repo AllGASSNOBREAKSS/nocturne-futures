@@ -1,0 +1,1003 @@
+{
+  "strategy": "value",
+  "instrument": "ES",
+  "data": {
+    "instrument": "ES",
+    "interval": "5m",
+    "rows": 13567,
+    "first": "2026-08-25 04:05:00+00:00",
+    "last": "2026-11-03 20:24:07+00:00",
+    "source": "yahoo_public_unofficial",
+    "sha256": "ab26cc443615c2a15f08d36d23dbb720d0cc2abef4d947bd7eaa5b80433a9909",
+    "fetched_at": "2026-11-03T20:34:08.038052+00:00"
+  },
+  "sessions": {
+    "total": 50,
+    "development": 30,
+    "holdout": 20
+  },
+  "splits": {
+    "development": {
+      "slip_1": {
+        "trades": 14,
+        "wins": 9,
+        "win_rate": 0.6429,
+        "net_dollars": -320.0,
+        "net_points": 2.0,
+        "gross_win": 2942.5,
+        "gross_loss": 3262.5,
+        "profit_factor": 0.9019,
+        "expectancy_dollars": -22.86,
+        "max_drawdown_dollars": 2765.0,
+        "by_side": {
+          "LONG": {
+            "trades": 6,
+            "net_dollars": -292.5
+          },
+          "SHORT": {
+            "trades": 8,
+            "net_dollars": -27.5
+          }
+        },
+        "by_outcome": {
+          "POC": 7,
+          "STOP": 5,
+          "TIMEOUT": 2
+        }
+      },
+      "trades": [
+        {
+          "strategy_id": "vah_val_failed_auction",
+          "instrument_id": "ES",
+          "side": "LONG",
+          "entry_time": "2026-08-26 13:35:00+00:00",
+          "entry_price": 7689.5,
+          "stop_price": 7678.25,
+          "target_prices": [
+            7699.75
+          ],
+          "exit_time": "2026-08-26 13:55:00+00:00",
+          "exit_price": 7699.75,
+          "outcome": "POC",
+          "points": 10.25,
+          "dollars": 482.5,
+          "gross_dollars": 512.5,
+          "costs": 30.0,
+          "risk_points": 11.25,
+          "mfe_points": 12.25,
+          "mae_points": -9.25,
+          "mfe_r": 1.0889,
+          "mae_r": -0.8222,
+          "bars_held": 4,
+          "target_fills": [
+            "POC"
+          ],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vah_val_failed_auction",
+          "instrument_id": "ES",
+          "side": "SHORT",
+          "entry_time": "2026-08-28 14:10:00+00:00",
+          "entry_price": 7738.5,
+          "stop_price": 7747.25,
+          "target_prices": [
+            7737.0
+          ],
+          "exit_time": "2026-08-28 14:10:00+00:00",
+          "exit_price": 7737.0,
+          "outcome": "POC",
+          "points": 1.5,
+          "dollars": 45.0,
+          "gross_dollars": 75.0,
+          "costs": 30.0,
+          "risk_points": 8.75,
+          "mfe_points": 12.0,
+          "mae_points": -1.25,
+          "mfe_r": 1.3714,
+          "mae_r": -0.1429,
+          "bars_held": 0,
+          "target_fills": [
+            "POC"
+          ],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vah_val_failed_auction",
+          "instrument_id": "ES",
+          "side": "LONG",
+          "entry_time": "2026-09-04 15:15:00+00:00",
+          "entry_price": 7721.75,
+          "stop_price": 7715.5,
+          "target_prices": [
+            7756.0
+          ],
+          "exit_time": "2026-09-04 15:15:00+00:00",
+          "exit_price": 7715.5,
+          "outcome": "STOP",
+          "points": -6.25,
+          "dollars": -342.5,
+          "gross_dollars": -312.5,
+          "costs": 30.0,
+          "risk_points": 6.25,
+          "mfe_points": 0.25,
+          "mae_points": -7.25,
+          "mfe_r": 0.04,
+          "mae_r": -1.16,
+          "bars_held": 0,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vah_val_failed_auction",
+          "instrument_id": "ES",
+          "side": "LONG",
+          "entry_time": "2026-09-14 15:35:00+00:00",
+          "entry_price": 7691.75,
+          "stop_price": 7611.0,
+          "target_prices": [
+            7772.0
+          ],
+          "exit_time": "2026-09-14 17:05:00+00:00",
+          "exit_price": 7708.5,
+          "outcome": "TIMEOUT",
+          "points": 16.75,
+          "dollars": 807.5,
+          "gross_dollars": 837.5,
+          "costs": 30.0,
+          "risk_points": 80.75,
+          "mfe_points": 28.0,
+          "mae_points": -3.75,
+          "mfe_r": 0.3467,
+          "mae_r": -0.0464,
+          "bars_held": 18,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vah_val_failed_auction",
+          "instrument_id": "ES",
+          "side": "SHORT",
+          "entry_time": "2026-09-16 18:35:00+00:00",
+          "entry_price": 7657.0,
+          "stop_price": 7681.25,
+          "target_prices": [
+            7653.0
+          ],
+          "exit_time": "2026-09-16 18:35:00+00:00",
+          "exit_price": 7653.0,
+          "outcome": "POC",
+          "points": 4.0,
+          "dollars": 170.0,
+          "gross_dollars": 200.0,
+          "costs": 30.0,
+          "risk_points": 24.25,
+          "mfe_points": 16.0,
+          "mae_points": -4.25,
+          "mfe_r": 0.6598,
+          "mae_r": -0.1753,
+          "bars_held": 0,
+          "target_fills": [
+            "POC"
+          ],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vah_val_failed_auction",
+          "instrument_id": "ES",
+          "side": "SHORT",
+          "entry_time": "2026-09-17 13:35:00+00:00",
+          "entry_price": 7695.5,
+          "stop_price": 7716.75,
+          "target_prices": [
+            7679.0
+          ],
+          "exit_time": "2026-09-17 15:05:00+00:00",
+          "exit_price": 7688.0,
+          "outcome": "TIMEOUT",
+          "points": 7.5,
+          "dollars": 345.0,
+          "gross_dollars": 375.0,
+          "costs": 30.0,
+          "risk_points": 21.25,
+          "mfe_points": 15.0,
+          "mae_points": -8.25,
+          "mfe_r": 0.7059,
+          "mae_r": -0.3882,
+          "bars_held": 18,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vah_val_failed_auction",
+          "instrument_id": "ES",
+          "side": "SHORT",
+          "entry_time": "2026-09-18 13:35:00+00:00",
+          "entry_price": 7706.5,
+          "stop_price": 7715.0,
+          "target_prices": [
+            7705.25
+          ],
+          "exit_time": "2026-09-18 13:35:00+00:00",
+          "exit_price": 7705.25,
+          "outcome": "POC",
+          "points": 1.25,
+          "dollars": 32.5,
+          "gross_dollars": 62.5,
+          "costs": 30.0,
+          "risk_points": 8.5,
+          "mfe_points": 4.75,
+          "mae_points": -1.5,
+          "mfe_r": 0.5588,
+          "mae_r": -0.1765,
+          "bars_held": 0,
+          "target_fills": [
+            "POC"
+          ],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vah_val_failed_auction",
+          "instrument_id": "ES",
+          "side": "SHORT",
+          "entry_time": "2026-09-22 13:40:00+00:00",
+          "entry_price": 7846.0,
+          "stop_price": 7849.0,
+          "target_prices": [
+            7836.75
+          ],
+          "exit_time": "2026-09-22 13:45:00+00:00",
+          "exit_price": 7836.75,
+          "outcome": "POC",
+          "points": 9.25,
+          "dollars": 432.5,
+          "gross_dollars": 462.5,
+          "costs": 30.0,
+          "risk_points": 3.0,
+          "mfe_points": 10.5,
+          "mae_points": -0.25,
+          "mfe_r": 3.5,
+          "mae_r": -0.0833,
+          "bars_held": 1,
+          "target_fills": [
+            "POC"
+          ],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vah_val_failed_auction",
+          "instrument_id": "ES",
+          "side": "LONG",
+          "entry_time": "2026-09-24 16:30:00+00:00",
+          "entry_price": 7765.75,
+          "stop_price": 7755.75,
+          "target_prices": [
+            7773.25
+          ],
+          "exit_time": "2026-09-24 16:40:00+00:00",
+          "exit_price": 7773.25,
+          "outcome": "POC",
+          "points": 7.5,
+          "dollars": 345.0,
+          "gross_dollars": 375.0,
+          "costs": 30.0,
+          "risk_points": 10.0,
+          "mfe_points": 17.25,
+          "mae_points": -8.75,
+          "mfe_r": 1.725,
+          "mae_r": -0.875,
+          "bars_held": 2,
+          "target_fills": [
+            "POC"
+          ],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vah_val_failed_auction",
+          "instrument_id": "ES",
+          "side": "SHORT",
+          "entry_time": "2026-09-25 14:05:00+00:00",
+          "entry_price": 7765.75,
+          "stop_price": 7788.75,
+          "target_prices": [
+            7743.25
+          ],
+          "exit_time": "2026-09-25 15:05:00+00:00",
+          "exit_price": 7788.75,
+          "outcome": "STOP",
+          "points": -23.0,
+          "dollars": -1180.0,
+          "gross_dollars": -1150.0,
+          "costs": 30.0,
+          "risk_points": 23.0,
+          "mfe_points": 13.0,
+          "mae_points": -23.25,
+          "mfe_r": 0.5652,
+          "mae_r": -1.0109,
+          "bars_held": 12,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vah_val_failed_auction",
+          "instrument_id": "ES",
+          "side": "LONG",
+          "entry_time": "2026-09-28 17:15:00+00:00",
+          "entry_price": 7779.75,
+          "stop_price": 7755.75,
+          "target_prices": [
+            7802.5
+          ],
+          "exit_time": "2026-09-28 18:35:00+00:00",
+          "exit_price": 7755.75,
+          "outcome": "STOP",
+          "points": -24.0,
+          "dollars": -1230.0,
+          "gross_dollars": -1200.0,
+          "costs": 30.0,
+          "risk_points": 24.0,
+          "mfe_points": 0.0,
+          "mae_points": -25.75,
+          "mfe_r": 0.0,
+          "mae_r": -1.0729,
+          "bars_held": 16,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vah_val_failed_auction",
+          "instrument_id": "ES",
+          "side": "LONG",
+          "entry_time": "2026-09-29 13:40:00+00:00",
+          "entry_price": 7748.25,
+          "stop_price": 7741.75,
+          "target_prices": [
+            7763.75
+          ],
+          "exit_time": "2026-09-29 13:40:00+00:00",
+          "exit_price": 7741.75,
+          "outcome": "STOP",
+          "points": -6.5,
+          "dollars": -355.0,
+          "gross_dollars": -325.0,
+          "costs": 30.0,
+          "risk_points": 6.5,
+          "mfe_points": 0.75,
+          "mae_points": -9.25,
+          "mfe_r": 0.1154,
+          "mae_r": -1.4231,
+          "bars_held": 0,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vah_val_failed_auction",
+          "instrument_id": "ES",
+          "side": "SHORT",
+          "entry_time": "2026-09-30 19:55:00+00:00",
+          "entry_price": 7726.75,
+          "stop_price": 7741.0,
+          "target_prices": [
+            7720.5
+          ],
+          "exit_time": "2026-09-30 19:55:00+00:00",
+          "exit_price": 7720.5,
+          "outcome": "POC",
+          "points": 6.25,
+          "dollars": 282.5,
+          "gross_dollars": 312.5,
+          "costs": 30.0,
+          "risk_points": 14.25,
+          "mfe_points": 17.5,
+          "mae_points": -3.25,
+          "mfe_r": 1.2281,
+          "mae_r": -0.2281,
+          "bars_held": 0,
+          "target_fills": [
+            "POC"
+          ],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vah_val_failed_auction",
+          "instrument_id": "ES",
+          "side": "SHORT",
+          "entry_time": "2026-10-05 13:35:00+00:00",
+          "entry_price": 7789.25,
+          "stop_price": 7791.75,
+          "target_prices": [
+            7774.25
+          ],
+          "exit_time": "2026-10-05 14:00:00+00:00",
+          "exit_price": 7791.75,
+          "outcome": "STOP",
+          "points": -2.5,
+          "dollars": -155.0,
+          "gross_dollars": -125.0,
+          "costs": 30.0,
+          "risk_points": 2.5,
+          "mfe_points": 8.25,
+          "mae_points": -4.25,
+          "mfe_r": 3.3,
+          "mae_r": -1.7,
+          "bars_held": 5,
+          "target_fills": [],
+          "stop_moved": false
+        }
+      ],
+      "slip_2": {
+        "trades": 14,
+        "wins": 8,
+        "win_rate": 0.5714,
+        "net_dollars": -845.0,
+        "net_points": -1.5,
+        "gross_win": 2610.0,
+        "gross_loss": 3455.0,
+        "profit_factor": 0.7554,
+        "expectancy_dollars": -60.36,
+        "max_drawdown_dollars": 2877.5,
+        "by_side": {
+          "LONG": {
+            "trades": 6,
+            "net_dollars": -517.5
+          },
+          "SHORT": {
+            "trades": 8,
+            "net_dollars": -327.5
+          }
+        },
+        "by_outcome": {
+          "POC": 7,
+          "STOP": 5,
+          "TIMEOUT": 2
+        }
+      },
+      "slip_3": {
+        "trades": 14,
+        "wins": 7,
+        "win_rate": 0.5,
+        "net_dollars": -1370.0,
+        "net_points": -5.0,
+        "gross_win": 2340.0,
+        "gross_loss": 3710.0,
+        "profit_factor": 0.6307,
+        "expectancy_dollars": -97.86,
+        "max_drawdown_dollars": 3012.5,
+        "by_side": {
+          "LONG": {
+            "trades": 6,
+            "net_dollars": -742.5
+          },
+          "SHORT": {
+            "trades": 8,
+            "net_dollars": -627.5
+          }
+        },
+        "by_outcome": {
+          "POC": 7,
+          "STOP": 5,
+          "TIMEOUT": 2
+        }
+      },
+      "slip_4": {
+        "trades": 14,
+        "wins": 7,
+        "win_rate": 0.5,
+        "net_dollars": -1895.0,
+        "net_points": -8.5,
+        "gross_win": 2077.5,
+        "gross_loss": 3972.5,
+        "profit_factor": 0.523,
+        "expectancy_dollars": -135.36,
+        "max_drawdown_dollars": 3200.0,
+        "by_side": {
+          "LONG": {
+            "trades": 6,
+            "net_dollars": -967.5
+          },
+          "SHORT": {
+            "trades": 8,
+            "net_dollars": -927.5
+          }
+        },
+        "by_outcome": {
+          "POC": 7,
+          "STOP": 5,
+          "TIMEOUT": 2
+        }
+      }
+    },
+    "holdout": {
+      "slip_1": {
+        "trades": 14,
+        "wins": 9,
+        "win_rate": 0.6429,
+        "net_dollars": 2030.0,
+        "net_points": 49.0,
+        "gross_win": 4267.5,
+        "gross_loss": 2237.5,
+        "profit_factor": 1.9073,
+        "expectancy_dollars": 145.0,
+        "max_drawdown_dollars": 1165.0,
+        "by_side": {
+          "LONG": {
+            "trades": 7,
+            "net_dollars": 1027.5
+          },
+          "SHORT": {
+            "trades": 7,
+            "net_dollars": 1002.5
+          }
+        },
+        "by_outcome": {
+          "POC": 8,
+          "STOP": 5,
+          "TIMEOUT": 1
+        }
+      },
+      "trades": [
+        {
+          "strategy_id": "vah_val_failed_auction",
+          "instrument_id": "ES",
+          "side": "LONG",
+          "entry_time": "2026-10-08 13:35:00+00:00",
+          "entry_price": 7832.0,
+          "stop_price": 7823.0,
+          "target_prices": [
+            7852.75
+          ],
+          "exit_time": "2026-10-08 13:40:00+00:00",
+          "exit_price": 7823.0,
+          "outcome": "STOP",
+          "points": -9.0,
+          "dollars": -480.0,
+          "gross_dollars": -450.0,
+          "costs": 30.0,
+          "risk_points": 9.0,
+          "mfe_points": 0.0,
+          "mae_points": -9.0,
+          "mfe_r": 0.0,
+          "mae_r": -1.0,
+          "bars_held": 1,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vah_val_failed_auction",
+          "instrument_id": "ES",
+          "side": "SHORT",
+          "entry_time": "2026-10-12 13:35:00+00:00",
+          "entry_price": 7864.0,
+          "stop_price": 7870.5,
+          "target_prices": [
+            7861.75
+          ],
+          "exit_time": "2026-10-12 13:45:00+00:00",
+          "exit_price": 7861.75,
+          "outcome": "POC",
+          "points": 2.25,
+          "dollars": 82.5,
+          "gross_dollars": 112.5,
+          "costs": 30.0,
+          "risk_points": 6.5,
+          "mfe_points": 5.5,
+          "mae_points": -5.75,
+          "mfe_r": 0.8462,
+          "mae_r": -0.8846,
+          "bars_held": 2,
+          "target_fills": [
+            "POC"
+          ],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vah_val_failed_auction",
+          "instrument_id": "ES",
+          "side": "LONG",
+          "entry_time": "2026-10-13 13:35:00+00:00",
+          "entry_price": 7852.5,
+          "stop_price": 7846.5,
+          "target_prices": [
+            7854.5
+          ],
+          "exit_time": "2026-10-13 13:35:00+00:00",
+          "exit_price": 7854.5,
+          "outcome": "POC",
+          "points": 2.0,
+          "dollars": 70.0,
+          "gross_dollars": 100.0,
+          "costs": 30.0,
+          "risk_points": 6.0,
+          "mfe_points": 9.5,
+          "mae_points": -2.25,
+          "mfe_r": 1.5833,
+          "mae_r": -0.375,
+          "bars_held": 0,
+          "target_fills": [
+            "POC"
+          ],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vah_val_failed_auction",
+          "instrument_id": "ES",
+          "side": "LONG",
+          "entry_time": "2026-10-15 14:10:00+00:00",
+          "entry_price": 7746.5,
+          "stop_price": 7740.5,
+          "target_prices": [
+            7769.25
+          ],
+          "exit_time": "2026-10-15 14:55:00+00:00",
+          "exit_price": 7769.25,
+          "outcome": "POC",
+          "points": 22.75,
+          "dollars": 1107.5,
+          "gross_dollars": 1137.5,
+          "costs": 30.0,
+          "risk_points": 6.0,
+          "mfe_points": 23.25,
+          "mae_points": -4.0,
+          "mfe_r": 3.875,
+          "mae_r": -0.6667,
+          "bars_held": 9,
+          "target_fills": [
+            "POC"
+          ],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vah_val_failed_auction",
+          "instrument_id": "ES",
+          "side": "SHORT",
+          "entry_time": "2026-10-16 13:35:00+00:00",
+          "entry_price": 7792.5,
+          "stop_price": 7803.75,
+          "target_prices": [
+            7773.0
+          ],
+          "exit_time": "2026-10-16 15:05:00+00:00",
+          "exit_price": 7773.0,
+          "outcome": "POC",
+          "points": 19.5,
+          "dollars": 945.0,
+          "gross_dollars": 975.0,
+          "costs": 30.0,
+          "risk_points": 11.25,
+          "mfe_points": 25.5,
+          "mae_points": -4.0,
+          "mfe_r": 2.2667,
+          "mae_r": -0.3556,
+          "bars_held": 18,
+          "target_fills": [
+            "POC"
+          ],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vah_val_failed_auction",
+          "instrument_id": "ES",
+          "side": "SHORT",
+          "entry_time": "2026-10-19 16:05:00+00:00",
+          "entry_price": 7753.0,
+          "stop_price": 7764.25,
+          "target_prices": [
+            7695.5
+          ],
+          "exit_time": "2026-10-19 17:35:00+00:00",
+          "exit_price": 7741.75,
+          "outcome": "TIMEOUT",
+          "points": 11.25,
+          "dollars": 532.5,
+          "gross_dollars": 562.5,
+          "costs": 30.0,
+          "risk_points": 11.25,
+          "mfe_points": 14.25,
+          "mae_points": -4.0,
+          "mfe_r": 1.2667,
+          "mae_r": -0.3556,
+          "bars_held": 18,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vah_val_failed_auction",
+          "instrument_id": "ES",
+          "side": "LONG",
+          "entry_time": "2026-10-20 14:00:00+00:00",
+          "entry_price": 7748.25,
+          "stop_price": 7731.75,
+          "target_prices": [
+            7763.75
+          ],
+          "exit_time": "2026-10-20 14:15:00+00:00",
+          "exit_price": 7763.75,
+          "outcome": "POC",
+          "points": 15.5,
+          "dollars": 745.0,
+          "gross_dollars": 775.0,
+          "costs": 30.0,
+          "risk_points": 16.5,
+          "mfe_points": 19.75,
+          "mae_points": -5.0,
+          "mfe_r": 1.197,
+          "mae_r": -0.303,
+          "bars_held": 3,
+          "target_fills": [
+            "POC"
+          ],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vah_val_failed_auction",
+          "instrument_id": "ES",
+          "side": "SHORT",
+          "entry_time": "2026-10-21 13:35:00+00:00",
+          "entry_price": 7769.25,
+          "stop_price": 7780.5,
+          "target_prices": [
+            7753.5
+          ],
+          "exit_time": "2026-10-21 13:45:00+00:00",
+          "exit_price": 7780.5,
+          "outcome": "STOP",
+          "points": -11.25,
+          "dollars": -592.5,
+          "gross_dollars": -562.5,
+          "costs": 30.0,
+          "risk_points": 11.25,
+          "mfe_points": 4.5,
+          "mae_points": -11.5,
+          "mfe_r": 0.4,
+          "mae_r": -1.0222,
+          "bars_held": 2,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vah_val_failed_auction",
+          "instrument_id": "ES",
+          "side": "LONG",
+          "entry_time": "2026-10-23 14:50:00+00:00",
+          "entry_price": 7686.0,
+          "stop_price": 7674.25,
+          "target_prices": [
+            7693.0
+          ],
+          "exit_time": "2026-10-23 14:55:00+00:00",
+          "exit_price": 7693.0,
+          "outcome": "POC",
+          "points": 7.0,
+          "dollars": 320.0,
+          "gross_dollars": 350.0,
+          "costs": 30.0,
+          "risk_points": 11.75,
+          "mfe_points": 7.5,
+          "mae_points": -1.5,
+          "mfe_r": 0.6383,
+          "mae_r": -0.1277,
+          "bars_held": 1,
+          "target_fills": [
+            "POC"
+          ],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vah_val_failed_auction",
+          "instrument_id": "ES",
+          "side": "SHORT",
+          "entry_time": "2026-10-27 13:50:00+00:00",
+          "entry_price": 7724.0,
+          "stop_price": 7742.25,
+          "target_prices": [
+            7716.5
+          ],
+          "exit_time": "2026-10-27 14:00:00+00:00",
+          "exit_price": 7716.5,
+          "outcome": "POC",
+          "points": 7.5,
+          "dollars": 345.0,
+          "gross_dollars": 375.0,
+          "costs": 30.0,
+          "risk_points": 18.25,
+          "mfe_points": 7.75,
+          "mae_points": -2.5,
+          "mfe_r": 0.4247,
+          "mae_r": -0.137,
+          "bars_held": 2,
+          "target_fills": [
+            "POC"
+          ],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vah_val_failed_auction",
+          "instrument_id": "ES",
+          "side": "SHORT",
+          "entry_time": "2026-10-28 13:40:00+00:00",
+          "entry_price": 7766.75,
+          "stop_price": 7775.75,
+          "target_prices": [
+            7763.75
+          ],
+          "exit_time": "2026-10-28 13:40:00+00:00",
+          "exit_price": 7763.75,
+          "outcome": "POC",
+          "points": 3.0,
+          "dollars": 120.0,
+          "gross_dollars": 150.0,
+          "costs": 30.0,
+          "risk_points": 9.0,
+          "mfe_points": 3.0,
+          "mae_points": -1.25,
+          "mfe_r": 0.3333,
+          "mae_r": -0.1389,
+          "bars_held": 0,
+          "target_fills": [
+            "POC"
+          ],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vah_val_failed_auction",
+          "instrument_id": "ES",
+          "side": "LONG",
+          "entry_time": "2026-10-29 15:35:00+00:00",
+          "entry_price": 7764.25,
+          "stop_price": 7759.25,
+          "target_prices": [
+            7770.75
+          ],
+          "exit_time": "2026-10-29 15:35:00+00:00",
+          "exit_price": 7759.25,
+          "outcome": "STOP",
+          "points": -5.0,
+          "dollars": -280.0,
+          "gross_dollars": -250.0,
+          "costs": 30.0,
+          "risk_points": 5.0,
+          "mfe_points": 0.75,
+          "mae_points": -7.0,
+          "mfe_r": 0.15,
+          "mae_r": -1.4,
+          "bars_held": 0,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vah_val_failed_auction",
+          "instrument_id": "ES",
+          "side": "SHORT",
+          "entry_time": "2026-11-02 17:35:00+00:00",
+          "entry_price": 7638.25,
+          "stop_price": 7646.25,
+          "target_prices": [
+            7610.75
+          ],
+          "exit_time": "2026-11-02 18:05:00+00:00",
+          "exit_price": 7646.25,
+          "outcome": "STOP",
+          "points": -8.0,
+          "dollars": -430.0,
+          "gross_dollars": -400.0,
+          "costs": 30.0,
+          "risk_points": 8.0,
+          "mfe_points": 14.75,
+          "mae_points": -10.25,
+          "mfe_r": 1.8438,
+          "mae_r": -1.2812,
+          "bars_held": 6,
+          "target_fills": [],
+          "stop_moved": false
+        },
+        {
+          "strategy_id": "vah_val_failed_auction",
+          "instrument_id": "ES",
+          "side": "LONG",
+          "entry_time": "2026-11-03 15:50:00+00:00",
+          "entry_price": 7607.25,
+          "stop_price": 7598.75,
+          "target_prices": [
+            7655.0
+          ],
+          "exit_time": "2026-11-03 16:30:00+00:00",
+          "exit_price": 7598.75,
+          "outcome": "STOP",
+          "points": -8.5,
+          "dollars": -455.0,
+          "gross_dollars": -425.0,
+          "costs": 30.0,
+          "risk_points": 8.5,
+          "mfe_points": 11.0,
+          "mae_points": -9.0,
+          "mfe_r": 1.2941,
+          "mae_r": -1.0588,
+          "bars_held": 8,
+          "target_fills": [],
+          "stop_moved": false
+        }
+      ],
+      "slip_2": {
+        "trades": 14,
+        "wins": 9,
+        "win_rate": 0.6429,
+        "net_dollars": 1505.0,
+        "net_points": 45.5,
+        "gross_win": 3930.0,
+        "gross_loss": 2425.0,
+        "profit_factor": 1.6206,
+        "expectancy_dollars": 107.5,
+        "max_drawdown_dollars": 1277.5,
+        "by_side": {
+          "LONG": {
+            "trades": 7,
+            "net_dollars": 765.0
+          },
+          "SHORT": {
+            "trades": 7,
+            "net_dollars": 740.0
+          }
+        },
+        "by_outcome": {
+          "POC": 8,
+          "STOP": 5,
+          "TIMEOUT": 1
+        }
+      },
+      "slip_3": {
+        "trades": 14,
+        "wins": 8,
+        "win_rate": 0.5714,
+        "net_dollars": 980.0,
+        "net_points": 42.0,
+        "gross_win": 3597.5,
+        "gross_loss": 2617.5,
+        "profit_factor": 1.3744,
+        "expectancy_dollars": 70.0,
+        "max_drawdown_dollars": 1497.5,
+        "by_side": {
+          "LONG": {
+            "trades": 7,
+            "net_dollars": 502.5
+          },
+          "SHORT": {
+            "trades": 7,
+            "net_dollars": 477.5
+          }
+        },
+        "by_outcome": {
+          "POC": 8,
+          "STOP": 5,
+          "TIMEOUT": 1
+        }
+      },
+      "slip_4": {
+        "trades": 14,
+        "wins": 7,
+        "win_rate": 0.5,
+        "net_dollars": 455.0,
+        "net_points": 38.5,
+        "gross_win": 3327.5,
+        "gross_loss": 2872.5,
+        "profit_factor": 1.1584,
+        "expectancy_dollars": 32.5,
+        "max_drawdown_dollars": 1760.0,
+        "by_side": {
+          "LONG": {
+            "trades": 7,
+            "net_dollars": 240.0
+          },
+          "SHORT": {
+            "trades": 7,
+            "net_dollars": 215.0
+          }
+        },
+        "by_outcome": {
+          "POC": 8,
+          "STOP": 5,
+          "TIMEOUT": 1
+        }
+      }
+    }
+  }
+}

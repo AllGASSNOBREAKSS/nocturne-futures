@@ -22,6 +22,7 @@ class BarrierLabel:
     stop: float
     outcome: str
     exit_time: str
+    exit_index: int
     exit_price: float
     mfe: float
     mae: float
@@ -103,6 +104,7 @@ def triple_barrier_labels(
                 stop=stop,
                 outcome=outcome,
                 exit_time=str(frame["date"].iloc[exit_index]),
+                exit_index=exit_index,
                 exit_price=exit_price,
                 mfe=round(mfe, 6),
                 mae=round(mae, 6),

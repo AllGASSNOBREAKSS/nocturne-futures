@@ -6,6 +6,11 @@
 **Base commit:** `f3ac7f9`  
 **Backend head:** see `git log --oneline -1`
 
+> **Phase 3A update (2026-11-03):** the backtest audit and ML foundation are
+> complete. Native parity is now built and passing; the suite is 121 passed + 1
+> optional native test (122 with the module). No strategy or model is promoted.
+> See `docs/PHASE3A_FINDINGS.md`.
+
 ## 1. What was delivered
 
 A modular Python backend for research and read-only forecasting, plus the
@@ -29,7 +34,7 @@ existing TypeScript validation helper and the dated call/report pipeline.
 | Journal | `journal/` (append-only predictions/outcomes) |
 | API | `api/` (read-only FastAPI) |
 | Knowledge | `knowledge/thesis.py` (analyst theses) |
-| Native | `native/` (C++20 source + parity contract; not built) |
+| Native | `native/` (C++20 kernel, pybind11, parity test; built) |
 
 ## 2. Real evidence
 
@@ -47,8 +52,9 @@ parity test because the C++ toolchain is absent.
 2,167 out-of-sample predictions; base rate 42.1% TP-first. No model beat the
 frequency baseline; status `RESEARCH_ONLY`.
 
-**ORB backtest (NQ, 60 days, 5m):** 44 trades, 50% win rate, +$8,137.50 net,
-PF 1.247, max drawdown $16,105, 40/44 timeouts. Not promoted.
+**ORB backtest (NQ, 60 days, 5m):** 44 trades, 47.7% win rate, +$4,940 net,
+PF 1.1475, max drawdown $18,730, 41/44 timeouts. Development −$18,730 vs
+holdout +$23,670; regime-dependent, not promoted.
 
 **Live context built:** 2026-11-03 premarket state — NQ gap +0.46%, ES +0.05%,
 NQ led, VIX 21.41, ZN/ZB proxies connected.
@@ -68,7 +74,7 @@ NQ led, VIX 21.41, ZN/ZB proxies connected.
 | True volume-at-price / tick / DOM / MBO | **DATA_BLOCKED** |
 | CFE VX futures curve | **DATA_BLOCKED**; `^VIX` proxy |
 | Point-in-time economic calendar adapter | Not wired |
-| C++ native module | **TOOLCHAIN_BLOCKED** (no cmake/g++/pybind11) |
+| C++ native module | **Resolved:** built with MSVC 19.51; parity passes; CI job |
 | Model promotion | Not earned; frequency baseline only |
 | Drift dashboard / automated rollback | Not implemented |
 | Frontend, TradingView drawing, broker orders | Out of scope |

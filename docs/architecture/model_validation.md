@@ -53,11 +53,71 @@ logistic nor boosted trees beat it by the required margin. No model is promoted.
 - It does not validate the ORB backtest or any strategy P&L.
 - It does not justify live trading.
 
+## Phase 3A audit
+
+Four label geometries were tested with the same walk-forward protocol:
+
+| Config | TP | SL | Timeout | Ambiguous | Binary n | Base rate |
+|---|---:|---:|---:|---:|---:|---:|
+| 1.5 ATR / 1.0 ATR / 5d | 1,218 | 1,722 | 811 | 10 | 2,940 | 41.4% |
+| 1.0 / 1.0 / 3d | 1,584 | 1,374 | 778 | 25 | 2,958 | 53.5% |
+| 1.0 / 0.5 / 5d | 1,320 | 2,258 | 111 | 72 | 3,578 | 36.9% |
+| 2.0 / 1.0 / 10d | 1,166 | 2,109 | 479 | 7 | 3,275 | 35.6% |
+
+Walk-forward Brier:
+
+| Config | Frequency | Logistic | GBM |
+|---|---:|---:|---:|
+| 1.5 / 1.0 / 5d | **0.2474** | 0.2493 | 0.2483 |
+| 1.0 / 1.0 / 3d | **0.2509** | 0.2525 | — |
+| 1.0 / 0.5 / 5d | **0.2321** | 0.2332 | — |
+| 2.0 / 1.0 / 10d | **0.2327** | 0.2343 | — |
+
+Frequency wins in every geometry. The lower Brier in the tight-stop and
+long-horizon configs reflects a more imbalanced class distribution, not skill.
+Cross-config Brier comparisons are misleading.
+
+**Regime stability (current config, logistic):** low-vol Brier 0.2535,
+accuracy 0.522; high-vol Brier 0.2452, accuracy 0.595. Yearly Brier ranges
+0.229–0.266 and accuracy 0.457–0.700. The model is not stable.
+
+**Economic check:** at p ≥ 0.50 the threshold strategy loses **−$36,590** after
+$15/round-trip costs (217 trades, max DD $80,888). At p ≥ 0.55/0.60 it shows
++$42,152/+$46,045 on only **42/18 trades**. That is sparse, post-hoc selection,
+not a validated edge.
+
+Full report: `reports/ml_audit_NQ.md` and `reports/ml_audit_NQ.json`.
+
+## Target-level dataset
+
+`src/nocturne/research/target_dataset.py` records one row per `(signal,
+candidate target)` with entry, stop, target, horizon, target-first outcome,
+MFE/MAE and bars-to-target. Build it with:
+
+```bash
+python -m nocturne dataset --instrument NQ --strategy vwap
+```
+
+Committed datasets:
+
+| File | Rows | TP | SL | Timeout |
+|---|---:|---:|---:|---:|
+| `target_dataset_NQ_orb.csv` | 132 | 2 | 3 | 127 |
+| `target_dataset_NQ_orb_diag.csv` | 132 | 24 | 18 | 90 |
+| `target_dataset_NQ_vwap.csv` | 84 | 32 | 33 | 19 |
+| `target_dataset_NQ_value.csv` | 28 | 10 | 14 | 4 |
+
+The ORB actual-target set is not trainable (2 positives). The VWAP set is the
+first usable candidate; any model must split chronologically and leave the last
+40% untouched.
+
 ## Reproduce
 
 ```bash
 python -m nocturne train --instrument NQ
+python scripts/ml_audit.py
 ```
 
-The command writes a new `NQ-<model>-<timestamp>/` directory with
-`metadata.json`, `model.joblib` and `summary.json`.
+The train command writes a new `NQ-<model>-<timestamp>/` directory with
+`metadata.json`, `model.joblib` and `summary.json`. The audit writes
+`reports/ml_audit_NQ.json` and `.md`.

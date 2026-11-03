@@ -13,3 +13,10 @@ dist/
 data/raw/2026-*/
 data/raw/20*/
 !data/raw/history_1mo.json
+
+# Native build artifacts are local/platform-specific.
+native/build/
+native/build.bat
+
+# Scratch files.
+temp_*.json

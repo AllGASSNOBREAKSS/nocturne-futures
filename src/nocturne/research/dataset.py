@@ -25,7 +25,18 @@ def build_training_frame(
         ambiguous_policy=ambiguous_policy,
     )
     merged = features.iloc[labels["signal_index"].to_numpy()].reset_index(drop=True)
-    for column in ("outcome", "entry_index", "entry_price", "target", "stop", "mfe", "mae"):
+    for column in (
+        "outcome",
+        "entry_index",
+        "entry_price",
+        "target",
+        "stop",
+        "mfe",
+        "mae",
+        "exit_price",
+        "exit_index",
+        "bars_held",
+    ):
         merged[column] = labels[column].to_numpy()
     merged["y"] = (merged["outcome"] == "TP_FIRST").astype(int)
     return merged

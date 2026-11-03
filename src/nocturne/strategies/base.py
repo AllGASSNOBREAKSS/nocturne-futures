@@ -38,6 +38,13 @@ class Signal:
             raise ValueError("LONG stop must be below entry")
         if self.side == "SHORT" and self.stop <= self.entry_high:
             raise ValueError("SHORT stop must be above entry")
+        if not self.targets:
+            raise ValueError("a trade signal requires at least one target")
+        for target in self.targets:
+            if self.side == "LONG" and target.price <= self.entry_low:
+                raise ValueError("LONG targets must be above entry")
+            if self.side == "SHORT" and target.price >= self.entry_high:
+                raise ValueError("SHORT targets must be below entry")
 
 
 @dataclass(frozen=True)

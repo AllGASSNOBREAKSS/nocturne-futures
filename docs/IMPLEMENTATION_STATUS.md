@@ -48,7 +48,11 @@ A milestone is `DONE` only when code, tests, and a runnable command exist.
 | VAH/VAL rejection strategy spec | DONE | `strategies/value_rejection.py`, 1 test |
 | Event-driven bar backtester with costs | DONE | `backtest/engine.py`, 5 tests; ORB ledger committed |
 | Conservative intrabar ambiguity | DONE | Stop-first on same-bar stop+target |
-| Walk-forward evaluation | PARTIAL | Chronological split implemented; ORB is a single 60-day sample |
+| Walk-forward evaluation | PARTIAL | Chronological development/holdout done; no parameter search |
+| Phase 3A held-out NQ/ES study | DONE | `reports/phase3a_backtests.md`, 12 strategy/split cells |
+| Cost stress 1–4 ticks | DONE | Holdout net dollars by strategy/instrument |
+| ORB timeout diagnosis | DONE | Median risk 208.9, MFE 0.26R, 41/41 timeouts <1R |
+| Regression tests: gaps, ambiguity, session, costs, rolls | DONE | `test_backtest_regression.py`, `test_rolls.py` |
 
 ## Phase 4 — ML prediction v1
 
@@ -57,10 +61,13 @@ A milestone is `DONE` only when code, tests, and a runnable command exist.
 | Triple-barrier labels | DONE | `research/labels.py`, 4 tests; ambiguity excluded |
 | Historical-frequency baseline | DONE | `ml/baseline.py`; NQ walk-forward Brier 0.2474 |
 | Logistic baseline | DONE | NQ Brier 0.2493 (worse than frequency) |
-| Gradient-boosted challenger (sklearn) | DONE | NQ Brier 0.2488 (worse than frequency) |
+| Gradient-boosted challenger (sklearn) | DONE | NQ Brier 0.2483–0.2488 (worse than frequency) |
 | Calibration (Brier, reliability, ECE) | DONE | `ml/calibration.py`, Platt + metrics |
 | Model registry | DONE | `models/registry/NQ-frequency-*`, metadata + joblib |
 | Read-only forecast API + journal | DONE | FastAPI, append-only JSONL, 7 API tests |
+| Target-level training dataset | DONE | `research/target_dataset.py`; 4 committed CSVs |
+| ML audit across 4 label geometries | DONE | `reports/ml_audit_NQ.md`, `scripts/ml_audit.py` |
+| Model evaluation report | DONE | Direction, Brier/ECE, regime stability, net expectancy |
 
 ## Phase 5 — Intermarket / premarket
 
@@ -79,7 +86,7 @@ A milestone is `DONE` only when code, tests, and a runnable command exist.
 | Typed trade/quote/book interfaces | DONE | `orderflow/tape.py`, `orderflow/depth.py` |
 | Aggressor classification + CVD | DONE | Quote/tick rule with confidence; 6 tests |
 | Footprint / DOM imbalance | DONE | Footprint by side; top-k book imbalance |
-| C++ kernels | TOOLCHAIN_BLOCKED | No cmake/g++/pybind11; Python reference only |
+| C++ kernels | DONE | MSVC 19.51 build; `nocturne_native` parity passes; CI native job |
 
 ## Phase 7 — Knowledge / discretion
 
@@ -93,13 +100,33 @@ A milestone is `DONE` only when code, tests, and a runnable command exist.
 | Item | Status | Evidence |
 |---|---|---|
 | CI Python + TypeScript | DONE | `.github/workflows/ci.yml`; pytest + tsc |
+| CI native build/parity | DONE | Ubuntu cmake/ninja/pybind11 job added |
 | Drift/coverage/latency monitoring | PARTIAL | Health, coverage, staleness gates; no drift dashboard |
 | Promotion/rollback | PARTIAL | Versioned registry + RESEARCH_ONLY gate; manual rollback |
+
+## Phase 3A evidence
+
+- **ORB timeouts:** median risk 208.9 NQ points, median MFE 0.26R, 4.5% reach
+  1R, 0% reach 2R, 41/41 timeouts below 1R. The 24-bar horizon is too short for
+  the 60-minute IB stop.
+- **Held-out study:** NQ ORB development −$18,730 vs holdout +$23,670; NQ VWAP
+  +$1,911 / +$8,398; NQ value +$2,935 / −$6,170; ES ORB −$5,853 / +$3,665.
+  Regime dependence, not a validated edge.
+- **Cost stress:** 1–4 tick slippage reported for every strategy/instrument in
+  `reports/phase3a_backtests.md`.
+- **ML audit:** frequency wins in all four label geometries. The lower Brier in
+  tight-stop/long-horizon configs is class imbalance, not skill. At p ≥ 0.50
+  the threshold strategy loses after costs; p ≥ 0.55/0.60 is sparse.
+- **Target dataset:** `data/research/target_dataset_NQ_vwap.csv` has 84 rows,
+  32 TP / 33 SL / 19 timeout; ORB actual targets are 2 TP / 3 SL / 127 timeout.
+- **Native parity:** MSVC 19.51 build; parity test passes; 122 tests with the
+  module, 121 + 1 skipped without.
 
 ## Current truth boundary
 
 No calibrated model or profitable strategy is claimed. The existing 15-year
-direction baseline did **not** beat the always-up rate on ES, NQ, or GC. The
-2026-10-30 and 2026-11-02 calls are recorded misses and must remain in the
-archive. New modules will report `DATA_BLOCKED` where the required data does not
-exist.
+direction baseline did **not** beat the always-up/frequency rate on ES, NQ, or
+GC. The 2026-10-30 and 2026-11-02 calls are recorded misses and must remain in
+the archive. Phase 3A found no strategy that survives the development/holdout
+and cost-stress gates. New modules will report `DATA_BLOCKED` where the required
+data does not exist.

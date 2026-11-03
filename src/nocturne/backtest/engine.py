@@ -28,6 +28,7 @@ class BacktestConfig:
     ambiguous_policy: str = "STOP_FIRST"
     exit_schedule: tuple[tuple[int, float], ...] = ((0, 0.5), (1, 0.5))
     move_stop_to_breakeven_after_tp1: bool = True
+    max_targets_per_bar: int = 1
 
 
 @dataclass
@@ -37,13 +38,20 @@ class TradeResult:
     side: str
     entry_time: pd.Timestamp
     entry_price: float
+    stop_price: float
+    target_prices: tuple[float, ...]
     exit_time: pd.Timestamp
     exit_price: float
     outcome: str
     points: float
     dollars: float
+    gross_dollars: float
+    costs: float
+    risk_points: float
     mfe_points: float
     mae_points: float
+    mfe_r: float
+    mae_r: float
     bars_held: int
     target_fills: tuple[str, ...] = ()
     stop_moved: bool = False
@@ -115,6 +123,17 @@ def run_signal(
     config: BacktestConfig | None = None,
 ) -> TradeResult | None:
     config = config or BacktestConfig()
+    if config.ambiguous_policy != "STOP_FIRST":
+        raise ValueError("only STOP_FIRST is implemented")
+    if config.contracts < 1:
+        raise ValueError("contracts must be >= 1")
+    if config.commission_per_contract < 0 or config.slippage_ticks < 0:
+        raise ValueError("costs cannot be negative")
+    if config.max_targets_per_bar < 0:
+        raise ValueError("max_targets_per_bar cannot be negative")
+    if sum(fraction for _, fraction in config.exit_schedule) > 1.0 + 1e-9:
+        raise ValueError("exit_schedule fractions cannot exceed 1.0")
+
     frame = bars.copy()
     frame["timestamp"] = pd.to_datetime(frame["timestamp"], utc=True)
     frame = frame.sort_values("timestamp").reset_index(drop=True)
@@ -129,6 +148,15 @@ def run_signal(
     entry_price = float(entry_bar["open"]) + direction * slip
     stop = signal.stop
     stop_moved = False
+    risk_points = abs(entry_price - stop)
+    target_prices = tuple(target.price for target in signal.targets)
+    exit_fills = 0
+
+    # A gap beyond the first target invalidates the entry edge; skip it.
+    if direction == 1 and entry_price >= target_prices[0]:
+        return None
+    if direction == -1 and entry_price <= target_prices[0]:
+        return None
 
     remaining = 1.0
     realized_points = 0.0
@@ -170,6 +198,8 @@ def run_signal(
 
         if stop_hit and target_hits and config.ambiguous_policy == "STOP_FIRST":
             target_hits = []
+        if config.max_targets_per_bar > 0:
+            target_hits = target_hits[: config.max_targets_per_bar]
 
         if stop_hit:
             fill = min(open_, stop) if direction == 1 else max(open_, stop)
@@ -177,12 +207,14 @@ def run_signal(
             exit_time, exit_price = bar["timestamp"], fill
             outcome = "STOP" if not target_fills else "TP_THEN_STOP"
             remaining = 0.0
+            exit_fills += 1
             break
 
         for target_idx, fraction, target in target_hits:
             fill = target.price
             realized_points += (fill - entry_price) * direction * fraction
             target_fills.append(target.label)
+            exit_fills += 1
             next_target = target_idx + 1
             remaining -= fraction
             exit_time, exit_price = bar["timestamp"], fill
@@ -203,25 +235,33 @@ def run_signal(
         realized_points += (fill - entry_price) * direction * remaining
         exit_time, exit_price = bar["timestamp"], fill
         outcome = "TIMEOUT" if not target_fills else "TP_THEN_TIMEOUT"
+        exit_fills += 1
 
-    costs = (
-        2 * config.commission_per_contract * config.contracts
-        + 2 * slip * spec.multiplier * config.contracts
-    )
-    dollars = realized_points * spec.multiplier * config.contracts - costs
+    gross_dollars = realized_points * spec.multiplier * config.contracts
+    commissions = config.commission_per_contract * config.contracts * (1 + exit_fills)
+    slippage_cost = 2 * slip * spec.multiplier * config.contracts
+    costs = commissions + slippage_cost
+    dollars = gross_dollars - costs
     return TradeResult(
         strategy_id=signal.strategy_id,
         instrument_id=signal.instrument_id,
         side=signal.side,
         entry_time=entry_bar["timestamp"],
         entry_price=round(entry_price, 4),
+        stop_price=round(stop, 4),
+        target_prices=target_prices,
         exit_time=exit_time,
         exit_price=round(exit_price, 4),
         outcome=outcome,
         points=round(realized_points, 4),
         dollars=round(dollars, 2),
+        gross_dollars=round(gross_dollars, 2),
+        costs=round(costs, 2),
+        risk_points=round(risk_points, 4),
         mfe_points=round(mfe, 4),
         mae_points=round(mae, 4),
+        mfe_r=round(mfe / risk_points, 4) if risk_points > 0 else 0.0,
+        mae_r=round(mae / risk_points, 4) if risk_points > 0 else 0.0,
         bars_held=max(0, idx - entry_idx) if len(frame) else 0,
         target_fills=tuple(target_fills),
         stop_moved=stop_moved,

@@ -160,10 +160,22 @@ def main(argv: list[str] | None = None) -> int:
     context = sub.add_parser("context", help="build intermarket and premarket artifacts")
     context.add_argument("--offline", action="store_true", help="skip Yahoo intraday fetch")
 
-    backtest = sub.add_parser("backtest", help="run a strategy on fetched intraday bars")
+    backtest = sub.add_parser("backtest", help="run a strategy on cached intraday bars")
     backtest.add_argument("--instrument", default="NQ")
     backtest.add_argument("--strategy", default="orb", choices=["orb"])
-    backtest.add_argument("--days", type=int, default=60)
+    backtest.add_argument("--days", type=int, default=60, help="compatibility; the cache is 60 days")
+    backtest.add_argument("--force", action="store_true", help="refresh cached intraday bars")
+
+    study = sub.add_parser("study", help="run the held-out, cost-stressed Phase 3A study")
+    study.add_argument("--force", action="store_true", help="refresh cached intraday bars")
+
+    dataset = sub.add_parser("dataset", help="build a target-level training dataset")
+    dataset.add_argument("--instrument", default="NQ")
+    dataset.add_argument("--strategy", default="orb", choices=["orb", "vwap", "value"])
+    dataset.add_argument("--horizon", type=int, default=24)
+    dataset.add_argument("--targets", default="", help="comma-separated R multiples, e.g. 0.5,1.0,1.5")
+    dataset.add_argument("--tag", default="", help="suffix for the output file")
+    dataset.add_argument("--force", action="store_true")
 
     args = parser.parse_args(argv)
 
@@ -184,10 +196,41 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "backtest":
         from .backtest.runner import run_orb, save_report
 
-        summary, trades = run_orb(args.instrument, days=args.days)
+        summary, trades = run_orb(args.instrument, force=args.force)
         path = save_report(ROOT / "reports", f"backtest_{args.strategy}_{args.instrument}", summary, trades)
         print(json.dumps(summary, indent=2))
         print(f"saved {path.relative_to(ROOT)}")
+        return 0
+    if args.command == "study":
+        from .backtest.study import markdown, run_all
+
+        results = run_all(force=args.force)
+        text = markdown(results)
+        path = ROOT / "reports" / "phase3a_backtests.md"
+        path.write_text(text + "\n", encoding="utf-8")
+        print(text)
+        print(f"saved {path.relative_to(ROOT)}")
+        return 0
+    if args.command == "dataset":
+        from .backtest.study import build_dataset
+
+        multiples = tuple(float(x) for x in args.targets.split(",") if x.strip()) or None
+        frame, meta = build_dataset(
+            args.strategy,
+            args.instrument,
+            force=args.force,
+            horizon_bars=args.horizon,
+            target_multiples=multiples,
+        )
+        path = ROOT / "data" / "research" / f"target_dataset_{args.instrument}_{args.strategy}{args.tag}.csv"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        frame.to_csv(path, index=False)
+        counts = frame["outcome"].value_counts().to_dict() if len(frame) else {}
+        print(f"rows            {len(frame)}")
+        print(f"outcomes        {counts}")
+        print(f"target_first    {int(frame['target_first'].sum()) if len(frame) else 0}")
+        print(f"data            {meta['first']} -> {meta['last']} ({meta['rows']} bars)")
+        print(f"saved           {path.relative_to(ROOT)}")
         return 0
 
     if args.command == "build":
