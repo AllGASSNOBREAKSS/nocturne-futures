@@ -19,6 +19,13 @@ Key results:
   direction.
 - Level touches: 89% within 1 ATR, 4% beyond 4 ATR; target-before-stop with
   2 ATR/1 ATR geometry is 21% NQ / 24% ES conditional on touch.
+- Daily range/expansion: predictable. Development coverage 0.485/0.782/0.883 and
+  expansion AUC 0.646. One-shot 2024-2026 holdout coverage 0.534/0.816/0.920,
+  pinball improved at every quantile; expansion AUC 0.7155 but recall 0.085.
+
+Promotion: `RESEARCH_VALIDATED_PENDING_SHADOW` for the NDX cash-session range
+quantiles only. Direction, analogues and the expansion decision rule remain
+`NO_PROMOTION`. Do not re-run the 2024-2026 holdout; it has now been used once.
 
 Reproduce offline:
 
@@ -29,7 +36,9 @@ python scripts/phase3g_providers.py       # BLS network call
 python scripts/phase3g_seasonality.py
 python scripts/phase3g_daily_direction.py
 python scripts/phase3g_analogues.py
+python scripts/phase3g_daily_range.py    # development folds only
 python scripts/phase3g_level_reactions.py
+python scripts/phase3g_promotion.py
 $env:PYTHONPATH='D:\nocturne-futures\native\build'; python -m pytest
 ```
 

@@ -126,7 +126,47 @@ The database is descriptive and correlated within sessions. It is not wired into
 production forecasts, and the 2 ATR / 1 ATR barrier geometry is a research
 assumption, not a validated strategy.
 
-## 6. Provider registry (3G addition)
+## 6. Daily range and expansion: the constructive result
+
+The same decades-long walk-forward on ^NDX tests whether *activity* is
+predictable when direction is not. Targets are the next cash-session high-low
+range (quantiles 0.5/0.8/0.9) and a binary expansion event (next range > 1.2 ×
+current 20-day ATR).
+
+Development folds 1990–2023, 33 year groups:
+
+| Quantile | Loss | Baseline | Coverage | Paired interval |
+|---|---:|---:|---:|---|
+| 0.5 | 0.002990 | 0.004543 | 0.485 | [−0.00260, −0.00100] |
+| 0.8 | 0.002567 | 0.004509 | 0.782 | [−0.00339, −0.00119] |
+| 0.9 | 0.001834 | 0.003505 | 0.883 | [−0.00303, −0.00098] |
+| Expansion (Brier) | 0.1635 | 0.1725 | — | [−0.0141, −0.0051] |
+
+Expansion AUC is 0.646 overall, improving from 0.565 in the 2000s to 0.714 in the
+2020s. Coverage is close to nominal in every decade.
+
+### One-shot holdout (2024-01-02 to 2026-11-02, 712 sessions)
+
+This period was never used in any prior model. Configuration was frozen before the
+run and the evaluation was executed once.
+
+| Quantile | Coverage | 2024 / 2025 / 2026 | Baseline coverage |
+|---|---:|---|---:|
+| 0.5 | 0.534 | 0.480 / 0.600 / 0.519 | 0.664 |
+| 0.8 | 0.816 | 0.806 / 0.828 / 0.814 | 0.921 |
+| 0.9 | 0.920 | 0.905 / 0.916 / 0.943 | 0.978 |
+
+Pinball loss improved on the baseline for all three quantiles. The expansion
+classifier reached AUC 0.7155, Brier 0.1367 versus a 0.1515 base rate, and ECE
+0.0173, but recall was only 0.0846 at the default threshold. It is therefore
+calibrated but not usable as a hard decision rule.
+
+**Decision:** `RESEARCH_VALIDATED_PENDING_SHADOW` for the NDX cash-session range
+quantiles, explicitly scoped to the index and not to NQ futures. The expansion
+classifier remains `NO_PROMOTION` because of its recall. Neither is wired into
+production probabilities, and no trading decision is enabled.
+
+## 7. Provider registry (3G addition)
 
 `adapters/registry.py` records access class, credential variable, implementation
 and verification status for Yahoo, FRED, BLS, Databento, Nasdaq Data Link and
@@ -136,7 +176,7 @@ from environment variables only and never logged. Databento and Bloomberg remain
 paid dependencies; Nasdaq Data Link is not implemented because per-dataset rights
 must be verified before ingestion.
 
-## 7. What this phase establishes
+## 8. What this phase establishes
 
 - Decades of legitimate free daily history are now available with provenance and
   cross-source validation.
@@ -145,6 +185,10 @@ must be verified before ingestion.
 - Level-touch probabilities are strongly distance-dependent and can be measured
   honestly with explicit event definitions.
 - Next-day direction remains research-only; the 1990s edge decayed.
+- Next-day **range and expansion are predictable**: the frozen NDX model kept
+  near-nominal coverage and improved pinball loss on a one-shot 2024–2026 holdout.
 
-Not established: any tradable edge, any validated probability, any intraday
-multi-year futures history. Promotion decisions remain fail-closed.
+Not established: any tradable edge, any NQ futures range probability, any
+validated intraday multi-year futures history. Promotion decisions remain
+fail-closed; the range model is validated for research scope only and awaits
+shadow evaluation.

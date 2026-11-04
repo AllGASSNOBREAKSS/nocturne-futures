@@ -52,3 +52,16 @@ and excluded from the binary outcome. Wilson intervals reported.
 ## Promotion
 
 Unchanged fail-closed gates. Passing yields review eligibility only.
+
+## Final holdout freeze (declared before the run)
+
+The daily range/expansion study uses ^NDX daily data acquired in this phase. The
+period 2024-01-01 onward was never used in any prior model or experiment, so it is
+a genuine holdout for this specific study. Configuration is frozen as: LightGBM
+quantile regressors (150 trees, 15 leaves, 0.05 learning rate, min child 50, seed
+7) at 0.5/0.8/0.9, residual calibration on 2022-2023, and logistic expansion with
+C=0.2. A single evaluation is permitted; repeating it invalidates the holdout.
+
+Even if it passes, the result applies to the Nasdaq-100 cash-session index range,
+not to NQ futures, and requires shadow testing before any production probability.
+

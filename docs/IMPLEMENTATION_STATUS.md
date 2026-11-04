@@ -13,6 +13,12 @@ walk-forward. Daily direction AUC is 0.498–0.508 and decays by decade; analogu
 add no value; level-touch rates are strongly distance-dependent. All remain
 `NO_PROMOTION`; every forecast remains `NO_TRADE`.
 
+Validated for research scope only: the frozen ^NDX daily range-quantile model kept
+near-nominal coverage (0.534/0.816/0.920) and improved pinball loss on a one-shot
+2024–2026 holdout. Status is `RESEARCH_VALIDATED_PENDING_SHADOW`, scoped to the
+cash-session index range, not NQ futures. The expansion classifier remains
+`NO_PROMOTION` because its recall is 0.085.
+
 Blocked/unfinished: licensed contract-level intraday history, ticks/depth/MBO,
 PIT macro consensus/news, Nasdaq Data Link and Bloomberg (no entitlement), and a
 genuinely independent future holdout.

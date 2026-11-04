@@ -1,0 +1,233 @@
+{
+  "daily_direction_price_only": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "BASELINE_IMPROVEMENT_UNCERTAIN",
+      "CALIBRATION_GATE_FAILED",
+      "AUC_GATE_FAILED"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "next_session"
+    ]
+  },
+  "daily_direction_all": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "BASELINE_IMPROVEMENT_UNCERTAIN",
+      "CALIBRATION_GATE_FAILED",
+      "AUC_GATE_FAILED"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "next_session"
+    ]
+  },
+  "daily_direction_price_plus_volatility_context": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "BASELINE_IMPROVEMENT_UNCERTAIN",
+      "CALIBRATION_GATE_FAILED",
+      "AUC_GATE_FAILED"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "next_session"
+    ]
+  },
+  "daily_direction_price_plus_rates_context": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "BASELINE_IMPROVEMENT_UNCERTAIN",
+      "CALIBRATION_GATE_FAILED",
+      "AUC_GATE_FAILED"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "next_session"
+    ]
+  },
+  "daily_direction_price_plus_cross_market": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "BASELINE_IMPROVEMENT_UNCERTAIN",
+      "CALIBRATION_GATE_FAILED",
+      "AUC_GATE_FAILED"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "next_session"
+    ]
+  },
+  "daily_direction_price_plus_seasonality": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "BASELINE_IMPROVEMENT_UNCERTAIN",
+      "CALIBRATION_GATE_FAILED",
+      "AUC_GATE_FAILED"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "next_session"
+    ]
+  },
+  "analogue_knn_50": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "BASELINE_IMPROVEMENT_UNCERTAIN",
+      "CALIBRATION_GATE_FAILED",
+      "AUC_GATE_FAILED"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "next_session"
+    ]
+  },
+  "analogue_knn_100": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "BASELINE_IMPROVEMENT_UNCERTAIN",
+      "CALIBRATION_GATE_FAILED",
+      "AUC_GATE_FAILED"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "next_session"
+    ]
+  },
+  "analogue_knn_250": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "BASELINE_IMPROVEMENT_UNCERTAIN",
+      "CALIBRATION_GATE_FAILED",
+      "AUC_GATE_FAILED"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "next_session"
+    ]
+  },
+  "target_survival_freq": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "BASELINE_IMPROVEMENT_UNCERTAIN",
+      "AUC_GATE_FAILED"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "24_5m_bars"
+    ]
+  },
+  "target_survival_logistic": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "BASELINE_IMPROVEMENT_UNCERTAIN",
+      "CALIBRATION_GATE_FAILED"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "24_5m_bars"
+    ]
+  },
+  "target_survival_lightgbm": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "BASELINE_IMPROVEMENT_UNCERTAIN",
+      "CALIBRATION_GATE_FAILED"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "24_5m_bars"
+    ]
+  },
+  "ndx_daily_range_quantiles": {
+    "decision": "RESEARCH_VALIDATED_PENDING_SHADOW",
+    "scope": "Nasdaq-100 cash-session daily range only; not NQ futures",
+    "independent_holdout": {
+      "first": "2024-01-02",
+      "last": "2026-11-02",
+      "rows": 712,
+      "used_once": true
+    },
+    "coverage": {
+      "0.5": 0.5337,
+      "0.8": 0.816,
+      "0.9": 0.9199
+    },
+    "pinball_improved": true,
+    "reasons_not_promoted": [
+      "requires shadow evaluation on live timestamps",
+      "index range is not a tradable futures range",
+      "no futures-specific contract data",
+      "interval across only three holdout years is unreliable"
+    ],
+    "automatic_activation": false
+  },
+  "ndx_daily_expansion_classifier": {
+    "decision": "NO_PROMOTION",
+    "scope": "Nasdaq-100 cash-session range expansion > 1.2 ATR",
+    "auc": 0.7155,
+    "ece": 0.017306,
+    "brier": 0.136748,
+    "baseline_brier": 0.1514560203335065,
+    "recall": 0.0846,
+    "precision": 0.6471,
+    "reasons_not_promoted": [
+      "recall 0.08 makes it unusable as a decision rule",
+      "shadow evaluation required",
+      "index range is not a tradable futures range"
+    ],
+    "automatic_activation": false
+  }
+}

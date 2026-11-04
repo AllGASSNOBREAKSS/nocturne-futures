@@ -90,7 +90,7 @@ def block_mean_interval(values, groups, block_groups=3, repetitions=1000, seed=7
     n = len(chunks)
     if n < 2:
         return {"mean": float(data.value.mean()), "low": None, "high": None, "groups": n}
-    width = min(block_groups, n)
+    width = min(block_groups, max(1, n - 1))
     rng = np.random.default_rng(seed)
     means = []
     for _ in range(repetitions):
@@ -101,4 +101,6 @@ def block_mean_interval(values, groups, block_groups=3, repetitions=1000, seed=7
         means.append(np.concatenate([chunks[i] for i in indices[:n]]).mean())
     low, high = np.quantile(means, [0.025, 0.975])
     return {"mean": float(data.value.mean()), "low": float(low), "high": float(high),
-            "groups": n, "block_groups": width, "repetitions": repetitions}
+            "groups": n, "block_groups": width, "repetitions": repetitions,
+            "reliable": bool(n >= 5),
+            "note": None if n >= 5 else "too few groups for a dependable interval"}

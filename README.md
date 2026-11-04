@@ -21,7 +21,11 @@ to 0.459 by the 2020s. Historical analogues add no value. Price-level touch
 probabilities are strongly distance-dependent and are now measured with explicit,
 separate event definitions.
 
-All models remain `NO_PROMOTION`; forecasts remain `NO_TRADE`. See
+All models remain `NO_PROMOTION`; forecasts remain `NO_TRADE`. One exception is
+scoped: the frozen NDX daily range-quantile model kept near-nominal coverage
+(0.534/0.816/0.920) and improved pinball loss on a one-shot 2024–2026 holdout, so
+it is `RESEARCH_VALIDATED_PENDING_SHADOW` for the cash-session index range only —
+not NQ futures, and not a trading decision. See
 [Phase 3G findings](docs/PHASE3G_FINDINGS.md),
 [protocol](docs/PHASE3G_PROTOCOL.md),
 [data providers](docs/DATA_PROVIDERS.md) and
