@@ -162,8 +162,11 @@ model families.
 | Licensed futures data | `DATA_BLOCKED` |
 | Trading | Disabled (`NO_TRADE`) |
 
-Tests: 212 passed with the native C++ module enabled. CI status is recorded after
-pushing.
+Tests: 212 passed with the native C++ module enabled. Pushes `389f784`,
+`1744567` and `04def4b` are on `feat/phase3h`; the final CI run for `04def4b`
+completed successfully after adding LightGBM to the dev extras (the artifact
+cannot be unpickled without it). The two earlier failures were that missing
+dependency, not a model or data defect.
 
 Next: let the 2026-11-04 forecast mature, run `--evaluate-only`, and accumulate at
 least 30 matured predictions before reporting forward coverage. In parallel,

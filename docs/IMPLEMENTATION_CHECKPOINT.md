@@ -46,6 +46,7 @@ order-flow data exists.
 **Date:** 2026-11-04
 **Previous branch:** `feat/phase3g`
 **Latest backend commit:** see `git log --oneline -1`
+**CI:** `04def4b` passed all jobs (python, typescript, native).
 
 ## Phase 3A — backtest validation and predictive foundation
 

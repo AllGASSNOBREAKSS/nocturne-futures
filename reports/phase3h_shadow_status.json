@@ -1,19 +1,13 @@
 {
-  "generated_at": "2026-11-04T02:53:30.237804+00:00",
+  "generated_at": "2026-11-04T03:00:14.359778+00:00",
   "model_id": "ndx-range-v1",
   "model_version": "1.0.0",
   "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
   "trading_decision": "NO_TRADE",
   "mode": "read_only_shadow",
-  "generation": "STORED",
+  "generation": "EVALUATE_ONLY",
   "generation_detail": {
-    "status": "STORED",
-    "eligibility": {
-      "eligible": true,
-      "data_date": "2026-11-03",
-      "target_date": "2026-11-04",
-      "session_open_utc": "2026-11-04T14:30:00+00:00"
-    }
+    "status": "EVALUATE_ONLY"
   },
   "latest_forecast": {
     "created_at": "2026-11-04T02:53:30.237804+00:00",
