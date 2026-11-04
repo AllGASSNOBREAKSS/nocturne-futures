@@ -1,0 +1,21 @@
+{
+  "model_id": "ndx-range-v1",
+  "scope": "NDX cash-session range quantiles; not NQ futures; not a trading signal",
+  "status": "SHADOW_ACTIVE",
+  "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
+  "trading_decision": "NO_TRADE",
+  "forward_predictions": 1,
+  "matured_outcomes": 0,
+  "pending": 1,
+  "first_forecast": "2026-11-04",
+  "latest_forecast": "2026-11-04",
+  "evaluation": {
+    "matured": 0,
+    "pending": 1,
+    "status": "INSUFFICIENT_FORWARD_DATA",
+    "note": "no forward forecast has matured; do not report accuracy",
+    "quality_failures": 0
+  },
+  "quality_failures": [],
+  "claim_boundary": "forward accuracy is not claimed until enough new forecasts have matured; historical holdout results are separate"
+}

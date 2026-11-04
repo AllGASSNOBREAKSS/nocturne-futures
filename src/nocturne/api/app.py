@@ -69,6 +69,22 @@ def create_app(service: ForecastService | None = None) -> FastAPI:
     def models_status() -> dict:
         return service.models_status()
 
+    @app.get("/v1/shadow/ndx-range")
+    def shadow_ndx_range() -> dict:
+        return service.shadow_status()
+
+    @app.get("/v1/shadow/history")
+    def shadow_history(limit: int = Query(50, ge=1, le=500)) -> dict:
+        return service.shadow_history(limit)
+
+    @app.get("/v1/shadow/evaluation")
+    def shadow_evaluation() -> dict:
+        return service.shadow_evaluation()
+
+    @app.get("/v1/data/health")
+    def data_health() -> dict:
+        return service.data_health()
+
     @app.get("/v1/market-state")
     def market_state(instrument: str = Query(..., min_length=1)) -> dict:
         prediction = service.latest(instrument)

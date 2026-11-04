@@ -1,54 +1,50 @@
 # Implementation Checkpoint
 
-## Current resume point — Phase 3G, 2026-11-04
+## Current resume point — Phase 3H, 2026-11-04
 
-Branch `feat/phase3g`, base `41be740` (Phase 3F, CI success).
-Read `PHASE3G_FINDINGS.md`, `PHASE3G_PROTOCOL.md` and `DATA_PROVIDERS.md` before
-changing experiments. Decision remains **NO_PROMOTION / NO_TRADE**.
+Branch `feat/phase3h`, base `016d5d0` (Phase 3G, CI success).
+Read `PHASE3H_FINDINGS.md`, `FUTURES_DATA_REQUIREMENTS.md` and
+`PHASE3G_FINDINGS.md` before changing anything. Decision remains **NO_TRADE**.
 
-Acquired and verified decades of free daily history: ^GSPC 99 years, ^NDX 41,
-^TNX 64, ^VIX 37, SPY 33, QQQ 27, TLT 24, NQ/ES continuous proxies 26. Official
-BLS API verified with a bounded 2024-2025 snapshot. Cross-provider return
-correlations are 0.98-0.9999; TNX vs FRED DGS10 differs by 0.0102pp on average.
+Implemented: frozen NDX range artifact with holdout reproduction, immutable
+append-only shadow store, fail-closed eligibility, maturation-only evaluation,
+run-once and loop scheduler, forward monitoring report, and read-only API
+endpoints for shadow status/history/evaluation/data health.
 
-Key results:
-- Daily direction on ^NDX, 1990-2023: AUC 0.4979-0.5077, Brier worse than the base
-  rate in every variant. The 1990s AUC of 0.544 decays to 0.459 in the 2020s.
-- Historical analogues: AUC 0.508-0.514, Brier worse than frequency.
-- Seasonality: real but small (turn-of-month +0.10% GSPC); does not improve
-  direction.
-- Level touches: 89% within 1 ATR, 4% beyond 4 ATR; target-before-stop with
-  2 ATR/1 ATR geometry is 21% NQ / 24% ES conditional on touch.
-- Daily range/expansion: predictable. Development coverage 0.485/0.782/0.883 and
-  expansion AUC 0.646. One-shot 2024-2026 holdout coverage 0.534/0.816/0.920,
-  pinball improved at every quantile; expansion AUC 0.7155 but recall 0.085.
-
-Promotion: `RESEARCH_VALIDATED_PENDING_SHADOW` for the NDX cash-session range
-quantiles only. Direction, analogues and the expansion decision rule remain
-`NO_PROMOTION`. Do not re-run the 2024-2026 holdout; it has now been used once.
-
-Reproduce offline:
+**Forward state:** 1 forecast stored (`20d48fc41c2cc0f5c0ae4f2d`, target
+2026-11-04, generated 2026-11-04T02:50Z), 0 matured. Do not claim forward
+accuracy. After the 2026-11-04 session bar becomes available (2026-11-05 00:00
+UTC), run:
 
 ```powershell
-python scripts/phase3g_ingest.py          # network; skips on failure
-python scripts/phase3g_coverage.py
-python scripts/phase3g_providers.py       # BLS network call
-python scripts/phase3g_seasonality.py
-python scripts/phase3g_daily_direction.py
-python scripts/phase3g_analogues.py
-python scripts/phase3g_daily_range.py    # development folds only
-python scripts/phase3g_level_reactions.py
-python scripts/phase3g_promotion.py
+python scripts/phase3h_shadow.py --evaluate-only --refresh
+python scripts/phase3h_shadow_report.py
+```
+
+That appends exactly one outcome and updates the report. Never edit
+`data/shadow/ndx_range/forecasts.jsonl` or `outcomes.jsonl` by hand.
+
+Reproduce and verify:
+
+```powershell
+python scripts/phase3h_freeze_model.py     # must reproduce the holdout within 1e-6
+python scripts/phase3h_shadow.py --once
+python scripts/phase3h_shadow.py --loop --interval-minutes 60 --refresh
+python scripts/phase3h_shadow_report.py
 $env:PYTHONPATH='D:\nocturne-futures\native\build'; python -m pytest
 ```
 
-Next: obtain licensed contract-level intraday history, then test whether order
-flow or depth features add directional information. Public price and macro
-context has now been tested across four decades and does not. Do not add model
-families to the same features.
+Operational market cache `data/shadow/market/` is gitignored so frozen research
+history is never overwritten. The forward journal is committed.
+
+Next Phase 3I milestone: accumulate >= 30 matured forward predictions before
+reporting coverage; in parallel obtain Databento `GLBX.MDP3` entitlement and
+ingest a bounded raw-contract sample per `docs/FUTURES_DATA_REQUIREMENTS.md`.
+Direction and target-before-stop models stay `NO_PROMOTION` until licensed
+order-flow data exists.
 
 **Date:** 2026-11-04
-**Previous branch:** `feat/phase3f`
+**Previous branch:** `feat/phase3g`
 **Latest backend commit:** see `git log --oneline -1`
 
 ## Phase 3A — backtest validation and predictive foundation

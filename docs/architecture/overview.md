@@ -7,6 +7,30 @@
 
 ## Runtime flow
 
+### Phase 3H shadow forecasting
+
+```mermaid
+flowchart TD
+    A[Daily NDX + VIX bars] --> B{Available at run time?}
+    B -- no --> Q[Quality event - no forecast]
+    B -- yes --> C{Most recent session and before 13:30 UTC?}
+    C -- no --> Q
+    C -- yes --> D[Frozen ndx-range-v1 artifact]
+    D --> E[P50/P80/P90 range]
+    E --> F[Append-only forecast store]
+    F --> G[Wait for target session]
+    G --> H{Target bar available?}
+    H -- no --> G
+    H -- yes --> I[Outcome: coverage, pinball]
+    I --> J[Forward monitoring report]
+    F --> K[Read-only API]
+    J --> K
+    K --> L[NO_TRADE always]
+```
+
+The shadow layer never places orders and never rewrites a forecast after an
+outcome exists. Trading eligibility is separate from research validation status.
+
 ### Phase 3G historical intelligence layer
 
 ```mermaid

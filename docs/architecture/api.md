@@ -24,6 +24,15 @@ No endpoint places an order, modifies a position, or talks to a broker.
 | GET | `/v1/forecast/bundle?instrument=NQ` | ASIA/LONDON/NY/NEXT_DAY research bundle |
 | GET | `/v1/events/upcoming` | events or `NO_AUTHORIZED_CALENDAR_ADAPTER` |
 | GET | `/v1/models/status` | registry metadata |
+| GET | `/v1/shadow/ndx-range` | latest shadow status, forecast and evaluation |
+| GET | `/v1/shadow/history?limit=50` | newest-first immutable shadow forecasts |
+| GET | `/v1/shadow/evaluation` | matured-only coverage and pinball loss |
+| GET | `/v1/data/health` | provider status, source coverage, last shadow run, warnings |
+
+Shadow endpoints always report `trading_decision: NO_TRADE`. The model status
+`RESEARCH_VALIDATED_PENDING_SHADOW` is a research designation and does not enable
+trading. `/v1/shadow/evaluation` returns `INSUFFICIENT_FORWARD_DATA` until at
+least one forecast matures.
 
 ## Illustrative prediction
 

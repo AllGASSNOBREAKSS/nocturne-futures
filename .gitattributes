@@ -6,6 +6,7 @@ data/research/*phase3d.csv -text whitespace=cr-at-eol
 data/research/*phase3f.csv -text whitespace=cr-at-eol
 data/calibration/*.json -text
 data/replay/** -text
+data/shadow/ndx_range/** -text
 reports/*.csv.gz -text
 reports/*_predictions.csv.gz -text
 docs/PHASE3D_PROTOCOL.md text eol=lf

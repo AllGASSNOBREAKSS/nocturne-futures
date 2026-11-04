@@ -8,6 +8,23 @@
 
 ## What is implemented
 
+### Phase 3H checkpoint — 2026-11-04
+
+The validated NDX cash-session range model now runs as a **read-only shadow
+service**. Forecasts are frozen before outcomes, stored append-only, and evaluated
+only after the target session bar is available. Eligibility fails closed on stale,
+missing or late data, and the service survives restarts through deterministic ids
+and durable storage.
+
+One forward forecast is stored for 2026-11-04; none has matured, so no forward
+accuracy is claimed. New read-only endpoints expose shadow status, history,
+evaluation and data health. Trading remains `NO_TRADE`.
+
+Licensed NQ/ES futures data is still `DATA_BLOCKED`; exact requirements are in
+[docs/FUTURES_DATA_REQUIREMENTS.md](docs/FUTURES_DATA_REQUIREMENTS.md). See
+[Phase 3H findings](docs/PHASE3H_FINDINGS.md) and
+[checkpoint](docs/IMPLEMENTATION_CHECKPOINT.md).
+
 ### Phase 3G checkpoint — 2026-11-04
 
 Decades of free daily history are ingested with checksums and cross-source

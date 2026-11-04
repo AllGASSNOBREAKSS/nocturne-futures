@@ -23,3 +23,6 @@ temp_*.json
 
 # Entitlement-dependent downloads are private; commit only permitted inventories.
 data/licensed/
+
+# Operational shadow market cache; the forward forecast journal is committed.
+data/shadow/market/

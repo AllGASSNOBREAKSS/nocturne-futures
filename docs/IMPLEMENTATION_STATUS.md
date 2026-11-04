@@ -1,5 +1,21 @@
 # Implementation Status
 
+## Phase 3H update (2026-11-04)
+
+Operational: read-only shadow forecasting for the validated NDX cash-session range
+model. The frozen artifact reproduces the Phase 3G holdout within 1e-6; forecasts
+are immutable and written before outcomes; evaluation runs only after the target
+bar is available; eligibility fails closed on stale, missing or late data.
+
+Forward state: 1 prediction stored for 2026-11-04, 0 matured. No forward accuracy
+or calibration is claimed. New read-only endpoints: `/v1/shadow/ndx-range`,
+`/v1/shadow/history`, `/v1/shadow/evaluation`, `/v1/data/health`. Trading remains
+`NO_TRADE`.
+
+Blocked: licensed Databento futures data (see `docs/FUTURES_DATA_REQUIREMENTS.md`),
+authentic trades/quotes/depth/VX, and PIT macro consensus/news. Direction and
+target-before-stop models remain `NO_PROMOTION`.
+
 ## Phase 3G update (2026-11-04)
 
 Operational: decades of free daily history (^GSPC 99y, ^NDX 41y, ^TNX 64y, ^VIX

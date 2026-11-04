@@ -1,0 +1,67 @@
+{
+  "model_id": "ndx-range-v1",
+  "version": "1.0.0",
+  "kind": "cash_session_range_quantiles",
+  "instrument": "^NDX",
+  "features": [
+    "ret_1_abs",
+    "ret_5_abs",
+    "vol_20",
+    "vol_ratio",
+    "atr_pct",
+    "range_atr",
+    "efficiency_20",
+    "volume_z",
+    "vix_level",
+    "vix_change_5",
+    "weekday"
+  ],
+  "quantiles": {
+    "p50": 0.5,
+    "p80": 0.8,
+    "p90": 0.9
+  },
+  "config": {
+    "n_estimators": 150,
+    "num_leaves": 15,
+    "learning_rate": 0.05,
+    "min_child_samples": 50,
+    "random_state": 7,
+    "n_jobs": 1
+  },
+  "calibration": "additive residual quantile from the 2022-2023 block",
+  "train_rows": 9134,
+  "calibration_rows": 498,
+  "holdout_rows": 712,
+  "train_last": "2021-12-23",
+  "calibration_last": "2023-12-26",
+  "holdout_first": "2024-01-02",
+  "holdout_last": "2026-11-02",
+  "adjustments": {
+    "p50": -0.000625423324686407,
+    "p80": -0.0006989051897397985,
+    "p90": -0.0006449627389556151
+  },
+  "holdout_reproduced": {
+    "p50": {
+      "pinball_loss": 0.0021959215821577335,
+      "coverage": 0.5337078651685393
+    },
+    "p80": {
+      "pinball_loss": 0.0019377117926848153,
+      "coverage": 0.8160112359550562
+    },
+    "p90": {
+      "pinball_loss": 0.001409481894405571,
+      "coverage": 0.9199438202247191
+    }
+  },
+  "dataset_sha256": "6d9a01f483d99ab76f7ac33b27aa1e27a2b1faccff11d15efc92f53556fb56b9",
+  "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
+  "trading_decision": "NO_TRADE",
+  "scope": "Nasdaq-100 cash-session high-low range as a fraction of the reference close; not NQ futures and not a trading signal",
+  "provenance": {
+    "source": "yahoo_public_unofficial daily history",
+    "availability": "next UTC midnight after the session date"
+  }
+}
