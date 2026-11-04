@@ -1,14 +1,20 @@
 {
-  "generated_at": "2026-11-04T04:51:32.737231+00:00",
+  "generated_at": "2026-11-04T05:11:48.354771+00:00",
   "model_id": "ndx-range-v1",
   "model_version": "1.0.0",
   "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
   "trading_decision": "NO_TRADE",
   "mode": "read_only_shadow",
-  "operational_status": "SHADOW_ACTIVE",
-  "generation": "EVALUATE_ONLY",
+  "operational_status": "AUDIT_BLOCKED",
+  "generation": "ALREADY_ISSUED",
   "generation_detail": {
-    "status": "EVALUATE_ONLY"
+    "status": "ALREADY_ISSUED",
+    "eligibility": {
+      "eligible": true,
+      "data_date": "2026-11-03",
+      "target_date": "2026-11-04",
+      "session_open_utc": "2026-11-04T14:30:00+00:00"
+    }
   },
   "latest_forecast": {
     "created_at": "2026-11-04T02:53:30.237804+00:00",
@@ -65,8 +71,18 @@
   "missed_now": 0,
   "audit": {
     "forecasts": 1,
-    "passed": 1,
-    "failed": []
+    "passed": 0,
+    "failed": [
+      {
+        "forecast_id": "20d48fc41c2cc0f5c0ae4f2d",
+        "ok": false,
+        "issues": [
+          "REFERENCE_CLOSE_MISMATCH"
+        ],
+        "stored_reference_close": 28180.263671875,
+        "current_source_reference_close": 28180.259765625
+      }
+    ]
   },
   "health": {
     "status": "degraded",
@@ -74,7 +90,7 @@
       "RECENT_DATA_QUALITY_FAILURES"
     ],
     "last_run": "2026-11-04T04:51:32.737231+00:00",
-    "age_hours": 0.0,
+    "age_hours": 0.3376715388888889,
     "forecasts": 1,
     "matured": 0,
     "pending": 1,
@@ -110,11 +126,33 @@
       }
     }
   },
-  "refresh": {},
+  "refresh": {
+    "^NDX": {
+      "status": "FETCHED",
+      "last": "2026-11-03",
+      "rows": 10353
+    },
+    "^VIX": {
+      "status": "FETCHED",
+      "last": "2026-11-03",
+      "rows": 9280
+    }
+  },
   "sources": {
     "index": "data/shadow/market",
     "vix": "data/shadow/market",
-    "refresh": {},
+    "refresh": {
+      "^NDX": {
+        "status": "FETCHED",
+        "last": "2026-11-03",
+        "rows": 10353
+      },
+      "^VIX": {
+        "status": "FETCHED",
+        "last": "2026-11-03",
+        "rows": 9280
+      }
+    },
     "manifests": {
       "index": {
         "symbol": "^NDX",
@@ -123,8 +161,8 @@
         "provider": "yahoo_public_unofficial",
         "frequency": "1d",
         "license_scope": "public_research_unofficial",
-        "raw_sha256": "5d7935b96df1c09a65fe71497782a6e700d4fbc9402495935ac8efe2dc2c7212",
-        "normalized_sha256": "4224f42a85b70b8b59791b540b9b706f854bff53e2bf2ef6776375bddea05442",
+        "raw_sha256": "d4441220b303708a20f633fee301696e250fb66b6043e7b7ad82193ca43e5210",
+        "normalized_sha256": "d411be9f9aae2e9e85c0cdf8fc641695c4b029cb1cf2a56acb01d396f02f1b05",
         "rows": 10353,
         "first": "1985-10-01",
         "last": "2026-11-03",
@@ -133,7 +171,7 @@
         "dropped_invalid_or_missing_bars": 0,
         "gap_days_median": 1.0,
         "gaps_over_5_days": 1,
-        "received_at": "2026-11-04T04:47:07.741265+00:00",
+        "received_at": "2026-11-04T05:11:48.023397+00:00",
         "availability": "next UTC midnight after the session date",
         "known_limitations": [
           "unofficial endpoint; not an exchange feed",
@@ -159,7 +197,7 @@
         "dropped_invalid_or_missing_bars": 331,
         "gap_days_median": 1.0,
         "gaps_over_5_days": 1,
-        "received_at": "2026-11-04T04:47:08.105295+00:00",
+        "received_at": "2026-11-04T05:11:48.352888+00:00",
         "availability": "next UTC midnight after the session date",
         "known_limitations": [
           "unofficial endpoint; not an exchange feed",

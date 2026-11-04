@@ -8,6 +8,19 @@
 
 ## What is implemented
 
+### Phase 3J checkpoint — 2026-11-04 UTC
+
+Added durable local incident transitions, a read-only operational-health endpoint,
+one-shot failure reporting, per-forecast outcome quarantine and task execution
+logs. Password-backed unattended task installation is supported and dry-run
+tested, but not activated without authorized account credentials. The existing
+interactive task remains in place.
+
+**1 issued, 0 matured.** The November 4 outcome is unavailable. A revision to the
+prior NDX close also triggers an audit block; the original forecast is unchanged.
+No new forward accuracy or trading claim is made. See
+[Phase 3J findings](docs/PHASE3J_FINDINGS.md) for the blocker and deployment limits.
+
 ### Phase 3I checkpoint — 2026-11-04 UTC
 
 Shadow operation now has OS locks, durable serialized journals, revised-snapshot

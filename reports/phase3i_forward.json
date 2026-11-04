@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T04:51:47.331191+00:00",
+  "generated_at": "2026-11-04T05:11:51.708706+00:00",
   "model_id": "ndx-range-v1",
   "scope": "NDX cash-session range quantiles; not NQ futures; not a trading signal",
   "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
@@ -8,14 +8,14 @@
   "matured": 0,
   "pending": 1,
   "missed": 0,
-  "failed": 0,
+  "failed": 1,
   "data_quality_incidents": {
     "MARKET_DATA_MISSING": 1
   },
   "cycle_availability": {
-    "attempts_logged": 6,
-    "failed_cycles": 1,
-    "failure_fraction": 0.16666666666666666,
+    "attempts_logged": 8,
+    "failed_cycles": 3,
+    "failure_fraction": 0.375,
     "note": "observed local cycles, not service uptime"
   },
   "issuance_timing": [
@@ -27,8 +27,18 @@
   ],
   "audit": {
     "forecasts": 1,
-    "passed": 1,
-    "failed": []
+    "passed": 0,
+    "failed": [
+      {
+        "forecast_id": "20d48fc41c2cc0f5c0ae4f2d",
+        "ok": false,
+        "issues": [
+          "REFERENCE_CLOSE_MISMATCH"
+        ],
+        "stored_reference_close": 28180.263671875,
+        "current_source_reference_close": 28180.259765625
+      }
+    ]
   },
   "forecast_integrity": {
     "journal_sha256": "61f4034a108ccf6545959d4dac39e18ae3c5247ae4557dddf9e9a8158113a1b3",
@@ -48,7 +58,7 @@
       "RECENT_DATA_QUALITY_FAILURES"
     ],
     "last_run": "2026-11-04T04:51:32.737231+00:00",
-    "age_hours": 0.004027985277777778,
+    "age_hours": 0.33858481333333335,
     "forecasts": 1,
     "matured": 0,
     "pending": 1,

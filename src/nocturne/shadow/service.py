@@ -164,7 +164,8 @@ def generate(artifact: ShadowArtifact, store: ShadowStore, index_bars: pd.DataFr
     return {"status": "STORED", "forecast": stored, "eligibility": decision}
 
 
-def evaluate_matured(store: ShadowStore, index_bars: pd.DataFrame, now: datetime) -> list[dict]:
+def evaluate_matured(store: ShadowStore, index_bars: pd.DataFrame, now: datetime,
+                     allowed_forecast_ids: set[str] | None = None) -> list[dict]:
     now = now.astimezone(UTC)
     index = _prepared(index_bars)
     if "available_at" not in index:
@@ -173,6 +174,8 @@ def evaluate_matured(store: ShadowStore, index_bars: pd.DataFrame, now: datetime
     written = []
     existing = {item["forecast_id"] for item in store.outcomes()}
     for forecast in store.forecasts():
+        if allowed_forecast_ids is not None and forecast["forecast_id"] not in allowed_forecast_ids:
+            continue
         if forecast["forecast_id"] in existing:
             continue
         bar = by_date.get(forecast["target_date"])
@@ -372,7 +375,9 @@ def audit_forecasts(store: ShadowStore, index_bars: pd.DataFrame) -> dict:
             issues.append("REFERENCE_CLOSE_MISMATCH")
         if pd.Timestamp(forecast["created_at"]) >= pd.Timestamp(forecast["session_open_utc"]):
             issues.append("ISSUED_AFTER_SESSION_OPEN")
-        checks.append({"forecast_id": forecast["forecast_id"], "ok": not issues, "issues": issues})
+        checks.append({"forecast_id": forecast["forecast_id"], "ok": not issues, "issues": issues,
+                       "stored_reference_close": forecast["reference_close"],
+                       "current_source_reference_close": expected_close})
     return {"forecasts": len(checks), "passed": sum(item["ok"] for item in checks),
             "failed": [item for item in checks if not item["ok"]]}
 

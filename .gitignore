@@ -28,3 +28,4 @@ data/licensed/
 data/shadow/market/
 data/shadow/**/*.lock
 data/shadow/**/log.jsonl
+data/shadow/task-logs/

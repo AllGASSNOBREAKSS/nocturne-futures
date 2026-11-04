@@ -152,6 +152,17 @@ class ForecastService:
         # establish absence of event risk or a directional probability.
         return event_proximity(CalendarStore(), datetime.now(timezone.utc))
 
+    def shadow_operations(self) -> dict:
+        from ..shadow import ShadowStore
+        from ..shadow.operations import assess_operations
+        try:
+            status = json.loads((ROOT / "reports/phase3h_shadow_status.json").read_text())
+        except (FileNotFoundError, ValueError):
+            status = None
+        # Assessment only; HTTP GET never appends alert transitions.
+        return assess_operations(ShadowStore(ROOT / "data/shadow/ndx_range"), status,
+                                 datetime.now(timezone.utc))
+
     def data_health(self) -> dict:
         status_path = ROOT / "reports" / "phase3h_shadow_status.json"
         coverage_path = ROOT / "reports" / "phase3g_coverage.json"
@@ -170,6 +181,8 @@ class ForecastService:
             result["shadow_last_run"] = status.get("generated_at")
             result["shadow_sources"] = status.get("sources")
             result["quality_failures"] = status.get("evaluation", {}).get("quality_failures")
+            if status.get("operational_status") in {"DATA_BLOCKED", "AUDIT_BLOCKED", "CYCLE_FAILED"}:
+                result["warnings"].append(status["operational_status"])
             if status.get("generation") not in (None, "STORED", "ALREADY_ISSUED", "EVALUATE_ONLY"):
                 result["warnings"].append(f"last shadow generation: {status.get('generation')}")
             age = (datetime.now(timezone.utc) - datetime.fromisoformat(status["generated_at"])).total_seconds()

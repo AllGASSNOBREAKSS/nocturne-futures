@@ -59,7 +59,10 @@ jobs:
       - name: Install
         run: python -m pip install -e ".[dev]"
       - name: Windows storage, recovery and research contracts
-        run: python -m pytest tests/test_shadow_operations.py tests/test_shadow_service.py tests/test_contract_targets.py tests/test_macro_proximity.py
+        run: python -m pytest tests/test_shadow_operations.py tests/test_shadow_service.py tests/test_contract_targets.py tests/test_macro_proximity.py tests/test_shadow_alerts.py
       - name: Scheduled task definition dry run (no registration)
         shell: powershell
         run: ./scripts/install_shadow_task.ps1 -WhatIf
+      - name: Unattended task definition dry run (no credentials or registration)
+        shell: powershell
+        run: ./scripts/install_shadow_task.ps1 -LogonMode Password -WakeToRun -TaskName Nocturne-Unattended-DryRun -WhatIf

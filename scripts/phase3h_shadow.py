@@ -130,10 +130,16 @@ def cycle(refresh_data: bool, now: datetime | None = None, evaluate_only: bool =
                               validation_status=artifact.metadata["validation_status"],
                               source=sources))
         audit = audit_forecasts(store, index)
-        matured = evaluate_matured(store, index, now) if not audit["failed"] else []
+        failed_ids = {item["forecast_id"] for item in audit["failed"]}
+        allowed_ids = {item["forecast_id"] for item in store.forecasts()} - failed_ids
+        # Quarantine failed forecasts individually; one revised historical
+        # reference must not suppress unrelated verified outcomes indefinitely.
+        matured = evaluate_matured(store, index, now, allowed_forecast_ids=allowed_ids)
         summary = evaluation_summary(store)
         latest = store.latest()
-        store.log("CYCLE_OK" if not audit["failed"] else "CYCLE_AUDIT_FAILED", now=now, detail={"generation": generated.get("status"),
+        generation_failed = generated.get("status") == "SKIPPED" and generated.get("reason") != "TOO_LATE_FOR_TARGET"
+        event = "CYCLE_AUDIT_FAILED" if audit["failed"] else "CYCLE_FAILED" if generation_failed else "CYCLE_OK"
+        store.log(event, now=now, detail={"generation": generated.get("status"),
                                       "matured": len(matured), "missed": len(missed),
                                       "audit_failed": len(audit["failed"])})
         state = health(store, now)
@@ -144,7 +150,7 @@ def cycle(refresh_data: bool, now: datetime | None = None, evaluate_only: bool =
             "validation_status": artifact.metadata["validation_status"],
             "trading_decision": "NO_TRADE",
             "mode": "read_only_shadow",
-            "operational_status": "SHADOW_ACTIVE" if not audit["failed"] else "AUDIT_BLOCKED",
+            "operational_status": "AUDIT_BLOCKED" if audit["failed"] else "CYCLE_FAILED" if generation_failed else "SHADOW_ACTIVE",
             "generation": generated.get("status"),
             "generation_detail": {k: v for k, v in generated.items() if k != "forecast"},
             "latest_forecast": latest,
@@ -161,6 +167,16 @@ def cycle(refresh_data: bool, now: datetime | None = None, evaluate_only: bool =
         }
         write_status(status)
         return status
+    except Exception as exc:
+        # One-shot scheduled execution needs the same durable failure signal as
+        # loop mode. Do not retain stale success or log exception text/secrets.
+        store.log("CYCLE_EXCEPTION", "ERROR", {"error_type": type(exc).__name__}, now=now)
+        failed = {"generated_at": now.isoformat(), "model_id": MODEL_ID,
+                  "generation": "CYCLE_EXCEPTION", "operational_status": "CYCLE_FAILED",
+                  "reason": type(exc).__name__, "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
+                  "trading_decision": "NO_TRADE", "mode": "read_only_shadow"}
+        write_status(failed)
+        return failed
     finally:
         release_lock()
 
@@ -201,7 +217,7 @@ def main() -> int:
     result = cycle(args.refresh, evaluate_only=args.evaluate_only)
     print(json.dumps({k: result.get(k) for k in ("generated_at", "generation", "model_id",
                                                  "validation_status", "trading_decision")}, indent=2))
-    return 1 if result.get("status") == "DATA_BLOCKED" or result.get("audit", {}).get("failed") else 0
+    return 1 if result.get("operational_status") in {"DATA_BLOCKED", "AUDIT_BLOCKED", "CYCLE_FAILED"} else 0
 
 
 if __name__ == "__main__":

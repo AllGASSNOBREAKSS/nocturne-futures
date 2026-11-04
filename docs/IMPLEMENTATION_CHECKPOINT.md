@@ -1,6 +1,46 @@
 # Implementation Checkpoint
 
-## Current resume point — Phase 3I, 2026-11-04 UTC
+## Current resume point — Phase 3J, 2026-11-04 UTC
+
+Branch `feat/phase3j`, base `0c56df7`. Read `PHASE3J_FINDINGS.md` first.
+Phase 3I reproduced 242 passing tests and verified green CI. Phase 3J local
+verification: **253 passed including C++ parity**, TypeScript typecheck and both
+interactive/unattended task-definition dry runs passed. Inspect this branch's
+own CI result rather than using prior CI as evidence.
+
+Forward state: **1 issued / 0 matured / 1 pending / 0 missed**. Original journal
+hash and model artifacts unchanged. Real refresh at ~05:07 UTC still ends
+November 3. November 4 has not opened; do not invent an outcome.
+
+New blocker: current source close 28180.259765625 differs from issued reference
+28180.263671875. The first forecast remains quarantined with
+`REFERENCE_CLOSE_MISMATCH`; review archived issuance evidence before any eventual
+evaluation. Never edit the original reference or relax the audit silently.
+Failed records are now quarantined individually, not as a global evaluation stop.
+
+Added local OPEN/RESOLVED alert journal, 90-minute cycle staleness assessment,
+overdue-outcome/provider/deadline alerts, `/v1/shadow/operations`, sanitized
+one-shot failure status and per-stage scheduler logs. Real wrapper run exited 1
+for the actual audit block and recorded two alerts; this is correct failure
+reporting, not a successful market evaluation. No external paging is configured.
+
+Unattended password-backed installer support is implemented but **not deployed**:
+no authorized PSCredential was supplied. Existing interactive task is unchanged.
+Dry-run does not establish account rights, network access or logout operation.
+Review dedicated account, batch-logon, least-privilege ACLs and always-on host
+requirements in `PHASE3J_FINDINGS.md`. An off-host watchdog is still required.
+
+```powershell
+python scripts/phase3h_shadow.py --evaluate-only --refresh
+python scripts/phase3i_forward_report.py
+python scripts/phase3j_operations.py  # nonzero while actual audit block persists
+```
+
+Next: reviewed source-revision reconciliation, genuine completed-bar evaluation
+after the November 5 00:00 UTC adapter bound, then authorized unattended rollout.
+Licensed futures/PIT dependencies remain absent. No promotions or orders.
+
+## Previous resume point — Phase 3I, 2026-11-04 UTC
 
 Branch `feat/phase3i`, base `e963981`. Read `PHASE3I_FINDINGS.md` first.
 Local verification: **242 passed including native C++ parity**. Base CI was

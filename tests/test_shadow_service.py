@@ -116,7 +116,10 @@ def test_generate_and_evaluate_end_to_end(tmp_path):
                            "available_at": pd.Timestamp("2025-03-26", tz="UTC"),
                            "open": 100.0, "high": 102.0, "low": 98.0, "close": 101.0, "volume": 1.0}])
     later = datetime(2025, 3, 26, 2, 0, tzinfo=UTC)
-    written = evaluate_matured(store, pd.concat([index, extra], ignore_index=True), later)
+    assert evaluate_matured(store, pd.concat([index, extra], ignore_index=True), later,
+                            allowed_forecast_ids=set()) == []
+    written = evaluate_matured(store, pd.concat([index, extra], ignore_index=True), later,
+                               allowed_forecast_ids={forecast["forecast_id"]})
     assert written
     summary = evaluation_summary(store)
     assert summary["matured"] == 1
@@ -143,7 +146,7 @@ def test_api_exposes_shadow_endpoints_read_only(tmp_path):
                               forecast_root=tmp_path / "forecasts")
     client = TestClient(create_app(service))
     for path in ("/v1/shadow/ndx-range", "/v1/shadow/history", "/v1/shadow/evaluation",
-                 "/v1/shadow/missed", "/v1/shadow/calibration", "/v1/shadow/outcomes",
+                 "/v1/shadow/missed", "/v1/shadow/calibration", "/v1/shadow/outcomes", "/v1/shadow/operations",
                  "/v1/data/futures-readiness", "/v1/data/health", "/v1/alerts/critical-day"):
         response = client.get(path)
         assert response.status_code == 200

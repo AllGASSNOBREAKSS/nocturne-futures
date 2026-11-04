@@ -54,6 +54,7 @@ class ShadowStore:
         self.missed_path = self.root / "missed.jsonl"
         self.log_path = self.root / "log.jsonl"
         self.meta_path = self.root / "meta.json"
+        self.alert_path = self.root / "alerts.jsonl"
 
     def forecasts(self) -> list[dict]:
         return _lines(self.forecast_path)
@@ -69,6 +70,29 @@ class ShadowStore:
 
     def log_events(self) -> list[dict]:
         return _lines(self.log_path)
+
+    def alert_events(self) -> list[dict]:
+        return _lines(self.alert_path)
+
+    @serialized
+    def sync_alerts(self, issues: dict, now: datetime, resolve_missing=True) -> list[dict]:
+        """Append open/resolve transitions; never rewrite incident history."""
+        latest = {item["key"]: item for item in self.alert_events()}
+        written = []
+        for key in sorted(set(latest) | set(issues)):
+            state = "OPEN" if key in issues else "RESOLVED"
+            if state == "RESOLVED" and not resolve_missing:
+                continue
+            previous = latest.get(key)
+            if previous and previous["state"] == state:
+                continue
+            if not previous and state == "RESOLVED":
+                continue
+            record = {"key": key, "state": state, "at": now.astimezone(UTC).isoformat(),
+                      "detail": issues.get(key, {}), "trading_decision": "NO_TRADE"}
+            _append(self.alert_path, record)
+            written.append(record)
+        return written
 
     def meta(self) -> dict:
         if not self.meta_path.exists():

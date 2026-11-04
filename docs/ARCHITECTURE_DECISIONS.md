@@ -2,6 +2,19 @@
 
 **Date:** 2026-11-03
 
+## Phase 3J — observable failures and explicit deployment identity
+
+- Preserve reference-price audit failures, including small source revisions.
+  Quarantine outcomes per forecast rather than blocking unrelated verified rows.
+- Local alerts are append-only transitions; lack of observations is not recovery.
+  HTTP reads assess state without acknowledging or appending incidents.
+- One-shot exceptions and generation failures must not leave successful status
+  or heartbeats. Scheduled runners capture output and preserve nonzero exit state.
+- Unattended Windows registration requires an explicitly supplied account
+  credential protected by Task Scheduler, never an automatic SYSTEM shortcut.
+  Dry-run, registration, successful execution and logout availability are separate
+  evidence levels. Same-host monitoring cannot observe a powered-off host.
+
 ## Phase 3I — operational integrity without model promotion
 
 - Preserve the original frozen model bytes and forecast journal. Apply the
