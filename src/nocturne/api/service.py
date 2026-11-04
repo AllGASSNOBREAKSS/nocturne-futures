@@ -7,6 +7,7 @@ registry, and returns explicit 404/no-trade states when data is absent.
 from __future__ import annotations
 
 import json
+from datetime import datetime, timezone
 from pathlib import Path
 
 from ..contracts import Prediction
@@ -109,6 +110,38 @@ class ForecastService:
         status = json.loads(path.read_text(encoding="utf-8"))
         return {"model_id": status.get("model_id"), "validation_status": status.get("validation_status"),
                 "trading_decision": "NO_TRADE", **status.get("evaluation", {})}
+
+    def shadow_missed(self) -> dict:
+        path = ROOT / "data" / "shadow" / "ndx_range" / "missed.jsonl"
+        if not path.exists():
+            return {"missed": 0, "records": [], "trading_decision": "NO_TRADE", "mode": "read_only_shadow"}
+        records = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+        return {"missed": len(records), "records": records[-50:], "trading_decision": "NO_TRADE", "mode": "read_only_shadow"}
+
+    def shadow_calibration(self) -> dict:
+        path = ROOT / "reports" / "phase3i_forward.json"
+        if not path.exists():
+            return {"status": "NO_FORWARD_REPORT", "trading_decision": "NO_TRADE"}
+        report = json.loads(path.read_text(encoding="utf-8"))
+        return {"model_id": report.get("model_id"),
+                "validation_status": report.get("validation_status"),
+                "issued": report.get("issued"), "matured": report.get("matured"),
+                "evaluation": report.get("evaluation"),
+                "claim": report.get("claim"),
+                "trading_decision": "NO_TRADE"}
+
+    def futures_readiness(self) -> dict:
+        path = ROOT / "reports" / "phase3i_readiness.json"
+        if not path.exists():
+            return {"status": "NO_READINESS_REPORT", "trading_decision": "NO_TRADE"}
+        return json.loads(path.read_text(encoding="utf-8"))
+
+    def critical_day_alerts(self) -> dict:
+        from ..macro.calendar import CalendarStore
+        from ..macro.proximity import event_proximity
+        # No authorized schedule manifest is configured. Sample events cannot
+        # establish absence of event risk or a directional probability.
+        return event_proximity(CalendarStore(), datetime.now(timezone.utc))
 
     def data_health(self) -> dict:
         status_path = ROOT / "reports" / "phase3h_shadow_status.json"

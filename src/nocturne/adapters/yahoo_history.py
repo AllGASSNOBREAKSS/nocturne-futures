@@ -52,6 +52,7 @@ def _frame(payload: dict, symbol: str) -> pd.DataFrame:
             "low": quote["low"][index] if quote["low"][index] is not None else close,
             "close": close,
             "volume": quote["volume"][index] or 0,
+            "source_complete": all(quote[key][index] is not None for key in ("open", "high", "low", "close")),
         })
     frame = pd.DataFrame(rows)
     if frame.empty:

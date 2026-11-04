@@ -1,6 +1,53 @@
 # Implementation Checkpoint
 
-## Current resume point — Phase 3H, 2026-11-04
+## Current resume point — Phase 3I, 2026-11-04 UTC
+
+Branch `feat/phase3i`, base `e963981`. Read `PHASE3I_FINDINGS.md` first.
+Local verification: **241 passed including native C++ parity**. Base CI was
+verified green. Current commit and remote CI: inspect `git log -1` and the
+`feat/phase3i` Actions run; do not substitute base CI for new changes.
+
+Forward state remains **1 issued / 0 matured / 1 pending / 0 missed**. Original
+timestamp is `2026-11-04T02:53:30.237804+00:00` (supersedes the older 02:50 text
+below). Journal bytes match `e963981`; never change the first forecast.
+
+Important defect: original runtime omitted frozen residual adjustments. Fixed
+runtime uses `inference_revision=residual-adjusted-v1`; original remains
+`legacy-unadjusted` and must be scored separately, exactly as issued. No
+retraining; original model/metadata unchanged. Runtime reproduces stored metrics
+on the already-used 712-row holdout. This does not create independent evidence.
+
+Windows task `Nocturne-NDX-ReadOnly-Shadow` was registered: 30-minute runs plus
+logon, current logged-in user only. Host must be awake. Inspect actual task
+result; registration alone is not demonstrated ongoing operation. Disable with
+`Disable-ScheduledTask -TaskName Nocturne-NDX-ReadOnly-Shadow` when needed.
+
+Observed scheduled cycle: 2026-11-04 04:47 UTC, exit code 0, fresh receipts,
+`ALREADY_ISSUED`, no duplicate. This is one observed cycle, not an uptime history.
+
+```powershell
+Get-ScheduledTask -TaskName Nocturne-NDX-ReadOnly-Shadow | Get-ScheduledTaskInfo
+python scripts/phase3h_shadow.py --evaluate-only --refresh
+python scripts/phase3i_forward_report.py
+python scripts/phase3i_readiness.py
+$env:PYTHONPATH='D:\nocturne-futures\native\build'; python -m pytest -o addopts=''
+```
+
+Real refresh ended November 3. November 4 outcome is not available before its
+completion/availability bound (November 5 00:00 UTC in this adapter). No forward
+performance statistics exist. Operational market cache is separate and ignored;
+receipt/checksum/completeness checks forbid fallback to frozen research data.
+
+Next: verify real scheduled exit/refresh, append the first verified matured
+outcome, accumulate corrected-inference samples without tuning, and obtain
+Databento entitlement. Databento/FRED/BLS keys are absent; authentic futures,
+order flow and authorized PIT calendar/news remain blocked. Contract-target and
+schedule-proximity modules are tested infrastructure, not validated forecasts.
+Only NDX range is shadow-active; all other models remain `NO_PROMOTION`, trading
+remains `NO_TRADE`. Phase 3I is an engineering checkpoint, not full acceptance of
+future-dependent statistical or logout-independent production requirements.
+
+## Previous resume point — Phase 3H, 2026-11-04
 
 Branch `feat/phase3h`, base `016d5d0` (Phase 3G, CI success).
 Read `PHASE3H_FINDINGS.md`, `FUTURES_DATA_REQUIREMENTS.md` and

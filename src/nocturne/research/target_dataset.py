@@ -24,6 +24,7 @@ class TargetDatasetConfig:
     target_multiples: tuple[float, ...] | None = None
     target_points: tuple[float, ...] | None = None
     commission_per_side: float = 2.5
+    interval: str = "5min"
 
 
 def _entry_index(frame: pd.DataFrame, asof: datetime) -> int | None:
@@ -77,7 +78,7 @@ def build_strategy_target_dataset(
         end_idx = min(entry_idx + config.horizon_bars - 1, len(frame) - 1)
         complete = end_idx - entry_idx + 1 == config.horizon_bars
         timestamps = frame.timestamp.iloc[entry_idx:end_idx + 1]
-        contiguous = timestamps.diff().dropna().eq(pd.Timedelta("5min")).all()
+        contiguous = timestamps.diff().dropna().eq(pd.Timedelta(config.interval)).all()
         complete = complete and contiguous
 
         stop_idx: int | None = None

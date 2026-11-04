@@ -8,6 +8,21 @@
 
 ## What is implemented
 
+### Phase 3I checkpoint — 2026-11-04 UTC
+
+Shadow operation now has OS locks, durable serialized journals, revised-snapshot
+duplicate prevention, missed-deadline recovery, strict operational source checks,
+completed-bar guards and 30/60/90 forward monitoring. A Windows 30-minute task is
+installed on the authorized host **while the user is logged in and host awake**.
+
+Runtime residual calibration was corrected without retraining. The original
+forecast remains immutable and explicitly flagged as legacy unadjusted inference.
+**1 issued, 0 matured**; no forward accuracy claim. Licensed futures and authorized
+PIT calendar/news remain blocked. Contract-specific target-dataset gates and
+event-proximity interfaces are fixture-tested, not empirical trading evidence.
+See [Phase 3I findings](docs/PHASE3I_FINDINGS.md) and
+[checkpoint](docs/IMPLEMENTATION_CHECKPOINT.md). All trading remains `NO_TRADE`.
+
 ### Phase 3H checkpoint — 2026-11-04
 
 The validated NDX cash-session range model now runs as a **read-only shadow

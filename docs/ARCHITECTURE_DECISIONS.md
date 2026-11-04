@@ -2,6 +2,25 @@
 
 **Date:** 2026-11-03
 
+## Phase 3I — operational integrity without model promotion
+
+- Preserve the original frozen model bytes and forecast journal. Apply the
+  already-frozen residual adjustments at runtime, identifying corrected inference
+  separately from the legacy first forecast. Never repair issued predictions.
+- Enforce one model/instrument/horizon/date issuance under host-local OS locks;
+  revised snapshots cannot produce a second forecast. Fsync appends, reject
+  corrupt journals and recover locks through OS process lifecycle, not lock age.
+- Separate cash-equity DST/early-close maturity from futures calendars. Calendar
+  support is bounded; unsupported years and incomplete outcomes fail closed.
+- Operational sources require actual fresh receipts and matching raw/normalized
+  hashes; frozen historical context cannot silently become a current snapshot.
+- Windows Task Scheduler provides host persistence only for the configured
+  logged-in principal. No uptime SLA or logout-independent service is implied.
+- Contract target datasets share barrier labels, not unreviewed Phase 3F fitted
+  probabilities. Structural readiness is not provenance, authenticity or promotion.
+- PIT schedule proximity needs explicit coverage; missing schedules cannot mean
+  no event risk. Event risk never implies price direction.
+
 ## Phase 3D — horizon contracts and independent evidence
 
 - Public hourly futures proxies are a separate two-hour research stream, never

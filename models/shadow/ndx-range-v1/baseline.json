@@ -1,0 +1,11 @@
+{
+  "dataset_sha256": "6d9a01f483d99ab76f7ac33b27aa1e27a2b1faccff11d15efc92f53556fb56b9",
+  "train_rows": 9134,
+  "train_last": "2021-12-23",
+  "definition": "train-only empirical range quantiles",
+  "quantiles": {
+    "p50": 0.014277494224567883,
+    "p80": 0.024325037914972644,
+    "p90": 0.03292110148141983
+  }
+}

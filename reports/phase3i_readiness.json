@@ -1,0 +1,162 @@
+{
+  "generated_at": "2026-11-04T04:45:28.637588+00:00",
+  "providers": {
+    "yahoo_chart": {
+      "status": "AVAILABLE",
+      "access": "FREE_UNOFFICIAL",
+      "credential_present": false,
+      "verified_with_real_data": true
+    },
+    "fred": {
+      "status": "AVAILABLE_NO_KEY",
+      "access": "FREE_OFFICIAL",
+      "credential_present": false,
+      "verified_with_real_data": true
+    },
+    "bls": {
+      "status": "AVAILABLE_NO_KEY",
+      "access": "FREE_OFFICIAL",
+      "credential_present": false,
+      "verified_with_real_data": false
+    },
+    "databento": {
+      "status": "BLOCKED",
+      "access": "LICENSED",
+      "credential_present": false,
+      "verified_with_real_data": false
+    },
+    "nasdaq_data_link": {
+      "status": "NOT_IMPLEMENTED",
+      "access": "FREEMIUM",
+      "credential_present": false,
+      "verified_with_real_data": false
+    },
+    "bloomberg_blpapi": {
+      "status": "NOT_IMPLEMENTED",
+      "access": "LICENSED",
+      "credential_present": false,
+      "verified_with_real_data": false
+    }
+  },
+  "credential_env_present": {
+    "DATABENTO_API_KEY": false,
+    "FRED_API_KEY": false,
+    "BLS_API_KEY": false,
+    "NASDAQ_DATA_LINK_API_KEY": false
+  },
+  "tiers": {
+    "tier1_intraday_bars": {
+      "requires": [
+        "NQ/ES raw contract_id",
+        "1m and 5m OHLCV",
+        "exchange timestamps",
+        "actual volume",
+        "tick-size alignment",
+        "roll metadata"
+      ],
+      "provider": "Databento GLBX.MDP3 ohlcv-1m",
+      "status": "DATA_BLOCKED"
+    },
+    "tier2_trades_quotes": {
+      "requires": [
+        "trades",
+        "bid/ask quotes",
+        "aggressor side where supported",
+        "volume at price"
+      ],
+      "provider": "Databento trades / bbo-1s / bbo-1m",
+      "status": "DATA_BLOCKED"
+    },
+    "tier3_order_book": {
+      "requires": [
+        "mbp-1 or mbp-10 depth",
+        "mbo where licensed",
+        "sequence integrity"
+      ],
+      "provider": "Databento mbp / mbo (entitlement dependent)",
+      "status": "DATA_BLOCKED"
+    }
+  },
+  "contract_data": {
+    "status": "DATA_BLOCKED",
+    "reason": "NO_CONTRACT_DATA",
+    "requires": "licensed raw-contract 1m/5m OHLCV with contract_id",
+    "instrument": "NQ"
+  },
+  "free_context": {
+    "daily_manifests": [
+      {
+        "symbol": "ES=F",
+        "rows": 6587,
+        "first": "2000-09-18",
+        "last": "2026-11-04",
+        "received_at": "2026-11-04T02:00:51.620926+00:00"
+      },
+      {
+        "symbol": "^GSPC",
+        "rows": 24828,
+        "first": "1927-12-30",
+        "last": "2026-11-03",
+        "received_at": "2026-11-04T02:00:35.070419+00:00"
+      },
+      {
+        "symbol": "^NDX",
+        "rows": 10353,
+        "first": "1985-10-01",
+        "last": "2026-11-03",
+        "received_at": "2026-11-04T02:00:32.198490+00:00"
+      },
+      {
+        "symbol": "^TNX",
+        "rows": 16198,
+        "first": "1962-01-02",
+        "last": "2026-11-03",
+        "received_at": "2026-11-04T02:00:44.655484+00:00"
+      },
+      {
+        "symbol": "^VIX",
+        "rows": 9280,
+        "first": "1990-01-02",
+        "last": "2026-11-03",
+        "received_at": "2026-11-04T02:00:37.437173+00:00"
+      },
+      {
+        "symbol": "NQ=F",
+        "rows": 6573,
+        "first": "2000-09-18",
+        "last": "2026-11-04",
+        "received_at": "2026-11-04T02:00:49.364701+00:00"
+      },
+      {
+        "symbol": "QQQ",
+        "rows": 6956,
+        "first": "1999-03-10",
+        "last": "2026-11-02",
+        "received_at": "2026-11-04T02:00:39.770849+00:00"
+      },
+      {
+        "symbol": "SPY",
+        "rows": 8498,
+        "first": "1993-01-29",
+        "last": "2026-11-02",
+        "received_at": "2026-11-04T02:00:42.164986+00:00"
+      },
+      {
+        "symbol": "TLT",
+        "rows": 6105,
+        "first": "2002-07-30",
+        "last": "2026-11-02",
+        "received_at": "2026-11-04T02:00:47.059392+00:00"
+      }
+    ],
+    "note": "historical inventory, not current availability; free context cannot substitute for contract-level intraday"
+  },
+  "validation_status": "RESEARCH_ONLY",
+  "connectivity": "Databento not attempted: credential absent",
+  "trading_decision": "NO_TRADE",
+  "notes": [
+    "no credential values are printed or stored",
+    "fixture-tested adapters are not live integrations",
+    "tier statuses change only after a verified real download"
+  ]
+}

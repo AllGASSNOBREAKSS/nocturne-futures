@@ -1,0 +1,89 @@
+{
+  "generated_at": "2026-11-04T04:51:47.331191+00:00",
+  "model_id": "ndx-range-v1",
+  "scope": "NDX cash-session range quantiles; not NQ futures; not a trading signal",
+  "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
+  "trading_decision": "NO_TRADE",
+  "issued": 1,
+  "matured": 0,
+  "pending": 1,
+  "missed": 0,
+  "failed": 0,
+  "data_quality_incidents": {
+    "MARKET_DATA_MISSING": 1
+  },
+  "cycle_availability": {
+    "attempts_logged": 6,
+    "failed_cycles": 1,
+    "failure_fraction": 0.16666666666666666,
+    "note": "observed local cycles, not service uptime"
+  },
+  "issuance_timing": [
+    {
+      "forecast_id": "20d48fc41c2cc0f5c0ae4f2d",
+      "lead_seconds": 41789.762196,
+      "prediction_compute_seconds": null
+    }
+  ],
+  "audit": {
+    "forecasts": 1,
+    "passed": 1,
+    "failed": []
+  },
+  "forecast_integrity": {
+    "journal_sha256": "61f4034a108ccf6545959d4dac39e18ae3c5247ae4557dddf9e9a8158113a1b3",
+    "originals": [
+      {
+        "forecast_id": "20d48fc41c2cc0f5c0ae4f2d",
+        "created_at": "2026-11-04T02:53:30.237804+00:00",
+        "feature_digest": "edea8e109ab6f627759d0cb27fc407a3770c1557bf8e949dd5b31c6df19cb365",
+        "inference_revision": "legacy-unadjusted",
+        "calibration_warning": "Frozen residual adjustments were omitted at issuance; evaluate as issued, separately."
+      }
+    ]
+  },
+  "health": {
+    "status": "degraded",
+    "warnings": [
+      "RECENT_DATA_QUALITY_FAILURES"
+    ],
+    "last_run": "2026-11-04T04:51:32.737231+00:00",
+    "age_hours": 0.004027985277777778,
+    "forecasts": 1,
+    "matured": 0,
+    "pending": 1,
+    "missed": 0,
+    "recent_quality_failures": 1,
+    "trading_decision": "NO_TRADE"
+  },
+  "evaluation": {
+    "matured": 0,
+    "pending": 1,
+    "status": "INSUFFICIENT_FORWARD_DATA",
+    "note": "no forward forecast has matured; do not report accuracy",
+    "quality_failures": 1,
+    "missed": 0,
+    "milestones": {
+      "30": {
+        "target": 30,
+        "matured": 0,
+        "remaining": 30,
+        "reached": false
+      },
+      "60": {
+        "target": 60,
+        "matured": 0,
+        "remaining": 60,
+        "reached": false
+      },
+      "90": {
+        "target": 90,
+        "matured": 0,
+        "remaining": 90,
+        "reached": false
+      }
+    }
+  },
+  "claim": "insufficient forward observations; descriptive only",
+  "next_milestone": "30 matured forecasts"
+}

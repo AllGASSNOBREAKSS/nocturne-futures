@@ -23,7 +23,11 @@ class ShadowArtifact:
         if set(snapshot.values) != set(self.features):
             raise ValueError("feature schema mismatch with frozen model")
         matrix = feature_matrix(snapshot)[list(self.features)]
-        values = [float(self.models[q].predict(matrix)[0]) for q in ("p50", "p80", "p90")]
+        adjustments = self.metadata["adjustments"]
+        values = [float(self.models[q].predict(matrix)[0]) + float(adjustments[q])
+                  for q in ("p50", "p80", "p90")]
+        if not np.isfinite(values).all():
+            raise ValueError("non-finite calibrated quantiles")
         values = np.sort(np.maximum(values, 0.0))
         return {"p50": float(values[0]), "p80": float(values[1]), "p90": float(values[2])}
 
@@ -31,6 +35,16 @@ class ShadowArtifact:
 def load_artifact(root: Path | str, model_id: str) -> ShadowArtifact:
     directory = Path(root) / model_id
     metadata = json.loads((directory / "metadata.json").read_text(encoding="utf-8"))
+    if (metadata["model_id"] != model_id or metadata["instrument"] != "^NDX"
+            or metadata["validation_status"] != "RESEARCH_VALIDATED_PENDING_SHADOW"
+            or metadata["trading_decision"] != "NO_TRADE"):
+        raise ValueError("artifact identity/governance mismatch")
+    baseline_path = directory / "baseline.json"
+    if baseline_path.exists():
+        baseline = json.loads(baseline_path.read_text(encoding="utf-8"))
+        if baseline["dataset_sha256"] != metadata["dataset_sha256"]:
+            raise ValueError("baseline dataset mismatch")
+        metadata = {**metadata, "baseline_quantiles": baseline["quantiles"]}
     bundle = joblib.load(directory / "model.joblib")
     features = tuple(bundle["features"])
     if list(features) != list(FEATURES):

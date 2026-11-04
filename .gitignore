@@ -26,3 +26,5 @@ data/licensed/
 
 # Operational shadow market cache; the forward forecast journal is committed.
 data/shadow/market/
+data/shadow/**/*.lock
+data/shadow/**/log.jsonl

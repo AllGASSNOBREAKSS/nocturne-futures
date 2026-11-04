@@ -142,8 +142,44 @@ def test_api_exposes_shadow_endpoints_read_only(tmp_path):
     service = ForecastService(journal_root=tmp_path / "journal", registry_root=tmp_path / "registry",
                               forecast_root=tmp_path / "forecasts")
     client = TestClient(create_app(service))
-    for path in ("/v1/shadow/ndx-range", "/v1/shadow/history", "/v1/shadow/evaluation", "/v1/data/health"):
+    for path in ("/v1/shadow/ndx-range", "/v1/shadow/history", "/v1/shadow/evaluation",
+                 "/v1/shadow/missed", "/v1/shadow/calibration",
+                 "/v1/data/futures-readiness", "/v1/data/health", "/v1/alerts/critical-day"):
         response = client.get(path)
         assert response.status_code == 200
         assert "NO_TRADE" in response.text or "trading_decision" in response.text or "status" in response.text
     assert client.get("/v1/shadow/history?limit=0").status_code == 422
+
+
+def test_runtime_applies_frozen_residual_adjustments():
+    import numpy as np
+    artifact = load_artifact(ROOT / "models/shadow", MODEL_ID)
+    snapshot = build_features(bars(), bars(base=20, step=0), pd.Timestamp("2025-03-25T01:00Z"))
+    from nocturne.shadow.features import feature_matrix
+    raw = [float(artifact.models[q].predict(feature_matrix(snapshot))[0])
+           for q in ("p50", "p80", "p90")]
+    expected = np.sort(np.maximum([value + artifact.metadata["adjustments"][q]
+                                  for q, value in zip(("p50", "p80", "p90"), raw)], 0))
+    assert list(artifact.predict(snapshot).values()) == pytest.approx(expected)
+
+
+@pytest.mark.parametrize("case", ["early", "nan", "incomplete", "duplicate"])
+def test_evaluator_rejects_invalid_or_incomplete_target_bar(tmp_path, case):
+    artifact = load_artifact(ROOT / "models/shadow", MODEL_ID)
+    index = bars()
+    store = ShadowStore(tmp_path)
+    generate(artifact, store, index, bars(base=20, step=0),
+             datetime(2025, 3, 25, 1, tzinfo=UTC), "RESEARCH_VALIDATED_PENDING_SHADOW")
+    row = {"date": "2025-03-25", "timestamp": pd.Timestamp("2025-03-25T00:00Z"),
+           "available_at": pd.Timestamp("2025-03-26T00:00Z"),
+           "open": 100., "high": 102., "low": 98., "close": 101., "volume": 1.,
+           "source_complete": True}
+    if case == "early":
+        row["available_at"] = pd.Timestamp("2025-03-25T12:00Z")
+    elif case == "nan":
+        row["high"] = float("nan")
+    elif case == "incomplete":
+        row["source_complete"] = False
+    target = pd.DataFrame([row, row] if case == "duplicate" else [row])
+    assert evaluate_matured(store, pd.concat([index, target]), datetime(2025, 3, 26, 2, tzinfo=UTC)) == []
+    assert store.outcomes() == []

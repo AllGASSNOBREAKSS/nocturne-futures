@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "rows": 712,
+  "metrics": {
+    "p50": {
+      "coverage": 0.5337078651685393,
+      "pinball_loss": 0.0021959215821577335
+    },
+    "p80": {
+      "coverage": 0.8160112359550562,
+      "pinball_loss": 0.0019377117926848153
+    },
+    "p90": {
+      "coverage": 0.9199438202247191,
+      "pinball_loss": 0.001409481894405571
+    }
+  },
+  "note": "already-used holdout diagnostic; no new independent evidence or fitting"
+}

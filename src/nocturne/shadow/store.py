@@ -8,8 +8,12 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
+from functools import wraps
 from datetime import datetime, timezone
 from pathlib import Path
+
+from .locking import FileLock
 
 UTC = timezone.utc
 
@@ -20,6 +24,26 @@ def _lines(path: Path) -> list[dict]:
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
 
 
+def serialized(method):
+    @wraps(method)
+    def run(self, *args, **kwargs):
+        with FileLock(self.root / ".store.lock"):
+            return method(self, *args, **kwargs)
+    return run
+
+
+def _append(path, record):
+    # Never repair/truncate a partial journal silently after a failed write.
+    if path.exists():
+        content = path.read_bytes()
+        if content and not content.endswith(b"\n"):
+            raise ValueError(f"incomplete journal; manual recovery required: {path.name}")
+    with path.open("ab") as handle:
+        handle.write((json.dumps(record, sort_keys=True, allow_nan=False) + "\n").encode("utf-8"))
+        handle.flush()
+        os.fsync(handle.fileno())
+
+
 class ShadowStore:
     def __init__(self, root: Path | str):
         self.root = Path(root)
@@ -27,6 +51,9 @@ class ShadowStore:
         self.forecast_path = self.root / "forecasts.jsonl"
         self.outcome_path = self.root / "outcomes.jsonl"
         self.quality_path = self.root / "data_quality.jsonl"
+        self.missed_path = self.root / "missed.jsonl"
+        self.log_path = self.root / "log.jsonl"
+        self.meta_path = self.root / "meta.json"
 
     def forecasts(self) -> list[dict]:
         return _lines(self.forecast_path)
@@ -37,10 +64,56 @@ class ShadowStore:
     def quality_events(self) -> list[dict]:
         return _lines(self.quality_path)
 
+    def missed(self) -> list[dict]:
+        return _lines(self.missed_path)
+
+    def log_events(self) -> list[dict]:
+        return _lines(self.log_path)
+
+    def meta(self) -> dict:
+        if not self.meta_path.exists():
+            return {}
+        return json.loads(self.meta_path.read_text(encoding="utf-8"))
+
+    @serialized
+    def ensure_started(self, now: datetime, model_id: str) -> dict:
+        """Record the first service start once; never overwrite it."""
+        meta = self.meta()
+        if meta:
+            return meta
+        meta = {"service_start": now.astimezone(UTC).isoformat(), "model_id": model_id,
+                "schema": 1}
+        with self.meta_path.open("x", encoding="utf-8") as handle:
+            handle.write(json.dumps(meta, indent=2) + "\n")
+            handle.flush()
+            os.fsync(handle.fileno())
+        return meta
+
+    @serialized
+    def append_missed(self, record: dict) -> dict:
+        required = {"target_date", "recorded_at", "reason"}
+        missing = required - set(record)
+        if missing:
+            raise ValueError(f"missing missed-forecast fields: {sorted(missing)}")
+        for item in self.missed():
+            if item["target_date"] == record["target_date"]:
+                return item
+        _append(self.missed_path, record)
+        return record
+
+    @serialized
+    def log(self, event: str, level: str = "INFO", detail: dict | None = None,
+            now: datetime | None = None) -> dict:
+        record = {"at": (now or datetime.now(UTC)).isoformat(), "level": level,
+                  "event": event, "detail": detail or {}}
+        _append(self.log_path, record)
+        return record
+
     def latest(self) -> dict | None:
         records = self.forecasts()
         return records[-1] if records else None
 
+    @serialized
     def append_forecast(self, record: dict) -> dict:
         required = {"forecast_id", "model_id", "target_date", "data_date", "created_at",
                     "quantiles", "features", "feature_digest"}
@@ -60,10 +133,13 @@ class ShadowStore:
                 raise ValueError("conflicting immutable forecast")
             # Idempotent retry: keep the original creation timestamp.
             return previous
-        with self.forecast_path.open("a", encoding="utf-8", newline="\n") as handle:
-            handle.write(json.dumps(record, sort_keys=True) + "\n")
+        scope = lambda item: tuple(item.get(k) for k in ("model_id", "instrument", "kind", "target_date"))
+        if any(scope(item) == scope(record) for item in existing.values()):
+            raise ValueError("forecast already issued for model/instrument/horizon/date")
+        _append(self.forecast_path, record)
         return record
 
+    @serialized
     def append_outcome(self, record: dict) -> dict:
         required = {"forecast_id", "evaluated_at", "realized_range_pct", "covered"}
         missing = required - set(record)
@@ -72,17 +148,18 @@ class ShadowStore:
         key = record["forecast_id"]
         for item in self.outcomes():
             if item["forecast_id"] == key:
-                if item != record:
+                if {k: v for k, v in item.items() if k != "evaluated_at"} != {
+                    k: v for k, v in record.items() if k != "evaluated_at"
+                }:
                     raise ValueError("conflicting outcome for forecast")
                 return item
-        with self.outcome_path.open("a", encoding="utf-8", newline="\n") as handle:
-            handle.write(json.dumps(record, sort_keys=True) + "\n")
+        _append(self.outcome_path, record)
         return record
 
+    @serialized
     def record_quality_failure(self, reason: str, detail: dict | None = None) -> dict:
         record = {"at": datetime.now(UTC).isoformat(), "reason": reason, "detail": detail or {}}
-        with self.quality_path.open("a", encoding="utf-8", newline="\n") as handle:
-            handle.write(json.dumps(record, sort_keys=True) + "\n")
+        _append(self.quality_path, record)
         return record
 
 

@@ -2,11 +2,12 @@
 
 from .features import FEATURES, FeatureSnapshot, build_features
 from .model import ShadowArtifact, load_artifact
-from .service import assess_eligibility, evaluate_matured, evaluation_summary, generate
+from .service import (assess_eligibility, audit_forecasts, evaluate_matured,
+                      evaluation_summary, generate, health, record_missed)
 from .store import ShadowStore, forecast_id
 
 __all__ = [
     "FEATURES", "FeatureSnapshot", "build_features", "ShadowArtifact", "load_artifact",
-    "assess_eligibility", "evaluate_matured", "evaluation_summary", "generate",
-    "ShadowStore", "forecast_id",
+    "assess_eligibility", "audit_forecasts", "evaluate_matured", "evaluation_summary",
+    "generate", "health", "record_missed", "ShadowStore", "forecast_id",
 ]

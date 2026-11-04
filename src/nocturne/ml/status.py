@@ -26,7 +26,9 @@ MODELS = (
         "trading_enabled": False,
         "data_requirement": "daily NDX and VIX bars, available next UTC midnight",
         "evidence": "one-shot 2024-2026 holdout: coverage 0.534/0.816/0.920",
-        "limitations": ["index range is not a futures range", "no forward sample yet"],
+        "limitations": ["index range is not a futures range", "no matured forward sample yet",
+                        "first forecast omitted residual calibration; score legacy inference separately"],
+        "inference_revision": "residual-adjusted-v1",
     },
     {
         "model_id": "ndx-range-expansion-v1",

@@ -81,6 +81,22 @@ def create_app(service: ForecastService | None = None) -> FastAPI:
     def shadow_evaluation() -> dict:
         return service.shadow_evaluation()
 
+    @app.get("/v1/shadow/missed")
+    def shadow_missed() -> dict:
+        return service.shadow_missed()
+
+    @app.get("/v1/shadow/calibration")
+    def shadow_calibration() -> dict:
+        return service.shadow_calibration()
+
+    @app.get("/v1/data/futures-readiness")
+    def futures_readiness() -> dict:
+        return service.futures_readiness()
+
+    @app.get("/v1/alerts/critical-day")
+    def critical_day_alerts() -> dict:
+        return service.critical_day_alerts()
+
     @app.get("/v1/data/health")
     def data_health() -> dict:
         return service.data_health()
