@@ -1,0 +1,26 @@
+{
+  "symbol": "^VIX",
+  "name": "CBOE VIX index (spot proxy)",
+  "kind": "volatility_index",
+  "provider": "yahoo_public_unofficial",
+  "frequency": "1d",
+  "license_scope": "public_research_unofficial",
+  "raw_sha256": "5a398d98af6f95344a6de474f0e16f2d500da642dd9856d7569c1ec2f81a3b4e",
+  "normalized_sha256": "02b14e16fadeb38d24afb55cd7adc47145dcfb30381874b73b70abb6832c7776",
+  "rows": 9280,
+  "first": "1990-01-02",
+  "last": "2026-11-03",
+  "span_years": 36.84,
+  "zero_volume_rows": 9280,
+  "dropped_invalid_or_missing_bars": 331,
+  "gap_days_median": 1.0,
+  "gaps_over_5_days": 1,
+  "received_at": "2026-11-04T02:00:37.437173+00:00",
+  "availability": "next UTC midnight after the session date",
+  "known_limitations": [
+    "unofficial endpoint; not an exchange feed",
+    "index levels are not tradable",
+    "continuous futures proxies have unverified roll mapping",
+    "adjusted vs unadjusted prices not distinguished by this adapter"
+  ]
+}

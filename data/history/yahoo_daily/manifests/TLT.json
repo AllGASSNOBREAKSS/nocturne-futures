@@ -1,0 +1,26 @@
+{
+  "symbol": "TLT",
+  "name": "iShares 20+ year Treasury ETF",
+  "kind": "etf",
+  "provider": "yahoo_public_unofficial",
+  "frequency": "1d",
+  "license_scope": "public_research_unofficial",
+  "raw_sha256": "1f10f6f2542c9dbc1f1fbaba401347def9ec4a81da4db5485231bb4ce5bbe04e",
+  "normalized_sha256": "2b856800d25200da2c7cf06bfdbbf13b731ec7800d42387b322946a7838da2a3",
+  "rows": 6105,
+  "first": "2002-07-30",
+  "last": "2026-11-02",
+  "span_years": 24.26,
+  "zero_volume_rows": 0,
+  "dropped_invalid_or_missing_bars": 1,
+  "gap_days_median": 1.0,
+  "gaps_over_5_days": 0,
+  "received_at": "2026-11-04T02:00:47.059392+00:00",
+  "availability": "next UTC midnight after the session date",
+  "known_limitations": [
+    "unofficial endpoint; not an exchange feed",
+    "index levels are not tradable",
+    "continuous futures proxies have unverified roll mapping",
+    "adjusted vs unadjusted prices not distinguished by this adapter"
+  ]
+}

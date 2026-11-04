@@ -1,46 +1,45 @@
 # Implementation Checkpoint
 
-## Current resume point — Phase 3F, 2026-11-03
+## Current resume point — Phase 3G, 2026-11-04
 
-Branch `feat/phase3f`, base `31ed955` (Phase 3E, remote CI success).
-Read `PHASE3F_FINDINGS.md` and `PHASE3F_PROTOCOL.md` before changing experiments.
-Decision remains **NO_PROMOTION / NO_TRADE**.
+Branch `feat/phase3g`, base `41be740` (Phase 3F, CI success).
+Read `PHASE3G_FINDINGS.md`, `PHASE3G_PROTOCOL.md` and `DATA_PROVIDERS.md` before
+changing experiments. Decision remains **NO_PROMOTION / NO_TRADE**.
 
-Key finding: direction is not predictable with these features. Material-move AUC
-is ~0.70, but bull-versus-bear AUC conditional on a material move is only
-0.52–0.53. The three-class Brier gain comes from activity detection, not
-direction. Range, consolidation and target-survival research should lead; do not
-add more direction model families on the same features.
+Acquired and verified decades of free daily history: ^GSPC 99 years, ^NDX 41,
+^TNX 64, ^VIX 37, SPY 33, QQQ 27, TLT 24, NQ/ES continuous proxies 26. Official
+BLS API verified with a bounded 2024-2025 snapshot. Cross-provider return
+correlations are 0.98-0.9999; TNX vs FRED DGS10 differs by 0.0102pp on average.
 
-Also implemented: rolling range-quantile recalibration (improves pinloss and
-coverage at every quantile), complete-session range calibration with ASIA marked
-insufficient, competing-outcome target survival with Aalen–Johansen incidence,
-equal-weight fusion (not adopted), and provider readiness reporting.
+Key results:
+- Daily direction on ^NDX, 1990-2023: AUC 0.4979-0.5077, Brier worse than the base
+  rate in every variant. The 1990s AUC of 0.544 decays to 0.459 in the 2020s.
+- Historical analogues: AUC 0.508-0.514, Brier worse than frequency.
+- Seasonality: real but small (turn-of-month +0.10% GSPC); does not improve
+  direction.
+- Level touches: 89% within 1 ATR, 4% beyond 4 ATR; target-before-stop with
+  2 ATR/1 ATR geometry is 21% NQ / 24% ES conditional on touch.
 
 Reproduce offline:
 
 ```powershell
-python scripts/phase3f_dataset.py
-python scripts/phase3f_direction.py
-python scripts/phase3f_quantiles.py
-python scripts/phase3f_session_range.py
-python scripts/phase3f_survival.py
-python scripts/phase3f_fusion.py
-python scripts/phase3f_providers.py
-python scripts/phase3f_promotion.py
+python scripts/phase3g_ingest.py          # network; skips on failure
+python scripts/phase3g_coverage.py
+python scripts/phase3g_providers.py       # BLS network call
+python scripts/phase3g_seasonality.py
+python scripts/phase3g_daily_direction.py
+python scripts/phase3g_analogues.py
+python scripts/phase3g_level_reactions.py
 $env:PYTHONPATH='D:\nocturne-futures\native\build'; python -m pytest
 ```
 
-Verified locally: 190 native-enabled tests pass. Milestones `dafbfb6` and
-`82efb04` are pushed; both GitHub CI runs passed. Forecast bundle schema unchanged;
-ranges carry calibration metadata; all unvalidated probabilities remain null.
+Next: obtain licensed contract-level intraday history, then test whether order
+flow or depth features add directional information. Public price and macro
+context has now been tested across four decades and does not. Do not add model
+families to the same features.
 
-Next: obtain licensed contract-level history, then re-run target survival with
-larger event counts on a genuinely fresh period. Direction needs new information
-(order flow, depth, cross-asset lead-lag), not new model families.
-
-**Date:** 2026-11-03
-**Previous branch:** `feat/phase3e`
+**Date:** 2026-11-04
+**Previous branch:** `feat/phase3f`
 **Latest backend commit:** see `git log --oneline -1`
 
 ## Phase 3A — backtest validation and predictive foundation

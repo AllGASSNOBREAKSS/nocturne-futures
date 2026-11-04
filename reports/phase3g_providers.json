@@ -1,0 +1,174 @@
+{
+  "providers": [
+    {
+      "name": "yahoo_chart",
+      "category": "market_bars",
+      "access": "FREE_UNOFFICIAL",
+      "credential_env": null,
+      "implemented": true,
+      "verified_with_real_data": true,
+      "coverage": "Daily: ^GSPC from 1927, ^NDX from 1985, ^VIX from 1990, QQQ 1999+, SPY 1993+, TLT 2002+, continuous NQ/ES proxies 2000+. Intraday: 60 days of 5m, two years of 1h.",
+      "limits": "Unofficial endpoint; rate-limited; occasional invalid futures prints; no supported SLA.",
+      "license_note": "Public research use subject to Yahoo terms. Not a production exchange feed. Not for redistribution.",
+      "endpoints": [
+        "https://query2.finance.yahoo.com/v8/finance/chart/{symbol}"
+      ],
+      "instruments": [
+        "^GSPC",
+        "^NDX",
+        "^VIX",
+        "QQQ",
+        "SPY",
+        "TLT",
+        "^TNX",
+        "NQ=F",
+        "ES=F"
+      ],
+      "status": "AVAILABLE",
+      "credential_present": false
+    },
+    {
+      "name": "fred",
+      "category": "macro",
+      "access": "FREE_OFFICIAL",
+      "credential_env": "FRED_API_KEY",
+      "implemented": true,
+      "verified_with_real_data": true,
+      "coverage": "Official series from 1986 in the committed snapshot; API supports full history and real-time vintages.",
+      "limits": "Latest-vintage CSV needs no key; ALFRED vintages require a free key.",
+      "license_note": "Federal Reserve Bank of St. Louis terms; cite the source.",
+      "endpoints": [
+        "https://fred.stlouisfed.org/graph/fredgraph.csv",
+        "https://api.stlouisfed.org/fred/series/observations"
+      ],
+      "instruments": [
+        "DGS10",
+        "DGS2",
+        "DFF",
+        "CPIAUCSL",
+        "UNRATE"
+      ],
+      "status": "AVAILABLE_NO_KEY",
+      "credential_present": false
+    },
+    {
+      "name": "bls",
+      "category": "macro",
+      "access": "FREE_OFFICIAL",
+      "credential_env": "BLS_API_KEY",
+      "implemented": true,
+      "verified_with_real_data": false,
+      "coverage": "CPI, PPI, employment and wages series; multi-decade.",
+      "limits": "Registration key raises limits; without a key the public API is heavily throttled.",
+      "license_note": "Public domain US government data.",
+      "endpoints": [
+        "https://api.bls.gov/publicAPI/v2/timeseries/data/"
+      ],
+      "instruments": [
+        "CUUR0000SA0",
+        "WPUFD4",
+        "CES0000000001",
+        "LNS14000000"
+      ],
+      "status": "AVAILABLE_NO_KEY",
+      "credential_present": false
+    },
+    {
+      "name": "databento",
+      "category": "futures_intraday",
+      "access": "LICENSED",
+      "credential_env": "DATABENTO_API_KEY",
+      "implemented": true,
+      "verified_with_real_data": false,
+      "coverage": "CME GLBX raw-contract OHLCV, trades, MBP/MBO depending on entitlement.",
+      "limits": "Usage-based billing; entitlement required per dataset.",
+      "license_note": "Exchange fees and redistribution terms apply.",
+      "endpoints": [
+        "https://hist.databento.com/v0/timeseries.get_range"
+      ],
+      "instruments": [
+        "NQ",
+        "MNQ",
+        "ES",
+        "MES",
+        "ZN",
+        "ZB",
+        "VX"
+      ],
+      "status": "BLOCKED",
+      "credential_present": false
+    },
+    {
+      "name": "nasdaq_data_link",
+      "category": "market_bars_macro",
+      "access": "FREEMIUM",
+      "credential_env": "NASDAQ_DATA_LINK_API_KEY",
+      "implemented": false,
+      "verified_with_real_data": false,
+      "coverage": "Dataset-dependent. Free datasets exist; premium feeds are not free.",
+      "limits": "Per-dataset access rights, rate limits and cost must be verified before ingestion.",
+      "license_note": "Do not assume premium Nasdaq feeds are free.",
+      "endpoints": [
+        "https://data.nasdaq.com/api/v3/datasets/{vendor}/{dataset}.json"
+      ],
+      "instruments": [],
+      "status": "NOT_IMPLEMENTED",
+      "credential_present": false
+    },
+    {
+      "name": "bloomberg_blpapi",
+      "category": "news_reference",
+      "access": "LICENSED",
+      "credential_env": "BLOOMBERG_BLPAPI_ENABLED",
+      "implemented": false,
+      "verified_with_real_data": false,
+      "coverage": "Terminal-entitled reference, news and market data.",
+      "limits": "Requires an installed Terminal and licensed entitlements.",
+      "license_note": "No paywall bypass; no website scraping.",
+      "endpoints": [],
+      "instruments": [],
+      "status": "NOT_IMPLEMENTED",
+      "credential_present": false
+    }
+  ],
+  "secrets_policy": "environment variables only; never committed or logged",
+  "free_first": [
+    "yahoo_chart",
+    "fred",
+    "bls",
+    "nasdaq_data_link"
+  ],
+  "paid_dependencies": [
+    "databento",
+    "bloomberg_blpapi"
+  ],
+  "bls_snapshot": {
+    "status": "VERIFIED",
+    "path": "D:\\nocturne-futures\\data\\history\\bls\\bls_20261104T020619Z.json",
+    "rows": 96,
+    "series": [
+      "CUUR0000SA0",
+      "WPUFD4",
+      "CES0000000001",
+      "LNS14000000"
+    ],
+    "non_null": 94,
+    "point_in_time_eligible": false,
+    "note": "monthly period only; no release timestamp or consensus"
+  },
+  "fred_snapshot": {
+    "manifests": 5,
+    "status": "VERIFIED"
+  },
+  "secrets": {
+    "policy": "environment variables only; values are never logged or committed",
+    "required_for_licensed_futures": [
+      "DATABENTO_API_KEY"
+    ],
+    "optional": [
+      "FRED_API_KEY",
+      "BLS_API_KEY",
+      "NASDAQ_DATA_LINK_API_KEY"
+    ]
+  }
+}

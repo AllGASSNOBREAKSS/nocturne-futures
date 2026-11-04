@@ -1,0 +1,26 @@
+{
+  "symbol": "SPY",
+  "name": "SPDR S&P 500 ETF",
+  "kind": "etf",
+  "provider": "yahoo_public_unofficial",
+  "frequency": "1d",
+  "license_scope": "public_research_unofficial",
+  "raw_sha256": "455cf2514c0133fcabf1933a55c6d07c27f13067528a84c645443e3e0993ecaf",
+  "normalized_sha256": "a66dd7d361992fc6e53878648f1556a8679e4e72e82b8c39391b7747a56f979f",
+  "rows": 8498,
+  "first": "1993-01-29",
+  "last": "2026-11-02",
+  "span_years": 33.76,
+  "zero_volume_rows": 0,
+  "dropped_invalid_or_missing_bars": 1,
+  "gap_days_median": 1.0,
+  "gaps_over_5_days": 1,
+  "received_at": "2026-11-04T02:00:42.164986+00:00",
+  "availability": "next UTC midnight after the session date",
+  "known_limitations": [
+    "unofficial endpoint; not an exchange feed",
+    "index levels are not tradable",
+    "continuous futures proxies have unverified roll mapping",
+    "adjusted vs unadjusted prices not distinguished by this adapter"
+  ]
+}

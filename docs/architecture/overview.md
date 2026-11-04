@@ -7,6 +7,31 @@
 
 ## Runtime flow
 
+### Phase 3G historical intelligence layer
+
+```mermaid
+flowchart TD
+    Y[Yahoo daily/history endpoint] --> R[Raw bytes + SHA-256 manifests]
+    F[FRED / ALFRED] --> R
+    B[BLS public API] --> R
+    D[Databento licensed - BLOCKED] -.-> R
+    R --> N[Normalized daily / hourly / 5m]
+    N --> S[Separate index, ETF, futures-proxy, rate stores]
+    S --> C[Coverage + cross-provider checks]
+    S --> SE[Seasonality with year-block FDR]
+    S --> AN[Historical analogue search]
+    S --> WD[Decades expanding walk-forward]
+    N --> LR[Price-level reaction database]
+    LR --> EV[Touch / accept / reject / break / target-before-stop]
+    WD --> G[NO_PROMOTION]
+    SE --> G
+    AN --> G
+    EV --> G
+```
+
+The Phase 3G layer adds history and measurement, not a promoted predictor. Index
+levels and continuous futures proxies remain explicitly non-tradable.
+
 ### Phase 3D research flow (current)
 
 ```mermaid

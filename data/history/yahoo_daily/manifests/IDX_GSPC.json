@@ -1,0 +1,26 @@
+{
+  "symbol": "^GSPC",
+  "name": "S&P 500 index",
+  "kind": "index",
+  "provider": "yahoo_public_unofficial",
+  "frequency": "1d",
+  "license_scope": "public_research_unofficial",
+  "raw_sha256": "aa4fc9cf68342f522383170c1315114b47cf3ffffe838325559aa927ff3f622f",
+  "normalized_sha256": "b23b5204d20c63348260412ab5fab8fd3d0fe6917b995faf5c5e26787d9f0856",
+  "rows": 24828,
+  "first": "1927-12-30",
+  "last": "2026-11-03",
+  "span_years": 98.84,
+  "zero_volume_rows": 5497,
+  "dropped_invalid_or_missing_bars": 0,
+  "gap_days_median": 1.0,
+  "gaps_over_5_days": 2,
+  "received_at": "2026-11-04T02:00:35.070419+00:00",
+  "availability": "next UTC midnight after the session date",
+  "known_limitations": [
+    "unofficial endpoint; not an exchange feed",
+    "index levels are not tradable",
+    "continuous futures proxies have unverified roll mapping",
+    "adjusted vs unadjusted prices not distinguished by this adapter"
+  ]
+}

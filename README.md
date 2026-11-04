@@ -8,6 +8,25 @@
 
 ## What is implemented
 
+### Phase 3G checkpoint — 2026-11-04
+
+Decades of free daily history are ingested with checksums and cross-source
+validation: S&P 500 from 1927, Nasdaq-100 from 1985, Treasury yields from 1962,
+VIX from 1990, plus ETFs and continuous futures proxies. The official BLS API is
+verified; Databento and Bloomberg remain paid dependencies.
+
+Four decades of walk-forward testing confirm that public price and macro context
+does not predict next-day direction: AUC 0.498–0.508, and the 1990s edge decays
+to 0.459 by the 2020s. Historical analogues add no value. Price-level touch
+probabilities are strongly distance-dependent and are now measured with explicit,
+separate event definitions.
+
+All models remain `NO_PROMOTION`; forecasts remain `NO_TRADE`. See
+[Phase 3G findings](docs/PHASE3G_FINDINGS.md),
+[protocol](docs/PHASE3G_PROTOCOL.md),
+[data providers](docs/DATA_PROVIDERS.md) and
+[checkpoint](docs/IMPLEMENTATION_CHECKPOINT.md).
+
 ### Phase 3F checkpoint — 2026-11-03
 
 Direction diagnostics show the current features predict **activity**, not

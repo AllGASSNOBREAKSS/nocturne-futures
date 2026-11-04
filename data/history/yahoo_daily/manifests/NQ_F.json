@@ -1,0 +1,26 @@
+{
+  "symbol": "NQ=F",
+  "name": "Nasdaq-100 futures continuous front month",
+  "kind": "futures_proxy",
+  "provider": "yahoo_public_unofficial",
+  "frequency": "1d",
+  "license_scope": "public_research_unofficial",
+  "raw_sha256": "41ebe30d2e5ab5c8988d72274c505b631cb8846408a69861f7d15f5677b00648",
+  "normalized_sha256": "7e03f2d9935a1844cfcb805fdfaaa742f5147a2ca6197ef4b2183ce09f3dbf94",
+  "rows": 6573,
+  "first": "2000-09-18",
+  "last": "2026-11-04",
+  "span_years": 26.13,
+  "zero_volume_rows": 11,
+  "dropped_invalid_or_missing_bars": 68,
+  "gap_days_median": 1.0,
+  "gaps_over_5_days": 1,
+  "received_at": "2026-11-04T02:00:49.364701+00:00",
+  "availability": "next UTC midnight after the session date",
+  "known_limitations": [
+    "unofficial endpoint; not an exchange feed",
+    "index levels are not tradable",
+    "continuous futures proxies have unverified roll mapping",
+    "adjusted vs unadjusted prices not distinguished by this adapter"
+  ]
+}

@@ -1,5 +1,22 @@
 # Implementation Status
 
+## Phase 3G update (2026-11-04)
+
+Operational: decades of free daily history (^GSPC 99y, ^NDX 41y, ^TNX 64y, ^VIX
+37y, ETFs and futures proxies) with raw/normalized/manifest provenance and
+cross-source validation. Official BLS API verified. Provider registry records
+access class and credential requirements without exposing secrets.
+
+Research-only: calendar seasonality with year-block intervals and FDR; historical
+analogue search; price-level reaction database; decades-long expanding
+walk-forward. Daily direction AUC is 0.498–0.508 and decays by decade; analogues
+add no value; level-touch rates are strongly distance-dependent. All remain
+`NO_PROMOTION`; every forecast remains `NO_TRADE`.
+
+Blocked/unfinished: licensed contract-level intraday history, ticks/depth/MBO,
+PIT macro consensus/news, Nasdaq Data Link and Bloomberg (no entitlement), and a
+genuinely independent future holdout.
+
 ## Phase 3F update (2026-11-03)
 
 Direction diagnostics: material-move detection works (AUC ≈ 0.70), directional

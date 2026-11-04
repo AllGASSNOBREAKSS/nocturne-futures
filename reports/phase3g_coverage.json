@@ -1,0 +1,192 @@
+{
+  "provider": "yahoo_public_unofficial",
+  "datasets": {
+    "^NDX": {
+      "name": "Nasdaq-100 index",
+      "kind": "index",
+      "rows": 10353,
+      "first": "1985-10-01",
+      "last": "2026-11-03",
+      "span_years": 41.09,
+      "duplicate_dates": 0,
+      "null_close": 0,
+      "nonpositive_close": 0,
+      "zero_volume_rows": 0,
+      "gaps_over_10_days": 0,
+      "median_gap_days": 1.0
+    },
+    "^GSPC": {
+      "name": "S&P 500 index",
+      "kind": "index",
+      "rows": 24828,
+      "first": "1927-12-30",
+      "last": "2026-11-03",
+      "span_years": 98.84,
+      "duplicate_dates": 0,
+      "null_close": 0,
+      "nonpositive_close": 0,
+      "zero_volume_rows": 5497,
+      "gaps_over_10_days": 1,
+      "median_gap_days": 1.0
+    },
+    "^VIX": {
+      "name": "CBOE VIX index (spot proxy)",
+      "kind": "volatility_index",
+      "rows": 9280,
+      "first": "1990-01-02",
+      "last": "2026-11-03",
+      "span_years": 36.84,
+      "duplicate_dates": 0,
+      "null_close": 0,
+      "nonpositive_close": 0,
+      "zero_volume_rows": 9280,
+      "gaps_over_10_days": 0,
+      "median_gap_days": 1.0
+    },
+    "QQQ": {
+      "name": "Invesco QQQ ETF",
+      "kind": "etf",
+      "rows": 6956,
+      "first": "1999-03-10",
+      "last": "2026-11-02",
+      "span_years": 27.65,
+      "duplicate_dates": 0,
+      "null_close": 0,
+      "nonpositive_close": 0,
+      "zero_volume_rows": 0,
+      "gaps_over_10_days": 0,
+      "median_gap_days": 1.0
+    },
+    "SPY": {
+      "name": "SPDR S&P 500 ETF",
+      "kind": "etf",
+      "rows": 8498,
+      "first": "1993-01-29",
+      "last": "2026-11-02",
+      "span_years": 33.76,
+      "duplicate_dates": 0,
+      "null_close": 0,
+      "nonpositive_close": 0,
+      "zero_volume_rows": 0,
+      "gaps_over_10_days": 0,
+      "median_gap_days": 1.0
+    },
+    "^TNX": {
+      "name": "10-year Treasury yield index (x10)",
+      "kind": "rate_index",
+      "rows": 16198,
+      "first": "1962-01-02",
+      "last": "2026-11-03",
+      "span_years": 64.84,
+      "duplicate_dates": 0,
+      "null_close": 0,
+      "nonpositive_close": 0,
+      "zero_volume_rows": 16156,
+      "gaps_over_10_days": 0,
+      "median_gap_days": 1.0
+    },
+    "TLT": {
+      "name": "iShares 20+ year Treasury ETF",
+      "kind": "etf",
+      "rows": 6105,
+      "first": "2002-07-30",
+      "last": "2026-11-02",
+      "span_years": 24.26,
+      "duplicate_dates": 0,
+      "null_close": 0,
+      "nonpositive_close": 0,
+      "zero_volume_rows": 0,
+      "gaps_over_10_days": 0,
+      "median_gap_days": 1.0
+    },
+    "NQ=F": {
+      "name": "Nasdaq-100 futures continuous front month",
+      "kind": "futures_proxy",
+      "rows": 6573,
+      "first": "2000-09-18",
+      "last": "2026-11-04",
+      "span_years": 26.13,
+      "duplicate_dates": 0,
+      "null_close": 0,
+      "nonpositive_close": 0,
+      "zero_volume_rows": 11,
+      "gaps_over_10_days": 0,
+      "median_gap_days": 1.0
+    },
+    "ES=F": {
+      "name": "S&P 500 futures continuous front month",
+      "kind": "futures_proxy",
+      "rows": 6587,
+      "first": "2000-09-18",
+      "last": "2026-11-04",
+      "span_years": 26.13,
+      "duplicate_dates": 0,
+      "null_close": 0,
+      "nonpositive_close": 0,
+      "zero_volume_rows": 11,
+      "gaps_over_10_days": 0,
+      "median_gap_days": 1.0
+    }
+  },
+  "cross_checks": [
+    {
+      "pair": "NDX vs QQQ",
+      "overlap_days": 6955,
+      "return_correlation": 0.9803,
+      "first": "1999-03-11",
+      "last": "2026-11-02"
+    },
+    {
+      "pair": "GSPC vs SPY",
+      "overlap_days": 8497,
+      "return_correlation": 0.9835,
+      "first": "1993-02-01",
+      "last": "2026-11-02"
+    },
+    {
+      "pair": "NQ proxy vs ES proxy",
+      "overlap_days": 6565,
+      "return_correlation": 0.8672,
+      "first": "2000-09-19",
+      "last": "2026-11-04"
+    },
+    {
+      "pair": "TNX vs FRED DGS10",
+      "overlap_days": 10201,
+      "mean_absolute_difference_pct_points": 0.0102,
+      "max_absolute_difference_pct_points": 0.109,
+      "note": "both quoted in percent; differences reflect timing and rounding"
+    },
+    {
+      "pair": "NQ proxy vs cached NQ daily",
+      "overlap_days": 3774,
+      "return_correlation": 0.9999,
+      "first": "2011-10-28",
+      "last": "2026-11-02"
+    }
+  ],
+  "separation": {
+    "index_levels": [
+      "^NDX",
+      "^GSPC",
+      "^VIX"
+    ],
+    "etfs": [
+      "QQQ",
+      "SPY",
+      "TLT"
+    ],
+    "futures_proxies": [
+      "NQ=F",
+      "ES=F"
+    ],
+    "rates": [
+      "^TNX"
+    ]
+  },
+  "notes": [
+    "Index levels and ETFs are context, not tradable futures.",
+    "Continuous futures proxies are unverified roll mappings and are never used as raw contracts.",
+    "Availability is the next UTC midnight after the session date."
+  ]
+}

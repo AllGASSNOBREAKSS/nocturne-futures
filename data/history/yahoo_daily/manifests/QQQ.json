@@ -1,0 +1,26 @@
+{
+  "symbol": "QQQ",
+  "name": "Invesco QQQ ETF",
+  "kind": "etf",
+  "provider": "yahoo_public_unofficial",
+  "frequency": "1d",
+  "license_scope": "public_research_unofficial",
+  "raw_sha256": "c37bc6db85710cde042684a5116f239ac77db189a278e41402c649c8a197faa8",
+  "normalized_sha256": "66a8dc0ed31b1b97c1ca45f4d696f0f12c89008ece2622936dad4c0c1d744ef4",
+  "rows": 6956,
+  "first": "1999-03-10",
+  "last": "2026-11-02",
+  "span_years": 27.65,
+  "zero_volume_rows": 0,
+  "dropped_invalid_or_missing_bars": 1,
+  "gap_days_median": 1.0,
+  "gaps_over_5_days": 1,
+  "received_at": "2026-11-04T02:00:39.770849+00:00",
+  "availability": "next UTC midnight after the session date",
+  "known_limitations": [
+    "unofficial endpoint; not an exchange feed",
+    "index levels are not tradable",
+    "continuous futures proxies have unverified roll mapping",
+    "adjusted vs unadjusted prices not distinguished by this adapter"
+  ]
+}

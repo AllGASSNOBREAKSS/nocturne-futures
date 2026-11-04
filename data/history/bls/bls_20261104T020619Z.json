@@ -1,0 +1,1357 @@
+{
+  "series": [
+    "CUUR0000SA0",
+    "WPUFD4",
+    "CES0000000001",
+    "LNS14000000"
+  ],
+  "start_year": 2024,
+  "end_year": 2025,
+  "rows": [
+    {
+      "series": "CUUR0000SA0",
+      "description": "CPI-U all items, US city average, not seasonally adjusted",
+      "year": 2025,
+      "period": "M12",
+      "date": "2025-12-01",
+      "value": 324.054,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134659+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CUUR0000SA0",
+      "description": "CPI-U all items, US city average, not seasonally adjusted",
+      "year": 2025,
+      "period": "M11",
+      "date": "2025-11-01",
+      "value": 324.122,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134673+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CUUR0000SA0",
+      "description": "CPI-U all items, US city average, not seasonally adjusted",
+      "year": 2025,
+      "period": "M10",
+      "date": "2025-10-01",
+      "value": null,
+      "footnotes": [
+        "Data unavailable due to the 2025 lapse in appropriations"
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134680+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CUUR0000SA0",
+      "description": "CPI-U all items, US city average, not seasonally adjusted",
+      "year": 2025,
+      "period": "M09",
+      "date": "2025-09-01",
+      "value": 324.8,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134683+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CUUR0000SA0",
+      "description": "CPI-U all items, US city average, not seasonally adjusted",
+      "year": 2025,
+      "period": "M08",
+      "date": "2025-08-01",
+      "value": 323.976,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134686+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CUUR0000SA0",
+      "description": "CPI-U all items, US city average, not seasonally adjusted",
+      "year": 2025,
+      "period": "M07",
+      "date": "2025-07-01",
+      "value": 323.048,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134688+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CUUR0000SA0",
+      "description": "CPI-U all items, US city average, not seasonally adjusted",
+      "year": 2025,
+      "period": "M06",
+      "date": "2025-06-01",
+      "value": 322.561,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134691+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CUUR0000SA0",
+      "description": "CPI-U all items, US city average, not seasonally adjusted",
+      "year": 2025,
+      "period": "M05",
+      "date": "2025-05-01",
+      "value": 321.465,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134693+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CUUR0000SA0",
+      "description": "CPI-U all items, US city average, not seasonally adjusted",
+      "year": 2025,
+      "period": "M04",
+      "date": "2025-04-01",
+      "value": 320.795,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134695+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CUUR0000SA0",
+      "description": "CPI-U all items, US city average, not seasonally adjusted",
+      "year": 2025,
+      "period": "M03",
+      "date": "2025-03-01",
+      "value": 319.799,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134696+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CUUR0000SA0",
+      "description": "CPI-U all items, US city average, not seasonally adjusted",
+      "year": 2025,
+      "period": "M02",
+      "date": "2025-02-01",
+      "value": 319.082,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134699+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CUUR0000SA0",
+      "description": "CPI-U all items, US city average, not seasonally adjusted",
+      "year": 2025,
+      "period": "M01",
+      "date": "2025-01-01",
+      "value": 317.671,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134701+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CUUR0000SA0",
+      "description": "CPI-U all items, US city average, not seasonally adjusted",
+      "year": 2024,
+      "period": "M12",
+      "date": "2024-12-01",
+      "value": 315.605,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134703+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CUUR0000SA0",
+      "description": "CPI-U all items, US city average, not seasonally adjusted",
+      "year": 2024,
+      "period": "M11",
+      "date": "2024-11-01",
+      "value": 315.493,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134705+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CUUR0000SA0",
+      "description": "CPI-U all items, US city average, not seasonally adjusted",
+      "year": 2024,
+      "period": "M10",
+      "date": "2024-10-01",
+      "value": 315.664,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134708+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CUUR0000SA0",
+      "description": "CPI-U all items, US city average, not seasonally adjusted",
+      "year": 2024,
+      "period": "M09",
+      "date": "2024-09-01",
+      "value": 315.301,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134711+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CUUR0000SA0",
+      "description": "CPI-U all items, US city average, not seasonally adjusted",
+      "year": 2024,
+      "period": "M08",
+      "date": "2024-08-01",
+      "value": 314.796,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134713+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CUUR0000SA0",
+      "description": "CPI-U all items, US city average, not seasonally adjusted",
+      "year": 2024,
+      "period": "M07",
+      "date": "2024-07-01",
+      "value": 314.54,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134715+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CUUR0000SA0",
+      "description": "CPI-U all items, US city average, not seasonally adjusted",
+      "year": 2024,
+      "period": "M06",
+      "date": "2024-06-01",
+      "value": 314.175,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134718+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CUUR0000SA0",
+      "description": "CPI-U all items, US city average, not seasonally adjusted",
+      "year": 2024,
+      "period": "M05",
+      "date": "2024-05-01",
+      "value": 314.069,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134721+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CUUR0000SA0",
+      "description": "CPI-U all items, US city average, not seasonally adjusted",
+      "year": 2024,
+      "period": "M04",
+      "date": "2024-04-01",
+      "value": 313.548,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134723+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CUUR0000SA0",
+      "description": "CPI-U all items, US city average, not seasonally adjusted",
+      "year": 2024,
+      "period": "M03",
+      "date": "2024-03-01",
+      "value": 312.332,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134725+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CUUR0000SA0",
+      "description": "CPI-U all items, US city average, not seasonally adjusted",
+      "year": 2024,
+      "period": "M02",
+      "date": "2024-02-01",
+      "value": 310.326,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134727+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CUUR0000SA0",
+      "description": "CPI-U all items, US city average, not seasonally adjusted",
+      "year": 2024,
+      "period": "M01",
+      "date": "2024-01-01",
+      "value": 308.417,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134730+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "WPUFD4",
+      "description": "PPI final demand",
+      "year": 2025,
+      "period": "M12",
+      "date": "2025-12-01",
+      "value": 150.773,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134733+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "WPUFD4",
+      "description": "PPI final demand",
+      "year": 2025,
+      "period": "M11",
+      "date": "2025-11-01",
+      "value": 150.58,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134736+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "WPUFD4",
+      "description": "PPI final demand",
+      "year": 2025,
+      "period": "M10",
+      "date": "2025-10-01",
+      "value": 150.439,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134738+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "WPUFD4",
+      "description": "PPI final demand",
+      "year": 2025,
+      "period": "M09",
+      "date": "2025-09-01",
+      "value": 150.1,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134741+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "WPUFD4",
+      "description": "PPI final demand",
+      "year": 2025,
+      "period": "M08",
+      "date": "2025-08-01",
+      "value": 149.466,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134743+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "WPUFD4",
+      "description": "PPI final demand",
+      "year": 2025,
+      "period": "M07",
+      "date": "2025-07-01",
+      "value": 149.898,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134745+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "WPUFD4",
+      "description": "PPI final demand",
+      "year": 2025,
+      "period": "M06",
+      "date": "2025-06-01",
+      "value": 148.838,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134747+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "WPUFD4",
+      "description": "PPI final demand",
+      "year": 2025,
+      "period": "M05",
+      "date": "2025-05-01",
+      "value": 148.427,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134749+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "WPUFD4",
+      "description": "PPI final demand",
+      "year": 2025,
+      "period": "M04",
+      "date": "2025-04-01",
+      "value": 148.009,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134751+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "WPUFD4",
+      "description": "PPI final demand",
+      "year": 2025,
+      "period": "M03",
+      "date": "2025-03-01",
+      "value": 148.319,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134753+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "WPUFD4",
+      "description": "PPI final demand",
+      "year": 2025,
+      "period": "M02",
+      "date": "2025-02-01",
+      "value": 148.169,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134755+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "WPUFD4",
+      "description": "PPI final demand",
+      "year": 2025,
+      "period": "M01",
+      "date": "2025-01-01",
+      "value": 147.604,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134759+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "WPUFD4",
+      "description": "PPI final demand",
+      "year": 2024,
+      "period": "M12",
+      "date": "2024-12-01",
+      "value": 146.189,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134761+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "WPUFD4",
+      "description": "PPI final demand",
+      "year": 2024,
+      "period": "M11",
+      "date": "2024-11-01",
+      "value": 145.994,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134764+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "WPUFD4",
+      "description": "PPI final demand",
+      "year": 2024,
+      "period": "M10",
+      "date": "2024-10-01",
+      "value": 146.291,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134766+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "WPUFD4",
+      "description": "PPI final demand",
+      "year": 2024,
+      "period": "M09",
+      "date": "2024-09-01",
+      "value": 145.671,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134768+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "WPUFD4",
+      "description": "PPI final demand",
+      "year": 2024,
+      "period": "M08",
+      "date": "2024-08-01",
+      "value": 145.589,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134770+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "WPUFD4",
+      "description": "PPI final demand",
+      "year": 2024,
+      "period": "M07",
+      "date": "2024-07-01",
+      "value": 145.264,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134772+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "WPUFD4",
+      "description": "PPI final demand",
+      "year": 2024,
+      "period": "M06",
+      "date": "2024-06-01",
+      "value": 145.321,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134775+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "WPUFD4",
+      "description": "PPI final demand",
+      "year": 2024,
+      "period": "M05",
+      "date": "2024-05-01",
+      "value": 144.504,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134778+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "WPUFD4",
+      "description": "PPI final demand",
+      "year": 2024,
+      "period": "M04",
+      "date": "2024-04-01",
+      "value": 144.563,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134780+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "WPUFD4",
+      "description": "PPI final demand",
+      "year": 2024,
+      "period": "M03",
+      "date": "2024-03-01",
+      "value": 143.784,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134782+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "WPUFD4",
+      "description": "PPI final demand",
+      "year": 2024,
+      "period": "M02",
+      "date": "2024-02-01",
+      "value": 143.26,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134785+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "WPUFD4",
+      "description": "PPI final demand",
+      "year": 2024,
+      "period": "M01",
+      "date": "2024-01-01",
+      "value": 142.186,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134786+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CES0000000001",
+      "description": "Total nonfarm payrolls, seasonally adjusted",
+      "year": 2025,
+      "period": "M12",
+      "date": "2025-12-01",
+      "value": 158432.0,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134789+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CES0000000001",
+      "description": "Total nonfarm payrolls, seasonally adjusted",
+      "year": 2025,
+      "period": "M11",
+      "date": "2025-11-01",
+      "value": 158449.0,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134791+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CES0000000001",
+      "description": "Total nonfarm payrolls, seasonally adjusted",
+      "year": 2025,
+      "period": "M10",
+      "date": "2025-10-01",
+      "value": 158408.0,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134793+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CES0000000001",
+      "description": "Total nonfarm payrolls, seasonally adjusted",
+      "year": 2025,
+      "period": "M09",
+      "date": "2025-09-01",
+      "value": 158548.0,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134795+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CES0000000001",
+      "description": "Total nonfarm payrolls, seasonally adjusted",
+      "year": 2025,
+      "period": "M08",
+      "date": "2025-08-01",
+      "value": 158472.0,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134797+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CES0000000001",
+      "description": "Total nonfarm payrolls, seasonally adjusted",
+      "year": 2025,
+      "period": "M07",
+      "date": "2025-07-01",
+      "value": 158542.0,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134799+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CES0000000001",
+      "description": "Total nonfarm payrolls, seasonally adjusted",
+      "year": 2025,
+      "period": "M06",
+      "date": "2025-06-01",
+      "value": 158478.0,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134802+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CES0000000001",
+      "description": "Total nonfarm payrolls, seasonally adjusted",
+      "year": 2025,
+      "period": "M05",
+      "date": "2025-05-01",
+      "value": 158498.0,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134804+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CES0000000001",
+      "description": "Total nonfarm payrolls, seasonally adjusted",
+      "year": 2025,
+      "period": "M04",
+      "date": "2025-04-01",
+      "value": 158485.0,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134806+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CES0000000001",
+      "description": "Total nonfarm payrolls, seasonally adjusted",
+      "year": 2025,
+      "period": "M03",
+      "date": "2025-03-01",
+      "value": 158377.0,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134808+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CES0000000001",
+      "description": "Total nonfarm payrolls, seasonally adjusted",
+      "year": 2025,
+      "period": "M02",
+      "date": "2025-02-01",
+      "value": 158310.0,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134811+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CES0000000001",
+      "description": "Total nonfarm payrolls, seasonally adjusted",
+      "year": 2025,
+      "period": "M01",
+      "date": "2025-01-01",
+      "value": 158268.0,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134813+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CES0000000001",
+      "description": "Total nonfarm payrolls, seasonally adjusted",
+      "year": 2024,
+      "period": "M12",
+      "date": "2024-12-01",
+      "value": 158316.0,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134815+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CES0000000001",
+      "description": "Total nonfarm payrolls, seasonally adjusted",
+      "year": 2024,
+      "period": "M11",
+      "date": "2024-11-01",
+      "value": 158079.0,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134817+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CES0000000001",
+      "description": "Total nonfarm payrolls, seasonally adjusted",
+      "year": 2024,
+      "period": "M10",
+      "date": "2024-10-01",
+      "value": 157945.0,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134819+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CES0000000001",
+      "description": "Total nonfarm payrolls, seasonally adjusted",
+      "year": 2024,
+      "period": "M09",
+      "date": "2024-09-01",
+      "value": 157912.0,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134821+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CES0000000001",
+      "description": "Total nonfarm payrolls, seasonally adjusted",
+      "year": 2024,
+      "period": "M08",
+      "date": "2024-08-01",
+      "value": 157757.0,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134823+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CES0000000001",
+      "description": "Total nonfarm payrolls, seasonally adjusted",
+      "year": 2024,
+      "period": "M07",
+      "date": "2024-07-01",
+      "value": 157748.0,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134826+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CES0000000001",
+      "description": "Total nonfarm payrolls, seasonally adjusted",
+      "year": 2024,
+      "period": "M06",
+      "date": "2024-06-01",
+      "value": 157695.0,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134828+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CES0000000001",
+      "description": "Total nonfarm payrolls, seasonally adjusted",
+      "year": 2024,
+      "period": "M05",
+      "date": "2024-05-01",
+      "value": 157608.0,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134830+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CES0000000001",
+      "description": "Total nonfarm payrolls, seasonally adjusted",
+      "year": 2024,
+      "period": "M04",
+      "date": "2024-04-01",
+      "value": 157530.0,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134832+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CES0000000001",
+      "description": "Total nonfarm payrolls, seasonally adjusted",
+      "year": 2024,
+      "period": "M03",
+      "date": "2024-03-01",
+      "value": 157466.0,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134834+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CES0000000001",
+      "description": "Total nonfarm payrolls, seasonally adjusted",
+      "year": 2024,
+      "period": "M02",
+      "date": "2024-02-01",
+      "value": 157238.0,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134837+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "CES0000000001",
+      "description": "Total nonfarm payrolls, seasonally adjusted",
+      "year": 2024,
+      "period": "M01",
+      "date": "2024-01-01",
+      "value": 157032.0,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134839+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "LNS14000000",
+      "description": "Unemployment rate, seasonally adjusted",
+      "year": 2025,
+      "period": "M12",
+      "date": "2025-12-01",
+      "value": 4.4,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134841+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "LNS14000000",
+      "description": "Unemployment rate, seasonally adjusted",
+      "year": 2025,
+      "period": "M11",
+      "date": "2025-11-01",
+      "value": 4.5,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134843+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "LNS14000000",
+      "description": "Unemployment rate, seasonally adjusted",
+      "year": 2025,
+      "period": "M10",
+      "date": "2025-10-01",
+      "value": null,
+      "footnotes": [
+        "Data unavailable due to the 2025 lapse in appropriations."
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134848+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "LNS14000000",
+      "description": "Unemployment rate, seasonally adjusted",
+      "year": 2025,
+      "period": "M09",
+      "date": "2025-09-01",
+      "value": 4.4,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134850+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "LNS14000000",
+      "description": "Unemployment rate, seasonally adjusted",
+      "year": 2025,
+      "period": "M08",
+      "date": "2025-08-01",
+      "value": 4.3,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134852+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "LNS14000000",
+      "description": "Unemployment rate, seasonally adjusted",
+      "year": 2025,
+      "period": "M07",
+      "date": "2025-07-01",
+      "value": 4.3,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134855+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "LNS14000000",
+      "description": "Unemployment rate, seasonally adjusted",
+      "year": 2025,
+      "period": "M06",
+      "date": "2025-06-01",
+      "value": 4.1,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134857+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "LNS14000000",
+      "description": "Unemployment rate, seasonally adjusted",
+      "year": 2025,
+      "period": "M05",
+      "date": "2025-05-01",
+      "value": 4.3,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134859+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "LNS14000000",
+      "description": "Unemployment rate, seasonally adjusted",
+      "year": 2025,
+      "period": "M04",
+      "date": "2025-04-01",
+      "value": 4.2,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134860+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "LNS14000000",
+      "description": "Unemployment rate, seasonally adjusted",
+      "year": 2025,
+      "period": "M03",
+      "date": "2025-03-01",
+      "value": 4.2,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134864+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "LNS14000000",
+      "description": "Unemployment rate, seasonally adjusted",
+      "year": 2025,
+      "period": "M02",
+      "date": "2025-02-01",
+      "value": 4.2,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134866+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "LNS14000000",
+      "description": "Unemployment rate, seasonally adjusted",
+      "year": 2025,
+      "period": "M01",
+      "date": "2025-01-01",
+      "value": 4.0,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134868+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "LNS14000000",
+      "description": "Unemployment rate, seasonally adjusted",
+      "year": 2024,
+      "period": "M12",
+      "date": "2024-12-01",
+      "value": 4.1,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134870+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "LNS14000000",
+      "description": "Unemployment rate, seasonally adjusted",
+      "year": 2024,
+      "period": "M11",
+      "date": "2024-11-01",
+      "value": 4.2,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134872+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "LNS14000000",
+      "description": "Unemployment rate, seasonally adjusted",
+      "year": 2024,
+      "period": "M10",
+      "date": "2024-10-01",
+      "value": 4.1,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134874+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "LNS14000000",
+      "description": "Unemployment rate, seasonally adjusted",
+      "year": 2024,
+      "period": "M09",
+      "date": "2024-09-01",
+      "value": 4.1,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134876+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "LNS14000000",
+      "description": "Unemployment rate, seasonally adjusted",
+      "year": 2024,
+      "period": "M08",
+      "date": "2024-08-01",
+      "value": 4.2,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134878+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "LNS14000000",
+      "description": "Unemployment rate, seasonally adjusted",
+      "year": 2024,
+      "period": "M07",
+      "date": "2024-07-01",
+      "value": 4.2,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134880+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "LNS14000000",
+      "description": "Unemployment rate, seasonally adjusted",
+      "year": 2024,
+      "period": "M06",
+      "date": "2024-06-01",
+      "value": 4.1,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134882+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "LNS14000000",
+      "description": "Unemployment rate, seasonally adjusted",
+      "year": 2024,
+      "period": "M05",
+      "date": "2024-05-01",
+      "value": 3.9,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134884+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "LNS14000000",
+      "description": "Unemployment rate, seasonally adjusted",
+      "year": 2024,
+      "period": "M04",
+      "date": "2024-04-01",
+      "value": 3.9,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134887+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "LNS14000000",
+      "description": "Unemployment rate, seasonally adjusted",
+      "year": 2024,
+      "period": "M03",
+      "date": "2024-03-01",
+      "value": 3.9,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134893+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "LNS14000000",
+      "description": "Unemployment rate, seasonally adjusted",
+      "year": 2024,
+      "period": "M02",
+      "date": "2024-02-01",
+      "value": 3.9,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134895+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    },
+    {
+      "series": "LNS14000000",
+      "description": "Unemployment rate, seasonally adjusted",
+      "year": 2024,
+      "period": "M01",
+      "date": "2024-01-01",
+      "value": 3.7,
+      "footnotes": [
+        null
+      ],
+      "retrieved_at": "2026-11-04T02:06:19.134897+00:00",
+      "availability_precision": "monthly_period_not_release_timestamp",
+      "point_in_time_eligible": false
+    }
+  ],
+  "latest": []
+}
