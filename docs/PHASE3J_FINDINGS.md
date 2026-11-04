@@ -128,6 +128,12 @@ passed. Added tests cover deduplication/recovery/recurrence, stale/future status
 provider failures, missed deadlines, overdue horizons, read-only assessment,
 exception sanitization/lock release and per-forecast evaluation eligibility.
 Windows CI also dry-runs the unattended definition without registering a task.
+Code commit `68424a9` passed all four CI jobs:
+https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/41778105510
+The installed interactive task subsequently ran at 05:17 UTC with exit 1 for
+the real audit block; repeated monitoring retained two open alerts without
+duplicating their OPEN transitions. Runtime report updates are normal during
+continuous operation and do not modify the original forecast journal.
 
 Databento/FRED/BLS keys remain absent (presence checked without printing values).
 Licensed NQ/ES history, trades/quotes/depth and authorized PIT calendars/news remain

@@ -8,6 +8,14 @@ verification: **253 passed including C++ parity**, TypeScript typecheck and both
 interactive/unattended task-definition dry runs passed. Inspect this branch's
 own CI result rather than using prior CI as evidence.
 
+Code commit `68424a9` is pushed and passed all four CI jobs (Python, TypeScript,
+native and Windows shadow/unattended-definition dry run):
+https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/41778105510
+The installed interactive task actually ran at 2026-11-04 05:17 UTC and returned
+exit 1 for the persisting reference-close audit block. Its refreshed reports and
+deduplicated open alerts are checkpointed separately; this is observed failure
+handling, not a matured outcome or proof of unattended-after-logout operation.
+
 Forward state: **1 issued / 0 matured / 1 pending / 0 missed**. Original journal
 hash and model artifacts unchanged. Real refresh at ~05:07 UTC still ends
 November 3. November 4 has not opened; do not invent an outcome.

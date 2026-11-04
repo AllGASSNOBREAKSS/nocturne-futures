@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T05:11:48.354771+00:00",
+  "generated_at": "2026-11-04T05:17:08.640457+00:00",
   "model_id": "ndx-range-v1",
   "model_version": "1.0.0",
   "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
@@ -90,7 +90,7 @@
       "RECENT_DATA_QUALITY_FAILURES"
     ],
     "last_run": "2026-11-04T04:51:32.737231+00:00",
-    "age_hours": 0.3376715388888889,
+    "age_hours": 0.426639785,
     "forecasts": 1,
     "matured": 0,
     "pending": 1,
@@ -171,7 +171,7 @@
         "dropped_invalid_or_missing_bars": 0,
         "gap_days_median": 1.0,
         "gaps_over_5_days": 1,
-        "received_at": "2026-11-04T05:11:48.023397+00:00",
+        "received_at": "2026-11-04T05:17:08.257282+00:00",
         "availability": "next UTC midnight after the session date",
         "known_limitations": [
           "unofficial endpoint; not an exchange feed",
@@ -197,7 +197,7 @@
         "dropped_invalid_or_missing_bars": 331,
         "gap_days_median": 1.0,
         "gaps_over_5_days": 1,
-        "received_at": "2026-11-04T05:11:48.352888+00:00",
+        "received_at": "2026-11-04T05:17:08.637492+00:00",
         "availability": "next UTC midnight after the session date",
         "known_limitations": [
           "unofficial endpoint; not an exchange feed",

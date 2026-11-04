@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T05:14:26.247955+00:00",
+  "generated_at": "2026-11-04T05:17:13.568940+00:00",
   "status": "degraded",
   "issues": {
     "CYCLE_UNHEALTHY": {
@@ -23,7 +23,7 @@
       "RECENT_DATA_QUALITY_FAILURES"
     ],
     "last_run": "2026-11-04T04:51:32.737231+00:00",
-    "age_hours": 0.38153075666666664,
+    "age_hours": 0.4280088080555556,
     "forecasts": 1,
     "matured": 0,
     "pending": 1,
