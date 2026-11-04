@@ -39,7 +39,8 @@ class ForecastService:
         if directory.exists():
             for path in sorted(directory.glob("*/metadata.json")):
                 models.append(json.loads(path.read_text(encoding="utf-8")))
-        return {"models": models, "latest": latest_model_id(directory)}
+        from ..ml.status import governance
+        return {"models": models, "latest": latest_model_id(directory), "governance": governance()}
 
     def levels(self, instrument_id: str) -> dict:
         path = self.forecast_root / f"{instrument_id.upper()}_levels.json"

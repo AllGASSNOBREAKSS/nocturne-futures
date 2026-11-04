@@ -31,7 +31,7 @@ python scripts/phase3h_freeze_model.py     # must reproduce the holdout within 1
 python scripts/phase3h_shadow.py --once
 python scripts/phase3h_shadow.py --loop --interval-minutes 60 --refresh
 python scripts/phase3h_shadow_report.py
-$env:PYTHONPATH='D:\nocturne-futures\native\build'; python -m pytest
+$env:PYTHONPATH='D:\nocturne-futures\native\build'; python -m pytest   # 212 passed
 ```
 
 Operational market cache `data/shadow/market/` is gitignored so frozen research

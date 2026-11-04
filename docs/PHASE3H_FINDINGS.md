@@ -118,6 +118,11 @@ Read-only endpoints, added without changing existing contracts:
 | `GET /v1/shadow/evaluation` | Matured-only metrics |
 | `GET /v1/data/health` | Provider status, source coverage, last run, warnings |
 
+`GET /v1/models/status` now also returns a `governance` block: every model's
+validation status, horizon, data requirement, evidence and `trading_enabled`
+flag. The registry raises if any model attempts to enable trading, and a test
+enforces that only `ndx-range-v1` is shadow-active.
+
 All responses keep `trading_decision=NO_TRADE` and the model's research status
 separate from trading eligibility.
 
@@ -157,7 +162,7 @@ model families.
 | Licensed futures data | `DATA_BLOCKED` |
 | Trading | Disabled (`NO_TRADE`) |
 
-Tests: 208 passed with the native C++ module enabled. CI status is recorded after
+Tests: 212 passed with the native C++ module enabled. CI status is recorded after
 pushing.
 
 Next: let the 2026-11-04 forecast mature, run `--evaluate-only`, and accumulate at
