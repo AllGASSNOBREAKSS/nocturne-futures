@@ -26,6 +26,7 @@ from ..price_levels.reachability import estimate_touch_probability
 from ..regime import classify_regime
 from ..research.range_model import expected_range
 from ..sessions import SessionSnapshot, session_snapshot, session_window_for
+from ..research.session_range import load_calibration
 from .v1 import ForecastTarget
 
 FORECAST_DIR = ROOT / "data" / "forecasts"
@@ -120,12 +121,18 @@ def _session_range_history(bars, spec, session, asof):
     if len(values) < 20:
         return None
     values = np.asarray(values)
+    calibration = load_calibration(ROOT / "data" / "calibration")
+    evidence = None
+    if calibration:
+        evidence = calibration.get("instruments", {}).get(spec.instrument_id, {}).get(session)
     return {"event": "full_analytical_session_high_minus_low", "session": session,
             "method": "unconditional_complete_same_session_empirical", "validation_status": "research_only",
             "sample_n": len(values), "p50": float(np.quantile(values, .5)),
             "p80": float(np.quantile(values, .8)), "p90": float(np.quantile(values, .9)),
             "p_ge_200": float((values >= 200).mean()), "p_ge_350": float((values >= 350).mean()),
-            "p_ge_500": float((values >= 500).mean()), "asof": asof.isoformat()}
+            "p_ge_500": float((values >= 500).mean()), "asof": asof.isoformat(),
+            "calibration": evidence,
+            "calibration_interpretation": "expanding out-of-sample coverage on the same cache; small samples"}
 
 
 def _outlook(

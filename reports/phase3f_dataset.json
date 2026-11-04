@@ -1,0 +1,33 @@
+{
+  "purpose": "additive diagnostic columns only",
+  "instruments": {
+    "NQ": {
+      "rows": 10344,
+      "labels_unchanged": true,
+      "source_sha256": "99c574d26baef1f11a42d2b2301ff612073c73cdce81bf8d420fbc900b4d479a",
+      "dataset_sha256": "e736ea0b7ed1711812c3b2c0479286d036e4c5366edcc967dfefa0dfda009b07",
+      "neutral_share": 0.6421113689095128,
+      "added_columns": [
+        "close",
+        "atr_points",
+        "threshold_points",
+        "move_points",
+        "move_atr"
+      ]
+    },
+    "ES": {
+      "rows": 10336,
+      "labels_unchanged": true,
+      "source_sha256": "f788e3ff79ca1582c5d419cd3fd7940d2bc91dec39c187f559bff4c43aba6569",
+      "dataset_sha256": "e08ad11238562c29e0484143c5d9236313a2e4316fbc49c4123bcc50b9176736",
+      "neutral_share": 0.6415441176470589,
+      "added_columns": [
+        "close",
+        "atr_points",
+        "threshold_points",
+        "move_points",
+        "move_atr"
+      ]
+    }
+  }
+}

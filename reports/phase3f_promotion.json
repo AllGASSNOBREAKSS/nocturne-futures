@@ -1,0 +1,351 @@
+{
+  "NQ_direction_logistic_three_class_raw_calibrated": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "BASELINE_IMPROVEMENT_UNCERTAIN"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "two_contiguous_future_hours"
+    ]
+  },
+  "NQ_direction_logistic_three_class_vector_scaled": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "BASELINE_IMPROVEMENT_UNCERTAIN"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "two_contiguous_future_hours"
+    ]
+  },
+  "NQ_direction_logistic_hierarchical": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "BASELINE_IMPROVEMENT_UNCERTAIN",
+      "CALIBRATION_GATE_FAILED"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "two_contiguous_future_hours"
+    ]
+  },
+  "NQ_direction_lightgbm_three_class_raw_calibrated": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "BASELINE_IMPROVEMENT_UNCERTAIN"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "two_contiguous_future_hours"
+    ]
+  },
+  "NQ_direction_lightgbm_three_class_vector_scaled": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "BASELINE_IMPROVEMENT_UNCERTAIN"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "two_contiguous_future_hours"
+    ]
+  },
+  "NQ_direction_lightgbm_hierarchical": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "BASELINE_IMPROVEMENT_UNCERTAIN",
+      "CALIBRATION_GATE_FAILED"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "two_contiguous_future_hours"
+    ]
+  },
+  "ES_direction_logistic_three_class_raw_calibrated": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "BASELINE_IMPROVEMENT_UNCERTAIN"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "two_contiguous_future_hours"
+    ]
+  },
+  "ES_direction_logistic_three_class_vector_scaled": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "BASELINE_IMPROVEMENT_UNCERTAIN"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "two_contiguous_future_hours"
+    ]
+  },
+  "ES_direction_logistic_hierarchical": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "BASELINE_IMPROVEMENT_UNCERTAIN",
+      "CALIBRATION_GATE_FAILED"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "two_contiguous_future_hours"
+    ]
+  },
+  "ES_direction_lightgbm_three_class_raw_calibrated": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "BASELINE_IMPROVEMENT_UNCERTAIN"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "two_contiguous_future_hours"
+    ]
+  },
+  "ES_direction_lightgbm_three_class_vector_scaled": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "BASELINE_IMPROVEMENT_UNCERTAIN"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "two_contiguous_future_hours"
+    ]
+  },
+  "ES_direction_lightgbm_hierarchical": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "BASELINE_IMPROVEMENT_UNCERTAIN",
+      "CALIBRATION_GATE_FAILED"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "two_contiguous_future_hours"
+    ]
+  },
+  "NQ_target_survival_freq": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "BASELINE_IMPROVEMENT_UNCERTAIN",
+      "AUC_GATE_FAILED"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "24_5m_bars"
+    ]
+  },
+  "NQ_target_survival_logistic": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "BASELINE_IMPROVEMENT_UNCERTAIN",
+      "CALIBRATION_GATE_FAILED"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "24_5m_bars"
+    ]
+  },
+  "NQ_target_survival_lightgbm": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "BASELINE_IMPROVEMENT_UNCERTAIN",
+      "CALIBRATION_GATE_FAILED"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "24_5m_bars"
+    ]
+  },
+  "NQ_range_rolling_residual_one_day_gap_0.5": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "CALIBRATION_GATE_FAILED",
+      "AUC_GATE_FAILED"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "two_contiguous_future_hours"
+    ]
+  },
+  "NQ_range_rolling_residual_one_day_gap_0.8": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "CALIBRATION_GATE_FAILED",
+      "AUC_GATE_FAILED"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "two_contiguous_future_hours"
+    ]
+  },
+  "NQ_range_rolling_residual_one_day_gap_0.9": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "CALIBRATION_GATE_FAILED",
+      "AUC_GATE_FAILED"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "two_contiguous_future_hours"
+    ]
+  },
+  "ES_range_rolling_residual_one_day_gap_0.5": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "CALIBRATION_GATE_FAILED",
+      "AUC_GATE_FAILED"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "two_contiguous_future_hours"
+    ]
+  },
+  "ES_range_rolling_residual_one_day_gap_0.8": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "CALIBRATION_GATE_FAILED",
+      "AUC_GATE_FAILED"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "two_contiguous_future_hours"
+    ]
+  },
+  "ES_range_rolling_residual_one_day_gap_0.9": {
+    "decision": "NO_PROMOTION",
+    "reasons": [
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "SAMPLE_ADEQUACY_AUDITED_MISSING",
+      "POINT_IN_TIME_PROVENANCE_MISSING",
+      "REGIME_STABILITY_AUDITED_MISSING",
+      "CLASS_QUALITY_AUDITED_MISSING",
+      "ROLLBACK_REFERENCE_MISSING",
+      "CALIBRATION_GATE_FAILED",
+      "AUC_GATE_FAILED"
+    ],
+    "automatic_activation": false,
+    "supported_horizons": [
+      "two_contiguous_future_hours"
+    ]
+  }
+}

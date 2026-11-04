@@ -1,0 +1,299 @@
+{
+  "decision": "NO_PROMOTION",
+  "holdout_scored": false,
+  "protocol": "phase3f-session-range-v1",
+  "event": "complete analytical session high minus low",
+  "methods": "expanding empirical quantiles, no same-day peeking",
+  "instruments": {
+    "NQ": {
+      "source": {
+        "instrument": "NQ",
+        "interval": "5m",
+        "rows": 13566,
+        "first": "2026-08-25 04:05:00+00:00",
+        "last": "2026-11-03 20:23:59+00:00",
+        "source": "yahoo_public_unofficial",
+        "sha256": "ab0c21a68df27d4e1a4985d9c5b4c700f219d7135d814b7288d6e9df5a624952",
+        "fetched_at": "2026-11-03T20:34:04.244691+00:00"
+      },
+      "sessions": {
+        "ASIA": {
+          "status": "INSUFFICIENT_COMPLETE_SESSIONS",
+          "complete_sessions": 9
+        },
+        "LONDON": {
+          "status": "RESEARCH_ONLY",
+          "complete_sessions": 45,
+          "date_range": [
+            "2026-08-25",
+            "2026-11-03"
+          ],
+          "unconditional": {
+            "0.5": 171.5,
+            "0.8": 213.9,
+            "0.9": 263.85
+          },
+          "expanding_backtest": {
+            "0.5": {
+              "n": 25,
+              "pinball_loss": 23.33,
+              "coverage": 0.44,
+              "median_predicted": 168.75,
+              "mean_actual": 182.63
+            },
+            "0.8": {
+              "n": 25,
+              "pinball_loss": 19.688,
+              "coverage": 0.76,
+              "median_predicted": 213.9,
+              "mean_actual": 182.63
+            },
+            "0.9": {
+              "n": 25,
+              "pinball_loss": 13.145999999999994,
+              "coverage": 0.84,
+              "median_predicted": 260.475,
+              "mean_actual": 182.63
+            }
+          },
+          "raw_range_quantiles": {
+            "0.5": 171.5,
+            "0.8": 213.9,
+            "0.9": 263.85
+          },
+          "event": "full_session_high_minus_low"
+        },
+        "NEW_YORK": {
+          "status": "RESEARCH_ONLY",
+          "complete_sessions": 48,
+          "date_range": [
+            "2026-08-25",
+            "2026-11-02"
+          ],
+          "unconditional": {
+            "0.5": 298.25,
+            "0.8": 460.7500000000001,
+            "0.9": 579.25
+          },
+          "expanding_backtest": {
+            "0.5": {
+              "n": 28,
+              "pinball_loss": 66.98660714285714,
+              "coverage": 0.32142857142857145,
+              "median_predicted": 278.5,
+              "mean_actual": 376.57142857142856
+            },
+            "0.8": {
+              "n": 28,
+              "pinball_loss": 63.90464285714287,
+              "coverage": 0.7142857142857143,
+              "median_predicted": 376.20000000000005,
+              "mean_actual": 376.57142857142856
+            },
+            "0.9": {
+              "n": 28,
+              "pinball_loss": 39.99482142857143,
+              "coverage": 0.8214285714285714,
+              "median_predicted": 492.03750000000014,
+              "mean_actual": 376.57142857142856
+            }
+          },
+          "raw_range_quantiles": {
+            "0.5": 298.25,
+            "0.8": 460.7500000000001,
+            "0.9": 579.25
+          },
+          "event": "full_session_high_minus_low"
+        },
+        "NEXT_DAY": {
+          "status": "RESEARCH_ONLY",
+          "complete_sessions": 48,
+          "date_range": [
+            "2026-08-25",
+            "2026-11-02"
+          ],
+          "unconditional": {
+            "0.5": 298.25,
+            "0.8": 460.7500000000001,
+            "0.9": 579.25
+          },
+          "expanding_backtest": {
+            "0.5": {
+              "n": 28,
+              "pinball_loss": 66.98660714285714,
+              "coverage": 0.32142857142857145,
+              "median_predicted": 278.5,
+              "mean_actual": 376.57142857142856
+            },
+            "0.8": {
+              "n": 28,
+              "pinball_loss": 63.90464285714287,
+              "coverage": 0.7142857142857143,
+              "median_predicted": 376.20000000000005,
+              "mean_actual": 376.57142857142856
+            },
+            "0.9": {
+              "n": 28,
+              "pinball_loss": 39.99482142857143,
+              "coverage": 0.8214285714285714,
+              "median_predicted": 492.03750000000014,
+              "mean_actual": 376.57142857142856
+            }
+          },
+          "raw_range_quantiles": {
+            "0.5": 298.25,
+            "0.8": 460.7500000000001,
+            "0.9": 579.25
+          },
+          "event": "next_complete_rth_session_high_minus_low",
+          "note": "same complete-window distribution with a one-session forecast lead"
+        }
+      }
+    },
+    "ES": {
+      "source": {
+        "instrument": "ES",
+        "interval": "5m",
+        "rows": 13567,
+        "first": "2026-08-25 04:05:00+00:00",
+        "last": "2026-11-03 20:24:07+00:00",
+        "source": "yahoo_public_unofficial",
+        "sha256": "ab26cc443615c2a15f08d36d23dbb720d0cc2abef4d947bd7eaa5b80433a9909",
+        "fetched_at": "2026-11-03T20:34:08.038052+00:00"
+      },
+      "sessions": {
+        "ASIA": {
+          "status": "INSUFFICIENT_COMPLETE_SESSIONS",
+          "complete_sessions": 9
+        },
+        "LONDON": {
+          "status": "RESEARCH_ONLY",
+          "complete_sessions": 44,
+          "date_range": [
+            "2026-08-25",
+            "2026-11-03"
+          ],
+          "unconditional": {
+            "0.5": 26.375,
+            "0.8": 34.5,
+            "0.9": 41.275000000000006
+          },
+          "expanding_backtest": {
+            "0.5": {
+              "n": 24,
+              "pinball_loss": 3.6354166666666665,
+              "coverage": 0.5416666666666666,
+              "median_predicted": 27.5625,
+              "mean_actual": 27.229166666666668
+            },
+            "0.8": {
+              "n": 24,
+              "pinball_loss": 2.8037499999999995,
+              "coverage": 0.8333333333333334,
+              "median_predicted": 34.900000000000006,
+              "mean_actual": 27.229166666666668
+            },
+            "0.9": {
+              "n": 24,
+              "pinball_loss": 1.8113541666666666,
+              "coverage": 0.9166666666666666,
+              "median_predicted": 41.5375,
+              "mean_actual": 27.229166666666668
+            }
+          },
+          "raw_range_quantiles": {
+            "0.5": 26.375,
+            "0.8": 34.5,
+            "0.9": 41.275000000000006
+          },
+          "event": "full_session_high_minus_low"
+        },
+        "NEW_YORK": {
+          "status": "RESEARCH_ONLY",
+          "complete_sessions": 48,
+          "date_range": [
+            "2026-08-25",
+            "2026-11-02"
+          ],
+          "unconditional": {
+            "0.5": 52.5,
+            "0.8": 70.15,
+            "0.9": 91.32500000000003
+          },
+          "expanding_backtest": {
+            "0.5": {
+              "n": 28,
+              "pinball_loss": 10.321428571428571,
+              "coverage": 0.35714285714285715,
+              "median_predicted": 48.25,
+              "mean_actual": 62.392857142857146
+            },
+            "0.8": {
+              "n": 28,
+              "pinball_loss": 7.57,
+              "coverage": 0.6785714285714286,
+              "median_predicted": 68.5,
+              "mean_actual": 62.392857142857146
+            },
+            "0.9": {
+              "n": 28,
+              "pinball_loss": 5.840178571428572,
+              "coverage": 0.8571428571428571,
+              "median_predicted": 85.825,
+              "mean_actual": 62.392857142857146
+            }
+          },
+          "raw_range_quantiles": {
+            "0.5": 52.5,
+            "0.8": 70.15,
+            "0.9": 91.32500000000003
+          },
+          "event": "full_session_high_minus_low"
+        },
+        "NEXT_DAY": {
+          "status": "RESEARCH_ONLY",
+          "complete_sessions": 48,
+          "date_range": [
+            "2026-08-25",
+            "2026-11-02"
+          ],
+          "unconditional": {
+            "0.5": 52.5,
+            "0.8": 70.15,
+            "0.9": 91.32500000000003
+          },
+          "expanding_backtest": {
+            "0.5": {
+              "n": 28,
+              "pinball_loss": 10.321428571428571,
+              "coverage": 0.35714285714285715,
+              "median_predicted": 48.25,
+              "mean_actual": 62.392857142857146
+            },
+            "0.8": {
+              "n": 28,
+              "pinball_loss": 7.57,
+              "coverage": 0.6785714285714286,
+              "median_predicted": 68.5,
+              "mean_actual": 62.392857142857146
+            },
+            "0.9": {
+              "n": 28,
+              "pinball_loss": 5.840178571428572,
+              "coverage": 0.8571428571428571,
+              "median_predicted": 85.825,
+              "mean_actual": 62.392857142857146
+            }
+          },
+          "raw_range_quantiles": {
+            "0.5": 52.5,
+            "0.8": 70.15,
+            "0.9": 91.32500000000003
+          },
+          "event": "next_complete_rth_session_high_minus_low",
+          "note": "same complete-window distribution with a one-session forecast lead"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,719 @@
+{
+  "decision": "NO_PROMOTION",
+  "method": "equal-weight average of calibrated probabilities",
+  "rationale": "declared before evaluation; no weights fitted, no strategy confluence",
+  "instruments": {
+    "NQ": {
+      "n": 6786,
+      "summary": {
+        "logistic": {
+          "metrics": {
+            "n": 6786,
+            "log_loss": 0.850086,
+            "brier": 0.488603,
+            "accuracy": 0.6435,
+            "ece": 0.023965,
+            "confusion": [
+              [
+                3,
+                1109,
+                36
+              ],
+              [
+                2,
+                4320,
+                53
+              ],
+              [
+                6,
+                1213,
+                44
+              ]
+            ],
+            "per_class_recall": {
+              "BEAR": 0.0026,
+              "NEUTRAL": 0.9874,
+              "BULL": 0.0348
+            },
+            "balanced_accuracy": 0.34160000000000007,
+            "material": {
+              "n": 6786,
+              "base_rate": 0.3553,
+              "brier": 0.206863,
+              "log_loss": 0.60163,
+              "accuracy": 0.6693,
+              "precision": 0.567,
+              "recall": 0.2932,
+              "f1": 0.3866,
+              "ece": 0.023324,
+              "reliability": [
+                {
+                  "bin_low": 0.1,
+                  "bin_high": 0.2,
+                  "n": 1202,
+                  "mean_predicted": 0.1663,
+                  "observed_rate": 0.1847
+                },
+                {
+                  "bin_low": 0.2,
+                  "bin_high": 0.3,
+                  "n": 1985,
+                  "mean_predicted": 0.2475,
+                  "observed_rate": 0.2332
+                },
+                {
+                  "bin_low": 0.3,
+                  "bin_high": 0.4,
+                  "n": 1004,
+                  "mean_predicted": 0.3499,
+                  "observed_rate": 0.3327
+                },
+                {
+                  "bin_low": 0.4,
+                  "bin_high": 0.5,
+                  "n": 1348,
+                  "mean_predicted": 0.4521,
+                  "observed_rate": 0.5082
+                },
+                {
+                  "bin_low": 0.5,
+                  "bin_high": 0.6,
+                  "n": 959,
+                  "mean_predicted": 0.5425,
+                  "observed_rate": 0.5516
+                },
+                {
+                  "bin_low": 0.6,
+                  "bin_high": 0.7,
+                  "n": 269,
+                  "mean_predicted": 0.6332,
+                  "observed_rate": 0.6134
+                },
+                {
+                  "bin_low": 0.7,
+                  "bin_high": 0.8,
+                  "n": 19,
+                  "mean_predicted": 0.7268,
+                  "observed_rate": 0.6842
+                }
+              ]
+            }
+          },
+          "brier_interval": {
+            "mean": 0.4886030488002449,
+            "low": 0.4739813629128438,
+            "high": 0.5030252960438105,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          },
+          "delta_vs_best_standalone": {
+            "mean": 0.03952595955599049,
+            "low": 0.03721005895519809,
+            "high": 0.04201596978562277,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "lightgbm": {
+          "metrics": {
+            "n": 6786,
+            "log_loss": 0.841433,
+            "brier": 0.483048,
+            "accuracy": 0.6474,
+            "ece": 0.015122,
+            "confusion": [
+              [
+                1,
+                1040,
+                107
+              ],
+              [
+                2,
+                4239,
+                134
+              ],
+              [
+                1,
+                1109,
+                153
+              ]
+            ],
+            "per_class_recall": {
+              "BEAR": 0.0009,
+              "NEUTRAL": 0.9689,
+              "BULL": 0.1211
+            },
+            "balanced_accuracy": 0.3636333333333333,
+            "material": {
+              "n": 6786,
+              "base_rate": 0.3553,
+              "brier": 0.203463,
+              "log_loss": 0.593808,
+              "accuracy": 0.6855,
+              "precision": 0.5975,
+              "recall": 0.3521,
+              "f1": 0.4431,
+              "ece": 0.01615,
+              "reliability": [
+                {
+                  "bin_low": 0.0,
+                  "bin_high": 0.1,
+                  "n": 57,
+                  "mean_predicted": 0.0897,
+                  "observed_rate": 0.0702
+                },
+                {
+                  "bin_low": 0.1,
+                  "bin_high": 0.2,
+                  "n": 1108,
+                  "mean_predicted": 0.1625,
+                  "observed_rate": 0.1787
+                },
+                {
+                  "bin_low": 0.2,
+                  "bin_high": 0.3,
+                  "n": 2059,
+                  "mean_predicted": 0.2491,
+                  "observed_rate": 0.2356
+                },
+                {
+                  "bin_low": 0.3,
+                  "bin_high": 0.4,
+                  "n": 1135,
+                  "mean_predicted": 0.3424,
+                  "observed_rate": 0.3454
+                },
+                {
+                  "bin_low": 0.4,
+                  "bin_high": 0.5,
+                  "n": 1006,
+                  "mean_predicted": 0.451,
+                  "observed_rate": 0.4801
+                },
+                {
+                  "bin_low": 0.5,
+                  "bin_high": 0.6,
+                  "n": 804,
+                  "mean_predicted": 0.5481,
+                  "observed_rate": 0.5684
+                },
+                {
+                  "bin_low": 0.6,
+                  "bin_high": 0.7,
+                  "n": 515,
+                  "mean_predicted": 0.644,
+                  "observed_rate": 0.6291
+                },
+                {
+                  "bin_low": 0.7,
+                  "bin_high": 0.8,
+                  "n": 101,
+                  "mean_predicted": 0.7252,
+                  "observed_rate": 0.6733
+                },
+                {
+                  "bin_low": 0.8,
+                  "bin_high": 0.9,
+                  "n": 1,
+                  "mean_predicted": 0.8052,
+                  "observed_rate": 0.0
+                }
+              ]
+            }
+          },
+          "brier_interval": {
+            "mean": 0.48304836020258407,
+            "low": 0.46896423872376725,
+            "high": 0.4971001411375487,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          },
+          "delta_vs_best_standalone": {
+            "mean": 0.0339712709583296,
+            "low": 0.031675977462675566,
+            "high": 0.03626514747167869,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "equal_weight_fusion": {
+          "metrics": {
+            "n": 6786,
+            "log_loss": 0.842294,
+            "brier": 0.483584,
+            "accuracy": 0.6454,
+            "ece": 0.023672,
+            "confusion": [
+              [
+                0,
+                1092,
+                56
+              ],
+              [
+                1,
+                4291,
+                83
+              ],
+              [
+                1,
+                1173,
+                89
+              ]
+            ],
+            "per_class_recall": {
+              "BEAR": 0.0,
+              "NEUTRAL": 0.9808,
+              "BULL": 0.0705
+            },
+            "balanced_accuracy": 0.3504333333333333,
+            "material": {
+              "n": 6786,
+              "base_rate": 0.3553,
+              "brier": 0.203725,
+              "log_loss": 0.594401,
+              "accuracy": 0.6805,
+              "precision": 0.5886,
+              "recall": 0.3347,
+              "f1": 0.4268,
+              "ece": 0.023271,
+              "reliability": [
+                {
+                  "bin_low": 0.0,
+                  "bin_high": 0.1,
+                  "n": 10,
+                  "mean_predicted": 0.0959,
+                  "observed_rate": 0.0
+                },
+                {
+                  "bin_low": 0.1,
+                  "bin_high": 0.2,
+                  "n": 1071,
+                  "mean_predicted": 0.1639,
+                  "observed_rate": 0.1793
+                },
+                {
+                  "bin_low": 0.2,
+                  "bin_high": 0.3,
+                  "n": 2063,
+                  "mean_predicted": 0.2486,
+                  "observed_rate": 0.2215
+                },
+                {
+                  "bin_low": 0.3,
+                  "bin_high": 0.4,
+                  "n": 1199,
+                  "mean_predicted": 0.3451,
+                  "observed_rate": 0.3528
+                },
+                {
+                  "bin_low": 0.4,
+                  "bin_high": 0.5,
+                  "n": 1072,
+                  "mean_predicted": 0.4518,
+                  "observed_rate": 0.4963
+                },
+                {
+                  "bin_low": 0.5,
+                  "bin_high": 0.6,
+                  "n": 974,
+                  "mean_predicted": 0.5443,
+                  "observed_rate": 0.5678
+                },
+                {
+                  "bin_low": 0.6,
+                  "bin_high": 0.7,
+                  "n": 384,
+                  "mean_predicted": 0.6368,
+                  "observed_rate": 0.6432
+                },
+                {
+                  "bin_low": 0.7,
+                  "bin_high": 0.8,
+                  "n": 13,
+                  "mean_predicted": 0.7188,
+                  "observed_rate": 0.5385
+                }
+              ]
+            }
+          },
+          "brier_interval": {
+            "mean": 0.48358384207839195,
+            "low": 0.46913029966020237,
+            "high": 0.49775421665208364,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          },
+          "delta_vs_best_standalone": {
+            "mean": 0.034506752834137615,
+            "low": 0.032889232006092284,
+            "high": 0.03613820114134721,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        }
+      }
+    },
+    "ES": {
+      "n": 6777,
+      "summary": {
+        "logistic": {
+          "metrics": {
+            "n": 6777,
+            "log_loss": 0.848236,
+            "brier": 0.488195,
+            "accuracy": 0.6403,
+            "ece": 0.021031,
+            "confusion": [
+              [
+                14,
+                1097,
+                67
+              ],
+              [
+                12,
+                4253,
+                76
+              ],
+              [
+                15,
+                1171,
+                72
+              ]
+            ],
+            "per_class_recall": {
+              "BEAR": 0.0119,
+              "NEUTRAL": 0.9797,
+              "BULL": 0.0572
+            },
+            "balanced_accuracy": 0.34959999999999997,
+            "material": {
+              "n": 6777,
+              "base_rate": 0.3595,
+              "brier": 0.205157,
+              "log_loss": 0.597257,
+              "accuracy": 0.6689,
+              "precision": 0.5657,
+              "recall": 0.3395,
+              "f1": 0.4243,
+              "ece": 0.022242,
+              "reliability": [
+                {
+                  "bin_low": 0.1,
+                  "bin_high": 0.2,
+                  "n": 1255,
+                  "mean_predicted": 0.1622,
+                  "observed_rate": 0.1745
+                },
+                {
+                  "bin_low": 0.2,
+                  "bin_high": 0.3,
+                  "n": 1871,
+                  "mean_predicted": 0.2438,
+                  "observed_rate": 0.2277
+                },
+                {
+                  "bin_low": 0.3,
+                  "bin_high": 0.4,
+                  "n": 1032,
+                  "mean_predicted": 0.3507,
+                  "observed_rate": 0.3469
+                },
+                {
+                  "bin_low": 0.4,
+                  "bin_high": 0.5,
+                  "n": 1157,
+                  "mean_predicted": 0.4524,
+                  "observed_rate": 0.5238
+                },
+                {
+                  "bin_low": 0.5,
+                  "bin_high": 0.6,
+                  "n": 1006,
+                  "mean_predicted": 0.5453,
+                  "observed_rate": 0.5408
+                },
+                {
+                  "bin_low": 0.6,
+                  "bin_high": 0.7,
+                  "n": 394,
+                  "mean_predicted": 0.6391,
+                  "observed_rate": 0.6091
+                },
+                {
+                  "bin_low": 0.7,
+                  "bin_high": 0.8,
+                  "n": 58,
+                  "mean_predicted": 0.7249,
+                  "observed_rate": 0.6897
+                },
+                {
+                  "bin_low": 0.8,
+                  "bin_high": 0.9,
+                  "n": 4,
+                  "mean_predicted": 0.8146,
+                  "observed_rate": 0.75
+                }
+              ]
+            }
+          },
+          "brier_interval": {
+            "mean": 0.4881949990870572,
+            "low": 0.47511465213018667,
+            "high": 0.5012279220352445,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          },
+          "delta_vs_best_standalone": {
+            "mean": 0.037206103708687197,
+            "low": 0.03516487320939261,
+            "high": 0.03978334818540342,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "lightgbm": {
+          "metrics": {
+            "n": 6777,
+            "log_loss": 0.841292,
+            "brier": 0.484033,
+            "accuracy": 0.6373,
+            "ece": 0.018423,
+            "confusion": [
+              [
+                9,
+                1081,
+                88
+              ],
+              [
+                4,
+                4210,
+                127
+              ],
+              [
+                10,
+                1148,
+                100
+              ]
+            ],
+            "per_class_recall": {
+              "BEAR": 0.0076,
+              "NEUTRAL": 0.9698,
+              "BULL": 0.0795
+            },
+            "balanced_accuracy": 0.3523,
+            "material": {
+              "n": 6777,
+              "base_rate": 0.3595,
+              "brier": 0.202281,
+              "log_loss": 0.590089,
+              "accuracy": 0.6828,
+              "precision": 0.5876,
+              "recall": 0.3937,
+              "f1": 0.4715,
+              "ece": 0.018642,
+              "reliability": [
+                {
+                  "bin_low": 0.0,
+                  "bin_high": 0.1,
+                  "n": 89,
+                  "mean_predicted": 0.0928,
+                  "observed_rate": 0.0674
+                },
+                {
+                  "bin_low": 0.1,
+                  "bin_high": 0.2,
+                  "n": 1404,
+                  "mean_predicted": 0.1578,
+                  "observed_rate": 0.1546
+                },
+                {
+                  "bin_low": 0.2,
+                  "bin_high": 0.3,
+                  "n": 1579,
+                  "mean_predicted": 0.2495,
+                  "observed_rate": 0.2514
+                },
+                {
+                  "bin_low": 0.3,
+                  "bin_high": 0.4,
+                  "n": 1196,
+                  "mean_predicted": 0.3452,
+                  "observed_rate": 0.3503
+                },
+                {
+                  "bin_low": 0.4,
+                  "bin_high": 0.5,
+                  "n": 877,
+                  "mean_predicted": 0.4518,
+                  "observed_rate": 0.4994
+                },
+                {
+                  "bin_low": 0.5,
+                  "bin_high": 0.6,
+                  "n": 1018,
+                  "mean_predicted": 0.5495,
+                  "observed_rate": 0.5835
+                },
+                {
+                  "bin_low": 0.6,
+                  "bin_high": 0.7,
+                  "n": 541,
+                  "mean_predicted": 0.6398,
+                  "observed_rate": 0.5933
+                },
+                {
+                  "bin_low": 0.7,
+                  "bin_high": 0.8,
+                  "n": 73,
+                  "mean_predicted": 0.7224,
+                  "observed_rate": 0.6027
+                }
+              ]
+            }
+          },
+          "brier_interval": {
+            "mean": 0.4840334524528863,
+            "low": 0.47090822554626377,
+            "high": 0.4959021574284501,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          },
+          "delta_vs_best_standalone": {
+            "mean": 0.033044557074516284,
+            "low": 0.03062851895563843,
+            "high": 0.035589042599188075,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "equal_weight_fusion": {
+          "metrics": {
+            "n": 6777,
+            "log_loss": 0.841589,
+            "brier": 0.484142,
+            "accuracy": 0.6385,
+            "ece": 0.019295,
+            "confusion": [
+              [
+                9,
+                1101,
+                68
+              ],
+              [
+                6,
+                4245,
+                90
+              ],
+              [
+                10,
+                1175,
+                73
+              ]
+            ],
+            "per_class_recall": {
+              "BEAR": 0.0076,
+              "NEUTRAL": 0.9779,
+              "BULL": 0.058
+            },
+            "balanced_accuracy": 0.3478333333333334,
+            "material": {
+              "n": 6777,
+              "base_rate": 0.3595,
+              "brier": 0.202446,
+              "log_loss": 0.590583,
+              "accuracy": 0.6807,
+              "precision": 0.5883,
+              "recall": 0.3719,
+              "f1": 0.4557,
+              "ece": 0.020075,
+              "reliability": [
+                {
+                  "bin_low": 0.0,
+                  "bin_high": 0.1,
+                  "n": 6,
+                  "mean_predicted": 0.0958,
+                  "observed_rate": 0.0
+                },
+                {
+                  "bin_low": 0.1,
+                  "bin_high": 0.2,
+                  "n": 1351,
+                  "mean_predicted": 0.1611,
+                  "observed_rate": 0.1473
+                },
+                {
+                  "bin_low": 0.2,
+                  "bin_high": 0.3,
+                  "n": 1700,
+                  "mean_predicted": 0.2485,
+                  "observed_rate": 0.2435
+                },
+                {
+                  "bin_low": 0.3,
+                  "bin_high": 0.4,
+                  "n": 1182,
+                  "mean_predicted": 0.346,
+                  "observed_rate": 0.346
+                },
+                {
+                  "bin_low": 0.4,
+                  "bin_high": 0.5,
+                  "n": 998,
+                  "mean_predicted": 0.4539,
+                  "observed_rate": 0.509
+                },
+                {
+                  "bin_low": 0.5,
+                  "bin_high": 0.6,
+                  "n": 1059,
+                  "mean_predicted": 0.5463,
+                  "observed_rate": 0.5779
+                },
+                {
+                  "bin_low": 0.6,
+                  "bin_high": 0.7,
+                  "n": 442,
+                  "mean_predicted": 0.6379,
+                  "observed_rate": 0.5973
+                },
+                {
+                  "bin_low": 0.7,
+                  "bin_high": 0.8,
+                  "n": 39,
+                  "mean_predicted": 0.717,
+                  "observed_rate": 0.7692
+                }
+              ]
+            }
+          },
+          "brier_interval": {
+            "mean": 0.4841418227452489,
+            "low": 0.47123865501614304,
+            "high": 0.49652540800535827,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          },
+          "delta_vs_best_standalone": {
+            "mean": 0.033152927366878936,
+            "low": 0.03164094498690469,
+            "high": 0.034783476441127996,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        }
+      }
+    }
+  }
+}

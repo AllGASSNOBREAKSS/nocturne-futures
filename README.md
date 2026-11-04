@@ -8,6 +8,20 @@
 
 ## What is implemented
 
+### Phase 3F checkpoint — 2026-11-03
+
+Direction diagnostics show the current features predict **activity**, not
+**direction**: material-move AUC ≈ 0.70, bull-versus-bear AUC ≈ 0.52. Range
+quantiles were recalibrated with rolling residuals and now cover closer to
+nominal at every tested quantile. Competing-outcome target survival is implemented
+and shows 200–500 point targets are rarely reached before the original stop.
+
+All models remain `NO_PROMOTION`; forecasts remain `NO_TRADE`. Licensed data
+credentials are still absent. See
+[Phase 3F findings](docs/PHASE3F_FINDINGS.md),
+[protocol](docs/PHASE3F_PROTOCOL.md) and
+[checkpoint](docs/IMPLEMENTATION_CHECKPOINT.md).
+
 ### Phase 3E checkpoint — 2026-11-03
 
 Authenticated Databento and ALFRED adapters are implemented and fixture-tested;

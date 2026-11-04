@@ -1,0 +1,126 @@
+{
+  "method": "expanding_empirical_quantiles",
+  "min_history": 20,
+  "instruments": {
+    "NQ": {
+      "ASIA": {
+        "status": "INSUFFICIENT_COMPLETE_SESSIONS",
+        "complete_sessions": 9
+      },
+      "LONDON": {
+        "status": "RESEARCH_ONLY",
+        "complete_sessions": 45,
+        "date_range": [
+          "2026-08-25",
+          "2026-11-03"
+        ],
+        "coverage": {
+          "0.5": 0.44,
+          "0.8": 0.76,
+          "0.9": 0.84
+        },
+        "n": {
+          "0.5": 25,
+          "0.8": 25,
+          "0.9": 25
+        }
+      },
+      "NEW_YORK": {
+        "status": "RESEARCH_ONLY",
+        "complete_sessions": 48,
+        "date_range": [
+          "2026-08-25",
+          "2026-11-02"
+        ],
+        "coverage": {
+          "0.5": 0.32142857142857145,
+          "0.8": 0.7142857142857143,
+          "0.9": 0.8214285714285714
+        },
+        "n": {
+          "0.5": 28,
+          "0.8": 28,
+          "0.9": 28
+        }
+      },
+      "NEXT_DAY": {
+        "status": "RESEARCH_ONLY",
+        "complete_sessions": 48,
+        "date_range": [
+          "2026-08-25",
+          "2026-11-02"
+        ],
+        "coverage": {
+          "0.5": 0.32142857142857145,
+          "0.8": 0.7142857142857143,
+          "0.9": 0.8214285714285714
+        },
+        "n": {
+          "0.5": 28,
+          "0.8": 28,
+          "0.9": 28
+        }
+      }
+    },
+    "ES": {
+      "ASIA": {
+        "status": "INSUFFICIENT_COMPLETE_SESSIONS",
+        "complete_sessions": 9
+      },
+      "LONDON": {
+        "status": "RESEARCH_ONLY",
+        "complete_sessions": 44,
+        "date_range": [
+          "2026-08-25",
+          "2026-11-03"
+        ],
+        "coverage": {
+          "0.5": 0.5416666666666666,
+          "0.8": 0.8333333333333334,
+          "0.9": 0.9166666666666666
+        },
+        "n": {
+          "0.5": 24,
+          "0.8": 24,
+          "0.9": 24
+        }
+      },
+      "NEW_YORK": {
+        "status": "RESEARCH_ONLY",
+        "complete_sessions": 48,
+        "date_range": [
+          "2026-08-25",
+          "2026-11-02"
+        ],
+        "coverage": {
+          "0.5": 0.35714285714285715,
+          "0.8": 0.6785714285714286,
+          "0.9": 0.8571428571428571
+        },
+        "n": {
+          "0.5": 28,
+          "0.8": 28,
+          "0.9": 28
+        }
+      },
+      "NEXT_DAY": {
+        "status": "RESEARCH_ONLY",
+        "complete_sessions": 48,
+        "date_range": [
+          "2026-08-25",
+          "2026-11-02"
+        ],
+        "coverage": {
+          "0.5": 0.35714285714285715,
+          "0.8": 0.6785714285714286,
+          "0.9": 0.8571428571428571
+        },
+        "n": {
+          "0.5": 28,
+          "0.8": 28,
+          "0.9": 28
+        }
+      }
+    }
+  }
+}

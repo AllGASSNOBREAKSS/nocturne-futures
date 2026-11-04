@@ -108,7 +108,16 @@
         "p_ge_200": 0.26666666666666666,
         "p_ge_350": 0.022222222222222223,
         "p_ge_500": 0.0,
-        "asof": "2026-11-03T20:28:59+00:00"
+        "asof": "2026-11-03T20:28:59+00:00",
+        "calibration": {
+          "status": "RESEARCH_ONLY",
+          "complete_sessions": 45,
+          "date_range": [
+            "2026-08-25",
+            "2026-11-03"
+          ]
+        },
+        "calibration_interpretation": "expanding out-of-sample coverage on the same cache; small samples"
       },
       "market_regime": "COMPRESSION",
       "direction": "NEUTRAL",
@@ -208,7 +217,16 @@
         "p_ge_200": 0.875,
         "p_ge_350": 0.3541666666666667,
         "p_ge_500": 0.1875,
-        "asof": "2026-11-03T20:28:59+00:00"
+        "asof": "2026-11-03T20:28:59+00:00",
+        "calibration": {
+          "status": "RESEARCH_ONLY",
+          "complete_sessions": 48,
+          "date_range": [
+            "2026-08-25",
+            "2026-11-02"
+          ]
+        },
+        "calibration_interpretation": "expanding out-of-sample coverage on the same cache; small samples"
       },
       "market_regime": "COMPRESSION",
       "direction": "NEUTRAL",
@@ -309,7 +327,16 @@
       "p_ge_200": 0.875,
       "p_ge_350": 0.3541666666666667,
       "p_ge_500": 0.1875,
-      "asof": "2026-11-03T20:28:59+00:00"
+      "asof": "2026-11-03T20:28:59+00:00",
+      "calibration": {
+        "status": "RESEARCH_ONLY",
+        "complete_sessions": 48,
+        "date_range": [
+          "2026-08-25",
+          "2026-11-02"
+        ]
+      },
+      "calibration_interpretation": "expanding out-of-sample coverage on the same cache; small samples"
     },
     "market_regime": "COMPRESSION",
     "direction": "NEUTRAL",

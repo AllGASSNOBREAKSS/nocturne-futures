@@ -1,47 +1,45 @@
 # Implementation Checkpoint
 
-## Current resume point — Phase 3E, 2026-11-03
+## Current resume point — Phase 3F, 2026-11-03
 
-Branch `feat/phase3e`, base `8bb874b` (Phase 3D release, remote CI success).
-Milestone `b758ddf` and documentation correction `b81f556` are pushed; both
-GitHub CI runs passed. Read `PHASE3E_FINDINGS.md` and `PHASE3E_PROTOCOL.md` before
-changing experiments. Decision remains **NO_PROMOTION / NO_TRADE**.
+Branch `feat/phase3f`, base `31ed955` (Phase 3E, remote CI success).
+Read `PHASE3F_FINDINGS.md` and `PHASE3F_PROTOCOL.md` before changing experiments.
+Decision remains **NO_PROMOTION / NO_TRADE**.
 
-Implemented: authenticated Databento/ALFRED adapters (fixture-tested only; keys
-absent), raw-contract and source-comparison validation, LightGBM feature
-ablations, time-separated two-hour range quantiles, nested-target monotonicity
-audit, immutable development replay, fail-closed promotion evidence, and a
-development-only strategy/cost audit.
+Key finding: direction is not predictable with these features. Material-move AUC
+is ~0.70, but bull-versus-bear AUC conditional on a material move is only
+0.52–0.53. The three-class Brier gain comes from activity detection, not
+direction. Range, consolidation and target-survival research should lead; do not
+add more direction model families on the same features.
 
-Reproduce offline (input files are frozen; do not replace them):
+Also implemented: rolling range-quantile recalibration (improves pinloss and
+coverage at every quantile), complete-session range calibration with ASIA marked
+insufficient, competing-outcome target survival with Aalen–Johansen incidence,
+equal-weight fusion (not adopted), and provider readiness reporting.
+
+Reproduce offline:
 
 ```powershell
-python scripts/phase3e_providers.py inventory
-python scripts/phase3e_ablation.py
-python scripts/phase3e_quantiles.py
-python scripts/phase3e_target_diagnostics.py
-python scripts/phase3e_replay.py
-python scripts/phase3e_promotion.py
-python scripts/phase3e_strategies.py
+python scripts/phase3f_dataset.py
+python scripts/phase3f_direction.py
+python scripts/phase3f_quantiles.py
+python scripts/phase3f_session_range.py
+python scripts/phase3f_survival.py
+python scripts/phase3f_fusion.py
+python scripts/phase3f_providers.py
+python scripts/phase3f_promotion.py
 $env:PYTHONPATH='D:\nocturne-futures\native\build'; python -m pytest
 ```
 
-External fetch commands (require entitlement): `phase3e_providers.py databento`
-and `phase3e_providers.py alfred`. Licensed downloads are gitignored.
+Verified locally: 190 native-enabled tests pass. Forecast bundle schema unchanged;
+ranges carry calibration metadata; all unvalidated probabilities remain null.
 
-Verification: 184 native-enabled tests passed, including the final strategy audit.
-Replay wrote 12 frozen development forecasts; all 12 V1 horizons matured. ASIA
-replay windows are DATA_BLOCKED due incomplete cache coverage. No production
-probabilities changed.
-
-Next: inspect `phase3e_strategies.json` when available; obtain licensed
-contract-level history and PIT macro vintages; then evaluate class-conditional
-direction calibration and target survival models on independent data. Do not
-tune against the unscored final fifth. Remaining blockers and exact metrics are
-in `PHASE3E_FINDINGS.md`.
+Next: obtain licensed contract-level history, then re-run target survival with
+larger event counts on a genuinely fresh period. Direction needs new information
+(order flow, depth, cross-asset lead-lag), not new model families.
 
 **Date:** 2026-11-03
-**Previous branch:** `feat/phase3d`
+**Previous branch:** `feat/phase3e`
 **Latest backend commit:** see `git log --oneline -1`
 
 ## Phase 3A — backtest validation and predictive foundation

@@ -1,0 +1,504 @@
+{
+  "decision": "NO_PROMOTION",
+  "holdout_scored": false,
+  "protocol": "phase3f-quantile-recalibration-v1",
+  "event": "next_two_contiguous_hourly_bars_high_minus_low",
+  "methods": [
+    "unconditional_train_quantile",
+    "global_residual",
+    "rolling_residual_one_day_gap",
+    "volatility_bucket_residual"
+  ],
+  "instruments": {
+    "NQ": {
+      "source_sha256": "e736ea0b7ed1711812c3b2c0479286d036e4c5366edcc967dfefa0dfda009b07",
+      "summary": {
+        "global_residual_0.5": {
+          "n": 6786,
+          "pinball_loss": 22.026741072845464,
+          "baseline_loss": 33.922376952549364,
+          "coverage": 0.44326554671382257,
+          "median_width": 85.85825194856123,
+          "coverage_by_vol_bucket": {
+            "0": 0.4873417721518987,
+            "1": 0.47363677332131593,
+            "2": 0.3804218066056506
+          },
+          "paired_loss_interval": {
+            "mean": -11.895635879703901,
+            "low": -13.270672409505636,
+            "high": -10.46811169695698,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "global_residual_0.8": {
+          "n": 6786,
+          "pinball_loss": 20.894204806686943,
+          "baseline_loss": 32.91351016799292,
+          "coverage": 0.7418213969938108,
+          "median_width": 124.9646601337626,
+          "coverage_by_vol_bucket": {
+            "0": 0.7887049659201558,
+            "1": 0.782785038305543,
+            "2": 0.6673298846000796
+          },
+          "paired_loss_interval": {
+            "mean": -12.019305361305978,
+            "low": -13.595132690803977,
+            "high": -10.429859896107688,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "global_residual_0.9": {
+          "n": 6786,
+          "pinball_loss": 15.88678352177326,
+          "baseline_loss": 24.29928455643973,
+          "coverage": 0.8644267609784851,
+          "median_width": 157.12622251453132,
+          "coverage_by_vol_bucket": {
+            "0": 0.8958130477117819,
+            "1": 0.8995042812077513,
+            "2": 0.807799442896936
+          },
+          "paired_loss_interval": {
+            "mean": -8.412501034666464,
+            "low": -9.754427611663795,
+            "high": -7.016982541197987,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "rolling_residual_one_day_gap_0.5": {
+          "n": 6786,
+          "pinball_loss": 21.87982222418151,
+          "baseline_loss": 33.922376952549364,
+          "coverage": 0.4622752726201002,
+          "median_width": 88.13046562827958,
+          "coverage_by_vol_bucket": {
+            "0": 0.49221032132424536,
+            "1": 0.48670572329878325,
+            "2": 0.4162355750099483
+          },
+          "paired_loss_interval": {
+            "mean": -12.042554728367856,
+            "low": -13.447721471023863,
+            "high": -10.561746247428095,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "rolling_residual_one_day_gap_0.8": {
+          "n": 6786,
+          "pinball_loss": 20.46359389455738,
+          "baseline_loss": 32.91351016799292,
+          "coverage": 0.7701149425287356,
+          "median_width": 132.52878498899832,
+          "coverage_by_vol_bucket": {
+            "0": 0.7901655306718598,
+            "1": 0.8017124831004957,
+            "2": 0.7258257063270991
+          },
+          "paired_loss_interval": {
+            "mean": -12.44991627343554,
+            "low": -14.582619981007003,
+            "high": -10.512248074519965,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "rolling_residual_one_day_gap_0.9": {
+          "n": 6786,
+          "pinball_loss": 15.385825995896631,
+          "baseline_loss": 24.29928455643973,
+          "coverage": 0.8821102269378132,
+          "median_width": 166.6006243013719,
+          "coverage_by_vol_bucket": {
+            "0": 0.8948393378773125,
+            "1": 0.903560162235241,
+            "2": 0.8527656187823319
+          },
+          "paired_loss_interval": {
+            "mean": -8.913458560543097,
+            "low": -11.053735052344932,
+            "high": -6.940206192798942,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "unconditional_train_quantile_0.5": {
+          "n": 6786,
+          "pinball_loss": 33.922376952549364,
+          "baseline_loss": 33.922376952549364,
+          "coverage": 0.4245505452402004,
+          "median_width": 77.25,
+          "coverage_by_vol_bucket": {
+            "0": 0.7083739045764362,
+            "1": 0.43352861649391616,
+            "2": 0.18463987266215678
+          },
+          "paired_loss_interval": {
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "unconditional_train_quantile_0.8": {
+          "n": 6786,
+          "pinball_loss": 32.91351016799292,
+          "baseline_loss": 32.91351016799292,
+          "coverage": 0.7440318302387268,
+          "median_width": 153.55000000000018,
+          "coverage_by_vol_bucket": {
+            "0": 0.9284323271665044,
+            "1": 0.7931500675980171,
+            "2": 0.5499403103859929
+          },
+          "paired_loss_interval": {
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "unconditional_train_quantile_0.9": {
+          "n": 6786,
+          "pinball_loss": 24.29928455643973,
+          "baseline_loss": 24.29928455643973,
+          "coverage": 0.8642793987621574,
+          "median_width": 219.32499999999993,
+          "coverage_by_vol_bucket": {
+            "0": 0.9741966893865628,
+            "1": 0.9094186570527264,
+            "2": 0.7345801830481496
+          },
+          "paired_loss_interval": {
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "volatility_bucket_residual_0.5": {
+          "n": 6786,
+          "pinball_loss": 22.052280295912304,
+          "baseline_loss": 33.922376952549364,
+          "coverage": 0.4450338933097554,
+          "median_width": 85.69296155580082,
+          "coverage_by_vol_bucket": {
+            "0": 0.49269717624148,
+            "1": 0.4673276250563317,
+            "2": 0.3863907680063669
+          },
+          "paired_loss_interval": {
+            "mean": -11.870096656637061,
+            "low": -13.229966152492313,
+            "high": -10.4617816899441,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "volatility_bucket_residual_0.8": {
+          "n": 6786,
+          "pinball_loss": 20.928539370068226,
+          "baseline_loss": 32.91351016799292,
+          "coverage": 0.7431476569407603,
+          "median_width": 125.08361504145154,
+          "coverage_by_vol_bucket": {
+            "0": 0.7940603700097371,
+            "1": 0.7791798107255521,
+            "2": 0.6697174691603661
+          },
+          "paired_loss_interval": {
+            "mean": -11.984970797924698,
+            "low": -13.548377895617593,
+            "high": -10.41097708650245,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "volatility_bucket_residual_0.9": {
+          "n": 6786,
+          "pinball_loss": 15.850587985348948,
+          "baseline_loss": 24.29928455643973,
+          "coverage": 0.8664898320070734,
+          "median_width": 157.83279043215222,
+          "coverage_by_vol_bucket": {
+            "0": 0.8997078870496592,
+            "1": 0.8990536277602523,
+            "2": 0.8105849582172702
+          },
+          "paired_loss_interval": {
+            "mean": -8.44869657109078,
+            "low": -9.804251917422521,
+            "high": -7.05106607215513,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        }
+      }
+    },
+    "ES": {
+      "source_sha256": "e08ad11238562c29e0484143c5d9236313a2e4316fbc49c4123bcc50b9176736",
+      "summary": {
+        "global_residual_0.5": {
+          "n": 6777,
+          "pinball_loss": 4.60169865851089,
+          "baseline_loss": 7.186236535340121,
+          "coverage": 0.4447395602774089,
+          "median_width": 17.74062301096825,
+          "coverage_by_vol_bucket": {
+            "0": 0.49931911030413073,
+            "1": 0.46606118546845127,
+            "2": 0.3783239323126511
+          },
+          "paired_loss_interval": {
+            "mean": -2.584537876829231,
+            "low": -2.9359419040864205,
+            "high": -2.254910490789135,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "global_residual_0.8": {
+          "n": 6777,
+          "pinball_loss": 4.556426291499485,
+          "baseline_loss": 7.104581673306773,
+          "coverage": 0.7472332890659584,
+          "median_width": 25.84599900394205,
+          "coverage_by_vol_bucket": {
+            "0": 0.7939173853835678,
+            "1": 0.7920650095602294,
+            "2": 0.6680096696212732
+          },
+          "paired_loss_interval": {
+            "mean": -2.548155381807287,
+            "low": -2.8950575956268394,
+            "high": -2.217746378561977,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "global_residual_0.9": {
+          "n": 6777,
+          "pinball_loss": 3.603325474228162,
+          "baseline_loss": 5.394048251438689,
+          "coverage": 0.8611480005902317,
+          "median_width": 32.925214980895575,
+          "coverage_by_vol_bucket": {
+            "0": 0.8951429868361326,
+            "1": 0.892925430210325,
+            "2": 0.8041901692183723
+          },
+          "paired_loss_interval": {
+            "mean": -1.7907227772105265,
+            "low": -2.069645509503981,
+            "high": -1.515665898882369,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "rolling_residual_one_day_gap_0.5": {
+          "n": 6777,
+          "pinball_loss": 4.566515950477349,
+          "baseline_loss": 7.186236535340121,
+          "coverage": 0.4653976685849196,
+          "median_width": 18.237084482792582,
+          "coverage_by_vol_bucket": {
+            "0": 0.5043123014071721,
+            "1": 0.4765774378585086,
+            "2": 0.42143432715551976
+          },
+          "paired_loss_interval": {
+            "mean": -2.619720584862772,
+            "low": -2.992077168015195,
+            "high": -2.270632345726064,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "rolling_residual_one_day_gap_0.8": {
+          "n": 6777,
+          "pinball_loss": 4.470684495165772,
+          "baseline_loss": 7.104581673306773,
+          "coverage": 0.7755644090305445,
+          "median_width": 27.063991503231826,
+          "coverage_by_vol_bucket": {
+            "0": 0.7989105764866091,
+            "1": 0.8011472275334608,
+            "2": 0.7332796132151491
+          },
+          "paired_loss_interval": {
+            "mean": -2.6338971781410003,
+            "low": -3.1485987221779297,
+            "high": -2.1980831854520475,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "rolling_residual_one_day_gap_0.9": {
+          "n": 6777,
+          "pinball_loss": 3.4296176219458587,
+          "baseline_loss": 5.394048251438689,
+          "coverage": 0.8849048251438689,
+          "median_width": 34.975819843782496,
+          "coverage_by_vol_bucket": {
+            "0": 0.902859736722651,
+            "1": 0.8943594646271511,
+            "2": 0.8609991941982272
+          },
+          "paired_loss_interval": {
+            "mean": -1.96443062949283,
+            "low": -2.593478455064481,
+            "high": -1.4586867749834125,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "unconditional_train_quantile_0.5": {
+          "n": 6777,
+          "pinball_loss": 7.186236535340121,
+          "baseline_loss": 7.186236535340121,
+          "coverage": 0.43898480153460234,
+          "median_width": 16.25,
+          "coverage_by_vol_bucket": {
+            "0": 0.7072174307762142,
+            "1": 0.46892925430210325,
+            "2": 0.17566478646253023
+          },
+          "paired_loss_interval": {
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "unconditional_train_quantile_0.8": {
+          "n": 6777,
+          "pinball_loss": 7.104581673306773,
+          "baseline_loss": 7.104581673306773,
+          "coverage": 0.7559392061384094,
+          "median_width": 32.5,
+          "coverage_by_vol_bucket": {
+            "0": 0.938266000907853,
+            "1": 0.8240917782026769,
+            "2": 0.5366639806607575
+          },
+          "paired_loss_interval": {
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "unconditional_train_quantile_0.9": {
+          "n": 6777,
+          "pinball_loss": 5.394048251438689,
+          "baseline_loss": 5.394048251438689,
+          "coverage": 0.8760513501549358,
+          "median_width": 47.0,
+          "coverage_by_vol_bucket": {
+            "0": 0.9836586472991375,
+            "1": 0.9340344168260039,
+            "2": 0.7316680096696213
+          },
+          "paired_loss_interval": {
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "volatility_bucket_residual_0.5": {
+          "n": 6777,
+          "pinball_loss": 4.60076191763051,
+          "baseline_loss": 7.186236535340121,
+          "coverage": 0.4485760661059466,
+          "median_width": 17.812655282934884,
+          "coverage_by_vol_bucket": {
+            "0": 0.5088515660463006,
+            "1": 0.4665391969407266,
+            "2": 0.3799355358581789
+          },
+          "paired_loss_interval": {
+            "mean": -2.585474617709611,
+            "low": -2.9373242524959404,
+            "high": -2.2560497107112103,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "volatility_bucket_residual_0.8": {
+          "n": 6777,
+          "pinball_loss": 4.544277864716844,
+          "baseline_loss": 7.104581673306773,
+          "coverage": 0.7501844473956027,
+          "median_width": 25.897875610710557,
+          "coverage_by_vol_bucket": {
+            "0": 0.7966409441670449,
+            "1": 0.7911089866156787,
+            "2": 0.6744560838033844
+          },
+          "paired_loss_interval": {
+            "mean": -2.5603038085899286,
+            "low": -2.9148472980685383,
+            "high": -2.225379446472078,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        },
+        "volatility_bucket_residual_0.9": {
+          "n": 6777,
+          "pinball_loss": 3.5679466832160855,
+          "baseline_loss": 5.394048251438689,
+          "coverage": 0.8658698539176627,
+          "median_width": 33.32593253673402,
+          "coverage_by_vol_bucket": {
+            "0": 0.9060372219700409,
+            "1": 0.8910133843212237,
+            "2": 0.8090249798549557
+          },
+          "paired_loss_interval": {
+            "mean": -1.8261015682226027,
+            "low": -2.1276935826078276,
+            "high": -1.5382083516666236,
+            "groups": 378,
+            "block_groups": 3,
+            "repetitions": 1000
+          }
+        }
+      }
+    }
+  }
+}

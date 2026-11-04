@@ -1,5 +1,23 @@
 # Implementation Status
 
+## Phase 3F update (2026-11-03)
+
+Direction diagnostics: material-move detection works (AUC ≈ 0.70), directional
+discrimination does not (bull-vs-bear AUC ≈ 0.52). Hierarchical and vector-scaled
+variants were worse; class weighting was rejected as unable to create signal.
+Range quantiles improved with rolling residual calibration at every tested
+quantile. Competing-outcome target survival is implemented; 200–500 point targets
+are rarely reached before the original stop. All 21 promotion assessments are
+`NO_PROMOTION`.
+
+Research-only: direction, consolidation, range and target survival. Production
+probabilities remain null; every forecast remains `NO_TRADE`. See
+`PHASE3F_FINDINGS.md` for measured results and limitations.
+
+Blocked/unfinished: licensed contract-level intraday history, ticks/depth/MBO,
+PIT macro consensus/news, independent future holdout, strategy-level meta-labeling
+(insufficient trades), and monitoring/rollback.
+
 ## Phase 3E update (2026-11-03)
 
 Operational: authenticated raw-contract Databento and ALFRED adapter interfaces,
