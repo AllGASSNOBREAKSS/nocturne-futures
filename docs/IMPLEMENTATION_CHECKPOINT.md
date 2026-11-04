@@ -31,7 +31,8 @@ python scripts/phase3f_promotion.py
 $env:PYTHONPATH='D:\nocturne-futures\native\build'; python -m pytest
 ```
 
-Verified locally: 190 native-enabled tests pass. Forecast bundle schema unchanged;
+Verified locally: 190 native-enabled tests pass. Milestones `dafbfb6` and
+`82efb04` are pushed; both GitHub CI runs passed. Forecast bundle schema unchanged;
 ranges carry calibration metadata; all unvalidated probabilities remain null.
 
 Next: obtain licensed contract-level history, then re-run target survival with

@@ -168,7 +168,8 @@ cases failed calibration or AUC gates. No threshold was relaxed.
 
 ## 8. Verification and next steps
 
-Native-enabled suite and CI status are recorded in the implementation checkpoint.
+Native-enabled suite: **190 passed**. Both Phase 3F pushes passed GitHub CI:
+`dafbfb6` (implementation) and `82efb04` (dataset byte preservation).
 No forecast schema changed. Bundle ranges now include calibration metadata; all
 probabilities that lack a validated model remain null and every outlook remains
 `NO_TRADE`.
