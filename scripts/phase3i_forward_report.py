@@ -23,7 +23,7 @@ def main():
         index = load_history(ROOT / "data/shadow/market", "^NDX")
     except FileNotFoundError:
         index = load_history(ROOT / "data/history/yahoo_daily", "^NDX")
-    audit = audit_forecasts(store, index)
+    audit = audit_forecasts(store, index, snapshot_root=ROOT / "data/shadow/market/snapshots")
     logs = store.log_events()
     cycles = [event for event in logs if event["event"] in {"CYCLE_OK", "CYCLE_FAILED", "CYCLE_EXCEPTION", "CYCLE_AUDIT_FAILED"}]
     failed_cycles = [event for event in cycles if event["event"] != "CYCLE_OK"]

@@ -105,7 +105,7 @@ def build_features(index_bars: pd.DataFrame, vix_bars: pd.DataFrame,
         raise ValueError(f"non-finite features: {missing}")
     if values["vix_level"] <= 0:
         raise ValueError("invalid VIX level")
-    digest_source = index.tail(MIN_HISTORY)[["date", "close", "high", "low", "volume"]].to_csv(index=False)
+    digest_source = index.tail(MIN_HISTORY)[["date", "close", "high", "low", "volume"]].to_csv(index=False, lineterminator="\n")
     return FeatureSnapshot(
         asof=asof.isoformat(), data_date=str(latest.date.date()),
         reference_close=float(latest.close), values=values, rows_used=len(index),

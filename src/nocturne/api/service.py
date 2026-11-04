@@ -163,6 +163,18 @@ class ForecastService:
         return assess_operations(ShadowStore(ROOT / "data/shadow/ndx_range"), status,
                                  datetime.now(timezone.utc))
 
+    def source_revisions(self) -> dict:
+        path = ROOT / "data/shadow/market/snapshots/revisions.jsonl"
+        rows = [json.loads(line) for line in path.read_text().splitlines() if line.strip()] if path.exists() else []
+        return {"count": len(rows), "revisions": rows[-50:], "trading_decision": "NO_TRADE",
+                "validation_status": "RESEARCH_ONLY", "mode": "read_only_shadow"}
+
+    def source_reconciliations(self) -> dict:
+        path = ROOT / "data/shadow/ndx_range/reconciliations.jsonl"
+        rows = [json.loads(line) for line in path.read_text().splitlines() if line.strip()] if path.exists() else []
+        return {"count": len(rows), "reconciliations": rows[-50:], "trading_decision": "NO_TRADE",
+                "validation_status": "RESEARCH_ONLY", "mode": "read_only_shadow"}
+
     def data_health(self) -> dict:
         status_path = ROOT / "reports" / "phase3h_shadow_status.json"
         coverage_path = ROOT / "reports" / "phase3g_coverage.json"

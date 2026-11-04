@@ -7,6 +7,7 @@ from pathlib import Path
 import pandas as pd
 
 from nocturne.adapters.registry import registry
+from nocturne.adapters.source_comparison import estimate_futures_bar_volume
 from nocturne.instruments import get_instrument
 from nocturne.research.contract_targets import ContractTargetConfig, validate_contract_bars
 
@@ -79,6 +80,7 @@ def main():
                                    ("DATABENTO_API_KEY", "FRED_API_KEY", "BLS_API_KEY",
                                     "NASDAQ_DATA_LINK_API_KEY")},
         "tiers": TIERS,
+        "bar_storage_planning_estimate": estimate_futures_bar_volume(),
         "contract_data": contract_inventory(),
         "free_context": {"daily_manifests": [
             {key: manifest.get(key) for key in ("symbol", "rows", "first", "last", "received_at")}

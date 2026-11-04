@@ -55,6 +55,7 @@ class ShadowStore:
         self.log_path = self.root / "log.jsonl"
         self.meta_path = self.root / "meta.json"
         self.alert_path = self.root / "alerts.jsonl"
+        self.reconciliation_path = self.root / "reconciliations.jsonl"
 
     def forecasts(self) -> list[dict]:
         return _lines(self.forecast_path)
@@ -73,6 +74,20 @@ class ShadowStore:
 
     def alert_events(self) -> list[dict]:
         return _lines(self.alert_path)
+
+    def reconciliations(self) -> list[dict]:
+        return _lines(self.reconciliation_path)
+
+    @serialized
+    def append_reconciliation(self, record):
+        from ..adapters.snapshots import canonical, digest
+        identifier = digest(canonical(record))
+        for previous in self.reconciliations():
+            if previous["reconciliation_id"] == identifier:
+                return previous
+        stored = {**record, "reconciliation_id": identifier}
+        _append(self.reconciliation_path, stored)
+        return stored
 
     @serialized
     def sync_alerts(self, issues: dict, now: datetime, resolve_missing=True) -> list[dict]:

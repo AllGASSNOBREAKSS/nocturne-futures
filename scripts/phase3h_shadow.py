@@ -82,7 +82,18 @@ def load_bars(symbol: str, now=None):
     frame = load_history(OPERATIONAL_DIR, symbol)
     if "source_complete" not in frame:
         raise ValueError("snapshot lacks OHLC completeness evidence; refresh required")
-    return frame[frame.source_complete.eq(True)], str(OPERATIONAL_DIR)
+    from nocturne.adapters.snapshots import SnapshotStore
+    identifier = manifest.get("snapshot_id")
+    if not identifier:
+        raise ValueError("immutable snapshot missing; refresh required")
+    archived = SnapshotStore(OPERATIONAL_DIR / "snapshots").manifest(identifier)
+    if (archived["raw_sha256"] != manifest["raw_sha256"]
+            or archived["normalized_sha256"] != manifest["normalized_sha256"]
+            or archived["source"]["received_at"] != manifest["received_at"]):
+        raise ValueError("mutable cache does not match archived snapshot")
+    frame = frame[frame.source_complete.eq(True)]
+    frame.attrs["snapshot_id"] = identifier
+    return frame, str(OPERATIONAL_DIR)
 
 
 def write_status(status):
@@ -125,16 +136,20 @@ def cycle(refresh_data: bool, now: datetime | None = None, evaluate_only: bool =
                    "refresh": refresh_result}
         sources["manifests"] = {name: json.loads((OPERATIONAL_DIR / "manifests" / f"{stem}.json").read_text())
                                 for name, stem in (("index", "IDX_NDX"), ("vix", "IDX_VIX"))}
+        sources["snapshot_ids"] = {name: manifest["snapshot_id"] for name, manifest in sources["manifests"].items()}
         generated = ({"status": "EVALUATE_ONLY"} if evaluate_only else
                      generate(artifact, store, index, vix, now,
                               validation_status=artifact.metadata["validation_status"],
                               source=sources))
-        audit = audit_forecasts(store, index)
+        audit = audit_forecasts(store, index, snapshot_root=OPERATIONAL_DIR / "snapshots")
         failed_ids = {item["forecast_id"] for item in audit["failed"]}
         allowed_ids = {item["forecast_id"] for item in store.forecasts()} - failed_ids
         # Quarantine failed forecasts individually; one revised historical
         # reference must not suppress unrelated verified outcomes indefinitely.
-        matured = evaluate_matured(store, index, now, allowed_forecast_ids=allowed_ids)
+        proof_ids = {item["forecast_id"]: [item["reconciliation_id"]] for item in audit["records"]
+                     if item["ok"] and item.get("reconciliation_id")}
+        matured = evaluate_matured(store, index, now, allowed_forecast_ids=allowed_ids,
+                                   verified_reconciliation_ids=proof_ids)
         summary = evaluation_summary(store)
         latest = store.latest()
         generation_failed = generated.get("status") == "SKIPPED" and generated.get("reason") != "TOO_LATE_FOR_TARGET"

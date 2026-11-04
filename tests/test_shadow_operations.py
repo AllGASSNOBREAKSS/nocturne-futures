@@ -205,11 +205,17 @@ def test_operational_snapshot_requires_fresh_verified_receipt(tmp_path, monkeypa
     frame["source_complete"] = True
     normalized = tmp_path / "normalized/IDX_NDX.csv"
     frame.to_csv(normalized, index=False)
-    raw_bytes = b'{"synthetic_fixture":true}'
+    payload = {"chart": {"result": [{"meta": {"symbol": "^NDX", "dataGranularity": "1d"},
+                                   "timestamp": [int(x.timestamp()) for x in frame.timestamp],
+                                   "indicators": {"quote": [{k: frame[k].tolist() for k in ("open", "high", "low", "close", "volume")}]}}]}}
+    raw_bytes = json.dumps(payload).encode()
     digest = hashlib.sha256(raw_bytes).hexdigest()
     (tmp_path / "raw" / f"IDX_NDX_{digest}.json").write_bytes(raw_bytes)
     manifest = {"symbol": "^NDX", "frequency": "1d", "received_at": "2025-03-26T01:00:00+00:00",
                 "raw_sha256": digest, "normalized_sha256": hashlib.sha256(normalized.read_bytes()).hexdigest()}
+    from nocturne.adapters.snapshots import SnapshotStore
+    manifest["snapshot_id"] = SnapshotStore(tmp_path / "snapshots").capture(raw_bytes, normalized.read_bytes(),
+                                                                           {"symbol": "^NDX", "frequency": "1d", "received_at": manifest["received_at"]})
     path = tmp_path / "manifests/IDX_NDX.json"
     path.write_text(json.dumps(manifest))
     now = datetime(2025, 3, 26, 2, tzinfo=UTC)

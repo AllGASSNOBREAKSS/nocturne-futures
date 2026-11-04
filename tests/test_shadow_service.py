@@ -147,7 +147,7 @@ def test_api_exposes_shadow_endpoints_read_only(tmp_path):
     client = TestClient(create_app(service))
     for path in ("/v1/shadow/ndx-range", "/v1/shadow/history", "/v1/shadow/evaluation",
                  "/v1/shadow/missed", "/v1/shadow/calibration", "/v1/shadow/outcomes", "/v1/shadow/operations",
-                 "/v1/data/futures-readiness", "/v1/data/health", "/v1/alerts/critical-day"):
+                 "/v1/data/futures-readiness", "/v1/data/health", "/v1/alerts/critical-day", "/v1/data/revisions", "/v1/data/reconciliations"):
         response = client.get(path)
         assert response.status_code == 200
         assert "NO_TRADE" in response.text or "trading_decision" in response.text or "status" in response.text

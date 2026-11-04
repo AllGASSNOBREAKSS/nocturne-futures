@@ -1,0 +1,127 @@
+{
+  "generated_at": "2026-11-04T05:48:49.352184+00:00",
+  "reconciliation": {
+    "forecast_id": "20d48fc41c2cc0f5c0ae4f2d",
+    "forecast_sha256": "26604fd0603ca5f5e6dac216797fe24b96143e4abc63ceeae597a32b7290d3e2",
+    "issuance_snapshot_ids": {
+      "index": "cd19c1c6c05b460e0ffb3e8e2c423b0f83498f9496c1551db49a96afee3318b4",
+      "vix": "b086b24160526936a09a9aa8e7084a99a2e34a6ba09d4382693742985400ffa4"
+    },
+    "revised_snapshot_id": "f892067a1fd8db2eb717d68ec518b60ffd82f33d1b7d9a655d75180cdc05231e",
+    "revised_reference_close": 28180.259765625,
+    "classification": "VERIFIED_AS_ISSUED_PROVIDER_REVISION",
+    "recorded_at": "2026-11-04T05:48:49.352184+00:00",
+    "policy": "score original denominator and issued quantiles; never replace forecast",
+    "root_cause": "upstream OHLCV payload revision; provider's internal reason unconfirmed",
+    "exchange_finality_confirmed": false,
+    "trading_decision": "NO_TRADE",
+    "reconciliation_id": "4fb15c942afdc198b011d344cc8181a7155cc2f9702ed3493b0b1e33d1a9fabd"
+  },
+  "original_journal_sha256": "61f4034a108ccf6545959d4dac39e18ae3c5247ae4557dddf9e9a8158113a1b3",
+  "original_forecast_byte_identical": true,
+  "reference_session_changes": [
+    {
+      "date": "2026-11-03",
+      "fields": {
+        "open": {
+          "original": 28085.49609375,
+          "revised": 28085.5
+        },
+        "high": {
+          "original": 28307.8984375,
+          "revised": 28307.900390625
+        },
+        "low": {
+          "original": 28085.49609375,
+          "revised": 28085.5
+        },
+        "close": {
+          "original": 28180.263671875,
+          "revised": 28180.259765625
+        },
+        "volume": {
+          "original": 1304372000.0,
+          "revised": 8347090000.0
+        }
+      }
+    }
+  ],
+  "changed_historical_observations": 1,
+  "original_source": {
+    "source": {
+      "availability": "next UTC midnight after the session date",
+      "frequency": "1d",
+      "import_note": "imported historical canonical parsed JSON; original wire bytes not retained",
+      "license_scope": "public_research_unofficial",
+      "price_basis": "provider_quote_ohlc_not_adjclose",
+      "provider": "yahoo_public_unofficial",
+      "received_at": "2026-11-04T02:00:32.198490+00:00",
+      "session": "US_cash_daily",
+      "symbol": "^NDX",
+      "timezone": "America/New_York"
+    },
+    "raw_sha256": "5d7935b96df1c09a65fe71497782a6e700d4fbc9402495935ac8efe2dc2c7212",
+    "normalized_sha256": "76af8a691b4b8af090630f002d78064f0442ebdb753c3e104b6fb6eeffdb073e",
+    "exchange_bar_timestamp": 1793716200,
+    "metadata": {
+      "symbol": "^NDX",
+      "instrumentType": "INDEX",
+      "exchangeTimezoneName": "America/New_York",
+      "dataGranularity": "1d",
+      "priceHint": 2,
+      "regularMarketTime": 1793744159
+    },
+    "last_quote_close": 28180.263671875,
+    "last_adjclose": 28180.263671875,
+    "corporate_event_types": []
+  },
+  "revised_source": {
+    "source": {
+      "availability": "next UTC midnight after the session date",
+      "frequency": "1d",
+      "license_scope": "public_research_unofficial",
+      "price_basis": "provider_quote_ohlc_not_adjclose",
+      "provider": "yahoo_public_unofficial",
+      "received_at": "2026-11-04T05:47:09.341616+00:00",
+      "session": "US_cash_daily",
+      "symbol": "^NDX",
+      "timezone": "America/New_York"
+    },
+    "raw_sha256": "d4441220b303708a20f633fee301696e250fb66b6043e7b7ad82193ca43e5210",
+    "normalized_sha256": "d411be9f9aae2e9e85c0cdf8fc641695c4b029cb1cf2a56acb01d396f02f1b05",
+    "exchange_bar_timestamp": 1793716200,
+    "metadata": {
+      "symbol": "^NDX",
+      "instrumentType": "INDEX",
+      "exchangeTimezoneName": "America/New_York",
+      "dataGranularity": "1d",
+      "priceHint": 2,
+      "regularMarketTime": 1793744159
+    },
+    "last_quote_close": 28180.259765625,
+    "last_adjclose": 28180.259765625,
+    "corporate_event_types": []
+  },
+  "source_checks": [
+    {
+      "provider": "FRED_NASDAQ100",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv",
+      "requested_session": "2026-11-03",
+      "status": "UNVERIFIED",
+      "independent_upstream_confirmed": false,
+      "error_type": "ConnectionError"
+    },
+    {
+      "provider": "Nasdaq_public_index_history",
+      "url": "https://api.nasdaq.com/api/index/NDX/historical",
+      "requested_session": "2026-11-03",
+      "status": "ACCESS_BLOCKED_OR_UNAVAILABLE",
+      "independent_upstream_confirmed": false,
+      "http_status": 404,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "received_at": "2026-11-04T05:49:14.139029+00:00"
+    }
+  ],
+  "forward_outcome": "NOT_MATURED",
+  "note": "original source-as-observed verified, not official exchange truth; no future outcome or new accuracy evidence"
+}

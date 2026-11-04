@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-04T05:17:08.640457+00:00",
+  "generated_at": "2026-11-04T05:57:12.726313+00:00",
   "model_id": "ndx-range-v1",
   "model_version": "1.0.0",
   "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
   "trading_decision": "NO_TRADE",
   "mode": "read_only_shadow",
-  "operational_status": "AUDIT_BLOCKED",
+  "operational_status": "SHADOW_ACTIVE",
   "generation": "ALREADY_ISSUED",
   "generation_detail": {
     "status": "ALREADY_ISSUED",
@@ -71,16 +71,19 @@
   "missed_now": 0,
   "audit": {
     "forecasts": 1,
-    "passed": 0,
-    "failed": [
+    "passed": 1,
+    "failed": [],
+    "records": [
       {
         "forecast_id": "20d48fc41c2cc0f5c0ae4f2d",
-        "ok": false,
-        "issues": [
-          "REFERENCE_CLOSE_MISMATCH"
-        ],
+        "ok": true,
+        "issues": [],
         "stored_reference_close": 28180.263671875,
-        "current_source_reference_close": 28180.259765625
+        "current_source_reference_close": 28180.259765625,
+        "warnings": [
+          "SOURCE_REVISION_RECONCILED_AS_ISSUED"
+        ],
+        "reconciliation_id": "4fb15c942afdc198b011d344cc8181a7155cc2f9702ed3493b0b1e33d1a9fabd"
       }
     ]
   },
@@ -89,13 +92,13 @@
     "warnings": [
       "RECENT_DATA_QUALITY_FAILURES"
     ],
-    "last_run": "2026-11-04T04:51:32.737231+00:00",
-    "age_hours": 0.426639785,
+    "last_run": "2026-11-04T05:57:12.726313+00:00",
+    "age_hours": 0.0,
     "forecasts": 1,
     "matured": 0,
     "pending": 1,
     "missed": 0,
-    "recent_quality_failures": 1,
+    "recent_quality_failures": 2,
     "trading_decision": "NO_TRADE"
   },
   "evaluation": {
@@ -103,7 +106,7 @@
     "pending": 1,
     "status": "INSUFFICIENT_FORWARD_DATA",
     "note": "no forward forecast has matured; do not report accuracy",
-    "quality_failures": 1,
+    "quality_failures": 2,
     "missed": 0,
     "milestones": {
       "30": {
@@ -134,8 +137,8 @@
     },
     "^VIX": {
       "status": "FETCHED",
-      "last": "2026-11-03",
-      "rows": 9280
+      "last": "2026-11-02",
+      "rows": 9279
     }
   },
   "sources": {
@@ -149,8 +152,8 @@
       },
       "^VIX": {
         "status": "FETCHED",
-        "last": "2026-11-03",
-        "rows": 9280
+        "last": "2026-11-02",
+        "rows": 9279
       }
     },
     "manifests": {
@@ -171,14 +174,15 @@
         "dropped_invalid_or_missing_bars": 0,
         "gap_days_median": 1.0,
         "gaps_over_5_days": 1,
-        "received_at": "2026-11-04T05:17:08.257282+00:00",
+        "received_at": "2026-11-04T05:57:11.964733+00:00",
         "availability": "next UTC midnight after the session date",
         "known_limitations": [
           "unofficial endpoint; not an exchange feed",
           "index levels are not tradable",
           "continuous futures proxies have unverified roll mapping",
           "adjusted vs unadjusted prices not distinguished by this adapter"
-        ]
+        ],
+        "snapshot_id": "7afb55bbb9b61f5a8d10c1950f75eac88f568d82748fb4b57ad5ade18d28fca8"
       },
       "vix": {
         "symbol": "^VIX",
@@ -187,25 +191,30 @@
         "provider": "yahoo_public_unofficial",
         "frequency": "1d",
         "license_scope": "public_research_unofficial",
-        "raw_sha256": "5a398d98af6f95344a6de474f0e16f2d500da642dd9856d7569c1ec2f81a3b4e",
-        "normalized_sha256": "503d34c76c5b53fcd350584814a6b16c1797d452bbb3e80514903a325dd59e17",
-        "rows": 9280,
+        "raw_sha256": "10c1ae5cd4f5e2a4797df767ab9e067eab692bc545b4b90d6ae36f36f773f73c",
+        "normalized_sha256": "a0817dd92815825c0504c75576b2bb3cca4539a889a39fe049f55e3429fb42a2",
+        "rows": 9279,
         "first": "1990-01-02",
-        "last": "2026-11-03",
-        "span_years": 36.84,
-        "zero_volume_rows": 9280,
-        "dropped_invalid_or_missing_bars": 331,
+        "last": "2026-11-02",
+        "span_years": 36.83,
+        "zero_volume_rows": 9279,
+        "dropped_invalid_or_missing_bars": 332,
         "gap_days_median": 1.0,
         "gaps_over_5_days": 1,
-        "received_at": "2026-11-04T05:17:08.637492+00:00",
+        "received_at": "2026-11-04T05:57:12.517953+00:00",
         "availability": "next UTC midnight after the session date",
         "known_limitations": [
           "unofficial endpoint; not an exchange feed",
           "index levels are not tradable",
           "continuous futures proxies have unverified roll mapping",
           "adjusted vs unadjusted prices not distinguished by this adapter"
-        ]
+        ],
+        "snapshot_id": "2223a4a7b9ec37403a5c93dfdae6cf0e800ae8e1fd9c99e6da6430871be9f5d6"
       }
+    },
+    "snapshot_ids": {
+      "index": "7afb55bbb9b61f5a8d10c1950f75eac88f568d82748fb4b57ad5ade18d28fca8",
+      "vix": "2223a4a7b9ec37403a5c93dfdae6cf0e800ae8e1fd9c99e6da6430871be9f5d6"
     }
   },
   "notes": [

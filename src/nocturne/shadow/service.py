@@ -10,6 +10,7 @@ No forecast is written when any rule fails; the reason is recorded instead.
 from __future__ import annotations
 
 import hashlib
+import json
 from time import perf_counter
 from datetime import date, datetime, time, timedelta, timezone
 
@@ -151,21 +152,27 @@ def generate(artifact: ShadowArtifact, store: ShadowStore, index_bars: pd.DataFr
         "features": snapshot.values,
         "feature_digest": snapshot.digest(),
         "dataset_sha256": snapshot.dataset_sha256,
+        "dataset_digest_format": "feature-input-csv-lf-v1",
         "rows_used": snapshot.rows_used,
         "validation_status": validation_status,
         "trading_decision": "NO_TRADE",
         "source": source or {},
+        "market_snapshot_ids": (source or {}).get("snapshot_ids"),
+        "artifact_digests": artifact.metadata.get("artifact_digests"),
         "status": "PENDING",
         "notes": ["range is a percentage of the reference close",
                   "cash-session index range, not NQ futures",
                   "read-only research shadow; not a trading signal"],
     }
+    from ..adapters.snapshots import canonical, digest
+    record["record_sha256"] = digest(canonical(record))
     stored = store.append_forecast(record)
     return {"status": "STORED", "forecast": stored, "eligibility": decision}
 
 
 def evaluate_matured(store: ShadowStore, index_bars: pd.DataFrame, now: datetime,
-                     allowed_forecast_ids: set[str] | None = None) -> list[dict]:
+                     allowed_forecast_ids: set[str] | None = None,
+                     verified_reconciliation_ids: dict | None = None) -> list[dict]:
     now = now.astimezone(UTC)
     index = _prepared(index_bars)
     if "available_at" not in index:
@@ -220,6 +227,10 @@ def evaluate_matured(store: ShadowStore, index_bars: pd.DataFrame, now: datetime
             "outcome_bar_sha256": hashlib.sha256(str(bar).encode()).hexdigest(),
             "data_quality_status": "PASSED",
             "inference_revision": forecast.get("inference_revision", "legacy-unadjusted"),
+            "forecast_sha256": hashlib.sha256(json.dumps(forecast, sort_keys=True, separators=(",", ":"), allow_nan=False).encode()).hexdigest(),
+            "market_snapshot_id": index_bars.attrs.get("snapshot_id"),
+            "source_reliability": "research_grade_unofficial_not_exchange_finality",
+            "reconciliation_ids": (verified_reconciliation_ids or {}).get(forecast["forecast_id"], []),
             "covered": covered,
             "pinball": pinball,
             "status": "MATURED",
@@ -349,13 +360,26 @@ def record_missed(store: ShadowStore, index_bars: pd.DataFrame | None, now: date
     return written
 
 
-def audit_forecasts(store: ShadowStore, index_bars: pd.DataFrame) -> dict:
+def audit_forecasts(store: ShadowStore, index_bars: pd.DataFrame, snapshot_root=None) -> dict:
     """Verify immutability invariants without rewriting anything."""
     index = _prepared(index_bars)
     closes = {row.date.date().isoformat(): float(row.close) for row in index.itertuples(index=False)}
     checks = []
     for forecast in store.forecasts():
         issues = []
+        warnings = []
+        reconciliation_id = None
+        if forecast.get("record_sha256"):
+            from ..adapters.snapshots import canonical, digest
+            if forecast["record_sha256"] != digest(canonical({k: v for k, v in forecast.items() if k != "record_sha256"})):
+                issues.append("FORECAST_RECORD_HASH_MISMATCH")
+        if forecast.get("market_snapshot_ids"):
+            try:
+                from ..adapters.snapshots import SnapshotStore
+                from .reconciliation import verify_issuance
+                verify_issuance(forecast, SnapshotStore(snapshot_root), forecast["market_snapshot_ids"])
+            except (ValueError, KeyError, OSError, TypeError):
+                issues.append("ISSUANCE_SNAPSHOT_INVALID")
         quantiles = forecast["quantiles"]
         if not (quantiles["p50"] <= quantiles["p80"] <= quantiles["p90"]):
             issues.append("NON_MONOTONE_QUANTILES")
@@ -372,14 +396,31 @@ def audit_forecasts(store: ShadowStore, index_bars: pd.DataFrame) -> dict:
         if expected_close is None:
             issues.append("DATA_DATE_BAR_MISSING")
         elif abs(expected_close - forecast["reference_close"]) > 1e-6:
-            issues.append("REFERENCE_CLOSE_MISMATCH")
+            reconciled = False
+            if snapshot_root is not None:
+                from ..adapters.snapshots import SnapshotStore
+                from .reconciliation import verify_reconciliation
+                for record in store.reconciliations():
+                    try:
+                        reconciled = verify_reconciliation(forecast, record, SnapshotStore(snapshot_root), expected_close)
+                    except (ValueError, KeyError, OSError, TypeError, IndexError):
+                        continue
+                    if reconciled:
+                        reconciliation_id = record["reconciliation_id"]
+                        break
+            if reconciled:
+                warnings.append("SOURCE_REVISION_RECONCILED_AS_ISSUED")
+            else:
+                issues.append("REFERENCE_CLOSE_MISMATCH")
         if pd.Timestamp(forecast["created_at"]) >= pd.Timestamp(forecast["session_open_utc"]):
             issues.append("ISSUED_AFTER_SESSION_OPEN")
         checks.append({"forecast_id": forecast["forecast_id"], "ok": not issues, "issues": issues,
                        "stored_reference_close": forecast["reference_close"],
                        "current_source_reference_close": expected_close})
+        checks[-1]["warnings"] = warnings
+        checks[-1]["reconciliation_id"] = reconciliation_id
     return {"forecasts": len(checks), "passed": sum(item["ok"] for item in checks),
-            "failed": [item for item in checks if not item["ok"]]}
+            "failed": [item for item in checks if not item["ok"]], "records": checks}
 
 
 def health(store: ShadowStore, now: datetime) -> dict:

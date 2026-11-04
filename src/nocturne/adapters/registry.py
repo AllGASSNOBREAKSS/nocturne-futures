@@ -55,7 +55,7 @@ PROVIDERS = (
         license_note="Federal Reserve Bank of St. Louis terms; cite the source.",
         endpoints=("https://fred.stlouisfed.org/graph/fredgraph.csv",
                    "https://api.stlouisfed.org/fred/series/observations"),
-        instruments=("DGS10", "DGS2", "DFF", "CPIAUCSL", "UNRATE"),
+         instruments=("DGS10", "DGS2", "DFF", "CPIAUCSL", "UNRATE", "NASDAQ100"),
     ),
     Provider(
         name="bls", category="macro", access="FREE_OFFICIAL", credential_env="BLS_API_KEY",

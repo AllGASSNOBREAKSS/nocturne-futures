@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T04:53:58.749809+00:00",
+  "generated_at": "2026-11-04T05:46:55.140008+00:00",
   "providers": {
     "yahoo_chart": {
       "status": "AVAILABLE",
@@ -76,6 +76,30 @@
       "provider": "Databento mbp / mbo (entitlement dependent)",
       "status": "DATA_BLOCKED"
     }
+  },
+  "bar_storage_planning_estimate": {
+    "definition": "planning estimate, not downloaded observations, exchange schedule or billable quote",
+    "assumptions": {
+      "sessions": 252,
+      "instruments": 2,
+      "hours_per_session": 23,
+      "active_contracts_per_instrument": 1,
+      "csv_bytes_per_row": [
+        150,
+        250
+      ]
+    },
+    "one_minute_rows": 695520,
+    "five_minute_rows": 139104,
+    "one_minute_csv_bytes": [
+      104328000,
+      173880000
+    ],
+    "five_minute_csv_bytes": [
+      20865600,
+      34776000
+    ],
+    "limits": "roll overlap, holidays, compression and provider encoding change volume; ticks/quotes/depth require actual provider sizing"
   },
   "contract_data": {
     "status": "DATA_BLOCKED",

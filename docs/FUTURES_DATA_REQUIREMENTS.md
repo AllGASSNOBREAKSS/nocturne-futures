@@ -54,3 +54,19 @@ estimated here.
 
 Free daily index and ETF history cannot substitute for these. Index levels are not
 tradable and their session ranges differ from futures ranges.
+
+## Explicit storage-planning estimate (not observed data or a cost quote)
+
+Assume 252 sessions/year, 23 hours/session, NQ and ES, and one active raw contract
+per instrument. This gives at most 695,520 one-minute rows and 139,104 five-minute
+rows under those assumptions. At an assumed 150–250 CSV bytes/row, one-minute
+exports are about 104–174 MB/year total and derived five-minute exports about
+21–35 MB/year, uncompressed. Roll overlap, shortened sessions, actual calendars,
+provider encoding and retained raw responses change storage substantially.
+
+These are engineering planning assumptions, not a downloaded sample, exact
+exchange schedule or provider billable volume. Trades, quotes, depth and MBO
+cannot be sized honestly from OHLCV; request provider metadata/size/cost for the
+exact bounded contract, schema and dates after entitlement is configured. Do not
+purchase or initiate a bulk download from this estimate. `phase3i_readiness.py`
+reports the assumptions and derived byte ranges separately from readiness.

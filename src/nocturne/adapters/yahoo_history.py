@@ -67,7 +67,7 @@ def _frame(payload: dict, symbol: str) -> pd.DataFrame:
     return frame.sort_values("date").reset_index(drop=True)
 
 
-def _fetch_daily(symbol: str, retries: int = 4, pause: float = 2.0) -> dict:
+def _fetch_daily(symbol: str, retries: int = 4, pause: float = 2.0, with_wire=False):
     """Daily bars via explicit period bounds.
 
     ``range=max`` is downsampled by Yahoo to monthly bars, so it must not be used
@@ -91,7 +91,7 @@ def _fetch_daily(symbol: str, retries: int = 4, pause: float = 2.0) -> dict:
             granularity = payload.get("chart", {}).get("result", [{}])[0].get("meta", {}).get("dataGranularity")
             if granularity not in (None, "1d"):
                 raise ValueError(f"unexpected granularity {granularity}")
-            return payload
+            return (payload, response.content) if with_wire else payload
         except Exception as exc:  # noqa: BLE001 - adapter boundary
             last_error = exc
             _time.sleep(pause * (attempt + 1))
@@ -100,10 +100,12 @@ def _fetch_daily(symbol: str, retries: int = 4, pause: float = 2.0) -> dict:
 
 def fetch_daily_history(symbol: str, root: Path, pause: float = 2.0) -> dict:
     root = Path(root)
+    if (root / "FROZEN").exists():
+        raise ValueError("frozen research history: fetch into a separate operational root")
     (root / "raw").mkdir(parents=True, exist_ok=True)
     (root / "normalized").mkdir(exist_ok=True)
     (root / "manifests").mkdir(exist_ok=True)
-    payload = _fetch_daily(symbol, pause=pause)
+    payload, wire = _fetch_daily(symbol, pause=pause, with_wire=True)
     frame = _frame(payload, symbol)
     if frame.empty:
         raise ValueError(f"empty history for {symbol}")
@@ -111,16 +113,17 @@ def fetch_daily_history(symbol: str, root: Path, pause: float = 2.0) -> dict:
     dropped_invalid = requested - len(frame)
     raw = json.dumps(payload, sort_keys=True).encode()
     digest = hashlib.sha256(raw).hexdigest()
-    (root / "raw" / f"{symbol.replace('^', 'IDX_').replace('=', '_')}_{digest}.json").write_bytes(raw)
+    from .snapshots import immutable_write
+    immutable_write(root / "raw" / f"{symbol.replace('^', 'IDX_').replace('=', '_')}_{digest}.json", raw)
     destination = root / "normalized" / f"{symbol.replace('^', 'IDX_').replace('=', '_')}.csv"
-    frame.to_csv(destination, index=False, lineterminator="\n")
+    normalized = frame.to_csv(index=False, lineterminator="\n").encode()
     meta = DEFAULT_SYMBOLS.get(symbol, {})
     gaps = pd.to_datetime(frame.date).diff().dt.days
     manifest = {
         "symbol": symbol, "name": meta.get("name"), "kind": meta.get("kind", "unknown"),
         "provider": "yahoo_public_unofficial", "frequency": "1d",
         "license_scope": "public_research_unofficial",
-        "raw_sha256": digest, "normalized_sha256": hashlib.sha256(destination.read_bytes()).hexdigest(),
+        "raw_sha256": digest, "normalized_sha256": hashlib.sha256(normalized).hexdigest(),
         "rows": len(frame), "first": frame.date.iloc[0], "last": frame.date.iloc[-1],
         "span_years": round((pd.Timestamp(frame.date.iloc[-1]) - pd.Timestamp(frame.date.iloc[0])).days / 365.25, 2),
         "zero_volume_rows": int((frame.volume == 0).sum()),
@@ -136,7 +139,21 @@ def fetch_daily_history(symbol: str, root: Path, pause: float = 2.0) -> dict:
             "adjusted vs unadjusted prices not distinguished by this adapter",
         ],
     }
-    (root / "manifests" / f"{destination.stem}.json").write_text(json.dumps(manifest, indent=2) + "\n")
+    from .snapshots import SnapshotStore
+    exchange_timezone = payload["chart"]["result"][0]["meta"]["exchangeTimezoneName"]
+    manifest["snapshot_id"] = SnapshotStore(root / "snapshots").capture(raw, normalized, {
+        "symbol": symbol, "provider": manifest["provider"], "frequency": "1d",
+        "received_at": manifest["received_at"], "session": "VIX_daily_context" if symbol == "^VIX" else "US_cash_daily" if meta.get("kind") in {"index", "etf"} else "provider_daily_session",
+        "price_basis": "provider_quote_ohlc_not_adjclose", "timezone": exchange_timezone,
+        "availability": manifest["availability"], "license_scope": manifest["license_scope"]}, wire=wire)
+    # Only the cache pointer/export changes; archived objects never do.
+    temporary = destination.with_suffix(".tmp")
+    temporary.write_bytes(normalized)
+    temporary.replace(destination)
+    manifest_path = root / "manifests" / f"{destination.stem}.json"
+    temporary = manifest_path.with_suffix(".tmp")
+    temporary.write_text(json.dumps(manifest, indent=2) + "\n")
+    temporary.replace(manifest_path)
     return manifest
 
 

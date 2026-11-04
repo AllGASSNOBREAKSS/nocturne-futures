@@ -89,6 +89,14 @@ def create_app(service: ForecastService | None = None) -> FastAPI:
     def shadow_operations() -> dict:
         return service.shadow_operations()
 
+    @app.get("/v1/data/revisions")
+    def source_revisions() -> dict:
+        return service.source_revisions()
+
+    @app.get("/v1/data/reconciliations")
+    def source_reconciliations() -> dict:
+        return service.source_reconciliations()
+
     @app.get("/v1/shadow/missed")
     def shadow_missed() -> dict:
         return service.shadow_missed()

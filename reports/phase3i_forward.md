@@ -6,7 +6,7 @@ Model `ndx-range-v1` - status `RESEARCH_VALIDATED_PENDING_SHADOW` - decision `NO
 - Matured: **0**
 - Pending: **1**
 - Missed sessions: **0**
-- Audit failures: **1**
+- Audit failures: **0**
 
 No forward forecast has matured. Coverage, pinball loss and drift are intentionally omitted rather than estimated from zero observations.
 

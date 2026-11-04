@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -34,6 +35,15 @@ class ShadowArtifact:
 
 def load_artifact(root: Path | str, model_id: str) -> ShadowArtifact:
     directory = Path(root) / model_id
+    checksums = json.loads((directory / "checksums.json").read_text())
+    for filename in ("model.joblib", "metadata.json", "baseline.json"):
+        content = (directory / filename).read_bytes()
+        # JSON uses canonical semantic bytes so Git CRLF/LF conversion cannot
+        # masquerade as a model revision. Pickled weights use exact file bytes.
+        if filename.endswith(".json"):
+            content = json.dumps(json.loads(content), sort_keys=True, separators=(",", ":"), allow_nan=False).encode()
+        if hashlib.sha256(content).hexdigest() != checksums[filename]:
+            raise ValueError("frozen artifact checksum mismatch")
     metadata = json.loads((directory / "metadata.json").read_text(encoding="utf-8"))
     if (metadata["model_id"] != model_id or metadata["instrument"] != "^NDX"
             or metadata["validation_status"] != "RESEARCH_VALIDATED_PENDING_SHADOW"
@@ -45,6 +55,7 @@ def load_artifact(root: Path | str, model_id: str) -> ShadowArtifact:
         if baseline["dataset_sha256"] != metadata["dataset_sha256"]:
             raise ValueError("baseline dataset mismatch")
         metadata = {**metadata, "baseline_quantiles": baseline["quantiles"]}
+    metadata = {**metadata, "artifact_digests": checksums}
     bundle = joblib.load(directory / "model.joblib")
     features = tuple(bundle["features"])
     if list(features) != list(FEATURES):
@@ -55,6 +66,8 @@ def load_artifact(root: Path | str, model_id: str) -> ShadowArtifact:
 
 def save_artifact(root: Path | str, model_id: str, models: dict, metadata: dict) -> Path:
     directory = Path(root) / model_id
+    if (directory / "checksums.json").exists():
+        raise ValueError("cannot replace a pinned shadow artifact; create a challenger version")
     directory.mkdir(parents=True, exist_ok=True)
     joblib.dump({"models": models, "features": list(FEATURES)}, directory / "model.joblib")
     (directory / "metadata.json").write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")

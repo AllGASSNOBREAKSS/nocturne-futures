@@ -1,6 +1,52 @@
 # Implementation Checkpoint
 
-## Current resume point — Phase 3J, 2026-11-04 UTC
+## Current resume point — Phase 3K, 2026-11-04 UTC
+
+Branch `feat/phase3k`, base `9f68c6b`. Read `PHASE3K_FINDINGS.md` and
+`reports/phase3k_reconciliation.json`. Phase 3J reproduced 253 passing tests and
+green CI. Phase 3K local verification: **264 passed including C++ parity**;
+TypeScript typecheck passed. Check this branch's own CI after push.
+
+Source incident: original raw/normalized hashes and pre-issuance receipt times
+verified; archived inputs exactly reproduce all stored features and digests.
+Yahoo changed November 3 OHLC **and volume**, not the session timestamp or index
+identity. Quote and adjusted close coincide in both versions. Classification is
+`VERIFIED_AS_ISSUED_PROVIDER_REVISION`; internal provider reason and official
+exchange finality remain unconfirmed. FRED connection failed and Nasdaq endpoint
+returned 404; no independent confirmation is claimed.
+
+Separate reconciliation records bind the original forecast hash to immutable
+issuance/revised snapshots. The audit re-verifies proof each cycle and permits
+the as-issued original reference 28180.263671875; it never substitutes the
+revised close. Original forecast line/hash and model artifacts remain unchanged.
+
+Immutable content-addressed archives are under ignored
+`data/shadow/market/snapshots/`. Preserve/back up this directory along with the
+forecast, reconciliation and alert journals. Repo clone alone is not an archive
+backup. New forecasts require exact snapshot versions; checksum-pinned model
+weights/metadata and a `FROZEN` research guard reject silent replacement.
+
+Forward state: **1 issued / 0 matured / 1 pending / 0 missed**. Latest real data
+still ends November 3; November 4 has not opened. No forward metrics exist.
+
+```powershell
+python scripts/phase3h_shadow.py --evaluate-only --refresh
+python scripts/phase3i_forward_report.py
+python scripts/phase3j_operations.py
+python scripts/phase3i_readiness.py
+```
+
+Do not rerun the old freeze script over the pinned model. Use artifact auditing
+without fitting. Only run `phase3k_reconcile.py` for a deliberate evidence review;
+it appends evidence, never forecasts/outcomes. Missing/changed archives or a new
+unreconciled revision must block evaluation again.
+
+Next: genuine completed November 4 outcome after the November 5 00:00 UTC adapter
+bound, subject to all quality/provenance checks; then accumulate actual future
+samples without tuning. Licensed futures/PIT dependencies and authorized
+logout-independent deployment remain blocked. Trading stays `NO_TRADE`.
+
+## Previous resume point — Phase 3J, 2026-11-04 UTC
 
 Branch `feat/phase3j`, base `0c56df7`. Read `PHASE3J_FINDINGS.md` first.
 Phase 3I reproduced 242 passing tests and verified green CI. Phase 3J local

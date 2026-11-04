@@ -2,6 +2,23 @@
 
 **Date:** 2026-11-03
 
+## Phase 3K — immutable source versions, separate reconciliation
+
+- Treat normalized operational files as caches. Retain content-addressed raw,
+  normalized and response-body evidence and original receipts; later imports
+  record a separate archive time. Never regress live heads during legacy imports.
+- Reconcile provider revisions through archived input replay and unchanged source
+  conventions, not tolerance inflation. Keep original forecasts byte-identical
+  and evaluate their original denominator and quantiles only.
+- An as-observed provider revision is not an assertion of official market truth.
+  Exact source cause and independent confirmation may remain unavailable.
+- Bind new forecasts to exact NDX/VIX snapshot versions and full-record hashes;
+  validate weights and canonical JSON metadata against frozen checksums. Research
+  refresh guards and challenger versioning protect independent evidence.
+- Hash integrity is not signed authenticity or a backup. Preserve private source
+  archives and restrict filesystem writes; Git does not contain the operational
+  archive. Cross-source comparison requires equivalent measurement contracts.
+
 ## Phase 3J — observable failures and explicit deployment identity
 
 - Preserve reference-price audit failures, including small source revisions.

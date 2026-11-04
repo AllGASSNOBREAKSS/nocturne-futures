@@ -8,6 +8,20 @@
 
 ## What is implemented
 
+### Phase 3K checkpoint — 2026-11-04 UTC
+
+The Yahoo discrepancy is verified as an upstream **OHLCV revision**, not a local
+parser error. Archived pre-issuance inputs exactly reproduce the original
+forecast features. A separate hash-bound reconciliation permits the original
+as-issued contract without changing its denominator or predictions. Yahoo's
+internal reason and official exchange finality remain unconfirmed.
+
+New acquisitions retain immutable hashed raw/normalized snapshots, HTTP response
+bodies and revision lineage. Runtime forecasts link exact snapshot versions;
+frozen model checksums and a research-history refresh guard prevent silent
+replacement. **1 issued, 0 matured**; no outcome or forward accuracy is invented.
+See [Phase 3K findings](docs/PHASE3K_FINDINGS.md) for evidence and limitations.
+
 ### Phase 3J checkpoint — 2026-11-04 UTC
 
 Added durable local incident transitions, a read-only operational-health endpoint,

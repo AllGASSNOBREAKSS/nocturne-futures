@@ -1,1 +1,2 @@
 {"at": "2026-11-04T04:42:33.234617+00:00", "detail": {"error": "stale or wrong-identity operational snapshot"}, "reason": "MARKET_DATA_MISSING"}
+{"at": "2026-11-04T05:42:15.433337+00:00", "detail": {"error": "immutable snapshot missing; refresh required"}, "reason": "MARKET_DATA_MISSING"}
