@@ -109,8 +109,8 @@ def assess_eligibility(index_bars: pd.DataFrame, vix_bars: pd.DataFrame,
 
 
 def generate(artifact: ShadowArtifact, store: ShadowStore, index_bars: pd.DataFrame,
-             vix_bars: pd.DataFrame, now: datetime, validation_status: str,
-             source: dict | None = None) -> dict:
+              vix_bars: pd.DataFrame, now: datetime, validation_status: str,
+              source: dict | None = None, issuance_clock=None) -> dict:
     now = now.astimezone(UTC)
     if artifact.model_id != "ndx-range-v1" or validation_status != "RESEARCH_VALIDATED_PENDING_SHADOW":
         store.record_quality_failure("MODEL_NOT_ELIGIBLE")
@@ -128,6 +128,13 @@ def generate(artifact: ShadowArtifact, store: ShadowStore, index_bars: pd.DataFr
     started = perf_counter()
     snapshot = build_features(index_bars, vix_bars, now)
     quantiles = artifact.predict(snapshot)
+    issued_at = issuance_clock() if issuance_clock is not None else now
+    if issued_at.tzinfo is None or issued_at < now:
+        store.record_quality_failure("ISSUANCE_CLOCK_INVALID")
+        return {"status": "SKIPPED", "reason": "ISSUANCE_CLOCK_INVALID"}
+    if issued_at >= pd.Timestamp(decision["session_open_utc"]):
+        store.record_quality_failure("DEADLINE_PASSED_DURING_INFERENCE")
+        return {"status": "SKIPPED", "reason": "DEADLINE_PASSED_DURING_INFERENCE"}
     identifier = forecast_id(artifact.model_id, decision["target_date"], snapshot.digest())
     record = {
         "forecast_id": identifier,
@@ -140,9 +147,10 @@ def generate(artifact: ShadowArtifact, store: ShadowStore, index_bars: pd.DataFr
         "kind": "cash_session_range",
         "data_date": decision["data_date"],
         "target_date": decision["target_date"],
-        "created_at": now.isoformat(),
+        "created_at": issued_at.astimezone(UTC).isoformat(),
+        "feature_asof": now.isoformat(),
         "prediction_compute_seconds": perf_counter() - started,
-        "issuance_lead_seconds": (pd.Timestamp(decision["session_open_utc"]) - now).total_seconds(),
+        "issuance_lead_seconds": (pd.Timestamp(decision["session_open_utc"]) - issued_at).total_seconds(),
         "session_open_utc": decision["session_open_utc"],
         "reference_close": snapshot.reference_close,
         "quantiles": quantiles,

@@ -162,12 +162,14 @@ The original first record has no pre-issued comparator embedded; baseline result
 remain null rather than retroactively presented as pre-issued forecasts. The
 30/60/90 monitoring milestones are unchanged, not achieved validation claims.
 
-Local verification: **264 passed including native C++ parity**; TypeScript
+Local verification: **265 passed including native C++ parity**; TypeScript
 typecheck passed. New tests cover response-body preservation, corruption,
 normalization/identity mismatches, chronological replay, revision lineage,
 immutable writes, frozen research guards, original-record integrity, model
 checksum failure, cross-source equivalence and explicit tolerances. Remote CI
 must be checked for this phase's commit, not inferred from Phase 3J.
+Issuance also rechecks the actual production clock after inference; crossing
+the opening deadline rejects the record rather than timestamping it earlier.
 
 Next: maintain verified scheduled acquisitions; after the November 4 session
 finishes and the adapter availability bound passes (November 5 00:00 UTC), append

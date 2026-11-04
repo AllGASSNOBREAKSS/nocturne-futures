@@ -9,6 +9,9 @@ from .features import MIN_HISTORY, build_features
 
 
 def verify_issuance(forecast, archive: SnapshotStore, identifiers):
+    feature_asof = forecast.get("feature_asof", forecast["created_at"])
+    if pd.Timestamp(feature_asof) > pd.Timestamp(forecast["created_at"]):
+        raise ValueError("feature time follows issuance")
     frames = {}
     for role, symbol in (("index", "^NDX"), ("vix", "^VIX")):
         timezone = "America/New_York" if role == "index" else "America/Chicago"
@@ -19,7 +22,7 @@ def verify_issuance(forecast, archive: SnapshotStore, identifiers):
                 or source["frequency"] != "1d" or source["session"] != session
                 or source["price_basis"] != "provider_quote_ohlc_not_adjclose"
                 or source.get("timezone") != timezone
-                or pd.Timestamp(source["received_at"]) > pd.Timestamp(forecast["created_at"])):
+                or pd.Timestamp(source["received_at"]) > pd.Timestamp(feature_asof)):
             raise ValueError("issuance source identity or chronology mismatch")
         raw_meta = json.loads(archive.read_object(manifest["raw_sha256"]))["chart"]["result"][0]["meta"]
         if raw_meta.get("instrumentType") != "INDEX" or raw_meta.get("exchangeTimezoneName") != timezone:
@@ -27,12 +30,12 @@ def verify_issuance(forecast, archive: SnapshotStore, identifiers):
         frame = archive.frame(identifiers[role])
         # Match the operational loader's exact view, not merely the CSV bytes.
         frames[role] = frame[frame.source_complete.eq(True)] if "source_complete" in frame else frame
-    replay = build_features(frames["index"], frames["vix"], forecast["created_at"])
+    replay = build_features(frames["index"], frames["vix"], feature_asof)
     if replay.dataset_sha256 != forecast["dataset_sha256"] and not forecast.get("dataset_digest_format"):
         # Legacy issuance used pandas' OS-default CSV newline. Support its
         # exact LF/CRLF bytes, never a numeric tolerance or a changed dataset.
         original = frames["index"].copy()
-        original = original[original.available_at <= pd.Timestamp(forecast["created_at"])]
+        original = original[original.available_at <= pd.Timestamp(feature_asof)]
         original["date"] = pd.to_datetime(original.date)
         original = original.sort_values("date").tail(MIN_HISTORY)[["date", "close", "high", "low", "volume"]]
         candidates = {digest(original.to_csv(index=False, lineterminator=end).encode()) for end in ("\n", "\r\n")}

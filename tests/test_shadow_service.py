@@ -166,6 +166,16 @@ def test_runtime_applies_frozen_residual_adjustments():
     assert list(artifact.predict(snapshot).values()) == pytest.approx(expected)
 
 
+def test_inference_finishing_after_open_cannot_be_backdated(tmp_path):
+    artifact = load_artifact(ROOT / "models/shadow", MODEL_ID)
+    store = ShadowStore(tmp_path)
+    result = generate(artifact, store, bars(), bars(base=20, step=0),
+                      datetime(2025, 3, 25, 13, 29, tzinfo=UTC), "RESEARCH_VALIDATED_PENDING_SHADOW",
+                      issuance_clock=lambda: datetime(2025, 3, 25, 13, 30, tzinfo=UTC))
+    assert result["reason"] == "DEADLINE_PASSED_DURING_INFERENCE"
+    assert store.forecasts() == []
+
+
 @pytest.mark.parametrize("case", ["early", "nan", "incomplete", "duplicate"])
 def test_evaluator_rejects_invalid_or_incomplete_target_bar(tmp_path, case):
     artifact = load_artifact(ROOT / "models/shadow", MODEL_ID)

@@ -139,8 +139,8 @@ def cycle(refresh_data: bool, now: datetime | None = None, evaluate_only: bool =
         sources["snapshot_ids"] = {name: manifest["snapshot_id"] for name, manifest in sources["manifests"].items()}
         generated = ({"status": "EVALUATE_ONLY"} if evaluate_only else
                      generate(artifact, store, index, vix, now,
-                              validation_status=artifact.metadata["validation_status"],
-                              source=sources))
+                               validation_status=artifact.metadata["validation_status"],
+                               source=sources, issuance_clock=(lambda: datetime.now(timezone.utc)) if wall_clock else None))
         audit = audit_forecasts(store, index, snapshot_root=OPERATIONAL_DIR / "snapshots")
         failed_ids = {item["forecast_id"] for item in audit["failed"]}
         allowed_ids = {item["forecast_id"] for item in store.forecasts()} - failed_ids

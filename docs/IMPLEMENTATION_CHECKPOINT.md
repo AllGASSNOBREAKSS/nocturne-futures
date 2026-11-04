@@ -4,7 +4,7 @@
 
 Branch `feat/phase3k`, base `9f68c6b`. Read `PHASE3K_FINDINGS.md` and
 `reports/phase3k_reconciliation.json`. Phase 3J reproduced 253 passing tests and
-green CI. Phase 3K local verification: **264 passed including C++ parity**;
+green CI. Phase 3K local verification: **265 passed including C++ parity**;
 TypeScript typecheck passed. Check this branch's own CI after push.
 
 Source incident: original raw/normalized hashes and pre-issuance receipt times
