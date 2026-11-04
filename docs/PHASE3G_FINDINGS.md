@@ -192,3 +192,6 @@ Not established: any tradable edge, any NQ futures range probability, any
 validated intraday multi-year futures history. Promotion decisions remain
 fail-closed; the range model is validated for research scope only and awaits
 shadow evaluation.
+
+Verification: 201 native-enabled tests pass. Pushes `9af707f` and `1a79880` both
+completed GitHub CI successfully.
