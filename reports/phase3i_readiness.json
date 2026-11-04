@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T04:45:28.637588+00:00",
+  "generated_at": "2026-11-04T04:53:58.749809+00:00",
   "providers": {
     "yahoo_chart": {
       "status": "AVAILABLE",
@@ -79,9 +79,11 @@
   },
   "contract_data": {
     "status": "DATA_BLOCKED",
-    "reason": "NO_CONTRACT_DATA",
-    "requires": "licensed raw-contract 1m/5m OHLCV with contract_id",
-    "instrument": "NQ"
+    "reason": "NO_VERIFIED_RAW_CONTRACT_RECEIPTS",
+    "receipts": [],
+    "rejected_receipts": 0,
+    "requires": "licensed NQ/ES raw-contract OHLCV, then provenance/session/roll review",
+    "note": "local receipt checks do not independently verify provider authenticity or establish an edge"
   },
   "free_context": {
     "daily_manifests": [

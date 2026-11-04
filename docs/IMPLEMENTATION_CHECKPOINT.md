@@ -3,9 +3,16 @@
 ## Current resume point — Phase 3I, 2026-11-04 UTC
 
 Branch `feat/phase3i`, base `e963981`. Read `PHASE3I_FINDINGS.md` first.
-Local verification: **241 passed including native C++ parity**. Base CI was
+Local verification: **242 passed including native C++ parity**. Base CI was
 verified green. Current commit and remote CI: inspect `git log -1` and the
 `feat/phase3i` Actions run; do not substitute base CI for new changes.
+
+Engineering commit `92cd098` is pushed and passed all four CI jobs: Python,
+TypeScript, native parity and Windows shadow/task dry run. Run:
+https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/41775767199
+Follow-up hardening adds live API staleness/health, outcome history and scanning
+of the actual private Databento receipt layout with checksum checks; its local
+suite is 242 passing. Check the follow-up commit's own Actions result separately.
 
 Forward state remains **1 issued / 0 matured / 1 pending / 0 missed**. Original
 timestamp is `2026-11-04T02:53:30.237804+00:00` (supersedes the older 02:50 text

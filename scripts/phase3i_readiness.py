@@ -1,13 +1,14 @@
 """Provider and futures-data readiness report for Phase 3I."""
 import json
 import os
+import hashlib
 from pathlib import Path
 
 import pandas as pd
 
 from nocturne.adapters.registry import registry
 from nocturne.instruments import get_instrument
-from nocturne.research.contract_targets import readiness
+from nocturne.research.contract_targets import ContractTargetConfig, validate_contract_bars
 
 ROOT = Path(__file__).resolve().parents[1]
 TIERS = {
@@ -31,21 +32,39 @@ TIERS = {
 
 
 def contract_inventory() -> dict:
-    root = ROOT / "data/history/futures"
-    candidates = sorted(root.rglob("*.csv")) if root.exists() else []
-    frames = []
+    # Use the actual existing downloader's private receipt layout, not arbitrary
+    # public CSV files that merely claim to have contract IDs.
+    root = ROOT / "data/licensed/databento"
+    candidates = sorted(root.glob("*.json")) if root.exists() else []
+    records, rejected = [], 0
     for path in candidates:
         try:
-            frame = pd.read_csv(path, nrows=5000)
-        except Exception:
+            receipt = json.loads(path.read_text())
+            request = receipt["request"]
+            if (request["dataset"] != "GLBX.MDP3" or request["schema"] != "ohlcv-1m"
+                    or request["stype_in"] != "raw_symbol" or not receipt["license_scope"]):
+                raise ValueError("receipt scope mismatch")
+            for field, digest_field in (("raw_file", "raw_sha256"), ("export_file", "export_sha256")):
+                filename = receipt[field]
+                if Path(filename).name != filename:
+                    raise ValueError("invalid receipt filename")
+                if hashlib.sha256((root / filename).read_bytes()).hexdigest() != receipt[digest_field]:
+                    raise ValueError("receipt checksum mismatch")
+            frame = pd.read_csv(root / receipt["export_file"])
+            if not frame.contract_id.eq(request["symbols"]).all():
+                raise ValueError("contract mismatch")
+            quality = validate_contract_bars(frame, get_instrument(receipt["instrument"]),
+                                             ContractTargetConfig(interval="1min"))
+            records.append({"instrument": receipt["instrument"], **quality,
+                            "received_at": receipt["received_at"], "checksums_verified": True})
+        except (ValueError, KeyError, OSError, AttributeError):
+            rejected += 1
             continue
-        if "contract_id" in frame and frame.contract_id.notna().any():
-            frames.append(path)
-    if not frames:
-        return readiness(None, get_instrument("NQ"))
-    frame = pd.read_csv(frames[0])
-    return {**readiness(frame, get_instrument("NQ")),
-            "files": [str(path.relative_to(ROOT)) for path in frames]}
+    return {"status": "RECEIPTS_REQUIRE_REVIEW" if records else "DATA_BLOCKED",
+            "reason": None if records else "NO_VERIFIED_RAW_CONTRACT_RECEIPTS",
+            "receipts": records, "rejected_receipts": rejected,
+            "requires": "licensed NQ/ES raw-contract OHLCV, then provenance/session/roll review",
+            "note": "local receipt checks do not independently verify provider authenticity or establish an edge"}
 
 
 def main():

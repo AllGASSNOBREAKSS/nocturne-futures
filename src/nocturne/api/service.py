@@ -99,9 +99,16 @@ class ForecastService:
     def shadow_history(self, limit: int = 50) -> dict:
         path = ROOT / "data" / "shadow" / "ndx_range" / "forecasts.jsonl"
         if not path.exists():
-            return {"forecasts": [], "reason": "NO_SHADOW_FORECASTS"}
+            return {"forecasts": [], "reason": "NO_SHADOW_FORECASTS", "trading_decision": "NO_TRADE"}
         records = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
-        return {"count": len(records), "forecasts": records[-limit:][::-1]}
+        return {"count": len(records), "forecasts": records[-limit:][::-1],
+                "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW", "trading_decision": "NO_TRADE"}
+
+    def shadow_outcomes(self, limit: int = 50) -> dict:
+        path = ROOT / "data/shadow/ndx_range/outcomes.jsonl"
+        records = [json.loads(line) for line in path.read_text().splitlines() if line.strip()] if path.exists() else []
+        return {"count": len(records), "outcomes": records[-limit:][::-1],
+                "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW", "trading_decision": "NO_TRADE"}
 
     def shadow_evaluation(self) -> dict:
         path = ROOT / "reports" / "phase3h_shadow_status.json"
@@ -124,10 +131,12 @@ class ForecastService:
             return {"status": "NO_FORWARD_REPORT", "trading_decision": "NO_TRADE"}
         report = json.loads(path.read_text(encoding="utf-8"))
         return {"model_id": report.get("model_id"),
+                "generated_at": report.get("generated_at"),
                 "validation_status": report.get("validation_status"),
                 "issued": report.get("issued"), "matured": report.get("matured"),
                 "evaluation": report.get("evaluation"),
                 "claim": report.get("claim"),
+                "forecast_integrity": report.get("forecast_integrity"),
                 "trading_decision": "NO_TRADE"}
 
     def futures_readiness(self) -> dict:
@@ -146,7 +155,8 @@ class ForecastService:
     def data_health(self) -> dict:
         status_path = ROOT / "reports" / "phase3h_shadow_status.json"
         coverage_path = ROOT / "reports" / "phase3g_coverage.json"
-        result = {"read_only": True, "providers": {}, "sources": {}, "warnings": []}
+        result = {"read_only": True, "providers": {}, "sources": {}, "warnings": [],
+                  "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW", "trading_decision": "NO_TRADE"}
         if coverage_path.exists():
             coverage = json.loads(coverage_path.read_text(encoding="utf-8"))
             result["sources"] = {name: {"rows": item.get("rows"), "last": item.get("last")}
@@ -160,8 +170,16 @@ class ForecastService:
             result["shadow_last_run"] = status.get("generated_at")
             result["shadow_sources"] = status.get("sources")
             result["quality_failures"] = status.get("evaluation", {}).get("quality_failures")
-            if status.get("generation") not in (None, "STORED", "EVALUATE_ONLY"):
+            if status.get("generation") not in (None, "STORED", "ALREADY_ISSUED", "EVALUATE_ONLY"):
                 result["warnings"].append(f"last shadow generation: {status.get('generation')}")
+            age = (datetime.now(timezone.utc) - datetime.fromisoformat(status["generated_at"])).total_seconds()
+            result["snapshot_age_seconds"] = age
+            if age < 0 or age > 48 * 3600:
+                result["warnings"].append("stale or future-dated shadow status")
+            from ..shadow import ShadowStore, health
+            state = health(ShadowStore(ROOT / "data/shadow/ndx_range"), datetime.now(timezone.utc))
+            result["runtime_health"] = state
+            result["warnings"].extend(state["warnings"])
         else:
             result["warnings"].append("no shadow run recorded")
         result["status"] = "ok" if not result["warnings"] else "degraded"

@@ -81,3 +81,30 @@ def test_readiness_is_fail_closed_without_contract_data():
     assert blocked["status"] == "DATA_BLOCKED"
     assert "licensed" in blocked["requires"]
     assert readiness(bars(), NQ)["status"] == "STRUCTURALLY_VALID_PROVENANCE_REQUIRED"
+
+
+def test_provider_inventory_uses_private_receipts_and_checksums(tmp_path, monkeypatch):
+    import hashlib
+    import importlib.util
+    import json
+    from pathlib import Path
+    spec = importlib.util.spec_from_file_location("readiness_test", Path(__file__).resolve().parents[1] / "scripts/phase3i_readiness.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    monkeypatch.setattr(module, "ROOT", tmp_path)
+    root = tmp_path / "data/licensed/databento"
+    root.mkdir(parents=True)
+    raw = root / "fixture.csv"
+    raw.write_bytes(b"fixture-only")
+    export = root / "fixture.normalized.csv"
+    bars().to_csv(export, index=False)
+    receipt = {"request": {"dataset": "GLBX.MDP3", "schema": "ohlcv-1m", "stype_in": "raw_symbol", "symbols": "NQZ6"},
+               "license_scope": "fixture-only", "instrument": "NQ", "received_at": START.isoformat(),
+               "raw_file": raw.name, "raw_sha256": hashlib.sha256(raw.read_bytes()).hexdigest(),
+               "export_file": export.name, "export_sha256": hashlib.sha256(export.read_bytes()).hexdigest()}
+    (root / "fixture.json").write_text(json.dumps(receipt))
+    assert module.contract_inventory()["status"] == "RECEIPTS_REQUIRE_REVIEW"
+    raw.write_bytes(b"changed")
+    result = module.contract_inventory()
+    assert result["status"] == "DATA_BLOCKED"
+    assert result["rejected_receipts"] == 1

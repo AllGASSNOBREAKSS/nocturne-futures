@@ -115,7 +115,7 @@ are nominal Bernoulli intervals, not dependence-adjusted confidence guarantees.
 With zero outcomes there are no forward coverage or pinball numbers.
 
 Added endpoints: `/v1/shadow/missed`, `/v1/shadow/calibration`,
-`/v1/data/futures-readiness`, `/v1/alerts/critical-day`. Existing endpoints remain
+`/v1/shadow/outcomes`, `/v1/data/futures-readiness`, `/v1/alerts/critical-day`. Existing endpoints remain
 compatible. Reports are timestamped snapshots, not proof of live connectivity.
 The calendar alert defaults to `DATA_BLOCKED`; a schedule-proximity module
 requires explicit authorized PIT coverage before declaring absence of event
@@ -151,12 +151,15 @@ remain blocked. More model families on unchanged features are not justified.
 
 ## Verification and next milestone
 
-Local suite: **241 passed**, including native C++ parity. Task installer dry run
+Local suite: **242 passed**, including native C++ parity. Task installer dry run
 passed. Base `e963981` GitHub Actions was independently verified successful.
 Phase 3I commit/remote CI status is recorded in the implementation checkpoint;
 do not infer it from the base run.
 CI now also tests Windows shadow operations and the task-definition dry run;
 CI never registers an actual task.
+Commit `92cd098` passed Python, TypeScript, native and Windows-shadow jobs at
+https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/41775767199.
+Later commits need their own CI result; local follow-up verification is 242 tests.
 
 Next: verify the installed task's real exit state, then evaluate the first
 forecast only when its completed November 4 bar is available (adapter bound
