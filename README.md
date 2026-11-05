@@ -8,6 +8,26 @@
 
 ## What is implemented
 
+### Phase 3P — private-evidence recovery, quantitative gates still blocked
+
+Bounded local snapshots and a separate-location offline restore verify source
+proofs, immutable forecasts/outcomes, SQLite state and six cached challenger
+files. Two existing fixed index diagnostics reproduce exactly, not new predictive
+evidence. 355 local tests including native parity and TypeScript passed.
+
+Before November 6 00:00 UTC: two issued / one verified legacy matured / one
+pending corrected forecast. Zero licensed futures rows; no new model fitting,
+independent holdout scoring, paid consumption or unsupported target probabilities.
+Direct shadow runner succeeds, but both scheduled tasks currently return
+0xC000013A: **scheduled operation DEGRADED**, despite healthy core reports.
+Same-host restore is not off-host durability or clean-host recovery.
+
+See [current findings](docs/PHASE3P_FINDINGS.md),
+[acquisition decision](docs/PHASE3P_DATA_ACCESS.md),
+[timestamped evidence](reports/phase3p_evidence.json) and
+[readiness gates](docs/BACKEND_READINESS.md). **Pre-frontend gate NOT PASSED;
+NO_PROMOTION / NO_TRADE.** Earlier sections are historical checkpoints.
+
 ### Phase 3O — recovered audits, explicit dependency health
 
 The pending forecast's Yahoo revision is reconciled against exact archived

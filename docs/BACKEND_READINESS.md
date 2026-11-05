@@ -1,4 +1,35 @@
-# Backend readiness — Phase 3O
+# Backend readiness — Phase 3P
+
+## Phase 3P evidence update
+
+**Pre-frontend gate NOT PASSED. No percentage assigned.** See
+`PHASE3P_FINDINGS.md`, `PHASE3P_DATA_ACCESS.md` and `reports/phase3p_evidence.json`.
+
+Engineering: 355 local tests including native parity, TypeScript passed; bounded
+private evidence snapshot and separate-location SQLite/source/model proof replay
+verified on 547 files (210,599,711 bytes). Two fixed authentic index diagnostics
+reproduce exactly; six cached challenger files retain their hashes. This is
+same-host recovery using the installed environment, not clean-host/off-host restore.
+
+Quantitative: zero licensed futures rows; two issued, one verified legacy matured,
+one pending corrected forecast before November 6 00:00 UTC. No new models, unseen
+evaluations, target probabilities or predictive claims. Both fixed index diagnostics
+remain negative at hypothetical 2 bp; old ML findings remain development-only.
+
+Operational qualification: direct shadow runner succeeds, but both Task Scheduler
+launches currently return 0xC000013A (interrupted). **Scheduled operation DEGRADED**,
+even while core reports are healthy. Root cause and successful complete scheduled
+stage receipts must be established without weakening host security. Interactive
+awake/logged-in limitation remains; task definitions/principals unchanged.
+
+Outstanding measurable gates: authorized receipt-validated NQ/ES pilot; independent
+multi-regime futures/event/calibration evidence and adequate corrected forward
+samples; restored scheduled completion; clean-host and off-host recovery; accepted
+availability/independent-monitoring design; process-memory isolation; API deployment
+authentication/security/load review. Tests do not satisfy those external gates.
+
+The following Phase 3O/earlier sections retain historical evidence, not current
+scheduler or quantitative approval.
 
 ## Phase 3O evidence update and pre-frontend gates
 

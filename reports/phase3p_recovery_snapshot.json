@@ -1,0 +1,11 @@
+{
+  "generated_at": "2026-11-05T23:40:50.101331+00:00",
+  "mode": "snapshot",
+  "result": {
+    "files": 547,
+    "bytes": 210599711,
+    "manifest_sha256": "98daa0f8b2b7a018fd5e6425e2ea389576d9649071a9b37d1dce82191869ff86"
+  },
+  "scope": "authorized local recovery drill; private archive not uploaded, not encrypted by this tool",
+  "live_trading": "DISABLED"
+}

@@ -1,14 +1,14 @@
 # Research job snapshot
 
-Generated: 2026-11-05T23:01:47.211045+00:00
+Generated: 2026-11-05T23:39:22.405435+00:00
 
-States: {'SUCCEEDED': 31, 'BLOCKED': 15}
+States: {'SUCCEEDED': 33, 'BLOCKED': 15}
 
 Trading: NO_TRADE. No automatic promotions.
 
 Daily index diagnostics are not futures strategy P&L or independent validation.
 
-Shadow operations snapshot: **ok** (as of 2026-11-05T22:50:41.768481+00:00).
+Shadow operations snapshot: **ok** (as of 2026-11-05T23:37:45.300433+00:00).
 Open issues: []
 
 - `DATA_VALIDATION` (research): **SUCCEEDED** — `b26102aae53db5802cba4d08`
@@ -96,3 +96,5 @@ Open issues: []
   QQQ: 6956 rows, 1999-03-10 through 2026-11-02, etf.
   SPY: 8498 rows, 1993-01-29 through 2026-11-02, etf.
   TLT: 6105 rows, 2002-07-30 through 2026-11-02, etf.
+- `RESEARCH_REPORT` (research): **SUCCEEDED** — `3a2a170d36efd4085f4bd389`
+- `RESEARCH_REPORT` (research): **SUCCEEDED** — `ea1293ed7ef07ef7186fd8db`

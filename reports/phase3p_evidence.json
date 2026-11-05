@@ -1,0 +1,556 @@
+{
+  "generated_at": "2026-11-05T23:44:30.742261+00:00",
+  "baseline_commit": "ce76bf6b9144c67da11f1d0862072d023c9582ac",
+  "preservation": [
+    {
+      "path": "data/shadow/ndx_range/forecasts.jsonl",
+      "unchanged": true,
+      "original_bytes_preserved": true,
+      "appended_bytes": 0,
+      "sha256": "9c5e18870f036681db042191f7afadf3437b0c3c7da9a297b03b149261496c8c"
+    },
+    {
+      "path": "data/shadow/ndx_range/outcomes.jsonl",
+      "unchanged": true,
+      "original_bytes_preserved": true,
+      "appended_bytes": 0,
+      "sha256": "382f376d9e7ea3b8389182e9784892c9b2a01977d69d2eec0cc755eb86ea3149"
+    },
+    {
+      "path": "models/shadow/ndx-range-v1/model.joblib",
+      "unchanged": true,
+      "original_bytes_preserved": true,
+      "appended_bytes": 0,
+      "sha256": "515fbf7222fd81159fa017facb68c88020afd63c3e2ddec00178d65d0821434e"
+    }
+  ],
+  "forward": {
+    "generated_at": "2026-11-05T23:43:24.125563+00:00",
+    "issued": 2,
+    "verified_matured": 1,
+    "pending": 1,
+    "inference_samples": {
+      "legacy-unadjusted": {
+        "issued": 1,
+        "verified_matured": 1
+      },
+      "residual-adjusted-v1": {
+        "issued": 1,
+        "verified_matured": 0
+      }
+    }
+  },
+  "core_operations": {
+    "generated_at": "2026-11-05T23:43:25.256052+00:00",
+    "status": "ok",
+    "components": {
+      "shadow_cycle": {
+        "status": "HEALTHY",
+        "reason": "SHADOW_ACTIVE"
+      },
+      "forecast_integrity": {
+        "status": "HEALTHY",
+        "reason": "see forecast audit issues; reconciliation is evidence-bound, not a health override"
+      },
+      "provider_refresh": {
+        "status": "HEALTHY",
+        "reason": "latest timestamped cycle refresh results; not an uptime guarantee"
+      },
+      "outcome_evaluation": {
+        "status": "HEALTHY",
+        "reason": "pending horizons are expected work, not fabricated outcomes; evaluation requires availability and audit gates"
+      }
+    },
+    "issues": {},
+    "overdue_outcomes": [],
+    "health": {
+      "status": "ok",
+      "warnings": [],
+      "last_run": "2026-11-05T23:37:33.976829+00:00",
+      "age_hours": 0.09757756194444445,
+      "last_success": "2026-11-05T23:37:33.976829+00:00",
+      "last_attempt": "2026-11-05T23:37:33.976829+00:00",
+      "last_attempt_event": "CYCLE_OK",
+      "forecasts": 2,
+      "matured": 1,
+      "pending": 1,
+      "missed": 0,
+      "recent_quality_failures": 0,
+      "trading_decision": "NO_TRADE"
+    },
+    "issued": 2,
+    "matured": 1,
+    "missed": 0,
+    "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
+    "trading_decision": "NO_TRADE",
+    "mode": "read_only_shadow",
+    "delivery": "local durable alerts only; no external paging configured",
+    "limits": "same-host monitoring cannot detect or notify while this host is powered off",
+    "transitions_now": [],
+    "open_alerts": []
+  },
+  "scheduler_observation": [
+    {
+      "ObservedAt": "2026-11-05T23:43:37.9234941Z",
+      "Name": "Nocturne-NDX-ReadOnly-Shadow",
+      "State": "Ready",
+      "LogonType": "Interactive",
+      "LastRun": "2026-11-05T23:37:00.0000000Z",
+      "Result": 3221225786,
+      "NextRun": "2026-11-05T23:47:05.0000000Z"
+    },
+    {
+      "ObservedAt": "2026-11-05T23:43:37.9234941Z",
+      "Name": "Nocturne-ReadOnly-Research",
+      "State": "Ready",
+      "LogonType": "Interactive",
+      "LastRun": "2026-11-05T23:37:00.0000000Z",
+      "Result": 3221225786,
+      "NextRun": "2026-11-06T02:13:57.0000000Z"
+    }
+  ],
+  "scheduler_status": "DEGRADED",
+  "job_counts": {
+    "SUCCEEDED": 34,
+    "BLOCKED": 15
+  },
+  "prior_ml_diagnostics": [
+    {
+      "status": "SUCCEEDED",
+      "experiment_id": "5ce766d307cd25f5ea125140ebfb01df123c653a70e5b39ef794bc0e8f4ddb37",
+      "symbol": "^NDX",
+      "dataset_sha256": "5f5823410746daeaacd8e3ce413bcef7c04a34e65f48e04c929138ce9ef06af3",
+      "evaluation": {
+        "status": "DEVELOPMENT_DIAGNOSTIC_ONLY",
+        "protocol": {
+          "version": "index-development-v1",
+          "symbols": [
+            "^NDX",
+            "^GSPC"
+          ],
+          "development_start": "2000-01-01",
+          "reserved_from": "2024-01-01",
+          "min_train_days": 1500,
+          "calibration_days": 250,
+          "test_days": 250,
+          "max_folds": 3,
+          "embargo_days": 5,
+          "C": 0.2,
+          "seed": 7,
+          "label": "next observed session close greater than its open",
+          "holdout_policy": "2024+ excluded; previously studied history is development diagnostic only"
+        },
+        "folds": [
+          {
+            "fold": 0,
+            "model_sha256": "c168d7f3412101b4711e11f6676f980d922bb037b1ac64bdafbf98e1aee7ca82",
+            "train_rows": 1496,
+            "calibration_rows": 246,
+            "test_rows": 250,
+            "train_end": "2005-12-15 00:00:00+00:00",
+            "calibration_start": "2005-12-21 00:00:00+00:00",
+            "calibration_end": "2006-12-13 00:00:00+00:00",
+            "test_start": "2006-12-19 00:00:00+00:00",
+            "test_end": "2007-12-18 00:00:00+00:00"
+          },
+          {
+            "fold": 1,
+            "model_sha256": "07c618c0e5b00c17f31d795e439eacc9376b0abd7a409904b96825e32836900d",
+            "train_rows": 1746,
+            "calibration_rows": 246,
+            "test_rows": 250,
+            "train_end": "2006-12-13 00:00:00+00:00",
+            "calibration_start": "2006-12-19 00:00:00+00:00",
+            "calibration_end": "2007-12-12 00:00:00+00:00",
+            "test_start": "2007-12-18 00:00:00+00:00",
+            "test_end": "2008-12-13 00:00:00+00:00"
+          },
+          {
+            "fold": 2,
+            "model_sha256": "592aafec878ee11c174bbb2dc837c810207c1cece8cf68f89c9e12b96fe7d4cd",
+            "train_rows": 1996,
+            "calibration_rows": 245,
+            "test_rows": 250,
+            "train_end": "2007-12-12 00:00:00+00:00",
+            "calibration_start": "2007-12-18 00:00:00+00:00",
+            "calibration_end": "2008-12-06 00:00:00+00:00",
+            "test_start": "2008-12-13 00:00:00+00:00",
+            "test_end": "2009-12-11 00:00:00+00:00"
+          }
+        ],
+        "metrics": {
+          "p_model": {
+            "n": 750,
+            "base_rate": 0.5307,
+            "brier": 0.249911,
+            "log_loss": 0.692969,
+            "accuracy": 0.528,
+            "precision": 0.5312,
+            "recall": 0.9422,
+            "f1": 0.6793,
+            "ece": 0.008299,
+            "reliability": [
+              {
+                "bin_low": 0.4,
+                "bin_high": 0.5,
+                "n": 44,
+                "mean_predicted": 0.495,
+                "observed_rate": 0.5227
+              },
+              {
+                "bin_low": 0.5,
+                "bin_high": 0.6,
+                "n": 706,
+                "mean_predicted": 0.5241,
+                "observed_rate": 0.5312
+              }
+            ],
+            "auc": 0.47136249428962995,
+            "balanced_accuracy": 0.5009350730927364,
+            "class_recall": [
+              0.05965909090909091,
+              0.9422110552763819
+            ]
+          },
+          "p_frequency": {
+            "n": 750,
+            "base_rate": 0.5307,
+            "brier": 0.249863,
+            "log_loss": 0.692872,
+            "accuracy": 0.512,
+            "precision": 0.532,
+            "recall": 0.6683,
+            "f1": 0.5924,
+            "ece": 0.02945,
+            "reliability": [
+              {
+                "bin_low": 0.4,
+                "bin_high": 0.5,
+                "n": 250,
+                "mean_predicted": 0.498,
+                "observed_rate": 0.528
+              },
+              {
+                "bin_low": 0.5,
+                "bin_high": 0.6,
+                "n": 500,
+                "mean_predicted": 0.5028,
+                "observed_rate": 0.532
+              }
+            ],
+            "auc": 0.5142759250799452,
+            "balanced_accuracy": 0.5017844906349931,
+            "class_recall": [
+              0.3352272727272727,
+              0.6683417085427136
+            ]
+          }
+        },
+        "holdout_scored": false,
+        "decision": "NO_PROMOTION",
+        "findings": "fixed logistic challenger; no search, no new incremental feature claim, no independent performance validation"
+      },
+      "predictions_sha256": "c6e0d98dcf39b45d686e52b95fff231f8a9f5bd45fde7845c914f3a4019fe7d9",
+      "reused_without_rescoring": false,
+      "job_id": "7c6dbabbfd52cf319ff955e9",
+      "kind": "MODEL_EVALUATION",
+      "attempt": 1,
+      "trading_decision": "NO_TRADE"
+    },
+    {
+      "status": "SUCCEEDED",
+      "experiment_id": "6e7fb2af4a7a52f13f8ee2ee3771eb09d8435cb4da8e9d8a0b1a82ec0729a6ae",
+      "symbol": "^GSPC",
+      "dataset_sha256": "8d37c0b770617a7103f8b934be96152d14615d9f1f151a32f8137ee4a57cd5e9",
+      "evaluation": {
+        "status": "DEVELOPMENT_DIAGNOSTIC_ONLY",
+        "protocol": {
+          "version": "index-development-v1",
+          "symbols": [
+            "^NDX",
+            "^GSPC"
+          ],
+          "development_start": "2000-01-01",
+          "reserved_from": "2024-01-01",
+          "min_train_days": 1500,
+          "calibration_days": 250,
+          "test_days": 250,
+          "max_folds": 3,
+          "embargo_days": 5,
+          "C": 0.2,
+          "seed": 7,
+          "label": "next observed session close greater than its open",
+          "holdout_policy": "2024+ excluded; previously studied history is development diagnostic only"
+        },
+        "folds": [
+          {
+            "fold": 0,
+            "model_sha256": "01bb31536db3dcb3efc6884a337fe5ca733c6a709f5942fd4ff82ec2f76e5ca2",
+            "train_rows": 1496,
+            "calibration_rows": 246,
+            "test_rows": 250,
+            "train_end": "2005-12-15 00:00:00+00:00",
+            "calibration_start": "2005-12-21 00:00:00+00:00",
+            "calibration_end": "2006-12-13 00:00:00+00:00",
+            "test_start": "2006-12-19 00:00:00+00:00",
+            "test_end": "2007-12-18 00:00:00+00:00"
+          },
+          {
+            "fold": 1,
+            "model_sha256": "ef05f9a778a670f69340b7f19526576b627a2f0970591e32d39ba38d60b9362f",
+            "train_rows": 1746,
+            "calibration_rows": 246,
+            "test_rows": 250,
+            "train_end": "2006-12-13 00:00:00+00:00",
+            "calibration_start": "2006-12-19 00:00:00+00:00",
+            "calibration_end": "2007-12-12 00:00:00+00:00",
+            "test_start": "2007-12-18 00:00:00+00:00",
+            "test_end": "2008-12-13 00:00:00+00:00"
+          },
+          {
+            "fold": 2,
+            "model_sha256": "85f90a1d6bdd476937d6b93c2a6643189a645ded7fd3c5e42bd773f279c4c8c6",
+            "train_rows": 1996,
+            "calibration_rows": 245,
+            "test_rows": 250,
+            "train_end": "2007-12-12 00:00:00+00:00",
+            "calibration_start": "2007-12-18 00:00:00+00:00",
+            "calibration_end": "2008-12-06 00:00:00+00:00",
+            "test_start": "2008-12-13 00:00:00+00:00",
+            "test_end": "2009-12-11 00:00:00+00:00"
+          }
+        ],
+        "metrics": {
+          "p_model": {
+            "n": 750,
+            "base_rate": 0.532,
+            "brier": 0.248798,
+            "log_loss": 0.691054,
+            "accuracy": 0.524,
+            "precision": 0.5473,
+            "recall": 0.609,
+            "f1": 0.5765,
+            "ece": 0.0383,
+            "reliability": [
+              {
+                "bin_low": 0.1,
+                "bin_high": 0.2,
+                "n": 7,
+                "mean_predicted": 0.1865,
+                "observed_rate": 0.2857
+              },
+              {
+                "bin_low": 0.2,
+                "bin_high": 0.3,
+                "n": 15,
+                "mean_predicted": 0.2498,
+                "observed_rate": 0.4
+              },
+              {
+                "bin_low": 0.3,
+                "bin_high": 0.4,
+                "n": 35,
+                "mean_predicted": 0.3641,
+                "observed_rate": 0.4
+              },
+              {
+                "bin_low": 0.4,
+                "bin_high": 0.5,
+                "n": 249,
+                "mean_predicted": 0.4653,
+                "observed_rate": 0.5382
+              },
+              {
+                "bin_low": 0.5,
+                "bin_high": 0.6,
+                "n": 381,
+                "mean_predicted": 0.5383,
+                "observed_rate": 0.5302
+              },
+              {
+                "bin_low": 0.6,
+                "bin_high": 0.7,
+                "n": 57,
+                "mean_predicted": 0.6341,
+                "observed_rate": 0.6667
+              },
+              {
+                "bin_low": 0.7,
+                "bin_high": 0.8,
+                "n": 6,
+                "mean_predicted": 0.7369,
+                "observed_rate": 0.5
+              }
+            ],
+            "auc": 0.5404536983484352,
+            "balanced_accuracy": 0.5181864918707024,
+            "class_recall": [
+              0.42735042735042733,
+              0.6090225563909775
+            ]
+          },
+          "p_frequency": {
+            "n": 750,
+            "base_rate": 0.532,
+            "brier": 0.249196,
+            "log_loss": 0.691538,
+            "accuracy": 0.532,
+            "precision": 0.532,
+            "recall": 1.0,
+            "f1": 0.6945,
+            "ece": 0.016385,
+            "reliability": [
+              {
+                "bin_low": 0.5,
+                "bin_high": 0.6,
+                "n": 750,
+                "mean_predicted": 0.5156,
+                "observed_rate": 0.532
+              }
+            ],
+            "auc": 0.514280716035102,
+            "balanced_accuracy": 0.5,
+            "class_recall": [
+              0.0,
+              1.0
+            ]
+          }
+        },
+        "holdout_scored": false,
+        "decision": "NO_PROMOTION",
+        "findings": "fixed logistic challenger; no search, no new incremental feature claim, no independent performance validation"
+      },
+      "predictions_sha256": "206370b1dc4c5275081c114382d9dd3ad3b8e0925d37b2044912ed8a7ed9c0a7",
+      "reused_without_rescoring": false,
+      "job_id": "60d102ffabcb24efa44c9104",
+      "kind": "MODEL_EVALUATION",
+      "attempt": 1,
+      "trading_decision": "NO_TRADE"
+    }
+  ],
+  "recovery": {
+    "generated_at": "2026-11-05T23:41:06.982292+00:00",
+    "mode": "check",
+    "result": {
+      "status": "VERIFIED_LOCAL_RELOCATION",
+      "issued": 2,
+      "verified_matured": 1,
+      "reproduced_index_diagnostics": [
+        {
+          "symbol": "^NDX",
+          "observations": 6036,
+          "scope": "NON_EXECUTABLE_INDEX_CONTEXT_NOT_NQ_ES_PNL",
+          "net_mean_fraction_2bp": -0.00016316773640181952
+        },
+        {
+          "symbol": "^GSPC",
+          "observations": 6036,
+          "scope": "NON_EXECUTABLE_INDEX_CONTEXT_NOT_NQ_ES_PNL",
+          "net_mean_fraction_2bp": -0.0003269370965258071
+        }
+      ],
+      "cached_challenger_files_verified": 6,
+      "new_models_trained": 0,
+      "network_requests": 0,
+      "trading_decision": "NO_TRADE",
+      "limitations": "same-host offline relocation using installed code; not off-host durability, different-machine restore or service activation"
+    },
+    "scope": "authorized local recovery drill; private archive not uploaded, not encrypted by this tool",
+    "live_trading": "DISABLED"
+  },
+  "futures_access": {
+    "generated_at": "2026-11-05T23:36:36.218946+00:00",
+    "status": "DATA_BLOCKED",
+    "trading_decision": "NO_TRADE",
+    "consumption_attempted": false,
+    "credit_eligibility": "UNVERIFIED_ACCOUNT_SPECIFIC",
+    "provider_cost_usd": null,
+    "public_sources": [],
+    "pilots": [
+      {
+        "request": {
+          "dataset": "GLBX.MDP3",
+          "symbols": "NQZ6",
+          "schema": "ohlcv-1m",
+          "stype_in": "raw_symbol",
+          "start": "2026-11-01T23:00:00+00:00",
+          "end": "2026-11-02T22:00:00+00:00"
+        },
+        "instrument": "NQ",
+        "generated_at": "2026-11-05T23:36:36.219323+00:00",
+        "status": "DATA_BLOCKED",
+        "cost_usd": null,
+        "billable_bytes": null,
+        "record_count": null,
+        "credit_eligibility": "ACCOUNT_SPECIFIC_UNVERIFIED",
+        "consumption_authorized": false,
+        "metadata_receipts": [],
+        "time_series_requested": false,
+        "reason": "DATABENTO_API_KEY_MISSING"
+      },
+      {
+        "request": {
+          "dataset": "GLBX.MDP3",
+          "symbols": "ESZ6",
+          "schema": "ohlcv-1m",
+          "stype_in": "raw_symbol",
+          "start": "2026-11-01T23:00:00+00:00",
+          "end": "2026-11-02T22:00:00+00:00"
+        },
+        "instrument": "ES",
+        "generated_at": "2026-11-05T23:36:36.219398+00:00",
+        "status": "DATA_BLOCKED",
+        "cost_usd": null,
+        "billable_bytes": null,
+        "record_count": null,
+        "credit_eligibility": "ACCOUNT_SPECIFIC_UNVERIFIED",
+        "consumption_authorized": false,
+        "metadata_receipts": [],
+        "time_series_requested": false,
+        "reason": "DATABENTO_API_KEY_MISSING"
+      }
+    ],
+    "research_jobs": [
+      {
+        "id": "a9715adfe952f45c39945767",
+        "kind": "HISTORICAL_BACKTEST",
+        "lane": "research",
+        "payload": "{\"contract\": \"NQZ6\", \"instrument\": \"NQ\", \"scope\": \"raw_futures\"}",
+        "dependencies": "[]",
+        "state": "BLOCKED",
+        "attempts": 1,
+        "max_attempts": 1,
+        "timeout": 300.0,
+        "ready_at": 1793899835.3342743,
+        "result": "{\"status\": \"BLOCKED\", \"instrument\": \"NQ\", \"contract\": \"NQZ6\", \"bar_interval\": \"1min\", \"protocol_version\": \"pilot-full-TP1-cashflow-v2\", \"engine_code_sha256\": \"5384a40c264ceaafed3d3f05a3929bb97e672141a1e34aa2bcab89deebdd885f\", \"licensed_rows\": 0, \"directional_metrics\": null, \"target_first_probability\": null, \"survival_fit\": null, \"decision\": \"NO_PROMOTION\", \"trading_decision\": \"NO_TRADE\", \"reason\": \"AUTHENTIC_CONTRACT_HISTORY_REQUIRED\", \"job_id\": \"a9715adfe952f45c39945767\", \"kind\": \"HISTORICAL_BACKTEST\", \"attempt\": 1}",
+        "created": 1793899802.8323963,
+        "updated": 1793899805.3347025
+      },
+      {
+        "id": "9cb95320b29b8d1e41e80d9a",
+        "kind": "HISTORICAL_BACKTEST",
+        "lane": "research",
+        "payload": "{\"contract\": \"ESZ6\", \"instrument\": \"ES\", \"scope\": \"raw_futures\"}",
+        "dependencies": "[]",
+        "state": "BLOCKED",
+        "attempts": 1,
+        "max_attempts": 1,
+        "timeout": 300.0,
+        "ready_at": 1793899837.648605,
+        "result": "{\"status\": \"BLOCKED\", \"instrument\": \"ES\", \"contract\": \"ESZ6\", \"bar_interval\": \"1min\", \"protocol_version\": \"pilot-full-TP1-cashflow-v2\", \"engine_code_sha256\": \"5384a40c264ceaafed3d3f05a3929bb97e672141a1e34aa2bcab89deebdd885f\", \"licensed_rows\": 0, \"directional_metrics\": null, \"target_first_probability\": null, \"survival_fit\": null, \"decision\": \"NO_PROMOTION\", \"trading_decision\": \"NO_TRADE\", \"reason\": \"AUTHENTIC_CONTRACT_HISTORY_REQUIRED\", \"job_id\": \"9cb95320b29b8d1e41e80d9a\", \"kind\": \"HISTORICAL_BACKTEST\", \"attempt\": 1}",
+        "created": 1793899802.843746,
+        "updated": 1793899807.6489239
+      }
+    ],
+    "runner": {
+      "status": "COMPLETED_TICK",
+      "executed": 0,
+      "lane": "research"
+    }
+  },
+  "new_models_trained_in_phase3p": 0,
+  "new_independent_evaluations": 0,
+  "readiness": "PRE_FRONTEND_GATE_NOT_PASSED",
+  "promotion": "NO_PROMOTION",
+  "trading_decision": "NO_TRADE"
+}

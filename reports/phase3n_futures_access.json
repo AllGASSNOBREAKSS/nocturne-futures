@@ -1,36 +1,11 @@
 {
-  "generated_at": "2026-11-05T19:44:20.746228+00:00",
+  "generated_at": "2026-11-05T23:36:36.218946+00:00",
   "status": "DATA_BLOCKED",
   "trading_decision": "NO_TRADE",
   "consumption_attempted": false,
   "credit_eligibility": "UNVERIFIED_ACCOUNT_SPECIFIC",
   "provider_cost_usd": null,
-  "public_sources": [
-    {
-      "url": "https://databento.com/docs/knowledge-base/datasets/glbx-mdp3",
-      "http_status": 200,
-      "received_at": "2026-11-05T19:44:20.962198+00:00",
-      "body_sha256": "fcfd68652d5f9c2ec20fdcf853d8af0cf2b850c148dbd90e47db13d93cae4c6a",
-      "bytes": 358768,
-      "limitation": "page retrieval does not prove rendered pricing, account eligibility or entitlement"
-    },
-    {
-      "url": "https://databento.com/pricing",
-      "http_status": 200,
-      "received_at": "2026-11-05T19:44:21.154598+00:00",
-      "body_sha256": "f154b26abfd3cfa971d06bce7a4225cc83bf79ecf98a921270b98f2138a652a8",
-      "bytes": 17876,
-      "limitation": "page retrieval does not prove rendered pricing, account eligibility or entitlement"
-    },
-    {
-      "url": "https://databento.com/docs/api-historical",
-      "http_status": 200,
-      "received_at": "2026-11-05T19:44:21.307133+00:00",
-      "body_sha256": "983e91c046aa5cbe4f5a7529f8e7e74171b3812bc47f780d12f1e066d0a9cd30",
-      "bytes": 3592387,
-      "limitation": "page retrieval does not prove rendered pricing, account eligibility or entitlement"
-    }
-  ],
+  "public_sources": [],
   "pilots": [
     {
       "request": {
@@ -42,7 +17,7 @@
         "end": "2026-11-02T22:00:00+00:00"
       },
       "instrument": "NQ",
-      "generated_at": "2026-11-05T19:44:22.065166+00:00",
+      "generated_at": "2026-11-05T23:36:36.219323+00:00",
       "status": "DATA_BLOCKED",
       "cost_usd": null,
       "billable_bytes": null,
@@ -63,7 +38,7 @@
         "end": "2026-11-02T22:00:00+00:00"
       },
       "instrument": "ES",
-      "generated_at": "2026-11-05T19:44:22.065433+00:00",
+      "generated_at": "2026-11-05T23:36:36.219398+00:00",
       "status": "DATA_BLOCKED",
       "cost_usd": null,
       "billable_bytes": null,

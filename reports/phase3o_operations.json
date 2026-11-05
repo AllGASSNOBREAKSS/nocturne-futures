@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-05T22:55:57.670904+00:00",
+  "generated_at": "2026-11-05T23:43:27.660401+00:00",
   "shadow": {
-    "generated_at": "2026-11-05T22:50:41.768481+00:00",
+    "generated_at": "2026-11-05T23:43:25.256052+00:00",
     "status": "ok",
     "components": {
       "shadow_cycle": {
@@ -26,10 +26,10 @@
     "health": {
       "status": "ok",
       "warnings": [],
-      "last_run": "2026-11-05T22:50:32.280850+00:00",
-      "age_hours": 0.0026354530555555557,
-      "last_success": "2026-11-05T22:50:32.280850+00:00",
-      "last_attempt": "2026-11-05T22:50:32.280850+00:00",
+      "last_run": "2026-11-05T23:37:33.976829+00:00",
+      "age_hours": 0.09757756194444445,
+      "last_success": "2026-11-05T23:37:33.976829+00:00",
+      "last_attempt": "2026-11-05T23:37:33.976829+00:00",
       "last_attempt_event": "CYCLE_OK",
       "forecasts": 2,
       "matured": 1,
@@ -160,13 +160,13 @@
         "last_observed_at_epoch": 1793844396.0760748
       },
       {
-        "job_id": "22d63e24f60f070e3437b9fb",
+        "job_id": "e4a8784372f511f43a35fde5",
         "kind": "RESEARCH_REPORT",
         "lane": "research",
         "state": "SUCCEEDED",
         "status": "HEALTHY",
         "reason": "SUCCEEDED",
-        "last_observed_at_epoch": 1793918751.1864996
+        "last_observed_at_epoch": 1793921962.7581506
       },
       {
         "job_id": "f902b82b1419763c5d945caa",
@@ -246,7 +246,7 @@
       "BLOCKED": 3
     },
     "historical_state_counts": {
-      "SUCCEEDED": 31,
+      "SUCCEEDED": 34,
       "BLOCKED": 15
     },
     "limits": "latest recorded result per lane/type/specification, not live host liveness or a market-data entitlement"
@@ -304,7 +304,7 @@
     ],
     "sample_warning": "descriptive observations only; no forward calibration or trading-edge claim",
     "trading_decision": "NO_TRADE",
-    "generated_at": "2026-11-05T22:50:37.038115+00:00",
+    "generated_at": "2026-11-05T23:43:09.493725+00:00",
     "issued": 2,
     "pending": 1,
     "baseline_sha256": "cf6984327158af5517c35ca5ad2cd2ccc865a40022e50b411f1cc5872eaf298d",

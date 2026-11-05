@@ -1,6 +1,38 @@
 # Implementation Checkpoint
 
-## Current resume point — Phase 3O, 2026-11-05 UTC
+## Current resume point — Phase 3P, 2026-11-05 UTC
+
+Branch `feat/phase3p`, base `ce76bf6`. Read `PHASE3P_FINDINGS.md`,
+`PHASE3P_DATA_ACCESS.md`, `BACKEND_READINESS.md` and `reports/phase3p_evidence.json`.
+355 local tests/native parity and TypeScript passed; verify pushed CI separately.
+New bounded local recovery drill: 547 files, 210,599,711 bytes; original proof,
+outcome and six cached challenger hashes verify after separate-location restore.
+Two existing fixed authentic index diagnostics reproduce exactly, not new research.
+No model retrained or newly exposed holdout scored. No frontend/live execution.
+
+Before November 6 00:00 UTC: two issued, one verified legacy matured, one pending
+corrected forecast. Do not force maturity; refresh/evaluate only at actual eligible
+time and retain audit blocks on any new source change. Verify forecast/outcome/model
+bytes against base with `python scripts/phase3p_evidence.py`.
+
+Current scheduling caveat: direct shadow runner exits 0, but both scheduled tasks
+return 3221225786 / 0xC000013A on explicit launches. Scheduling DEGRADED; root cause
+unconfirmed. Do not infer healthy scheduling from healthy core reports. Definitions,
+principals and security settings unchanged; no 24/7 claim. Inspect complete stage
+receipts and host termination evidence before calling this recovered.
+
+Futures remains externally BLOCKED: four provider keys absent; free preflight
+returns unknown quote/no consumption, zero licensed rows. Operator must configure
+GLBX.MDP3 access and approve actual exact quotes before the existing bounded pilot.
+Remaining gates: independent futures/target evidence, enough corrected forward
+outcomes, reliable schedules, clean-host/off-host restore, authorized monitoring/
+availability, process-memory isolation and API security/load review.
+
+Ignored snapshot `data/recovery/phase3p-local-20261105-v2` and separate temporary
+restore are same-host proof only, not durable off-host backup. Keep manual evidence
+writers quiescent for future snapshots. Never overwrite restored/live state.
+
+## Previous resume point — Phase 3O, 2026-11-05 UTC
 
 Branch `feat/phase3o`, base `8065a34`. Read `PHASE3O_FINDINGS.md`,
 `reports/phase3o_reconciliation.json`, `reports/phase3o_operations.{json,md}`,

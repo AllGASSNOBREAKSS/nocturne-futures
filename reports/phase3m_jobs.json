@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-05T23:01:44.982788+00:00",
+  "generated_at": "2026-11-05T23:39:16.367488+00:00",
   "runner": {
     "status": "COMPLETED_TICK",
-    "executed": 0,
+    "executed": 1,
     "lane": "research"
   },
   "jobs": [
@@ -710,6 +710,36 @@
       "result": "{\"status\": \"SUCCEEDED\", \"report_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\3a2a170d36efd4085f4bd389\\\\1\\\\research_report.json\", \"markdown_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\3a2a170d36efd4085f4bd389\\\\1\\\\research_report.md\", \"job_id\": \"3a2a170d36efd4085f4bd389\", \"kind\": \"RESEARCH_REPORT\", \"attempt\": 1, \"trading_decision\": \"NO_TRADE\"}",
       "created": 1793919704.985315,
       "updated": 1793919707.5131822
+    },
+    {
+      "id": "ea1293ed7ef07ef7186fd8db",
+      "kind": "RESEARCH_REPORT",
+      "lane": "research",
+      "payload": "{}",
+      "dependencies": "[]",
+      "state": "SUCCEEDED",
+      "attempts": 2,
+      "max_attempts": 2,
+      "timeout": 60.0,
+      "ready_at": 1793922019.7176635,
+      "result": "{\"status\": \"SUCCEEDED\", \"report_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\ea1293ed7ef07ef7186fd8db\\\\2\\\\research_report.json\", \"markdown_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\ea1293ed7ef07ef7186fd8db\\\\2\\\\research_report.md\", \"job_id\": \"ea1293ed7ef07ef7186fd8db\", \"kind\": \"RESEARCH_REPORT\", \"attempt\": 2, \"trading_decision\": \"NO_TRADE\"}",
+      "created": 1793921784.6365275,
+      "updated": 1793921959.7181172
+    },
+    {
+      "id": "e4a8784372f511f43a35fde5",
+      "kind": "RESEARCH_REPORT",
+      "lane": "research",
+      "payload": "{}",
+      "dependencies": "[]",
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "max_attempts": 2,
+      "timeout": 60.0,
+      "ready_at": 1793921992.757658,
+      "result": "{\"status\": \"SUCCEEDED\", \"report_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\e4a8784372f511f43a35fde5\\\\1\\\\research_report.json\", \"markdown_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\e4a8784372f511f43a35fde5\\\\1\\\\research_report.md\", \"job_id\": \"e4a8784372f511f43a35fde5\", \"kind\": \"RESEARCH_REPORT\", \"attempt\": 1, \"trading_decision\": \"NO_TRADE\"}",
+      "created": 1793921959.727986,
+      "updated": 1793921962.7581506
     }
   ]
 }
