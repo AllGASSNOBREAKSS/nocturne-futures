@@ -1,0 +1,63 @@
+{
+  "status": "VERIFIED_RESEARCH_GRADE",
+  "journaled": 1,
+  "verified": 1,
+  "records": [
+    {
+      "forecast_id": "20d48fc41c2cc0f5c0ae4f2d",
+      "status": "VERIFIED_RESEARCH_GRADE",
+      "issues": [],
+      "source_reliability": "unofficial_provider_not_independently_exchange_confirmed",
+      "target_date": "2026-11-04",
+      "realized_high": 28829.662109375,
+      "realized_low": 28276.21875,
+      "realized_range_points": 553.443359375,
+      "realized_range_pct": 0.019639396061696825,
+      "reference_close": 28180.263671875,
+      "covered": {
+        "p50": false,
+        "p80": true,
+        "p90": true
+      },
+      "pinball": {
+        "p50": 0.0013313033751989351,
+        "p80": 0.0013087590358005139,
+        "p90": 0.0008928732079501124
+      },
+      "baseline_comparison": {
+        "registration": "POST_ISSUANCE_FROZEN_TRAIN_ONLY_COMPARATOR_NOT_AN_ISSUED_FORECAST",
+        "quantiles": {
+          "p50": 0.014277494224567883,
+          "p80": 0.024325037914972644,
+          "p90": 0.03292110148141983
+        },
+        "pinball": {
+          "p50": 0.0026809509185644707,
+          "p80": 0.0009371283706551635,
+          "p90": 0.0013281705419723002
+        }
+      },
+      "forecast_sha256": "26604fd0603ca5f5e6dac216797fe24b96143e4abc63ceeae597a32b7290d3e2",
+      "outcome_sha256": "022225ffd03961364c57bae69a6dad09707c41960c8eecb9d0a635a022564442",
+      "snapshot_id": "2bdadb4e3d17c80a4358eed656b475e0129bfc86dfd217695a9d9659f50f7ec0",
+      "raw_sha256": "4b1e33c93d48d63fea2763646b66c02351c97c7a2637d6299d6e4cff8e30265c",
+      "source_close": 28437.166015625,
+      "normalized_sha256": "3a25e87ec507a0ab693acd1a1ad52db31190c1111f331f5cfa68024f6c84f1b1",
+      "source_received_at": "2026-11-05T00:17:09.704122+00:00",
+      "source_available_at": "2026-11-05T00:00:00+00:00",
+      "evaluated_at": "2026-11-05T00:17:10.441833+00:00",
+      "inference_revision": "legacy-unadjusted"
+    }
+  ],
+  "sample_warning": "descriptive observations only; no forward calibration or trading-edge claim",
+  "trading_decision": "NO_TRADE",
+  "generated_at": "2026-11-05T01:34:38.831717+00:00",
+  "issued": 2,
+  "pending": 1,
+  "baseline_sha256": "cf6984327158af5517c35ca5ad2cd2ccc865a40022e50b411f1cc5872eaf298d",
+  "baseline_provenance": "train-only comparator committed in 92cd098 before first outcome; not embedded in the first issued forecast",
+  "journal_hashes": {
+    "forecasts": "9c5e18870f036681db042191f7afadf3437b0c3c7da9a297b03b149261496c8c",
+    "outcomes": "382f376d9e7ea3b8389182e9784892c9b2a01977d69d2eec0cc755eb86ea3149"
+  }
+}

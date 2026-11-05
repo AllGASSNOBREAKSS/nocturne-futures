@@ -2,6 +2,23 @@
 
 **Date:** 2026-11-03
 
+## Phase 3L — outcome evidence before new model complexity
+
+- Verify saved outcomes against immutable source objects, chronology, contracts,
+  original forecast hashes and recomputed units/losses. Never rewrite journals to
+  repair a failed audit; exclude rejected outcomes from verified report metrics.
+- Separate the first legacy inference outcome from corrected frozen inference.
+  A comparator frozen before the outcome but after issuance is not an embedded
+  issued forecast; report that registration difference explicitly.
+- Replay existing licensed receipt formats and reuse calculations. Bar-end is an
+  availability lower bound, not certified historical dissemination/vintage evidence.
+  Bars cannot supply genuine volume profiles, CVD or depth; unsupported fields stay null.
+- Correct AJ survival by event hazards only. Unknown censoring end is unknown,
+  not the intended full horizon. Preserve old reports, but invalidate AJ-v1 for reuse.
+- Prefer tested statistical corrections and actual data acquisition over larger
+  models on unchanged information. Source-less directional/target results remain null.
+- Architecture diagram and editable Mermaid source: `ARCHITECTURE_PHASE3L.md`.
+
 ## Phase 3K — immutable source versions, separate reconciliation
 
 - Treat normalized operational files as caches. Retain content-addressed raw,

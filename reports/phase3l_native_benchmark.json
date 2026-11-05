@@ -1,0 +1,14 @@
+{
+  "generated_at": "2026-11-05T01:05:28.902602+00:00",
+  "status": "PARITY_VERIFIED",
+  "input_origin": "SYNTHETIC_PERFORMANCE_FIXTURE_NOT_MARKET_DATA",
+  "rows": 100000,
+  "repeats": 5,
+  "python_seconds_median": 0.01742720000038389,
+  "native_seconds_median_including_binding_conversion": 0.00291050000123505,
+  "measured_speed_ratio": 5.987699705545021,
+  "python": "3.14.6",
+  "platform": "Windows",
+  "kernel": "existing sum_by_bin; no native rewrite",
+  "warning": "host-specific microbenchmark, not end-to-end replay speed or predictive evidence"
+}

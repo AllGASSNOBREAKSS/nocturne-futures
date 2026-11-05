@@ -59,7 +59,7 @@ PROVIDERS = (
     ),
     Provider(
         name="bls", category="macro", access="FREE_OFFICIAL", credential_env="BLS_API_KEY",
-        implemented=True, verified_with_real_data=False,
+        implemented=True, verified_with_real_data=True,
         coverage="CPI, PPI, employment and wages series; multi-decade.",
         limits="Registration key raises limits; without a key the public API is "
                "heavily throttled.",

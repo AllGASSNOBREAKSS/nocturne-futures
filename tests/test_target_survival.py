@@ -11,11 +11,12 @@ def test_aalen_johansen_competing_risks_and_censoring():
     result = aalen_johansen([1, 1, 2, 3, 3], [1, 2, 1, 0, 0], horizon=3)
     # t=1: 5 at risk, one target and one stop -> 0.2 each; survival 0.6.
     # t=2: 3 at risk, one target -> +0.6/3 = 0.2; survival 0.4.
-    # t=3: both remaining rows censored -> survival 0.
+    # t=3: both remaining rows censored -> survival remains 0.4.
     assert result["incidence"]["TARGET_FIRST"] == pytest.approx(0.4)
     assert result["incidence"]["STOP_FIRST"] == pytest.approx(0.2)
     assert result["neither"] == pytest.approx(0.4)
     assert result["at_risk_start"] == 5
+    assert result["event_free_survival"] == pytest.approx(.4)
     assert sum(result["incidence"].values()) + result["neither"] == pytest.approx(1.0)
 
 
@@ -62,3 +63,46 @@ def test_event_rates_separate_ambiguous_and_censored():
     matrix = outcome_matrix(frame)
     assert matrix.sum() == len(frame)
     assert matrix[0].tolist() == [1, 0, 0]
+
+
+def test_censor_before_event_must_not_reduce_event_free_survival():
+    result = aalen_johansen([1, 2], [0, 1], horizon=2)
+    assert result["path"][0]["survival"] == 1.0
+    assert result["incidence"]["TARGET_FIRST"] == 1.0
+    assert result["neither"] == 0.0
+
+
+@pytest.mark.parametrize("durations,events,horizon", [([1.5], [1], 2), ([1], [1.2], 2), ([1], [1], 0), ([1], [1], 1.5)])
+def test_fractional_or_unsupported_event_time_inputs_are_rejected(durations, events, horizon):
+    with pytest.raises(ValueError):
+        aalen_johansen(durations, events, horizon)
+
+
+def test_censored_duration_uses_observed_prefix_not_intended_horizon():
+    stamps = pd.date_range("2025-01-02T14:30Z", periods=40, freq="5min")
+    bars = pd.DataFrame({"timestamp": stamps, "available_at": stamps + pd.Timedelta("5min"),
+                         "open": 100., "high": 101., "low": 99., "close": 100., "volume": 10})
+    row = {"signal_id": "fixture", "strategy_id": "fixture", "feature_available_at": stamps[20],
+           "label_end": stamps[23], "entry_price": 100., "stop_price": 98., "target_price": 104.,
+           "side": "LONG", "outcome": "CENSORED", "bars_to_target": None, "bars_to_stop": None,
+           "horizon_bars": 24, "horizon_complete": False, "observed_contiguous_bars": 3}
+    assert enrich_targets(pd.DataFrame([row]), bars).duration_bars.iloc[0] == 3
+    del row["observed_contiguous_bars"]
+    unknown = enrich_targets(pd.DataFrame([row]), bars)
+    assert pd.isna(unknown.duration_bars.iloc[0])
+    assert unknown.duration_evidence.iloc[0].startswith("UNKNOWN")
+
+
+def test_late_published_past_bar_cannot_leak_into_atr():
+    stamps = pd.date_range("2025-01-02T14:30Z", periods=40, freq="5min")
+    bars = pd.DataFrame({"timestamp": stamps, "available_at": stamps + pd.Timedelta("5min"),
+                         "open": 100., "high": 101., "low": 99., "close": 100., "volume": 10})
+    bars.loc[15, "available_at"] = stamps[-1] + pd.Timedelta("1D")
+    row = {"signal_id": "fixture", "strategy_id": "fixture", "feature_available_at": stamps[22],
+           "label_end": stamps[30], "entry_price": 100., "stop_price": 98., "target_price": 104.,
+           "side": "LONG", "outcome": "TP_FIRST", "bars_to_target": 3, "bars_to_stop": None,
+           "horizon_bars": 24, "horizon_complete": True}
+    before = enrich_targets(pd.DataFrame([row]), bars)
+    bars.loc[15, "high"] = 999.
+    after = enrich_targets(pd.DataFrame([row]), bars)
+    assert before.atr_points.iloc[0] == after.atr_points.iloc[0] == 2.

@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-11-05T01:05:30.814630+00:00",
+  "status": "DATA_BLOCKED",
+  "context": {
+    "status": "DATA_BLOCKED",
+    "reason": "NO_VERIFIED_CONTRACT_RECEIPTS",
+    "trading_decision": "NO_TRADE"
+  },
+  "receipts": [],
+  "target_rows": 0,
+  "trading_decision": "NO_TRADE"
+}

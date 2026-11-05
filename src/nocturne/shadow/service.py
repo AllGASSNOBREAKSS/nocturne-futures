@@ -247,13 +247,16 @@ def evaluate_matured(store: ShadowStore, index_bars: pd.DataFrame, now: datetime
     return written
 
 
-def evaluation_summary(store: ShadowStore) -> dict:
+def evaluation_summary(store: ShadowStore, verified_forecast_ids: set[str] | None = None) -> dict:
     forecasts = store.forecasts()
-    outcomes = store.outcomes()
+    journaled = store.outcomes()
+    outcomes = journaled if verified_forecast_ids is None else [o for o in journaled if o["forecast_id"] in verified_forecast_ids]
+    quarantined = len(journaled) - len(outcomes)
     missed = store.missed()
     if not outcomes:
-        return {"matured": 0, "pending": len(forecasts), "status": "INSUFFICIENT_FORWARD_DATA",
-                "note": "no forward forecast has matured; do not report accuracy",
+        return {"matured": 0, "pending": max(0, len(forecasts) - len(journaled)), "status": "AUDIT_BLOCKED" if quarantined else "INSUFFICIENT_FORWARD_DATA",
+                "quarantined_outcomes": quarantined,
+                "note": "no verified matured outcomes; do not report accuracy",
                 "quality_failures": len(store.quality_events()),
                 "missed": len(missed),
                 "milestones": {str(n): {"target": n, "matured": 0, "remaining": n,
@@ -303,7 +306,7 @@ def evaluation_summary(store: ShadowStore) -> dict:
         second = frame.iloc[half:].covered.apply(lambda value: value["p80"]).mean()
         drift = {"p80_first_half": float(first), "p80_second_half": float(second),
                  "delta": float(second - first)}
-    result = {"matured": len(frame), "pending": len(forecasts) - len(frame),
+    result = {"matured": len(frame), "pending": max(0, len(forecasts) - len(journaled)), "quarantined_outcomes": quarantined,
               "status": "SHADOW_EVALUATING" if len(frame) < 30 else "SHADOW_SAMPLE_DEVELOPING",
               "quality_failures": len(store.quality_events()),
               "missed": len(missed),

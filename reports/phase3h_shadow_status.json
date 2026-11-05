@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T05:57:12.726313+00:00",
+  "generated_at": "2026-11-05T01:34:34.205270+00:00",
   "model_id": "ndx-range-v1",
   "model_version": "1.0.0",
   "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
@@ -11,37 +11,57 @@
     "status": "ALREADY_ISSUED",
     "eligibility": {
       "eligible": true,
-      "data_date": "2026-11-03",
-      "target_date": "2026-11-04",
-      "session_open_utc": "2026-11-04T14:30:00+00:00"
+      "data_date": "2026-11-04",
+      "target_date": "2026-11-05",
+      "session_open_utc": "2026-11-05T14:30:00+00:00"
     }
   },
   "latest_forecast": {
-    "created_at": "2026-11-04T02:53:30.237804+00:00",
-    "data_date": "2026-11-03",
-    "dataset_sha256": "66b6d8bc7ba2fae03e6439558b0a6c6af8c1450f36b211805d0f5da35699af7e",
-    "feature_digest": "edea8e109ab6f627759d0cb27fc407a3770c1557bf8e949dd5b31c6df19cb365",
-    "features": {
-      "atr_pct": 0.01913923647943156,
-      "efficiency_20": 0.4477358892732451,
-      "range_atr": 0.4123535130169108,
-      "ret_1_abs": 0.47718068382394563,
-      "ret_5_abs": 1.556148058384499,
-      "vix_change_5": 0.18892690522023425,
-      "vix_level": 1.211750975948878,
-      "vol_20": 1.252693606719402,
-      "vol_ratio": 1.1719151102241212,
-      "volume_z": -3.4072457171720267,
-      "weekday": 1.0
+    "artifact_digests": {
+      "baseline.json": "cf6984327158af5517c35ca5ad2cd2ccc865a40022e50b411f1cc5872eaf298d",
+      "metadata.json": "a94ed6bd568af7adcbf0d336ebaaa18837cfad211ce75d7c0ee27b7c1cca30e7",
+      "model.joblib": "515fbf7222fd81159fa017facb68c88020afd63c3e2ddec00178d65d0821434e"
     },
-    "forecast_id": "20d48fc41c2cc0f5c0ae4f2d",
+    "baseline_quantiles": {
+      "p50": 0.014277494224567883,
+      "p80": 0.024325037914972644,
+      "p90": 0.03292110148141983
+    },
+    "calibration_status": "FROZEN_RESIDUAL_ADJUSTMENTS_APPLIED",
+    "created_at": "2026-11-05T00:17:12.620017+00:00",
+    "data_date": "2026-11-04",
+    "data_quality_status": "PASSED",
+    "dataset_digest_format": "feature-input-csv-lf-v1",
+    "dataset_sha256": "adfb71be76aa9c5f5fc091ddee404ec37a4056a68014f10d0ebe70d0c1eef070",
+    "feature_asof": "2026-11-05T00:17:10.441833+00:00",
+    "feature_digest": "0ee7d4a8d41ff5b6dd91a63161a8f0c7b624c07fa16364697bd76206034ce57b",
+    "features": {
+      "atr_pct": 0.019545493975238307,
+      "efficiency_20": 0.38945367672036185,
+      "range_atr": 0.9957268463718605,
+      "ret_1_abs": 0.6245961976992557,
+      "ret_5_abs": 1.4141426726540594,
+      "vix_change_5": -0.017740936710088695,
+      "vix_level": 0.9671033726865347,
+      "vol_20": 1.2823079492184415,
+      "vol_ratio": 1.1991571083325878,
+      "volume_z": -3.316342783341149,
+      "weekday": 2.0
+    },
+    "forecast_id": "3db9c4cbd3a9cc5944db8437",
+    "inference_revision": "residual-adjusted-v1",
     "instrument": "^NDX",
     "interval_widths": {
-      "p50": 0.016976789311298954,
-      "p80": 0.009206401929400441,
-      "p90": 0.011591338829898996
+      "p50": 0.016858438244665742,
+      "p80": 0.00825484433905263,
+      "p90": 0.014187252590461604
     },
+    "issuance_lead_seconds": 51167.379983,
     "kind": "cash_session_range",
+    "market_snapshot_ids": {
+      "index": "2bdadb4e3d17c80a4358eed656b475e0129bfc86dfd217695a9d9659f50f7ec0",
+      "vix": "689859ddb6cb20aceaa687509476af451bc0975b6d6bcfa79b255b61e7df60f9"
+    },
     "model_id": "ndx-range-v1",
     "model_version": "1.0.0",
     "notes": [
@@ -49,29 +69,102 @@
       "cash-session index range, not NQ futures",
       "read-only research shadow; not a trading signal"
     ],
+    "prediction_compute_seconds": 0.237905399999363,
     "quantiles": {
-      "p50": 0.016976789311298954,
-      "p80": 0.026183191240699396,
-      "p90": 0.02856812814119795
+      "p50": 0.016858438244665742,
+      "p80": 0.025113282583718373,
+      "p90": 0.031045690835127347
     },
-    "reference_close": 28180.263671875,
-    "rows_used": 10353,
-    "session_open_utc": "2026-11-04T14:30:00+00:00",
+    "record_sha256": "a0ed5e7dbae6ab2686575fd335ae630d725c390d86dbb89cd58bf85ce9f172c2",
+    "reference_close": 28437.166015625,
+    "rows_used": 10354,
+    "session_open_utc": "2026-11-05T14:30:00+00:00",
     "source": {
-      "index": "data/history/yahoo_daily",
-      "refresh": {},
-      "vix": "data/history/yahoo_daily"
+      "index": "data/shadow/market",
+      "manifests": {
+        "index": {
+          "availability": "next UTC midnight after the session date",
+          "dropped_invalid_or_missing_bars": 0,
+          "first": "1985-10-01",
+          "frequency": "1d",
+          "gap_days_median": 1.0,
+          "gaps_over_5_days": 1,
+          "kind": "index",
+          "known_limitations": [
+            "unofficial endpoint; not an exchange feed",
+            "index levels are not tradable",
+            "continuous futures proxies have unverified roll mapping",
+            "adjusted vs unadjusted prices not distinguished by this adapter"
+          ],
+          "last": "2026-11-04",
+          "license_scope": "public_research_unofficial",
+          "name": "Nasdaq-100 index",
+          "normalized_sha256": "3a25e87ec507a0ab693acd1a1ad52db31190c1111f331f5cfa68024f6c84f1b1",
+          "provider": "yahoo_public_unofficial",
+          "raw_sha256": "4b1e33c93d48d63fea2763646b66c02351c97c7a2637d6299d6e4cff8e30265c",
+          "received_at": "2026-11-05T00:17:09.704122+00:00",
+          "rows": 10354,
+          "snapshot_id": "2bdadb4e3d17c80a4358eed656b475e0129bfc86dfd217695a9d9659f50f7ec0",
+          "span_years": 41.09,
+          "symbol": "^NDX",
+          "zero_volume_rows": 0
+        },
+        "vix": {
+          "availability": "next UTC midnight after the session date",
+          "dropped_invalid_or_missing_bars": 331,
+          "first": "1990-01-02",
+          "frequency": "1d",
+          "gap_days_median": 1.0,
+          "gaps_over_5_days": 1,
+          "kind": "volatility_index",
+          "known_limitations": [
+            "unofficial endpoint; not an exchange feed",
+            "index levels are not tradable",
+            "continuous futures proxies have unverified roll mapping",
+            "adjusted vs unadjusted prices not distinguished by this adapter"
+          ],
+          "last": "2026-11-04",
+          "license_scope": "public_research_unofficial",
+          "name": "CBOE VIX index (spot proxy)",
+          "normalized_sha256": "84d2a9dc705575cadf5c4440d614f9f837d6f81b02b7003282c5ec1197273c5f",
+          "provider": "yahoo_public_unofficial",
+          "raw_sha256": "c24f342f8e2eeedb578f4f24e3627bf7dc388cd5061097243afe372c42448008",
+          "received_at": "2026-11-05T00:17:10.241500+00:00",
+          "rows": 9281,
+          "snapshot_id": "689859ddb6cb20aceaa687509476af451bc0975b6d6bcfa79b255b61e7df60f9",
+          "span_years": 36.84,
+          "symbol": "^VIX",
+          "zero_volume_rows": 9281
+        }
+      },
+      "refresh": {
+        "^NDX": {
+          "last": "2026-11-04",
+          "rows": 10354,
+          "status": "FETCHED"
+        },
+        "^VIX": {
+          "last": "2026-11-04",
+          "rows": 9281,
+          "status": "FETCHED"
+        }
+      },
+      "snapshot_ids": {
+        "index": "2bdadb4e3d17c80a4358eed656b475e0129bfc86dfd217695a9d9659f50f7ec0",
+        "vix": "689859ddb6cb20aceaa687509476af451bc0975b6d6bcfa79b255b61e7df60f9"
+      },
+      "vix": "data/shadow/market"
     },
     "status": "PENDING",
-    "target_date": "2026-11-04",
+    "target_date": "2026-11-05",
     "trading_decision": "NO_TRADE",
     "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW"
   },
   "matured_now": 0,
   "missed_now": 0,
   "audit": {
-    "forecasts": 1,
-    "passed": 1,
+    "forecasts": 2,
+    "passed": 2,
     "failed": [],
     "records": [
       {
@@ -84,6 +177,15 @@
           "SOURCE_REVISION_RECONCILED_AS_ISSUED"
         ],
         "reconciliation_id": "4fb15c942afdc198b011d344cc8181a7155cc2f9702ed3493b0b1e33d1a9fabd"
+      },
+      {
+        "forecast_id": "3db9c4cbd3a9cc5944db8437",
+        "ok": true,
+        "issues": [],
+        "stored_reference_close": 28437.166015625,
+        "current_source_reference_close": 28437.166015625,
+        "warnings": [],
+        "reconciliation_id": null
       }
     ]
   },
@@ -92,53 +194,114 @@
     "warnings": [
       "RECENT_DATA_QUALITY_FAILURES"
     ],
-    "last_run": "2026-11-04T05:57:12.726313+00:00",
+    "last_run": "2026-11-05T01:34:34.205270+00:00",
     "age_hours": 0.0,
-    "forecasts": 1,
-    "matured": 0,
+    "forecasts": 2,
+    "matured": 1,
     "pending": 1,
     "missed": 0,
     "recent_quality_failures": 2,
     "trading_decision": "NO_TRADE"
   },
   "evaluation": {
-    "matured": 0,
+    "matured": 1,
     "pending": 1,
-    "status": "INSUFFICIENT_FORWARD_DATA",
-    "note": "no forward forecast has matured; do not report accuracy",
+    "quarantined_outcomes": 0,
+    "status": "SHADOW_EVALUATING",
     "quality_failures": 2,
     "missed": 0,
+    "coverage": {
+      "p50": 0.0,
+      "p80": 1.0,
+      "p90": 1.0
+    },
+    "coverage_interval": {
+      "p50": {
+        "rate": 0.0,
+        "low": 0.0,
+        "high": 0.7934567085261071,
+        "n": 1
+      },
+      "p80": {
+        "rate": 1.0,
+        "low": 0.20654329147389294,
+        "high": 1.0,
+        "n": 1
+      },
+      "p90": {
+        "rate": 1.0,
+        "low": 0.20654329147389294,
+        "high": 1.0,
+        "n": 1
+      }
+    },
+    "mean_pinball": {
+      "p50": 0.0013313033751989351,
+      "p80": 0.0013087590358005139,
+      "p90": 0.0008928732079501124
+    },
+    "baseline_pinball": {
+      "p50": null,
+      "p80": null,
+      "p90": null
+    },
+    "by_inference_revision": {
+      "legacy-unadjusted": {
+        "matured": 1,
+        "coverage_p80": 1.0
+      }
+    },
+    "median_width": {
+      "p50": 0.016976789311298954,
+      "p80": 0.009206401929400441,
+      "p90": 0.011591338829898996
+    },
+    "by_month": {
+      "2026-11": {
+        "matured": 1,
+        "coverage_p80": 1.0
+      }
+    },
+    "by_volatility_regime": {
+      "HIGH_VOL": {
+        "matured": 1,
+        "coverage_p80": 1.0
+      }
+    },
+    "drift": null,
     "milestones": {
       "30": {
         "target": 30,
-        "matured": 0,
-        "remaining": 30,
+        "matured": 1,
+        "remaining": 29,
         "reached": false
       },
       "60": {
         "target": 60,
-        "matured": 0,
-        "remaining": 60,
+        "matured": 1,
+        "remaining": 59,
         "reached": false
       },
       "90": {
         "target": 90,
-        "matured": 0,
-        "remaining": 90,
+        "matured": 1,
+        "remaining": 89,
         "reached": false
       }
-    }
+    },
+    "sample_warning": "forward samples are small; treat coverage as provisional",
+    "trading_decision": "NO_TRADE"
   },
   "refresh": {
     "^NDX": {
       "status": "FETCHED",
-      "last": "2026-11-03",
-      "rows": 10353
+      "last": "2026-11-04",
+      "rows": 10354
     },
     "^VIX": {
       "status": "FETCHED",
-      "last": "2026-11-02",
-      "rows": 9279
+      "last": "2026-11-04",
+      "rows": 9281
     }
   },
   "sources": {
@@ -147,13 +310,13 @@
     "refresh": {
       "^NDX": {
         "status": "FETCHED",
-        "last": "2026-11-03",
-        "rows": 10353
+        "last": "2026-11-04",
+        "rows": 10354
       },
       "^VIX": {
         "status": "FETCHED",
-        "last": "2026-11-02",
-        "rows": 9279
+        "last": "2026-11-04",
+        "rows": 9281
       }
     },
     "manifests": {
@@ -164,17 +327,17 @@
         "provider": "yahoo_public_unofficial",
         "frequency": "1d",
         "license_scope": "public_research_unofficial",
-        "raw_sha256": "d4441220b303708a20f633fee301696e250fb66b6043e7b7ad82193ca43e5210",
-        "normalized_sha256": "d411be9f9aae2e9e85c0cdf8fc641695c4b029cb1cf2a56acb01d396f02f1b05",
-        "rows": 10353,
+        "raw_sha256": "4b1e33c93d48d63fea2763646b66c02351c97c7a2637d6299d6e4cff8e30265c",
+        "normalized_sha256": "3a25e87ec507a0ab693acd1a1ad52db31190c1111f331f5cfa68024f6c84f1b1",
+        "rows": 10354,
         "first": "1985-10-01",
-        "last": "2026-11-03",
+        "last": "2026-11-04",
         "span_years": 41.09,
         "zero_volume_rows": 0,
         "dropped_invalid_or_missing_bars": 0,
         "gap_days_median": 1.0,
         "gaps_over_5_days": 1,
-        "received_at": "2026-11-04T05:57:11.964733+00:00",
+        "received_at": "2026-11-05T01:34:33.381377+00:00",
         "availability": "next UTC midnight after the session date",
         "known_limitations": [
           "unofficial endpoint; not an exchange feed",
@@ -182,7 +345,7 @@
           "continuous futures proxies have unverified roll mapping",
           "adjusted vs unadjusted prices not distinguished by this adapter"
         ],
-        "snapshot_id": "7afb55bbb9b61f5a8d10c1950f75eac88f568d82748fb4b57ad5ade18d28fca8"
+        "snapshot_id": "8e0ebfe05b6bb3a59d9b95f7b16e0a33020a57b9490f84a530bb2df909819306"
       },
       "vix": {
         "symbol": "^VIX",
@@ -191,17 +354,17 @@
         "provider": "yahoo_public_unofficial",
         "frequency": "1d",
         "license_scope": "public_research_unofficial",
-        "raw_sha256": "10c1ae5cd4f5e2a4797df767ab9e067eab692bc545b4b90d6ae36f36f773f73c",
-        "normalized_sha256": "a0817dd92815825c0504c75576b2bb3cca4539a889a39fe049f55e3429fb42a2",
-        "rows": 9279,
+        "raw_sha256": "c24f342f8e2eeedb578f4f24e3627bf7dc388cd5061097243afe372c42448008",
+        "normalized_sha256": "84d2a9dc705575cadf5c4440d614f9f837d6f81b02b7003282c5ec1197273c5f",
+        "rows": 9281,
         "first": "1990-01-02",
-        "last": "2026-11-02",
-        "span_years": 36.83,
-        "zero_volume_rows": 9279,
-        "dropped_invalid_or_missing_bars": 332,
+        "last": "2026-11-04",
+        "span_years": 36.84,
+        "zero_volume_rows": 9281,
+        "dropped_invalid_or_missing_bars": 331,
         "gap_days_median": 1.0,
         "gaps_over_5_days": 1,
-        "received_at": "2026-11-04T05:57:12.517953+00:00",
+        "received_at": "2026-11-05T01:34:33.953100+00:00",
         "availability": "next UTC midnight after the session date",
         "known_limitations": [
           "unofficial endpoint; not an exchange feed",
@@ -209,12 +372,12 @@
           "continuous futures proxies have unverified roll mapping",
           "adjusted vs unadjusted prices not distinguished by this adapter"
         ],
-        "snapshot_id": "2223a4a7b9ec37403a5c93dfdae6cf0e800ae8e1fd9c99e6da6430871be9f5d6"
+        "snapshot_id": "1f5db326136fb34e0d07414099407114ffd40a8ddf1f47c1a30f6df93ee5db8d"
       }
     },
     "snapshot_ids": {
-      "index": "7afb55bbb9b61f5a8d10c1950f75eac88f568d82748fb4b57ad5ade18d28fca8",
-      "vix": "2223a4a7b9ec37403a5c93dfdae6cf0e800ae8e1fd9c99e6da6430871be9f5d6"
+      "index": "8e0ebfe05b6bb3a59d9b95f7b16e0a33020a57b9490f84a530bb2df909819306",
+      "vix": "1f5db326136fb34e0d07414099407114ffd40a8ddf1f47c1a30f6df93ee5db8d"
     }
   },
   "notes": [

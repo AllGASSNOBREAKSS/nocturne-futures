@@ -15,7 +15,8 @@ SERIES = {"DGS10": "Federal Reserve H.15 10-year Treasury yield",
           "DGS2": "Federal Reserve H.15 2-year Treasury yield",
           "DFF": "Federal Reserve effective federal funds rate",
           "CPIAUCSL": "BLS CPI (seasonally adjusted, revisable)",
-          "UNRATE": "BLS unemployment (seasonally adjusted, revisable)"}
+          "UNRATE": "BLS unemployment (seasonally adjusted, revisable)",
+          "NASDAQ100": "Nasdaq-100 closing index via FRED; Nasdaq-origin distributor check, not independent upstream data"}
 
 
 def parse_series(payload: bytes, series: str):

@@ -8,6 +8,9 @@ import pandas as pd
 
 from nocturne.shadow import ShadowStore, audit_forecasts, evaluation_summary, health
 from nocturne.adapters.yahoo_history import load_history
+from nocturne.adapters.snapshots import SnapshotStore
+from nocturne.shadow.outcome_audit import audit_outcomes
+from nocturne.shadow import load_artifact
 
 ROOT = Path(__file__).resolve().parents[1]
 STORE = ROOT / "data/shadow/ndx_range"
@@ -17,7 +20,10 @@ def main():
     store = ShadowStore(STORE)
     forecasts = store.forecasts()
     outcomes = store.outcomes()
-    summary = evaluation_summary(store)
+    artifact = load_artifact(ROOT / "models/shadow", "ndx-range-v1")
+    verification = audit_outcomes(store, SnapshotStore(ROOT / "data/shadow/market/snapshots"), artifact.metadata["baseline_quantiles"])
+    verified_ids = {r["forecast_id"] for r in verification["records"] if r["status"] == "VERIFIED_RESEARCH_GRADE"}
+    summary = evaluation_summary(store, verified_forecast_ids=verified_ids)
     state = health(store, datetime.now(timezone.utc))
     try:
         index = load_history(ROOT / "data/shadow/market", "^NDX")
@@ -35,6 +41,11 @@ def main():
         "trading_decision": "NO_TRADE",
         "issued": len(forecasts),
         "matured": len(outcomes),
+        "verified_matured": len(verified_ids),
+        "outcome_verification": verification,
+        "inference_samples": {revision: {"issued": sum(f.get("inference_revision", "legacy-unadjusted") == revision for f in forecasts),
+                                          "verified_matured": sum(f.get("inference_revision", "legacy-unadjusted") == revision and f["forecast_id"] in verified_ids for f in forecasts)}
+                              for revision in sorted({f.get("inference_revision", "legacy-unadjusted") for f in forecasts})},
         "pending": max(0, len(forecasts) - len(outcomes)),
         "missed": len(store.missed()),
         "failed": sum(1 for item in audit["failed"]),
@@ -75,26 +86,37 @@ def main():
         f"- Audit failures: **{report['failed']}**",
         "",
     ]
-    if not outcomes:
-        lines += ["No forward forecast has matured. Coverage, pinball loss and drift are "
+    if not verified_ids:
+        lines += ["No verified matured outcome is available. Coverage, pinball loss and drift are "
                   "intentionally omitted rather than estimated from zero observations.", ""]
     else:
         lines += ["| Quantile | Coverage | 95% interval | Mean pinball | Baseline pinball |",
                   "|---|---:|---|---:|---:|"]
         for name in ("p50", "p80", "p90"):
             interval = summary["coverage_interval"][name]
+            comparator = summary['baseline_pinball'].get(name)
+            comparator_text = "not embedded at issuance" if comparator is None else f"{comparator:.6f}"
             lines.append(f"| {name} | {summary['coverage'][name]:.3f} | "
                          f"[{interval['low']:.3f}, {interval['high']:.3f}] | "
                          f"{summary['mean_pinball'][name]:.6f} | "
-                         f"{summary['baseline_pinball'].get(name) or float('nan'):.6f} |")
+                         f"{comparator_text} |")
         lines += ["", f"Milestones: {summary['milestones']}", ""]
+        for checked in verification["records"]:
+            if checked["status"] != "VERIFIED_RESEARCH_GRADE":
+                continue
+            comparison = checked.get("baseline_comparison")
+            if comparison and comparison["registration"].startswith("POST_ISSUANCE"):
+                lines += [f"Separate post-issuance, train-only comparator for `{checked['forecast_id']}`: "
+                          f"pinball {comparison['pinball']}. This was not an embedded issued forecast; "
+                          "do not interpret one comparison as predictive skill.", ""]
     lines += ["This report separates implementation from statistical success. "
               "A running service is not evidence of accuracy.", "",
               "Legacy forecasts without an inference revision omitted frozen residual adjustments. "
               "They remain immutable and are scored as issued, separately from corrected inference.", ""]
     (ROOT / "reports/phase3i_forward.md").write_text("\n".join(lines), encoding="utf-8")
     print(json.dumps({k: report[k] for k in ("issued", "matured", "pending", "missed", "failed")}))
+    return 1 if verification["status"] == "AUDIT_BLOCKED" else 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

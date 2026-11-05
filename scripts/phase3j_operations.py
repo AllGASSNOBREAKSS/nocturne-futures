@@ -18,7 +18,11 @@ def main():
             status = json.loads((ROOT / "reports/phase3h_shadow_status.json").read_text())
         except (FileNotFoundError, ValueError):
             status = None
-        report = monitor_operations(store, status, datetime.now(timezone.utc))
+        try:
+            verification = json.loads((ROOT / "reports/phase3l_forward_audit.json").read_text())
+        except (FileNotFoundError, ValueError):
+            verification = None
+        report = monitor_operations(store, status, datetime.now(timezone.utc), outcome_verification=verification)
         destination = ROOT / "reports/phase3j_operations.json"
         temporary = destination.with_suffix(".tmp")
         temporary.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")

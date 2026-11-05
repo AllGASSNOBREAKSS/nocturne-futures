@@ -12,6 +12,7 @@ from pathlib import Path
 
 import pandas as pd
 import requests
+import numpy as np
 
 from .history import checksum, ingest_export
 
@@ -89,6 +90,14 @@ def normalize_csv(payload, contract, start, end):
         raise ValueError("records outside requested interval")
     frame["available_at"] = frame.timestamp + pd.Timedelta("1min")
     frame["contract_id"] = contract
+    prices = frame[["open", "high", "low", "close"]].to_numpy(float)
+    volume = pd.to_numeric(frame.volume, errors="coerce").to_numpy(float)
+    if (not np.isfinite(prices).all() or (prices <= 0).any()
+            or not np.isfinite(volume).all() or (volume < 0).any()
+            or frame.timestamp.duplicated().any()
+            or (frame.high < frame[["open", "low", "close"]].max(axis=1)).any()
+            or (frame.low > frame[["open", "high", "close"]].min(axis=1)).any()):
+        raise ValueError("invalid raw contract OHLCV observations")
     return frame[["timestamp", "available_at", "open", "high", "low", "close", "volume", "contract_id"]]
 
 
@@ -102,7 +111,7 @@ def aggregate_five_minutes(frame):
     rows = []
     for (contract, start), group in frame.groupby(["contract_id", frame.timestamp.dt.floor("5min")]):
         group = group.sort_values("timestamp")
-        if not pd.DatetimeIndex(group.timestamp).equals(pd.date_range(start, periods=5, freq="1min")):
+        if len(group) != 5 or not (pd.DatetimeIndex(group.timestamp) == pd.date_range(start, periods=5, freq="1min")).all():
             continue
         rows.append(dict(timestamp=start, available_at=max(group.available_at.max(), start + pd.Timedelta("5min")),
                          open=group.open.iloc[0], high=group.high.max(), low=group.low.min(),

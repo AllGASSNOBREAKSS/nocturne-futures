@@ -1,7 +1,8 @@
 """Target-first competing-outcome research.
 
-Three mutually exclusive events within a fixed bar horizon:
-  1 = target reached first, 2 = stop reached first, 0 = neither (censored/timeout).
+Two competing events within a fixed bar horizon:
+  1 = target reached first, 2 = stop reached first, 0 = right censoring.
+Observed no-event horizon completion is distinct from lost observation time.
 
 Same-bar target+stop touches are excluded as ambiguous; truncated windows are
 censored, not treated as stop losses. Rows from one signal share a group and must
@@ -39,20 +40,18 @@ def enrich_targets(frame: pd.DataFrame, bars: pd.DataFrame, atr_window: int = 14
     out["feature_available_at"] = pd.to_datetime(out.feature_available_at, utc=True)
     out["label_end"] = pd.to_datetime(out.label_end, utc=True)
 
-    previous = bars.close.shift(1)
-    true_range = pd.concat(
-        [bars.high - bars.low, (bars.high - previous).abs(), (bars.low - previous).abs()], axis=1
-    ).max(axis=1)
-    atr = true_range.rolling(atr_window).mean()
     rows = []
     cache: dict[pd.Timestamp, tuple[float, float]] = {}
     for _, row in out.iterrows():
         stamp = row.feature_available_at
         if stamp not in cache:
             known = bars[bars.available_at <= stamp]
-            index = len(known) - 1
-            value = float(atr.iloc[index]) if index >= atr_window and np.isfinite(atr.iloc[index]) else np.nan
-            history = atr.iloc[: index + 1].dropna().tail(120)
+            previous = known.close.shift(1)
+            true_range = pd.concat([known.high - known.low, (known.high - previous).abs(),
+                                    (known.low - previous).abs()], axis=1).max(axis=1)
+            observed_atr = true_range.rolling(atr_window).mean()
+            value = float(observed_atr.iloc[-1]) if len(known) > atr_window and np.isfinite(observed_atr.iloc[-1]) else np.nan
+            history = observed_atr.dropna().tail(120)
             percentile = float((history <= value).mean()) if len(history) >= 20 and np.isfinite(value) else np.nan
             cache[stamp] = (value, percentile)
         atr_points, percentile = cache[stamp]
@@ -78,7 +77,12 @@ def enrich_targets(frame: pd.DataFrame, bars: pd.DataFrame, atr_window: int = 14
     out["duration_bars"] = np.where(
         out.event.eq(1), out.bars_to_target,
         np.where(out.event.eq(2), out.bars_to_stop, out.horizon_bars - 1))
-    out["duration_bars"] = pd.to_numeric(out.duration_bars, errors="coerce") + 1
+    out["duration_bars"] = pd.to_numeric(out.duration_bars, errors="coerce").astype(float) + 1
+    # A truncated/gapped window cannot be censored at its intended full horizon.
+    observed = out.get("observed_contiguous_bars", pd.Series(np.nan, index=out.index))
+    out.loc[out.censored, "duration_bars"] = observed[out.censored]
+    out["duration_evidence"] = np.where(out.censored & out.duration_bars.isna(),
+                                       "UNKNOWN_OBSERVATION_END_EXCLUDE_FROM_SURVIVAL", "OBSERVED")
     return out
 
 
@@ -90,13 +94,18 @@ def aalen_johansen(durations, events, horizon: int | None = None) -> dict:
     an event happening.
     """
     durations = np.asarray(durations, dtype=float)
-    events = np.asarray(events, dtype=int)
-    if durations.shape != events.shape or durations.size == 0:
+    raw_events = np.asarray(events, dtype=float)
+    if durations.shape != raw_events.shape or durations.size == 0 or durations.ndim != 1:
         raise ValueError("durations and events must be non-empty and aligned")
-    if np.any(durations < 1) or np.any(~np.isfinite(durations)):
-        raise ValueError("durations must be finite and at least one bar")
+    if np.any(durations < 1) or np.any(~np.isfinite(durations)) or np.any(durations != np.floor(durations)):
+        raise ValueError("durations must be finite integer bar counts of at least one")
+    if not np.isfinite(raw_events).all() or np.any(raw_events != np.floor(raw_events)):
+        raise ValueError("events must be integer codes")
+    events = raw_events.astype(int)
     if not set(np.unique(events)).issubset({0, 1, 2}):
         raise ValueError("events must be 0 (censored), 1 or 2")
+    if horizon is not None and (not np.isfinite(horizon) or horizon < 1 or int(horizon) != horizon):
+        raise ValueError("horizon must be a positive integer bar count")
     horizon = int(durations.max()) if horizon is None else int(horizon)
     times = np.arange(1, horizon + 1)
     survival = 1.0
@@ -110,16 +119,21 @@ def aalen_johansen(durations, events, horizon: int | None = None) -> dict:
         d2 = int(((durations == time) & (events == 2)).sum())
         censored = int(((durations == time) & (events == 0)).sum())
         # Aalen-Johansen: increments use survival *before* this time; survival
-        # then drops by every removal (events and censoring), not censoring only.
+        # then drops only on events. Censoring removes observations from later
+        # risk sets but is not a failure hazard. Tied events precede censoring.
         incidence[1] += survival * d1 / at_risk
         incidence[2] += survival * d2 / at_risk
-        survival *= 1 - (d1 + d2 + censored) / at_risk
+        survival *= 1 - (d1 + d2) / at_risk
         history.append({"bar": int(time), "at_risk": at_risk,
                         "incidence_target": incidence[1], "incidence_stop": incidence[2],
-                        "survival": survival})
+                         "survival": survival, "censored": censored})
     return {"horizon_bars": horizon, "incidence": {EVENT_NAMES[k]: v for k, v in incidence.items()},
             "neither": max(0.0, 1 - incidence[1] - incidence[2]),
-            "at_risk_start": int(len(durations)), "path": history}
+            "at_risk_start": int(len(durations)), "path": history,
+            "event_free_survival": survival,
+            "horizon_supported": bool(durations.max() >= horizon),
+            "estimator_version": "aj-discrete-v2-event-only-survival",
+            "assumption": "non-informative censoring; no extrapolated event hazard beyond observed support"}
 
 
 def event_rates(frame: pd.DataFrame) -> dict:

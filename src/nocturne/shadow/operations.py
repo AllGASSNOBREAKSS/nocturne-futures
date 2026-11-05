@@ -1,5 +1,6 @@
 """Read-only operational assessment and a separate durable incident journal."""
 from datetime import datetime, timedelta, timezone
+import hashlib
 
 from .calendar import supported
 from .service import health
@@ -7,11 +8,27 @@ from .service import health
 UTC = timezone.utc
 
 
-def assess_operations(store, status, now):
+def assess_operations(store, status, now, outcome_verification=None):
     if now.tzinfo is None:
         raise ValueError("timezone-aware monitor time required")
     now = now.astimezone(UTC)
     issues = {}
+    if store.outcomes():
+        try:
+            if outcome_verification is None:
+                raise ValueError("no outcome verification report")
+            age = (now - datetime.fromisoformat(outcome_verification["generated_at"])).total_seconds()
+            if not 0 <= age <= 90 * 60:
+                raise ValueError("stale outcome verification")
+            expected = outcome_verification["journal_hashes"]
+            if (expected["forecasts"] != hashlib.sha256(store.forecast_path.read_bytes()).hexdigest()
+                    or expected["outcomes"] != hashlib.sha256(store.outcome_path.read_bytes()).hexdigest()):
+                raise ValueError("outcome verification does not bind current journals")
+            if (outcome_verification["status"] != "VERIFIED_RESEARCH_GRADE"
+                    or outcome_verification.get("verified") != len(store.outcomes())):
+                issues["OUTCOME_VERIFICATION_FAILED"] = {"verified": outcome_verification.get("verified")}
+        except (KeyError, TypeError, ValueError):
+            issues["OUTCOME_VERIFICATION_UNAVAILABLE"] = {}
     if status is not None and (not isinstance(status, dict)
                                or not isinstance(status.get("audit", {}), dict)
                                or not isinstance(status.get("refresh", {}), dict)):
@@ -60,9 +77,9 @@ def assess_operations(store, status, now):
             "limits": "same-host monitoring cannot detect or notify while this host is powered off"}
 
 
-def monitor_operations(store, status, now):
-    report = assess_operations(store, status, now)
-    can_resolve = bool(not {"CYCLE_STATUS_STALE", "CYCLE_STATUS_INVALID"}.intersection(report["issues"])
+def monitor_operations(store, status, now, outcome_verification=None):
+    report = assess_operations(store, status, now, outcome_verification)
+    can_resolve = bool(not {"CYCLE_STATUS_STALE", "CYCLE_STATUS_INVALID", "OUTCOME_VERIFICATION_UNAVAILABLE"}.intersection(report["issues"])
                        and status and status.get("operational_status") == "SHADOW_ACTIVE"
                        and status.get("audit", {}).get("failed") == []
                        )

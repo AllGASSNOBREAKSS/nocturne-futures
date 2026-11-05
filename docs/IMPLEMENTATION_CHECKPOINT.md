@@ -1,6 +1,63 @@
 # Implementation Checkpoint
 
-## Current resume point — Phase 3K, 2026-11-04 UTC
+## Current resume point — Phase 3L, 2026-11-05 UTC
+
+Branch `feat/phase3l`, base `262c4dc`. Read `PHASE3L_FINDINGS.md`,
+`reports/phase3l_forward_audit.json` and `reports/phase3l_readiness.json`.
+Phase 3K reproduced 265 passing tests and verified green CI. New local suite:
+**291 passed including native parity**. Check Phase 3L's own CI after push.
+
+Actual scheduler progress: **2 issued / 1 verified research-grade matured /
+1 pending / 0 missed**. First outcome `20d48fc41c2cc0f5c0ae4f2d` was appended
+November 5 00:17:10 UTC, from a completed November 4 daily snapshot received
+00:17:09 UTC. High 28829.662109375, low 28276.21875, range 553.443359375 points,
+fraction 0.019639396061696825 using original reference 28180.263671875.
+P50 not covered; P80/P90 covered. Pinball details are in the audit report.
+
+Original forecast line hash is unchanged. The outcome is legacy unadjusted
+inference; corrected inference has **zero matured observations**. One result is
+descriptive, never calibration success or a trading signal. First baseline
+comparison is explicitly post-issuance, frozen before outcome, not a retrofitted
+issued forecast. No journal fields were changed to insert it.
+
+The next forecast `3db9c4cbd3a9cc5944db8437`, target November 5, was issued
+November 5 00:17:12.620017 UTC, before the 14:30 UTC cash open. It remains pending.
+
+Added independent outcome verification/quarantine and timestamped read-only API,
+receipt-based single-contract replay, causal session-state context and NQ point/
+horizon target labels. Actual licensed inventory remains empty; target rows are
+zero outside fixtures, probabilities remain null and no models were promoted.
+
+AJ censoring hazard bug, observation-end handling and late-published-bar ATR
+leakage were corrected. AJ-v1 reports remain historical and require recomputation;
+this is not a new authentic-data fit. Historical latency/vintage, authoritative
+calendar/roll evidence and true order-flow inputs are still required.
+
+Credentials absent in process/user/machine scopes. FRED DGS10 and BLS CPI probes
+now succeed; their current vintages remain PIT-ineligible. FRED NASDAQ100 has no
+November 4 observation in the probed response. Cost quote requires authenticated
+provider metadata and entitlement; no purchase or licensed request was made.
+
+```powershell
+python scripts/phase3l_forward_audit.py       # reports only; never rewrites journals
+python scripts/phase3i_forward_report.py
+python scripts/phase3j_operations.py
+python scripts/phase3l_readiness.py --probe-context
+python scripts/phase3l_contract_replay.py --instrument NQ --contract NQZ6 --asof 2026-11-02T16:00:00Z --day 2026-11-02
+```
+
+Last command is expected to return DATA_BLOCKED until authentic private receipts
+exist. Keep snapshots/private data backed up outside Git. Diagram/source:
+`ARCHITECTURE_PHASE3L.md`. Windows interactive task remains; no credentials or
+privileges were changed. Unattended deployment/off-host paging remain separate.
+
+Next: authorized GLBX.MDP3 entitlement + exact cost quote, ingest the documented
+one-session NQZ6/ESZ6 pilot, validate receipts/grids/calendar/availability, then
+expand history before feature ablation/model fitting. Await the November 5 outcome
+after November 6 00:00 UTC and accumulate genuine corrected-inference samples.
+Do not retrain the frozen model or enable orders. All trading remains NO_TRADE.
+
+## Previous resume point — Phase 3K, 2026-11-04 UTC
 
 Branch `feat/phase3k`, base `9f68c6b`. Read `PHASE3K_FINDINGS.md` and
 `reports/phase3k_reconciliation.json`. Phase 3J reproduced 253 passing tests and

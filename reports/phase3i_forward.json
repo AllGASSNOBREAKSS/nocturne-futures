@@ -1,11 +1,76 @@
 {
-  "generated_at": "2026-11-04T05:57:16.282230+00:00",
+  "generated_at": "2026-11-05T01:34:42.462068+00:00",
   "model_id": "ndx-range-v1",
   "scope": "NDX cash-session range quantiles; not NQ futures; not a trading signal",
   "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
   "trading_decision": "NO_TRADE",
-  "issued": 1,
-  "matured": 0,
+  "issued": 2,
+  "matured": 1,
+  "verified_matured": 1,
+  "outcome_verification": {
+    "status": "VERIFIED_RESEARCH_GRADE",
+    "journaled": 1,
+    "verified": 1,
+    "records": [
+      {
+        "forecast_id": "20d48fc41c2cc0f5c0ae4f2d",
+        "status": "VERIFIED_RESEARCH_GRADE",
+        "issues": [],
+        "source_reliability": "unofficial_provider_not_independently_exchange_confirmed",
+        "target_date": "2026-11-04",
+        "realized_high": 28829.662109375,
+        "realized_low": 28276.21875,
+        "realized_range_points": 553.443359375,
+        "realized_range_pct": 0.019639396061696825,
+        "reference_close": 28180.263671875,
+        "covered": {
+          "p50": false,
+          "p80": true,
+          "p90": true
+        },
+        "pinball": {
+          "p50": 0.0013313033751989351,
+          "p80": 0.0013087590358005139,
+          "p90": 0.0008928732079501124
+        },
+        "baseline_comparison": {
+          "registration": "POST_ISSUANCE_FROZEN_TRAIN_ONLY_COMPARATOR_NOT_AN_ISSUED_FORECAST",
+          "quantiles": {
+            "p50": 0.014277494224567883,
+            "p80": 0.024325037914972644,
+            "p90": 0.03292110148141983
+          },
+          "pinball": {
+            "p50": 0.0026809509185644707,
+            "p80": 0.0009371283706551635,
+            "p90": 0.0013281705419723002
+          }
+        },
+        "forecast_sha256": "26604fd0603ca5f5e6dac216797fe24b96143e4abc63ceeae597a32b7290d3e2",
+        "outcome_sha256": "022225ffd03961364c57bae69a6dad09707c41960c8eecb9d0a635a022564442",
+        "snapshot_id": "2bdadb4e3d17c80a4358eed656b475e0129bfc86dfd217695a9d9659f50f7ec0",
+        "raw_sha256": "4b1e33c93d48d63fea2763646b66c02351c97c7a2637d6299d6e4cff8e30265c",
+        "source_close": 28437.166015625,
+        "normalized_sha256": "3a25e87ec507a0ab693acd1a1ad52db31190c1111f331f5cfa68024f6c84f1b1",
+        "source_received_at": "2026-11-05T00:17:09.704122+00:00",
+        "source_available_at": "2026-11-05T00:00:00+00:00",
+        "evaluated_at": "2026-11-05T00:17:10.441833+00:00",
+        "inference_revision": "legacy-unadjusted"
+      }
+    ],
+    "sample_warning": "descriptive observations only; no forward calibration or trading-edge claim",
+    "trading_decision": "NO_TRADE"
+  },
+  "inference_samples": {
+    "legacy-unadjusted": {
+      "issued": 1,
+      "verified_matured": 1
+    },
+    "residual-adjusted-v1": {
+      "issued": 1,
+      "verified_matured": 0
+    }
+  },
   "pending": 1,
   "missed": 0,
   "failed": 0,
@@ -13,9 +78,9 @@
     "MARKET_DATA_MISSING": 2
   },
   "cycle_availability": {
-    "attempts_logged": 14,
+    "attempts_logged": 30,
     "failed_cycles": 5,
-    "failure_fraction": 0.35714285714285715,
+    "failure_fraction": 0.16666666666666666,
     "note": "observed local cycles, not service uptime"
   },
   "issuance_timing": [
@@ -23,11 +88,16 @@
       "forecast_id": "20d48fc41c2cc0f5c0ae4f2d",
       "lead_seconds": 41789.762196,
       "prediction_compute_seconds": null
+    },
+    {
+      "forecast_id": "3db9c4cbd3a9cc5944db8437",
+      "lead_seconds": 51167.379983,
+      "prediction_compute_seconds": 0.237905399999363
     }
   ],
   "audit": {
-    "forecasts": 1,
-    "passed": 1,
+    "forecasts": 2,
+    "passed": 2,
     "failed": [],
     "records": [
       {
@@ -40,11 +110,20 @@
           "SOURCE_REVISION_RECONCILED_AS_ISSUED"
         ],
         "reconciliation_id": "4fb15c942afdc198b011d344cc8181a7155cc2f9702ed3493b0b1e33d1a9fabd"
+      },
+      {
+        "forecast_id": "3db9c4cbd3a9cc5944db8437",
+        "ok": true,
+        "issues": [],
+        "stored_reference_close": 28437.166015625,
+        "current_source_reference_close": 28437.166015625,
+        "warnings": [],
+        "reconciliation_id": null
       }
     ]
   },
   "forecast_integrity": {
-    "journal_sha256": "61f4034a108ccf6545959d4dac39e18ae3c5247ae4557dddf9e9a8158113a1b3",
+    "journal_sha256": "9c5e18870f036681db042191f7afadf3437b0c3c7da9a297b03b149261496c8c",
     "originals": [
       {
         "forecast_id": "20d48fc41c2cc0f5c0ae4f2d",
@@ -52,6 +131,13 @@
         "feature_digest": "edea8e109ab6f627759d0cb27fc407a3770c1557bf8e949dd5b31c6df19cb365",
         "inference_revision": "legacy-unadjusted",
         "calibration_warning": "Frozen residual adjustments were omitted at issuance; evaluate as issued, separately."
+      },
+      {
+        "forecast_id": "3db9c4cbd3a9cc5944db8437",
+        "created_at": "2026-11-05T00:17:12.620017+00:00",
+        "feature_digest": "0ee7d4a8d41ff5b6dd91a63161a8f0c7b624c07fa16364697bd76206034ce57b",
+        "inference_revision": "residual-adjusted-v1",
+        "calibration_warning": null
       }
     ]
   },
@@ -60,42 +146,103 @@
     "warnings": [
       "RECENT_DATA_QUALITY_FAILURES"
     ],
-    "last_run": "2026-11-04T05:57:12.726313+00:00",
-    "age_hours": 0.0008986936111111111,
-    "forecasts": 1,
-    "matured": 0,
+    "last_run": "2026-11-05T01:34:34.205270+00:00",
+    "age_hours": 0.0021703219444444443,
+    "forecasts": 2,
+    "matured": 1,
     "pending": 1,
     "missed": 0,
     "recent_quality_failures": 2,
     "trading_decision": "NO_TRADE"
   },
   "evaluation": {
-    "matured": 0,
+    "matured": 1,
     "pending": 1,
-    "status": "INSUFFICIENT_FORWARD_DATA",
-    "note": "no forward forecast has matured; do not report accuracy",
+    "quarantined_outcomes": 0,
+    "status": "SHADOW_EVALUATING",
     "quality_failures": 2,
     "missed": 0,
+    "coverage": {
+      "p50": 0.0,
+      "p80": 1.0,
+      "p90": 1.0
+    },
+    "coverage_interval": {
+      "p50": {
+        "rate": 0.0,
+        "low": 0.0,
+        "high": 0.7934567085261071,
+        "n": 1
+      },
+      "p80": {
+        "rate": 1.0,
+        "low": 0.20654329147389294,
+        "high": 1.0,
+        "n": 1
+      },
+      "p90": {
+        "rate": 1.0,
+        "low": 0.20654329147389294,
+        "high": 1.0,
+        "n": 1
+      }
+    },
+    "mean_pinball": {
+      "p50": 0.0013313033751989351,
+      "p80": 0.0013087590358005139,
+      "p90": 0.0008928732079501124
+    },
+    "baseline_pinball": {
+      "p50": null,
+      "p80": null,
+      "p90": null
+    },
+    "by_inference_revision": {
+      "legacy-unadjusted": {
+        "matured": 1,
+        "coverage_p80": 1.0
+      }
+    },
+    "median_width": {
+      "p50": 0.016976789311298954,
+      "p80": 0.009206401929400441,
+      "p90": 0.011591338829898996
+    },
+    "by_month": {
+      "2026-11": {
+        "matured": 1,
+        "coverage_p80": 1.0
+      }
+    },
+    "by_volatility_regime": {
+      "HIGH_VOL": {
+        "matured": 1,
+        "coverage_p80": 1.0
+      }
+    },
+    "drift": null,
     "milestones": {
       "30": {
         "target": 30,
-        "matured": 0,
-        "remaining": 30,
+        "matured": 1,
+        "remaining": 29,
         "reached": false
       },
       "60": {
         "target": 60,
-        "matured": 0,
-        "remaining": 60,
+        "matured": 1,
+        "remaining": 59,
         "reached": false
       },
       "90": {
         "target": 90,
-        "matured": 0,
-        "remaining": 90,
+        "matured": 1,
+        "remaining": 89,
         "reached": false
       }
-    }
+    },
+    "sample_warning": "forward samples are small; treat coverage as provisional",
+    "trading_decision": "NO_TRADE"
   },
   "claim": "insufficient forward observations; descriptive only",
   "next_milestone": "30 matured forecasts"

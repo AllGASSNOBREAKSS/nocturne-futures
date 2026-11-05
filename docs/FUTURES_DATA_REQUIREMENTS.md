@@ -70,3 +70,27 @@ cannot be sized honestly from OHLCV; request provider metadata/size/cost for the
 exact bounded contract, schema and dates after entitlement is configured. Do not
 purchase or initiate a bulk download from this estimate. `phase3i_readiness.py`
 reports the assumptions and derived byte ranges separately from readiness.
+
+## Phase 3L: concrete bounded pilot and minimum coverage
+
+Readiness: `reports/phase3l_readiness.json`. No Databento credential exists in
+process, user or machine scope, and no authenticated size/cost quote or download
+was attempted. Cost is unknown, not zero; obtain a quote and entitlement before
+billable access. Never paste credentials into prompts or logs.
+
+An ordinary full-session plumbing pilot is NQZ6 and ESZ6 separately, from
+`2026-11-01T23:00:00Z` to `2026-11-02T22:00:00Z`, schema `ohlcv-1m`, raw symbols.
+Under a 23-hour-session assumption this is at most 1,380 minute rows per contract,
+2,760 total. It validates engineering, not predictive power. Use the existing
+`phase3e_providers.py databento` command with these explicit contract/date bounds
+only after authorized configuration and provider sizing/cost review.
+
+Research should seek 3+ years across contracts and regimes with disjoint
+training/calibration/holdout periods and sufficient independent event counts;
+calendar years alone do not establish an adequate dataset or accuracy.
+
+`phase3l_contract_replay.py` verifies private request/receipt/raw/export lineage
+before replay. Historical bar-end availability is only a lower bound; it is not
+proof of dissemination latency, release vintage or authoritative session/roll
+coverage. Resolve those before promotion. Trades/quotes and depth/MBO each need
+their own licensed schemas, sizing and sequencing/side-semantics validation.

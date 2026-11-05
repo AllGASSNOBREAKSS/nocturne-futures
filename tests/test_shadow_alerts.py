@@ -100,3 +100,20 @@ def test_malformed_status_is_an_incident_not_false_recovery(tmp_path, status):
     result = monitor_operations(ShadowStore(tmp_path), status, NOW)
     assert result["status"] == "degraded"
     assert "CYCLE_STATUS_INVALID" in result["issues"]
+
+
+def test_outcome_verification_is_fresh_and_bound_to_current_journals(tmp_path):
+    import hashlib
+    store = ShadowStore(tmp_path)
+    store.forecast_path.write_text('{"forecast_id":"fixture"}\n')
+    store.outcome_path.write_text('{"forecast_id":"fixture"}\n')
+    proof = {"generated_at": NOW.isoformat(), "status": "AUDIT_BLOCKED", "verified": 0,
+             "journal_hashes": {"forecasts": hashlib.sha256(store.forecast_path.read_bytes()).hexdigest(),
+                                "outcomes": hashlib.sha256(store.outcome_path.read_bytes()).hexdigest()}}
+    assert "OUTCOME_VERIFICATION_FAILED" in monitor_operations(store, good_status(), NOW, proof)["issues"]
+    assert "OUTCOME_VERIFICATION_UNAVAILABLE" in monitor_operations(store, good_status(), NOW)["issues"]
+    assert not any(e["state"] == "RESOLVED" for e in store.alert_events())
+    valid = {**proof, "status": "VERIFIED_RESEARCH_GRADE", "verified": 1}
+    assert monitor_operations(store, good_status(), NOW, valid)["open_alerts"] == []
+    store.outcome_path.write_bytes(store.outcome_path.read_bytes() + b"\n")
+    assert "OUTCOME_VERIFICATION_UNAVAILABLE" in assess_operations(store, good_status(), NOW, valid)["issues"]

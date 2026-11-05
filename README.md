@@ -8,6 +8,25 @@
 
 ## What is implemented
 
+### Phase 3L checkpoint — 2026-11-05 UTC
+
+The scheduler produced the first real research-grade outcome and the next
+pre-open forecast: **2 issued, 1 verified matured, 1 pending**. November 4 NDX
+range was **553.4434 points (1.96394%)**: above issued P50, below P80/P90.
+Original forecast bytes and denominator are unchanged. This is one legacy
+unadjusted observation, not proof of corrected-model calibration or a trading edge.
+
+Added independent outcome verification, explicitly registered baseline comparisons,
+receipt-validated contract replay and NQ target-grid labeling. Fixed AJ censoring
+and observation-duration errors; old survival reports require review/recomputation.
+Authentic futures data remains blocked, so no new directional or target model is
+promoted. FRED/BLS context probes now succeed but are not historical PIT features.
+
+See [Phase 3L findings](docs/PHASE3L_FINDINGS.md),
+[architecture diagram](docs/ARCHITECTURE_PHASE3L.md),
+[forward audit](reports/phase3l_forward_audit.json), and
+[data-access readiness](reports/phase3l_readiness.json). Trading stays `NO_TRADE`.
+
 ### Phase 3K checkpoint — 2026-11-04 UTC
 
 The Yahoo discrepancy is verified as an upstream **OHLCV revision**, not a local

@@ -79,6 +79,8 @@ def build_strategy_target_dataset(
         complete = end_idx - entry_idx + 1 == config.horizon_bars
         timestamps = frame.timestamp.iloc[entry_idx:end_idx + 1]
         contiguous = timestamps.diff().dropna().eq(pd.Timedelta(config.interval)).all()
+        gaps = timestamps.diff().dropna().ne(pd.Timedelta(config.interval)).to_numpy()
+        prefix_bars = next((i + 1 for i, gap in enumerate(gaps) if gap), len(timestamps))
         complete = complete and contiguous
 
         stop_idx: int | None = None
@@ -152,6 +154,9 @@ def build_strategy_target_dataset(
                     "label_end": frame.available_at.iloc[end_idx],
                     "label_definition": "target-before-stop-within-h-bars-v2",
                     "horizon_complete": bool(complete),
+                    "observed_bars": int(len(timestamps)),
+                    "observed_contiguous_bars": int(prefix_bars),
+                    "bar_interval": config.interval,
                     "excursion_definition": "full_observed_horizon_not_executable_exit_pnl",
                     "side": signal.side,
                     "entry_time": entry_bar["timestamp"],

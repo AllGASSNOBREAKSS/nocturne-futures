@@ -26,7 +26,7 @@ MODELS = (
         "trading_enabled": False,
         "data_requirement": "daily NDX and VIX bars, available next UTC midnight",
         "evidence": "one-shot 2024-2026 holdout: coverage 0.534/0.816/0.920",
-        "limitations": ["index range is not a futures range", "no matured forward sample yet",
+        "limitations": ["index range is not a futures range", "forward cohorts must be validated separately; sample size is not a promotion gate by itself",
                         "first forecast omitted residual calibration; score legacy inference separately"],
         "inference_revision": "residual-adjusted-v1",
     },
@@ -64,7 +64,8 @@ MODELS = (
         "trading_enabled": False,
         "data_requirement": "contract-level 5m bars with reliable intrabar sequencing",
         "evidence": "logistic Brier 0.548 vs 0.628; ECE 0.061; interval includes zero",
-        "limitations": ["90 signals", "no licensed intraday history"],
+        "limitations": ["90 signals", "no licensed intraday history",
+                        "Phase 3F AJ-v1 censoring defect corrected in 3L; old survival outputs require recomputation, not promotion"],
     },
     {
         "model_id": "nq-session-direction",

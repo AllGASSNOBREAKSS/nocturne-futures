@@ -139,6 +139,13 @@ class ForecastService:
                 "forecast_integrity": report.get("forecast_integrity"),
                 "trading_decision": "NO_TRADE"}
 
+    def shadow_verification(self) -> dict:
+        path = ROOT / "reports/phase3l_forward_audit.json"
+        if not path.exists():
+            return {"status": "NO_VERIFICATION_REPORT", "trading_decision": "NO_TRADE"}
+        report = json.loads(path.read_text())
+        return {**report, "view": "timestamped audit snapshot, not an exchange-finality certification"}
+
     def futures_readiness(self) -> dict:
         path = ROOT / "reports" / "phase3i_readiness.json"
         if not path.exists():
@@ -160,8 +167,12 @@ class ForecastService:
         except (FileNotFoundError, ValueError):
             status = None
         # Assessment only; HTTP GET never appends alert transitions.
+        try:
+            verification = json.loads((ROOT / "reports/phase3l_forward_audit.json").read_text())
+        except (FileNotFoundError, ValueError):
+            verification = None
         return assess_operations(ShadowStore(ROOT / "data/shadow/ndx_range"), status,
-                                 datetime.now(timezone.utc))
+                                 datetime.now(timezone.utc), outcome_verification=verification)
 
     def source_revisions(self) -> dict:
         path = ROOT / "data/shadow/market/snapshots/revisions.jsonl"

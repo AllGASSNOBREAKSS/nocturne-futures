@@ -105,6 +105,10 @@ def create_app(service: ForecastService | None = None) -> FastAPI:
     def shadow_calibration() -> dict:
         return service.shadow_calibration()
 
+    @app.get("/v1/shadow/verification")
+    def shadow_verification() -> dict:
+        return service.shadow_verification()
+
     @app.get("/v1/data/futures-readiness")
     def futures_readiness() -> dict:
         return service.futures_readiness()
