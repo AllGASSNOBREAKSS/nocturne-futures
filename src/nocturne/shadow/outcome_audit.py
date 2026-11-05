@@ -75,7 +75,7 @@ def audit_outcomes(store, archive, baseline=None):
             reference = frame[frame.date == forecast["data_date"]].iloc[0]
             if not forecast.get("market_snapshot_ids") or float(reference.close) != forecast["reference_close"]:
                 proofs = outcome.get("reconciliation_ids", [])
-                if not proofs or not any(verify_reconciliation(forecast, reconciliations[p], archive, float(reference.close)) for p in proofs):
+                if not proofs or not any(verify_reconciliation(forecast, reconciliations[p], archive, float(reference.close), current_bar=reference) for p in proofs):
                     raise ValueError("unverified reference revision")
             actual_points = float(bar.high - bar.low)
             actual = actual_points / forecast["reference_close"]

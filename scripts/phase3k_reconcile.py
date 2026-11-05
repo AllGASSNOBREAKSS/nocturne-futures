@@ -35,18 +35,18 @@ def import_existing(directory, symbol, archive):
         "import_note": "imported historical canonical parsed JSON; original wire bytes not retained"})
 
 
-def reference_check(archive_root):
+def reference_check(archive_root, session="2026-11-03"):
     """Bounded public-source checks, not access-control workarounds."""
     import requests
     results = []
     requests_to_make = [
         ("FRED_NASDAQ100", "https://fred.stlouisfed.org/graph/fredgraph.csv",
-         {"id": "NASDAQ100", "cosd": "2026-11-03", "coed": "2026-11-03"}),
+          {"id": "NASDAQ100", "cosd": session, "coed": session}),
         ("Nasdaq_public_index_history", "https://api.nasdaq.com/api/index/NDX/historical",
-         {"fromdate": "11/03/2026", "todate": "11/03/2026", "limit": 5}),
+          {"fromdate": datetime.fromisoformat(session).strftime("%m/%d/%Y"), "todate": datetime.fromisoformat(session).strftime("%m/%d/%Y"), "limit": 5}),
     ]
     for provider, url, params in requests_to_make:
-        result = {"provider": provider, "url": url, "requested_session": "2026-11-03",
+        result = {"provider": provider, "url": url, "requested_session": session,
                   "status": "UNVERIFIED", "independent_upstream_confirmed": False}
         try:
             response = requests.get(url, params=params, timeout=25,
@@ -62,7 +62,7 @@ def reference_check(archive_root):
                 import io
                 import pandas as pd
                 frame = pd.read_csv(io.BytesIO(response.content))
-                row = frame[frame.iloc[:, 0].astype(str) == "2026-11-03"]
+                row = frame[frame.iloc[:, 0].astype(str) == session]
                 if not row.empty:
                     value = float(row.iloc[0, 1])
                     result.update(status="CURRENT_CLOSE_OBSERVED", close=value,

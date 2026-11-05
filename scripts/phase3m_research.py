@@ -78,7 +78,7 @@ def main():
     temporary = destination.with_suffix(f".{args.lane}.tmp")
     temporary.write_text(json.dumps({"generated_at": now.isoformat(), "runner": result, "jobs": jobs}, indent=2) + "\n")
     temporary.replace(destination)
-    return 1 if any(j["state"] == "FAILED" and j["updated"] >= now.timestamp()
+    return 1 if any(j["state"] in {"FAILED", "DEPENDENCY_FAILED"} and j["updated"] >= now.timestamp()
                     for j in jobs if j["lane"] == args.lane) else 0
 
 

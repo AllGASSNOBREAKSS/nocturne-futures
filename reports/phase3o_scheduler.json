@@ -1,0 +1,18 @@
+﻿[
+    {
+        "Name":  "Nocturne-NDX-ReadOnly-Shadow",
+        "State":  "Ready",
+        "LogonType":  "Interactive",
+        "LastRun":  "2026-11-05T22:50:27.0000000Z",
+        "Result":  0,
+        "NextRun":  "2026-11-05T23:17:05.0000000Z"
+    },
+    {
+        "Name":  "Nocturne-ReadOnly-Research",
+        "State":  "Ready",
+        "LogonType":  "Interactive",
+        "LastRun":  "2026-11-05T22:50:27.0000000Z",
+        "Result":  0,
+        "NextRun":  "2026-11-06T02:13:57.0000000Z"
+    }
+]

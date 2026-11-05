@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-05T19:47:36.727411+00:00",
+  "generated_at": "2026-11-05T23:01:47.211045+00:00",
   "state_counts": {
-    "SUCCEEDED": 28,
+    "SUCCEEDED": 31,
     "BLOCKED": 15
   },
   "job_events": [
@@ -627,6 +627,48 @@
       "at": 1793908053.9800372,
       "state": "RUNNING",
       "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\62a2dad055c56bb8b1373f9e\\\\1\"}"
+    },
+    {
+      "seq": 90,
+      "job_id": "62a2dad055c56bb8b1373f9e",
+      "at": 1793908057.0975726,
+      "state": "SUCCEEDED",
+      "detail": "{\"status\": \"SUCCEEDED\", \"report_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\62a2dad055c56bb8b1373f9e\\\\1\\\\research_report.json\", \"markdown_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\62a2dad055c56bb8b1373f9e\\\\1\\\\research_report.md\", \"job_id\": \"62a2dad055c56bb8b1373f9e\", \"kind\": \"RESEARCH_REPORT\", \"attempt\": 1, \"trading_decision\": \"NO_TRADE\"}"
+    },
+    {
+      "seq": 91,
+      "job_id": "22d63e24f60f070e3437b9fb",
+      "at": 1793918748.1478434,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\22d63e24f60f070e3437b9fb\\\\1\"}"
+    },
+    {
+      "seq": 92,
+      "job_id": "22d63e24f60f070e3437b9fb",
+      "at": 1793918751.1864996,
+      "state": "SUCCEEDED",
+      "detail": "{\"status\": \"SUCCEEDED\", \"report_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\22d63e24f60f070e3437b9fb\\\\1\\\\research_report.json\", \"markdown_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\22d63e24f60f070e3437b9fb\\\\1\\\\research_report.md\", \"job_id\": \"22d63e24f60f070e3437b9fb\", \"kind\": \"RESEARCH_REPORT\", \"attempt\": 1, \"trading_decision\": \"NO_TRADE\"}"
+    },
+    {
+      "seq": 93,
+      "job_id": "024aa900f07444329fda489f",
+      "at": 1793919029.6105561,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\024aa900f07444329fda489f\\\\1\"}"
+    },
+    {
+      "seq": 94,
+      "job_id": "024aa900f07444329fda489f",
+      "at": 1793919033.4285417,
+      "state": "SUCCEEDED",
+      "detail": "{\"status\": \"SUCCEEDED\", \"coverage\": [{\"symbol\": \"ES=F\", \"kind\": \"futures_proxy\", \"rows\": 6587, \"first\": \"2000-09-18\", \"last\": \"2026-11-04\", \"span_years\": 26.13, \"raw_sha256\": \"d9775dbc800033c1edd0ba2b7719723d96cf779444f0a9ba2aaf4e928776d757\", \"normalized_sha256\": \"7fec9e2c73051e68c5f96bc4135b91b138d59c900eb8091a045241dc912b600b\"}, {\"symbol\": \"^GSPC\", \"kind\": \"index\", \"rows\": 24828, \"first\": \"1927-12-30\", \"last\": \"2026-11-03\", \"span_years\": 98.84, \"raw_sha256\": \"aa4fc9cf68342f522383170c1315114b47cf3ffffe838325559aa927ff3f622f\", \"normalized_sha256\": \"b23b5204d20c63348260412ab5fab8fd3d0fe6917b995faf5c5e26787d9f0856\"}, {\"symbol\": \"^NDX\", \"kind\": \"index\", \"rows\": 10353, \"first\": \"1985-10-01\", \"last\": \"2026-11-03\", \"span_years\": 41.09, \"raw_sha256\": \"5d7935b96df1c09a65fe71497782a6e700d4fbc9402495935ac8efe2dc2c7212\", \"normalized_sha256\": \"76af8a691b4b8af090630f002d78064f0442ebdb753c3e104b6fb6eeffdb073e\"}, {\"symbol\": \"^TNX\", \"kind\": \"rate_index\", \"rows\": 16198, \"first\": \"1962-01-02\", \"last\": \"2026-11-03\", \"span_years\": 64.84, \"raw_sha256\": \"8424f54649ed7f8275666e717f85edb69c6f162f8a112d18635aade2ebce0cac\", \"normalized_sha256\": \"248a0339e3bc0531e7ea1657f3790c22573c49c99ddb3d5b91fba809035bf385\"}, {\"symbol\": \"^VIX\", \"kind\": \"volatility_index\", \"rows\": 9280, \"first\": \"1990-01-02\", \"last\": \"2026-11-03\", \"span_years\": 36.84, \"raw_sha256\": \"5a398d98af6f95344a6de474f0e16f2d500da642dd9856d7569c1ec2f81a3b4e\", \"normalized_sha256\": \"02b14e16fadeb38d24afb55cd7adc47145dcfb30381874b73b70abb6832c7776\"}, {\"symbol\": \"NQ=F\", \"kind\": \"futures_proxy\", \"rows\": 6573, \"first\": \"2000-09-18\", \"last\": \"2026-11-04\", \"span_years\": 26.13, \"raw_sha256\": \"41ebe30d2e5ab5c8988d72274c505b631cb8846408a69861f7d15f5677b00648\", \"normalized_sha256\": \"7e03f2d9935a1844cfcb805fdfaaa742f5147a2ca6197ef4b2183ce09f3dbf94\"}, {\"symbol\": \"QQQ\", \"kind\": \"etf\", \"rows\": 6956, \"first\": \"1999-03-10\", \"last\": \"2026-11-02\", \"span_years\": 27.65, \"raw_sha256\": \"c37bc6db85710cde042684a5116f239ac77db189a278e41402c649c8a197faa8\", \"normalized_sha256\": \"66a8dc0ed31b1b97c1ca45f4d696f0f12c89008ece2622936dad4c0c1d744ef4\"}, {\"symbol\": \"SPY\", \"kind\": \"etf\", \"rows\": 8498, \"first\": \"1993-01-29\", \"last\": \"2026-11-02\", \"span_years\": 33.76, \"raw_sha256\": \"455cf2514c0133fcabf1933a55c6d07c27f13067528a84c645443e3e0993ecaf\", \"normalized_sha256\": \"a66dd7d361992fc6e53878648f1556a8679e4e72e82b8c39391b7747a56f979f\"}, {\"symbol\": \"TLT\", \"kind\": \"etf\", \"rows\": 6105, \"first\": \"2002-07-30\", \"last\": \"2026-11-02\", \"span_years\": 24.26, \"raw_sha256\": \"1f10f6f2542c9dbc1f1fbaba401347def9ec4a81da4db5485231bb4ce5bbe04e\", \"normalized_sha256\": \"2b856800d25200da2c7cf06bfdbbf13b731ec7800d42387b322946a7838da2a3\"}], \"availability\": \"historical bar-end lower bound; not release-vintage-certified PIT\", \"job_id\": \"024aa900f07444329fda489f\", \"kind\": \"DATA_VALIDATION\", \"attempt\": 1, \"trading_decision\": \"NO_TRADE\"}"
+    },
+    {
+      "seq": 95,
+      "job_id": "3a2a170d36efd4085f4bd389",
+      "at": 1793919705.0472994,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\3a2a170d36efd4085f4bd389\\\\1\"}"
     }
   ],
   "jobs": [
@@ -3065,6 +3107,166 @@
       },
       "created": 1793899807.6997566,
       "updated": 1793899810.1443229
+    },
+    {
+      "id": "62a2dad055c56bb8b1373f9e",
+      "kind": "RESEARCH_REPORT",
+      "lane": "research",
+      "payload": {},
+      "dependencies": [],
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "max_attempts": 2,
+      "timeout": 60.0,
+      "ready_at": 1793908087.0971422,
+      "result": {
+        "status": "SUCCEEDED",
+        "report_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\62a2dad055c56bb8b1373f9e\\1\\research_report.json",
+        "markdown_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\62a2dad055c56bb8b1373f9e\\1\\research_report.md",
+        "job_id": "62a2dad055c56bb8b1373f9e",
+        "kind": "RESEARCH_REPORT",
+        "attempt": 1,
+        "trading_decision": "NO_TRADE"
+      },
+      "created": 1793908053.950925,
+      "updated": 1793908057.0975726
+    },
+    {
+      "id": "22d63e24f60f070e3437b9fb",
+      "kind": "RESEARCH_REPORT",
+      "lane": "research",
+      "payload": {},
+      "dependencies": [],
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "max_attempts": 2,
+      "timeout": 60.0,
+      "ready_at": 1793918781.1860166,
+      "result": {
+        "status": "SUCCEEDED",
+        "report_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\22d63e24f60f070e3437b9fb\\1\\research_report.json",
+        "markdown_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\22d63e24f60f070e3437b9fb\\1\\research_report.md",
+        "job_id": "22d63e24f60f070e3437b9fb",
+        "kind": "RESEARCH_REPORT",
+        "attempt": 1,
+        "trading_decision": "NO_TRADE"
+      },
+      "created": 1793918748.0818043,
+      "updated": 1793918751.1864996
+    },
+    {
+      "id": "024aa900f07444329fda489f",
+      "kind": "DATA_VALIDATION",
+      "lane": "research",
+      "payload": {},
+      "dependencies": [],
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "max_attempts": 1,
+      "timeout": 300.0,
+      "ready_at": 1793919063.4280572,
+      "result": {
+        "status": "SUCCEEDED",
+        "coverage": [
+          {
+            "symbol": "ES=F",
+            "kind": "futures_proxy",
+            "rows": 6587,
+            "first": "2000-09-18",
+            "last": "2026-11-04",
+            "span_years": 26.13,
+            "raw_sha256": "d9775dbc800033c1edd0ba2b7719723d96cf779444f0a9ba2aaf4e928776d757",
+            "normalized_sha256": "7fec9e2c73051e68c5f96bc4135b91b138d59c900eb8091a045241dc912b600b"
+          },
+          {
+            "symbol": "^GSPC",
+            "kind": "index",
+            "rows": 24828,
+            "first": "1927-12-30",
+            "last": "2026-11-03",
+            "span_years": 98.84,
+            "raw_sha256": "aa4fc9cf68342f522383170c1315114b47cf3ffffe838325559aa927ff3f622f",
+            "normalized_sha256": "b23b5204d20c63348260412ab5fab8fd3d0fe6917b995faf5c5e26787d9f0856"
+          },
+          {
+            "symbol": "^NDX",
+            "kind": "index",
+            "rows": 10353,
+            "first": "1985-10-01",
+            "last": "2026-11-03",
+            "span_years": 41.09,
+            "raw_sha256": "5d7935b96df1c09a65fe71497782a6e700d4fbc9402495935ac8efe2dc2c7212",
+            "normalized_sha256": "76af8a691b4b8af090630f002d78064f0442ebdb753c3e104b6fb6eeffdb073e"
+          },
+          {
+            "symbol": "^TNX",
+            "kind": "rate_index",
+            "rows": 16198,
+            "first": "1962-01-02",
+            "last": "2026-11-03",
+            "span_years": 64.84,
+            "raw_sha256": "8424f54649ed7f8275666e717f85edb69c6f162f8a112d18635aade2ebce0cac",
+            "normalized_sha256": "248a0339e3bc0531e7ea1657f3790c22573c49c99ddb3d5b91fba809035bf385"
+          },
+          {
+            "symbol": "^VIX",
+            "kind": "volatility_index",
+            "rows": 9280,
+            "first": "1990-01-02",
+            "last": "2026-11-03",
+            "span_years": 36.84,
+            "raw_sha256": "5a398d98af6f95344a6de474f0e16f2d500da642dd9856d7569c1ec2f81a3b4e",
+            "normalized_sha256": "02b14e16fadeb38d24afb55cd7adc47145dcfb30381874b73b70abb6832c7776"
+          },
+          {
+            "symbol": "NQ=F",
+            "kind": "futures_proxy",
+            "rows": 6573,
+            "first": "2000-09-18",
+            "last": "2026-11-04",
+            "span_years": 26.13,
+            "raw_sha256": "41ebe30d2e5ab5c8988d72274c505b631cb8846408a69861f7d15f5677b00648",
+            "normalized_sha256": "7e03f2d9935a1844cfcb805fdfaaa742f5147a2ca6197ef4b2183ce09f3dbf94"
+          },
+          {
+            "symbol": "QQQ",
+            "kind": "etf",
+            "rows": 6956,
+            "first": "1999-03-10",
+            "last": "2026-11-02",
+            "span_years": 27.65,
+            "raw_sha256": "c37bc6db85710cde042684a5116f239ac77db189a278e41402c649c8a197faa8",
+            "normalized_sha256": "66a8dc0ed31b1b97c1ca45f4d696f0f12c89008ece2622936dad4c0c1d744ef4"
+          },
+          {
+            "symbol": "SPY",
+            "kind": "etf",
+            "rows": 8498,
+            "first": "1993-01-29",
+            "last": "2026-11-02",
+            "span_years": 33.76,
+            "raw_sha256": "455cf2514c0133fcabf1933a55c6d07c27f13067528a84c645443e3e0993ecaf",
+            "normalized_sha256": "a66dd7d361992fc6e53878648f1556a8679e4e72e82b8c39391b7747a56f979f"
+          },
+          {
+            "symbol": "TLT",
+            "kind": "etf",
+            "rows": 6105,
+            "first": "2002-07-30",
+            "last": "2026-11-02",
+            "span_years": 24.26,
+            "raw_sha256": "1f10f6f2542c9dbc1f1fbaba401347def9ec4a81da4db5485231bb4ce5bbe04e",
+            "normalized_sha256": "2b856800d25200da2c7cf06bfdbbf13b731ec7800d42387b322946a7838da2a3"
+          }
+        ],
+        "availability": "historical bar-end lower bound; not release-vintage-certified PIT",
+        "job_id": "024aa900f07444329fda489f",
+        "kind": "DATA_VALIDATION",
+        "attempt": 1,
+        "trading_decision": "NO_TRADE"
+      },
+      "created": 1793919029.5319262,
+      "updated": 1793919033.4285417
     }
   ],
   "forward_audit_snapshot": {
@@ -3120,7 +3322,7 @@
     ],
     "sample_warning": "descriptive observations only; no forward calibration or trading-edge claim",
     "trading_decision": "NO_TRADE",
-    "generated_at": "2026-11-05T19:17:23.260783+00:00",
+    "generated_at": "2026-11-05T22:50:37.038115+00:00",
     "issued": 2,
     "pending": 1,
     "baseline_sha256": "cf6984327158af5517c35ca5ad2cd2ccc865a40022e50b411f1cc5872eaf298d",
@@ -3132,31 +3334,36 @@
   },
   "historical_and_forward_metrics_separate": true,
   "shadow_operations_snapshot": {
-    "generated_at": "2026-11-05T19:17:28.201167+00:00",
-    "status": "degraded",
-    "issues": {
-      "CYCLE_UNHEALTHY": {
-        "operational_status": "AUDIT_BLOCKED",
-        "reason": null
+    "generated_at": "2026-11-05T22:50:41.768481+00:00",
+    "status": "ok",
+    "components": {
+      "shadow_cycle": {
+        "status": "HEALTHY",
+        "reason": "SHADOW_ACTIVE"
       },
-      "FORECAST_AUDIT:3db9c4cbd3a9cc5944db8437": {
-        "forecast_id": "3db9c4cbd3a9cc5944db8437",
-        "ok": false,
-        "issues": [
-          "REFERENCE_CLOSE_MISMATCH"
-        ],
-        "stored_reference_close": 28437.166015625,
-        "current_source_reference_close": 28437.169921875,
-        "warnings": [],
-        "reconciliation_id": null
+      "forecast_integrity": {
+        "status": "HEALTHY",
+        "reason": "see forecast audit issues; reconciliation is evidence-bound, not a health override"
+      },
+      "provider_refresh": {
+        "status": "HEALTHY",
+        "reason": "latest timestamped cycle refresh results; not an uptime guarantee"
+      },
+      "outcome_evaluation": {
+        "status": "HEALTHY",
+        "reason": "pending horizons are expected work, not fabricated outcomes; evaluation requires availability and audit gates"
       }
     },
+    "issues": {},
     "overdue_outcomes": [],
     "health": {
       "status": "ok",
       "warnings": [],
-      "last_run": "2026-11-05T04:47:09.881054+00:00",
-      "age_hours": 14.505088920277778,
+      "last_run": "2026-11-05T22:50:32.280850+00:00",
+      "age_hours": 0.0026354530555555557,
+      "last_success": "2026-11-05T22:50:32.280850+00:00",
+      "last_attempt": "2026-11-05T22:50:32.280850+00:00",
+      "last_attempt_event": "CYCLE_OK",
       "forecasts": 2,
       "matured": 1,
       "pending": 1,
@@ -3173,35 +3380,7 @@
     "delivery": "local durable alerts only; no external paging configured",
     "limits": "same-host monitoring cannot detect or notify while this host is powered off",
     "transitions_now": [],
-    "open_alerts": [
-      {
-        "at": "2026-11-05T17:30:09.795173+00:00",
-        "detail": {
-          "operational_status": "AUDIT_BLOCKED",
-          "reason": null
-        },
-        "key": "CYCLE_UNHEALTHY",
-        "state": "OPEN",
-        "trading_decision": "NO_TRADE"
-      },
-      {
-        "at": "2026-11-05T17:30:09.795173+00:00",
-        "detail": {
-          "current_source_reference_close": 28437.169921875,
-          "forecast_id": "3db9c4cbd3a9cc5944db8437",
-          "issues": [
-            "REFERENCE_CLOSE_MISMATCH"
-          ],
-          "ok": false,
-          "reconciliation_id": null,
-          "stored_reference_close": 28437.166015625,
-          "warnings": []
-        },
-        "key": "FORECAST_AUDIT:3db9c4cbd3a9cc5944db8437",
-        "state": "OPEN",
-        "trading_decision": "NO_TRADE"
-      }
-    ]
+    "open_alerts": []
   },
   "credential_presence": {
     "DATABENTO_API_KEY": false,

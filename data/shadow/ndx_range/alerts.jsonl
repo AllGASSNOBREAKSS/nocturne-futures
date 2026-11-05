@@ -4,3 +4,5 @@
 {"at": "2026-11-04T05:46:53.601221+00:00", "detail": {}, "key": "FORECAST_AUDIT:20d48fc41c2cc0f5c0ae4f2d", "state": "RESOLVED", "trading_decision": "NO_TRADE"}
 {"at": "2026-11-05T17:30:09.795173+00:00", "detail": {"operational_status": "AUDIT_BLOCKED", "reason": null}, "key": "CYCLE_UNHEALTHY", "state": "OPEN", "trading_decision": "NO_TRADE"}
 {"at": "2026-11-05T17:30:09.795173+00:00", "detail": {"current_source_reference_close": 28437.169921875, "forecast_id": "3db9c4cbd3a9cc5944db8437", "issues": ["REFERENCE_CLOSE_MISMATCH"], "ok": false, "reconciliation_id": null, "stored_reference_close": 28437.166015625, "warnings": []}, "key": "FORECAST_AUDIT:3db9c4cbd3a9cc5944db8437", "state": "OPEN", "trading_decision": "NO_TRADE"}
+{"at": "2026-11-05T22:40:21.731083+00:00", "detail": {}, "key": "CYCLE_UNHEALTHY", "state": "RESOLVED", "trading_decision": "NO_TRADE"}
+{"at": "2026-11-05T22:40:21.731083+00:00", "detail": {}, "key": "FORECAST_AUDIT:3db9c4cbd3a9cc5944db8437", "state": "RESOLVED", "trading_decision": "NO_TRADE"}

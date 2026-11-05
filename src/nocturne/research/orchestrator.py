@@ -19,7 +19,7 @@ from ..shadow.locking import FileLock
 JOB_TYPES = ("DATA_REFRESH", "DATA_VALIDATION", "FEATURE_BUILD", "HISTORICAL_BACKTEST",
              "WALK_FORWARD_VALIDATION", "MODEL_TRAINING", "MODEL_EVALUATION", "SHADOW_FORECAST",
              "FORECAST_MATURITY_CHECK", "FORWARD_EVALUATION", "MODEL_DRIFT_MONITOR", "RESEARCH_REPORT")
-TERMINAL = {"SUCCEEDED", "FAILED", "BLOCKED", "DEPENDENCY_FAILED"}
+TERMINAL = {"SUCCEEDED", "FAILED", "BLOCKED", "DEPENDENCY_FAILED", "DEPENDENCY_BLOCKED", "DISABLED"}
 SHADOW_TYPES = {"DATA_REFRESH", "SHADOW_FORECAST", "FORECAST_MATURITY_CHECK", "FORWARD_EVALUATION", "MODEL_DRIFT_MONITOR"}
 
 
@@ -73,6 +73,9 @@ class JobStore:
             now = time.time()
             db.execute("INSERT OR IGNORE INTO jobs(id,kind,lane,payload,dependencies,state,max_attempts,timeout,created,updated) VALUES(?,?,?,?,?,'QUEUED',?,?,?,?)",
                        (identifier, kind, lane, encoded, deps, max_attempts, timeout, now, now))
+            if not old and (payload or {}).get("enabled") is False:
+                db.execute("UPDATE jobs SET state='DISABLED',result=? WHERE id=?", (json.dumps({"reason": "EXPLICITLY_DISABLED_BY_JOB_SPECIFICATION"}), identifier))
+                db.execute("INSERT INTO events(job_id,at,state,detail) VALUES(?,?,'DISABLED',?)", (identifier, now, "explicit job specification"))
         return identifier
 
     def jobs(self, lane=None):
@@ -136,7 +139,8 @@ def run_lane(store, repository, lane, max_jobs=12, budget_seconds=900, backoff_s
                     continue
                 dependencies = json.loads(job["dependencies"])
                 if any(states[d] in TERMINAL - {"SUCCEEDED"} for d in dependencies):
-                    store.transition(job["id"], "DEPENDENCY_FAILED", {"dependencies": dependencies})
+                    failed = any(states[d] in {"FAILED", "DEPENDENCY_FAILED"} for d in dependencies)
+                    store.transition(job["id"], "DEPENDENCY_FAILED" if failed else "DEPENDENCY_BLOCKED", {"dependencies": dependencies})
                     continue
                 if all(states[d] == "SUCCEEDED" for d in dependencies):
                     selected = job

@@ -26,7 +26,9 @@ class ForecastService:
             report = json.loads(path.read_text())
             stamp = datetime.fromisoformat(report["generated_at"])
             age = (datetime.now(timezone.utc) - stamp).total_seconds()
+            from ..research.health import assess_jobs
             return {**report, "snapshot_age_seconds": age,
+                    "job_health": assess_jobs(report.get("jobs", []), datetime.now(timezone.utc)),
                     "freshness": "RECENT" if 0 <= age <= 26 * 3600 else "STALE",
                     "view": "read-only timestamped research snapshot; no jobs triggered by HTTP"}
         except (ValueError, KeyError, TypeError):

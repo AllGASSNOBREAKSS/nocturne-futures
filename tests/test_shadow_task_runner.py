@@ -14,7 +14,7 @@ def test_task_runner_keeps_all_stages_and_real_exit_codes(tmp_path, failing_stag
     scripts = tmp_path / "scripts"
     scripts.mkdir()
     mapping = {"cycle": "phase3h_shadow.py", "audit": "phase3l_forward_audit.py",
-               "report": "phase3i_forward_report.py", "monitor": "phase3j_operations.py"}
+               "report": "phase3i_forward_report.py", "monitor": "phase3j_operations.py", "health": "phase3o_health.py"}
     for stage, name in mapping.items():
         (scripts / name).write_text("import sys\nprint('fixture-stage')\nprint('fixture-warning', file=sys.stderr)\n"
                                    f"raise SystemExit({1 if stage == failing_stage else 0})\n")

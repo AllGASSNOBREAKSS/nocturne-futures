@@ -68,7 +68,20 @@ def assess_operations(store, status, now, outcome_verification=None):
             item = {"forecast_id": forecast["forecast_id"], "expected_by": due.isoformat()}
             overdue.append(item)
             issues[f"OUTCOME_OVERDUE:{forecast['forecast_id']}"] = item
+    cycle_state = (status or {}).get("operational_status")
+    invalid = any(key in issues for key in ("CYCLE_STATUS_INVALID", "CYCLE_STATUS_STALE", "NO_CYCLE_STATUS"))
+    components = {
+        "shadow_cycle": {"status": "DEGRADED" if invalid else "BLOCKED" if cycle_state in {"AUDIT_BLOCKED", "DATA_BLOCKED"} else "FAILED" if cycle_state == "CYCLE_FAILED" else "HEALTHY" if cycle_state == "SHADOW_ACTIVE" else "DEGRADED",
+                         "reason": cycle_state or "NO_VALID_CYCLE_STATUS"},
+        "forecast_integrity": {"status": "DEGRADED" if invalid else "BLOCKED" if any(key.startswith("FORECAST_AUDIT:") for key in issues) else "HEALTHY",
+                               "reason": "see forecast audit issues; reconciliation is evidence-bound, not a health override"},
+        "provider_refresh": {"status": "DEGRADED" if invalid else "FAILED" if any(key.startswith("PROVIDER_REFRESH:") for key in issues) else "HEALTHY",
+                             "reason": "latest timestamped cycle refresh results; not an uptime guarantee"},
+        "outcome_evaluation": {"status": "BLOCKED" if any(key.startswith("OUTCOME_VERIFICATION") for key in issues) else "DEGRADED" if overdue else "HEALTHY",
+                               "reason": "pending horizons are expected work, not fabricated outcomes; evaluation requires availability and audit gates"},
+    }
     return {"generated_at": now.isoformat(), "status": "degraded" if issues else "ok",
+            "components": components,
             "issues": issues, "overdue_outcomes": overdue, "health": health(store, now),
             "issued": len(store.forecasts()), "matured": len(outcomes), "missed": len(store.missed()),
             "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",

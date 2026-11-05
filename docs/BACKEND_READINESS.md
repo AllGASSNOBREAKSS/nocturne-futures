@@ -1,4 +1,43 @@
-# Backend readiness — Phase 3N
+# Backend readiness — Phase 3O
+
+## Phase 3O evidence update and pre-frontend gates
+
+**Engineering:** recovered source audit via exact archived issuance replay and a
+separate full-bar-bound proof; real cycle/monitor recovery; component-level health;
+correct blocked/disabled job semantics; seven-job isolated subprocess integration.
+348 local tests including native parity, TypeScript, plus branch CI verification.
+No new scheduler, data adapter or market model was created.
+
+**Quantitative:** still zero licensed futures rows, one legacy matured outcome and
+zero corrected-inference matured outcomes. November 5 remains pending until the
+November 6 availability bound. The source discrepancy is reconciled as issued,
+not confirmed exchange truth. No new direction/target/survival validation exists.
+These are separate dimensions, not an accuracy or completion percentage.
+
+Before frontend development, require an explicit gate review of:
+1. Authorized NQ/ES pilot received and independently reproducible from raw receipts
+   through the existing engine, with calendar/availability limitations resolved.
+   **BLOCKED: credentials/quote/user approval.**
+2. Source-revision/outage recovery, worker failure/restart, deadline and deterministic
+   end-to-end CI contracts. **VERIFIED in bounded tests and current source recovery**;
+   host reboot/logout/long-duration soak remain unverified.
+3. Consistent private snapshot + journal + SQLite backup and clean-host restore
+   with intact hash proof. **PARTIAL: local evidence exists, off-host restore absent.**
+4. Authorized deployment model and independent monitoring: either an explicitly
+   accepted awake/logged-in limitation or verified unattended operation/paging.
+   **PARTIAL: interactive tasks only; no 24/7 claim.**
+5. Versioned read-only API/report contract, deployment authentication/security and
+   error/freshness behavior suitable for a client. **PARTIAL: regression-tested API;
+   external deployment/security/load review remains.**
+6. Model-governance review that keeps historical diagnostics, live forward samples,
+   research challengers and null unsupported probabilities separate. **VERIFIED
+   no-promotion scope**, not predictive or trading approval. Independent evaluation,
+   futures sample adequacy and target calibration remain **BLOCKED** quantitatively.
+
+Frontend work has not begun; this gate review has not passed. No arbitrary 70%
+claim is made. See `PHASE3O_FINDINGS.md`, `PHASE3O_DATA_ACCESS.md` and
+`reports/phase3o_operations.{json,md}` for current evidence. The sections below
+retain earlier milestones as historical scope, not a substitute for this update.
 
 ## Phase 3N evidence update
 
@@ -71,7 +110,7 @@ assigning arbitrary weights to meet a target number.
 ### 3. Automated backtesting — partial
 - Executed: two fixed index-context diagnostics, 6,036 observations each,
   2000–2023; cost sensitivity and yearly results recorded. Existing futures
-  backtester remains unchanged.
+  engine remains in use with explicit legacy-v1 and cashflow-v2 accounting.
 - Tests: `test_backtest.py`, `test_backtest_regression.py`, `test_daily_experiment.py`.
 - Missing: authentic NQ/ES session strategy runs with trade/stop/timeout/MFE/MAE
   and futures costs; the corresponding job reports `BLOCKED`, not fake zero trades.

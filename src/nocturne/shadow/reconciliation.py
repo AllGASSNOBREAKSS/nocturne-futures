@@ -47,7 +47,13 @@ def verify_issuance(forecast, archive: SnapshotStore, identifiers):
     return frames
 
 
-def verify_reconciliation(forecast, record, archive, current_close):
+def reference_values(row):
+    return {**{key: float(row[key]) for key in ("open", "high", "low", "close", "volume")},
+            "timestamp": pd.Timestamp(row["timestamp"]).isoformat(),
+            "available_at": pd.Timestamp(row["available_at"]).isoformat()}
+
+
+def verify_reconciliation(forecast, record, archive, current_close, current_bar=None):
     if record.get("reconciliation_id") and record["reconciliation_id"] != digest(canonical({k: v for k, v in record.items() if k != "reconciliation_id"})):
         raise ValueError("reconciliation checksum mismatch")
     if (record["forecast_id"] != forecast["forecast_id"]
@@ -68,6 +74,11 @@ def verify_reconciliation(forecast, record, archive, current_close):
     b = revised[revised.date == forecast["data_date"]].iloc[0]
     if b.close != current_close or pd.Timestamp(a.timestamp) != pd.Timestamp(b.timestamp):
         raise ValueError("reference close/session timestamp mismatch")
+    if record.get("revised_reference_bar_sha256"):
+        if digest(canonical(reference_values(b))) != record["revised_reference_bar_sha256"]:
+            raise ValueError("revised reference bar seal mismatch")
+        if current_bar is None or reference_values(current_bar) != reference_values(b):
+            raise ValueError("current reference observation is not the reconciled bar")
     # Verify upstream timezone/instrument conventions, not just the CSV label.
     metas = []
     for identifier in (record["issuance_snapshot_ids"]["index"], record["revised_snapshot_id"]):
@@ -77,3 +88,52 @@ def verify_reconciliation(forecast, record, archive, current_close):
         if metas[0].get(key) != metas[1].get(key) or metas[0].get(key) is None:
             raise ValueError("upstream instrument/session conventions changed")
     return True
+
+
+def investigate_revision(forecast, archive, revised_id, now):
+    """Build a proof candidate from embedded issuance evidence; write nothing."""
+    if pd.Timestamp(now).tzinfo is None:
+        raise ValueError("timezone-aware investigation time required")
+    seal = forecast.get("record_sha256")
+    if not seal or seal != digest(canonical({k: v for k, v in forecast.items() if k != "record_sha256"})):
+        raise ValueError("sealed forecast required for generic reconciliation")
+    identifiers = forecast["market_snapshot_ids"]
+    original = verify_issuance(forecast, archive, identifiers)["index"]
+    revised = archive.frame(revised_id)
+    a = original[original.date == forecast["data_date"]].iloc[0]
+    b = revised[revised.date == forecast["data_date"]].iloc[0]
+    if b.source_complete not in (True, "True"):
+        raise ValueError("revised reference is incomplete")
+    manifest = archive.manifest(revised_id)
+    if pd.Timestamp(manifest["source"]["received_at"]) > pd.Timestamp(now):
+        raise ValueError("revised receipt follows investigation")
+    def details(identifier):
+        m = archive.manifest(identifier)
+        value = json.loads(archive.read_object(m["raw_sha256"]))["chart"]["result"][0]
+        indices = [i for i, stamp in enumerate(value["timestamp"])
+                   if pd.Timestamp(stamp, unit="s", tz="UTC").date().isoformat() == forecast["data_date"]]
+        if len(indices) != 1:
+            raise ValueError("reference session not unique in upstream response")
+        i = indices[0]
+        quote = value["indicators"]["quote"][0]
+        adjusted = value["indicators"].get("adjclose", [{}])[0].get("adjclose", [])
+        adjusted_close = adjusted[i] if adjusted else None
+        if adjusted_close is not None and adjusted_close != quote["close"][i]:
+            raise ValueError("adjusted/quote close convention needs separate review")
+        return {"snapshot_id": identifier, "source": m["source"], "raw_sha256": m["raw_sha256"],
+                "normalized_sha256": m["normalized_sha256"], "exchange_timestamp": value["timestamp"][i],
+                "quote": {key: values[i] for key, values in quote.items()}, "adjusted_close": adjusted_close,
+                "metadata": {key: value["meta"].get(key) for key in ("symbol", "instrumentType", "exchangeTimezoneName", "dataGranularity")}}
+    original_detail, revised_detail = details(identifiers["index"]), details(revised_id)
+    record = {"forecast_id": forecast["forecast_id"], "forecast_sha256": digest(canonical(forecast)),
+              "issuance_snapshot_ids": identifiers, "revised_snapshot_id": revised_id,
+              "revised_reference_close": float(b.close), "revised_reference_bar_sha256": digest(canonical(reference_values(b))),
+              "classification": "VERIFIED_AS_ISSUED_PROVIDER_REVISION", "recorded_at": pd.Timestamp(now).isoformat(),
+              "exchange_finality_confirmed": False, "trading_decision": "NO_TRADE",
+              "policy": "score issued quantiles against original denominator; never rewrite forecasts",
+              "root_cause": "upstream source values changed; provider internal reason unconfirmed"}
+    verify_reconciliation(forecast, record, archive, float(b.close), current_bar=b)
+    return {"record": record, "original_source": original_detail, "revised_source": revised_detail,
+            "changes": {key: {"original": reference_values(a)[key], "revised": reference_values(b)[key]}
+                        for key in reference_values(a) if reference_values(a)[key] != reference_values(b)[key]},
+            "issuance_features_exactly_reproduced": True}

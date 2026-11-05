@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T19:17:27.011857+00:00",
+  "generated_at": "2026-11-05T22:50:40.770578+00:00",
   "model_id": "ndx-range-v1",
   "scope": "NDX cash-session range quantiles; not NQ futures; not a trading signal",
   "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
@@ -73,14 +73,14 @@
   },
   "pending": 1,
   "missed": 0,
-  "failed": 1,
+  "failed": 0,
   "data_quality_incidents": {
     "MARKET_DATA_MISSING": 2
   },
   "cycle_availability": {
-    "attempts_logged": 46,
-    "failed_cycles": 9,
-    "failure_fraction": 0.1956521739130435,
+    "attempts_logged": 54,
+    "failed_cycles": 13,
+    "failure_fraction": 0.24074074074074073,
     "note": "observed local cycles, not service uptime"
   },
   "issuance_timing": [
@@ -97,20 +97,8 @@
   ],
   "audit": {
     "forecasts": 2,
-    "passed": 1,
-    "failed": [
-      {
-        "forecast_id": "3db9c4cbd3a9cc5944db8437",
-        "ok": false,
-        "issues": [
-          "REFERENCE_CLOSE_MISMATCH"
-        ],
-        "stored_reference_close": 28437.166015625,
-        "current_source_reference_close": 28437.169921875,
-        "warnings": [],
-        "reconciliation_id": null
-      }
-    ],
+    "passed": 2,
+    "failed": [],
     "records": [
       {
         "forecast_id": "20d48fc41c2cc0f5c0ae4f2d",
@@ -125,14 +113,14 @@
       },
       {
         "forecast_id": "3db9c4cbd3a9cc5944db8437",
-        "ok": false,
-        "issues": [
-          "REFERENCE_CLOSE_MISMATCH"
-        ],
+        "ok": true,
+        "issues": [],
         "stored_reference_close": 28437.166015625,
         "current_source_reference_close": 28437.169921875,
-        "warnings": [],
-        "reconciliation_id": null
+        "warnings": [
+          "SOURCE_REVISION_RECONCILED_AS_ISSUED"
+        ],
+        "reconciliation_id": "637b42c4e6ba1ebff1eebc7076f4a2ddcb9a5827f040c2ad7566d0da6f13812d"
       }
     ]
   },
@@ -158,8 +146,11 @@
   "health": {
     "status": "ok",
     "warnings": [],
-    "last_run": "2026-11-05T04:47:09.881054+00:00",
-    "age_hours": 14.504621515833332,
+    "last_run": "2026-11-05T22:50:32.280850+00:00",
+    "age_hours": 0.0021857930555555555,
+    "last_success": "2026-11-05T22:50:32.280850+00:00",
+    "last_attempt": "2026-11-05T22:50:32.280850+00:00",
+    "last_attempt_event": "CYCLE_OK",
     "forecasts": 2,
     "matured": 1,
     "pending": 1,

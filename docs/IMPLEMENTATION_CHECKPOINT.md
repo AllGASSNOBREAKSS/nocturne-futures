@@ -1,6 +1,63 @@
 # Implementation Checkpoint
 
-## Current resume point — Phase 3N, 2026-11-05 UTC
+## Current resume point — Phase 3O, 2026-11-05 UTC
+
+Branch `feat/phase3o`, base `8065a34`. Read `PHASE3O_FINDINGS.md`,
+`reports/phase3o_reconciliation.json`, `reports/phase3o_operations.{json,md}`,
+`PHASE3O_DATA_ACCESS.md` and the pre-frontend gates in `BACKEND_READINESS.md`.
+Phase 3N CI verified green and 342 tests reproduced. New local suite:
+**348 passed including C++ parity**; TypeScript passed. Check branch CI after push.
+
+Reconciled forecast `3db9c4cbd3a9cc5944db8437` deliberately using its embedded
+issuance snapshots, record seal, exact features/dataset digest and preserved
+pre-issuance receipts. November 4 OHLC and volume changed; close
+28437.166015625 → 28437.169921875. Timestamp/index/session conventions match,
+quote and adjusted close agree. FRED timed out; Nasdaq returned 404. Decision:
+VERIFIED_AS_ISSUED_PROVIDER_REVISION, not confirmed exchange truth/internal cause.
+
+Separate proof appended; forecast/outcome bytes and denominator unchanged. New
+proof seals the full revised reference bar, so same-close volume/OHLC changes
+must block again. Missing/corrupt archive or changed forecasts also block. The
+real cycle passed and alert journal appended RESOLVED events without erasing OPEN
+history. Latest proof reverified every cycle; no tolerance inflation or automatic
+approval of future revisions. First outcome stays its original archived value.
+
+As of this checkpoint: **2 issued / 1 verified matured / 1 pending**, one legacy
+matured and zero corrected-inference matured. November 5 outcome cannot be
+scored before November 6 00:00 UTC and valid completed data. Never backfill it.
+
+Fixed nested health masking recent audit failure behind older success. Added
+component statuses, explicit DISABLED/DEPENDENCY_BLOCKED versus real FAILED
+states and timestamped job health. Fifth shadow-runner stage writes unified
+health snapshots/history. Core can be healthy while futures dependencies are
+blocked; that is not full platform or trading readiness.
+
+Actual nine-source archival validation job SUCCEEDED. Default unchanged research
+did not refit/rescore old index models. Seven-job subprocess integration passed
+in explicitly synthetic temporary storage; no fixture enters live journals.
+Tests cover outage/block distinction, disabled dependencies, incident recovery,
+full-bar revision reblocking, corrupt evidence and existing deadline/restart rules.
+
+```powershell
+python scripts/phase3o_reconcile.py --forecast-id 3db9c4cbd3a9cc5944db8437  # inspect, no journal writes
+python scripts/phase3o_health.py
+python scripts/phase3m_research.py --lane research
+```
+
+Existing task definitions/principals/security unchanged. Awake host plus interactive
+login still required; actual reboot/logout/off-host failover remains unverified.
+Do not treat successful same-host task checks as 24/7 availability.
+
+Credentials absent in process/user/machine scopes; zero licensed NQ/ES rows,
+provider cost/range/IDs/credit eligibility unknown. Do not attempt authenticated
+downloads until operator configuration. Existing quote-bound approval and no-
+blind-retry reservation controls remain unchanged. No new market models justified.
+Next: operator configures GLBX.MDP3 license/key, obtains/approves actual pilot
+quote, validates raw pilot provenance, then sufficient independent futures history.
+Private snapshot/journal/SQLite backup and clean-host recovery, unattended/paging
+and API deployment security remain pre-frontend gates. NO_PROMOTION / NO_TRADE.
+
+## Previous resume point — Phase 3N, 2026-11-05 UTC
 
 Branch `feat/phase3n`, base `2dcec42`. Read `PHASE3N_FINDINGS.md`,
 `PHASE3N_DATA_DECISION.md`, `ARCHITECTURE_PHASE3N.md`, `BACKEND_READINESS.md`

@@ -8,6 +8,25 @@
 
 ## What is implemented
 
+### Phase 3O — recovered audits, explicit dependency health
+
+The pending forecast's Yahoo revision is reconciled against exact archived
+issuance data, without rewriting forecasts, outcomes or denominators. Runtime
+audits pass and genuine alert-resolution records are appended. New full-bar
+proofs block again on changed observations or missing/corrupt evidence.
+
+Component reports distinguish healthy services, blocked data, disabled training
+and actual failures. An isolated seven-job fixture test exercises real research
+workers end-to-end; it is not market performance. Actual futures access remains
+**BLOCKED**, with zero licensed rows and no paid consumption.
+
+See [recovery findings](docs/PHASE3O_FINDINGS.md),
+[component health](reports/phase3o_operations.md),
+[operator data checklist](docs/PHASE3O_DATA_ACCESS.md),
+[architecture](docs/ARCHITECTURE_PHASE3O.md) and
+[pre-frontend gates](docs/BACKEND_READINESS.md). **NO_PROMOTION / NO_TRADE**.
+Historical checkpoint sections below describe their then-current state.
+
 ### Phase 3N — guarded futures pilot, still data-blocked
 
 The existing Databento adapter now requires a fresh provider quote and explicit

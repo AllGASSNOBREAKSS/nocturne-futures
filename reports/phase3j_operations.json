@@ -1,29 +1,34 @@
 {
-  "generated_at": "2026-11-05T19:17:28.201167+00:00",
-  "status": "degraded",
-  "issues": {
-    "CYCLE_UNHEALTHY": {
-      "operational_status": "AUDIT_BLOCKED",
-      "reason": null
+  "generated_at": "2026-11-05T22:50:41.768481+00:00",
+  "status": "ok",
+  "components": {
+    "shadow_cycle": {
+      "status": "HEALTHY",
+      "reason": "SHADOW_ACTIVE"
     },
-    "FORECAST_AUDIT:3db9c4cbd3a9cc5944db8437": {
-      "forecast_id": "3db9c4cbd3a9cc5944db8437",
-      "ok": false,
-      "issues": [
-        "REFERENCE_CLOSE_MISMATCH"
-      ],
-      "stored_reference_close": 28437.166015625,
-      "current_source_reference_close": 28437.169921875,
-      "warnings": [],
-      "reconciliation_id": null
+    "forecast_integrity": {
+      "status": "HEALTHY",
+      "reason": "see forecast audit issues; reconciliation is evidence-bound, not a health override"
+    },
+    "provider_refresh": {
+      "status": "HEALTHY",
+      "reason": "latest timestamped cycle refresh results; not an uptime guarantee"
+    },
+    "outcome_evaluation": {
+      "status": "HEALTHY",
+      "reason": "pending horizons are expected work, not fabricated outcomes; evaluation requires availability and audit gates"
     }
   },
+  "issues": {},
   "overdue_outcomes": [],
   "health": {
     "status": "ok",
     "warnings": [],
-    "last_run": "2026-11-05T04:47:09.881054+00:00",
-    "age_hours": 14.505088920277778,
+    "last_run": "2026-11-05T22:50:32.280850+00:00",
+    "age_hours": 0.0026354530555555557,
+    "last_success": "2026-11-05T22:50:32.280850+00:00",
+    "last_attempt": "2026-11-05T22:50:32.280850+00:00",
+    "last_attempt_event": "CYCLE_OK",
     "forecasts": 2,
     "matured": 1,
     "pending": 1,
@@ -40,33 +45,5 @@
   "delivery": "local durable alerts only; no external paging configured",
   "limits": "same-host monitoring cannot detect or notify while this host is powered off",
   "transitions_now": [],
-  "open_alerts": [
-    {
-      "at": "2026-11-05T17:30:09.795173+00:00",
-      "detail": {
-        "operational_status": "AUDIT_BLOCKED",
-        "reason": null
-      },
-      "key": "CYCLE_UNHEALTHY",
-      "state": "OPEN",
-      "trading_decision": "NO_TRADE"
-    },
-    {
-      "at": "2026-11-05T17:30:09.795173+00:00",
-      "detail": {
-        "current_source_reference_close": 28437.169921875,
-        "forecast_id": "3db9c4cbd3a9cc5944db8437",
-        "issues": [
-          "REFERENCE_CLOSE_MISMATCH"
-        ],
-        "ok": false,
-        "reconciliation_id": null,
-        "stored_reference_close": 28437.166015625,
-        "warnings": []
-      },
-      "key": "FORECAST_AUDIT:3db9c4cbd3a9cc5944db8437",
-      "state": "OPEN",
-      "trading_decision": "NO_TRADE"
-    }
-  ]
+  "open_alerts": []
 }

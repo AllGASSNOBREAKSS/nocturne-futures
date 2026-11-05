@@ -413,7 +413,8 @@ def audit_forecasts(store: ShadowStore, index_bars: pd.DataFrame, snapshot_root=
                 from .reconciliation import verify_reconciliation
                 for record in store.reconciliations():
                     try:
-                        reconciled = verify_reconciliation(forecast, record, SnapshotStore(snapshot_root), expected_close)
+                        current_bar = index_bars[pd.to_datetime(index_bars.date).dt.strftime("%Y-%m-%d") == forecast["data_date"]].iloc[0]
+                        reconciled = verify_reconciliation(forecast, record, SnapshotStore(snapshot_root), expected_close, current_bar=current_bar)
                     except (ValueError, KeyError, OSError, TypeError, IndexError):
                         continue
                     if reconciled:
@@ -441,6 +442,9 @@ def health(store: ShadowStore, now: datetime) -> dict:
     events = store.log_events()
     successes = [event for event in events if event["event"] == "CYCLE_OK" and pd.Timestamp(event["at"]) <= now]
     last_run = successes[-1]["at"] if successes else None
+    attempts = [event for event in events if event["event"] in {"CYCLE_OK", "CYCLE_FAILED", "CYCLE_EXCEPTION", "CYCLE_AUDIT_FAILED"}
+                and pd.Timestamp(event["at"]) <= now]
+    latest_attempt = attempts[-1] if attempts else None
     age_hours = None
     if last_run:
         age_hours = (now - pd.Timestamp(last_run).to_pydatetime()).total_seconds() / 3600
@@ -454,10 +458,14 @@ def health(store: ShadowStore, now: datetime) -> dict:
         warnings.append("STALE_SERVICE")
     if recent_failures:
         warnings.append("RECENT_DATA_QUALITY_FAILURES")
+    if latest_attempt and latest_attempt["event"] != "CYCLE_OK":
+        warnings.append("LATEST_CYCLE_NOT_OK")
     if pending > 5:
         warnings.append("LARGE_PENDING_BACKLOG")
     return {"status": "ok" if not warnings else "degraded", "warnings": warnings,
-            "last_run": last_run, "age_hours": age_hours,
+             "last_run": last_run, "age_hours": age_hours,
+             "last_success": last_run, "last_attempt": latest_attempt["at"] if latest_attempt else None,
+             "last_attempt_event": latest_attempt["event"] if latest_attempt else None,
             "forecasts": len(forecasts), "matured": len(outcomes), "pending": pending,
             "missed": len(store.missed()),
             "recent_quality_failures": len(recent_failures),

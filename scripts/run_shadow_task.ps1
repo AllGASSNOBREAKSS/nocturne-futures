@@ -15,7 +15,8 @@ try {
         @{ Name = 'cycle'; Script = 'scripts/phase3h_shadow.py'; Extra = @('--once', '--refresh') },
         @{ Name = 'audit'; Script = 'scripts/phase3l_forward_audit.py'; Extra = @() },
         @{ Name = 'report'; Script = 'scripts/phase3i_forward_report.py'; Extra = @() },
-        @{ Name = 'monitor'; Script = 'scripts/phase3j_operations.py'; Extra = @() }
+        @{ Name = 'monitor'; Script = 'scripts/phase3j_operations.py'; Extra = @() },
+        @{ Name = 'health'; Script = 'scripts/phase3o_health.py'; Extra = @() }
     )
     foreach ($stage in $stages) {
         try {
