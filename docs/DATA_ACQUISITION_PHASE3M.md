@@ -1,5 +1,9 @@
 # Phase 3M data-access decision
 
+Historical Phase 3M instructions. **Superseded for current acquisition by
+`PHASE3N_DATA_DECISION.md`**: the adapter now requires `--quote` and `--approval`;
+the older unguarded examples below intentionally cannot initiate consumption.
+
 **External dependency, not an adapter rewrite.** Rechecked process, Windows user
 and machine credentials: Databento, FRED, BLS and Nasdaq Data Link keys absent.
 No paid request, subscription or purchase was made. No authentic raw-contract

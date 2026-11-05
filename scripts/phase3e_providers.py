@@ -17,6 +17,8 @@ def main():
     bars = sub.add_parser("databento")
     for name in ("contract", "instrument", "start", "end", "license-scope"):
         bars.add_argument("--" + name, required=True)
+    bars.add_argument("--quote", type=Path, required=True, help="saved authenticated metadata quote")
+    bars.add_argument("--approval", type=Path, required=True, help="explicit operator approval bound to that quote")
     vintage = sub.add_parser("alfred")
     vintage.add_argument("--series", required=True)
     vintage.add_argument("--vintage", required=True)
@@ -24,7 +26,8 @@ def main():
     private = ROOT / "data/licensed"
     if args.mode == "databento":
         result = DatabentoBars().download(private / "databento", contract=args.contract,
-                    instrument=args.instrument, start=args.start, end=args.end, license_scope=args.license_scope)
+                     instrument=args.instrument, start=args.start, end=args.end, license_scope=args.license_scope,
+                     quote=json.loads(args.quote.read_text()), approval=json.loads(args.approval.read_text()))
         print(json.dumps({"chunks": len(result), "rows": sum(r["rows"] for r in result)}))
     elif args.mode == "alfred":
         result = fetch_vintage(args.series, args.vintage)

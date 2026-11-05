@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-11-05T19:47:31.458023+00:00",
+  "base_commit": "2dcec42",
+  "local_tests_passed": 342,
+  "native_parity": "PASSED",
+  "typescript_typecheck": "PASSED",
+  "unchanged_bytes": {
+    "data/shadow/ndx_range/forecasts.jsonl": true,
+    "data/shadow/ndx_range/outcomes.jsonl": true,
+    "models/shadow/ndx-range-v1/model.joblib": true
+  },
+  "forward": {
+    "status": "VERIFIED_RESEARCH_GRADE",
+    "issued": 2,
+    "verified": 1,
+    "pending": 1
+  },
+  "operations_status": "degraded",
+  "operations_issues": {
+    "CYCLE_UNHEALTHY": {
+      "operational_status": "AUDIT_BLOCKED",
+      "reason": null
+    },
+    "FORECAST_AUDIT:3db9c4cbd3a9cc5944db8437": {
+      "forecast_id": "3db9c4cbd3a9cc5944db8437",
+      "ok": false,
+      "issues": [
+        "REFERENCE_CLOSE_MISMATCH"
+      ],
+      "stored_reference_close": 28437.166015625,
+      "current_source_reference_close": 28437.169921875,
+      "warnings": [],
+      "reconciliation_id": null
+    }
+  },
+  "original_forecast_line_sha256": "61f4034a108ccf6545959d4dac39e18ae3c5247ae4557dddf9e9a8158113a1b3",
+  "paid_consumption_attempted": false,
+  "trading_decision": "NO_TRADE"
+}

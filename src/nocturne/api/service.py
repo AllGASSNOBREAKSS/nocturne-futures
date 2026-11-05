@@ -162,9 +162,14 @@ class ForecastService:
 
     def futures_readiness(self) -> dict:
         path = ROOT / "reports" / "phase3i_readiness.json"
-        if not path.exists():
-            return {"status": "NO_READINESS_REPORT", "trading_decision": "NO_TRADE"}
-        return json.loads(path.read_text(encoding="utf-8"))
+        result = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {"status": "NO_READINESS_REPORT", "trading_decision": "NO_TRADE"}
+        access = ROOT / "reports/phase3n_futures_access.json"
+        if access.exists():
+            try:
+                result["acquisition_snapshot"] = json.loads(access.read_text(encoding="utf-8"))
+            except ValueError:
+                result["acquisition_snapshot"] = {"status": "INVALID_ACCESS_REPORT"}
+        return result
 
     def critical_day_alerts(self) -> dict:
         from ..macro.calendar import CalendarStore

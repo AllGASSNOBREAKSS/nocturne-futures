@@ -19,11 +19,13 @@ class Transport:
 
 
 def test_download_resume_and_raw_contract_provenance(tmp_path):
-    payload = b"ts_event,open,high,low,close,volume,symbol\n2025-01-02T14:30:00Z,100,102,99,101,10,NQH5\n"
+    from test_databento_access import approved_fixture
+    quote, approval = approved_fixture(tmp_path)
+    payload = b"ts_event,open,high,low,close,volume,symbol,instrument_id\n2025-01-02T14:30:00Z,100,102,99,101,10,NQH5,123\n"
     transport = Transport(SimpleNamespace(status_code=200, content=payload))
     provider = DatabentoBars(key="synthetic-fixture-not-a-key", transport=transport)
     kwargs = dict(contract="NQH5", instrument="NQ", start="2025-01-02T00:00Z",
-                  end="2025-01-03T00:00Z", license_scope="synthetic_test_fixture")
+                   end="2025-01-03T00:00Z", license_scope="synthetic_test_fixture", quote=quote, approval=approval)
     first = provider.download(tmp_path, **kwargs)
     assert first == provider.download(tmp_path, **kwargs)
     assert len(transport.calls) == 1

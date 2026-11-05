@@ -1,0 +1,28 @@
+﻿{
+    "generated_at":  "2026-11-05T19:47:32.8675590Z",
+    "tasks":  [
+                  {
+                      "Name":  "Nocturne-NDX-ReadOnly-Shadow",
+                      "State":  "Ready",
+                      "LogonType":  "Interactive",
+                      "LastRun":  "2026-11-05T19:47:06.0000000Z",
+                      "Result":  3221225786,
+                      "NextRun":  "2026-11-05T20:17:05.0000000Z"
+                  },
+                  {
+                      "Name":  "Nocturne-ReadOnly-Research",
+                      "State":  "Ready",
+                      "LogonType":  "Interactive",
+                      "LastRun":  "2026-11-05T17:29:37.0000000Z",
+                      "Result":  0,
+                      "NextRun":  "2026-11-05T20:13:57.0000000Z"
+                  }
+              ],
+    "shadow_incident":  "AUDIT_BLOCKED: issued November 4 reference 28437.166015625 vs current Yahoo 28437.169921875; alerts preserved",
+    "limits":  "awake host and interactive login; restart/logout not tested; no security setting changed",
+    "databento_credential_presence":  {
+                                          "Machine":  false,
+                                          "User":  false,
+                                          "Process":  false
+                                      }
+}

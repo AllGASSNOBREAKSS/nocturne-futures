@@ -11,6 +11,7 @@ Rules:
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+import math
 from datetime import date
 from typing import Iterable
 
@@ -29,6 +30,7 @@ class BacktestConfig:
     exit_schedule: tuple[tuple[int, float], ...] = ((0, 0.5), (1, 0.5))
     move_stop_to_breakeven_after_tp1: bool = True
     max_targets_per_bar: int = 1
+    cost_model: str = "legacy-v1"
 
 
 @dataclass
@@ -55,6 +57,7 @@ class TradeResult:
     bars_held: int
     target_fills: tuple[str, ...] = ()
     stop_moved: bool = False
+    cost_model: str = "legacy-v1"
 
 
 @dataclass
@@ -174,6 +177,14 @@ def run_signal(
     elif len(signal.targets) < 2:
         schedule = [(0, 1.0)]
 
+    if config.cost_model not in {"legacy-v1", "cashflow-v2"}:
+        raise ValueError("unknown cost accounting model")
+    if config.cost_model == "cashflow-v2":
+        if (not all(math.isfinite(v) for v in (config.contracts, config.slippage_ticks, config.commission_per_contract))
+                or int(config.contracts) != config.contracts
+                or any(not math.isfinite(fraction) or fraction <= 0 or not math.isclose(fraction * config.contracts, round(fraction * config.contracts)) for _, fraction in schedule)):
+            raise ValueError("cashflow-v2 requires finite costs and whole-contract exit quantities")
+
     for offset in range(0, signal.horizon_bars + 1):
         idx = entry_idx + offset
         if idx >= len(frame):
@@ -237,10 +248,22 @@ def run_signal(
         outcome = "TIMEOUT" if not target_fills else "TP_THEN_TIMEOUT"
         exit_fills += 1
 
-    gross_dollars = realized_points * spec.multiplier * config.contracts
-    commissions = config.commission_per_contract * config.contracts * (1 + exit_fills)
-    slippage_cost = 2 * slip * spec.multiplier * config.contracts
-    costs = commissions + slippage_cost
+    if config.cost_model == "cashflow-v2":
+        # Entry fill already includes one adverse slip. Apply one quantity-
+        # weighted exit slip (market-on-barrier stress, not a limit-fill claim).
+        # Every entered contract is eventually fully exited; partial executions
+        # do not create additional per-contract commission sides.
+        realized_points -= slip
+        exit_price -= direction * slip
+        gross_dollars = realized_points * spec.multiplier * config.contracts
+        costs = 2 * config.commission_per_contract * config.contracts
+    else:
+        # Preserve old report reproducibility, not an endorsement of accounting:
+        # this legacy version double counts entry slip and counts fill events.
+        gross_dollars = realized_points * spec.multiplier * config.contracts
+        commissions = config.commission_per_contract * config.contracts * (1 + exit_fills)
+        slippage_cost = 2 * slip * spec.multiplier * config.contracts
+        costs = commissions + slippage_cost
     dollars = gross_dollars - costs
     return TradeResult(
         strategy_id=signal.strategy_id,
@@ -265,6 +288,7 @@ def run_signal(
         bars_held=max(0, idx - entry_idx) if len(frame) else 0,
         target_fills=tuple(target_fills),
         stop_moved=stop_moved,
+        cost_model=config.cost_model,
     )
 
 

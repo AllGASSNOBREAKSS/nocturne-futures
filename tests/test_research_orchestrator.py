@@ -138,3 +138,15 @@ def test_watchdog_targets_worker_process_group_not_shadow(monkeypatch):
         with patch.object(worker.os, "killpg") as terminate:
             worker.terminate_tree()
             terminate.assert_called_once_with(worker.os.getpgrp(), worker.signal.SIGKILL)
+
+
+def test_default_schedule_does_not_repeat_index_research_or_same_futures_data_by_date(tmp_path):
+    import runpy
+    schedule = runpy.run_path(str(ROOT / "scripts/phase3m_research.py"))["schedule"]
+    store = JobStore(tmp_path)
+    schedule(store, "research", "2026-11-05")
+    first = {j["id"] for j in store.jobs() if j["kind"] == "HISTORICAL_BACKTEST"}
+    schedule(store, "research", "2026-11-06")
+    assert len(first) == 2
+    assert first == {j["id"] for j in store.jobs() if j["kind"] == "HISTORICAL_BACKTEST"}
+    assert not any(j["kind"] in {"MODEL_TRAINING", "MODEL_EVALUATION", "FEATURE_BUILD"} for j in store.jobs())

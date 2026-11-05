@@ -1,0 +1,115 @@
+{
+  "generated_at": "2026-11-05T19:44:20.746228+00:00",
+  "status": "DATA_BLOCKED",
+  "trading_decision": "NO_TRADE",
+  "consumption_attempted": false,
+  "credit_eligibility": "UNVERIFIED_ACCOUNT_SPECIFIC",
+  "provider_cost_usd": null,
+  "public_sources": [
+    {
+      "url": "https://databento.com/docs/knowledge-base/datasets/glbx-mdp3",
+      "http_status": 200,
+      "received_at": "2026-11-05T19:44:20.962198+00:00",
+      "body_sha256": "fcfd68652d5f9c2ec20fdcf853d8af0cf2b850c148dbd90e47db13d93cae4c6a",
+      "bytes": 358768,
+      "limitation": "page retrieval does not prove rendered pricing, account eligibility or entitlement"
+    },
+    {
+      "url": "https://databento.com/pricing",
+      "http_status": 200,
+      "received_at": "2026-11-05T19:44:21.154598+00:00",
+      "body_sha256": "f154b26abfd3cfa971d06bce7a4225cc83bf79ecf98a921270b98f2138a652a8",
+      "bytes": 17876,
+      "limitation": "page retrieval does not prove rendered pricing, account eligibility or entitlement"
+    },
+    {
+      "url": "https://databento.com/docs/api-historical",
+      "http_status": 200,
+      "received_at": "2026-11-05T19:44:21.307133+00:00",
+      "body_sha256": "983e91c046aa5cbe4f5a7529f8e7e74171b3812bc47f780d12f1e066d0a9cd30",
+      "bytes": 3592387,
+      "limitation": "page retrieval does not prove rendered pricing, account eligibility or entitlement"
+    }
+  ],
+  "pilots": [
+    {
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQZ6",
+        "schema": "ohlcv-1m",
+        "stype_in": "raw_symbol",
+        "start": "2026-11-01T23:00:00+00:00",
+        "end": "2026-11-02T22:00:00+00:00"
+      },
+      "instrument": "NQ",
+      "generated_at": "2026-11-05T19:44:22.065166+00:00",
+      "status": "DATA_BLOCKED",
+      "cost_usd": null,
+      "billable_bytes": null,
+      "record_count": null,
+      "credit_eligibility": "ACCOUNT_SPECIFIC_UNVERIFIED",
+      "consumption_authorized": false,
+      "metadata_receipts": [],
+      "time_series_requested": false,
+      "reason": "DATABENTO_API_KEY_MISSING"
+    },
+    {
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "ESZ6",
+        "schema": "ohlcv-1m",
+        "stype_in": "raw_symbol",
+        "start": "2026-11-01T23:00:00+00:00",
+        "end": "2026-11-02T22:00:00+00:00"
+      },
+      "instrument": "ES",
+      "generated_at": "2026-11-05T19:44:22.065433+00:00",
+      "status": "DATA_BLOCKED",
+      "cost_usd": null,
+      "billable_bytes": null,
+      "record_count": null,
+      "credit_eligibility": "ACCOUNT_SPECIFIC_UNVERIFIED",
+      "consumption_authorized": false,
+      "metadata_receipts": [],
+      "time_series_requested": false,
+      "reason": "DATABENTO_API_KEY_MISSING"
+    }
+  ],
+  "research_jobs": [
+    {
+      "id": "a9715adfe952f45c39945767",
+      "kind": "HISTORICAL_BACKTEST",
+      "lane": "research",
+      "payload": "{\"contract\": \"NQZ6\", \"instrument\": \"NQ\", \"scope\": \"raw_futures\"}",
+      "dependencies": "[]",
+      "state": "BLOCKED",
+      "attempts": 1,
+      "max_attempts": 1,
+      "timeout": 300.0,
+      "ready_at": 1793899835.3342743,
+      "result": "{\"status\": \"BLOCKED\", \"instrument\": \"NQ\", \"contract\": \"NQZ6\", \"bar_interval\": \"1min\", \"protocol_version\": \"pilot-full-TP1-cashflow-v2\", \"engine_code_sha256\": \"5384a40c264ceaafed3d3f05a3929bb97e672141a1e34aa2bcab89deebdd885f\", \"licensed_rows\": 0, \"directional_metrics\": null, \"target_first_probability\": null, \"survival_fit\": null, \"decision\": \"NO_PROMOTION\", \"trading_decision\": \"NO_TRADE\", \"reason\": \"AUTHENTIC_CONTRACT_HISTORY_REQUIRED\", \"job_id\": \"a9715adfe952f45c39945767\", \"kind\": \"HISTORICAL_BACKTEST\", \"attempt\": 1}",
+      "created": 1793899802.8323963,
+      "updated": 1793899805.3347025
+    },
+    {
+      "id": "9cb95320b29b8d1e41e80d9a",
+      "kind": "HISTORICAL_BACKTEST",
+      "lane": "research",
+      "payload": "{\"contract\": \"ESZ6\", \"instrument\": \"ES\", \"scope\": \"raw_futures\"}",
+      "dependencies": "[]",
+      "state": "BLOCKED",
+      "attempts": 1,
+      "max_attempts": 1,
+      "timeout": 300.0,
+      "ready_at": 1793899837.648605,
+      "result": "{\"status\": \"BLOCKED\", \"instrument\": \"ES\", \"contract\": \"ESZ6\", \"bar_interval\": \"1min\", \"protocol_version\": \"pilot-full-TP1-cashflow-v2\", \"engine_code_sha256\": \"5384a40c264ceaafed3d3f05a3929bb97e672141a1e34aa2bcab89deebdd885f\", \"licensed_rows\": 0, \"directional_metrics\": null, \"target_first_probability\": null, \"survival_fit\": null, \"decision\": \"NO_PROMOTION\", \"trading_decision\": \"NO_TRADE\", \"reason\": \"AUTHENTIC_CONTRACT_HISTORY_REQUIRED\", \"job_id\": \"9cb95320b29b8d1e41e80d9a\", \"kind\": \"HISTORICAL_BACKTEST\", \"attempt\": 1}",
+      "created": 1793899802.843746,
+      "updated": 1793899807.6489239
+    }
+  ],
+  "runner": {
+    "status": "COMPLETED_TICK",
+    "executed": 0,
+    "lane": "research"
+  }
+}

@@ -109,3 +109,17 @@ def test_research_status_is_read_only_and_marks_stale_report(tmp_path, monkeypat
     assert c.get("/v1/research/status").json()["freshness"] == "STALE"
     assert path.read_bytes() == original
     assert c.post("/v1/research/status").status_code == 405
+
+
+def test_futures_access_is_a_timestamped_read_only_snapshot(tmp_path, monkeypatch):
+    import json
+    import nocturne.api.service as module
+    monkeypatch.setattr(module, "ROOT", tmp_path)
+    reports = tmp_path / "reports"
+    reports.mkdir()
+    path = reports / "phase3n_futures_access.json"
+    path.write_text(json.dumps({"status": "DATA_BLOCKED", "consumption_attempted": False}))
+    before = path.read_bytes()
+    result = client(tmp_path).get("/v1/data/futures-readiness").json()
+    assert result["acquisition_snapshot"]["status"] == "DATA_BLOCKED"
+    assert path.read_bytes() == before

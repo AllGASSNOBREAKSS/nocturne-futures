@@ -1,6 +1,74 @@
 # Implementation Checkpoint
 
-## Current resume point — Phase 3M, 2026-11-05 UTC
+## Current resume point — Phase 3N, 2026-11-05 UTC
+
+Branch `feat/phase3n`, base `2dcec42`. Read `PHASE3N_FINDINGS.md`,
+`PHASE3N_DATA_DECISION.md`, `ARCHITECTURE_PHASE3N.md`, `BACKEND_READINESS.md`
+and `reports/phase3n_futures_access.json`. Phase 3M CI verified green at
+https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/41954993266
+New local suite: **342 passed including native parity**; TypeScript passed.
+Verify this branch's CI after push.
+
+Highest-priority dependency remains **DATA_BLOCKED**: keys absent in process,
+user and machine scopes; NQZ6 and ESZ6 each have zero licensed rows. All supplied
+official pages returned 200 and are privately hash-archived. Free metadata and
+symbology interfaces are documented; account credit eligibility, entitled schema
+range, resolved IDs and actual provider count/size/cost remain unknown/null.
+No authenticated or paid request, subscription or cloud deployment occurred.
+
+Implemented metadata-only preflight and strict quote/explicit operator approval
+on the existing bar adapter. Consumption is durably reserved before the network
+under a request lock; uncertain attempts block blind charged retry. Rejected raw
+bodies and bounded partial prefixes are retained. New receipt replay rechecks
+archived quote/approval bindings and mapped provider ID. Timestamp, volume, ticks,
+count/revision and bounded-response checks precede normalized publication.
+Quotes are estimates, not provider-enforced final-invoice caps.
+
+Existing orchestrator now connects verified contract receipts to ORB/bar-VWAP
+engine diagnostics and separate target labels. Full fixture path works; actual
+NQ/ES jobs returned BLOCKED with null directional/target/survival results. Default
+scheduled research checks both explicit pilot contracts but never downloads data.
+Futures job identity is shared by the CLI and scheduler and stable across dates
+for identical receipts/code. Old index diagnostics now require explicit
+`--index-diagnostics`; the default no longer repeats insufficient-data experiments.
+No old index experiment was refitted and no holdout rescored. Bar-VWAP is a proxy;
+true profiles/CVD/depth/absorption remain unavailable. Cashflow-v2 fixes double
+entry-slip and fill-count commission arithmetic in the existing engine; legacy-v1
+results/default remain for reproduction. Trade records carry the version. Real
+execution assumptions and intrabar bounds still need independent validation.
+
+Forward state remains **2 issued / 1 verified matured / 1 pending**; one legacy
+matured sample, zero corrected-inference matured. Forecast/outcome/model bytes
+preserved. November 5 is pending until November 6 00:00 UTC and verified data.
+On resume November 5 afternoon, the shadow task correctly failed its source audit:
+forecast `3db9c4cbd3a9cc5944db8437` stored November 4 close 28437.166015625, while
+Yahoo now reports 28437.169921875. Retain AUDIT_BLOCKED / REFERENCE_CLOSE_MISMATCH
+and both durable open alerts; do not silently reconcile or change the denominator.
+Latest inspected task results: research 0, shadow 1. First matured outcome still
+verifies from its saved snapshot, which does not clear this new pending-forecast
+incident. Reports expose the operations snapshot separately. No schedule,
+principal or security setting changed; awake host/interactive login still required.
+
+```powershell
+python scripts/phase3n_futures.py --public-docs --research-check # metadata only; expected exit 1 without key
+python scripts/phase3m_research.py --lane research
+python scripts/phase3l_forward_audit.py
+```
+
+Do not delete consumption reservations to force retry. Back up private
+`data/licensed/databento_metadata/`, guarded bar approval/raw/partial/receipt
+objects and orchestrator SQLite/attempt history consistently. Git cannot restore
+these private proofs. No approved-consumption file was created by the agent.
+
+Next: operator verifies GLBX.MDP3 license/credit terms, configures a local key,
+runs the free preflight and approves its exact quote explicitly. Then bounded
+NQZ6/ESZ6 acquisition, ID/grid/calendar/availability validation, authentic diagnostic
+and only later sufficient-history feature ablation/independent model research.
+Also investigate the second forecast's archived issuance/current source revision
+with the existing hash-bound reconciliation policy before evaluating its outcome.
+All unvalidated models remain NO_PROMOTION / NO_TRADE. No frontend work.
+
+## Previous resume point — Phase 3M, 2026-11-05 UTC
 
 Branch `feat/phase3m`, base `6c04c50`. Read `PHASE3M_FINDINGS.md`,
 `ARCHITECTURE_PHASE3M.md`, `BACKEND_READINESS.md` and

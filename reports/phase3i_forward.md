@@ -6,7 +6,7 @@ Model `ndx-range-v1` - status `RESEARCH_VALIDATED_PENDING_SHADOW` - decision `NO
 - Matured: **1**
 - Pending: **1**
 - Missed sessions: **0**
-- Audit failures: **0**
+- Audit failures: **1**
 
 | Quantile | Coverage | 95% interval | Mean pinball | Baseline pinball |
 |---|---:|---|---:|---:|

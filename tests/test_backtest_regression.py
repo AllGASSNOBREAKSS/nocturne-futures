@@ -148,6 +148,48 @@ def test_partial_exit_charges_three_commissions():
     assert result.dollars == pytest.approx(67.5)
 
 
+def test_cashflow_v2_counts_entry_slip_once_and_reports_fill_pnl_before_fees():
+    bars = pd.DataFrame([bar(START, 103, 103, 102.5, 103),
+                         bar(START + timedelta(minutes=5), 103, 106.5, 102, 106)])
+    result = run_signal(signal(targets=(106.,)), bars, NQ, BacktestConfig(cost_model="cashflow-v2"))
+    assert result.entry_price == 103.25
+    assert result.exit_price == 105.75
+    assert result.points == 2.5
+    assert result.gross_dollars == 50.
+    assert result.costs == 5.
+    assert result.dollars == 45.
+    assert result.cost_model == "cashflow-v2"
+
+
+def test_cashflow_v2_partial_exit_commissions_are_quantity_not_fill_count():
+    bars = pd.DataFrame([bar(START, 103, 103, 102.5, 103),
+                         bar(START + timedelta(minutes=5), 103, 106.5, 102, 106),
+                         bar(START + timedelta(minutes=10), 106, 109.5, 105, 109)])
+    result = run_signal(signal(), bars, NQ, BacktestConfig(contracts=2, cost_model="cashflow-v2"))
+    assert result.target_fills == ("TP1", "TP2")
+    assert result.points == 4.
+    assert result.gross_dollars == 160.
+    assert result.costs == 10.
+    assert result.dollars == 150.
+
+
+def test_cashflow_v2_rejects_fractional_single_contract_scale_out():
+    bars = pd.DataFrame([bar(START, 103, 103, 102.5, 103),
+                         bar(START + timedelta(minutes=5), 103, 106.5, 102, 106)])
+    with pytest.raises(ValueError, match="whole-contract"):
+        run_signal(signal(), bars, NQ, BacktestConfig(cost_model="cashflow-v2"))
+
+
+def test_cashflow_v2_short_slippage_is_adverse_and_cashflow_consistent():
+    from dataclasses import replace
+    short = replace(signal(targets=(106.,)), side="SHORT", stop=106., targets=(TargetSpec("TP1", 100., 1.),))
+    bars = pd.DataFrame([bar(START, 103, 103, 102.5, 103),
+                         bar(START + timedelta(minutes=5), 103, 104, 99.5, 100)])
+    result = run_signal(short, bars, NQ, BacktestConfig(cost_model="cashflow-v2"))
+    assert result.entry_price == 102.75 and result.exit_price == 100.25
+    assert result.points == 2.5 and result.dollars == 45.
+
+
 def test_config_rejects_unsupported_ambiguity_and_bad_contracts():
     bars = pd.DataFrame([bar(START, 103, 103, 102.5, 103)])
     with pytest.raises(ValueError):

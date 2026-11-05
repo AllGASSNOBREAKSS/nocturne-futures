@@ -4,6 +4,11 @@ No licensed futures data is present in this environment. `DATABENTO_API_KEY` is
 unset, so the adapter is fixture-tested only and no real download has occurred.
 This document states exactly what is required to advance NQ/ES target research.
 
+**Phase 3N guard:** current decision and operator steps are in
+`PHASE3N_DATA_DECISION.md`. Every new metered request needs a fresh authenticated
+quote and explicit approval, including promotional-credit usage. Existing report
+fields remain null until actual provider access is established.
+
 ## Required entitlement
 
 | Item | Requirement |
@@ -16,23 +21,29 @@ This document states exactly what is required to advance NQ/ES target research.
 | History | Multi-year, contract-specific; continuous symbols are research context only |
 | Licensing | Exchange fees and redistribution terms per the provider agreement |
 
-The adapter already enforces one raw contract per request, daily chunking, raw
-byte checksums, normalized exports, revision rejection and resumable downloads.
+The adapter enforces one raw NQ/ES contract per request, at most one day per
+approved pilot, raw byte checksums, normalized exports and local receipt reuse.
+Uncertain streaming attempts require operator reconciliation, not blind retries.
 It does not infer rolls, back-adjust prices or fill missing bars.
 
 ## Exact commands
 
 ```powershell
-$env:DATABENTO_API_KEY = "<key>"
+python scripts/phase3n_futures.py --public-docs --research-check
+# After reviewing actual quotes and obtaining explicit consumption authorization:
 python scripts/phase3e_providers.py databento `
-  --contract NQH5 --instrument NQ `
-  --start 2025-01-02T00:00:00Z --end 2025-01-03T00:00:00Z `
-  --license-scope "<license reference>"
+  --contract NQZ6 --instrument NQ `
+  --start 2026-11-01T23:00:00Z --end 2026-11-02T22:00:00Z `
+  --license-scope "<actual license reference>" `
+  --quote "<saved quote.json>" --approval "<authorized approval.json>"
 ```
 
 Before a bulk download, query the provider's billable-size and cost endpoints for
 the exact date range. Cost is entitlement- and volume-dependent and is not
 estimated here.
+Bulk acquisition is not authorized or implemented by the guarded pilot command.
+Configure secrets locally through an approved mechanism, not in chat or committed
+scripts. Provider quotes are estimates, not guaranteed final-invoice ceilings.
 
 ## Validation that must pass before modeling
 

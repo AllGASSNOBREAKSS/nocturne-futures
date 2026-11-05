@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-05T02:23:45.150867+00:00",
+  "generated_at": "2026-11-05T19:47:36.727411+00:00",
   "state_counts": {
-    "SUCCEEDED": 23,
-    "BLOCKED": 1
+    "SUCCEEDED": 28,
+    "BLOCKED": 15
   },
   "job_events": [
     {
@@ -361,6 +361,272 @@
       "at": 1793845422.8229177,
       "state": "RUNNING",
       "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\3d59d32e0f6c6c5fc0f04111\\\\1\"}"
+    },
+    {
+      "seq": 52,
+      "job_id": "3d59d32e0f6c6c5fc0f04111",
+      "at": 1793845425.478562,
+      "state": "SUCCEEDED",
+      "detail": "{\"status\": \"SUCCEEDED\", \"report_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\3d59d32e0f6c6c5fc0f04111\\\\1\\\\research_report.json\", \"markdown_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\3d59d32e0f6c6c5fc0f04111\\\\1\\\\research_report.md\", \"job_id\": \"3d59d32e0f6c6c5fc0f04111\", \"kind\": \"RESEARCH_REPORT\", \"attempt\": 1, \"trading_decision\": \"NO_TRADE\"}"
+    },
+    {
+      "seq": 53,
+      "job_id": "4f2e80103b6c64cb25c7a584",
+      "at": 1793849667.4736,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\4f2e80103b6c64cb25c7a584\\\\1\"}"
+    },
+    {
+      "seq": 54,
+      "job_id": "4f2e80103b6c64cb25c7a584",
+      "at": 1793849670.4716566,
+      "state": "BLOCKED",
+      "detail": "{\"status\": \"BLOCKED\", \"instrument\": \"NQ\", \"contract\": \"NQZ6\", \"licensed_rows\": 0, \"directional_metrics\": null, \"target_first_probability\": null, \"survival_fit\": null, \"decision\": \"NO_PROMOTION\", \"trading_decision\": \"NO_TRADE\", \"reason\": \"AUTHENTIC_CONTRACT_HISTORY_REQUIRED\", \"job_id\": \"4f2e80103b6c64cb25c7a584\", \"kind\": \"HISTORICAL_BACKTEST\", \"attempt\": 1}"
+    },
+    {
+      "seq": 55,
+      "job_id": "3d938c4ca8e790dac1db89bc",
+      "at": 1793849670.5064218,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\3d938c4ca8e790dac1db89bc\\\\1\"}"
+    },
+    {
+      "seq": 56,
+      "job_id": "3d938c4ca8e790dac1db89bc",
+      "at": 1793849673.28924,
+      "state": "BLOCKED",
+      "detail": "{\"status\": \"BLOCKED\", \"instrument\": \"ES\", \"contract\": \"ESZ6\", \"licensed_rows\": 0, \"directional_metrics\": null, \"target_first_probability\": null, \"survival_fit\": null, \"decision\": \"NO_PROMOTION\", \"trading_decision\": \"NO_TRADE\", \"reason\": \"AUTHENTIC_CONTRACT_HISTORY_REQUIRED\", \"job_id\": \"3d938c4ca8e790dac1db89bc\", \"kind\": \"HISTORICAL_BACKTEST\", \"attempt\": 1}"
+    },
+    {
+      "seq": 57,
+      "job_id": "2efac0d1ca222ecfdb37c556",
+      "at": 1793850067.942511,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\2efac0d1ca222ecfdb37c556\\\\1\"}"
+    },
+    {
+      "seq": 58,
+      "job_id": "2efac0d1ca222ecfdb37c556",
+      "at": 1793850071.0575902,
+      "state": "BLOCKED",
+      "detail": "{\"status\": \"BLOCKED\", \"instrument\": \"NQ\", \"contract\": \"NQZ6\", \"licensed_rows\": 0, \"directional_metrics\": null, \"target_first_probability\": null, \"survival_fit\": null, \"decision\": \"NO_PROMOTION\", \"trading_decision\": \"NO_TRADE\", \"reason\": \"AUTHENTIC_CONTRACT_HISTORY_REQUIRED\", \"job_id\": \"2efac0d1ca222ecfdb37c556\", \"kind\": \"HISTORICAL_BACKTEST\", \"attempt\": 1}"
+    },
+    {
+      "seq": 59,
+      "job_id": "29e911c2748e9866f86929fe",
+      "at": 1793850071.134471,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\29e911c2748e9866f86929fe\\\\1\"}"
+    },
+    {
+      "seq": 60,
+      "job_id": "29e911c2748e9866f86929fe",
+      "at": 1793850073.8985317,
+      "state": "BLOCKED",
+      "detail": "{\"status\": \"BLOCKED\", \"instrument\": \"ES\", \"contract\": \"ESZ6\", \"licensed_rows\": 0, \"directional_metrics\": null, \"target_first_probability\": null, \"survival_fit\": null, \"decision\": \"NO_PROMOTION\", \"trading_decision\": \"NO_TRADE\", \"reason\": \"AUTHENTIC_CONTRACT_HISTORY_REQUIRED\", \"job_id\": \"29e911c2748e9866f86929fe\", \"kind\": \"HISTORICAL_BACKTEST\", \"attempt\": 1}"
+    },
+    {
+      "seq": 61,
+      "job_id": "e968d75d9df7ae1057ecb261",
+      "at": 1793850074.0072422,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\e968d75d9df7ae1057ecb261\\\\1\"}"
+    },
+    {
+      "seq": 62,
+      "job_id": "e968d75d9df7ae1057ecb261",
+      "at": 1793850076.748768,
+      "state": "SUCCEEDED",
+      "detail": "{\"status\": \"SUCCEEDED\", \"report_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\e968d75d9df7ae1057ecb261\\\\1\\\\research_report.json\", \"markdown_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\e968d75d9df7ae1057ecb261\\\\1\\\\research_report.md\", \"job_id\": \"e968d75d9df7ae1057ecb261\", \"kind\": \"RESEARCH_REPORT\", \"attempt\": 1, \"trading_decision\": \"NO_TRADE\"}"
+    },
+    {
+      "seq": 63,
+      "job_id": "019bf92dd8af9b5c65d5572e",
+      "at": 1793850574.1284876,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\019bf92dd8af9b5c65d5572e\\\\1\"}"
+    },
+    {
+      "seq": 64,
+      "job_id": "019bf92dd8af9b5c65d5572e",
+      "at": 1793850577.028733,
+      "state": "BLOCKED",
+      "detail": "{\"status\": \"BLOCKED\", \"instrument\": \"NQ\", \"contract\": \"NQZ6\", \"licensed_rows\": 0, \"directional_metrics\": null, \"target_first_probability\": null, \"survival_fit\": null, \"decision\": \"NO_PROMOTION\", \"trading_decision\": \"NO_TRADE\", \"reason\": \"AUTHENTIC_CONTRACT_HISTORY_REQUIRED\", \"job_id\": \"019bf92dd8af9b5c65d5572e\", \"kind\": \"HISTORICAL_BACKTEST\", \"attempt\": 1}"
+    },
+    {
+      "seq": 65,
+      "job_id": "b0058c9022bddf4029604bf7",
+      "at": 1793850577.11271,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\b0058c9022bddf4029604bf7\\\\1\"}"
+    },
+    {
+      "seq": 66,
+      "job_id": "b0058c9022bddf4029604bf7",
+      "at": 1793850580.0853868,
+      "state": "BLOCKED",
+      "detail": "{\"status\": \"BLOCKED\", \"instrument\": \"ES\", \"contract\": \"ESZ6\", \"licensed_rows\": 0, \"directional_metrics\": null, \"target_first_probability\": null, \"survival_fit\": null, \"decision\": \"NO_PROMOTION\", \"trading_decision\": \"NO_TRADE\", \"reason\": \"AUTHENTIC_CONTRACT_HISTORY_REQUIRED\", \"job_id\": \"b0058c9022bddf4029604bf7\", \"kind\": \"HISTORICAL_BACKTEST\", \"attempt\": 1}"
+    },
+    {
+      "seq": 67,
+      "job_id": "736aa6a756d56d94fa465525",
+      "at": 1793851046.570886,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\736aa6a756d56d94fa465525\\\\1\"}"
+    },
+    {
+      "seq": 68,
+      "job_id": "736aa6a756d56d94fa465525",
+      "at": 1793851049.553119,
+      "state": "BLOCKED",
+      "detail": "{\"status\": \"BLOCKED\", \"instrument\": \"NQ\", \"contract\": \"NQZ6\", \"bar_interval\": \"1min\", \"protocol_version\": \"pilot-full-TP1-cashflow-v2\", \"engine_code_sha256\": \"5384a40c264ceaafed3d3f05a3929bb97e672141a1e34aa2bcab89deebdd885f\", \"licensed_rows\": 0, \"directional_metrics\": null, \"target_first_probability\": null, \"survival_fit\": null, \"decision\": \"NO_PROMOTION\", \"trading_decision\": \"NO_TRADE\", \"reason\": \"AUTHENTIC_CONTRACT_HISTORY_REQUIRED\", \"job_id\": \"736aa6a756d56d94fa465525\", \"kind\": \"HISTORICAL_BACKTEST\", \"attempt\": 1}"
+    },
+    {
+      "seq": 69,
+      "job_id": "ec02e3c5f5d5c0a1fd3d420f",
+      "at": 1793851049.6250923,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\ec02e3c5f5d5c0a1fd3d420f\\\\1\"}"
+    },
+    {
+      "seq": 70,
+      "job_id": "ec02e3c5f5d5c0a1fd3d420f",
+      "at": 1793851053.384153,
+      "state": "BLOCKED",
+      "detail": "{\"status\": \"BLOCKED\", \"instrument\": \"ES\", \"contract\": \"ESZ6\", \"bar_interval\": \"1min\", \"protocol_version\": \"pilot-full-TP1-cashflow-v2\", \"engine_code_sha256\": \"5384a40c264ceaafed3d3f05a3929bb97e672141a1e34aa2bcab89deebdd885f\", \"licensed_rows\": 0, \"directional_metrics\": null, \"target_first_probability\": null, \"survival_fit\": null, \"decision\": \"NO_PROMOTION\", \"trading_decision\": \"NO_TRADE\", \"reason\": \"AUTHENTIC_CONTRACT_HISTORY_REQUIRED\", \"job_id\": \"ec02e3c5f5d5c0a1fd3d420f\", \"kind\": \"HISTORICAL_BACKTEST\", \"attempt\": 1}"
+    },
+    {
+      "seq": 71,
+      "job_id": "fce812b6ab85f184dcb2fdf1",
+      "at": 1793851150.0636895,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\fce812b6ab85f184dcb2fdf1\\\\1\"}"
+    },
+    {
+      "seq": 72,
+      "job_id": "fce812b6ab85f184dcb2fdf1",
+      "at": 1793851153.642424,
+      "state": "BLOCKED",
+      "detail": "{\"status\": \"BLOCKED\", \"instrument\": \"NQ\", \"contract\": \"NQZ6\", \"bar_interval\": \"1min\", \"protocol_version\": \"pilot-full-TP1-cashflow-v2\", \"engine_code_sha256\": \"5384a40c264ceaafed3d3f05a3929bb97e672141a1e34aa2bcab89deebdd885f\", \"licensed_rows\": 0, \"directional_metrics\": null, \"target_first_probability\": null, \"survival_fit\": null, \"decision\": \"NO_PROMOTION\", \"trading_decision\": \"NO_TRADE\", \"reason\": \"AUTHENTIC_CONTRACT_HISTORY_REQUIRED\", \"job_id\": \"fce812b6ab85f184dcb2fdf1\", \"kind\": \"HISTORICAL_BACKTEST\", \"attempt\": 1}"
+    },
+    {
+      "seq": 73,
+      "job_id": "b8ed2c62d048c83e2962e465",
+      "at": 1793851153.7015822,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\b8ed2c62d048c83e2962e465\\\\1\"}"
+    },
+    {
+      "seq": 74,
+      "job_id": "b8ed2c62d048c83e2962e465",
+      "at": 1793851156.6221917,
+      "state": "BLOCKED",
+      "detail": "{\"status\": \"BLOCKED\", \"instrument\": \"ES\", \"contract\": \"ESZ6\", \"bar_interval\": \"1min\", \"protocol_version\": \"pilot-full-TP1-cashflow-v2\", \"engine_code_sha256\": \"5384a40c264ceaafed3d3f05a3929bb97e672141a1e34aa2bcab89deebdd885f\", \"licensed_rows\": 0, \"directional_metrics\": null, \"target_first_probability\": null, \"survival_fit\": null, \"decision\": \"NO_PROMOTION\", \"trading_decision\": \"NO_TRADE\", \"reason\": \"AUTHENTIC_CONTRACT_HISTORY_REQUIRED\", \"job_id\": \"b8ed2c62d048c83e2962e465\", \"kind\": \"HISTORICAL_BACKTEST\", \"attempt\": 1}"
+    },
+    {
+      "seq": 75,
+      "job_id": "109aad48e4d7146641d811a6",
+      "at": 1793851156.7156777,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\109aad48e4d7146641d811a6\\\\1\"}"
+    },
+    {
+      "seq": 76,
+      "job_id": "109aad48e4d7146641d811a6",
+      "at": 1793851159.585565,
+      "state": "SUCCEEDED",
+      "detail": "{\"status\": \"SUCCEEDED\", \"report_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\109aad48e4d7146641d811a6\\\\1\\\\research_report.json\", \"markdown_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\109aad48e4d7146641d811a6\\\\1\\\\research_report.md\", \"job_id\": \"109aad48e4d7146641d811a6\", \"kind\": \"RESEARCH_REPORT\", \"attempt\": 1, \"trading_decision\": \"NO_TRADE\"}"
+    },
+    {
+      "seq": 77,
+      "job_id": "79ee694228a9a0e27fd9d482",
+      "at": 1793851351.0391843,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\79ee694228a9a0e27fd9d482\\\\1\"}"
+    },
+    {
+      "seq": 78,
+      "job_id": "79ee694228a9a0e27fd9d482",
+      "at": 1793851354.3675416,
+      "state": "BLOCKED",
+      "detail": "{\"status\": \"BLOCKED\", \"instrument\": \"NQ\", \"contract\": \"NQZ6\", \"bar_interval\": \"1min\", \"protocol_version\": \"pilot-full-TP1-cashflow-v2\", \"engine_code_sha256\": \"5384a40c264ceaafed3d3f05a3929bb97e672141a1e34aa2bcab89deebdd885f\", \"licensed_rows\": 0, \"directional_metrics\": null, \"target_first_probability\": null, \"survival_fit\": null, \"decision\": \"NO_PROMOTION\", \"trading_decision\": \"NO_TRADE\", \"reason\": \"AUTHENTIC_CONTRACT_HISTORY_REQUIRED\", \"job_id\": \"79ee694228a9a0e27fd9d482\", \"kind\": \"HISTORICAL_BACKTEST\", \"attempt\": 1}"
+    },
+    {
+      "seq": 79,
+      "job_id": "dcbb622127451d676ff69069",
+      "at": 1793851354.4380012,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\dcbb622127451d676ff69069\\\\1\"}"
+    },
+    {
+      "seq": 80,
+      "job_id": "dcbb622127451d676ff69069",
+      "at": 1793851358.4662209,
+      "state": "BLOCKED",
+      "detail": "{\"status\": \"BLOCKED\", \"instrument\": \"ES\", \"contract\": \"ESZ6\", \"bar_interval\": \"1min\", \"protocol_version\": \"pilot-full-TP1-cashflow-v2\", \"engine_code_sha256\": \"5384a40c264ceaafed3d3f05a3929bb97e672141a1e34aa2bcab89deebdd885f\", \"licensed_rows\": 0, \"directional_metrics\": null, \"target_first_probability\": null, \"survival_fit\": null, \"decision\": \"NO_PROMOTION\", \"trading_decision\": \"NO_TRADE\", \"reason\": \"AUTHENTIC_CONTRACT_HISTORY_REQUIRED\", \"job_id\": \"dcbb622127451d676ff69069\", \"kind\": \"HISTORICAL_BACKTEST\", \"attempt\": 1}"
+    },
+    {
+      "seq": 81,
+      "job_id": "0d044a2333694594463f17b1",
+      "at": 1793851551.6406844,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\0d044a2333694594463f17b1\\\\1\"}"
+    },
+    {
+      "seq": 82,
+      "job_id": "0d044a2333694594463f17b1",
+      "at": 1793851554.765565,
+      "state": "SUCCEEDED",
+      "detail": "{\"status\": \"SUCCEEDED\", \"report_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\0d044a2333694594463f17b1\\\\1\\\\research_report.json\", \"markdown_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\0d044a2333694594463f17b1\\\\1\\\\research_report.md\", \"job_id\": \"0d044a2333694594463f17b1\", \"kind\": \"RESEARCH_REPORT\", \"attempt\": 1, \"trading_decision\": \"NO_TRADE\"}"
+    },
+    {
+      "seq": 83,
+      "job_id": "a9715adfe952f45c39945767",
+      "at": 1793899802.8684509,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\a9715adfe952f45c39945767\\\\1\"}"
+    },
+    {
+      "seq": 84,
+      "job_id": "a9715adfe952f45c39945767",
+      "at": 1793899805.3347025,
+      "state": "BLOCKED",
+      "detail": "{\"status\": \"BLOCKED\", \"instrument\": \"NQ\", \"contract\": \"NQZ6\", \"bar_interval\": \"1min\", \"protocol_version\": \"pilot-full-TP1-cashflow-v2\", \"engine_code_sha256\": \"5384a40c264ceaafed3d3f05a3929bb97e672141a1e34aa2bcab89deebdd885f\", \"licensed_rows\": 0, \"directional_metrics\": null, \"target_first_probability\": null, \"survival_fit\": null, \"decision\": \"NO_PROMOTION\", \"trading_decision\": \"NO_TRADE\", \"reason\": \"AUTHENTIC_CONTRACT_HISTORY_REQUIRED\", \"job_id\": \"a9715adfe952f45c39945767\", \"kind\": \"HISTORICAL_BACKTEST\", \"attempt\": 1}"
+    },
+    {
+      "seq": 85,
+      "job_id": "9cb95320b29b8d1e41e80d9a",
+      "at": 1793899805.37415,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\9cb95320b29b8d1e41e80d9a\\\\1\"}"
+    },
+    {
+      "seq": 86,
+      "job_id": "9cb95320b29b8d1e41e80d9a",
+      "at": 1793899807.6489239,
+      "state": "BLOCKED",
+      "detail": "{\"status\": \"BLOCKED\", \"instrument\": \"ES\", \"contract\": \"ESZ6\", \"bar_interval\": \"1min\", \"protocol_version\": \"pilot-full-TP1-cashflow-v2\", \"engine_code_sha256\": \"5384a40c264ceaafed3d3f05a3929bb97e672141a1e34aa2bcab89deebdd885f\", \"licensed_rows\": 0, \"directional_metrics\": null, \"target_first_probability\": null, \"survival_fit\": null, \"decision\": \"NO_PROMOTION\", \"trading_decision\": \"NO_TRADE\", \"reason\": \"AUTHENTIC_CONTRACT_HISTORY_REQUIRED\", \"job_id\": \"9cb95320b29b8d1e41e80d9a\", \"kind\": \"HISTORICAL_BACKTEST\", \"attempt\": 1}"
+    },
+    {
+      "seq": 87,
+      "job_id": "6e68682739e5c178414edc26",
+      "at": 1793899807.7436986,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\6e68682739e5c178414edc26\\\\1\"}"
+    },
+    {
+      "seq": 88,
+      "job_id": "6e68682739e5c178414edc26",
+      "at": 1793899810.1443229,
+      "state": "SUCCEEDED",
+      "detail": "{\"status\": \"SUCCEEDED\", \"report_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\6e68682739e5c178414edc26\\\\1\\\\research_report.json\", \"markdown_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\6e68682739e5c178414edc26\\\\1\\\\research_report.md\", \"job_id\": \"6e68682739e5c178414edc26\", \"kind\": \"RESEARCH_REPORT\", \"attempt\": 1, \"trading_decision\": \"NO_TRADE\"}"
+    },
+    {
+      "seq": 89,
+      "job_id": "62a2dad055c56bb8b1373f9e",
+      "at": 1793908053.9800372,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\62a2dad055c56bb8b1373f9e\\\\1\"}"
     }
   ],
   "jobs": [
@@ -2190,6 +2456,615 @@
       },
       "created": 1793845296.7715394,
       "updated": 1793845299.5504599
+    },
+    {
+      "id": "3d59d32e0f6c6c5fc0f04111",
+      "kind": "RESEARCH_REPORT",
+      "lane": "research",
+      "payload": {},
+      "dependencies": [],
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "max_attempts": 2,
+      "timeout": 60.0,
+      "ready_at": 1793845455.47813,
+      "result": {
+        "status": "SUCCEEDED",
+        "report_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\3d59d32e0f6c6c5fc0f04111\\1\\research_report.json",
+        "markdown_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\3d59d32e0f6c6c5fc0f04111\\1\\research_report.md",
+        "job_id": "3d59d32e0f6c6c5fc0f04111",
+        "kind": "RESEARCH_REPORT",
+        "attempt": 1,
+        "trading_decision": "NO_TRADE"
+      },
+      "created": 1793845422.7631996,
+      "updated": 1793845425.478562
+    },
+    {
+      "id": "4f2e80103b6c64cb25c7a584",
+      "kind": "HISTORICAL_BACKTEST",
+      "lane": "research",
+      "payload": {
+        "contract": "NQZ6",
+        "instrument": "NQ",
+        "scope": "raw_futures"
+      },
+      "dependencies": [],
+      "state": "BLOCKED",
+      "attempts": 1,
+      "max_attempts": 1,
+      "timeout": 300.0,
+      "ready_at": 1793849700.471259,
+      "result": {
+        "status": "BLOCKED",
+        "instrument": "NQ",
+        "contract": "NQZ6",
+        "licensed_rows": 0,
+        "directional_metrics": null,
+        "target_first_probability": null,
+        "survival_fit": null,
+        "decision": "NO_PROMOTION",
+        "trading_decision": "NO_TRADE",
+        "reason": "AUTHENTIC_CONTRACT_HISTORY_REQUIRED",
+        "job_id": "4f2e80103b6c64cb25c7a584",
+        "kind": "HISTORICAL_BACKTEST",
+        "attempt": 1
+      },
+      "created": 1793849667.4396603,
+      "updated": 1793849670.4716566
+    },
+    {
+      "id": "3d938c4ca8e790dac1db89bc",
+      "kind": "HISTORICAL_BACKTEST",
+      "lane": "research",
+      "payload": {
+        "contract": "ESZ6",
+        "instrument": "ES",
+        "scope": "raw_futures"
+      },
+      "dependencies": [],
+      "state": "BLOCKED",
+      "attempts": 1,
+      "max_attempts": 1,
+      "timeout": 300.0,
+      "ready_at": 1793849703.2887743,
+      "result": {
+        "status": "BLOCKED",
+        "instrument": "ES",
+        "contract": "ESZ6",
+        "licensed_rows": 0,
+        "directional_metrics": null,
+        "target_first_probability": null,
+        "survival_fit": null,
+        "decision": "NO_PROMOTION",
+        "trading_decision": "NO_TRADE",
+        "reason": "AUTHENTIC_CONTRACT_HISTORY_REQUIRED",
+        "job_id": "3d938c4ca8e790dac1db89bc",
+        "kind": "HISTORICAL_BACKTEST",
+        "attempt": 1
+      },
+      "created": 1793849667.4504247,
+      "updated": 1793849673.28924
+    },
+    {
+      "id": "2efac0d1ca222ecfdb37c556",
+      "kind": "HISTORICAL_BACKTEST",
+      "lane": "research",
+      "payload": {
+        "contract": "NQZ6",
+        "instrument": "NQ",
+        "scope": "raw_futures"
+      },
+      "dependencies": [
+        "b26102aae53db5802cba4d08"
+      ],
+      "state": "BLOCKED",
+      "attempts": 1,
+      "max_attempts": 1,
+      "timeout": 300.0,
+      "ready_at": 1793850101.0570853,
+      "result": {
+        "status": "BLOCKED",
+        "instrument": "NQ",
+        "contract": "NQZ6",
+        "licensed_rows": 0,
+        "directional_metrics": null,
+        "target_first_probability": null,
+        "survival_fit": null,
+        "decision": "NO_PROMOTION",
+        "trading_decision": "NO_TRADE",
+        "reason": "AUTHENTIC_CONTRACT_HISTORY_REQUIRED",
+        "job_id": "2efac0d1ca222ecfdb37c556",
+        "kind": "HISTORICAL_BACKTEST",
+        "attempt": 1
+      },
+      "created": 1793850067.8447516,
+      "updated": 1793850071.0575902
+    },
+    {
+      "id": "29e911c2748e9866f86929fe",
+      "kind": "HISTORICAL_BACKTEST",
+      "lane": "research",
+      "payload": {
+        "contract": "ESZ6",
+        "instrument": "ES",
+        "scope": "raw_futures"
+      },
+      "dependencies": [
+        "b26102aae53db5802cba4d08"
+      ],
+      "state": "BLOCKED",
+      "attempts": 1,
+      "max_attempts": 1,
+      "timeout": 300.0,
+      "ready_at": 1793850103.898065,
+      "result": {
+        "status": "BLOCKED",
+        "instrument": "ES",
+        "contract": "ESZ6",
+        "licensed_rows": 0,
+        "directional_metrics": null,
+        "target_first_probability": null,
+        "survival_fit": null,
+        "decision": "NO_PROMOTION",
+        "trading_decision": "NO_TRADE",
+        "reason": "AUTHENTIC_CONTRACT_HISTORY_REQUIRED",
+        "job_id": "29e911c2748e9866f86929fe",
+        "kind": "HISTORICAL_BACKTEST",
+        "attempt": 1
+      },
+      "created": 1793850067.8792176,
+      "updated": 1793850073.8985317
+    },
+    {
+      "id": "e968d75d9df7ae1057ecb261",
+      "kind": "RESEARCH_REPORT",
+      "lane": "research",
+      "payload": {},
+      "dependencies": [],
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "max_attempts": 2,
+      "timeout": 60.0,
+      "ready_at": 1793850106.7483928,
+      "result": {
+        "status": "SUCCEEDED",
+        "report_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\e968d75d9df7ae1057ecb261\\1\\research_report.json",
+        "markdown_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\e968d75d9df7ae1057ecb261\\1\\research_report.md",
+        "job_id": "e968d75d9df7ae1057ecb261",
+        "kind": "RESEARCH_REPORT",
+        "attempt": 1,
+        "trading_decision": "NO_TRADE"
+      },
+      "created": 1793850073.9294982,
+      "updated": 1793850076.748768
+    },
+    {
+      "id": "019bf92dd8af9b5c65d5572e",
+      "kind": "HISTORICAL_BACKTEST",
+      "lane": "research",
+      "payload": {
+        "contract": "NQZ6",
+        "instrument": "NQ",
+        "scope": "raw_futures"
+      },
+      "dependencies": [],
+      "state": "BLOCKED",
+      "attempts": 1,
+      "max_attempts": 1,
+      "timeout": 300.0,
+      "ready_at": 1793850607.0281773,
+      "result": {
+        "status": "BLOCKED",
+        "instrument": "NQ",
+        "contract": "NQZ6",
+        "licensed_rows": 0,
+        "directional_metrics": null,
+        "target_first_probability": null,
+        "survival_fit": null,
+        "decision": "NO_PROMOTION",
+        "trading_decision": "NO_TRADE",
+        "reason": "AUTHENTIC_CONTRACT_HISTORY_REQUIRED",
+        "job_id": "019bf92dd8af9b5c65d5572e",
+        "kind": "HISTORICAL_BACKTEST",
+        "attempt": 1
+      },
+      "created": 1793850574.034703,
+      "updated": 1793850577.028733
+    },
+    {
+      "id": "b0058c9022bddf4029604bf7",
+      "kind": "HISTORICAL_BACKTEST",
+      "lane": "research",
+      "payload": {
+        "contract": "ESZ6",
+        "instrument": "ES",
+        "scope": "raw_futures"
+      },
+      "dependencies": [],
+      "state": "BLOCKED",
+      "attempts": 1,
+      "max_attempts": 1,
+      "timeout": 300.0,
+      "ready_at": 1793850610.0849733,
+      "result": {
+        "status": "BLOCKED",
+        "instrument": "ES",
+        "contract": "ESZ6",
+        "licensed_rows": 0,
+        "directional_metrics": null,
+        "target_first_probability": null,
+        "survival_fit": null,
+        "decision": "NO_PROMOTION",
+        "trading_decision": "NO_TRADE",
+        "reason": "AUTHENTIC_CONTRACT_HISTORY_REQUIRED",
+        "job_id": "b0058c9022bddf4029604bf7",
+        "kind": "HISTORICAL_BACKTEST",
+        "attempt": 1
+      },
+      "created": 1793850574.0673761,
+      "updated": 1793850580.0853868
+    },
+    {
+      "id": "736aa6a756d56d94fa465525",
+      "kind": "HISTORICAL_BACKTEST",
+      "lane": "research",
+      "payload": {
+        "contract": "NQZ6",
+        "instrument": "NQ",
+        "scope": "raw_futures"
+      },
+      "dependencies": [],
+      "state": "BLOCKED",
+      "attempts": 1,
+      "max_attempts": 1,
+      "timeout": 300.0,
+      "ready_at": 1793851079.5525374,
+      "result": {
+        "status": "BLOCKED",
+        "instrument": "NQ",
+        "contract": "NQZ6",
+        "bar_interval": "1min",
+        "protocol_version": "pilot-full-TP1-cashflow-v2",
+        "engine_code_sha256": "5384a40c264ceaafed3d3f05a3929bb97e672141a1e34aa2bcab89deebdd885f",
+        "licensed_rows": 0,
+        "directional_metrics": null,
+        "target_first_probability": null,
+        "survival_fit": null,
+        "decision": "NO_PROMOTION",
+        "trading_decision": "NO_TRADE",
+        "reason": "AUTHENTIC_CONTRACT_HISTORY_REQUIRED",
+        "job_id": "736aa6a756d56d94fa465525",
+        "kind": "HISTORICAL_BACKTEST",
+        "attempt": 1
+      },
+      "created": 1793851046.4739027,
+      "updated": 1793851049.553119
+    },
+    {
+      "id": "ec02e3c5f5d5c0a1fd3d420f",
+      "kind": "HISTORICAL_BACKTEST",
+      "lane": "research",
+      "payload": {
+        "contract": "ESZ6",
+        "instrument": "ES",
+        "scope": "raw_futures"
+      },
+      "dependencies": [],
+      "state": "BLOCKED",
+      "attempts": 1,
+      "max_attempts": 1,
+      "timeout": 300.0,
+      "ready_at": 1793851083.3837154,
+      "result": {
+        "status": "BLOCKED",
+        "instrument": "ES",
+        "contract": "ESZ6",
+        "bar_interval": "1min",
+        "protocol_version": "pilot-full-TP1-cashflow-v2",
+        "engine_code_sha256": "5384a40c264ceaafed3d3f05a3929bb97e672141a1e34aa2bcab89deebdd885f",
+        "licensed_rows": 0,
+        "directional_metrics": null,
+        "target_first_probability": null,
+        "survival_fit": null,
+        "decision": "NO_PROMOTION",
+        "trading_decision": "NO_TRADE",
+        "reason": "AUTHENTIC_CONTRACT_HISTORY_REQUIRED",
+        "job_id": "ec02e3c5f5d5c0a1fd3d420f",
+        "kind": "HISTORICAL_BACKTEST",
+        "attempt": 1
+      },
+      "created": 1793851046.5076046,
+      "updated": 1793851053.384153
+    },
+    {
+      "id": "fce812b6ab85f184dcb2fdf1",
+      "kind": "HISTORICAL_BACKTEST",
+      "lane": "research",
+      "payload": {
+        "contract": "NQZ6",
+        "instrument": "NQ",
+        "scope": "raw_futures"
+      },
+      "dependencies": [
+        "b26102aae53db5802cba4d08"
+      ],
+      "state": "BLOCKED",
+      "attempts": 1,
+      "max_attempts": 1,
+      "timeout": 300.0,
+      "ready_at": 1793851183.641863,
+      "result": {
+        "status": "BLOCKED",
+        "instrument": "NQ",
+        "contract": "NQZ6",
+        "bar_interval": "1min",
+        "protocol_version": "pilot-full-TP1-cashflow-v2",
+        "engine_code_sha256": "5384a40c264ceaafed3d3f05a3929bb97e672141a1e34aa2bcab89deebdd885f",
+        "licensed_rows": 0,
+        "directional_metrics": null,
+        "target_first_probability": null,
+        "survival_fit": null,
+        "decision": "NO_PROMOTION",
+        "trading_decision": "NO_TRADE",
+        "reason": "AUTHENTIC_CONTRACT_HISTORY_REQUIRED",
+        "job_id": "fce812b6ab85f184dcb2fdf1",
+        "kind": "HISTORICAL_BACKTEST",
+        "attempt": 1
+      },
+      "created": 1793851149.9662492,
+      "updated": 1793851153.642424
+    },
+    {
+      "id": "b8ed2c62d048c83e2962e465",
+      "kind": "HISTORICAL_BACKTEST",
+      "lane": "research",
+      "payload": {
+        "contract": "ESZ6",
+        "instrument": "ES",
+        "scope": "raw_futures"
+      },
+      "dependencies": [
+        "b26102aae53db5802cba4d08"
+      ],
+      "state": "BLOCKED",
+      "attempts": 1,
+      "max_attempts": 1,
+      "timeout": 300.0,
+      "ready_at": 1793851186.6214557,
+      "result": {
+        "status": "BLOCKED",
+        "instrument": "ES",
+        "contract": "ESZ6",
+        "bar_interval": "1min",
+        "protocol_version": "pilot-full-TP1-cashflow-v2",
+        "engine_code_sha256": "5384a40c264ceaafed3d3f05a3929bb97e672141a1e34aa2bcab89deebdd885f",
+        "licensed_rows": 0,
+        "directional_metrics": null,
+        "target_first_probability": null,
+        "survival_fit": null,
+        "decision": "NO_PROMOTION",
+        "trading_decision": "NO_TRADE",
+        "reason": "AUTHENTIC_CONTRACT_HISTORY_REQUIRED",
+        "job_id": "b8ed2c62d048c83e2962e465",
+        "kind": "HISTORICAL_BACKTEST",
+        "attempt": 1
+      },
+      "created": 1793851149.9943378,
+      "updated": 1793851156.6221917
+    },
+    {
+      "id": "109aad48e4d7146641d811a6",
+      "kind": "RESEARCH_REPORT",
+      "lane": "research",
+      "payload": {},
+      "dependencies": [],
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "max_attempts": 2,
+      "timeout": 60.0,
+      "ready_at": 1793851189.5850909,
+      "result": {
+        "status": "SUCCEEDED",
+        "report_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\109aad48e4d7146641d811a6\\1\\research_report.json",
+        "markdown_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\109aad48e4d7146641d811a6\\1\\research_report.md",
+        "job_id": "109aad48e4d7146641d811a6",
+        "kind": "RESEARCH_REPORT",
+        "attempt": 1,
+        "trading_decision": "NO_TRADE"
+      },
+      "created": 1793851156.653546,
+      "updated": 1793851159.585565
+    },
+    {
+      "id": "79ee694228a9a0e27fd9d482",
+      "kind": "HISTORICAL_BACKTEST",
+      "lane": "research",
+      "payload": {
+        "contract": "NQZ6",
+        "instrument": "NQ",
+        "scope": "raw_futures"
+      },
+      "dependencies": [],
+      "state": "BLOCKED",
+      "attempts": 1,
+      "max_attempts": 1,
+      "timeout": 300.0,
+      "ready_at": 1793851384.3669264,
+      "result": {
+        "status": "BLOCKED",
+        "instrument": "NQ",
+        "contract": "NQZ6",
+        "bar_interval": "1min",
+        "protocol_version": "pilot-full-TP1-cashflow-v2",
+        "engine_code_sha256": "5384a40c264ceaafed3d3f05a3929bb97e672141a1e34aa2bcab89deebdd885f",
+        "licensed_rows": 0,
+        "directional_metrics": null,
+        "target_first_probability": null,
+        "survival_fit": null,
+        "decision": "NO_PROMOTION",
+        "trading_decision": "NO_TRADE",
+        "reason": "AUTHENTIC_CONTRACT_HISTORY_REQUIRED",
+        "job_id": "79ee694228a9a0e27fd9d482",
+        "kind": "HISTORICAL_BACKTEST",
+        "attempt": 1
+      },
+      "created": 1793851350.9356565,
+      "updated": 1793851354.3675416
+    },
+    {
+      "id": "dcbb622127451d676ff69069",
+      "kind": "HISTORICAL_BACKTEST",
+      "lane": "research",
+      "payload": {
+        "contract": "ESZ6",
+        "instrument": "ES",
+        "scope": "raw_futures"
+      },
+      "dependencies": [],
+      "state": "BLOCKED",
+      "attempts": 1,
+      "max_attempts": 1,
+      "timeout": 300.0,
+      "ready_at": 1793851388.465547,
+      "result": {
+        "status": "BLOCKED",
+        "instrument": "ES",
+        "contract": "ESZ6",
+        "bar_interval": "1min",
+        "protocol_version": "pilot-full-TP1-cashflow-v2",
+        "engine_code_sha256": "5384a40c264ceaafed3d3f05a3929bb97e672141a1e34aa2bcab89deebdd885f",
+        "licensed_rows": 0,
+        "directional_metrics": null,
+        "target_first_probability": null,
+        "survival_fit": null,
+        "decision": "NO_PROMOTION",
+        "trading_decision": "NO_TRADE",
+        "reason": "AUTHENTIC_CONTRACT_HISTORY_REQUIRED",
+        "job_id": "dcbb622127451d676ff69069",
+        "kind": "HISTORICAL_BACKTEST",
+        "attempt": 1
+      },
+      "created": 1793851350.9692128,
+      "updated": 1793851358.4662209
+    },
+    {
+      "id": "0d044a2333694594463f17b1",
+      "kind": "RESEARCH_REPORT",
+      "lane": "research",
+      "payload": {},
+      "dependencies": [],
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "max_attempts": 2,
+      "timeout": 60.0,
+      "ready_at": 1793851584.7651298,
+      "result": {
+        "status": "SUCCEEDED",
+        "report_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\0d044a2333694594463f17b1\\1\\research_report.json",
+        "markdown_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\0d044a2333694594463f17b1\\1\\research_report.md",
+        "job_id": "0d044a2333694594463f17b1",
+        "kind": "RESEARCH_REPORT",
+        "attempt": 1,
+        "trading_decision": "NO_TRADE"
+      },
+      "created": 1793851551.5760179,
+      "updated": 1793851554.765565
+    },
+    {
+      "id": "a9715adfe952f45c39945767",
+      "kind": "HISTORICAL_BACKTEST",
+      "lane": "research",
+      "payload": {
+        "contract": "NQZ6",
+        "instrument": "NQ",
+        "scope": "raw_futures"
+      },
+      "dependencies": [],
+      "state": "BLOCKED",
+      "attempts": 1,
+      "max_attempts": 1,
+      "timeout": 300.0,
+      "ready_at": 1793899835.3342743,
+      "result": {
+        "status": "BLOCKED",
+        "instrument": "NQ",
+        "contract": "NQZ6",
+        "bar_interval": "1min",
+        "protocol_version": "pilot-full-TP1-cashflow-v2",
+        "engine_code_sha256": "5384a40c264ceaafed3d3f05a3929bb97e672141a1e34aa2bcab89deebdd885f",
+        "licensed_rows": 0,
+        "directional_metrics": null,
+        "target_first_probability": null,
+        "survival_fit": null,
+        "decision": "NO_PROMOTION",
+        "trading_decision": "NO_TRADE",
+        "reason": "AUTHENTIC_CONTRACT_HISTORY_REQUIRED",
+        "job_id": "a9715adfe952f45c39945767",
+        "kind": "HISTORICAL_BACKTEST",
+        "attempt": 1
+      },
+      "created": 1793899802.8323963,
+      "updated": 1793899805.3347025
+    },
+    {
+      "id": "9cb95320b29b8d1e41e80d9a",
+      "kind": "HISTORICAL_BACKTEST",
+      "lane": "research",
+      "payload": {
+        "contract": "ESZ6",
+        "instrument": "ES",
+        "scope": "raw_futures"
+      },
+      "dependencies": [],
+      "state": "BLOCKED",
+      "attempts": 1,
+      "max_attempts": 1,
+      "timeout": 300.0,
+      "ready_at": 1793899837.648605,
+      "result": {
+        "status": "BLOCKED",
+        "instrument": "ES",
+        "contract": "ESZ6",
+        "bar_interval": "1min",
+        "protocol_version": "pilot-full-TP1-cashflow-v2",
+        "engine_code_sha256": "5384a40c264ceaafed3d3f05a3929bb97e672141a1e34aa2bcab89deebdd885f",
+        "licensed_rows": 0,
+        "directional_metrics": null,
+        "target_first_probability": null,
+        "survival_fit": null,
+        "decision": "NO_PROMOTION",
+        "trading_decision": "NO_TRADE",
+        "reason": "AUTHENTIC_CONTRACT_HISTORY_REQUIRED",
+        "job_id": "9cb95320b29b8d1e41e80d9a",
+        "kind": "HISTORICAL_BACKTEST",
+        "attempt": 1
+      },
+      "created": 1793899802.843746,
+      "updated": 1793899807.6489239
+    },
+    {
+      "id": "6e68682739e5c178414edc26",
+      "kind": "RESEARCH_REPORT",
+      "lane": "research",
+      "payload": {},
+      "dependencies": [],
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "max_attempts": 2,
+      "timeout": 60.0,
+      "ready_at": 1793899840.1438239,
+      "result": {
+        "status": "SUCCEEDED",
+        "report_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\6e68682739e5c178414edc26\\1\\research_report.json",
+        "markdown_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\6e68682739e5c178414edc26\\1\\research_report.md",
+        "job_id": "6e68682739e5c178414edc26",
+        "kind": "RESEARCH_REPORT",
+        "attempt": 1,
+        "trading_decision": "NO_TRADE"
+      },
+      "created": 1793899807.6997566,
+      "updated": 1793899810.1443229
     }
   ],
   "forward_audit_snapshot": {
@@ -2245,7 +3120,7 @@
     ],
     "sample_warning": "descriptive observations only; no forward calibration or trading-edge claim",
     "trading_decision": "NO_TRADE",
-    "generated_at": "2026-11-05T02:17:15.998702+00:00",
+    "generated_at": "2026-11-05T19:17:23.260783+00:00",
     "issued": 2,
     "pending": 1,
     "baseline_sha256": "cf6984327158af5517c35ca5ad2cd2ccc865a40022e50b411f1cc5872eaf298d",
@@ -2256,6 +3131,78 @@
     }
   },
   "historical_and_forward_metrics_separate": true,
+  "shadow_operations_snapshot": {
+    "generated_at": "2026-11-05T19:17:28.201167+00:00",
+    "status": "degraded",
+    "issues": {
+      "CYCLE_UNHEALTHY": {
+        "operational_status": "AUDIT_BLOCKED",
+        "reason": null
+      },
+      "FORECAST_AUDIT:3db9c4cbd3a9cc5944db8437": {
+        "forecast_id": "3db9c4cbd3a9cc5944db8437",
+        "ok": false,
+        "issues": [
+          "REFERENCE_CLOSE_MISMATCH"
+        ],
+        "stored_reference_close": 28437.166015625,
+        "current_source_reference_close": 28437.169921875,
+        "warnings": [],
+        "reconciliation_id": null
+      }
+    },
+    "overdue_outcomes": [],
+    "health": {
+      "status": "ok",
+      "warnings": [],
+      "last_run": "2026-11-05T04:47:09.881054+00:00",
+      "age_hours": 14.505088920277778,
+      "forecasts": 2,
+      "matured": 1,
+      "pending": 1,
+      "missed": 0,
+      "recent_quality_failures": 0,
+      "trading_decision": "NO_TRADE"
+    },
+    "issued": 2,
+    "matured": 1,
+    "missed": 0,
+    "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
+    "trading_decision": "NO_TRADE",
+    "mode": "read_only_shadow",
+    "delivery": "local durable alerts only; no external paging configured",
+    "limits": "same-host monitoring cannot detect or notify while this host is powered off",
+    "transitions_now": [],
+    "open_alerts": [
+      {
+        "at": "2026-11-05T17:30:09.795173+00:00",
+        "detail": {
+          "operational_status": "AUDIT_BLOCKED",
+          "reason": null
+        },
+        "key": "CYCLE_UNHEALTHY",
+        "state": "OPEN",
+        "trading_decision": "NO_TRADE"
+      },
+      {
+        "at": "2026-11-05T17:30:09.795173+00:00",
+        "detail": {
+          "current_source_reference_close": 28437.169921875,
+          "forecast_id": "3db9c4cbd3a9cc5944db8437",
+          "issues": [
+            "REFERENCE_CLOSE_MISMATCH"
+          ],
+          "ok": false,
+          "reconciliation_id": null,
+          "stored_reference_close": 28437.166015625,
+          "warnings": []
+        },
+        "key": "FORECAST_AUDIT:3db9c4cbd3a9cc5944db8437",
+        "state": "OPEN",
+        "trading_decision": "NO_TRADE"
+      }
+    ]
+  },
   "credential_presence": {
     "DATABENTO_API_KEY": false,
     "FRED_API_KEY": false,

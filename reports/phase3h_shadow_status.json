@@ -1,20 +1,18 @@
 {
-  "generated_at": "2026-11-05T02:17:10.356770+00:00",
+  "generated_at": "2026-11-05T19:17:16.676241+00:00",
   "model_id": "ndx-range-v1",
   "model_version": "1.0.0",
   "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
   "trading_decision": "NO_TRADE",
   "mode": "read_only_shadow",
-  "operational_status": "SHADOW_ACTIVE",
-  "generation": "ALREADY_ISSUED",
+  "operational_status": "AUDIT_BLOCKED",
+  "generation": "SKIPPED",
   "generation_detail": {
-    "status": "ALREADY_ISSUED",
-    "eligibility": {
-      "eligible": true,
-      "data_date": "2026-11-04",
-      "target_date": "2026-11-05",
-      "session_open_utc": "2026-11-05T14:30:00+00:00"
-    }
+    "status": "SKIPPED",
+    "eligible": false,
+    "reason": "TOO_LATE_FOR_TARGET",
+    "data_date": "2026-11-04",
+    "session_open_utc": "2026-11-05T14:30:00+00:00"
   },
   "latest_forecast": {
     "artifact_digests": {
@@ -164,8 +162,20 @@
   "missed_now": 0,
   "audit": {
     "forecasts": 2,
-    "passed": 2,
-    "failed": [],
+    "passed": 1,
+    "failed": [
+      {
+        "forecast_id": "3db9c4cbd3a9cc5944db8437",
+        "ok": false,
+        "issues": [
+          "REFERENCE_CLOSE_MISMATCH"
+        ],
+        "stored_reference_close": 28437.166015625,
+        "current_source_reference_close": 28437.169921875,
+        "warnings": [],
+        "reconciliation_id": null
+      }
+    ],
     "records": [
       {
         "forecast_id": "20d48fc41c2cc0f5c0ae4f2d",
@@ -180,27 +190,27 @@
       },
       {
         "forecast_id": "3db9c4cbd3a9cc5944db8437",
-        "ok": true,
-        "issues": [],
+        "ok": false,
+        "issues": [
+          "REFERENCE_CLOSE_MISMATCH"
+        ],
         "stored_reference_close": 28437.166015625,
-        "current_source_reference_close": 28437.166015625,
+        "current_source_reference_close": 28437.169921875,
         "warnings": [],
         "reconciliation_id": null
       }
     ]
   },
   "health": {
-    "status": "degraded",
-    "warnings": [
-      "RECENT_DATA_QUALITY_FAILURES"
-    ],
-    "last_run": "2026-11-05T02:17:10.356770+00:00",
-    "age_hours": 0.0,
+    "status": "ok",
+    "warnings": [],
+    "last_run": "2026-11-05T04:47:09.881054+00:00",
+    "age_hours": 14.501887551944446,
     "forecasts": 2,
     "matured": 1,
     "pending": 1,
     "missed": 0,
-    "recent_quality_failures": 2,
+    "recent_quality_failures": 0,
     "trading_decision": "NO_TRADE"
   },
   "evaluation": {
@@ -295,13 +305,13 @@
   "refresh": {
     "^NDX": {
       "status": "FETCHED",
-      "last": "2026-11-04",
-      "rows": 10354
+      "last": "2026-11-05",
+      "rows": 10355
     },
     "^VIX": {
       "status": "FETCHED",
-      "last": "2026-11-04",
-      "rows": 9281
+      "last": "2026-11-05",
+      "rows": 9282
     }
   },
   "sources": {
@@ -310,13 +320,13 @@
     "refresh": {
       "^NDX": {
         "status": "FETCHED",
-        "last": "2026-11-04",
-        "rows": 10354
+        "last": "2026-11-05",
+        "rows": 10355
       },
       "^VIX": {
         "status": "FETCHED",
-        "last": "2026-11-04",
-        "rows": 9281
+        "last": "2026-11-05",
+        "rows": 9282
       }
     },
     "manifests": {
@@ -327,17 +337,17 @@
         "provider": "yahoo_public_unofficial",
         "frequency": "1d",
         "license_scope": "public_research_unofficial",
-        "raw_sha256": "4b1e33c93d48d63fea2763646b66c02351c97c7a2637d6299d6e4cff8e30265c",
-        "normalized_sha256": "3a25e87ec507a0ab693acd1a1ad52db31190c1111f331f5cfa68024f6c84f1b1",
-        "rows": 10354,
+        "raw_sha256": "01cbb60fc3c5fdb2f2c5f55635674435076687ff667706cf884710d0b7c35257",
+        "normalized_sha256": "9bd3ba30a1a39f3af3e3ef5fce5ce8100b04de62d9776d31dec6cc861d94e109",
+        "rows": 10355,
         "first": "1985-10-01",
-        "last": "2026-11-04",
-        "span_years": 41.09,
+        "last": "2026-11-05",
+        "span_years": 41.1,
         "zero_volume_rows": 0,
         "dropped_invalid_or_missing_bars": 0,
         "gap_days_median": 1.0,
         "gaps_over_5_days": 1,
-        "received_at": "2026-11-05T02:17:09.209329+00:00",
+        "received_at": "2026-11-05T19:17:11.078995+00:00",
         "availability": "next UTC midnight after the session date",
         "known_limitations": [
           "unofficial endpoint; not an exchange feed",
@@ -345,7 +355,7 @@
           "continuous futures proxies have unverified roll mapping",
           "adjusted vs unadjusted prices not distinguished by this adapter"
         ],
-        "snapshot_id": "b18bf003ad899634ff6cb08d86fef9a8d13b08ccf1630cd0e7f564d536cdedde"
+        "snapshot_id": "021491f4368da7e30dc80f9c5810bd06fe37be683dd5d224c4b548e80bf5853f"
       },
       "vix": {
         "symbol": "^VIX",
@@ -354,17 +364,17 @@
         "provider": "yahoo_public_unofficial",
         "frequency": "1d",
         "license_scope": "public_research_unofficial",
-        "raw_sha256": "c24f342f8e2eeedb578f4f24e3627bf7dc388cd5061097243afe372c42448008",
-        "normalized_sha256": "84d2a9dc705575cadf5c4440d614f9f837d6f81b02b7003282c5ec1197273c5f",
-        "rows": 9281,
+        "raw_sha256": "c18023f4a96dfeed170527c8edee3ff128eea5c63424b5f10f7e21981e834a06",
+        "normalized_sha256": "ad2466a92fb52c11ca00322df0af6148e0be9f1cc5f25bfa80a7d21ab8213a49",
+        "rows": 9282,
         "first": "1990-01-02",
-        "last": "2026-11-04",
+        "last": "2026-11-05",
         "span_years": 36.84,
-        "zero_volume_rows": 9281,
+        "zero_volume_rows": 9282,
         "dropped_invalid_or_missing_bars": 331,
         "gap_days_median": 1.0,
         "gaps_over_5_days": 1,
-        "received_at": "2026-11-05T02:17:09.827616+00:00",
+        "received_at": "2026-11-05T19:17:14.212333+00:00",
         "availability": "next UTC midnight after the session date",
         "known_limitations": [
           "unofficial endpoint; not an exchange feed",
@@ -372,12 +382,12 @@
           "continuous futures proxies have unverified roll mapping",
           "adjusted vs unadjusted prices not distinguished by this adapter"
         ],
-        "snapshot_id": "54c8c239fd53f0cd1ab8cf37c54e8ef30237df9a909a4de4475801de0355abdf"
+        "snapshot_id": "a99bf712c6ad45a18733a40c39e8df50caa03fea850e2e740640ffa64efd20ba"
       }
     },
     "snapshot_ids": {
-      "index": "b18bf003ad899634ff6cb08d86fef9a8d13b08ccf1630cd0e7f564d536cdedde",
-      "vix": "54c8c239fd53f0cd1ab8cf37c54e8ef30237df9a909a4de4475801de0355abdf"
+      "index": "021491f4368da7e30dc80f9c5810bd06fe37be683dd5d224c4b548e80bf5853f",
+      "vix": "a99bf712c6ad45a18733a40c39e8df50caa03fea850e2e740640ffa64efd20ba"
     }
   },
   "notes": [

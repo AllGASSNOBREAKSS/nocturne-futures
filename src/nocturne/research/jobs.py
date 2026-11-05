@@ -86,11 +86,9 @@ def execute_job(kind, payload, repository, directory, store, job):
                 "feature_availability": "prior completed daily bars only; bar-end lower-bound provenance"}
     if kind == "HISTORICAL_BACKTEST":
         if payload.get("scope") == "raw_futures":
-            from ..instruments import get_instrument
-            from .contract_replay import load_contract_receipts
-            history = load_contract_receipts(repository / "data/licensed/databento", get_instrument("NQ"), "NQZ6")
-            return {"status": "BLOCKED", "reason": "AUTHENTIC_CONTRACT_HISTORY_REQUIRED" if history["status"] == "DATA_BLOCKED" else "RECEIPTS_REQUIRE_PIT_CALENDAR_REVIEW",
-                    "licensed_rows": len(history["bars"]), "strategies": ["orb", "vwap", "value"], "performance": None}
+            from .futures_pilot import run_pilot
+            return run_pilot(repository / "data/licensed/databento", payload.get("instrument", "NQ"),
+                             payload.get("contract", "NQZ6"), directory)
         data, source = dataset_from(store, job)
         result = context_backtest(data)
         write_json(directory / "backtest.json", result)
@@ -163,6 +161,10 @@ def execute_job(kind, payload, repository, directory, store, job):
         from collections import Counter
         audit_path = repository / "reports/phase3l_forward_audit.json"
         audit = json.loads(audit_path.read_text()) if audit_path.exists() else None
+        try:
+            operations = json.loads((repository / "reports/phase3j_operations.json").read_text())
+        except (OSError, ValueError):
+            operations = {"status": "OPERATIONS_REPORT_UNAVAILABLE"}
         import os
         from ..ml.status import governance
         report = {"generated_at": datetime.now(timezone.utc).isoformat(), "state_counts": dict(Counter(j["state"] for j in jobs)),
@@ -170,6 +172,7 @@ def execute_job(kind, payload, repository, directory, store, job):
                   "jobs": [{**j, "payload": json.loads(j["payload"]), "dependencies": json.loads(j["dependencies"]),
                             "result": json.loads(j["result"]) if j["result"] else None} for j in jobs],
                   "forward_audit_snapshot": audit, "historical_and_forward_metrics_separate": True,
+                  "shadow_operations_snapshot": operations,
                   "credential_presence": {name: bool(os.environ.get(name)) for name in ("DATABENTO_API_KEY", "FRED_API_KEY", "BLS_API_KEY", "NASDAQ_DATA_LINK_API_KEY")},
                   "model_governance": governance(),
                   "provider_health_scope": "credential presence and completed source-validation jobs; not an entitlement or uptime certification",
@@ -179,6 +182,9 @@ def execute_job(kind, payload, repository, directory, store, job):
         lines = ["# Research job snapshot", "", f"Generated: {report['generated_at']}", "",
                  f"States: {report['state_counts']}", "", "Trading: NO_TRADE. No automatic promotions.", "",
                  "Daily index diagnostics are not futures strategy P&L or independent validation.", ""]
+        lines += [f"Shadow operations snapshot: **{operations['status']}** "
+                  f"(as of {operations.get('generated_at', 'unavailable')}).",
+                  f"Open issues: {list(operations.get('issues', {}))}", ""]
         for entry in jobs:
             lines.append(f"- `{entry['kind']}` ({entry['lane']}): **{entry['state']}** — `{entry['id']}`")
             result = json.loads(entry["result"]) if entry["result"] else {}

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T02:17:20.286938+00:00",
+  "generated_at": "2026-11-05T19:17:27.011857+00:00",
   "model_id": "ndx-range-v1",
   "scope": "NDX cash-session range quantiles; not NQ futures; not a trading signal",
   "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
@@ -73,14 +73,14 @@
   },
   "pending": 1,
   "missed": 0,
-  "failed": 0,
+  "failed": 1,
   "data_quality_incidents": {
     "MARKET_DATA_MISSING": 2
   },
   "cycle_availability": {
-    "attempts_logged": 35,
-    "failed_cycles": 5,
-    "failure_fraction": 0.14285714285714285,
+    "attempts_logged": 46,
+    "failed_cycles": 9,
+    "failure_fraction": 0.1956521739130435,
     "note": "observed local cycles, not service uptime"
   },
   "issuance_timing": [
@@ -97,8 +97,20 @@
   ],
   "audit": {
     "forecasts": 2,
-    "passed": 2,
-    "failed": [],
+    "passed": 1,
+    "failed": [
+      {
+        "forecast_id": "3db9c4cbd3a9cc5944db8437",
+        "ok": false,
+        "issues": [
+          "REFERENCE_CLOSE_MISMATCH"
+        ],
+        "stored_reference_close": 28437.166015625,
+        "current_source_reference_close": 28437.169921875,
+        "warnings": [],
+        "reconciliation_id": null
+      }
+    ],
     "records": [
       {
         "forecast_id": "20d48fc41c2cc0f5c0ae4f2d",
@@ -113,10 +125,12 @@
       },
       {
         "forecast_id": "3db9c4cbd3a9cc5944db8437",
-        "ok": true,
-        "issues": [],
+        "ok": false,
+        "issues": [
+          "REFERENCE_CLOSE_MISMATCH"
+        ],
         "stored_reference_close": 28437.166015625,
-        "current_source_reference_close": 28437.166015625,
+        "current_source_reference_close": 28437.169921875,
         "warnings": [],
         "reconciliation_id": null
       }
@@ -142,17 +156,15 @@
     ]
   },
   "health": {
-    "status": "degraded",
-    "warnings": [
-      "RECENT_DATA_QUALITY_FAILURES"
-    ],
-    "last_run": "2026-11-05T02:17:10.356770+00:00",
-    "age_hours": 0.0025610808333333336,
+    "status": "ok",
+    "warnings": [],
+    "last_run": "2026-11-05T04:47:09.881054+00:00",
+    "age_hours": 14.504621515833332,
     "forecasts": 2,
     "matured": 1,
     "pending": 1,
     "missed": 0,
-    "recent_quality_failures": 2,
+    "recent_quality_failures": 0,
     "trading_decision": "NO_TRADE"
   },
   "evaluation": {

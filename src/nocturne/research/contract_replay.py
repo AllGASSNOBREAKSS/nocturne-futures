@@ -34,7 +34,20 @@ def load_contract_receipts(root, spec, contract):
             if digest((root / record[filename]).read_bytes()) != record[checksum]:
                 raise ValueError("contract receipt checksum mismatch")
         raw = (root / record["raw_file"]).read_bytes()
-        reconstructed = normalize_csv(raw, contract, pd.Timestamp(request["start"]), pd.Timestamp(request["end"]))
+        if record.get("consumption"):
+            from ..adapters.databento_access import check_approval
+            permit = record["consumption"]
+            approval_path = root / "approval_objects" / permit["approval_sha256"]
+            approval = json.loads(approval_path.read_bytes())
+            if digest(canonical(approval)) != permit["approval_sha256"]:
+                raise ValueError("archived approval hash mismatch")
+            quote = record["quote"]
+            scope = {key: request[key] for key in ("dataset", "symbols", "schema", "stype_in", "start", "end")}
+            verified = check_approval(quote, approval, scope, record["instrument"], now=permit["authorized_at"])
+            if verified != permit:
+                raise ValueError("archived consumption authorization differs")
+        reconstructed = normalize_csv(raw, contract, pd.Timestamp(request["start"]), pd.Timestamp(request["end"]),
+                                      expected_instrument_id=record.get("consumption", {}).get("resolved_instrument_id"))
         exported = pd.read_csv(root / record["export_file"])
         for field in ("timestamp", "available_at"):
             exported[field] = pd.to_datetime(exported[field], utc=True)

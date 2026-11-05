@@ -1,4 +1,43 @@
-# Backend readiness — Phase 3M
+# Backend readiness — Phase 3N
+
+## Phase 3N evidence update
+
+No overall percentage is assigned. Authentic futures readiness remains **blocked**,
+not improved statistically by the new engineering. See `PHASE3N_DATA_DECISION.md`
+and `reports/phase3n_futures_access.json` for the single acquisition decision.
+
+- Data reliability/provider access: documented free metadata preflight, raw-ID
+  resolution, range/condition/count/size/cost checks and request-bound explicit
+  approval now precede any metered request. Reservations prevent blind charged
+  retries; rejected bodies/partial prefixes remain archived. Byte caps are not
+  hard process-memory or final-invoice limits. Tests: `test_databento_access.py`.
+- Historical backtesting/price levels: verified receipts now connect to the
+  existing ORB/bar-VWAP backtester and ambiguity-aware target labels. Tests run
+  the full path on isolated fixtures; actual NQ and ES jobs still return BLOCKED
+  with zero licensed rows. No real strategy, directional or survival result exists.
+  Cashflow-v2 corrects legacy double entry-slippage/exit-fee counting with analytic
+  tests; old reports retain legacy-v1. Real execution and intrabar excursion
+  assumptions still require validation; simulated results are not an execution edge.
+- Scheduled operation: latest research result 0; latest shadow result 1 from an
+  appropriately blocked source audit. The pending forecast's issued reference
+  28437.166015625 differs from current Yahoo 28437.169921875; alerts remain open.
+  research now checks both explicit pilot contracts without automatically
+  downloading data. Actual host restart/logout and off-host service availability
+  remain unverified; no credentials or security settings were changed.
+- Forward state: still two issued, one verified legacy matured and one pending;
+  November 5 cannot be evaluated before November 6 00:00 UTC. Forecast/model bytes
+  preserved. Pending forecast is AUDIT_BLOCKED until its new reference revision
+  is deliberately investigated; first outcome verification does not clear it.
+  No new model fit or promotion in Phase 3N.
+- Regression evidence: **342 local tests including native parity**, TypeScript
+  typecheck; branch CI must also be verified after push. New tests cover approval,
+  budget, metadata/entitlement errors, consumed retries, timestamp/volume/ID
+  integrity, sparse grids, DST, engine integration and read-only access reporting.
+  Default research does not rerun old index diagnostics; unchanged futures inputs/
+  code share one job identity across dates and manual/scheduled entry points.
+
+The fourteen-category framework below retains its stated narrow scope and missing
+requirements; source quality does not become independently certified PIT history.
 
 This is an evidence checklist, not a subjective completion percentage. Review
 engineering readiness separately from predictive validity. No claim that the
@@ -114,7 +153,7 @@ assigning arbitrary weights to meet a target number.
   FRED/BLS probes do not constitute current PIT event feeds.
 - Missing: Databento GLBX.MDP3 credential, exchange entitlement and authorized
   pilot cost quote; also actual trades/quotes/depth, VX and event/consensus history.
-- Action: `DATA_ACQUISITION_PHASE3M.md`. Cost stays null, not zero.
+- Action: `PHASE3N_DATA_DECISION.md`. Cost stays null, not zero.
 
 ## Predictive validation — separate verdict
 

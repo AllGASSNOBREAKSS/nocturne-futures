@@ -8,6 +8,34 @@
 
 ## What is implemented
 
+### Phase 3N — guarded futures pilot, still data-blocked
+
+The existing Databento adapter now requires a fresh provider quote and explicit
+request-bound operator approval before metered or credit-consuming downloads.
+Metadata-only preflight, durable no-blind-retry reservations, bounded raw archives
+and stronger ID/timestamp/tick/volume checks are implemented.
+
+Verified receipts connect to the existing ORB/bar-VWAP backtester and target labels
+through the Phase 3M orchestrator. The full path is fixture-tested; **actual NQ/ES
+jobs remain BLOCKED with zero licensed rows**. Cost and account-credit eligibility
+remain unknown. No new predictive model fit or promotion is claimed.
+Versioned cashflow-v2 also corrects legacy slippage/commission arithmetic without
+rewriting old results; actual execution assumptions remain unvalidated.
+Default research no longer repeats old index experiments; futures jobs reuse
+identity across dates unless receipts or research code change.
+Current shadow state is 2 issued / 1 verified matured / 1 pending; the pending
+forecast is `AUDIT_BLOCKED` by a newly detected Yahoo reference-close revision.
+The first outcome still verifies; alerts remain open and forecasts are unchanged.
+
+```powershell
+python scripts/phase3n_futures.py --public-docs --research-check
+```
+
+This command does not download time-series data. See the
+[acquisition decision and authorization steps](docs/PHASE3N_DATA_DECISION.md),
+[findings](docs/PHASE3N_FINDINGS.md), [architecture](docs/ARCHITECTURE_PHASE3N.md)
+and [backend readiness](docs/BACKEND_READINESS.md). Trading stays `NO_TRADE`.
+
 ### Phase 3M — bounded autonomous research backend
 
 Persistent job state now connects real data validation, versioned features,
