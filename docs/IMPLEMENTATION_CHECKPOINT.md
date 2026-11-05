@@ -4,7 +4,9 @@
 
 Branch `feat/phase3p`, base `ce76bf6`. Read `PHASE3P_FINDINGS.md`,
 `PHASE3P_DATA_ACCESS.md`, `BACKEND_READINESS.md` and `reports/phase3p_evidence.json`.
-355 local tests/native parity and TypeScript passed; verify pushed CI separately.
+355 local tests/native parity and TypeScript passed. Implementation `8994d9e`
+was pushed; all four CI jobs passed in run 42131793179. Later evidence/docs commits
+must be distinguished from the implementation SHA tested by that run.
 New bounded local recovery drill: 547 files, 210,599,711 bytes; original proof,
 outcome and six cached challenger hashes verify after separate-location restore.
 Two existing fixed authentic index diagnostics reproduce exactly, not new research.

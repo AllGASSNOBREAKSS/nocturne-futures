@@ -10,7 +10,12 @@ Phase 3O CI run 42126595254 was independently queried and is successful at
 `ce76bf6b9144c67da11f1d0862072d023c9582ac`. Pre-existing scheduler report changes
 were retained. Current local suite: **355 passed including native parity**;
 TypeScript `npm run typecheck` passed. One existing Starlette/httpx deprecation
-warning remains. Phase 3P CI must be checked against the pushed commit separately.
+warning remains. Phase 3P implementation commit
+`8994d9e331cd0bf10157b52f64cb1cc8983668cd` passed all four CI jobs (Python,
+TypeScript, native and Windows-shadow):
+https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/42131793179
+This does not certify the local Windows scheduled host; the automatic 23:47 UTC
+shadow trigger also returned 0xC000013A.
 
 Before the November 6 00:00 UTC adapter availability bound: **two issued, one
 verified matured legacy-unadjusted, one pending residual-adjusted-v1**, zero

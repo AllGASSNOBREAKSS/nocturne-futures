@@ -1,0 +1,13 @@
+{
+  "observed_at": "2026-11-05T23:48:00+00:00",
+  "head_sha": "8994d9e331cd0bf10157b52f64cb1cc8983668cd",
+  "url": "https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/42131793179",
+  "conclusion": "success",
+  "jobs": {
+    "python": "success",
+    "typescript": "success",
+    "native": "success",
+    "windows-shadow": "success"
+  },
+  "scope": "CI implementation verification; not local scheduled-host availability or predictive validation"
+}
