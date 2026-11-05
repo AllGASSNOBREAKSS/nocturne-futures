@@ -1,0 +1,22 @@
+﻿{
+    "generated_at":  "2026-11-05T02:21:35.3529867Z",
+    "tasks":  [
+                  {
+                      "Name":  "Nocturne-NDX-ReadOnly-Shadow",
+                      "State":  "Ready",
+                      "LogonType":  "Interactive",
+                      "LastRun":  "2026-11-05T02:17:06.0000000Z",
+                      "Result":  0,
+                      "NextRun":  "2026-11-05T02:47:05.0000000Z"
+                  },
+                  {
+                      "Name":  "Nocturne-ReadOnly-Research",
+                      "State":  "Ready",
+                      "LogonType":  "Interactive",
+                      "LastRun":  "2026-11-05T02:13:57.0000000Z",
+                      "Result":  0,
+                      "NextRun":  "2026-11-05T08:13:57.0000000Z"
+                  }
+              ],
+    "limits":  "interactive login and awake host required; no off-host uptime guarantee"
+}

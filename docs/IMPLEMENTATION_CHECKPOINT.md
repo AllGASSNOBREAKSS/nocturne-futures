@@ -1,6 +1,55 @@
 # Implementation Checkpoint
 
-## Current resume point — Phase 3L, 2026-11-05 UTC
+## Current resume point — Phase 3M, 2026-11-05 UTC
+
+Branch `feat/phase3m`, base `6c04c50`. Read `PHASE3M_FINDINGS.md`,
+`ARCHITECTURE_PHASE3M.md`, `BACKEND_READINESS.md` and
+`reports/phase3m_research.json`. Phase 3L's 291 tests and CI were reproduced.
+New local suite: **311 passed including native parity**; TypeScript passed.
+Check Phase 3M CI after push rather than assuming the prior phase's green run.
+
+Implemented persistent SQLite jobs/DAG/retries/backoff/recovery, separate research
+and shadow process/lock lanes, bounded workers/watchdogs, versioned datasets,
+fixed cached logistic experiments and JSON/Markdown history. All twelve requested
+job types have actual handlers; raw futures jobs remain explicitly blocked.
+
+Executed nine source validations, two 6,036-row index-context backtests and two
+three-fold calibrated logistic diagnostics (750 development test predictions
+each). NDX Brier 0.249911 vs baseline 0.249863; S&P Brier 0.248798 vs 0.249196.
+No independent validation or new directional/target promotion is claimed. Old
+development exposure and excluded 2024+ history are not relabeled untouched.
+
+Deployed `Nocturne-ReadOnly-Research` every six hours + logon, interactive and
+limited, 18-minute cap; observed exit 0. Original 30-minute shadow task unchanged,
+observed successful. Research cadence enqueues daily keys; identical experiment
+identity reuses model/results without fitting again. Host must be awake/logged in.
+
+Forward state: **2 issued, 1 verified matured, 1 pending, 0 missed**. All forecast
+bytes remain identical to Phase 3L; model weights unchanged. November 5 pending
+cannot mature before the November 6 00:00 UTC availability bound. Legacy matured
+cohort is one; corrected-inference matured cohort is zero. NO_PROMOTION / NO_TRADE.
+
+```powershell
+python scripts/phase3m_research.py --lane research
+python scripts/phase3m_research.py --lane research --no-enqueue
+python scripts/phase3m_research.py --lane shadow  # reuse existing idempotent cycle; not a second scheduler
+```
+
+Private `data/research/orchestrator/` holds SQLite, attempts, reports, datasets,
+code snapshots and challenger artifacts. Back up consistently with market source
+archives; Git alone cannot restore proofs or running-state history. Do not erase
+failed/partial experiments: incomplete cache directories require operator review.
+Original validation schema failure and recovery remain in transition history.
+
+Data access unchanged: no credentials in checked process/user/machine scopes;
+no paid request. See `DATA_ACQUISITION_PHASE3M.md` for entitlement, quote uncertainty
+and exact pilot. Next: authorized raw-contract pilot, validate session/roll/PIT
+evidence, expand history and run real session-strategy/feature ablations. Remaining
+independent deployment work: unattended authorization, hard memory quotas,
+off-host monitoring, retention/private backups and clean-host recovery validation.
+No arbitrary overall readiness percentage or trading-readiness claim was assigned.
+
+## Previous resume point — Phase 3L, 2026-11-05 UTC
 
 Branch `feat/phase3l`, base `262c4dc`. Read `PHASE3L_FINDINGS.md`,
 `reports/phase3l_forward_audit.json` and `reports/phase3l_readiness.json`.

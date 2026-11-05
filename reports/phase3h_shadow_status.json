@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T01:34:34.205270+00:00",
+  "generated_at": "2026-11-05T02:17:10.356770+00:00",
   "model_id": "ndx-range-v1",
   "model_version": "1.0.0",
   "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
@@ -194,7 +194,7 @@
     "warnings": [
       "RECENT_DATA_QUALITY_FAILURES"
     ],
-    "last_run": "2026-11-05T01:34:34.205270+00:00",
+    "last_run": "2026-11-05T02:17:10.356770+00:00",
     "age_hours": 0.0,
     "forecasts": 2,
     "matured": 1,
@@ -337,7 +337,7 @@
         "dropped_invalid_or_missing_bars": 0,
         "gap_days_median": 1.0,
         "gaps_over_5_days": 1,
-        "received_at": "2026-11-05T01:34:33.381377+00:00",
+        "received_at": "2026-11-05T02:17:09.209329+00:00",
         "availability": "next UTC midnight after the session date",
         "known_limitations": [
           "unofficial endpoint; not an exchange feed",
@@ -345,7 +345,7 @@
           "continuous futures proxies have unverified roll mapping",
           "adjusted vs unadjusted prices not distinguished by this adapter"
         ],
-        "snapshot_id": "8e0ebfe05b6bb3a59d9b95f7b16e0a33020a57b9490f84a530bb2df909819306"
+        "snapshot_id": "b18bf003ad899634ff6cb08d86fef9a8d13b08ccf1630cd0e7f564d536cdedde"
       },
       "vix": {
         "symbol": "^VIX",
@@ -364,7 +364,7 @@
         "dropped_invalid_or_missing_bars": 331,
         "gap_days_median": 1.0,
         "gaps_over_5_days": 1,
-        "received_at": "2026-11-05T01:34:33.953100+00:00",
+        "received_at": "2026-11-05T02:17:09.827616+00:00",
         "availability": "next UTC midnight after the session date",
         "known_limitations": [
           "unofficial endpoint; not an exchange feed",
@@ -372,12 +372,12 @@
           "continuous futures proxies have unverified roll mapping",
           "adjusted vs unadjusted prices not distinguished by this adapter"
         ],
-        "snapshot_id": "1f5db326136fb34e0d07414099407114ffd40a8ddf1f47c1a30f6df93ee5db8d"
+        "snapshot_id": "54c8c239fd53f0cd1ab8cf37c54e8ef30237df9a909a4de4475801de0355abdf"
       }
     },
     "snapshot_ids": {
-      "index": "8e0ebfe05b6bb3a59d9b95f7b16e0a33020a57b9490f84a530bb2df909819306",
-      "vix": "1f5db326136fb34e0d07414099407114ffd40a8ddf1f47c1a30f6df93ee5db8d"
+      "index": "b18bf003ad899634ff6cb08d86fef9a8d13b08ccf1630cd0e7f564d536cdedde",
+      "vix": "54c8c239fd53f0cd1ab8cf37c54e8ef30237df9a909a4de4475801de0355abdf"
     }
   },
   "notes": [

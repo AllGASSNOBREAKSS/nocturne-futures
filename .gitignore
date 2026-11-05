@@ -30,3 +30,4 @@ data/shadow/**/*.lock
 data/shadow/**/log.jsonl
 data/shadow/task-logs/
 data/shadow/macro/
+data/research/orchestrator/

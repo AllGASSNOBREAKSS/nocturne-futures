@@ -8,6 +8,30 @@
 
 ## What is implemented
 
+### Phase 3M — bounded autonomous research backend
+
+Persistent job state now connects real data validation, versioned features,
+historical diagnostics, purged/calibrated logistic experiments, shadow adapters
+and JSON/Markdown reporting. Separate process/lock lanes isolate research from
+inference; unchanged experiment identities reuse saved models/results.
+
+Executed two index-context backtests and two 750-observation development model
+diagnostics. These are **not NQ/ES trading results or independent validation**.
+Licensed futures jobs remain blocked; all trading stays `NO_TRADE`.
+
+A separate six-hour Windows research task is deployed and observed successful;
+the existing shadow task is unchanged. Both currently require an awake host and
+interactive login. Forward state remains **2 issued / 1 verified matured / 1 pending**.
+
+See [Phase 3M findings](docs/PHASE3M_FINDINGS.md),
+[backend readiness evidence](docs/BACKEND_READINESS.md),
+[execution architecture](docs/ARCHITECTURE_PHASE3M.md), and
+[exact data-acquisition dependency](docs/DATA_ACQUISITION_PHASE3M.md).
+
+```powershell
+python scripts/phase3m_research.py --lane research
+```
+
 ### Phase 3L checkpoint — 2026-11-05 UTC
 
 The scheduler produced the first real research-grade outcome and the next

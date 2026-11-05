@@ -18,6 +18,20 @@ ROOT = Path(__file__).resolve().parents[3]
 
 
 class ForecastService:
+    def research_status(self) -> dict:
+        path = ROOT / "reports/phase3m_research.json"
+        if not path.exists():
+            return {"status": "NO_RESEARCH_REPORT", "trading_decision": "NO_TRADE"}
+        try:
+            report = json.loads(path.read_text())
+            stamp = datetime.fromisoformat(report["generated_at"])
+            age = (datetime.now(timezone.utc) - stamp).total_seconds()
+            return {**report, "snapshot_age_seconds": age,
+                    "freshness": "RECENT" if 0 <= age <= 26 * 3600 else "STALE",
+                    "view": "read-only timestamped research snapshot; no jobs triggered by HTTP"}
+        except (ValueError, KeyError, TypeError):
+            return {"status": "INVALID_RESEARCH_REPORT", "trading_decision": "NO_TRADE"}
+
     def __init__(
         self,
         journal_root: str | Path = ROOT / "data" / "journal",

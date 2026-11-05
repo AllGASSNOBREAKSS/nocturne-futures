@@ -69,6 +69,10 @@ def create_app(service: ForecastService | None = None) -> FastAPI:
     def models_status() -> dict:
         return service.models_status()
 
+    @app.get("/v1/research/status")
+    def research_status() -> dict:
+        return service.research_status()
+
     @app.get("/v1/shadow/ndx-range")
     def shadow_ndx_range() -> dict:
         return service.shadow_status()

@@ -93,3 +93,19 @@ def test_forecast_bundle_absent_is_explicit(tmp_path):
     assert response.status_code == 200
     assert response.json()["bundle"] is None
     assert response.json()["reason"] == "NO_BUNDLE_FORECAST"
+
+
+def test_research_status_is_read_only_and_marks_stale_report(tmp_path, monkeypatch):
+    import json
+    import nocturne.api.service as module
+    monkeypatch.setattr(module, "ROOT", tmp_path)
+    c = client(tmp_path)
+    assert c.get("/v1/research/status").json()["status"] == "NO_RESEARCH_REPORT"
+    reports = tmp_path / "reports"
+    reports.mkdir()
+    path = reports / "phase3m_research.json"
+    path.write_text(json.dumps({"generated_at": "2020-01-01T00:00:00+00:00", "trading_decision": "NO_TRADE"}))
+    original = path.read_bytes()
+    assert c.get("/v1/research/status").json()["freshness"] == "STALE"
+    assert path.read_bytes() == original
+    assert c.post("/v1/research/status").status_code == 405
