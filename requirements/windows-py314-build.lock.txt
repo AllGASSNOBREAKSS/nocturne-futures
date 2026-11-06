@@ -1,0 +1,3 @@
+# Build tooling for --no-build-isolation; runtime/dev pins remain in the 3Q lock.
+setuptools==84.2.1
+wheel==0.48.0

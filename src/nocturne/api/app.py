@@ -7,6 +7,9 @@ from fastapi import FastAPI, HTTPException, Query
 from ..contracts import Prediction
 from .service import ForecastService
 
+INSTRUMENT_PATTERN = r"^[A-Za-z0-9^=][A-Za-z0-9^=._-]{0,31}$"
+SESSION_PATTERN = r"^[A-Za-z][A-Za-z0-9_-]{0,15}$"
+
 
 def create_app(service: ForecastService | None = None) -> FastAPI:
     service = service or ForecastService()
@@ -21,7 +24,7 @@ def create_app(service: ForecastService | None = None) -> FastAPI:
         return service.health()
 
     @app.get("/v1/predictions/latest", response_model=Prediction)
-    def latest_prediction(instrument: str = Query(..., min_length=1)) -> Prediction:
+    def latest_prediction(instrument: str = Query(..., min_length=1, max_length=32, pattern=INSTRUMENT_PATTERN)) -> Prediction:
         prediction = service.latest(instrument)
         if prediction is None:
             raise HTTPException(status_code=404, detail="no prediction for instrument")
@@ -35,13 +38,13 @@ def create_app(service: ForecastService | None = None) -> FastAPI:
         return result
 
     @app.get("/v1/levels")
-    def levels(instrument: str = Query(..., min_length=1)) -> dict:
+    def levels(instrument: str = Query(..., min_length=1, max_length=32, pattern=INSTRUMENT_PATTERN)) -> dict:
         return service.levels(instrument)
 
     @app.get("/v1/auction/profile")
     def auction_profile(
-        instrument: str = Query(..., min_length=1),
-        session: str = Query("RTH"),
+        instrument: str = Query(..., min_length=1, max_length=32, pattern=INSTRUMENT_PATTERN),
+        session: str = Query("RTH", max_length=16, pattern=SESSION_PATTERN),
     ) -> dict:
         return service.auction_profile(instrument, session)
 
@@ -54,11 +57,11 @@ def create_app(service: ForecastService | None = None) -> FastAPI:
         return service.premarket_state()
 
     @app.get("/v1/forecast/v1")
-    def forecast_v1(instrument: str = Query(..., min_length=1)) -> dict:
+    def forecast_v1(instrument: str = Query(..., min_length=1, max_length=32, pattern=INSTRUMENT_PATTERN)) -> dict:
         return service.forecast_v1(instrument)
 
     @app.get("/v1/forecast/bundle")
-    def forecast_bundle(instrument: str = Query(..., min_length=1)) -> dict:
+    def forecast_bundle(instrument: str = Query(..., min_length=1, max_length=32, pattern=INSTRUMENT_PATTERN)) -> dict:
         return service.forecast_bundle(instrument)
 
     @app.get("/v1/events/upcoming")
@@ -126,7 +129,7 @@ def create_app(service: ForecastService | None = None) -> FastAPI:
         return service.data_health()
 
     @app.get("/v1/market-state")
-    def market_state(instrument: str = Query(..., min_length=1)) -> dict:
+    def market_state(instrument: str = Query(..., min_length=1, max_length=32, pattern=INSTRUMENT_PATTERN)) -> dict:
         prediction = service.latest(instrument)
         if prediction is None:
             return {"instrument": instrument.upper(), "state": None, "reason": "NO_PREDICTION"}

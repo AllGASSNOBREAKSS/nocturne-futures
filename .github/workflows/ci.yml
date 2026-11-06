@@ -59,7 +59,7 @@ jobs:
       - name: Install
         run: python -m pip install -c requirements/frozen-shadow.constraints.txt -e ".[dev]"
       - name: Windows storage, recovery and research contracts
-        run: python -m pytest tests/test_shadow_operations.py tests/test_shadow_service.py tests/test_contract_targets.py tests/test_macro_proximity.py tests/test_shadow_alerts.py tests/test_market_snapshots.py tests/test_outcome_audit.py tests/test_contract_replay.py tests/test_target_survival.py tests/test_shadow_task_runner.py tests/test_research_orchestrator.py tests/test_daily_experiment.py tests/test_databento_access.py tests/test_futures_pilot.py tests/test_phase3o_recovery.py tests/test_recovery_snapshot.py tests/test_headless_launcher.py
+        run: python -m pytest tests/test_shadow_operations.py tests/test_shadow_service.py tests/test_contract_targets.py tests/test_macro_proximity.py tests/test_shadow_alerts.py tests/test_market_snapshots.py tests/test_outcome_audit.py tests/test_contract_replay.py tests/test_target_survival.py tests/test_shadow_task_runner.py tests/test_research_orchestrator.py tests/test_daily_experiment.py tests/test_databento_access.py tests/test_futures_pilot.py tests/test_phase3o_recovery.py tests/test_recovery_snapshot.py tests/test_headless_launcher.py tests/test_environment_integrity.py
       - name: Scheduled task definition dry run (no registration)
         shell: powershell
         run: ./scripts/install_shadow_task.ps1 -WhatIf
@@ -69,3 +69,20 @@ jobs:
       - name: Unattended task definition dry run (no credentials or registration)
         shell: powershell
         run: ./scripts/install_shadow_task.ps1 -LogonMode Password -WakeToRun -TaskName Nocturne-Unattended-DryRun -WhatIf
+
+  windows-locked-runtime:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - name: Download only reviewed wheel bytes
+        shell: powershell
+        run: python -m pip download --only-binary=:all: --no-deps --require-hashes --dest "$env:RUNNER_TEMP/locked-wheels" -r requirements/windows-py314.hashes.txt
+      - name: Offline bootstrap and installed-record/inference verification
+        shell: powershell
+        run: ./scripts/bootstrap_locked_environment.ps1 -Python (Get-Command python).Source -Environment "$env:RUNNER_TEMP/locked-nocturne" -Wheelhouse "$env:RUNNER_TEMP/locked-wheels"
+      - name: Frozen inference and corruption rejection contracts
+        shell: powershell
+        run: '& "$env:RUNNER_TEMP/locked-nocturne/Scripts/python.exe" -m pytest tests/test_environment_integrity.py -q'

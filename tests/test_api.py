@@ -123,3 +123,31 @@ def test_futures_access_is_a_timestamped_read_only_snapshot(tmp_path, monkeypatc
     result = client(tmp_path).get("/v1/data/futures-readiness").json()
     assert result["acquisition_snapshot"]["status"] == "DATA_BLOCKED"
     assert path.read_bytes() == before
+
+
+def test_file_backed_routes_reject_path_query_values_without_reading_outside(tmp_path):
+    c = client(tmp_path)
+    (tmp_path / 'forecasts').mkdir()
+    outside = tmp_path / 'outside_levels.json'
+    outside.write_text('{"private_fixture": true}')
+    original = outside.read_bytes()
+    for endpoint in ('/v1/levels', '/v1/auction/profile', '/v1/forecast/v1', '/v1/forecast/bundle'):
+        for value in ('../outside', '..\\outside', '/absolute', 'C:\\outside', 'NQ' * 40):
+            response = c.get(endpoint, params={'instrument': value})
+            assert response.status_code == 422
+            assert 'private_fixture' not in response.text
+    assert outside.read_bytes() == original
+
+
+def test_profile_session_cannot_escape_artifact_directory(tmp_path):
+    c = client(tmp_path)
+    for session in ('../outside', '..\\outside', 'C:\\outside', '/absolute'):
+        assert c.get('/v1/auction/profile', params={'instrument': 'NQ', 'session': session}).status_code == 422
+    for instrument in ('NQ', '^NDX', 'NQ=F'):
+        assert c.get('/v1/levels', params={'instrument': instrument}).status_code == 200
+
+
+def test_api_exposes_no_mutating_routes(tmp_path):
+    app = client(tmp_path).app
+    for route in app.routes:
+        assert not (getattr(route, 'methods', set()) & {'POST', 'PUT', 'PATCH', 'DELETE'})

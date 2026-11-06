@@ -3,7 +3,8 @@ param(
     [switch]$Exercise,
     [ValidateRange(1,5)][int]$Repetitions = 2,
     [ValidateRange(30,300)][int]$TimeoutSeconds = 150,
-    [string]$Repository
+    [string]$Repository,
+    [ValidatePattern('^[A-Za-z0-9_-]+\.json$')][string]$ReportName = 'phase3q_scheduler.json'
 )
 $ErrorActionPreference = 'Stop'
 if (-not $Repository) { $Repository = Split-Path $PSScriptRoot -Parent }
@@ -52,6 +53,6 @@ $status = 'LAST_OBSERVED_COMPLETIONS_OK'
 if ($bad.Count -gt 0) { $status = 'DEGRADED' }
 $report = @{ GeneratedAt = (Get-Date).ToUniversalTime().ToString('o'); Status = $status; Exercised = [bool]$Exercise
     Observations = $observations; Limitations = 'Awake interactive host only; no reboot/logoff, soak, off-host paging or 24/7 claim.' }
-$report | ConvertTo-Json -Depth 8 | Set-Content -Encoding UTF8 (Join-Path $Repository 'reports/phase3q_scheduler.json')
+$report | ConvertTo-Json -Depth 8 | Set-Content -Encoding UTF8 (Join-Path $Repository "reports/$ReportName")
 Write-Output ($report | ConvertTo-Json -Compress -Depth 8)
 if ($bad.Count -gt 0) { exit 1 }
