@@ -1,0 +1,32 @@
+﻿{
+    "Dataset":  "GLBX.MDP3",
+    "Entitlements":  "UNVERIFIED",
+    "CredentialsPresent":  {
+                               "DATABENTO_API_KEY":  {
+                                                         "Machine":  false,
+                                                         "User":  false,
+                                                         "Process":  false
+                                                     },
+                               "NASDAQ_DATA_LINK_API_KEY":  {
+                                                                "Machine":  false,
+                                                                "User":  false,
+                                                                "Process":  false
+                                                            },
+                               "FRED_API_KEY":  {
+                                                    "Machine":  false,
+                                                    "User":  false,
+                                                    "Process":  false
+                                                },
+                               "BLS_API_KEY":  {
+                                                   "Machine":  false,
+                                                   "User":  false,
+                                                   "Process":  false
+                                               }
+                           },
+    "QuotedCostUsd":  null,
+    "Checklist":  "docs/PHASE3P_DATA_ACCESS.md",
+    "LicensedReceiptCount":  0,
+    "ConsumptionAttempted":  false,
+    "GeneratedAt":  "2026-11-06T02:06:06.8838807Z",
+    "Status":  "USER_ACTION_REQUIRED"
+}

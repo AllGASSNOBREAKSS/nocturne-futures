@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-06T01:00:57.641377+00:00",
+  "generated_at": "2026-11-06T02:01:14.952778+00:00",
   "state_counts": {
-    "SUCCEEDED": 40,
+    "SUCCEEDED": 51,
     "BLOCKED": 15
   },
   "job_events": [
@@ -809,6 +809,160 @@
       "at": 1793926854.6050806,
       "state": "RUNNING",
       "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\c58c59c02f45dbd082349fbc\\\\1\"}"
+    },
+    {
+      "seq": 116,
+      "job_id": "c58c59c02f45dbd082349fbc",
+      "at": 1793926858.3720574,
+      "state": "SUCCEEDED",
+      "detail": "{\"status\": \"SUCCEEDED\", \"report_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\c58c59c02f45dbd082349fbc\\\\1\\\\research_report.json\", \"markdown_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\c58c59c02f45dbd082349fbc\\\\1\\\\research_report.md\", \"job_id\": \"c58c59c02f45dbd082349fbc\", \"kind\": \"RESEARCH_REPORT\", \"attempt\": 1, \"trading_decision\": \"NO_TRADE\"}"
+    },
+    {
+      "seq": 117,
+      "job_id": "a00e5bf3ed23fc6b496f7acc",
+      "at": 1793929280.2905872,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\a00e5bf3ed23fc6b496f7acc\\\\1\"}"
+    },
+    {
+      "seq": 118,
+      "job_id": "a00e5bf3ed23fc6b496f7acc",
+      "at": 1793929289.4863622,
+      "state": "SUCCEEDED",
+      "detail": "{\"status\": \"SUCCEEDED\", \"component\": \"scripts/phase3h_shadow.py\", \"note\": \"component success does not mean an observation matured or a new forecast issued\", \"job_id\": \"a00e5bf3ed23fc6b496f7acc\", \"kind\": \"DATA_REFRESH\", \"attempt\": 1, \"trading_decision\": \"NO_TRADE\"}"
+    },
+    {
+      "seq": 119,
+      "job_id": "cf914682f79d563e4a9d1b3e",
+      "at": 1793929289.509141,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\cf914682f79d563e4a9d1b3e\\\\1\"}"
+    },
+    {
+      "seq": 120,
+      "job_id": "cf914682f79d563e4a9d1b3e",
+      "at": 1793929296.618516,
+      "state": "SUCCEEDED",
+      "detail": "{\"status\": \"SUCCEEDED\", \"component\": \"scripts/phase3h_shadow.py\", \"note\": \"component success does not mean an observation matured or a new forecast issued\", \"job_id\": \"cf914682f79d563e4a9d1b3e\", \"kind\": \"SHADOW_FORECAST\", \"attempt\": 1, \"trading_decision\": \"NO_TRADE\"}"
+    },
+    {
+      "seq": 121,
+      "job_id": "6a46119627fd1d445c394ff6",
+      "at": 1793929296.6418126,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\6a46119627fd1d445c394ff6\\\\1\"}"
+    },
+    {
+      "seq": 122,
+      "job_id": "6a46119627fd1d445c394ff6",
+      "at": 1793929303.7039387,
+      "state": "SUCCEEDED",
+      "detail": "{\"status\": \"SUCCEEDED\", \"component\": \"scripts/phase3h_shadow.py\", \"note\": \"component success does not mean an observation matured or a new forecast issued\", \"job_id\": \"6a46119627fd1d445c394ff6\", \"kind\": \"FORECAST_MATURITY_CHECK\", \"attempt\": 1, \"trading_decision\": \"NO_TRADE\"}"
+    },
+    {
+      "seq": 123,
+      "job_id": "258bfa92e87427a87e57919d",
+      "at": 1793929303.727915,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\258bfa92e87427a87e57919d\\\\1\"}"
+    },
+    {
+      "seq": 124,
+      "job_id": "258bfa92e87427a87e57919d",
+      "at": 1793929310.6824813,
+      "state": "SUCCEEDED",
+      "detail": "{\"status\": \"SUCCEEDED\", \"component\": \"scripts/phase3l_forward_audit.py\", \"note\": \"component success does not mean an observation matured or a new forecast issued\", \"job_id\": \"258bfa92e87427a87e57919d\", \"kind\": \"FORWARD_EVALUATION\", \"attempt\": 1, \"trading_decision\": \"NO_TRADE\"}"
+    },
+    {
+      "seq": 125,
+      "job_id": "532307848a2317c310d70481",
+      "at": 1793929310.7060423,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\532307848a2317c310d70481\\\\1\"}"
+    },
+    {
+      "seq": 126,
+      "job_id": "532307848a2317c310d70481",
+      "at": 1793929318.8539286,
+      "state": "SUCCEEDED",
+      "detail": "{\"status\": \"SUCCEEDED\", \"component\": \"scripts/phase3i_forward_report.py\", \"note\": \"component success does not mean an observation matured or a new forecast issued\", \"job_id\": \"532307848a2317c310d70481\", \"kind\": \"MODEL_DRIFT_MONITOR\", \"attempt\": 1, \"trading_decision\": \"NO_TRADE\"}"
+    },
+    {
+      "seq": 127,
+      "job_id": "d41d9341d48c7b020b7d449d",
+      "at": 1793929318.8975704,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\d41d9341d48c7b020b7d449d\\\\1\"}"
+    },
+    {
+      "seq": 128,
+      "job_id": "d41d9341d48c7b020b7d449d",
+      "at": 1793929321.739735,
+      "state": "SUCCEEDED",
+      "detail": "{\"status\": \"SUCCEEDED\", \"report_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\d41d9341d48c7b020b7d449d\\\\1\\\\research_report.json\", \"markdown_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\d41d9341d48c7b020b7d449d\\\\1\\\\research_report.md\", \"job_id\": \"d41d9341d48c7b020b7d449d\", \"kind\": \"RESEARCH_REPORT\", \"attempt\": 1, \"trading_decision\": \"NO_TRADE\"}"
+    },
+    {
+      "seq": 129,
+      "job_id": "565c88d92b1af7f92e7771f9",
+      "at": 1793929324.6199417,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\565c88d92b1af7f92e7771f9\\\\1\"}"
+    },
+    {
+      "seq": 130,
+      "job_id": "565c88d92b1af7f92e7771f9",
+      "at": 1793929327.3441477,
+      "state": "SUCCEEDED",
+      "detail": "{\"status\": \"SUCCEEDED\", \"report_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\565c88d92b1af7f92e7771f9\\\\1\\\\research_report.json\", \"markdown_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\565c88d92b1af7f92e7771f9\\\\1\\\\research_report.md\", \"job_id\": \"565c88d92b1af7f92e7771f9\", \"kind\": \"RESEARCH_REPORT\", \"attempt\": 1, \"trading_decision\": \"NO_TRADE\"}"
+    },
+    {
+      "seq": 131,
+      "job_id": "4dbbf411e3fed003ab663915",
+      "at": 1793930170.762216,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\4dbbf411e3fed003ab663915\\\\1\"}"
+    },
+    {
+      "seq": 132,
+      "job_id": "4dbbf411e3fed003ab663915",
+      "at": 1793930175.5327616,
+      "state": "SUCCEEDED",
+      "detail": "{\"status\": \"SUCCEEDED\", \"report_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\4dbbf411e3fed003ab663915\\\\1\\\\research_report.json\", \"markdown_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\4dbbf411e3fed003ab663915\\\\1\\\\research_report.md\", \"job_id\": \"4dbbf411e3fed003ab663915\", \"kind\": \"RESEARCH_REPORT\", \"attempt\": 1, \"trading_decision\": \"NO_TRADE\"}"
+    },
+    {
+      "seq": 133,
+      "job_id": "796a8ef6b22dbab3b672af7f",
+      "at": 1793930200.239348,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\796a8ef6b22dbab3b672af7f\\\\1\"}"
+    },
+    {
+      "seq": 134,
+      "job_id": "796a8ef6b22dbab3b672af7f",
+      "at": 1793930204.0026548,
+      "state": "SUCCEEDED",
+      "detail": "{\"status\": \"SUCCEEDED\", \"report_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\796a8ef6b22dbab3b672af7f\\\\1\\\\research_report.json\", \"markdown_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\796a8ef6b22dbab3b672af7f\\\\1\\\\research_report.md\", \"job_id\": \"796a8ef6b22dbab3b672af7f\", \"kind\": \"RESEARCH_REPORT\", \"attempt\": 1, \"trading_decision\": \"NO_TRADE\"}"
+    },
+    {
+      "seq": 135,
+      "job_id": "04484bfe2212f4ab1c32f797",
+      "at": 1793930446.2532628,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\04484bfe2212f4ab1c32f797\\\\1\"}"
+    },
+    {
+      "seq": 136,
+      "job_id": "04484bfe2212f4ab1c32f797",
+      "at": 1793930450.691819,
+      "state": "SUCCEEDED",
+      "detail": "{\"status\": \"SUCCEEDED\", \"report_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\04484bfe2212f4ab1c32f797\\\\1\\\\research_report.json\", \"markdown_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\04484bfe2212f4ab1c32f797\\\\1\\\\research_report.md\", \"job_id\": \"04484bfe2212f4ab1c32f797\", \"kind\": \"RESEARCH_REPORT\", \"attempt\": 1, \"trading_decision\": \"NO_TRADE\"}"
+    },
+    {
+      "seq": 137,
+      "job_id": "1859f433d6026ab2f9d8701b",
+      "at": 1793930472.0742707,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\1859f433d6026ab2f9d8701b\\\\1\"}"
     }
   ],
   "jobs": [
@@ -3705,6 +3859,267 @@
       },
       "created": 1793926830.4352825,
       "updated": 1793926833.955779
+    },
+    {
+      "id": "c58c59c02f45dbd082349fbc",
+      "kind": "RESEARCH_REPORT",
+      "lane": "research",
+      "payload": {},
+      "dependencies": [],
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "max_attempts": 2,
+      "timeout": 60.0,
+      "ready_at": 1793926888.371421,
+      "result": {
+        "status": "SUCCEEDED",
+        "report_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\c58c59c02f45dbd082349fbc\\1\\research_report.json",
+        "markdown_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\c58c59c02f45dbd082349fbc\\1\\research_report.md",
+        "job_id": "c58c59c02f45dbd082349fbc",
+        "kind": "RESEARCH_REPORT",
+        "attempt": 1,
+        "trading_decision": "NO_TRADE"
+      },
+      "created": 1793926854.5876093,
+      "updated": 1793926858.3720574
+    },
+    {
+      "id": "a00e5bf3ed23fc6b496f7acc",
+      "kind": "DATA_REFRESH",
+      "lane": "shadow",
+      "payload": {},
+      "dependencies": [],
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "max_attempts": 2,
+      "timeout": 180.0,
+      "ready_at": 1793929319.4858766,
+      "result": {
+        "status": "SUCCEEDED",
+        "component": "scripts/phase3h_shadow.py",
+        "note": "component success does not mean an observation matured or a new forecast issued",
+        "job_id": "a00e5bf3ed23fc6b496f7acc",
+        "kind": "DATA_REFRESH",
+        "attempt": 1,
+        "trading_decision": "NO_TRADE"
+      },
+      "created": 1793929280.2145653,
+      "updated": 1793929289.4863622
+    },
+    {
+      "id": "cf914682f79d563e4a9d1b3e",
+      "kind": "SHADOW_FORECAST",
+      "lane": "shadow",
+      "payload": {},
+      "dependencies": [
+        "a00e5bf3ed23fc6b496f7acc"
+      ],
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "max_attempts": 2,
+      "timeout": 180.0,
+      "ready_at": 1793929326.6180403,
+      "result": {
+        "status": "SUCCEEDED",
+        "component": "scripts/phase3h_shadow.py",
+        "note": "component success does not mean an observation matured or a new forecast issued",
+        "job_id": "cf914682f79d563e4a9d1b3e",
+        "kind": "SHADOW_FORECAST",
+        "attempt": 1,
+        "trading_decision": "NO_TRADE"
+      },
+      "created": 1793929280.2291093,
+      "updated": 1793929296.618516
+    },
+    {
+      "id": "6a46119627fd1d445c394ff6",
+      "kind": "FORECAST_MATURITY_CHECK",
+      "lane": "shadow",
+      "payload": {},
+      "dependencies": [
+        "cf914682f79d563e4a9d1b3e"
+      ],
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "max_attempts": 2,
+      "timeout": 180.0,
+      "ready_at": 1793929333.7034147,
+      "result": {
+        "status": "SUCCEEDED",
+        "component": "scripts/phase3h_shadow.py",
+        "note": "component success does not mean an observation matured or a new forecast issued",
+        "job_id": "6a46119627fd1d445c394ff6",
+        "kind": "FORECAST_MATURITY_CHECK",
+        "attempt": 1,
+        "trading_decision": "NO_TRADE"
+      },
+      "created": 1793929280.2400086,
+      "updated": 1793929303.7039387
+    },
+    {
+      "id": "258bfa92e87427a87e57919d",
+      "kind": "FORWARD_EVALUATION",
+      "lane": "shadow",
+      "payload": {},
+      "dependencies": [
+        "6a46119627fd1d445c394ff6"
+      ],
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "max_attempts": 2,
+      "timeout": 180.0,
+      "ready_at": 1793929340.6820245,
+      "result": {
+        "status": "SUCCEEDED",
+        "component": "scripts/phase3l_forward_audit.py",
+        "note": "component success does not mean an observation matured or a new forecast issued",
+        "job_id": "258bfa92e87427a87e57919d",
+        "kind": "FORWARD_EVALUATION",
+        "attempt": 1,
+        "trading_decision": "NO_TRADE"
+      },
+      "created": 1793929280.2512362,
+      "updated": 1793929310.6824813
+    },
+    {
+      "id": "532307848a2317c310d70481",
+      "kind": "MODEL_DRIFT_MONITOR",
+      "lane": "shadow",
+      "payload": {},
+      "dependencies": [
+        "258bfa92e87427a87e57919d"
+      ],
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "max_attempts": 2,
+      "timeout": 180.0,
+      "ready_at": 1793929348.8534963,
+      "result": {
+        "status": "SUCCEEDED",
+        "component": "scripts/phase3i_forward_report.py",
+        "note": "component success does not mean an observation matured or a new forecast issued",
+        "job_id": "532307848a2317c310d70481",
+        "kind": "MODEL_DRIFT_MONITOR",
+        "attempt": 1,
+        "trading_decision": "NO_TRADE"
+      },
+      "created": 1793929280.2621536,
+      "updated": 1793929318.8539286
+    },
+    {
+      "id": "d41d9341d48c7b020b7d449d",
+      "kind": "RESEARCH_REPORT",
+      "lane": "shadow",
+      "payload": {},
+      "dependencies": [],
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "max_attempts": 2,
+      "timeout": 60.0,
+      "ready_at": 1793929351.7392642,
+      "result": {
+        "status": "SUCCEEDED",
+        "report_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\d41d9341d48c7b020b7d449d\\1\\research_report.json",
+        "markdown_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\d41d9341d48c7b020b7d449d\\1\\research_report.md",
+        "job_id": "d41d9341d48c7b020b7d449d",
+        "kind": "RESEARCH_REPORT",
+        "attempt": 1,
+        "trading_decision": "NO_TRADE"
+      },
+      "created": 1793929318.8730953,
+      "updated": 1793929321.739735
+    },
+    {
+      "id": "565c88d92b1af7f92e7771f9",
+      "kind": "RESEARCH_REPORT",
+      "lane": "research",
+      "payload": {},
+      "dependencies": [],
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "max_attempts": 2,
+      "timeout": 60.0,
+      "ready_at": 1793929357.343755,
+      "result": {
+        "status": "SUCCEEDED",
+        "report_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\565c88d92b1af7f92e7771f9\\1\\research_report.json",
+        "markdown_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\565c88d92b1af7f92e7771f9\\1\\research_report.md",
+        "job_id": "565c88d92b1af7f92e7771f9",
+        "kind": "RESEARCH_REPORT",
+        "attempt": 1,
+        "trading_decision": "NO_TRADE"
+      },
+      "created": 1793929324.5978594,
+      "updated": 1793929327.3441477
+    },
+    {
+      "id": "4dbbf411e3fed003ab663915",
+      "kind": "RESEARCH_REPORT",
+      "lane": "research",
+      "payload": {},
+      "dependencies": [],
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "max_attempts": 2,
+      "timeout": 60.0,
+      "ready_at": 1793930205.5321376,
+      "result": {
+        "status": "SUCCEEDED",
+        "report_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\4dbbf411e3fed003ab663915\\1\\research_report.json",
+        "markdown_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\4dbbf411e3fed003ab663915\\1\\research_report.md",
+        "job_id": "4dbbf411e3fed003ab663915",
+        "kind": "RESEARCH_REPORT",
+        "attempt": 1,
+        "trading_decision": "NO_TRADE"
+      },
+      "created": 1793930170.7266548,
+      "updated": 1793930175.5327616
+    },
+    {
+      "id": "796a8ef6b22dbab3b672af7f",
+      "kind": "RESEARCH_REPORT",
+      "lane": "research",
+      "payload": {},
+      "dependencies": [],
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "max_attempts": 2,
+      "timeout": 60.0,
+      "ready_at": 1793930234.0021336,
+      "result": {
+        "status": "SUCCEEDED",
+        "report_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\796a8ef6b22dbab3b672af7f\\1\\research_report.json",
+        "markdown_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\796a8ef6b22dbab3b672af7f\\1\\research_report.md",
+        "job_id": "796a8ef6b22dbab3b672af7f",
+        "kind": "RESEARCH_REPORT",
+        "attempt": 1,
+        "trading_decision": "NO_TRADE"
+      },
+      "created": 1793930200.221065,
+      "updated": 1793930204.0026548
+    },
+    {
+      "id": "04484bfe2212f4ab1c32f797",
+      "kind": "RESEARCH_REPORT",
+      "lane": "research",
+      "payload": {},
+      "dependencies": [],
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "max_attempts": 2,
+      "timeout": 60.0,
+      "ready_at": 1793930480.6913962,
+      "result": {
+        "status": "SUCCEEDED",
+        "report_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\04484bfe2212f4ab1c32f797\\1\\research_report.json",
+        "markdown_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\04484bfe2212f4ab1c32f797\\1\\research_report.md",
+        "job_id": "04484bfe2212f4ab1c32f797",
+        "kind": "RESEARCH_REPORT",
+        "attempt": 1,
+        "trading_decision": "NO_TRADE"
+      },
+      "created": 1793930446.2358556,
+      "updated": 1793930450.691819
     }
   ],
   "forward_audit_snapshot": {
@@ -3805,7 +4220,7 @@
     ],
     "sample_warning": "descriptive observations only; no forward calibration or trading-edge claim",
     "trading_decision": "NO_TRADE",
-    "generated_at": "2026-11-06T01:00:37.575448+00:00",
+    "generated_at": "2026-11-06T02:00:54.512879+00:00",
     "issued": 3,
     "pending": 1,
     "baseline_sha256": "cf6984327158af5517c35ca5ad2cd2ccc865a40022e50b411f1cc5872eaf298d",
@@ -3817,7 +4232,7 @@
   },
   "historical_and_forward_metrics_separate": true,
   "shadow_operations_snapshot": {
-    "generated_at": "2026-11-06T01:00:44.901542+00:00",
+    "generated_at": "2026-11-06T02:01:01.387947+00:00",
     "status": "ok",
     "components": {
       "shadow_cycle": {
@@ -3842,10 +4257,10 @@
     "health": {
       "status": "ok",
       "warnings": [],
-      "last_run": "2026-11-06T01:00:30.339356+00:00",
-      "age_hours": 0.004045051666666667,
-      "last_success": "2026-11-06T01:00:30.339356+00:00",
-      "last_attempt": "2026-11-06T01:00:30.339356+00:00",
+      "last_run": "2026-11-06T02:00:46.333732+00:00",
+      "age_hours": 0.004181726388888888,
+      "last_success": "2026-11-06T02:00:46.333732+00:00",
+      "last_attempt": "2026-11-06T02:00:46.333732+00:00",
       "last_attempt_event": "CYCLE_OK",
       "forecasts": 3,
       "matured": 2,

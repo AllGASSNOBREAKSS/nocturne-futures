@@ -1,4 +1,68 @@
-# Backend readiness — Phase 3Q
+# Backend readiness — Phase 3R
+
+## Phase 3R acceptance — NO-GO frontend
+
+Evidence: `PHASE3R_FINDINGS.md`, `PHASE3R_REPRODUCIBILITY.md`,
+`reports/phase3r_acceptance.json`. No percentage or predictive-readiness claim.
+
+### Engineering
+
+- **Dependency reproducibility: verified bounded Windows 3.14 scope.** Fifty-five
+  exact wheel hashes checked against actual PyPI metadata, offline hash-required
+  bootstrap and 13,290 installed RECORD file hashes. Source/Python/package/native
+  manifests: `phase3r_dependency_lock.json`, `phase3r_runtime.json`. Trusted base
+  tooling/local metadata and cross-platform limitations remain explicit.
+- **Frozen inference: verified exact issued-row replay.** Three original cases,
+  legacy/corrected cohorts separate, exact float-hex comparison. Loader rejects
+  six-library numerical drift before pickle loading/inference. Artifact and old
+  journal bytes unchanged. `tests/test_environment_integrity.py`,
+  `phase3r_runtime.json`, `phase3r_acceptance.json`.
+- **Bootstrap/native integration: verified fresh environment, same host.** New
+  offline venv/independent clone/fresh C++20 build; final local and isolated suites
+  each pass 384 tests including native parity. Five CI jobs pass at `3a88a5d`,
+  including Windows hash-locked bootstrap. `reports/phase3r_ci.json`.
+- **Scheduling/recovery: verified bounded completions, partial deployment.** Real
+  01:47 backup contention returned 75, retained in `phase3r_backup_collision.json`.
+  Capture admission and bounded maintenance wait address that collision without
+  masking failures; subsequent two completions per task have complete zero-exit
+  receipts (`phase3r_scheduler.json`). No task settings/principals/triggers changed.
+  Interactive/awake-host, reboot/logoff/soak and independent monitoring limits remain.
+- **Private recovery: verified local proof, off-host blocked.** Coherent SQLite,
+  archives, model and outcome replay verifies; original local restore/replay took
+  13.70 seconds. `phase3r_recovery_*.json`. Proposed RPO 30 minutes/RTO 60 minutes
+  are not achieved off-host SLOs. Authorized encrypted off-host destination,
+  independent key custody, separate-host restore and cutover/rollback remain absent.
+- **Research orchestration: verified eligible scope.** Five actual shadow jobs and
+  reporting executed; unchanged research tick reused existing validation. All 12
+  job types inventoried without claiming each ran anew (`phase3r_assurance.json`).
+  No exhausted directional fit or exposed holdout was repeated.
+- **API security: narrow input fix verified, deployment partial.** File-backed
+  query inputs reject path escapes/overlong identifiers; no mutating routes.
+  `tests/test_api.py`. Authentication/TLS/rate limiting/load review, external access
+  controls, independent paging and hard memory isolation remain missing. Default
+  loopback binding is not approval to expose the unauthenticated API publicly.
+
+### Quantitative
+
+- **Authentic NQ/ES data: USER_ACTION_REQUIRED.** Zero licensed receipts; keys and
+  real entitlement/quote/approval absent. `phase3r_data_access.json`; single exact
+  acquisition checklist: `PHASE3P_DATA_ACCESS.md`. No paid consumption or adapter
+  rebuild. A price estimate is unknown, not zero.
+- **Independent direction/strategy/target calibration: blocked.** No new authentic
+  futures backtest/model. Old fixed index diagnostics remain negative and are only
+  replayed for reproducibility. Order flow and 200–500-point target probabilities
+  require adequate authentic paths/events and realistic costs; unsupported values
+  stay null. `PHASE3R_FINDINGS.md`, `phase3r_assurance.json`.
+- **Forward sample adequacy: insufficient.** Three issued, two research-grade
+  matured, one pending; one matured per cohort. November 6 remains ineligible until
+  November 7 00:00 UTC plus original gates. Two samples do not establish reliable
+  calibration or prediction accuracy. `phase3i_forward.json`,
+  `phase3l_forward_audit.json`; no exchange-finality claim.
+
+**Decision: NO-GO frontend; NO_PROMOTION / NO_TRADE.** Remaining gates require
+independent deployment/durability/security/availability evidence and authentic
+independent quantitative observations, not more test-count inflation. Earlier
+sections below are historical checkpoints.
 
 ## Phase 3Q acceptance decision — NO-GO frontend
 

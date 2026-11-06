@@ -1,0 +1,987 @@
+{
+  "generated_at": "2026-11-06T02:07:49.049145+00:00",
+  "baseline_commit": "c65e5960864be85b760d5953725d72ea5bca6ce4",
+  "decision": "NO_GO_FRONTEND",
+  "preservation": [
+    {
+      "path": "data/shadow/ndx_range/forecasts.jsonl",
+      "original_bytes_preserved": true,
+      "appended_bytes": 0,
+      "sha256": "8e23e8169cfb5abecd9908f9abf7d3bea5a77638729497a2674db30f46fb6b43"
+    },
+    {
+      "path": "data/shadow/ndx_range/outcomes.jsonl",
+      "original_bytes_preserved": true,
+      "appended_bytes": 0,
+      "sha256": "8b90fbee6cbd79ccd559240e1dc15d5b2e4de1507d4222a51641eb8c61443396"
+    },
+    {
+      "path": "models/shadow/ndx-range-v1/model.joblib",
+      "original_bytes_preserved": true,
+      "appended_bytes": 0,
+      "sha256": "515fbf7222fd81159fa017facb68c88020afd63c3e2ddec00178d65d0821434e"
+    }
+  ],
+  "engineering": {
+    "dependency_lock": {
+      "generated_at": "2026-11-06T01:39:48.335051+00:00",
+      "result": {
+        "status": "VERIFIED_WHEEL_BYTES",
+        "wheels": 55,
+        "bytes": 141178373
+      },
+      "hash_lock_sha256": "b3025db6448407f52ab2f76e0b94d50b7936e33bee77964f1f1ac9ea031cdeb6",
+      "manifest_sha256": "921c08402b780850e74e2f486bca4d616809d09ade5e2e4a91679a378aa0c0f3"
+    },
+    "runtime": {
+      "generated_at": "2026-11-06T02:00:56.994228+00:00",
+      "status": "VERIFIED_ISOLATED_RUNTIME",
+      "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "prefix": "C:\\Users\\huzai\\AppData\\Local\\Temp\\opencode\\nocturne-phase3r-clean\\venv",
+      "source_commit": "3a88a5d5215900404f431fed7f9b62d88e72aa7b",
+      "tracked_deployment_source_clean": true,
+      "pip_version": "26.1.2",
+      "dependency_integrity": {
+        "status": "VERIFIED_INSTALLED_RECORDS",
+        "files": 13290,
+        "packages": [
+          {
+            "name": "annotated-doc",
+            "version": "0.0.5",
+            "hashed_files": 9
+          },
+          {
+            "name": "annotated-types",
+            "version": "0.8.0",
+            "hashed_files": 8
+          },
+          {
+            "name": "anyio",
+            "version": "4.16.0",
+            "hashed_files": 54
+          },
+          {
+            "name": "attrs",
+            "version": "26.1.0",
+            "hashed_files": 36
+          },
+          {
+            "name": "certifi",
+            "version": "2026.10.23",
+            "hashed_files": 13
+          },
+          {
+            "name": "charset-normalizer",
+            "version": "3.5.2",
+            "hashed_files": 23
+          },
+          {
+            "name": "click",
+            "version": "8.5.0",
+            "hashed_files": 23
+          },
+          {
+            "name": "cloudpickle",
+            "version": "3.1.2",
+            "hashed_files": 8
+          },
+          {
+            "name": "cmake",
+            "version": "4.4.4",
+            "hashed_files": 4176
+          },
+          {
+            "name": "colorama",
+            "version": "0.4.6",
+            "hashed_files": 18
+          },
+          {
+            "name": "contourpy",
+            "version": "1.4.0",
+            "hashed_files": 26
+          },
+          {
+            "name": "cycler",
+            "version": "0.12.1",
+            "hashed_files": 8
+          },
+          {
+            "name": "fastapi",
+            "version": "0.162.0",
+            "hashed_files": 67
+          },
+          {
+            "name": "fonttools",
+            "version": "4.68.0",
+            "hashed_files": 379
+          },
+          {
+            "name": "h11",
+            "version": "0.16.0",
+            "hashed_files": 18
+          },
+          {
+            "name": "httpcore",
+            "version": "1.0.9",
+            "hashed_files": 37
+          },
+          {
+            "name": "httpx",
+            "version": "0.28.1",
+            "hashed_files": 31
+          },
+          {
+            "name": "idna",
+            "version": "3.20",
+            "hashed_files": 18
+          },
+          {
+            "name": "iniconfig",
+            "version": "2.3.1",
+            "hashed_files": 11
+          },
+          {
+            "name": "joblib",
+            "version": "1.6.0",
+            "hashed_files": 142
+          },
+          {
+            "name": "jsonschema",
+            "version": "4.26.0",
+            "hashed_files": 45
+          },
+          {
+            "name": "jsonschema-specifications",
+            "version": "2025.9.1",
+            "hashed_files": 29
+          },
+          {
+            "name": "kiwisolver",
+            "version": "1.5.1",
+            "hashed_files": 11
+          },
+          {
+            "name": "lightgbm",
+            "version": "4.7.0",
+            "hashed_files": 18
+          },
+          {
+            "name": "matplotlib",
+            "version": "3.11.2",
+            "hashed_files": 602
+          },
+          {
+            "name": "narwhals",
+            "version": "2.28.0",
+            "hashed_files": 169
+          },
+          {
+            "name": "ninja",
+            "version": "1.13.2",
+            "hashed_files": 13
+          },
+          {
+            "name": "numpy",
+            "version": "2.5.0",
+            "hashed_files": 950
+          },
+          {
+            "name": "opentelemetry-api",
+            "version": "1.45.2",
+            "hashed_files": 48
+          },
+          {
+            "name": "packaging",
+            "version": "26.3",
+            "hashed_files": 30
+          },
+          {
+            "name": "pandas",
+            "version": "3.0.3",
+            "hashed_files": 1569
+          },
+          {
+            "name": "pillow",
+            "version": "13.0.0",
+            "hashed_files": 121
+          },
+          {
+            "name": "pluggy",
+            "version": "1.7.0",
+            "hashed_files": 20
+          },
+          {
+            "name": "pybind11",
+            "version": "3.1.0",
+            "hashed_files": 79
+          },
+          {
+            "name": "pydantic",
+            "version": "2.14.3",
+            "hashed_files": 113
+          },
+          {
+            "name": "pydantic-core",
+            "version": "2.50.4",
+            "hashed_files": 12
+          },
+          {
+            "name": "pygments",
+            "version": "2.21.0",
+            "hashed_files": 351
+          },
+          {
+            "name": "pyparsing",
+            "version": "3.3.3",
+            "hashed_files": 24
+          },
+          {
+            "name": "pytest",
+            "version": "9.2.0",
+            "hashed_files": 93
+          },
+          {
+            "name": "python-dateutil",
+            "version": "4.0.0",
+            "hashed_files": 27
+          },
+          {
+            "name": "pyyaml",
+            "version": "6.0.3",
+            "hashed_files": 25
+          },
+          {
+            "name": "referencing",
+            "version": "0.37.0",
+            "hashed_files": 20
+          },
+          {
+            "name": "requests",
+            "version": "2.34.2",
+            "hashed_files": 27
+          },
+          {
+            "name": "rpds-py",
+            "version": "2026.9.1",
+            "hashed_files": 10
+          },
+          {
+            "name": "scikit-learn",
+            "version": "1.9.1",
+            "hashed_files": 1078
+          },
+          {
+            "name": "scipy",
+            "version": "1.18.1",
+            "hashed_files": 1536
+          },
+          {
+            "name": "setuptools",
+            "version": "84.2.1",
+            "hashed_files": 349
+          },
+          {
+            "name": "starlette",
+            "version": "1.10.0",
+            "hashed_files": 42
+          },
+          {
+            "name": "threadpoolctl",
+            "version": "3.8.0",
+            "hashed_files": 6
+          },
+          {
+            "name": "typing-extensions",
+            "version": "4.16.0",
+            "hashed_files": 6
+          },
+          {
+            "name": "typing-inspection",
+            "version": "0.4.5",
+            "hashed_files": 10
+          },
+          {
+            "name": "tzdata",
+            "version": "2026.6",
+            "hashed_files": 634
+          },
+          {
+            "name": "urllib3",
+            "version": "2.8.0",
+            "hashed_files": 43
+          },
+          {
+            "name": "uvicorn",
+            "version": "0.54.0",
+            "hashed_files": 53
+          },
+          {
+            "name": "wheel",
+            "version": "0.48.0",
+            "hashed_files": 22
+          }
+        ],
+        "limitations": "Trusted local RECORD metadata; unhashed RECORD/bytecode excluded. Not malware scanning or protection against coordinated metadata tampering."
+      },
+      "inference_parity": {
+        "status": "VERIFIED_FROZEN_INFERENCE",
+        "model_id": "ndx-range-v1",
+        "model_version": "1.0.0",
+        "artifact_digests": {
+          "model.joblib": "515fbf7222fd81159fa017facb68c88020afd63c3e2ddec00178d65d0821434e",
+          "metadata.json": "a94ed6bd568af7adcbf0d336ebaaa18837cfad211ce75d7c0ee27b7c1cca30e7",
+          "baseline.json": "cf6984327158af5517c35ca5ad2cd2ccc865a40022e50b411f1cc5872eaf298d"
+        },
+        "records": [
+          {
+            "forecast_id": "20d48fc41c2cc0f5c0ae4f2d",
+            "forecast_sha256": "26604fd0603ca5f5e6dac216797fe24b96143e4abc63ceeae597a32b7290d3e2",
+            "inference_revision": "legacy-unadjusted",
+            "quantiles": {
+              "p50": 0.016976789311298954,
+              "p80": 0.026183191240699396,
+              "p90": 0.02856812814119795
+            },
+            "comparison": "EXACT_FLOAT_HEX"
+          },
+          {
+            "forecast_id": "3db9c4cbd3a9cc5944db8437",
+            "forecast_sha256": "86169b61e5ed6c944b0c7fc617f810740c031510b79739524a88920c52df0e57",
+            "inference_revision": "residual-adjusted-v1",
+            "quantiles": {
+              "p50": 0.016858438244665742,
+              "p80": 0.025113282583718373,
+              "p90": 0.031045690835127347
+            },
+            "comparison": "EXACT_FLOAT_HEX"
+          },
+          {
+            "forecast_id": "291aac9c9d893a888609aafd",
+            "forecast_sha256": "8344c61bcd20afe22003ef0f09f200308182d86694428044314afd560e9f6156",
+            "inference_revision": "residual-adjusted-v1",
+            "quantiles": {
+              "p50": 0.034500404140336935,
+              "p80": 0.06031706788643462,
+              "p90": 0.07437767299734434
+            },
+            "comparison": "EXACT_FLOAT_HEX"
+          }
+        ],
+        "limits": "Replay of stored feature rows, not upstream feature reconstruction or predictive validation. Run original archived-source proof gates separately."
+      },
+      "native": {
+        "status": "IMPORTED_FRESH_BUILD",
+        "binary_sha256": "ab0c3536340229ce9330c239493ccdd76dcc580860650950e8241ad576ac751e",
+        "cmake_configuration": [
+          "CMAKE_BUILD_TYPE:STRING=Release",
+          "CMAKE_CXX_COMPILER:FILEPATH=C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/cl.exe",
+          "CMAKE_CXX_FLAGS:STRING=/DWIN32 /D_WINDOWS /EHsc",
+          "CMAKE_CXX_FLAGS_DEBUG:STRING=/Zi /Ob0 /Od /RTC1",
+          "CMAKE_CXX_FLAGS_MINSIZEREL:STRING=/O1 /Ob1 /DNDEBUG",
+          "CMAKE_CXX_FLAGS_RELEASE:STRING=/O2 /Ob2 /DNDEBUG",
+          "CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=/Zi /O2 /Ob1 /DNDEBUG",
+          "PYTHON_EXECUTABLE:FILEPATH=C:/Users/huzai/AppData/Local/Temp/opencode/nocturne-phase3r-clean/venv/Scripts/python.exe",
+          "CMAKE_CXX_FLAGS-ADVANCED:INTERNAL=1",
+          "CMAKE_CXX_FLAGS_DEBUG-ADVANCED:INTERNAL=1",
+          "CMAKE_CXX_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1",
+          "CMAKE_CXX_FLAGS_RELEASE-ADVANCED:INTERNAL=1",
+          "CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1",
+          "CMAKE_GENERATOR:INTERNAL=Ninja"
+        ],
+        "limits": "Binary hash identifies this build; not bitwise reproducibility across compilers/hosts."
+      },
+      "network_requests": 0,
+      "new_models_trained": 0,
+      "promotion": "NO_PROMOTION",
+      "trading_decision": "NO_TRADE"
+    },
+    "recovery": {
+      "generated_at": "2026-11-06T01:47:44.545990+00:00",
+      "mode": "check",
+      "result": {
+        "status": "VERIFIED_LOCAL_RELOCATION",
+        "issued": 3,
+        "verified_matured": 2,
+        "reproduced_index_diagnostics": [
+          {
+            "symbol": "^NDX",
+            "observations": 6036,
+            "scope": "NON_EXECUTABLE_INDEX_CONTEXT_NOT_NQ_ES_PNL",
+            "net_mean_fraction_2bp": -0.00016316773640181952
+          },
+          {
+            "symbol": "^GSPC",
+            "observations": 6036,
+            "scope": "NON_EXECUTABLE_INDEX_CONTEXT_NOT_NQ_ES_PNL",
+            "net_mean_fraction_2bp": -0.0003269370965258071
+          }
+        ],
+        "cached_challenger_files_verified": 6,
+        "new_models_trained": 0,
+        "network_requests": 0,
+        "trading_decision": "NO_TRADE",
+        "limitations": "same-host offline relocation using installed code; not off-host durability, different-machine restore or service activation"
+      },
+      "started_at": "2026-11-06T01:47:30.844504+00:00",
+      "elapsed_seconds": 13.701497900001414,
+      "scope": "authorized local recovery drill; private archive not uploaded, not encrypted by this tool",
+      "live_trading": "DISABLED"
+    },
+    "scheduler": {
+      "Status": "LAST_OBSERVED_COMPLETIONS_OK",
+      "Observations": [
+        {
+          "LogonType": "Interactive",
+          "NextRun": "2026-11-06T02:17:05.0000000Z",
+          "CompleteLifecycleReceipt": true,
+          "LastRun": "2026-11-06T02:00:42.0000000Z",
+          "Attempt": 1,
+          "Events": [
+            {
+              "Detail": {
+                "Lane": "shadow"
+              },
+              "PID": 4944,
+              "Event": "RUN_STARTED",
+              "At": "2026-11-06T02:00:43.2309322Z"
+            },
+            {
+              "Detail": {
+                "Stage": "cycle"
+              },
+              "PID": 4944,
+              "Event": "STAGE_STARTED",
+              "At": "2026-11-06T02:00:43.3025923Z"
+            },
+            {
+              "Detail": {
+                "Stage": "cycle",
+                "ExitCode": 0
+              },
+              "PID": 4944,
+              "Event": "STAGE_FINISHED",
+              "At": "2026-11-06T02:00:50.6654540Z"
+            },
+            {
+              "Detail": {
+                "Stage": "audit"
+              },
+              "PID": 4944,
+              "Event": "STAGE_STARTED",
+              "At": "2026-11-06T02:00:50.6702306Z"
+            },
+            {
+              "Detail": {
+                "Stage": "audit",
+                "ExitCode": 0
+              },
+              "PID": 4944,
+              "Event": "STAGE_FINISHED",
+              "At": "2026-11-06T02:00:54.9180547Z"
+            },
+            {
+              "Detail": {
+                "Stage": "report"
+              },
+              "PID": 4944,
+              "Event": "STAGE_STARTED",
+              "At": "2026-11-06T02:00:54.9210521Z"
+            },
+            {
+              "Detail": {
+                "Stage": "report",
+                "ExitCode": 0
+              },
+              "PID": 4944,
+              "Event": "STAGE_FINISHED",
+              "At": "2026-11-06T02:01:00.3854423Z"
+            },
+            {
+              "Detail": {
+                "Stage": "monitor"
+              },
+              "PID": 4944,
+              "Event": "STAGE_STARTED",
+              "At": "2026-11-06T02:01:00.3879851Z"
+            },
+            {
+              "Detail": {
+                "Stage": "monitor",
+                "ExitCode": 0
+              },
+              "PID": 4944,
+              "Event": "STAGE_FINISHED",
+              "At": "2026-11-06T02:01:01.5437308Z"
+            },
+            {
+              "Detail": {
+                "Stage": "health"
+              },
+              "PID": 4944,
+              "Event": "STAGE_STARTED",
+              "At": "2026-11-06T02:01:01.5474678Z"
+            },
+            {
+              "Detail": {
+                "Stage": "health",
+                "ExitCode": 0
+              },
+              "PID": 4944,
+              "Event": "STAGE_FINISHED",
+              "At": "2026-11-06T02:01:04.6347856Z"
+            },
+            {
+              "Detail": {
+                "ExitCode": 0
+              },
+              "PID": 4944,
+              "Event": "RUN_FINISHED",
+              "At": "2026-11-06T02:01:04.6413883Z"
+            }
+          ],
+          "State": "Ready",
+          "Name": "Nocturne-NDX-ReadOnly-Shadow",
+          "WindowlessLauncher": true,
+          "ExitCode": 0,
+          "LauncherEvents": [
+            {
+              "at": "2026-11-06T02:00:42.699190+00:00",
+              "console_window": false,
+              "event": "LAUNCHER_STARTED",
+              "lane": "shadow",
+              "pid": 14924
+            },
+            {
+              "at": "2026-11-06T02:00:42.718600+00:00",
+              "child_pid": 4944,
+              "creation": "CREATE_NO_WINDOW",
+              "event": "RUNNER_STARTED",
+              "pid": 14924
+            },
+            {
+              "at": "2026-11-06T02:01:04.665091+00:00",
+              "event": "LAUNCHER_FINISHED",
+              "exit_code": 0,
+              "pid": 14924
+            }
+          ],
+          "ObservedAt": "2026-11-06T02:01:07.5332134Z"
+        },
+        {
+          "LogonType": "Interactive",
+          "NextRun": "2026-11-06T02:13:57.0000000Z",
+          "CompleteLifecycleReceipt": true,
+          "LastRun": "2026-11-06T02:00:42.0000000Z",
+          "Attempt": 1,
+          "Events": [
+            {
+              "Detail": {
+                "Lane": "research"
+              },
+              "PID": 50476,
+              "Event": "RUN_STARTED",
+              "At": "2026-11-06T02:00:43.2309322Z"
+            },
+            {
+              "Detail": {
+                "ExitCode": 0
+              },
+              "PID": 50476,
+              "Event": "RUN_FINISHED",
+              "At": "2026-11-06T02:00:51.1431857Z"
+            }
+          ],
+          "State": "Ready",
+          "Name": "Nocturne-ReadOnly-Research",
+          "WindowlessLauncher": true,
+          "ExitCode": 0,
+          "LauncherEvents": [
+            {
+              "at": "2026-11-06T02:00:42.703769+00:00",
+              "console_window": false,
+              "event": "LAUNCHER_STARTED",
+              "lane": "research",
+              "pid": 38076
+            },
+            {
+              "at": "2026-11-06T02:00:42.723947+00:00",
+              "child_pid": 50476,
+              "creation": "CREATE_NO_WINDOW",
+              "event": "RUNNER_STARTED",
+              "pid": 38076
+            },
+            {
+              "at": "2026-11-06T02:00:51.171154+00:00",
+              "event": "LAUNCHER_FINISHED",
+              "exit_code": 0,
+              "pid": 38076
+            }
+          ],
+          "ObservedAt": "2026-11-06T02:01:08.4067734Z"
+        },
+        {
+          "LogonType": "Interactive",
+          "NextRun": "2026-11-06T02:17:05.0000000Z",
+          "CompleteLifecycleReceipt": true,
+          "LastRun": "2026-11-06T02:01:08.0000000Z",
+          "Attempt": 2,
+          "Events": [
+            {
+              "Detail": {
+                "Lane": "shadow"
+              },
+              "PID": 35792,
+              "Event": "RUN_STARTED",
+              "At": "2026-11-06T02:01:09.1085180Z"
+            },
+            {
+              "Detail": {
+                "Stage": "cycle"
+              },
+              "PID": 35792,
+              "Event": "STAGE_STARTED",
+              "At": "2026-11-06T02:01:09.1740992Z"
+            },
+            {
+              "Detail": {
+                "Stage": "cycle",
+                "ExitCode": 0
+              },
+              "PID": 35792,
+              "Event": "STAGE_FINISHED",
+              "At": "2026-11-06T02:01:15.0198105Z"
+            },
+            {
+              "Detail": {
+                "Stage": "audit"
+              },
+              "PID": 35792,
+              "Event": "STAGE_STARTED",
+              "At": "2026-11-06T02:01:15.0228182Z"
+            },
+            {
+              "Detail": {
+                "Stage": "audit",
+                "ExitCode": 0
+              },
+              "PID": 35792,
+              "Event": "STAGE_FINISHED",
+              "At": "2026-11-06T02:01:19.5406331Z"
+            },
+            {
+              "Detail": {
+                "Stage": "report"
+              },
+              "PID": 35792,
+              "Event": "STAGE_STARTED",
+              "At": "2026-11-06T02:01:19.5436804Z"
+            },
+            {
+              "Detail": {
+                "Stage": "report",
+                "ExitCode": 0
+              },
+              "PID": 35792,
+              "Event": "STAGE_FINISHED",
+              "At": "2026-11-06T02:01:24.2814762Z"
+            },
+            {
+              "Detail": {
+                "Stage": "monitor"
+              },
+              "PID": 35792,
+              "Event": "STAGE_STARTED",
+              "At": "2026-11-06T02:01:24.2899908Z"
+            },
+            {
+              "Detail": {
+                "Stage": "monitor",
+                "ExitCode": 0
+              },
+              "PID": 35792,
+              "Event": "STAGE_FINISHED",
+              "At": "2026-11-06T02:01:25.4622087Z"
+            },
+            {
+              "Detail": {
+                "Stage": "health"
+              },
+              "PID": 35792,
+              "Event": "STAGE_STARTED",
+              "At": "2026-11-06T02:01:25.4652045Z"
+            },
+            {
+              "Detail": {
+                "Stage": "health",
+                "ExitCode": 0
+              },
+              "PID": 35792,
+              "Event": "STAGE_FINISHED",
+              "At": "2026-11-06T02:01:29.1827826Z"
+            },
+            {
+              "Detail": {
+                "ExitCode": 0
+              },
+              "PID": 35792,
+              "Event": "RUN_FINISHED",
+              "At": "2026-11-06T02:01:29.1918258Z"
+            }
+          ],
+          "State": "Ready",
+          "Name": "Nocturne-NDX-ReadOnly-Shadow",
+          "WindowlessLauncher": true,
+          "ExitCode": 0,
+          "LauncherEvents": [
+            {
+              "at": "2026-11-06T02:01:08.602345+00:00",
+              "console_window": false,
+              "event": "LAUNCHER_STARTED",
+              "lane": "shadow",
+              "pid": 29412
+            },
+            {
+              "at": "2026-11-06T02:01:08.648687+00:00",
+              "child_pid": 35792,
+              "creation": "CREATE_NO_WINDOW",
+              "event": "RUNNER_STARTED",
+              "pid": 29412
+            },
+            {
+              "at": "2026-11-06T02:01:29.215945+00:00",
+              "event": "LAUNCHER_FINISHED",
+              "exit_code": 0,
+              "pid": 29412
+            }
+          ],
+          "ObservedAt": "2026-11-06T02:01:32.5824995Z"
+        },
+        {
+          "LogonType": "Interactive",
+          "NextRun": "2026-11-06T02:13:57.0000000Z",
+          "CompleteLifecycleReceipt": true,
+          "LastRun": "2026-11-06T02:01:08.0000000Z",
+          "Attempt": 2,
+          "Events": [
+            {
+              "Detail": {
+                "Lane": "research"
+              },
+              "PID": 52748,
+              "Event": "RUN_STARTED",
+              "At": "2026-11-06T02:01:09.1075158Z"
+            },
+            {
+              "Detail": {
+                "ExitCode": 0
+              },
+              "PID": 52748,
+              "Event": "RUN_FINISHED",
+              "At": "2026-11-06T02:01:15.7444830Z"
+            }
+          ],
+          "State": "Ready",
+          "Name": "Nocturne-ReadOnly-Research",
+          "WindowlessLauncher": true,
+          "ExitCode": 0,
+          "LauncherEvents": [
+            {
+              "at": "2026-11-06T02:01:08.602070+00:00",
+              "console_window": false,
+              "event": "LAUNCHER_STARTED",
+              "lane": "research",
+              "pid": 38148
+            },
+            {
+              "at": "2026-11-06T02:01:08.648825+00:00",
+              "child_pid": 52748,
+              "creation": "CREATE_NO_WINDOW",
+              "event": "RUNNER_STARTED",
+              "pid": 38148
+            },
+            {
+              "at": "2026-11-06T02:01:15.771838+00:00",
+              "event": "LAUNCHER_FINISHED",
+              "exit_code": 0,
+              "pid": 38148
+            }
+          ],
+          "ObservedAt": "2026-11-06T02:01:33.1460359Z"
+        }
+      ],
+      "GeneratedAt": "2026-11-06T02:01:33.1635207Z",
+      "Exercised": true,
+      "Limitations": "Awake interactive host only; no reboot/logoff, soak, off-host paging or 24/7 claim."
+    },
+    "assurance": "reports/phase3r_assurance.json"
+  },
+  "forward": {
+    "generated_at": "2026-11-06T02:01:23.907841+00:00",
+    "issued": 3,
+    "verified_matured": 2,
+    "pending": 1,
+    "inference_samples": {
+      "legacy-unadjusted": {
+        "issued": 1,
+        "verified_matured": 1
+      },
+      "residual-adjusted-v1": {
+        "issued": 2,
+        "verified_matured": 1
+      }
+    },
+    "outcome_verification": {
+      "status": "VERIFIED_RESEARCH_GRADE",
+      "journaled": 2,
+      "verified": 2,
+      "records": [
+        {
+          "forecast_id": "20d48fc41c2cc0f5c0ae4f2d",
+          "status": "VERIFIED_RESEARCH_GRADE",
+          "issues": [],
+          "source_reliability": "unofficial_provider_not_independently_exchange_confirmed",
+          "target_date": "2026-11-04",
+          "realized_high": 28829.662109375,
+          "realized_low": 28276.21875,
+          "realized_range_points": 553.443359375,
+          "realized_range_pct": 0.019639396061696825,
+          "reference_close": 28180.263671875,
+          "covered": {
+            "p50": false,
+            "p80": true,
+            "p90": true
+          },
+          "pinball": {
+            "p50": 0.0013313033751989351,
+            "p80": 0.0013087590358005139,
+            "p90": 0.0008928732079501124
+          },
+          "baseline_comparison": {
+            "registration": "POST_ISSUANCE_FROZEN_TRAIN_ONLY_COMPARATOR_NOT_AN_ISSUED_FORECAST",
+            "quantiles": {
+              "p50": 0.014277494224567883,
+              "p80": 0.024325037914972644,
+              "p90": 0.03292110148141983
+            },
+            "pinball": {
+              "p50": 0.0026809509185644707,
+              "p80": 0.0009371283706551635,
+              "p90": 0.0013281705419723002
+            }
+          },
+          "forecast_sha256": "26604fd0603ca5f5e6dac216797fe24b96143e4abc63ceeae597a32b7290d3e2",
+          "outcome_sha256": "022225ffd03961364c57bae69a6dad09707c41960c8eecb9d0a635a022564442",
+          "snapshot_id": "2bdadb4e3d17c80a4358eed656b475e0129bfc86dfd217695a9d9659f50f7ec0",
+          "raw_sha256": "4b1e33c93d48d63fea2763646b66c02351c97c7a2637d6299d6e4cff8e30265c",
+          "source_close": 28437.166015625,
+          "normalized_sha256": "3a25e87ec507a0ab693acd1a1ad52db31190c1111f331f5cfa68024f6c84f1b1",
+          "source_received_at": "2026-11-05T00:17:09.704122+00:00",
+          "source_available_at": "2026-11-05T00:00:00+00:00",
+          "evaluated_at": "2026-11-05T00:17:10.441833+00:00",
+          "inference_revision": "legacy-unadjusted"
+        },
+        {
+          "forecast_id": "3db9c4cbd3a9cc5944db8437",
+          "status": "VERIFIED_RESEARCH_GRADE",
+          "issues": [],
+          "source_reliability": "unofficial_provider_not_independently_exchange_confirmed",
+          "target_date": "2026-11-05",
+          "realized_high": 28078.185546875,
+          "realized_low": 26606.427734375,
+          "realized_range_points": 1471.7578125,
+          "realized_range_pct": 0.05175472871281661,
+          "reference_close": 28437.166015625,
+          "covered": {
+            "p50": false,
+            "p80": false,
+            "p90": false
+          },
+          "pinball": {
+            "p50": 0.017448145234075434,
+            "p80": 0.02131315690327859,
+            "p90": 0.01863813408992034
+          },
+          "baseline_comparison": {
+            "registration": "EMBEDDED_AT_ISSUANCE",
+            "quantiles": {
+              "p50": 0.014277494224567883,
+              "p80": 0.024325037914972644,
+              "p90": 0.03292110148141983
+            },
+            "pinball": {
+              "p50": 0.018738617244124366,
+              "p80": 0.021943752638275176,
+              "p90": 0.016950264508257106
+            }
+          },
+          "forecast_sha256": "86169b61e5ed6c944b0c7fc617f810740c031510b79739524a88920c52df0e57",
+          "outcome_sha256": "03883e005708913cc3281df8662a0d8e971a24cec2773107e76144acd88bd574",
+          "snapshot_id": "da873626ca075176ee1548fc619656b9de694ada90b7c46bbf7b8862ec019d0a",
+          "raw_sha256": "bad406ec036b934ad4d69e67679be8df043898481a0a69ebe3812499d6607769",
+          "source_close": 26629.80859375,
+          "normalized_sha256": "2030705724f1d1d3618c92d92a51052afc9185b41ac2d5f9a2597cdcf726536b",
+          "source_received_at": "2026-11-06T00:47:09.891512+00:00",
+          "source_available_at": "2026-11-06T00:00:00+00:00",
+          "evaluated_at": "2026-11-06T00:47:10.805475+00:00",
+          "inference_revision": "residual-adjusted-v1"
+        }
+      ],
+      "sample_warning": "descriptive observations only; no forward calibration or trading-edge claim",
+      "trading_decision": "NO_TRADE"
+    }
+  },
+  "futures_access": {
+    "Dataset": "GLBX.MDP3",
+    "Entitlements": "UNVERIFIED",
+    "CredentialsPresent": {
+      "DATABENTO_API_KEY": {
+        "Machine": false,
+        "User": false,
+        "Process": false
+      },
+      "NASDAQ_DATA_LINK_API_KEY": {
+        "Machine": false,
+        "User": false,
+        "Process": false
+      },
+      "FRED_API_KEY": {
+        "Machine": false,
+        "User": false,
+        "Process": false
+      },
+      "BLS_API_KEY": {
+        "Machine": false,
+        "User": false,
+        "Process": false
+      }
+    },
+    "QuotedCostUsd": null,
+    "Checklist": "docs/PHASE3P_DATA_ACCESS.md",
+    "LicensedReceiptCount": 0,
+    "ConsumptionAttempted": false,
+    "GeneratedAt": "2026-11-06T02:06:06.8838807Z",
+    "Status": "USER_ACTION_REQUIRED"
+  },
+  "engineering_open_gates": [
+    "Separate-host/OS restore and authorized encrypted off-host backup with independent key custody",
+    "Unattended account/always-on deployment, reboot/logoff/long-soak evidence and independent monitoring",
+    "API authentication/TLS/rate-limit/load/security review before any non-loopback deployment",
+    "Hard process-memory isolation and reviewed live-path cutover/rollback"
+  ],
+  "quantitative_open_gates": [
+    "Authorized genuine NQ/ES receipts, sufficient independent multi-regime history/events",
+    "Independent direction/strategy discrimination and calibrated target-first probabilities with realistic costs",
+    "Sufficient genuine forward samples per frozen inference cohort"
+  ],
+  "recovery_objectives": {
+    "proposed_rpo_minutes": 30,
+    "proposed_rto_minutes": 60,
+    "status": "TARGETS_NOT_ACCEPTED_SLOS; off-host durability and cadence absent",
+    "measured_scope": "Local restore duration in phase3r_recovery_check.json; excludes host provisioning/transfer/secrets/cutover"
+  },
+  "new_market_models_trained": 0,
+  "new_independent_holdout_evaluations": 0,
+  "promotion": "NO_PROMOTION",
+  "trading_decision": "NO_TRADE"
+}

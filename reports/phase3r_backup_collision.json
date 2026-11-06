@@ -1,0 +1,113 @@
+﻿{
+    "Status":  "DEGRADED",
+    "Observations":  [
+                         {
+                             "LogonType":  "Interactive",
+                             "NextRun":  "2026-11-06T02:17:05.0000000Z",
+                             "CompleteLifecycleReceipt":  true,
+                             "LastRun":  "2026-11-06T01:47:06.0000000Z",
+                             "Attempt":  1,
+                             "Events":  [
+                                            {
+                                                "Detail":  {
+                                                               "Lane":  "shadow"
+                                                           },
+                                                "PID":  6268,
+                                                "Event":  "RUN_STARTED",
+                                                "At":  "2026-11-06T01:47:06.7080309Z"
+                                            },
+                                            {
+                                                "Detail":  {
+                                                               "ExitCode":  75,
+                                                               "Reason":  "BUSY_WRAPPER"
+                                                           },
+                                                "PID":  6268,
+                                                "Event":  "RUN_FINISHED",
+                                                "At":  "2026-11-06T01:47:06.7627753Z"
+                                            }
+                                        ],
+                             "State":  "Ready",
+                             "Name":  "Nocturne-NDX-ReadOnly-Shadow",
+                             "WindowlessLauncher":  true,
+                             "ExitCode":  75,
+                             "LauncherEvents":  [
+                                                    {
+                                                        "at":  "2026-11-06T01:47:06.313345+00:00",
+                                                        "console_window":  false,
+                                                        "event":  "LAUNCHER_STARTED",
+                                                        "lane":  "shadow",
+                                                        "pid":  51984
+                                                    },
+                                                    {
+                                                        "at":  "2026-11-06T01:47:06.329227+00:00",
+                                                        "child_pid":  6268,
+                                                        "creation":  "CREATE_NO_WINDOW",
+                                                        "event":  "RUNNER_STARTED",
+                                                        "pid":  51984
+                                                    },
+                                                    {
+                                                        "at":  "2026-11-06T01:47:06.787914+00:00",
+                                                        "event":  "LAUNCHER_FINISHED",
+                                                        "exit_code":  75,
+                                                        "pid":  51984
+                                                    }
+                                                ],
+                             "ObservedAt":  "2026-11-06T01:47:54.4670416Z"
+                         },
+                         {
+                             "LogonType":  "Interactive",
+                             "NextRun":  "2026-11-06T02:13:57.0000000Z",
+                             "CompleteLifecycleReceipt":  true,
+                             "LastRun":  "2026-11-06T01:00:51.0000000Z",
+                             "Attempt":  1,
+                             "Events":  [
+                                            {
+                                                "Detail":  {
+                                                               "Lane":  "research"
+                                                           },
+                                                "PID":  32892,
+                                                "Event":  "RUN_STARTED",
+                                                "At":  "2026-11-06T01:00:51.6268825Z"
+                                            },
+                                            {
+                                                "Detail":  {
+                                                               "ExitCode":  0
+                                                           },
+                                                "PID":  32892,
+                                                "Event":  "RUN_FINISHED",
+                                                "At":  "2026-11-06T01:00:58.9291069Z"
+                                            }
+                                        ],
+                             "State":  "Ready",
+                             "Name":  "Nocturne-ReadOnly-Research",
+                             "WindowlessLauncher":  true,
+                             "ExitCode":  0,
+                             "LauncherEvents":  [
+                                                    {
+                                                        "at":  "2026-11-06T01:00:51.197404+00:00",
+                                                        "console_window":  false,
+                                                        "event":  "LAUNCHER_STARTED",
+                                                        "lane":  "research",
+                                                        "pid":  52652
+                                                    },
+                                                    {
+                                                        "at":  "2026-11-06T01:00:51.212448+00:00",
+                                                        "child_pid":  32892,
+                                                        "creation":  "CREATE_NO_WINDOW",
+                                                        "event":  "RUNNER_STARTED",
+                                                        "pid":  52652
+                                                    },
+                                                    {
+                                                        "at":  "2026-11-06T01:00:58.957084+00:00",
+                                                        "event":  "LAUNCHER_FINISHED",
+                                                        "exit_code":  0,
+                                                        "pid":  52652
+                                                    }
+                                                ],
+                             "ObservedAt":  "2026-11-06T01:47:55.0079595Z"
+                         }
+                     ],
+    "GeneratedAt":  "2026-11-06T01:47:55.0147921Z",
+    "Exercised":  false,
+    "Limitations":  "Awake interactive host only; no reboot/logoff, soak, off-host paging or 24/7 claim."
+}

@@ -8,6 +8,28 @@
 
 ## What is implemented
 
+### Phase 3R — hash-locked bootstrap and exact frozen inference
+
+55 reviewed wheel hashes support offline Windows/CPython-3.14 bootstrap; installed
+integrity checks cover 13,290 hashed files. A new venv/clone/native build passes
+384 tests, as does the local suite. All five implementation CI jobs passed.
+Frozen model loading rejects numerical-library drift before inference, and all
+three original issued rows reproduce exact quantiles without changing artifacts.
+
+A real backup/scheduled-tick collision was retained and fixed with admission and
+bounded coordination, not hidden as success. Repeated real task completions pass.
+Same-host recovery works; independent-host/encrypted off-host recovery remains
+unverified. API path-query inputs are hardened, but deployment access controls
+remain incomplete. Tasks still need an awake, logged-in host.
+
+Forward state remains **3 issued / 2 verified matured / 1 pending**; authentic
+futures access is **USER_ACTION_REQUIRED**. No new market model or trading edge.
+**NO-GO frontend / NO_PROMOTION / NO_TRADE.** See
+[findings](docs/PHASE3R_FINDINGS.md),
+[reproducibility and recovery](docs/PHASE3R_REPRODUCIBILITY.md),
+[acceptance evidence](reports/phase3r_acceptance.json) and
+[readiness gates](docs/BACKEND_READINESS.md). Earlier sections are historical.
+
 ### Phase 3Q — scheduled recovery and isolated-environment proof
 
 Existing Windows runners now launch without consoles; three genuine Task Scheduler

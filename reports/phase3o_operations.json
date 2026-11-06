@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-06T01:17:23.207118+00:00",
+  "generated_at": "2026-11-06T02:01:28.802667+00:00",
   "shadow": {
-    "generated_at": "2026-11-06T01:17:20.620072+00:00",
+    "generated_at": "2026-11-06T02:01:25.311624+00:00",
     "status": "ok",
     "components": {
       "shadow_cycle": {
@@ -26,10 +26,10 @@
     "health": {
       "status": "ok",
       "warnings": [],
-      "last_run": "2026-11-06T01:17:09.224441+00:00",
-      "age_hours": 0.0031654530555555553,
-      "last_success": "2026-11-06T01:17:09.224441+00:00",
-      "last_attempt": "2026-11-06T01:17:09.224441+00:00",
+      "last_run": "2026-11-06T02:01:11.948403+00:00",
+      "age_hours": 0.0037120058333333333,
+      "last_success": "2026-11-06T02:01:11.948403+00:00",
+      "last_attempt": "2026-11-06T02:01:11.948403+00:00",
       "last_attempt_event": "CYCLE_OK",
       "forecasts": 3,
       "matured": 2,
@@ -160,67 +160,67 @@
         "last_observed_at_epoch": 1793844396.0760748
       },
       {
-        "job_id": "c58c59c02f45dbd082349fbc",
+        "job_id": "1859f433d6026ab2f9d8701b",
         "kind": "RESEARCH_REPORT",
         "lane": "research",
         "state": "SUCCEEDED",
         "status": "HEALTHY",
         "reason": "SUCCEEDED",
-        "last_observed_at_epoch": 1793926858.3720574
+        "last_observed_at_epoch": 1793930475.3348005
       },
       {
-        "job_id": "f902b82b1419763c5d945caa",
+        "job_id": "a00e5bf3ed23fc6b496f7acc",
         "kind": "DATA_REFRESH",
         "lane": "shadow",
         "state": "SUCCEEDED",
         "status": "HEALTHY",
         "reason": "SUCCEEDED",
-        "last_observed_at_epoch": 1793844581.1006744
+        "last_observed_at_epoch": 1793929289.4863622
       },
       {
-        "job_id": "592ab80aa3949e626aac0802",
+        "job_id": "cf914682f79d563e4a9d1b3e",
         "kind": "SHADOW_FORECAST",
         "lane": "shadow",
         "state": "SUCCEEDED",
         "status": "HEALTHY",
         "reason": "SUCCEEDED",
-        "last_observed_at_epoch": 1793844585.9839983
+        "last_observed_at_epoch": 1793929296.618516
       },
       {
-        "job_id": "5318c48c334be82fd4c50241",
+        "job_id": "6a46119627fd1d445c394ff6",
         "kind": "FORECAST_MATURITY_CHECK",
         "lane": "shadow",
         "state": "SUCCEEDED",
         "status": "HEALTHY",
         "reason": "SUCCEEDED",
-        "last_observed_at_epoch": 1793844590.8880286
+        "last_observed_at_epoch": 1793929303.7039387
       },
       {
-        "job_id": "3a8cb1d66fb329c388fc1439",
+        "job_id": "258bfa92e87427a87e57919d",
         "kind": "FORWARD_EVALUATION",
         "lane": "shadow",
         "state": "SUCCEEDED",
         "status": "HEALTHY",
         "reason": "SUCCEEDED",
-        "last_observed_at_epoch": 1793844595.2924795
+        "last_observed_at_epoch": 1793929310.6824813
       },
       {
-        "job_id": "9ef7193035cfc6ace788456f",
+        "job_id": "532307848a2317c310d70481",
         "kind": "MODEL_DRIFT_MONITOR",
         "lane": "shadow",
         "state": "SUCCEEDED",
         "status": "HEALTHY",
         "reason": "SUCCEEDED",
-        "last_observed_at_epoch": 1793844600.2657611
+        "last_observed_at_epoch": 1793929318.8539286
       },
       {
-        "job_id": "59a82ebe742c39853a3b78a5",
+        "job_id": "d41d9341d48c7b020b7d449d",
         "kind": "RESEARCH_REPORT",
         "lane": "shadow",
         "state": "SUCCEEDED",
         "status": "HEALTHY",
         "reason": "SUCCEEDED",
-        "last_observed_at_epoch": 1793844602.4839125
+        "last_observed_at_epoch": 1793929321.739735
       },
       {
         "job_id": "a9715adfe952f45c39945767",
@@ -246,7 +246,7 @@
       "BLOCKED": 3
     },
     "historical_state_counts": {
-      "SUCCEEDED": 41,
+      "SUCCEEDED": 52,
       "BLOCKED": 15
     },
     "limits": "latest recorded result per lane/type/specification, not live host liveness or a market-data entitlement"
@@ -349,7 +349,7 @@
     ],
     "sample_warning": "descriptive observations only; no forward calibration or trading-edge claim",
     "trading_decision": "NO_TRADE",
-    "generated_at": "2026-11-06T01:17:14.939545+00:00",
+    "generated_at": "2026-11-06T02:01:19.199984+00:00",
     "issued": 3,
     "pending": 1,
     "baseline_sha256": "cf6984327158af5517c35ca5ad2cd2ccc865a40022e50b411f1cc5872eaf298d",

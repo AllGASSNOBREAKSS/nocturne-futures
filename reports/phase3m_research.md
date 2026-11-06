@@ -1,14 +1,14 @@
 # Research job snapshot
 
-Generated: 2026-11-06T01:00:57.641377+00:00
+Generated: 2026-11-06T02:01:14.952778+00:00
 
-States: {'SUCCEEDED': 40, 'BLOCKED': 15}
+States: {'SUCCEEDED': 51, 'BLOCKED': 15}
 
 Trading: NO_TRADE. No automatic promotions.
 
 Daily index diagnostics are not futures strategy P&L or independent validation.
 
-Shadow operations snapshot: **ok** (as of 2026-11-06T01:00:44.901542+00:00).
+Shadow operations snapshot: **ok** (as of 2026-11-06T02:01:01.387947+00:00).
 Open issues: []
 
 - `DATA_VALIDATION` (research): **SUCCEEDED** — `b26102aae53db5802cba4d08`
@@ -114,3 +114,14 @@ Open issues: []
 - `RESEARCH_REPORT` (research): **SUCCEEDED** — `f1cf88f090f26dcc397bf46a`
 - `RESEARCH_REPORT` (research): **SUCCEEDED** — `75120ceb00ecacb48be3152d`
 - `RESEARCH_REPORT` (research): **SUCCEEDED** — `50004684de65020cee0033c5`
+- `RESEARCH_REPORT` (research): **SUCCEEDED** — `c58c59c02f45dbd082349fbc`
+- `DATA_REFRESH` (shadow): **SUCCEEDED** — `a00e5bf3ed23fc6b496f7acc`
+- `SHADOW_FORECAST` (shadow): **SUCCEEDED** — `cf914682f79d563e4a9d1b3e`
+- `FORECAST_MATURITY_CHECK` (shadow): **SUCCEEDED** — `6a46119627fd1d445c394ff6`
+- `FORWARD_EVALUATION` (shadow): **SUCCEEDED** — `258bfa92e87427a87e57919d`
+- `MODEL_DRIFT_MONITOR` (shadow): **SUCCEEDED** — `532307848a2317c310d70481`
+- `RESEARCH_REPORT` (shadow): **SUCCEEDED** — `d41d9341d48c7b020b7d449d`
+- `RESEARCH_REPORT` (research): **SUCCEEDED** — `565c88d92b1af7f92e7771f9`
+- `RESEARCH_REPORT` (research): **SUCCEEDED** — `4dbbf411e3fed003ab663915`
+- `RESEARCH_REPORT` (research): **SUCCEEDED** — `796a8ef6b22dbab3b672af7f`
+- `RESEARCH_REPORT` (research): **SUCCEEDED** — `04484bfe2212f4ab1c32f797`

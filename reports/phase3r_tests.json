@@ -1,0 +1,14 @@
+{
+  "observed_at": "2026-11-06T02:05:52.719724+00:00",
+  "source_commit": "3a88a5d5215900404f431fed7f9b62d88e72aa7b",
+  "isolated_suite": {
+    "tests": 384,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "local_suite_passed": 384,
+  "native_parity": "included with freshly built isolated extension and local extension",
+  "typescript": "passed",
+  "scope": "Engineering tests; not predictive performance or off-host recovery."
+}

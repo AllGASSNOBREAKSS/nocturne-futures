@@ -1,0 +1,39 @@
+{
+  "observed_at": "2026-11-06T02:02:44.592994+00:00",
+  "head_sha": "3a88a5d5215900404f431fed7f9b62d88e72aa7b",
+  "status": "completed",
+  "conclusion": "success",
+  "url": "https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/42147434793",
+  "jobs": [
+    {
+      "name": "native",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "python",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "typescript",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "windows-locked-runtime",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "windows-shadow",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "prior_ci_failure": {
+    "sha": "bef69f2",
+    "run_id": 42145390422,
+    "reason": "New workflow command had an unquoted colon; YAML rejected before jobs ran. Fixed with block scalar and workflow parse regression test."
+  }
+}

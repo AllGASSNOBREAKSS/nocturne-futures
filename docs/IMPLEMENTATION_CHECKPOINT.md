@@ -1,6 +1,60 @@
 # Implementation Checkpoint
 
-## Current resume point — Phase 3Q, 2026-11-06 UTC
+## Current resume point — Phase 3R, 2026-11-06 UTC
+
+Branch `feat/phase3r`, base `c65e596`. Read `PHASE3R_FINDINGS.md`,
+`PHASE3R_REPRODUCIBILITY.md`, `BACKEND_READINESS.md` and
+`reports/phase3r_acceptance.json`. Implementation commits: `bef69f2`, `3f1dea3`,
+`d0aaad3`, `878ae6d`, `3a88a5d`. Final tested source is `3a88a5d`; all five CI jobs
+passed in run 42147434793. Initial workflow YAML failure is retained, not hidden;
+block-scalar fix and workflow-parse regression prevent recurrence.
+
+55 exact Windows/CPython-3.14 wheel hashes verified against PyPI, then a new venv
+installed offline and built native C++20 freshly. 13,290 installed RECORD hashes
+verify; all three issued quantiles replay exactly with cohorts separate. Frozen
+loader now rejects unapproved six-library numerical versions before pickle load.
+Final local and clean isolated suites each pass 384 tests including native parity;
+TypeScript passed. Frozen model/old journal prefixes remain unchanged.
+
+Same-host private recovery verifies source proofs, 3 forecasts/2 outcomes, six cached
+challenger files and two old fixed diagnostics. Snapshot v1: 688 files/231,067,330
+bytes; local restore 13.70 seconds. This capture caused a real 01:47 scheduled
+BUSY_WRAPPER/75; preserve `phase3r_backup_collision.json`. Capture now checks real
+task deadlines, limits live-host work to 30s and defers near ticks. Wrappers wait
+boundedly for backup byte locks but reject true overlap. Subsequent two runs per
+task have zero exits and complete lifecycle receipts. No task configuration or
+host security settings changed. Existing awake/logged-in limitation remains.
+
+An additional v2 snapshot passed the new real deadline admission: 750 files /
+238,355,382 bytes in 9.51s, checksum
+`d20ef3280e9b57143fb00d7a7664c5f65918143c4120abf45ca8cc743586ad4d`.
+See `phase3r_recovery_admission_*.json` for its verification, separate from the
+retained v1 collision. Do not activate either restored copy.
+
+Forward counts still **3 issued / 2 verified matured / 1 pending**, one matured per
+cohort. November 6 cannot mature before November 7 00:00 UTC and original gates.
+No backfilling, model fitting, holdout tuning, paid consumption or frontend/live
+orders. Five real shadow orchestrator job types executed; research tick correctly
+reused existing validation. All 12 kinds inventoried in `phase3r_assurance.json`.
+
+Futures acquisition: **USER_ACTION_REQUIRED**, no keys/entitlements/quote/approval,
+zero licensed receipts. Use the single checklist `PHASE3P_DATA_ACCESS.md`. Do not
+rebuild adapters or retry blocked downloads. Direction/target-first models remain
+unvalidated; old negative index diagnostics are not NQ/ES execution results.
+
+API file-backed path-query handling is hardened and tested; API still lacks
+authentication/TLS/rate limits/deployment approval. NO-GO frontend pending genuine
+futures/independent calibration samples, approved unattended availability and
+monitoring, API security/load review, hard memory isolation and authorized
+encrypted off-host/separate-host recovery/cutover. Proposed RPO 30m/RTO 60m are
+not achieved off-host SLOs. No authorized independent private-recovery destination
+was supplied; hosted CI verifies public-code bootstrap/inference only, not archives.
+
+Resume with actual clock/task receipts and guarded refresh/audits/reports; preserve
+all automatic changes and incidents. Runtime/wheel upgrades need a separate
+candidate and unchanged exact replay. Do not relax checks or edit expected history.
+
+## Previous resume point — Phase 3Q, 2026-11-06 UTC
 
 Branch `feat/phase3q`, base `84a4ea9`. Runner implementation `be54b5b`; pinned
 environment tooling `e061c46`; runtime/acceptance gate `001d55b`. Read `PHASE3Q_FINDINGS.md`, `PHASE3Q_DEPLOYMENT.md`,

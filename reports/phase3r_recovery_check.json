@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-11-06T01:47:44.545990+00:00",
+  "mode": "check",
+  "result": {
+    "status": "VERIFIED_LOCAL_RELOCATION",
+    "issued": 3,
+    "verified_matured": 2,
+    "reproduced_index_diagnostics": [
+      {
+        "symbol": "^NDX",
+        "observations": 6036,
+        "scope": "NON_EXECUTABLE_INDEX_CONTEXT_NOT_NQ_ES_PNL",
+        "net_mean_fraction_2bp": -0.00016316773640181952
+      },
+      {
+        "symbol": "^GSPC",
+        "observations": 6036,
+        "scope": "NON_EXECUTABLE_INDEX_CONTEXT_NOT_NQ_ES_PNL",
+        "net_mean_fraction_2bp": -0.0003269370965258071
+      }
+    ],
+    "cached_challenger_files_verified": 6,
+    "new_models_trained": 0,
+    "network_requests": 0,
+    "trading_decision": "NO_TRADE",
+    "limitations": "same-host offline relocation using installed code; not off-host durability, different-machine restore or service activation"
+  },
+  "started_at": "2026-11-06T01:47:30.844504+00:00",
+  "elapsed_seconds": 13.701497900001414,
+  "scope": "authorized local recovery drill; private archive not uploaded, not encrypted by this tool",
+  "live_trading": "DISABLED"
+}

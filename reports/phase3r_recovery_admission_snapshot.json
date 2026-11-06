@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-11-06T02:03:24.794700+00:00",
+  "mode": "snapshot",
+  "result": {
+    "files": 750,
+    "bytes": 238355382,
+    "manifest_sha256": "d20ef3280e9b57143fb00d7a7664c5f65918143c4120abf45ca8cc743586ad4d"
+  },
+  "started_at": "2026-11-06T02:03:15.280859+00:00",
+  "elapsed_seconds": 9.51385179999852,
+  "capture_admission": {
+    "status": "CAPTURE_WINDOW_CHECKED",
+    "scheduled_deadlines": [
+      "2026-11-06T02:17:05.0000000Z",
+      "2026-11-06T02:13:57.0000000Z"
+    ],
+    "budget_seconds": 30,
+    "margin_seconds": 15
+  },
+  "scope": "authorized local recovery drill; private archive not uploaded, not encrypted by this tool",
+  "live_trading": "DISABLED"
+}

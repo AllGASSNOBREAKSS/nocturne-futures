@@ -1,0 +1,250 @@
+{
+  "generated_at": "2026-11-06T02:05:55.146697+00:00",
+  "phase_start_observed_at": "2026-11-06T01:30:00+00:00",
+  "job_types": [
+    {
+      "kind": "DATA_REFRESH",
+      "persisted_counts": {
+        "SUCCEEDED": 2
+      },
+      "updated_in_phase_counts": {
+        "SUCCEEDED": 1
+      },
+      "latest": {
+        "id": "a00e5bf3ed23fc6b496f7acc",
+        "state": "SUCCEEDED",
+        "lane": "shadow",
+        "updated_at": "2026-11-06T01:41:29.486362+00:00",
+        "payload": {},
+        "result_status": "SUCCEEDED",
+        "scope": null
+      },
+      "interpretation": "Persisted engineering/job evidence; prior development diagnostics are not new independent validation."
+    },
+    {
+      "kind": "DATA_VALIDATION",
+      "persisted_counts": {
+        "SUCCEEDED": 3
+      },
+      "updated_in_phase_counts": {},
+      "latest": {
+        "id": "47e2eb46448e5dab560e368b",
+        "state": "SUCCEEDED",
+        "lane": "research",
+        "updated_at": "2026-11-06T00:52:51.088634+00:00",
+        "payload": {},
+        "result_status": "SUCCEEDED",
+        "scope": null
+      },
+      "interpretation": "Persisted engineering/job evidence; prior development diagnostics are not new independent validation."
+    },
+    {
+      "kind": "FEATURE_BUILD",
+      "persisted_counts": {
+        "SUCCEEDED": 2
+      },
+      "updated_in_phase_counts": {},
+      "latest": {
+        "id": "03080fe1019c73164d273ba8",
+        "state": "SUCCEEDED",
+        "lane": "research",
+        "updated_at": "2026-11-05T02:06:19.296187+00:00",
+        "payload": {
+          "symbol": "^GSPC"
+        },
+        "result_status": "SUCCEEDED",
+        "scope": null
+      },
+      "interpretation": "Persisted engineering/job evidence; prior development diagnostics are not new independent validation."
+    },
+    {
+      "kind": "HISTORICAL_BACKTEST",
+      "persisted_counts": {
+        "BLOCKED": 15,
+        "SUCCEEDED": 2
+      },
+      "updated_in_phase_counts": {},
+      "latest": {
+        "id": "9cb95320b29b8d1e41e80d9a",
+        "state": "BLOCKED",
+        "lane": "research",
+        "updated_at": "2026-11-05T17:30:07.648924+00:00",
+        "payload": {
+          "contract": "ESZ6",
+          "instrument": "ES",
+          "scope": "raw_futures"
+        },
+        "result_status": "BLOCKED",
+        "scope": null
+      },
+      "interpretation": "Persisted engineering/job evidence; prior development diagnostics are not new independent validation."
+    },
+    {
+      "kind": "WALK_FORWARD_VALIDATION",
+      "persisted_counts": {
+        "SUCCEEDED": 2
+      },
+      "updated_in_phase_counts": {},
+      "latest": {
+        "id": "46ea566985c00e43d4dfdd97",
+        "state": "SUCCEEDED",
+        "lane": "research",
+        "updated_at": "2026-11-05T02:06:25.900442+00:00",
+        "payload": {},
+        "result_status": "SUCCEEDED",
+        "scope": null
+      },
+      "interpretation": "Persisted engineering/job evidence; prior development diagnostics are not new independent validation."
+    },
+    {
+      "kind": "MODEL_TRAINING",
+      "persisted_counts": {
+        "SUCCEEDED": 2
+      },
+      "updated_in_phase_counts": {},
+      "latest": {
+        "id": "804c1127316b5d4e5a01d21b",
+        "state": "SUCCEEDED",
+        "lane": "research",
+        "updated_at": "2026-11-05T02:06:29.348695+00:00",
+        "payload": {},
+        "result_status": "SUCCEEDED",
+        "scope": null
+      },
+      "interpretation": "Persisted engineering/job evidence; prior development diagnostics are not new independent validation."
+    },
+    {
+      "kind": "MODEL_EVALUATION",
+      "persisted_counts": {
+        "SUCCEEDED": 2
+      },
+      "updated_in_phase_counts": {},
+      "latest": {
+        "id": "60d102ffabcb24efa44c9104",
+        "state": "SUCCEEDED",
+        "lane": "research",
+        "updated_at": "2026-11-05T02:06:33.018789+00:00",
+        "payload": {},
+        "result_status": "SUCCEEDED",
+        "scope": null
+      },
+      "interpretation": "Persisted engineering/job evidence; prior development diagnostics are not new independent validation."
+    },
+    {
+      "kind": "SHADOW_FORECAST",
+      "persisted_counts": {
+        "SUCCEEDED": 2
+      },
+      "updated_in_phase_counts": {
+        "SUCCEEDED": 1
+      },
+      "latest": {
+        "id": "cf914682f79d563e4a9d1b3e",
+        "state": "SUCCEEDED",
+        "lane": "shadow",
+        "updated_at": "2026-11-06T01:41:36.618516+00:00",
+        "payload": {},
+        "result_status": "SUCCEEDED",
+        "scope": null
+      },
+      "interpretation": "Persisted engineering/job evidence; prior development diagnostics are not new independent validation."
+    },
+    {
+      "kind": "FORECAST_MATURITY_CHECK",
+      "persisted_counts": {
+        "SUCCEEDED": 2
+      },
+      "updated_in_phase_counts": {
+        "SUCCEEDED": 1
+      },
+      "latest": {
+        "id": "6a46119627fd1d445c394ff6",
+        "state": "SUCCEEDED",
+        "lane": "shadow",
+        "updated_at": "2026-11-06T01:41:43.703939+00:00",
+        "payload": {},
+        "result_status": "SUCCEEDED",
+        "scope": null
+      },
+      "interpretation": "Persisted engineering/job evidence; prior development diagnostics are not new independent validation."
+    },
+    {
+      "kind": "FORWARD_EVALUATION",
+      "persisted_counts": {
+        "SUCCEEDED": 2
+      },
+      "updated_in_phase_counts": {
+        "SUCCEEDED": 1
+      },
+      "latest": {
+        "id": "258bfa92e87427a87e57919d",
+        "state": "SUCCEEDED",
+        "lane": "shadow",
+        "updated_at": "2026-11-06T01:41:50.682481+00:00",
+        "payload": {},
+        "result_status": "SUCCEEDED",
+        "scope": null
+      },
+      "interpretation": "Persisted engineering/job evidence; prior development diagnostics are not new independent validation."
+    },
+    {
+      "kind": "MODEL_DRIFT_MONITOR",
+      "persisted_counts": {
+        "SUCCEEDED": 2
+      },
+      "updated_in_phase_counts": {
+        "SUCCEEDED": 1
+      },
+      "latest": {
+        "id": "532307848a2317c310d70481",
+        "state": "SUCCEEDED",
+        "lane": "shadow",
+        "updated_at": "2026-11-06T01:41:58.853929+00:00",
+        "payload": {},
+        "result_status": "SUCCEEDED",
+        "scope": null
+      },
+      "interpretation": "Persisted engineering/job evidence; prior development diagnostics are not new independent validation."
+    },
+    {
+      "kind": "RESEARCH_REPORT",
+      "persisted_counts": {
+        "SUCCEEDED": 29
+      },
+      "updated_in_phase_counts": {
+        "SUCCEEDED": 6
+      },
+      "latest": {
+        "id": "1859f433d6026ab2f9d8701b",
+        "state": "SUCCEEDED",
+        "lane": "research",
+        "updated_at": "2026-11-06T02:01:15.334800+00:00",
+        "payload": {},
+        "result_status": "SUCCEEDED",
+        "scope": null
+      },
+      "interpretation": "Persisted engineering/job evidence; prior development diagnostics are not new independent validation."
+    }
+  ],
+  "forward": {
+    "issued": 3,
+    "verified_matured": 2,
+    "pending": 1,
+    "inference_samples": {
+      "legacy-unadjusted": {
+        "issued": 1,
+        "verified_matured": 1
+      },
+      "residual-adjusted-v1": {
+        "issued": 2,
+        "verified_matured": 1
+      }
+    }
+  },
+  "new_market_training_eligible": false,
+  "reason": "No new licensed data or independent hypothesis qualified; defaults do not repeat index experiments.",
+  "futures": "USER_ACTION_REQUIRED",
+  "promotion": "NO_PROMOTION",
+  "trading_decision": "NO_TRADE",
+  "limits": "States updated after phase start are observations, not a claim that every job type ran anew or that any model has predictive value."
+}

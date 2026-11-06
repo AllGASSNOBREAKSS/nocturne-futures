@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T01:17:09.224441+00:00",
+  "generated_at": "2026-11-06T02:01:11.948403+00:00",
   "model_id": "ndx-range-v1",
   "model_version": "1.0.0",
   "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
@@ -203,10 +203,10 @@
   "health": {
     "status": "ok",
     "warnings": [],
-    "last_run": "2026-11-06T01:17:09.224441+00:00",
+    "last_run": "2026-11-06T02:01:11.948403+00:00",
     "age_hours": 0.0,
-    "last_success": "2026-11-06T01:17:09.224441+00:00",
-    "last_attempt": "2026-11-06T01:17:09.224441+00:00",
+    "last_success": "2026-11-06T02:01:11.948403+00:00",
+    "last_attempt": "2026-11-06T02:01:11.948403+00:00",
     "last_attempt_event": "CYCLE_OK",
     "forecasts": 3,
     "matured": 2,
@@ -357,7 +357,7 @@
         "dropped_invalid_or_missing_bars": 0,
         "gap_days_median": 1.0,
         "gaps_over_5_days": 1,
-        "received_at": "2026-11-06T01:17:08.465879+00:00",
+        "received_at": "2026-11-06T02:01:11.120191+00:00",
         "availability": "next UTC midnight after the session date",
         "known_limitations": [
           "unofficial endpoint; not an exchange feed",
@@ -365,7 +365,7 @@
           "continuous futures proxies have unverified roll mapping",
           "adjusted vs unadjusted prices not distinguished by this adapter"
         ],
-        "snapshot_id": "67ee7c168d476c413c95903f7e1e5f296e02ef38fe863d86667e9ed86a043518"
+        "snapshot_id": "100f8cc444ebc4c4e119a8daa0963370e94353a566fd6160d5ca8ad42198aac6"
       },
       "vix": {
         "symbol": "^VIX",
@@ -384,7 +384,7 @@
         "dropped_invalid_or_missing_bars": 331,
         "gap_days_median": 1.0,
         "gaps_over_5_days": 1,
-        "received_at": "2026-11-06T01:17:09.018665+00:00",
+        "received_at": "2026-11-06T02:01:11.707406+00:00",
         "availability": "next UTC midnight after the session date",
         "known_limitations": [
           "unofficial endpoint; not an exchange feed",
@@ -392,12 +392,12 @@
           "continuous futures proxies have unverified roll mapping",
           "adjusted vs unadjusted prices not distinguished by this adapter"
         ],
-        "snapshot_id": "3e90b0a59bd4af2d01aa6a5fb49a1663d50b995659a0550ad516178087c0261f"
+        "snapshot_id": "0078e6bd842af1631315d9fb2ef84a49631516f5a3a8c8fa6cb321a25b72c0ab"
       }
     },
     "snapshot_ids": {
-      "index": "67ee7c168d476c413c95903f7e1e5f296e02ef38fe863d86667e9ed86a043518",
-      "vix": "3e90b0a59bd4af2d01aa6a5fb49a1663d50b995659a0550ad516178087c0261f"
+      "index": "100f8cc444ebc4c4e119a8daa0963370e94353a566fd6160d5ca8ad42198aac6",
+      "vix": "0078e6bd842af1631315d9fb2ef84a49631516f5a3a8c8fa6cb321a25b72c0ab"
     }
   },
   "notes": [
