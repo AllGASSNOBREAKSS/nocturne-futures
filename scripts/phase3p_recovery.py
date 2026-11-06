@@ -2,6 +2,7 @@
 import argparse
 from datetime import datetime, timezone
 import json
+import re
 from pathlib import Path
 
 from nocturne.research.recovery import snapshot_evidence, restore_snapshot, verify_relocated_evidence
@@ -11,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main():
     parser = argparse.ArgumentParser()
+    parser.add_argument("--report-prefix", default="phase3p_recovery")
     sub = parser.add_subparsers(dest="mode", required=True)
     create = sub.add_parser("snapshot")
     create.add_argument("--destination", type=Path, required=True)
@@ -20,6 +22,8 @@ def main():
     check.add_argument("--snapshot", type=Path, required=True)
     check.add_argument("--restore-to", type=Path, required=True)
     args = parser.parse_args()
+    if not re.fullmatch(r"[A-Za-z0-9_-]+", args.report_prefix):
+        parser.error("report prefix must be a plain filename stem")
     if args.mode == "snapshot":
         result = snapshot_evidence(ROOT, args.destination, args.max_bytes, args.max_seconds)
     else:
@@ -28,7 +32,7 @@ def main():
     report = {"generated_at": datetime.now(timezone.utc).isoformat(), "mode": args.mode, "result": result,
               "scope": "authorized local recovery drill; private archive not uploaded, not encrypted by this tool",
               "live_trading": "DISABLED"}
-    path = ROOT / f"reports/phase3p_recovery_{args.mode}.json"
+    path = ROOT / f"reports/{args.report_prefix}_{args.mode}.json"
     path.write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps(result))
 
