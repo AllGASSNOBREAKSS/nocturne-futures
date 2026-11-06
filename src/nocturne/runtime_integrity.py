@@ -14,6 +14,8 @@ def check_capture_window(now, scheduled_times, budget_seconds):
     from datetime import datetime
     if now.tzinfo is None or not 1 <= budget_seconds <= 120:
         raise ValueError('invalid capture admission clock/budget')
+    if scheduled_times and budget_seconds > 30:
+        raise ValueError('live scheduled host captures must fit the 30-second maintenance budget')
     for stamp in scheduled_times:
         deadline = datetime.fromisoformat(stamp.replace('Z', '+00:00'))
         if deadline.tzinfo is None:

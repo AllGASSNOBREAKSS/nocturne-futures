@@ -21,6 +21,8 @@ def test_capture_admission_defers_at_real_collision_boundary():
     with pytest.raises(BlockingIOError, match='scheduled tick'):
         check_capture_window(now, ['2026-11-06T01:47:06+00:00'], 30)
     assert check_capture_window(now, ['2026-11-06T02:17:06+00:00'], 30)['status'] == 'CAPTURE_WINDOW_CHECKED'
+    with pytest.raises(ValueError, match='30-second'):
+        check_capture_window(now, ['2026-11-06T02:17:06+00:00'], 60)
 
 
 def test_bootstrap_integrity_module_needs_no_installed_dependencies():
