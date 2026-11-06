@@ -4,7 +4,8 @@ param(
     [Parameter(Mandatory = $true)][string]$Environment,
     [Parameter(Mandatory = $true)][string]$Wheelhouse,
     [string]$Repository,
-    [switch]$BuildNative
+    [switch]$BuildNative,
+    [ValidateSet('numerical','security')][string]$Profile = 'numerical'
 )
 $ErrorActionPreference = 'Stop'
 if (-not $Repository) { $Repository = Split-Path $PSScriptRoot -Parent }
@@ -22,12 +23,14 @@ $priorPythonPath = $env:PYTHONPATH
 try {
     # The lock verifier imports only stdlib code before dependencies exist.
     $env:PYTHONPATH = Join-Path $Repository 'src'
-    & $Python (Join-Path $Repository 'scripts/phase3r_lock.py') --wheelhouse $Wheelhouse
+    & $Python (Join-Path $Repository 'scripts/phase3r_lock.py') --wheelhouse $Wheelhouse --profile $Profile
     if ($LASTEXITCODE -ne 0) { throw 'Wheel integrity verification failed' }
     & $Python -m venv $Environment
     if ($LASTEXITCODE -ne 0) { throw 'Venv creation failed' }
     $py = Join-Path (Resolve-Path $Environment).Path 'Scripts/python.exe'
-    & $py -m pip install --no-index --only-binary=:all: --find-links $Wheelhouse --require-hashes -r (Join-Path $Repository 'requirements/windows-py314.hashes.txt')
+    $lockName = 'windows-py314.hashes.txt'
+    if ($Profile -eq 'security') { $lockName = 'windows-py314-security.hashes.txt' }
+    & $py -m pip install --no-index --only-binary=:all: --find-links $Wheelhouse --require-hashes -r (Join-Path $Repository "requirements/$lockName")
     if ($LASTEXITCODE -ne 0) { throw 'Hash-locked offline install failed' }
     & $py -m pip install --no-index --no-deps --no-build-isolation -e $Repository
     if ($LASTEXITCODE -ne 0) { throw 'Offline editable package build failed' }
@@ -45,6 +48,7 @@ try {
     }
     $extra = @()
     if ($BuildNative) { $extra += '--native' }
+    if ($Profile -eq 'security') { $extra += '--security' }
     & $py (Join-Path $Repository 'scripts/phase3r_verify.py') --repository $Repository --output (Join-Path $Repository 'reports/phase3r_runtime.json') @extra
     if ($LASTEXITCODE -ne 0) { throw 'Installed integrity/inference verification failed' }
 } finally { $env:PYTHONPATH = $priorPythonPath }

@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "profile": "future-always-on",
+  "api_bind": "127.0.0.1",
+  "api_port": 8443,
+  "api_workers": 1,
+  "tls": "operator-managed certificate/rotation and restricted network access; no public activation authorized",
+  "authentication": "separate reader/admin secret files with owner/service-account ACLs; no anonymous artifact routes",
+  "scheduler": "existing Password/Limited startup + repetition profiles, explicit PSCredential required",
+  "monitoring": "independent authenticated readiness, task lifecycle/exit, backup age and audit-capacity checks required",
+  "limits": "per-process limits only; distributed limiting and hard memory isolation require deployment review",
+  "recovery": "encrypted private off-host destination and independent key custody require user authorization and actual restore test",
+  "activation": "USER_AUTHORIZATION_REQUIRED; no accounts, cloud resources or credentials created",
+  "trading": "NO_TRADE"
+}

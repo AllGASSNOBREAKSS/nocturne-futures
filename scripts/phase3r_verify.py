@@ -19,6 +19,7 @@ def main():
     parser.add_argument("--repository", type=Path, default=ROOT)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--native", action="store_true")
+    parser.add_argument('--security', action='store_true')
     args = parser.parse_args()
     root = args.repository.resolve()
     if sys.prefix == sys.base_prefix or site.ENABLE_USER_SITE:
@@ -29,7 +30,10 @@ def main():
     source_commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root, text=True).strip()
     if subprocess.run(["git", "diff", "--quiet", "HEAD", "--", "src", "scripts", "native/CMakeLists.txt", "native/src", "native/bindings", "requirements"], cwd=root).returncode:
         raise ValueError("tracked deployment source differs from its reviewed commit")
-    pins = exact_pins([root / "requirements/windows-py314.lock.txt", root / "requirements/windows-py314-build.lock.txt"])
+    pin_files = [root / 'requirements/windows-py314.lock.txt', root / 'requirements/windows-py314-build.lock.txt']
+    if args.security:
+        pin_files.append(root / 'requirements/windows-py314-security.lock.txt')
+    pins = exact_pins(pin_files)
     integrity = verify_installed(pins, sys.prefix)
     artifact = load_artifact(root / "models/shadow", "ndx-range-v1")
     forecasts = [json.loads(line) for line in (root / "data/shadow/ndx_range/forecasts.jsonl").read_text().splitlines() if line.strip()]

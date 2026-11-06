@@ -3,6 +3,7 @@ from datetime import datetime, timezone
 from fastapi.testclient import TestClient
 
 from nocturne.api import ForecastService, create_app
+from nocturne.api.security import SecurityPolicy
 from nocturne.contracts import Bias, Decision, Prediction, Quality, Zone
 from nocturne.journal import PredictionJournal
 
@@ -39,7 +40,7 @@ def client(tmp_path):
         registry_root=tmp_path / "registry",
         forecast_root=tmp_path / "forecasts",
     )
-    return TestClient(create_app(service))
+    return TestClient(create_app(service, security=SecurityPolicy.internal(), audit=lambda record: None))
 
 
 def test_health_is_read_only(tmp_path):

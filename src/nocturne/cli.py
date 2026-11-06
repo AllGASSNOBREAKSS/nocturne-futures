@@ -125,10 +125,30 @@ def _forecast(instrument: str) -> int:
     return 0
 
 
-def _serve(host: str, port: int) -> int:
+def _serve(host: str, port: int, *, tls_cert_file=None, tls_key_file=None, allow_remote=False) -> int:
     import uvicorn
+    import ipaddress
+    import ssl
+    from .api.app import create_app
+    from .api.security import SecurityPolicy
 
-    uvicorn.run("nocturne.api.app:app", host=host, port=port, log_level="info")
+    try:
+        local = ipaddress.ip_address(host).is_loopback
+    except ValueError:
+        local = host.lower() == 'localhost'
+    policy = SecurityPolicy.from_env()
+    if not (policy.reader_digest or policy.admin_digest):
+        raise ValueError('configure API credential files before serving protected data')
+    if bool(tls_cert_file) != bool(tls_key_file):
+        raise ValueError('both TLS certificate and private key files are required')
+    if not local and not (allow_remote and tls_cert_file and tls_key_file):
+        raise ValueError('non-loopback binding requires explicit approval flag, TLS and configured authentication')
+    uvicorn.run(create_app(security=policy), host=host, port=port, log_level="warning", workers=1,
+                access_log=False, proxy_headers=False, server_header=False, timeout_keep_alive=5, timeout_graceful_shutdown=5,
+                limit_concurrency=32, h11_max_incomplete_event_size=16384,
+                ssl_certfile=tls_cert_file, ssl_keyfile=tls_key_file,
+                ssl_version=ssl.PROTOCOL_TLS_SERVER,
+                ssl_ciphers='ECDHE+AESGCM:ECDHE+CHACHA20')
     return 0
 
 
@@ -156,6 +176,9 @@ def main(argv: list[str] | None = None) -> int:
     serve = sub.add_parser("serve", help="run the read-only FastAPI service")
     serve.add_argument("--host", default="127.0.0.1")
     serve.add_argument("--port", type=int, default=8000)
+    serve.add_argument('--tls-cert-file')
+    serve.add_argument('--tls-key-file')
+    serve.add_argument('--allow-remote', action='store_true', help='operator-controlled non-loopback TLS deployment; never enabled by default')
 
     context = sub.add_parser("context", help="build intermarket and premarket artifacts")
     context.add_argument("--offline", action="store_true", help="skip Yahoo intraday fetch")
@@ -205,7 +228,8 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "forecast":
         return _forecast(args.instrument)
     if args.command == "serve":
-        return _serve(args.host, args.port)
+        return _serve(args.host, args.port, tls_cert_file=args.tls_cert_file,
+                      tls_key_file=args.tls_key_file, allow_remote=args.allow_remote)
     if args.command == "context":
         from .context_builder import build_context
 

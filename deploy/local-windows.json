@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "profile": "local-windows",
+  "api_bind": "127.0.0.1",
+  "api_port": 8443,
+  "api_workers": 1,
+  "tls": "operator-provided certificate and private-key files; isolated self-signed certificates are tests only",
+  "credential_variables": ["NOCTURNE_API_READER_TOKEN_FILE", "NOCTURNE_API_ADMIN_TOKEN_FILE"],
+  "scheduler": "existing pythonw.exe runners; Interactive/Limited, host awake and logged in",
+  "backup": "verified coherent snapshot then AES-256-GCM packaging; key outside repo and archive",
+  "activation": "manual operator action; this profile starts nothing",
+  "trading": "NO_TRADE"
+}

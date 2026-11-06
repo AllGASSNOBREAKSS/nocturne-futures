@@ -6,22 +6,33 @@ from fastapi import FastAPI, HTTPException, Query
 
 from ..contracts import Prediction
 from .service import ForecastService
+from .security import AuditLog, SecurityMiddleware, SecurityPolicy
+from pathlib import Path
 
 INSTRUMENT_PATTERN = r"^[A-Za-z0-9^=][A-Za-z0-9^=._-]{0,31}$"
 SESSION_PATTERN = r"^[A-Za-z][A-Za-z0-9_-]{0,15}$"
 
 
-def create_app(service: ForecastService | None = None) -> FastAPI:
+def create_app(service: ForecastService | None = None, *, security: SecurityPolicy | None = None, audit=None) -> FastAPI:
     service = service or ForecastService()
     app = FastAPI(
         title="Nocturne Futures API",
         version="2.0.0",
         description="Read-only research API. No broker order placement.",
+        docs_url=None, redoc_url=None, openapi_url=None,
     )
+    policy = security or SecurityPolicy.from_env()
+    sink = audit if audit is not None else AuditLog(Path(__file__).resolve().parents[3] / 'data/security/api-audit.jsonl')
+    app.add_middleware(SecurityMiddleware, policy=policy, audit=sink)
 
     @app.get("/health")
+    @app.get("/health/live")
     def health() -> dict:
-        return service.health()
+        return {"status": "alive", "read_only": True}
+
+    @app.get('/health/ready')
+    def readiness() -> dict:
+        return {**service.health(), 'scope': 'Authenticated API storage/readability only; not model or market readiness'}
 
     @app.get("/v1/predictions/latest", response_model=Prediction)
     def latest_prediction(instrument: str = Query(..., min_length=1, max_length=32, pattern=INSTRUMENT_PATTERN)) -> Prediction:

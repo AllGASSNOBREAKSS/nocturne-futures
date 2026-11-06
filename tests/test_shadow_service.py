@@ -144,7 +144,8 @@ def test_frozen_artifact_reproduces_reported_holdout():
 def test_api_exposes_shadow_endpoints_read_only(tmp_path):
     service = ForecastService(journal_root=tmp_path / "journal", registry_root=tmp_path / "registry",
                               forecast_root=tmp_path / "forecasts")
-    client = TestClient(create_app(service))
+    from nocturne.api.security import SecurityPolicy
+    client = TestClient(create_app(service, security=SecurityPolicy.internal(), audit=lambda record: None))
     for path in ("/v1/shadow/ndx-range", "/v1/shadow/history", "/v1/shadow/evaluation",
                  "/v1/shadow/missed", "/v1/shadow/calibration", "/v1/shadow/verification", "/v1/shadow/outcomes", "/v1/shadow/operations",
                  "/v1/data/futures-readiness", "/v1/data/health", "/v1/alerts/critical-day", "/v1/data/revisions", "/v1/data/reconciliations"):
