@@ -56,6 +56,10 @@ def load_artifact(root: Path | str, model_id: str) -> ShadowArtifact:
             raise ValueError("baseline dataset mismatch")
         metadata = {**metadata, "baseline_quantiles": baseline["quantiles"]}
     metadata = {**metadata, "artifact_digests": checksums}
+    from ..runtime_integrity import verify_numerical_runtime
+    # Fail closed before deserializing/inferencing the frozen model. A manual
+    # dependency upgrade must not silently issue a numerically changed forecast.
+    verify_numerical_runtime()
     bundle = joblib.load(directory / "model.joblib")
     features = tuple(bundle["features"])
     if list(features) != list(FEATURES):

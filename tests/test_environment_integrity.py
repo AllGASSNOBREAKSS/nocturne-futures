@@ -55,6 +55,19 @@ def test_real_frozen_model_reproduces_both_issued_cohorts_exactly():
     assert (ROOT / 'models/shadow/ndx-range-v1/model.joblib').read_bytes() == before
 
 
+def test_numerical_upgrade_is_blocked_before_frozen_pickle_load(monkeypatch):
+    import importlib.metadata
+    from nocturne.runtime_integrity import FROZEN_NUMERICAL_RUNTIME, verify_numerical_runtime
+    assert verify_numerical_runtime() == FROZEN_NUMERICAL_RUNTIME
+    original = importlib.metadata.version
+    monkeypatch.setattr('nocturne.runtime_integrity.metadata.version', lambda name: 'unreviewed' if name == 'pandas' else original(name))
+    loaded = []
+    monkeypatch.setattr('nocturne.shadow.model.joblib.load', lambda path: loaded.append(path))
+    with pytest.raises(ValueError, match='unapproved frozen numerical runtime'):
+        load_artifact(ROOT / 'models/shadow', 'ndx-range-v1')
+    assert not loaded
+
+
 @pytest.mark.parametrize('change', ['quantile', 'cohort', 'identity', 'duplicate', 'empty'])
 def test_inference_drift_or_unknown_identity_blocks(change):
     artifact = load_artifact(ROOT / 'models/shadow', 'ndx-range-v1')

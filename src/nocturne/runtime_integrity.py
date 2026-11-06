@@ -9,6 +9,16 @@ import importlib.metadata as metadata
 from pathlib import Path
 import re
 
+FROZEN_NUMERICAL_RUNTIME = {'numpy': '2.5.0', 'pandas': '3.0.3', 'scipy': '1.18.1',
+                          'scikit-learn': '1.9.1', 'lightgbm': '4.7.0', 'joblib': '1.6.0'}
+
+
+def verify_numerical_runtime():
+    observed = {name: metadata.version(name) for name in FROZEN_NUMERICAL_RUNTIME}
+    if observed != FROZEN_NUMERICAL_RUNTIME:
+        raise ValueError('unapproved frozen numerical runtime; investigate in isolation before issuing forecasts')
+    return observed
+
 
 def check_capture_window(now, scheduled_times, budget_seconds):
     from datetime import datetime
