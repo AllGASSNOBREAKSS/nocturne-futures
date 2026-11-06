@@ -13,9 +13,11 @@ if (Get-ScheduledTask -TaskName $TaskName -ErrorAction SilentlyContinue) {
     throw "Task exists; inspect before changing it: $TaskName"
 }
 $user = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
-$runner = Join-Path $Repository 'scripts/run_research_task.ps1'
-$action = New-ScheduledTaskAction -Execute 'powershell.exe' -WorkingDirectory $Repository -Argument (
-    '-NoProfile -NonInteractive -ExecutionPolicy Bypass -File "{0}" -Python "{1}" -Repository "{2}"' -f $runner,$Python,$Repository
+$runner = Join-Path $Repository 'scripts/run_headless_task.py'
+$PythonWindowless = Join-Path (Split-Path $Python -Parent) 'pythonw.exe'
+if (-not (Test-Path $PythonWindowless)) { throw 'A matching pythonw.exe is required for console-free scheduled operation.' }
+$action = New-ScheduledTaskAction -Execute $PythonWindowless -WorkingDirectory $Repository -Argument (
+    '"{0}" --lane research --python "{1}" --repository "{2}"' -f $runner,$Python,$Repository
 )
 $triggers = @((New-ScheduledTaskTrigger -Once -At (Get-Date).AddMinutes(1) -RepetitionInterval (New-TimeSpan -Hours $CadenceHours)),
               (New-ScheduledTaskTrigger -AtLogOn -User $user))

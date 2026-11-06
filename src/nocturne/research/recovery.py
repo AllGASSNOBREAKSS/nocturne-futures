@@ -21,6 +21,7 @@ JOURNALS = tuple("data/shadow/ndx_range/" + name for name in
                  ("forecasts.jsonl", "outcomes.jsonl", "reconciliations.jsonl", "alerts.jsonl",
                   "data_quality.jsonl", "missed.jsonl", "log.jsonl", "meta.json"))
 LOCKS = ("data/research/orchestrator/research.runner.lock", "data/research/orchestrator/research.active.lock",
+         "data/research/orchestrator/task-logs/task.wrapper.lock", "data/shadow/task-logs/task.wrapper.lock",
          "data/research/orchestrator/shadow.runner.lock", "data/research/orchestrator/shadow.active.lock",
          "data/shadow/ndx_range/run.lock", "data/shadow/ndx_range/.store.lock",
          "data/shadow/market/snapshots/archive.lock")

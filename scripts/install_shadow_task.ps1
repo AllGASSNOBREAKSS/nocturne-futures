@@ -11,14 +11,16 @@ $ErrorActionPreference = 'Stop'
 if (-not $Repository) { $Repository = Split-Path $PSScriptRoot -Parent }
 $Python = (Resolve-Path $Python).Path
 $Repository = (Resolve-Path $Repository).Path
-$runner = Join-Path $Repository 'scripts/run_shadow_task.ps1'
+$runner = Join-Path $Repository 'scripts/run_headless_task.py'
+$PythonWindowless = Join-Path (Split-Path $Python -Parent) 'pythonw.exe'
+if (-not (Test-Path $PythonWindowless)) { throw 'A matching pythonw.exe is required for console-free scheduled operation.' }
 $user = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
 if ($LogonMode -eq 'Password' -and $Credential) { $user = $Credential.UserName }
 if ($LogonMode -eq 'Password' -and -not $Credential -and -not $WhatIfPreference) {
     throw 'Unattended mode needs an explicitly supplied PSCredential; use Get-Credential interactively. No password CLI argument is accepted.'
 }
-$action = New-ScheduledTaskAction -Execute 'powershell.exe' -WorkingDirectory $Repository -Argument (
-    '-NoProfile -NonInteractive -ExecutionPolicy Bypass -File "{0}" -Python "{1}" -Repository "{2}"' -f $runner, $Python, $Repository
+$action = New-ScheduledTaskAction -Execute $PythonWindowless -WorkingDirectory $Repository -Argument (
+    '"{0}" --lane shadow --python "{1}" --repository "{2}"' -f $runner, $Python, $Repository
 )
 $triggers = @((New-ScheduledTaskTrigger -Once -At (Get-Date).AddMinutes(1) -RepetitionInterval (New-TimeSpan -Minutes 30)))
 if ($LogonMode -eq 'Password') { $triggers += New-ScheduledTaskTrigger -AtStartup }

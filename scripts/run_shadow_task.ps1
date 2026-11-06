@@ -10,6 +10,15 @@ New-Item -ItemType Directory -Force -Path $logDirectory | Out-Null
 $run = (Get-Date).ToUniversalTime().ToString('yyyyMMddTHHmmssfffZ') + "-$PID"
 $exitCode = 0
 $stageResults = @()
+. (Join-Path $PSScriptRoot 'task_events.ps1')
+$events = Join-Path $logDirectory "$run-events.jsonl"
+Write-NocturneTaskEvent $events 'RUN_STARTED' @{ Lane = 'shadow' }
+try {
+    $guard = [IO.File]::Open((Join-Path $logDirectory 'task.wrapper.lock'), [IO.FileMode]::OpenOrCreate, [IO.FileAccess]::ReadWrite, [IO.FileShare]::None)
+} catch [IO.IOException] {
+    Write-NocturneTaskEvent $events 'RUN_FINISHED' @{ ExitCode = 75; Reason = 'BUSY_WRAPPER' }
+    exit 75
+}
 try {
     $stages = @(
         @{ Name = 'cycle'; Script = 'scripts/phase3h_shadow.py'; Extra = @('--once', '--refresh') },
@@ -19,6 +28,7 @@ try {
         @{ Name = 'health'; Script = 'scripts/phase3o_health.py'; Extra = @() }
     )
     foreach ($stage in $stages) {
+        Write-NocturneTaskEvent $events 'STAGE_STARTED' @{ Stage = $stage.Name }
         try {
             # Direct invocation gives a reliable native exit code without detached
             # console/process-handle behavior. Stderr warnings are logged, not
@@ -33,11 +43,13 @@ try {
             } finally { $ErrorActionPreference = 'Stop' }
             if ($null -eq $stageExit) { throw 'Python process returned no exit code' }
             $stageResults += @{ Stage = $stage.Name; ExitCode = $stageExit }
+            Write-NocturneTaskEvent $events 'STAGE_FINISHED' @{ Stage = $stage.Name; ExitCode = $stageExit }
             if ($stageExit -ne 0) { $exitCode = 1 }
         } catch {
             # Continue to the independent monitor even if an earlier stage failed.
             Add-Content -Path (Join-Path $logDirectory "$run-runner.err.log") -Value $_.Exception.GetType().Name
             $stageResults += @{ Stage = $stage.Name; ErrorType = $_.Exception.GetType().Name }
+            Write-NocturneTaskEvent $events 'STAGE_ERROR' @{ Stage = $stage.Name; ErrorType = $_.Exception.GetType().Name }
             $exitCode = 1
         }
     }
@@ -46,4 +58,6 @@ try {
     $exitCode = 1
 }
 $stageResults | ConvertTo-Json | Set-Content -Encoding UTF8 -Path (Join-Path $logDirectory "$run-stages.json")
+Write-NocturneTaskEvent $events 'RUN_FINISHED' @{ ExitCode = $exitCode }
+$guard.Dispose()
 exit $exitCode
