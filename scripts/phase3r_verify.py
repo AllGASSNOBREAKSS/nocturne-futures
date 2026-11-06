@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import platform
 import site
+import subprocess
 import sys
 
 from nocturne.runtime_integrity import exact_pins, file_hash, verify_installed, verify_frozen_inference
@@ -25,6 +26,9 @@ def main():
     import nocturne
     if not Path(nocturne.__file__).resolve().is_relative_to(root / "src"):
         raise ValueError("package does not originate from requested deployment source")
+    source_commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root, text=True).strip()
+    if subprocess.run(["git", "diff", "--quiet", "HEAD", "--", "src", "scripts", "native/CMakeLists.txt", "native/src", "native/bindings", "requirements"], cwd=root).returncode:
+        raise ValueError("tracked deployment source differs from its reviewed commit")
     pins = exact_pins([root / "requirements/windows-py314.lock.txt", root / "requirements/windows-py314-build.lock.txt"])
     integrity = verify_installed(pins, sys.prefix)
     artifact = load_artifact(root / "models/shadow", "ndx-range-v1")
@@ -44,6 +48,7 @@ def main():
                   "limits": "Binary hash identifies this build; not bitwise reproducibility across compilers/hosts."}
     report = {"generated_at": datetime.now(timezone.utc).isoformat(), "status": "VERIFIED_ISOLATED_RUNTIME",
               "python": sys.version, "platform": platform.platform(), "prefix": sys.prefix,
+              "source_commit": source_commit, "tracked_deployment_source_clean": True,
               "pip_version": __import__("importlib.metadata", fromlist=["version"]).version("pip"),
               "dependency_integrity": integrity, "inference_parity": parity, "native": native,
               "network_requests": 0, "new_models_trained": 0, "promotion": "NO_PROMOTION", "trading_decision": "NO_TRADE"}

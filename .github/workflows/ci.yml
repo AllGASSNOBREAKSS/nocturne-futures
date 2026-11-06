@@ -79,7 +79,8 @@ jobs:
           python-version: "3.14"
       - name: Download only reviewed wheel bytes
         shell: powershell
-        run: python -m pip download --only-binary=:all: --no-deps --require-hashes --dest "$env:RUNNER_TEMP/locked-wheels" -r requirements/windows-py314.hashes.txt
+        run: |
+          python -m pip download --only-binary=:all: --no-deps --require-hashes --dest "$env:RUNNER_TEMP/locked-wheels" -r requirements/windows-py314.hashes.txt
       - name: Offline bootstrap and installed-record/inference verification
         shell: powershell
         run: ./scripts/bootstrap_locked_environment.ps1 -Python (Get-Command python).Source -Environment "$env:RUNNER_TEMP/locked-nocturne" -Wheelhouse "$env:RUNNER_TEMP/locked-wheels"

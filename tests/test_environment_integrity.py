@@ -24,6 +24,16 @@ def test_bootstrap_integrity_module_needs_no_installed_dependencies():
     assert result.returncode == 0, result.stderr
 
 
+def test_ci_workflow_parses_and_includes_locked_runtime_job():
+    import yaml
+    workflow = yaml.safe_load((ROOT / '.github/workflows/ci.yml').read_text())
+    assert {'python', 'typescript', 'native', 'windows-shadow', 'windows-locked-runtime'} <= set(workflow['jobs'])
+    for job in workflow['jobs'].values():
+        for step in job['steps']:
+            if 'run' in step:
+                assert isinstance(step['run'], str)
+
+
 def test_real_frozen_model_reproduces_both_issued_cohorts_exactly():
     artifact = load_artifact(ROOT / 'models/shadow', 'ndx-range-v1')
     forecasts = [json.loads(line) for line in (ROOT / 'data/shadow/ndx_range/forecasts.jsonl').read_text().splitlines()]

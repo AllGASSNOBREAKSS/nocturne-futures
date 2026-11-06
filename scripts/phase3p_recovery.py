@@ -3,6 +3,7 @@ import argparse
 from datetime import datetime, timezone
 import json
 import re
+import time
 from pathlib import Path
 
 from nocturne.research.recovery import snapshot_evidence, restore_snapshot, verify_relocated_evidence
@@ -24,12 +25,15 @@ def main():
     args = parser.parse_args()
     if not re.fullmatch(r"[A-Za-z0-9_-]+", args.report_prefix):
         parser.error("report prefix must be a plain filename stem")
+    started_at = datetime.now(timezone.utc)
+    clock = time.monotonic()
     if args.mode == "snapshot":
         result = snapshot_evidence(ROOT, args.destination, args.max_bytes, args.max_seconds)
     else:
         restore_snapshot(args.snapshot, args.restore_to)
         result = verify_relocated_evidence(args.restore_to)
     report = {"generated_at": datetime.now(timezone.utc).isoformat(), "mode": args.mode, "result": result,
+              "started_at": started_at.isoformat(), "elapsed_seconds": time.monotonic() - clock,
               "scope": "authorized local recovery drill; private archive not uploaded, not encrypted by this tool",
               "live_trading": "DISABLED"}
     path = ROOT / f"reports/{args.report_prefix}_{args.mode}.json"
