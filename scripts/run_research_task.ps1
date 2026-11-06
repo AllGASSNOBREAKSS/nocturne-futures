@@ -16,7 +16,7 @@ $LASTEXITCODE = $null
 $events = Join-Path $logs "$run-events.jsonl"
 Write-NocturneTaskEvent $events 'RUN_STARTED' @{ Lane = 'research' }
 try {
-    $guard = [IO.File]::Open((Join-Path $logs 'task.wrapper.lock'), [IO.FileMode]::OpenOrCreate, [IO.FileAccess]::ReadWrite, [IO.FileShare]::None)
+    $guard = Open-NocturneTaskGuard (Join-Path $logs 'task.wrapper.lock') $events
 } catch [IO.IOException] {
     Write-NocturneTaskEvent $events 'RUN_FINISHED' @{ ExitCode = 75; Reason = 'BUSY_WRAPPER' }
     exit 75

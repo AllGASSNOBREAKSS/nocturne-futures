@@ -14,6 +14,15 @@ from nocturne.shadow import load_artifact
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def test_capture_admission_defers_at_real_collision_boundary():
+    from datetime import datetime, timezone
+    from nocturne.runtime_integrity import check_capture_window
+    now = datetime(2026, 11, 6, 1, 46, 58, tzinfo=timezone.utc)
+    with pytest.raises(BlockingIOError, match='scheduled tick'):
+        check_capture_window(now, ['2026-11-06T01:47:06+00:00'], 30)
+    assert check_capture_window(now, ['2026-11-06T02:17:06+00:00'], 30)['status'] == 'CAPTURE_WINDOW_CHECKED'
+
+
 def test_bootstrap_integrity_module_needs_no_installed_dependencies():
     import os
     import subprocess

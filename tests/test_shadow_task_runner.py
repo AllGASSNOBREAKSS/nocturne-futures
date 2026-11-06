@@ -74,3 +74,28 @@ def test_overlap_is_nonzero_busy_and_os_releases_guard(tmp_path):
     finally:
         if first.poll() is None:
             subprocess.run(["taskkill", "/PID", str(first.pid), "/T", "/F"], capture_output=True)
+
+
+@pytest.mark.skipif(os.name != 'nt', reason='Windows shared-byte-lock backup coordination')
+def test_wrapper_waits_for_backup_byte_lock_without_masking_overlap(tmp_path):
+    import time
+    from nocturne.shadow.locking import FileLock
+    scripts = tmp_path / 'scripts'
+    scripts.mkdir()
+    (scripts / 'phase3m_research.py').write_text("print('isolated fixture only')\n")
+    runner = Path(__file__).resolve().parents[1] / 'scripts/run_research_task.ps1'
+    logs = tmp_path / 'data/research/orchestrator/task-logs'
+    with FileLock(logs / 'task.wrapper.lock'):
+        process = subprocess.Popen(['powershell', '-NoProfile', '-File', str(runner), '-Python', sys.executable,
+                                    '-Repository', str(tmp_path)], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        deadline = time.monotonic() + 15
+        saw_wait = False
+        while time.monotonic() < deadline:
+            files = list(logs.glob('*-events.jsonl'))
+            if files and 'MAINTENANCE_WAIT' in files[0].read_text():
+                saw_wait = True
+                break
+            time.sleep(0.05)
+        assert saw_wait
+        assert process.poll() is None
+    assert process.wait(timeout=20) == 0

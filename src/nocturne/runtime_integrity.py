@@ -10,6 +10,20 @@ from pathlib import Path
 import re
 
 
+def check_capture_window(now, scheduled_times, budget_seconds):
+    from datetime import datetime
+    if now.tzinfo is None or not 1 <= budget_seconds <= 120:
+        raise ValueError('invalid capture admission clock/budget')
+    for stamp in scheduled_times:
+        deadline = datetime.fromisoformat(stamp.replace('Z', '+00:00'))
+        if deadline.tzinfo is None:
+            raise ValueError('scheduled deadline lacks timezone')
+        if 0 <= (deadline - now).total_seconds() <= budget_seconds + 15:
+            raise BlockingIOError('scheduled tick imminent; defer backup rather than block forecast work')
+    return {'status': 'CAPTURE_WINDOW_CHECKED', 'scheduled_deadlines': scheduled_times,
+            'budget_seconds': budget_seconds, 'margin_seconds': 15}
+
+
 def normalized_name(name):
     return re.sub(r"[-_.]+", "-", name).lower()
 
