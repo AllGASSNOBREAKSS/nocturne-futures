@@ -48,6 +48,7 @@ def test_real_tls_protects_authenticated_api_and_rejects_plaintext(tmp_path):
         while not server.started and thread.is_alive() and time.monotonic() < deadline:
             time.sleep(0.02)
         assert server.started
+        assert server.config.ssl.minimum_version >= ssl.TLSVersion.TLSv1_2
         session = requests.Session()
         session.trust_env = False
         url = f'https://127.0.0.1:{port}'

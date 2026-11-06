@@ -212,9 +212,10 @@ class SecurityMiddleware:
                         message = await receive()
                         if message['type'] == 'http.disconnect':
                             return
-                        body.extend(message.get('body', b''))
-                        if len(body) > self.policy.max_body:
+                        chunk = message.get('body', b'')
+                        if len(body) + len(chunk) > self.policy.max_body:
                             return await reject(413, 'request body too large')
+                        body.extend(chunk)
                         if not message.get('more_body', False):
                             break
                     else:
