@@ -1,6 +1,59 @@
 # Implementation Checkpoint
 
-## Current resume point — Phase 3P, 2026-11-05 UTC
+## Current resume point — Phase 3Q, 2026-11-06 UTC
+
+Branch `feat/phase3q`, base `84a4ea9`. Runner implementation `be54b5b`; pinned
+environment tooling `e061c46`; runtime/acceptance gate `001d55b`. Read `PHASE3Q_FINDINGS.md`, `PHASE3Q_DEPLOYMENT.md`,
+`BACKEND_READINESS.md` and `reports/phase3q_acceptance.json`. Preserve all automated
+changes. No frontend/live execution, new market-model fitting or paid data.
+
+Current forward state: **3 issued / 2 verified matured / 1 pending**, one legacy
+and one corrected matured outcome. November 5 matured honestly after the bound:
+range 1471.7578125 / original reference 28437.166015625; all quantiles missed.
+November 6 forecast `291aac9c9d893a888609aafd` is pending. Prior journal bytes remain
+unchanged prefixes; frozen model hash unchanged. Any new revision still blocks
+unless deliberately proven under original gates; never backfill predictions.
+
+Hidden PowerShell alone failed one of three scheduled shadow tests. Console-free
+pythonw + CREATE_NO_WINDOW now wraps existing runners: three actual completions
+per task, all exit 0 with fsynced launcher/runner receipts. The normal automatic
+01:17 UTC shadow tick also completed with exit 0 (`phase3q_timed_shadow.json`).
+Sender of old
+STATUS_CONTROL_C_EXIT remains unconfirmed (Task Scheduler history disabled).
+Only task Actions changed; original XML privately archived; settings/principals/
+triggers unchanged. Still Interactive/awake/logged-in only; no 24/7 or reboot/logoff
+proof. Inspect `phase3q_scheduler.json`, retained failed hidden experiment and
+`phase3q_host_diagnostics.json`; do not infer scheduling health from core reports.
+
+Local tests: 362 passed including native parity; fresh independent clone + pinned
+venv/native build: 362 passed/no skips. TypeScript and installer dry runs passed.
+Broad clean dependency upgrades passed fixtures but failed real issuance proofs;
+pinning NumPy 2.5.0/pandas 3.0.3 restores exact checks. Never loosen those checks.
+All package/native paths and pins attested in `phase3q_environment.json`.
+
+New private snapshot: 654 files / 228,647,450 bytes, ignored
+`data/recovery/phase3q-local-20261106-v1`. Restored proof in approved private temp
+area using clean venv verifies 3 forecasts/2 outcomes/six cached challenger hashes
+and two exact old index diagnostics. One genuine nine-source validation job also
+ran from newly initialized empty SQLite state. No original evidence was mutated.
+This is still same-host: no authorized off-host location, separate OS/host,
+service-account activation or cutover/rollback test. Old SQLite artifact paths are
+absolute: mapped offline replay is not automatic relocated live job resumption.
+
+Acquisition: **USER_ACTION_REQUIRED**; four provider keys absent across scopes;
+zero licensed rows, cost/entitlement/credits unknown. Use the single exact checklist
+`PHASE3P_DATA_ACCESS.md`; do not rebuild adapters or retry blocked downloads.
+NO-GO frontend pending deployment/off-host/monitoring/API-security/memory-isolation
+gates plus authentic independent futures/calibration/sample evidence.
+
+Resume: check actual clock and task lifecycle receipts, refresh/evaluate through
+the existing sole live runtime, run audits/reports and `phase3q_acceptance.py`.
+Do not activate the isolated restored copy or re-run old index fitting. Verify
+Phase 3Q CI against its exact pushed SHA: `001d55b` passed all four jobs in run
+42142381461 (`reports/phase3q_ci.json`). Later observation/docs commits do not
+change the tested implementation.
+
+## Previous resume point — Phase 3P, 2026-11-05 UTC
 
 Branch `feat/phase3p`, base `ce76bf6`. Read `PHASE3P_FINDINGS.md`,
 `PHASE3P_DATA_ACCESS.md`, `BACKEND_READINESS.md` and `reports/phase3p_evidence.json`.

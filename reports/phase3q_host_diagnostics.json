@@ -1,0 +1,11 @@
+﻿{
+    "PowerQueryStatus":  "NO_MATCHING_EVENTS",
+    "ConfirmedExitMeaning":  "STATUS_CONTROL_C_EXIT; sender/origin unconfirmed",
+    "RootCauseLimit":  "Disabled scheduler history cannot establish control-event sender; no security logging settings changed.",
+    "GeneratedAt":  "2026-11-06T01:03:26.2168924Z",
+    "TaskHistoryEnabled":  false,
+    "LastBoot":  "2026-11-05T17:26:05.5000000Z",
+    "PowerEvents":  [
+
+                    ]
+}

@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-05T23:43:27.660401+00:00",
+  "generated_at": "2026-11-06T01:17:23.207118+00:00",
   "shadow": {
-    "generated_at": "2026-11-05T23:43:25.256052+00:00",
+    "generated_at": "2026-11-06T01:17:20.620072+00:00",
     "status": "ok",
     "components": {
       "shadow_cycle": {
@@ -26,20 +26,20 @@
     "health": {
       "status": "ok",
       "warnings": [],
-      "last_run": "2026-11-05T23:37:33.976829+00:00",
-      "age_hours": 0.09757756194444445,
-      "last_success": "2026-11-05T23:37:33.976829+00:00",
-      "last_attempt": "2026-11-05T23:37:33.976829+00:00",
+      "last_run": "2026-11-06T01:17:09.224441+00:00",
+      "age_hours": 0.0031654530555555553,
+      "last_success": "2026-11-06T01:17:09.224441+00:00",
+      "last_attempt": "2026-11-06T01:17:09.224441+00:00",
       "last_attempt_event": "CYCLE_OK",
-      "forecasts": 2,
-      "matured": 1,
+      "forecasts": 3,
+      "matured": 2,
       "pending": 1,
       "missed": 0,
       "recent_quality_failures": 0,
       "trading_decision": "NO_TRADE"
     },
-    "issued": 2,
-    "matured": 1,
+    "issued": 3,
+    "matured": 2,
     "missed": 0,
     "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
     "trading_decision": "NO_TRADE",
@@ -52,13 +52,13 @@
   "research": {
     "components": [
       {
-        "job_id": "024aa900f07444329fda489f",
+        "job_id": "47e2eb46448e5dab560e368b",
         "kind": "DATA_VALIDATION",
         "lane": "research",
         "state": "SUCCEEDED",
         "status": "HEALTHY",
         "reason": "SUCCEEDED",
-        "last_observed_at_epoch": 1793919033.4285417
+        "last_observed_at_epoch": 1793926371.0886343
       },
       {
         "job_id": "6c5abbdc35131e1c28fe4596",
@@ -160,13 +160,13 @@
         "last_observed_at_epoch": 1793844396.0760748
       },
       {
-        "job_id": "e4a8784372f511f43a35fde5",
+        "job_id": "c58c59c02f45dbd082349fbc",
         "kind": "RESEARCH_REPORT",
         "lane": "research",
         "state": "SUCCEEDED",
         "status": "HEALTHY",
         "reason": "SUCCEEDED",
-        "last_observed_at_epoch": 1793921962.7581506
+        "last_observed_at_epoch": 1793926858.3720574
       },
       {
         "job_id": "f902b82b1419763c5d945caa",
@@ -246,15 +246,15 @@
       "BLOCKED": 3
     },
     "historical_state_counts": {
-      "SUCCEEDED": 34,
+      "SUCCEEDED": 41,
       "BLOCKED": 15
     },
     "limits": "latest recorded result per lane/type/specification, not live host liveness or a market-data entitlement"
   },
   "forward": {
     "status": "VERIFIED_RESEARCH_GRADE",
-    "journaled": 1,
-    "verified": 1,
+    "journaled": 2,
+    "verified": 2,
     "records": [
       {
         "forecast_id": "20d48fc41c2cc0f5c0ae4f2d",
@@ -300,18 +300,63 @@
         "source_available_at": "2026-11-05T00:00:00+00:00",
         "evaluated_at": "2026-11-05T00:17:10.441833+00:00",
         "inference_revision": "legacy-unadjusted"
+      },
+      {
+        "forecast_id": "3db9c4cbd3a9cc5944db8437",
+        "status": "VERIFIED_RESEARCH_GRADE",
+        "issues": [],
+        "source_reliability": "unofficial_provider_not_independently_exchange_confirmed",
+        "target_date": "2026-11-05",
+        "realized_high": 28078.185546875,
+        "realized_low": 26606.427734375,
+        "realized_range_points": 1471.7578125,
+        "realized_range_pct": 0.05175472871281661,
+        "reference_close": 28437.166015625,
+        "covered": {
+          "p50": false,
+          "p80": false,
+          "p90": false
+        },
+        "pinball": {
+          "p50": 0.017448145234075434,
+          "p80": 0.02131315690327859,
+          "p90": 0.01863813408992034
+        },
+        "baseline_comparison": {
+          "registration": "EMBEDDED_AT_ISSUANCE",
+          "quantiles": {
+            "p50": 0.014277494224567883,
+            "p80": 0.024325037914972644,
+            "p90": 0.03292110148141983
+          },
+          "pinball": {
+            "p50": 0.018738617244124366,
+            "p80": 0.021943752638275176,
+            "p90": 0.016950264508257106
+          }
+        },
+        "forecast_sha256": "86169b61e5ed6c944b0c7fc617f810740c031510b79739524a88920c52df0e57",
+        "outcome_sha256": "03883e005708913cc3281df8662a0d8e971a24cec2773107e76144acd88bd574",
+        "snapshot_id": "da873626ca075176ee1548fc619656b9de694ada90b7c46bbf7b8862ec019d0a",
+        "raw_sha256": "bad406ec036b934ad4d69e67679be8df043898481a0a69ebe3812499d6607769",
+        "source_close": 26629.80859375,
+        "normalized_sha256": "2030705724f1d1d3618c92d92a51052afc9185b41ac2d5f9a2597cdcf726536b",
+        "source_received_at": "2026-11-06T00:47:09.891512+00:00",
+        "source_available_at": "2026-11-06T00:00:00+00:00",
+        "evaluated_at": "2026-11-06T00:47:10.805475+00:00",
+        "inference_revision": "residual-adjusted-v1"
       }
     ],
     "sample_warning": "descriptive observations only; no forward calibration or trading-edge claim",
     "trading_decision": "NO_TRADE",
-    "generated_at": "2026-11-05T23:43:09.493725+00:00",
-    "issued": 2,
+    "generated_at": "2026-11-06T01:17:14.939545+00:00",
+    "issued": 3,
     "pending": 1,
     "baseline_sha256": "cf6984327158af5517c35ca5ad2cd2ccc865a40022e50b411f1cc5872eaf298d",
     "baseline_provenance": "train-only comparator committed in 92cd098 before first outcome; not embedded in the first issued forecast",
     "journal_hashes": {
-      "forecasts": "9c5e18870f036681db042191f7afadf3437b0c3c7da9a297b03b149261496c8c",
-      "outcomes": "382f376d9e7ea3b8389182e9784892c9b2a01977d69d2eec0cc755eb86ea3149"
+      "forecasts": "8e23e8169cfb5abecd9908f9abf7d3bea5a77638729497a2674db30f46fb6b43",
+      "outcomes": "8b90fbee6cbd79ccd559240e1dc15d5b2e4de1507d4222a51641eb8c61443396"
     }
   },
   "core_status": "HEALTHY",

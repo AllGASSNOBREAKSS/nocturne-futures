@@ -1,4 +1,72 @@
-# Backend readiness — Phase 3P
+# Backend readiness — Phase 3Q
+
+## Phase 3Q acceptance decision — NO-GO frontend
+
+No completion percentage is assigned. Engineering evidence improved; independent
+quantitative acceptance remains blocked. Current evidence:
+`reports/phase3q_acceptance.json`, `PHASE3Q_FINDINGS.md`, `PHASE3Q_DEPLOYMENT.md`.
+
+### Engineering gates
+
+- **Orchestration — verified bounded scope.** Fresh SQLite/venv executed actual
+  nine-source archival validation, without training/repeating old experiments:
+  `reports/phase3q_clean_validation.json`; `tests/test_research_orchestrator.py`.
+- **Scheduled operation — verified repeated local completions, partial deployment.**
+  Six genuine scheduled zero exits with complete launcher/stage evidence after
+  console-free transport: `reports/phase3q_scheduler.json`. Hidden-window-only
+  mitigation failed (`phase3q_hidden_experiment.json`). Old control-event sender
+  is unconfirmed, not blamed on a particular user/policy. Task actions alone changed;
+  principals/settings/triggers match (`phase3q_task_action_changes.json`). Reboot,
+  logoff, approved service-account mode, long soak and 24/7 operation remain untested.
+- **Backtesting/ML validation — verified development interfaces only.** Existing
+  tests plus exact old index-diagnostic replay and six cached model hashes:
+  `reports/phase3q_recovery_check.json`; `tests/test_daily_experiment.py`. No new
+  independent model/strategy finding or promotion is established.
+- **Forward forecasting/evaluation — verified research-grade scope.** Three issued,
+  two verified matured, one pending; corrected cohort has one matured outcome.
+  `reports/phase3i_forward.json`; `reports/phase3l_forward_audit.json`.
+- **Registry/governance — verified preservation/no-promotion.** Exact old journal
+  prefixes and frozen model hash in `reports/phase3q_acceptance.json`;
+  `tests/test_model_governance.py`, `tests/test_promotion_evidence.py`.
+- **Native/dependencies — verified fresh-environment scope.** New C++20 build and
+  362 passing tests/no skips in isolated pinned venv; native/package paths checked:
+  `reports/phase3q_environment.json`, `requirements/windows-py314.lock.txt`.
+  Newer NumPy/pandas passed fixtures but blocked real proof replay; original pins
+  restore exact replay (`phase3q_dependency_incident.json`). Do not relax audits.
+- **Clean-host/recovery — partial.** Independent clone/venv/native build plus
+  654-file private proof replay works, but still on the same Windows host.
+  `reports/phase3q_recovery_*.json`; `PHASE3Q_DEPLOYMENT.md`. Separate OS/host,
+  authorized off-host durability/encryption, cutover/rollback and historical
+  absolute-path resumption remain unverified. No public upload occurred.
+- **API/security/monitoring — partial.** Read-only API regression tests pass;
+  `tests/test_api.py`, `tests/test_shadow_operations.py`. Deployment authentication,
+  TLS/network exposure/security/load review, independent paging, hard process-memory
+  isolation and accepted availability design remain missing.
+
+### Quantitative gates
+
+- **Authentic futures history — USER_ACTION_REQUIRED.** Zero licensed NQ/ES rows;
+  no configured credentials, verified entitlement/credits, actual quote or approval.
+  `reports/phase3q_data_access.json`; the single operator checklist remains
+  `PHASE3P_DATA_ACCESS.md`. Price is unknown, not zero. No metered request occurred.
+- **Independent strategy/direction/consolidation evidence — blocked.** No authentic
+  futures pipeline result; old 6,036-observation index diagnostics are reproducibility
+  evidence only and remain negative after hypothetical 2 bp. Existing logistic
+  results are development-only. See `PHASE3Q_FINDINGS.md` and `PHASE3N_DATA_DECISION.md`.
+- **Calibrated target-first probabilities — blocked.** Genuine contract paths,
+  adequate events, independent evaluation, realistic costs and calibration are
+  absent. 200–500-point targets are not inferred from daily ranges. Unsupported
+  probabilities stay null; `tests/test_target_survival.py` is engineering evidence,
+  not market validation.
+- **Forward evidence — insufficient.** Two research-grade matured outcomes across
+  two different inference cohorts, one each. November 5 missed all three range
+  quantiles; no accuracy/calibration claim follows from this sample. Original
+  denominators/observations unchanged; exchange finality remains unconfirmed.
+  `reports/phase3i_forward.json`, `reports/phase3l_forward_audit.json`.
+
+**Decision: NO-GO frontend; NO_PROMOTION / NO_TRADE.** Close the explicitly missing
+deployment/security/durability gates and obtain genuinely independent quantitative
+evidence before revisiting acceptance. Earlier sections below are historical.
 
 ## Phase 3P evidence update
 

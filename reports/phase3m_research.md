@@ -1,14 +1,14 @@
 # Research job snapshot
 
-Generated: 2026-11-05T23:39:22.405435+00:00
+Generated: 2026-11-06T01:00:57.641377+00:00
 
-States: {'SUCCEEDED': 33, 'BLOCKED': 15}
+States: {'SUCCEEDED': 40, 'BLOCKED': 15}
 
 Trading: NO_TRADE. No automatic promotions.
 
 Daily index diagnostics are not futures strategy P&L or independent validation.
 
-Shadow operations snapshot: **ok** (as of 2026-11-05T23:37:45.300433+00:00).
+Shadow operations snapshot: **ok** (as of 2026-11-06T01:00:44.901542+00:00).
 Open issues: []
 
 - `DATA_VALIDATION` (research): **SUCCEEDED** — `b26102aae53db5802cba4d08`
@@ -98,3 +98,19 @@ Open issues: []
   TLT: 6105 rows, 2002-07-30 through 2026-11-02, etf.
 - `RESEARCH_REPORT` (research): **SUCCEEDED** — `3a2a170d36efd4085f4bd389`
 - `RESEARCH_REPORT` (research): **SUCCEEDED** — `ea1293ed7ef07ef7186fd8db`
+- `RESEARCH_REPORT` (research): **SUCCEEDED** — `e4a8784372f511f43a35fde5`
+- `DATA_VALIDATION` (research): **SUCCEEDED** — `47e2eb46448e5dab560e368b`
+  ES=F: 6587 rows, 2000-09-18 through 2026-11-04, futures_proxy.
+  ^GSPC: 24828 rows, 1927-12-30 through 2026-11-03, index.
+  ^NDX: 10353 rows, 1985-10-01 through 2026-11-03, index.
+  ^TNX: 16198 rows, 1962-01-02 through 2026-11-03, rate_index.
+  ^VIX: 9280 rows, 1990-01-02 through 2026-11-03, volatility_index.
+  NQ=F: 6573 rows, 2000-09-18 through 2026-11-04, futures_proxy.
+  QQQ: 6956 rows, 1999-03-10 through 2026-11-02, etf.
+  SPY: 8498 rows, 1993-01-29 through 2026-11-02, etf.
+  TLT: 6105 rows, 2002-07-30 through 2026-11-02, etf.
+- `RESEARCH_REPORT` (research): **SUCCEEDED** — `36443c6fac8ea1f67997b3cc`
+- `RESEARCH_REPORT` (research): **SUCCEEDED** — `23524ff9ab2069ba10ffe061`
+- `RESEARCH_REPORT` (research): **SUCCEEDED** — `f1cf88f090f26dcc397bf46a`
+- `RESEARCH_REPORT` (research): **SUCCEEDED** — `75120ceb00ecacb48be3152d`
+- `RESEARCH_REPORT` (research): **SUCCEEDED** — `50004684de65020cee0033c5`

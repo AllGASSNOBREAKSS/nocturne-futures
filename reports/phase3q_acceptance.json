@@ -1,0 +1,398 @@
+{
+  "generated_at": "2026-11-06T01:18:25.073019+00:00",
+  "baseline_commit": "84a4ea9ec5830392c2536d675886eff764f74c96",
+  "decision": "NO_GO_FRONTEND",
+  "gates": [
+    {
+      "id": "orchestration",
+      "dimension": "engineering",
+      "status": "VERIFIED_BOUNDED",
+      "evidence": [
+        "reports/phase3q_clean_validation.json",
+        "tests/test_research_orchestrator.py"
+      ],
+      "missing": "hard process-memory isolation and long-duration restart/load testing"
+    },
+    {
+      "id": "scheduled_completion",
+      "dimension": "engineering",
+      "status": "LAST_OBSERVED_COMPLETIONS_OK",
+      "evidence": [
+        "reports/phase3q_scheduler.json",
+        "reports/phase3q_hidden_experiment.json",
+        "reports/phase3q_host_diagnostics.json"
+      ],
+      "missing": "control-event sender unconfirmed; logoff/reboot and unattended service-account acceptance not tested"
+    },
+    {
+      "id": "forward_evaluation",
+      "dimension": "engineering",
+      "status": "VERIFIED_RESEARCH_GRADE",
+      "evidence": [
+        "reports/phase3l_forward_audit.json",
+        "reports/phase3i_forward.json"
+      ],
+      "missing": "independent exchange finality and statistically adequate forward samples"
+    },
+    {
+      "id": "frozen_registry",
+      "dimension": "engineering",
+      "status": "VERIFIED_IMMUTABLE_BASE",
+      "evidence": [
+        {
+          "path": "data/shadow/ndx_range/forecasts.jsonl",
+          "original_bytes_preserved": true,
+          "appended_bytes": 4695,
+          "sha256": "8e23e8169cfb5abecd9908f9abf7d3bea5a77638729497a2674db30f46fb6b43"
+        },
+        {
+          "path": "data/shadow/ndx_range/outcomes.jsonl",
+          "original_bytes_preserved": true,
+          "appended_bytes": 1235,
+          "sha256": "8b90fbee6cbd79ccd559240e1dc15d5b2e4de1507d4222a51641eb8c61443396"
+        },
+        {
+          "path": "models/shadow/ndx-range-v1/model.joblib",
+          "original_bytes_preserved": true,
+          "appended_bytes": 0,
+          "sha256": "515fbf7222fd81159fa017facb68c88020afd63c3e2ddec00178d65d0821434e"
+        }
+      ],
+      "missing": "independent model-promotion evidence; no automatic promotion permitted"
+    },
+    {
+      "id": "native_and_dependencies",
+      "dimension": "engineering",
+      "status": "VERIFIED_FRESH_ENVIRONMENT_SAME_HOST",
+      "evidence": [
+        "reports/phase3q_environment.json",
+        "requirements/windows-py314.lock.txt",
+        "reports/phase3q_dependency_incident.json"
+      ],
+      "missing": "separate OS installation and cross-platform dependency/artifact portability"
+    },
+    {
+      "id": "clean_host_off_host_recovery",
+      "dimension": "engineering",
+      "status": "PARTIAL_SAME_HOST_ONLY",
+      "evidence": [
+        "reports/phase3q_recovery_check.json",
+        "docs/PHASE3Q_DEPLOYMENT.md"
+      ],
+      "missing": "authorized private off-host destination, separate-machine restore and operational cutover/rollback drill"
+    },
+    {
+      "id": "api_security_monitoring",
+      "dimension": "engineering",
+      "status": "PARTIAL_READ_ONLY_REGRESSION_SCOPE",
+      "evidence": [
+        "tests/test_api.py",
+        "tests/test_shadow_operations.py",
+        "docs/PHASE3Q_DEPLOYMENT.md"
+      ],
+      "missing": "deployment authentication/security/load review and independent monitoring/paging"
+    },
+    {
+      "id": "historical_backtest_ml",
+      "dimension": "engineering",
+      "status": "VERIFIED_DEVELOPMENT_SCOPE_ONLY",
+      "evidence": [
+        "reports/phase3q_recovery_check.json",
+        "tests/test_daily_experiment.py",
+        "tests/test_backtest_regression.py"
+      ],
+      "missing": "authentic independent futures validation; old exposed index diagnostics are not new experiments"
+    },
+    {
+      "id": "authentic_futures",
+      "dimension": "quantitative",
+      "status": "USER_ACTION_REQUIRED",
+      "evidence": [
+        "reports/phase3q_data_access.json",
+        "docs/PHASE3P_DATA_ACCESS.md"
+      ],
+      "missing": "configured key, license/entitlement checks, actual quotes and explicit consumption approval"
+    },
+    {
+      "id": "independent_direction_strategy_targets",
+      "dimension": "quantitative",
+      "status": "BLOCKED_INSUFFICIENT_AUTHENTIC_DATA",
+      "evidence": [
+        "docs/PHASE3Q_FINDINGS.md",
+        "docs/PHASE3N_DATA_DECISION.md"
+      ],
+      "missing": "independent observations, cost-valid strategy paths and calibrated target-first/event probabilities"
+    },
+    {
+      "id": "forward_sample_adequacy",
+      "dimension": "quantitative",
+      "status": "INSUFFICIENT",
+      "evidence": {
+        "legacy-unadjusted": {
+          "issued": 1,
+          "verified_matured": 1
+        },
+        "residual-adjusted-v1": {
+          "issued": 2,
+          "verified_matured": 1
+        }
+      },
+      "missing": "adequate genuine outcomes per frozen inference cohort"
+    }
+  ],
+  "preservation": [
+    {
+      "path": "data/shadow/ndx_range/forecasts.jsonl",
+      "original_bytes_preserved": true,
+      "appended_bytes": 4695,
+      "sha256": "8e23e8169cfb5abecd9908f9abf7d3bea5a77638729497a2674db30f46fb6b43"
+    },
+    {
+      "path": "data/shadow/ndx_range/outcomes.jsonl",
+      "original_bytes_preserved": true,
+      "appended_bytes": 1235,
+      "sha256": "8b90fbee6cbd79ccd559240e1dc15d5b2e4de1507d4222a51641eb8c61443396"
+    },
+    {
+      "path": "models/shadow/ndx-range-v1/model.joblib",
+      "original_bytes_preserved": true,
+      "appended_bytes": 0,
+      "sha256": "515fbf7222fd81159fa017facb68c88020afd63c3e2ddec00178d65d0821434e"
+    }
+  ],
+  "forward": {
+    "generated_at": "2026-11-06T01:17:19.486142+00:00",
+    "issued": 3,
+    "verified_matured": 2,
+    "pending": 1,
+    "inference_samples": {
+      "legacy-unadjusted": {
+        "issued": 1,
+        "verified_matured": 1
+      },
+      "residual-adjusted-v1": {
+        "issued": 2,
+        "verified_matured": 1
+      }
+    },
+    "outcome_verification": {
+      "status": "VERIFIED_RESEARCH_GRADE",
+      "journaled": 2,
+      "verified": 2,
+      "records": [
+        {
+          "forecast_id": "20d48fc41c2cc0f5c0ae4f2d",
+          "status": "VERIFIED_RESEARCH_GRADE",
+          "issues": [],
+          "source_reliability": "unofficial_provider_not_independently_exchange_confirmed",
+          "target_date": "2026-11-04",
+          "realized_high": 28829.662109375,
+          "realized_low": 28276.21875,
+          "realized_range_points": 553.443359375,
+          "realized_range_pct": 0.019639396061696825,
+          "reference_close": 28180.263671875,
+          "covered": {
+            "p50": false,
+            "p80": true,
+            "p90": true
+          },
+          "pinball": {
+            "p50": 0.0013313033751989351,
+            "p80": 0.0013087590358005139,
+            "p90": 0.0008928732079501124
+          },
+          "baseline_comparison": {
+            "registration": "POST_ISSUANCE_FROZEN_TRAIN_ONLY_COMPARATOR_NOT_AN_ISSUED_FORECAST",
+            "quantiles": {
+              "p50": 0.014277494224567883,
+              "p80": 0.024325037914972644,
+              "p90": 0.03292110148141983
+            },
+            "pinball": {
+              "p50": 0.0026809509185644707,
+              "p80": 0.0009371283706551635,
+              "p90": 0.0013281705419723002
+            }
+          },
+          "forecast_sha256": "26604fd0603ca5f5e6dac216797fe24b96143e4abc63ceeae597a32b7290d3e2",
+          "outcome_sha256": "022225ffd03961364c57bae69a6dad09707c41960c8eecb9d0a635a022564442",
+          "snapshot_id": "2bdadb4e3d17c80a4358eed656b475e0129bfc86dfd217695a9d9659f50f7ec0",
+          "raw_sha256": "4b1e33c93d48d63fea2763646b66c02351c97c7a2637d6299d6e4cff8e30265c",
+          "source_close": 28437.166015625,
+          "normalized_sha256": "3a25e87ec507a0ab693acd1a1ad52db31190c1111f331f5cfa68024f6c84f1b1",
+          "source_received_at": "2026-11-05T00:17:09.704122+00:00",
+          "source_available_at": "2026-11-05T00:00:00+00:00",
+          "evaluated_at": "2026-11-05T00:17:10.441833+00:00",
+          "inference_revision": "legacy-unadjusted"
+        },
+        {
+          "forecast_id": "3db9c4cbd3a9cc5944db8437",
+          "status": "VERIFIED_RESEARCH_GRADE",
+          "issues": [],
+          "source_reliability": "unofficial_provider_not_independently_exchange_confirmed",
+          "target_date": "2026-11-05",
+          "realized_high": 28078.185546875,
+          "realized_low": 26606.427734375,
+          "realized_range_points": 1471.7578125,
+          "realized_range_pct": 0.05175472871281661,
+          "reference_close": 28437.166015625,
+          "covered": {
+            "p50": false,
+            "p80": false,
+            "p90": false
+          },
+          "pinball": {
+            "p50": 0.017448145234075434,
+            "p80": 0.02131315690327859,
+            "p90": 0.01863813408992034
+          },
+          "baseline_comparison": {
+            "registration": "EMBEDDED_AT_ISSUANCE",
+            "quantiles": {
+              "p50": 0.014277494224567883,
+              "p80": 0.024325037914972644,
+              "p90": 0.03292110148141983
+            },
+            "pinball": {
+              "p50": 0.018738617244124366,
+              "p80": 0.021943752638275176,
+              "p90": 0.016950264508257106
+            }
+          },
+          "forecast_sha256": "86169b61e5ed6c944b0c7fc617f810740c031510b79739524a88920c52df0e57",
+          "outcome_sha256": "03883e005708913cc3281df8662a0d8e971a24cec2773107e76144acd88bd574",
+          "snapshot_id": "da873626ca075176ee1548fc619656b9de694ada90b7c46bbf7b8862ec019d0a",
+          "raw_sha256": "bad406ec036b934ad4d69e67679be8df043898481a0a69ebe3812499d6607769",
+          "source_close": 26629.80859375,
+          "normalized_sha256": "2030705724f1d1d3618c92d92a51052afc9185b41ac2d5f9a2597cdcf726536b",
+          "source_received_at": "2026-11-06T00:47:09.891512+00:00",
+          "source_available_at": "2026-11-06T00:00:00+00:00",
+          "evaluated_at": "2026-11-06T00:47:10.805475+00:00",
+          "inference_revision": "residual-adjusted-v1"
+        }
+      ],
+      "sample_warning": "descriptive observations only; no forward calibration or trading-edge claim",
+      "trading_decision": "NO_TRADE"
+    }
+  },
+  "core_operations": {
+    "generated_at": "2026-11-06T01:17:20.620072+00:00",
+    "status": "ok",
+    "components": {
+      "shadow_cycle": {
+        "status": "HEALTHY",
+        "reason": "SHADOW_ACTIVE"
+      },
+      "forecast_integrity": {
+        "status": "HEALTHY",
+        "reason": "see forecast audit issues; reconciliation is evidence-bound, not a health override"
+      },
+      "provider_refresh": {
+        "status": "HEALTHY",
+        "reason": "latest timestamped cycle refresh results; not an uptime guarantee"
+      },
+      "outcome_evaluation": {
+        "status": "HEALTHY",
+        "reason": "pending horizons are expected work, not fabricated outcomes; evaluation requires availability and audit gates"
+      }
+    },
+    "issues": {},
+    "overdue_outcomes": [],
+    "health": {
+      "status": "ok",
+      "warnings": [],
+      "last_run": "2026-11-06T01:17:09.224441+00:00",
+      "age_hours": 0.0031654530555555553,
+      "last_success": "2026-11-06T01:17:09.224441+00:00",
+      "last_attempt": "2026-11-06T01:17:09.224441+00:00",
+      "last_attempt_event": "CYCLE_OK",
+      "forecasts": 3,
+      "matured": 2,
+      "pending": 1,
+      "missed": 0,
+      "recent_quality_failures": 0,
+      "trading_decision": "NO_TRADE"
+    },
+    "issued": 3,
+    "matured": 2,
+    "missed": 0,
+    "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
+    "trading_decision": "NO_TRADE",
+    "mode": "read_only_shadow",
+    "delivery": "local durable alerts only; no external paging configured",
+    "limits": "same-host monitoring cannot detect or notify while this host is powered off",
+    "transitions_now": [],
+    "open_alerts": []
+  },
+  "job_counts": {
+    "SUCCEEDED": 41,
+    "BLOCKED": 15
+  },
+  "recovery": {
+    "generated_at": "2026-11-06T01:06:19.155552+00:00",
+    "mode": "check",
+    "result": {
+      "status": "VERIFIED_LOCAL_RELOCATION",
+      "issued": 3,
+      "verified_matured": 2,
+      "reproduced_index_diagnostics": [
+        {
+          "symbol": "^NDX",
+          "observations": 6036,
+          "scope": "NON_EXECUTABLE_INDEX_CONTEXT_NOT_NQ_ES_PNL",
+          "net_mean_fraction_2bp": -0.00016316773640181952
+        },
+        {
+          "symbol": "^GSPC",
+          "observations": 6036,
+          "scope": "NON_EXECUTABLE_INDEX_CONTEXT_NOT_NQ_ES_PNL",
+          "net_mean_fraction_2bp": -0.0003269370965258071
+        }
+      ],
+      "cached_challenger_files_verified": 6,
+      "new_models_trained": 0,
+      "network_requests": 0,
+      "trading_decision": "NO_TRADE",
+      "limitations": "same-host offline relocation using installed code; not off-host durability, different-machine restore or service activation"
+    },
+    "scope": "authorized local recovery drill; private archive not uploaded, not encrypted by this tool",
+    "live_trading": "DISABLED"
+  },
+  "futures_access": {
+    "Dataset": "GLBX.MDP3",
+    "Entitlements": "UNVERIFIED_NO_CREDENTIAL",
+    "CredentialsPresent": {
+      "DATABENTO_API_KEY": {
+        "Machine": false,
+        "User": false,
+        "Process": false
+      },
+      "NASDAQ_DATA_LINK_API_KEY": {
+        "Machine": false,
+        "User": false,
+        "Process": false
+      },
+      "FRED_API_KEY": {
+        "Machine": false,
+        "User": false,
+        "Process": false
+      },
+      "BLS_API_KEY": {
+        "Machine": false,
+        "User": false,
+        "Process": false
+      }
+    },
+    "QuotedCostUsd": null,
+    "Checklist": "docs/PHASE3P_DATA_ACCESS.md",
+    "ConsumptionAttempted": false,
+    "GeneratedAt": "2026-11-06T01:03:26.5977731Z",
+    "Status": "USER_ACTION_REQUIRED",
+    "LicensedFuturesRows": 0
+  },
+  "new_market_models_trained": 0,
+  "new_independent_holdout_evaluations": 0,
+  "promotion": "NO_PROMOTION",
+  "trading_decision": "NO_TRADE",
+  "limitations": "Timestamped evidence inventory. Gate review remains NO-GO despite bounded engineering success; no completion percentage or predictive-accuracy claim."
+}

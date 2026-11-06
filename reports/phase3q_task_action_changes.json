@@ -1,0 +1,18 @@
+﻿[
+    {
+        "Action":  "pythonw.exe + CREATE_NO_WINDOW child",
+        "Name":  "Nocturne-NDX-ReadOnly-Shadow",
+        "SettingsUnchanged":  true,
+        "PrincipalsUnchanged":  true,
+        "ObservedAt":  "2026-11-06T00:59:53.2836358Z",
+        "TriggersUnchanged":  true
+    },
+    {
+        "Action":  "pythonw.exe + CREATE_NO_WINDOW child",
+        "Name":  "Nocturne-ReadOnly-Research",
+        "SettingsUnchanged":  true,
+        "PrincipalsUnchanged":  true,
+        "ObservedAt":  "2026-11-06T00:59:53.3675103Z",
+        "TriggersUnchanged":  true
+    }
+]

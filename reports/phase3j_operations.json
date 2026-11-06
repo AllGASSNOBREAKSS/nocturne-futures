@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T23:43:25.256052+00:00",
+  "generated_at": "2026-11-06T01:17:20.620072+00:00",
   "status": "ok",
   "components": {
     "shadow_cycle": {
@@ -24,20 +24,20 @@
   "health": {
     "status": "ok",
     "warnings": [],
-    "last_run": "2026-11-05T23:37:33.976829+00:00",
-    "age_hours": 0.09757756194444445,
-    "last_success": "2026-11-05T23:37:33.976829+00:00",
-    "last_attempt": "2026-11-05T23:37:33.976829+00:00",
+    "last_run": "2026-11-06T01:17:09.224441+00:00",
+    "age_hours": 0.0031654530555555553,
+    "last_success": "2026-11-06T01:17:09.224441+00:00",
+    "last_attempt": "2026-11-06T01:17:09.224441+00:00",
     "last_attempt_event": "CYCLE_OK",
-    "forecasts": 2,
-    "matured": 1,
+    "forecasts": 3,
+    "matured": 2,
     "pending": 1,
     "missed": 0,
     "recent_quality_failures": 0,
     "trading_decision": "NO_TRADE"
   },
-  "issued": 2,
-  "matured": 1,
+  "issued": 3,
+  "matured": 2,
   "missed": 0,
   "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
   "trading_decision": "NO_TRADE",

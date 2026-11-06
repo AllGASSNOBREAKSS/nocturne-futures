@@ -1,0 +1,292 @@
+{
+  "generated_at": "2026-11-06T01:15:59.547693+00:00",
+  "status": "VERIFIED_FRESH_ENVIRONMENT_SAME_HOST",
+  "checks": {
+    "fresh_venv": true,
+    "user_site_disabled": true,
+    "package_from_clean_source": true,
+    "native_from_clean_build": true,
+    "all_pins_match": true,
+    "tests_passed": true
+  },
+  "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "prefix": "C:\\Users\\huzai\\AppData\\Local\\Temp\\opencode\\nocturne-phase3q-clean\\venv",
+  "base_prefix": "C:\\Python314",
+  "source_commit": "001d55bebb57aa1afacc8fb5e7c04c33cb0220dc",
+  "package_path": "C:\\Users\\huzai\\AppData\\Local\\Temp\\opencode\\nocturne-phase3q-clean\\source\\src\\nocturne\\__init__.py",
+  "native_path": "C:\\Users\\huzai\\AppData\\Local\\Temp\\opencode\\nocturne-phase3q-clean\\source\\native\\build\\nocturne_native.cp314-win_amd64.pyd",
+  "tests": {
+    "tests": 362,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "dependencies": {
+    "annotated-doc": {
+      "expected": "0.0.5",
+      "observed": "0.0.5",
+      "match": true
+    },
+    "annotated-types": {
+      "expected": "0.8.0",
+      "observed": "0.8.0",
+      "match": true
+    },
+    "anyio": {
+      "expected": "4.16.0",
+      "observed": "4.16.0",
+      "match": true
+    },
+    "attrs": {
+      "expected": "26.1.0",
+      "observed": "26.1.0",
+      "match": true
+    },
+    "certifi": {
+      "expected": "2026.10.23",
+      "observed": "2026.10.23",
+      "match": true
+    },
+    "charset-normalizer": {
+      "expected": "3.5.2",
+      "observed": "3.5.2",
+      "match": true
+    },
+    "click": {
+      "expected": "8.5.0",
+      "observed": "8.5.0",
+      "match": true
+    },
+    "cloudpickle": {
+      "expected": "3.1.2",
+      "observed": "3.1.2",
+      "match": true
+    },
+    "cmake": {
+      "expected": "4.4.4",
+      "observed": "4.4.4",
+      "match": true
+    },
+    "colorama": {
+      "expected": "0.4.6",
+      "observed": "0.4.6",
+      "match": true
+    },
+    "contourpy": {
+      "expected": "1.4.0",
+      "observed": "1.4.0",
+      "match": true
+    },
+    "cycler": {
+      "expected": "0.12.1",
+      "observed": "0.12.1",
+      "match": true
+    },
+    "fastapi": {
+      "expected": "0.162.0",
+      "observed": "0.162.0",
+      "match": true
+    },
+    "fonttools": {
+      "expected": "4.68.0",
+      "observed": "4.68.0",
+      "match": true
+    },
+    "h11": {
+      "expected": "0.16.0",
+      "observed": "0.16.0",
+      "match": true
+    },
+    "httpcore": {
+      "expected": "1.0.9",
+      "observed": "1.0.9",
+      "match": true
+    },
+    "httpx": {
+      "expected": "0.28.1",
+      "observed": "0.28.1",
+      "match": true
+    },
+    "idna": {
+      "expected": "3.20",
+      "observed": "3.20",
+      "match": true
+    },
+    "iniconfig": {
+      "expected": "2.3.1",
+      "observed": "2.3.1",
+      "match": true
+    },
+    "joblib": {
+      "expected": "1.6.0",
+      "observed": "1.6.0",
+      "match": true
+    },
+    "jsonschema": {
+      "expected": "4.26.0",
+      "observed": "4.26.0",
+      "match": true
+    },
+    "jsonschema-specifications": {
+      "expected": "2025.9.1",
+      "observed": "2025.9.1",
+      "match": true
+    },
+    "kiwisolver": {
+      "expected": "1.5.1",
+      "observed": "1.5.1",
+      "match": true
+    },
+    "lightgbm": {
+      "expected": "4.7.0",
+      "observed": "4.7.0",
+      "match": true
+    },
+    "matplotlib": {
+      "expected": "3.11.2",
+      "observed": "3.11.2",
+      "match": true
+    },
+    "narwhals": {
+      "expected": "2.28.0",
+      "observed": "2.28.0",
+      "match": true
+    },
+    "ninja": {
+      "expected": "1.13.2",
+      "observed": "1.13.2",
+      "match": true
+    },
+    "numpy": {
+      "expected": "2.5.0",
+      "observed": "2.5.0",
+      "match": true
+    },
+    "opentelemetry-api": {
+      "expected": "1.45.2",
+      "observed": "1.45.2",
+      "match": true
+    },
+    "packaging": {
+      "expected": "26.3",
+      "observed": "26.3",
+      "match": true
+    },
+    "pandas": {
+      "expected": "3.0.3",
+      "observed": "3.0.3",
+      "match": true
+    },
+    "pillow": {
+      "expected": "13.0.0",
+      "observed": "13.0.0",
+      "match": true
+    },
+    "pluggy": {
+      "expected": "1.7.0",
+      "observed": "1.7.0",
+      "match": true
+    },
+    "pybind11": {
+      "expected": "3.1.0",
+      "observed": "3.1.0",
+      "match": true
+    },
+    "pydantic": {
+      "expected": "2.14.3",
+      "observed": "2.14.3",
+      "match": true
+    },
+    "pydantic_core": {
+      "expected": "2.50.4",
+      "observed": "2.50.4",
+      "match": true
+    },
+    "Pygments": {
+      "expected": "2.21.0",
+      "observed": "2.21.0",
+      "match": true
+    },
+    "pyparsing": {
+      "expected": "3.3.3",
+      "observed": "3.3.3",
+      "match": true
+    },
+    "pytest": {
+      "expected": "9.2.0",
+      "observed": "9.2.0",
+      "match": true
+    },
+    "python-dateutil": {
+      "expected": "4.0.0",
+      "observed": "4.0.0",
+      "match": true
+    },
+    "PyYAML": {
+      "expected": "6.0.3",
+      "observed": "6.0.3",
+      "match": true
+    },
+    "referencing": {
+      "expected": "0.37.0",
+      "observed": "0.37.0",
+      "match": true
+    },
+    "requests": {
+      "expected": "2.34.2",
+      "observed": "2.34.2",
+      "match": true
+    },
+    "rpds-py": {
+      "expected": "2026.9.1",
+      "observed": "2026.9.1",
+      "match": true
+    },
+    "scikit-learn": {
+      "expected": "1.9.1",
+      "observed": "1.9.1",
+      "match": true
+    },
+    "scipy": {
+      "expected": "1.18.1",
+      "observed": "1.18.1",
+      "match": true
+    },
+    "starlette": {
+      "expected": "1.10.0",
+      "observed": "1.10.0",
+      "match": true
+    },
+    "threadpoolctl": {
+      "expected": "3.8.0",
+      "observed": "3.8.0",
+      "match": true
+    },
+    "typing-inspection": {
+      "expected": "0.4.5",
+      "observed": "0.4.5",
+      "match": true
+    },
+    "typing_extensions": {
+      "expected": "4.16.0",
+      "observed": "4.16.0",
+      "match": true
+    },
+    "tzdata": {
+      "expected": "2026.6",
+      "observed": "2026.6",
+      "match": true
+    },
+    "urllib3": {
+      "expected": "2.8.0",
+      "observed": "2.8.0",
+      "match": true
+    },
+    "uvicorn": {
+      "expected": "0.54.0",
+      "observed": "0.54.0",
+      "match": true
+    }
+  },
+  "limits": "New venv, independent Git clone and native build; same Windows host, OS runtime and installed MSVC/SDK. No off-host restore, service-account or reboot test."
+}

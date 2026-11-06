@@ -1,0 +1,133 @@
+﻿{
+    "ExitCode":  0,
+    "State":  "Ready",
+    "Name":  "Nocturne-NDX-ReadOnly-Shadow",
+    "ObservedAt":  "2026-11-06T01:17:40.2499067Z",
+    "LastRun":  "2026-11-06T01:17:06.0000000Z",
+    "Trigger":  "Existing automatic half-hour repetition; not manually started for this observation",
+    "LauncherEvents":  [
+                           {
+                               "at":  "2026-11-06T01:17:06.285761+00:00",
+                               "console_window":  false,
+                               "event":  "LAUNCHER_STARTED",
+                               "lane":  "shadow",
+                               "pid":  31992
+                           },
+                           {
+                               "at":  "2026-11-06T01:17:06.297856+00:00",
+                               "child_pid":  53036,
+                               "creation":  "CREATE_NO_WINDOW",
+                               "event":  "RUNNER_STARTED",
+                               "pid":  31992
+                           },
+                           {
+                               "at":  "2026-11-06T01:17:23.576855+00:00",
+                               "event":  "LAUNCHER_FINISHED",
+                               "exit_code":  0,
+                               "pid":  31992
+                           }
+                       ],
+    "Events":  [
+                   {
+                       "Detail":  {
+                                      "Lane":  "shadow"
+                                  },
+                       "PID":  53036,
+                       "Event":  "RUN_STARTED",
+                       "At":  "2026-11-06T01:17:06.6238994Z"
+                   },
+                   {
+                       "Detail":  {
+                                      "Stage":  "cycle"
+                                  },
+                       "PID":  53036,
+                       "Event":  "STAGE_STARTED",
+                       "At":  "2026-11-06T01:17:06.6701847Z"
+                   },
+                   {
+                       "Detail":  {
+                                      "Stage":  "cycle",
+                                      "ExitCode":  0
+                                  },
+                       "PID":  53036,
+                       "Event":  "STAGE_FINISHED",
+                       "At":  "2026-11-06T01:17:11.7592764Z"
+                   },
+                   {
+                       "Detail":  {
+                                      "Stage":  "audit"
+                                  },
+                       "PID":  53036,
+                       "Event":  "STAGE_STARTED",
+                       "At":  "2026-11-06T01:17:11.7642750Z"
+                   },
+                   {
+                       "Detail":  {
+                                      "Stage":  "audit",
+                                      "ExitCode":  0
+                                  },
+                       "PID":  53036,
+                       "Event":  "STAGE_FINISHED",
+                       "At":  "2026-11-06T01:17:15.1960254Z"
+                   },
+                   {
+                       "Detail":  {
+                                      "Stage":  "report"
+                                  },
+                       "PID":  53036,
+                       "Event":  "STAGE_STARTED",
+                       "At":  "2026-11-06T01:17:15.1985368Z"
+                   },
+                   {
+                       "Detail":  {
+                                      "Stage":  "report",
+                                      "ExitCode":  0
+                                  },
+                       "PID":  53036,
+                       "Event":  "STAGE_FINISHED",
+                       "At":  "2026-11-06T01:17:19.7915037Z"
+                   },
+                   {
+                       "Detail":  {
+                                      "Stage":  "monitor"
+                                  },
+                       "PID":  53036,
+                       "Event":  "STAGE_STARTED",
+                       "At":  "2026-11-06T01:17:19.7942562Z"
+                   },
+                   {
+                       "Detail":  {
+                                      "Stage":  "monitor",
+                                      "ExitCode":  0
+                                  },
+                       "PID":  53036,
+                       "Event":  "STAGE_FINISHED",
+                       "At":  "2026-11-06T01:17:20.7134560Z"
+                   },
+                   {
+                       "Detail":  {
+                                      "Stage":  "health"
+                                  },
+                       "PID":  53036,
+                       "Event":  "STAGE_STARTED",
+                       "At":  "2026-11-06T01:17:20.7164793Z"
+                   },
+                   {
+                       "Detail":  {
+                                      "Stage":  "health",
+                                      "ExitCode":  0
+                                  },
+                       "PID":  53036,
+                       "Event":  "STAGE_FINISHED",
+                       "At":  "2026-11-06T01:17:23.5429723Z"
+                   },
+                   {
+                       "Detail":  {
+                                      "ExitCode":  0
+                                  },
+                       "PID":  53036,
+                       "Event":  "RUN_FINISHED",
+                       "At":  "2026-11-06T01:17:23.5517931Z"
+                   }
+               ]
+}

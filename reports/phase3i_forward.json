@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-11-05T23:43:24.125563+00:00",
+  "generated_at": "2026-11-06T01:17:19.486142+00:00",
   "model_id": "ndx-range-v1",
   "scope": "NDX cash-session range quantiles; not NQ futures; not a trading signal",
   "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
   "trading_decision": "NO_TRADE",
-  "issued": 2,
-  "matured": 1,
-  "verified_matured": 1,
+  "issued": 3,
+  "matured": 2,
+  "verified_matured": 2,
   "outcome_verification": {
     "status": "VERIFIED_RESEARCH_GRADE",
-    "journaled": 1,
-    "verified": 1,
+    "journaled": 2,
+    "verified": 2,
     "records": [
       {
         "forecast_id": "20d48fc41c2cc0f5c0ae4f2d",
@@ -56,6 +56,51 @@
         "source_available_at": "2026-11-05T00:00:00+00:00",
         "evaluated_at": "2026-11-05T00:17:10.441833+00:00",
         "inference_revision": "legacy-unadjusted"
+      },
+      {
+        "forecast_id": "3db9c4cbd3a9cc5944db8437",
+        "status": "VERIFIED_RESEARCH_GRADE",
+        "issues": [],
+        "source_reliability": "unofficial_provider_not_independently_exchange_confirmed",
+        "target_date": "2026-11-05",
+        "realized_high": 28078.185546875,
+        "realized_low": 26606.427734375,
+        "realized_range_points": 1471.7578125,
+        "realized_range_pct": 0.05175472871281661,
+        "reference_close": 28437.166015625,
+        "covered": {
+          "p50": false,
+          "p80": false,
+          "p90": false
+        },
+        "pinball": {
+          "p50": 0.017448145234075434,
+          "p80": 0.02131315690327859,
+          "p90": 0.01863813408992034
+        },
+        "baseline_comparison": {
+          "registration": "EMBEDDED_AT_ISSUANCE",
+          "quantiles": {
+            "p50": 0.014277494224567883,
+            "p80": 0.024325037914972644,
+            "p90": 0.03292110148141983
+          },
+          "pinball": {
+            "p50": 0.018738617244124366,
+            "p80": 0.021943752638275176,
+            "p90": 0.016950264508257106
+          }
+        },
+        "forecast_sha256": "86169b61e5ed6c944b0c7fc617f810740c031510b79739524a88920c52df0e57",
+        "outcome_sha256": "03883e005708913cc3281df8662a0d8e971a24cec2773107e76144acd88bd574",
+        "snapshot_id": "da873626ca075176ee1548fc619656b9de694ada90b7c46bbf7b8862ec019d0a",
+        "raw_sha256": "bad406ec036b934ad4d69e67679be8df043898481a0a69ebe3812499d6607769",
+        "source_close": 26629.80859375,
+        "normalized_sha256": "2030705724f1d1d3618c92d92a51052afc9185b41ac2d5f9a2597cdcf726536b",
+        "source_received_at": "2026-11-06T00:47:09.891512+00:00",
+        "source_available_at": "2026-11-06T00:00:00+00:00",
+        "evaluated_at": "2026-11-06T00:47:10.805475+00:00",
+        "inference_revision": "residual-adjusted-v1"
       }
     ],
     "sample_warning": "descriptive observations only; no forward calibration or trading-edge claim",
@@ -67,8 +112,8 @@
       "verified_matured": 1
     },
     "residual-adjusted-v1": {
-      "issued": 1,
-      "verified_matured": 0
+      "issued": 2,
+      "verified_matured": 1
     }
   },
   "pending": 1,
@@ -78,9 +123,9 @@
     "MARKET_DATA_MISSING": 2
   },
   "cycle_availability": {
-    "attempts_logged": 56,
+    "attempts_logged": 66,
     "failed_cycles": 13,
-    "failure_fraction": 0.23214285714285715,
+    "failure_fraction": 0.19696969696969696,
     "note": "observed local cycles, not service uptime"
   },
   "issuance_timing": [
@@ -93,11 +138,16 @@
       "forecast_id": "3db9c4cbd3a9cc5944db8437",
       "lead_seconds": 51167.379983,
       "prediction_compute_seconds": 0.237905399999363
+    },
+    {
+      "forecast_id": "291aac9c9d893a888609aafd",
+      "lead_seconds": 49367.279028,
+      "prediction_compute_seconds": 0.11630019999938668
     }
   ],
   "audit": {
-    "forecasts": 2,
-    "passed": 2,
+    "forecasts": 3,
+    "passed": 3,
     "failed": [],
     "records": [
       {
@@ -121,11 +171,20 @@
           "SOURCE_REVISION_RECONCILED_AS_ISSUED"
         ],
         "reconciliation_id": "637b42c4e6ba1ebff1eebc7076f4a2ddcb9a5827f040c2ad7566d0da6f13812d"
+      },
+      {
+        "forecast_id": "291aac9c9d893a888609aafd",
+        "ok": true,
+        "issues": [],
+        "stored_reference_close": 26629.80859375,
+        "current_source_reference_close": 26629.80859375,
+        "warnings": [],
+        "reconciliation_id": null
       }
     ]
   },
   "forecast_integrity": {
-    "journal_sha256": "9c5e18870f036681db042191f7afadf3437b0c3c7da9a297b03b149261496c8c",
+    "journal_sha256": "8e23e8169cfb5abecd9908f9abf7d3bea5a77638729497a2674db30f46fb6b43",
     "originals": [
       {
         "forecast_id": "20d48fc41c2cc0f5c0ae4f2d",
@@ -140,26 +199,33 @@
         "feature_digest": "0ee7d4a8d41ff5b6dd91a63161a8f0c7b624c07fa16364697bd76206034ce57b",
         "inference_revision": "residual-adjusted-v1",
         "calibration_warning": null
+      },
+      {
+        "forecast_id": "291aac9c9d893a888609aafd",
+        "created_at": "2026-11-06T00:47:12.720972+00:00",
+        "feature_digest": "4444d29d047834a0fa5cf2c466326428ae292d87d0c891604f99dfb60c9a9123",
+        "inference_revision": "residual-adjusted-v1",
+        "calibration_warning": null
       }
     ]
   },
   "health": {
     "status": "ok",
     "warnings": [],
-    "last_run": "2026-11-05T23:37:33.976829+00:00",
-    "age_hours": 0.09708157861111111,
-    "last_success": "2026-11-05T23:37:33.976829+00:00",
-    "last_attempt": "2026-11-05T23:37:33.976829+00:00",
+    "last_run": "2026-11-06T01:17:09.224441+00:00",
+    "age_hours": 0.002612966388888889,
+    "last_success": "2026-11-06T01:17:09.224441+00:00",
+    "last_attempt": "2026-11-06T01:17:09.224441+00:00",
     "last_attempt_event": "CYCLE_OK",
-    "forecasts": 2,
-    "matured": 1,
+    "forecasts": 3,
+    "matured": 2,
     "pending": 1,
     "missed": 0,
     "recent_quality_failures": 0,
     "trading_decision": "NO_TRADE"
   },
   "evaluation": {
-    "matured": 1,
+    "matured": 2,
     "pending": 1,
     "quarantined_outcomes": 0,
     "status": "SHADOW_EVALUATING",
@@ -167,80 +233,88 @@
     "missed": 0,
     "coverage": {
       "p50": 0.0,
-      "p80": 1.0,
-      "p90": 1.0
+      "p80": 0.5,
+      "p90": 0.5
     },
     "coverage_interval": {
       "p50": {
         "rate": 0.0,
         "low": 0.0,
-        "high": 0.7934567085261071,
-        "n": 1
+        "high": 0.6576280471103807,
+        "n": 2
       },
       "p80": {
-        "rate": 1.0,
-        "low": 0.20654329147389294,
-        "high": 1.0,
-        "n": 1
+        "rate": 0.5,
+        "low": 0.09452865480086614,
+        "high": 0.9054713451991339,
+        "n": 2
       },
       "p90": {
-        "rate": 1.0,
-        "low": 0.20654329147389294,
-        "high": 1.0,
-        "n": 1
+        "rate": 0.5,
+        "low": 0.09452865480086614,
+        "high": 0.9054713451991339,
+        "n": 2
       }
     },
     "mean_pinball": {
-      "p50": 0.0013313033751989351,
-      "p80": 0.0013087590358005139,
-      "p90": 0.0008928732079501124
+      "p50": 0.009389724304637186,
+      "p80": 0.011310957969539553,
+      "p90": 0.009765503648935225
     },
     "baseline_pinball": {
-      "p50": null,
-      "p80": null,
-      "p90": null
+      "p50": 0.018738617244124366,
+      "p80": 0.021943752638275176,
+      "p90": 0.016950264508257106
     },
     "by_inference_revision": {
       "legacy-unadjusted": {
         "matured": 1,
         "coverage_p80": 1.0
+      },
+      "residual-adjusted-v1": {
+        "matured": 1,
+        "coverage_p80": 0.0
       }
     },
     "median_width": {
-      "p50": 0.016976789311298954,
-      "p80": 0.009206401929400441,
-      "p90": 0.011591338829898996
+      "p50": 0.01691761377798235,
+      "p80": 0.008730623134226536,
+      "p90": 0.0128892957101803
     },
     "by_month": {
       "2026-11": {
-        "matured": 1,
-        "coverage_p80": 1.0
+        "matured": 2,
+        "coverage_p80": 0.5
       }
     },
     "by_volatility_regime": {
       "HIGH_VOL": {
         "matured": 1,
         "coverage_p80": 1.0
+      },
+      "NORMAL_VOL": {
+        "matured": 1,
+        "coverage_p80": 0.0
       }
     },
     "drift": null,
     "milestones": {
       "30": {
         "target": 30,
-        "matured": 1,
-        "remaining": 29,
+        "matured": 2,
+        "remaining": 28,
         "reached": false
       },
       "60": {
         "target": 60,
-        "matured": 1,
-        "remaining": 59,
+        "matured": 2,
+        "remaining": 58,
         "reached": false
       },
       "90": {
         "target": 90,
-        "matured": 1,
-        "remaining": 89,
+        "matured": 2,
+        "remaining": 88,
         "reached": false
       }
     },

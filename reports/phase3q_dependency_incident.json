@@ -1,0 +1,23 @@
+{
+  "phase": "3Q",
+  "observed_date_utc": "2026-11-06",
+  "initial_clean_environment": {"numpy": "2.5.4", "pandas": "3.1.1"},
+  "initial_test_result": {"passed": 361, "warnings": 126},
+  "real_evidence_replay": "AUDIT_BLOCKED",
+  "issues": ["ISSUANCE_SNAPSHOT_INVALID", "REFERENCE_CLOSE_MISMATCH", "archived issuance does not reproduce frozen forecast inputs"],
+  "affected_scope": "3 forecast audits and 2 matured outcome proofs in the isolated restore; live original environment remains verified",
+  "response": "Pin the original numerical runtime and repeat exact real-evidence replay; never rewrite archived records or relax comparisons.",
+  "resolution": {
+    "numpy": "2.5.0",
+    "pandas": "3.0.3",
+    "other_new_venv_dependencies": "unchanged",
+    "real_evidence_replay": "VERIFIED_LOCAL_RELOCATION",
+    "forecast_proofs": 3,
+    "verified_outcomes": 2,
+    "fixed_index_diagnostics_exactly_reproduced": 2,
+    "pinned_tests_passed": 362,
+    "pinned_test_warnings": 1,
+    "evidence": ["reports/phase3q_recovery_check.json", "reports/phase3q_environment.json"]
+  },
+  "causality_limit": "Changing only NumPy/pandas to original versions resolves replay in the new venv; this combined experiment does not isolate which single dependency or interaction caused the discrepancy."
+}

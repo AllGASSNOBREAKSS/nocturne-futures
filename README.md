@@ -8,6 +8,28 @@
 
 ## What is implemented
 
+### Phase 3Q — scheduled recovery and isolated-environment proof
+
+Existing Windows runners now launch without consoles; three genuine Task Scheduler
+completions per task have complete zero-exit lifecycle receipts. A hidden-window
+attempt still failed and remains recorded; the original control-event sender is
+unconfirmed. Principals/settings/triggers unchanged; awake/logged-in host still
+required. No 24/7 or unattended-account claim.
+
+Fresh venv, independent clone and native build pass 362 tests, including parity.
+Real proof replay exposed dependency drift that fixture tests missed; pinned
+NumPy/pandas restore exact issuance/outcome checks without changing records.
+A 654-file private restore verifies three forecasts/two outcomes. This remains
+same-host recovery, not off-host durability or separate-host deployment.
+
+Current forward state: **3 issued / 2 verified matured / 1 pending**; November 5
+missed all range quantiles. Zero licensed futures rows: **USER_ACTION_REQUIRED**.
+No new market model or independent futures result. **NO-GO frontend;
+NO_PROMOTION / NO_TRADE.** See [findings](docs/PHASE3Q_FINDINGS.md),
+[deployment procedure](docs/PHASE3Q_DEPLOYMENT.md),
+[acceptance evidence](reports/phase3q_acceptance.json) and
+[readiness gates](docs/BACKEND_READINESS.md). Earlier sections are historical.
+
 ### Phase 3P — private-evidence recovery, quantitative gates still blocked
 
 Bounded local snapshots and a separate-location offline restore verify source

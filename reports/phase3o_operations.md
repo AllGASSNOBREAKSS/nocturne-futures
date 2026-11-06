@@ -1,6 +1,6 @@
 # Component health
 
-As of 2026-11-05T23:43:27.660401+00:00
+As of 2026-11-06T01:17:23.207118+00:00
 
 Core: HEALTHY
 
@@ -8,7 +8,7 @@ Core: HEALTHY
 - forecast_integrity: **HEALTHY** — see forecast audit issues; reconciliation is evidence-bound, not a health override
 - provider_refresh: **HEALTHY** — latest timestamped cycle refresh results; not an uptime guarantee
 - outcome_evaluation: **HEALTHY** — pending horizons are expected work, not fabricated outcomes; evaluation requires availability and audit gates
-- DATA_VALIDATION / 024aa900f07444329fda489f: **HEALTHY** — SUCCEEDED
+- DATA_VALIDATION / 47e2eb46448e5dab560e368b: **HEALTHY** — SUCCEEDED
 - FEATURE_BUILD / 6c5abbdc35131e1c28fe4596: **HEALTHY** — SUCCEEDED
 - HISTORICAL_BACKTEST / 0d1c9bdb4d4add7cd173fd7d: **HEALTHY** — SUCCEEDED
 - WALK_FORWARD_VALIDATION / 777d85d11d0c796dbb875b1f: **HEALTHY** — SUCCEEDED
@@ -20,7 +20,7 @@ Core: HEALTHY
 - MODEL_TRAINING / 804c1127316b5d4e5a01d21b: **HEALTHY** — SUCCEEDED
 - MODEL_EVALUATION / 60d102ffabcb24efa44c9104: **HEALTHY** — SUCCEEDED
 - HISTORICAL_BACKTEST / 178923b71b51206a027758eb: **BLOCKED** — AUTHENTIC_CONTRACT_HISTORY_REQUIRED
-- RESEARCH_REPORT / e4a8784372f511f43a35fde5: **HEALTHY** — SUCCEEDED
+- RESEARCH_REPORT / c58c59c02f45dbd082349fbc: **HEALTHY** — SUCCEEDED
 - DATA_REFRESH / f902b82b1419763c5d945caa: **HEALTHY** — SUCCEEDED
 - SHADOW_FORECAST / 592ab80aa3949e626aac0802: **HEALTHY** — SUCCEEDED
 - FORECAST_MATURITY_CHECK / 5318c48c334be82fd4c50241: **HEALTHY** — SUCCEEDED

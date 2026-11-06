@@ -1,18 +1,20 @@
 {
-  "generated_at": "2026-11-05T23:37:33.976829+00:00",
+  "generated_at": "2026-11-06T01:17:09.224441+00:00",
   "model_id": "ndx-range-v1",
   "model_version": "1.0.0",
   "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
   "trading_decision": "NO_TRADE",
   "mode": "read_only_shadow",
   "operational_status": "SHADOW_ACTIVE",
-  "generation": "SKIPPED",
+  "generation": "ALREADY_ISSUED",
   "generation_detail": {
-    "status": "SKIPPED",
-    "eligible": false,
-    "reason": "TOO_LATE_FOR_TARGET",
-    "data_date": "2026-11-04",
-    "session_open_utc": "2026-11-05T14:30:00+00:00"
+    "status": "ALREADY_ISSUED",
+    "eligibility": {
+      "eligible": true,
+      "data_date": "2026-11-05",
+      "target_date": "2026-11-06",
+      "session_open_utc": "2026-11-06T14:30:00+00:00"
+    }
   },
   "latest_forecast": {
     "artifact_digests": {
@@ -26,39 +28,39 @@
       "p90": 0.03292110148141983
     },
     "calibration_status": "FROZEN_RESIDUAL_ADJUSTMENTS_APPLIED",
-    "created_at": "2026-11-05T00:17:12.620017+00:00",
-    "data_date": "2026-11-04",
+    "created_at": "2026-11-06T00:47:12.720972+00:00",
+    "data_date": "2026-11-05",
     "data_quality_status": "PASSED",
     "dataset_digest_format": "feature-input-csv-lf-v1",
-    "dataset_sha256": "adfb71be76aa9c5f5fc091ddee404ec37a4056a68014f10d0ebe70d0c1eef070",
-    "feature_asof": "2026-11-05T00:17:10.441833+00:00",
-    "feature_digest": "0ee7d4a8d41ff5b6dd91a63161a8f0c7b624c07fa16364697bd76206034ce57b",
+    "dataset_sha256": "706382ee5da8d26c24e4f004503c0b8d9c93657f888f60d2e6dab57c7d398311",
+    "feature_asof": "2026-11-06T00:47:10.805475+00:00",
+    "feature_digest": "4444d29d047834a0fa5cf2c466326428ae292d87d0c891604f99dfb60c9a9123",
     "features": {
-      "atr_pct": 0.019545493975238307,
-      "efficiency_20": 0.38945367672036185,
-      "range_atr": 0.9957268463718605,
-      "ret_1_abs": 0.6245961976992557,
-      "ret_5_abs": 1.4141426726540594,
-      "vix_change_5": -0.017740936710088695,
-      "vix_level": 0.9671033726865347,
-      "vol_20": 1.2823079492184415,
-      "vol_ratio": 1.1991571083325878,
-      "volume_z": -3.316342783341149,
-      "weekday": 2.0
+      "atr_pct": 0.02317596396542819,
+      "efficiency_20": 0.48967587783233013,
+      "range_atr": 2.384682134156646,
+      "ret_1_abs": 3.236413072129194,
+      "ret_5_abs": 2.1475287918791013,
+      "vix_change_5": 0.6383720380928555,
+      "vix_level": 1.6407569136667386,
+      "vol_20": 1.7252683634020367,
+      "vol_ratio": 1.6104926099421393,
+      "volume_z": -3.0794801759899313,
+      "weekday": 3.0
     },
-    "forecast_id": "3db9c4cbd3a9cc5944db8437",
+    "forecast_id": "291aac9c9d893a888609aafd",
     "inference_revision": "residual-adjusted-v1",
     "instrument": "^NDX",
     "interval_widths": {
-      "p50": 0.016858438244665742,
-      "p80": 0.00825484433905263,
-      "p90": 0.014187252590461604
+      "p50": 0.034500404140336935,
+      "p80": 0.025816663746097687,
+      "p90": 0.0398772688570074
     },
-    "issuance_lead_seconds": 51167.379983,
+    "issuance_lead_seconds": 49367.279028,
     "kind": "cash_session_range",
     "market_snapshot_ids": {
-      "index": "2bdadb4e3d17c80a4358eed656b475e0129bfc86dfd217695a9d9659f50f7ec0",
-      "vix": "689859ddb6cb20aceaa687509476af451bc0975b6d6bcfa79b255b61e7df60f9"
+      "index": "da873626ca075176ee1548fc619656b9de694ada90b7c46bbf7b8862ec019d0a",
+      "vix": "1fa8fc4e5d0914051166f494e93df36feb18c4a5b15773ff8ef49d5ef8647e0d"
     },
     "model_id": "ndx-range-v1",
     "model_version": "1.0.0",
@@ -67,16 +69,16 @@
       "cash-session index range, not NQ futures",
       "read-only research shadow; not a trading signal"
     ],
-    "prediction_compute_seconds": 0.237905399999363,
+    "prediction_compute_seconds": 0.11630019999938668,
     "quantiles": {
-      "p50": 0.016858438244665742,
-      "p80": 0.025113282583718373,
-      "p90": 0.031045690835127347
+      "p50": 0.034500404140336935,
+      "p80": 0.06031706788643462,
+      "p90": 0.07437767299734434
     },
-    "record_sha256": "a0ed5e7dbae6ab2686575fd335ae630d725c390d86dbb89cd58bf85ce9f172c2",
-    "reference_close": 28437.166015625,
-    "rows_used": 10354,
-    "session_open_utc": "2026-11-05T14:30:00+00:00",
+    "record_sha256": "f3237068f9ed090b18078ce84f015a39e2772c43f551a3d01a0b4860b2750b1d",
+    "reference_close": 26629.80859375,
+    "rows_used": 10355,
+    "session_open_utc": "2026-11-06T14:30:00+00:00",
     "source": {
       "index": "data/shadow/market",
       "manifests": {
@@ -94,16 +96,16 @@
             "continuous futures proxies have unverified roll mapping",
             "adjusted vs unadjusted prices not distinguished by this adapter"
           ],
-          "last": "2026-11-04",
+          "last": "2026-11-05",
           "license_scope": "public_research_unofficial",
           "name": "Nasdaq-100 index",
-          "normalized_sha256": "3a25e87ec507a0ab693acd1a1ad52db31190c1111f331f5cfa68024f6c84f1b1",
+          "normalized_sha256": "2030705724f1d1d3618c92d92a51052afc9185b41ac2d5f9a2597cdcf726536b",
           "provider": "yahoo_public_unofficial",
-          "raw_sha256": "4b1e33c93d48d63fea2763646b66c02351c97c7a2637d6299d6e4cff8e30265c",
-          "received_at": "2026-11-05T00:17:09.704122+00:00",
-          "rows": 10354,
-          "snapshot_id": "2bdadb4e3d17c80a4358eed656b475e0129bfc86dfd217695a9d9659f50f7ec0",
-          "span_years": 41.09,
+          "raw_sha256": "bad406ec036b934ad4d69e67679be8df043898481a0a69ebe3812499d6607769",
+          "received_at": "2026-11-06T00:47:09.891512+00:00",
+          "rows": 10355,
+          "snapshot_id": "da873626ca075176ee1548fc619656b9de694ada90b7c46bbf7b8862ec019d0a",
+          "span_years": 41.1,
           "symbol": "^NDX",
           "zero_volume_rows": 0
         },
@@ -121,48 +123,48 @@
             "continuous futures proxies have unverified roll mapping",
             "adjusted vs unadjusted prices not distinguished by this adapter"
           ],
-          "last": "2026-11-04",
+          "last": "2026-11-05",
           "license_scope": "public_research_unofficial",
           "name": "CBOE VIX index (spot proxy)",
-          "normalized_sha256": "84d2a9dc705575cadf5c4440d614f9f837d6f81b02b7003282c5ec1197273c5f",
+          "normalized_sha256": "1c8e9c49880c6e57fe4c4709a6bc47afb7343b4fa434ebec09c3764b005b5359",
           "provider": "yahoo_public_unofficial",
-          "raw_sha256": "c24f342f8e2eeedb578f4f24e3627bf7dc388cd5061097243afe372c42448008",
-          "received_at": "2026-11-05T00:17:10.241500+00:00",
-          "rows": 9281,
-          "snapshot_id": "689859ddb6cb20aceaa687509476af451bc0975b6d6bcfa79b255b61e7df60f9",
+          "raw_sha256": "489d088173aa250e569ce0bc794a45a26a25292ba8f81a8e2a49f3fdf318959b",
+          "received_at": "2026-11-06T00:47:10.524856+00:00",
+          "rows": 9282,
+          "snapshot_id": "1fa8fc4e5d0914051166f494e93df36feb18c4a5b15773ff8ef49d5ef8647e0d",
           "span_years": 36.84,
           "symbol": "^VIX",
-          "zero_volume_rows": 9281
+          "zero_volume_rows": 9282
         }
       },
       "refresh": {
         "^NDX": {
-          "last": "2026-11-04",
-          "rows": 10354,
+          "last": "2026-11-05",
+          "rows": 10355,
           "status": "FETCHED"
         },
         "^VIX": {
-          "last": "2026-11-04",
-          "rows": 9281,
+          "last": "2026-11-05",
+          "rows": 9282,
           "status": "FETCHED"
         }
       },
       "snapshot_ids": {
-        "index": "2bdadb4e3d17c80a4358eed656b475e0129bfc86dfd217695a9d9659f50f7ec0",
-        "vix": "689859ddb6cb20aceaa687509476af451bc0975b6d6bcfa79b255b61e7df60f9"
+        "index": "da873626ca075176ee1548fc619656b9de694ada90b7c46bbf7b8862ec019d0a",
+        "vix": "1fa8fc4e5d0914051166f494e93df36feb18c4a5b15773ff8ef49d5ef8647e0d"
       },
       "vix": "data/shadow/market"
     },
     "status": "PENDING",
-    "target_date": "2026-11-05",
+    "target_date": "2026-11-06",
     "trading_decision": "NO_TRADE",
     "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW"
   },
   "matured_now": 0,
   "missed_now": 0,
   "audit": {
-    "forecasts": 2,
-    "passed": 2,
+    "forecasts": 3,
+    "passed": 3,
     "failed": [],
     "records": [
       {
@@ -186,26 +188,35 @@
           "SOURCE_REVISION_RECONCILED_AS_ISSUED"
         ],
         "reconciliation_id": "637b42c4e6ba1ebff1eebc7076f4a2ddcb9a5827f040c2ad7566d0da6f13812d"
+      },
+      {
+        "forecast_id": "291aac9c9d893a888609aafd",
+        "ok": true,
+        "issues": [],
+        "stored_reference_close": 26629.80859375,
+        "current_source_reference_close": 26629.80859375,
+        "warnings": [],
+        "reconciliation_id": null
       }
     ]
   },
   "health": {
     "status": "ok",
     "warnings": [],
-    "last_run": "2026-11-05T23:37:33.976829+00:00",
+    "last_run": "2026-11-06T01:17:09.224441+00:00",
     "age_hours": 0.0,
-    "last_success": "2026-11-05T23:37:33.976829+00:00",
-    "last_attempt": "2026-11-05T23:37:33.976829+00:00",
+    "last_success": "2026-11-06T01:17:09.224441+00:00",
+    "last_attempt": "2026-11-06T01:17:09.224441+00:00",
     "last_attempt_event": "CYCLE_OK",
-    "forecasts": 2,
-    "matured": 1,
+    "forecasts": 3,
+    "matured": 2,
     "pending": 1,
     "missed": 0,
     "recent_quality_failures": 0,
     "trading_decision": "NO_TRADE"
   },
   "evaluation": {
-    "matured": 1,
+    "matured": 2,
     "pending": 1,
     "quarantined_outcomes": 0,
     "status": "SHADOW_EVALUATING",
@@ -213,80 +224,88 @@
     "missed": 0,
     "coverage": {
       "p50": 0.0,
-      "p80": 1.0,
-      "p90": 1.0
+      "p80": 0.5,
+      "p90": 0.5
     },
     "coverage_interval": {
       "p50": {
         "rate": 0.0,
         "low": 0.0,
-        "high": 0.7934567085261071,
-        "n": 1
+        "high": 0.6576280471103807,
+        "n": 2
       },
       "p80": {
-        "rate": 1.0,
-        "low": 0.20654329147389294,
-        "high": 1.0,
-        "n": 1
+        "rate": 0.5,
+        "low": 0.09452865480086614,
+        "high": 0.9054713451991339,
+        "n": 2
       },
       "p90": {
-        "rate": 1.0,
-        "low": 0.20654329147389294,
-        "high": 1.0,
-        "n": 1
+        "rate": 0.5,
+        "low": 0.09452865480086614,
+        "high": 0.9054713451991339,
+        "n": 2
       }
     },
     "mean_pinball": {
-      "p50": 0.0013313033751989351,
-      "p80": 0.0013087590358005139,
-      "p90": 0.0008928732079501124
+      "p50": 0.009389724304637186,
+      "p80": 0.011310957969539553,
+      "p90": 0.009765503648935225
     },
     "baseline_pinball": {
-      "p50": null,
-      "p80": null,
-      "p90": null
+      "p50": 0.018738617244124366,
+      "p80": 0.021943752638275176,
+      "p90": 0.016950264508257106
     },
     "by_inference_revision": {
       "legacy-unadjusted": {
         "matured": 1,
         "coverage_p80": 1.0
+      },
+      "residual-adjusted-v1": {
+        "matured": 1,
+        "coverage_p80": 0.0
       }
     },
     "median_width": {
-      "p50": 0.016976789311298954,
-      "p80": 0.009206401929400441,
-      "p90": 0.011591338829898996
+      "p50": 0.01691761377798235,
+      "p80": 0.008730623134226536,
+      "p90": 0.0128892957101803
     },
     "by_month": {
       "2026-11": {
-        "matured": 1,
-        "coverage_p80": 1.0
+        "matured": 2,
+        "coverage_p80": 0.5
       }
     },
     "by_volatility_regime": {
       "HIGH_VOL": {
         "matured": 1,
         "coverage_p80": 1.0
+      },
+      "NORMAL_VOL": {
+        "matured": 1,
+        "coverage_p80": 0.0
       }
     },
     "drift": null,
     "milestones": {
       "30": {
         "target": 30,
-        "matured": 1,
-        "remaining": 29,
+        "matured": 2,
+        "remaining": 28,
         "reached": false
       },
       "60": {
         "target": 60,
-        "matured": 1,
-        "remaining": 59,
+        "matured": 2,
+        "remaining": 58,
         "reached": false
       },
       "90": {
         "target": 90,
-        "matured": 1,
-        "remaining": 89,
+        "matured": 2,
+        "remaining": 88,
         "reached": false
       }
     },
@@ -338,7 +357,7 @@
         "dropped_invalid_or_missing_bars": 0,
         "gap_days_median": 1.0,
         "gaps_over_5_days": 1,
-        "received_at": "2026-11-05T23:37:33.249108+00:00",
+        "received_at": "2026-11-06T01:17:08.465879+00:00",
         "availability": "next UTC midnight after the session date",
         "known_limitations": [
           "unofficial endpoint; not an exchange feed",
@@ -346,7 +365,7 @@
           "continuous futures proxies have unverified roll mapping",
           "adjusted vs unadjusted prices not distinguished by this adapter"
         ],
-        "snapshot_id": "d7e47827530348740207644b21868c80066bd295edf861888fb48aa90bbb004b"
+        "snapshot_id": "67ee7c168d476c413c95903f7e1e5f296e02ef38fe863d86667e9ed86a043518"
       },
       "vix": {
         "symbol": "^VIX",
@@ -365,7 +384,7 @@
         "dropped_invalid_or_missing_bars": 331,
         "gap_days_median": 1.0,
         "gaps_over_5_days": 1,
-        "received_at": "2026-11-05T23:37:33.753413+00:00",
+        "received_at": "2026-11-06T01:17:09.018665+00:00",
         "availability": "next UTC midnight after the session date",
         "known_limitations": [
           "unofficial endpoint; not an exchange feed",
@@ -373,12 +392,12 @@
           "continuous futures proxies have unverified roll mapping",
           "adjusted vs unadjusted prices not distinguished by this adapter"
         ],
-        "snapshot_id": "e6256a152a8242239cd6e923a78d03d7b8740829bc3d04bbaa2cf2801a4a0fed"
+        "snapshot_id": "3e90b0a59bd4af2d01aa6a5fb49a1663d50b995659a0550ad516178087c0261f"
       }
     },
     "snapshot_ids": {
-      "index": "d7e47827530348740207644b21868c80066bd295edf861888fb48aa90bbb004b",
-      "vix": "e6256a152a8242239cd6e923a78d03d7b8740829bc3d04bbaa2cf2801a4a0fed"
+      "index": "67ee7c168d476c413c95903f7e1e5f296e02ef38fe863d86667e9ed86a043518",
+      "vix": "3e90b0a59bd4af2d01aa6a5fb49a1663d50b995659a0550ad516178087c0261f"
     }
   },
   "notes": [
