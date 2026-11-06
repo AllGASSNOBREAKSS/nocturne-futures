@@ -21,6 +21,16 @@ ROOT = Path(__file__).resolve().parents[1]
 SAFE_TIME = datetime(2026, 11, 5, 23, tzinfo=timezone.utc)
 
 
+def test_frozen_shadow_runtime_matches_reviewed_constraints():
+    # Real archived proof replay failed in a newer runtime even when all former
+    # fixtures passed. Make unsupported dependency drift explicit before deployment.
+    import importlib.metadata
+    for line in (ROOT / "requirements/frozen-shadow.constraints.txt").read_text().splitlines():
+        if line and not line.startswith("#"):
+            name, expected = line.split("==")
+            assert importlib.metadata.version(name) == expected, "Install frozen-shadow constraints; do not relax historical proof checks"
+
+
 def project_fixture(tmp_path):
     archive, store, _ = matured_fixture(tmp_path / "inputs")
     root = tmp_path / "SYNTHETIC_PROJECT"

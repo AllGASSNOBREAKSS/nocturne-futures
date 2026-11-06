@@ -1,0 +1,4 @@
+# Exact archived feature/dataset replay was verified with this numerical runtime.
+# Do not upgrade without real archived-proof replay; passing fixtures is insufficient.
+numpy==2.5.0
+pandas==3.0.3
