@@ -1,0 +1,20 @@
+{
+  "recorded_at": "2026-11-08T08:37:24.066853+00:00",
+  "tested_commit": "61878d5bca04653ae35b477ae67ad9a22c03fdfd",
+  "isolated": {
+    "tests": 406,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 111.873,
+    "native": "fresh C++20 build included"
+  },
+  "local": {
+    "tests": 406,
+    "failures": 0,
+    "seconds": 128.09,
+    "native": "existing build included"
+  },
+  "typescript": "npm run typecheck passed 2026-11-06",
+  "warning": "httpx TestClient deprecation; no warning suppression or dependency upgrade"
+}

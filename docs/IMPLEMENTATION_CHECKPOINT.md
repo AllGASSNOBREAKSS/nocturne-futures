@@ -1,6 +1,64 @@
 # Implementation Checkpoint
 
-## Current resume point — Phase 3R, 2026-11-06 UTC
+## Current resume point — Phase 3S, 2026-11-08 UTC
+
+Branch `feat/phase3s`, base `504a168`. Implementation `b722033`, hardening `61878d5`,
+current-blocker/report regressions `b75ee44`, alert/CI status normalization `b0364b9`.
+Read `PHASE3S_FINDINGS.md`, `PHASE3S_SECURITY_DEPLOYMENT.md`,
+`PHASE3S_FUTURES_PILOT.md`, `BACKEND_READINESS.md` and
+`reports/phase3s_acceptance.json`. No frontend, broker activation, paid consumption
+or new market-model fit. NO_GO_FRONTEND / NO_PROMOTION / NO_TRADE.
+
+Protected API read/admin roles, private token files, request/rate bounds, fail-closed
+secret-safe audits, health separation and isolated certificate-verified TLS work.
+Admin has no write/job authority. Loopback remains default; no public deployment.
+Read documented compatibility changes before restarting HTTP clients. Audit log
+capacity is bounded and needs operator rotation; production ACL/TLS/security/load
+review is not complete.
+
+At `61878d5`, 406 tests pass locally and in isolated clean clone/venv (native parity
+included); all five CI jobs pass in run 42153192576. TypeScript passes. Offline
+security profile verifies 58 wheel hashes / 145,253,614 bytes and 13,458 installed
+file hashes. Exact three original issued-row replay remains unchanged. Later
+source/report commits require separately recorded CI; do not misattribute results.
+
+November 6 coherent snapshot: 765 files / 239,693,198 bytes, manifest
+`b75aaffc57d18a8b0bd2781783253c5dc5fe44b5c5b4a537f12e7ed89ae5960f`.
+Encrypted package `data/recovery/phase3s-encrypted-20261106-v1.nct` is private/ignored;
+demo key is outside repository under the approved temp drill root, not production
+key custody. Capture 14.14s, packaging 13.02s, authenticated restore/replay 23.70s.
+Fresh source/venv/restored evidence are under
+`C:/Users/huzai/AppData/Local/Temp/opencode/nocturne-phase3s-clean/`.
+On November 8 the old drill venv's Python was missing (cause unknown), so a new
+independent clone/environment was prepared under `nocturne-phase3s-final/`; the old
+directory and original receipts were retained. See interruption report. Never
+treat temporary drill directories as durable environments or backups.
+RESTORED_NOT_ACTIVATED; same-host only; snapshot predates later appended state.
+OFF_HOST_VERIFICATION_REQUIRED; proposed RPO 30m/RTO 60m are not achieved SLOs.
+
+On November 8 resumption live scheduler had appended a fourth genuine forecast
+`cd26071237a957cd7a874933` for November 9. Actual current state: **4 issued / 2
+verified matured / 2 pending / 0 missed**. Pending November 6 and 9 reference bars
+were revised upstream; integrity gates are **AUDIT_BLOCKED**. Existing investigation
+tool reproduces issuance features and reports provider revisions, but independent
+FRED/Nasdaq corroboration is unavailable. Two separate 3S revision reports remain
+**unapplied**; forecasts/outcomes/denominators were not changed. The November 6
+availability bound has passed, but do not create an outcome until all original
+source/audit/maturity gates pass. Never automatically reconcile subsequent revisions.
+
+November 6 repeated zero-exit task receipts remain in `phase3s_scheduler.json`.
+Current `phase3s_scheduler_current.json` correctly records shadow exit **1** with
+complete lifecycle, research exit **0**; four open alerts/core degraded. Do not
+claim healthy scheduling solely from older successes. Actual deployed tasks remain
+Interactive/awake/logged-in; installers' Password/startup support was dry-run only.
+
+Next: deliberate evidence-bound source review and full audits (no forced overrides),
+continue genuine timestamped operations, configure Databento securely and approve
+exact quotes before any bounded licensed pilot, obtain approved unattended host,
+private off-host destination/key custody and independent monitoring/security review.
+Keys absent at checked scopes; licensed receipts zero; costs/entitlements unknown.
+
+## Historical resume point — Phase 3R, 2026-11-06 UTC
 
 Branch `feat/phase3r`, base `c65e596`. Read `PHASE3R_FINDINGS.md`,
 `PHASE3R_REPRODUCIBILITY.md`, `BACKEND_READINESS.md` and

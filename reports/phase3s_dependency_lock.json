@@ -1,0 +1,10 @@
+{
+  "generated_at": "2026-11-06T02:30:49.244452+00:00",
+  "result": {
+    "status": "VERIFIED_WHEEL_BYTES",
+    "wheels": 58,
+    "bytes": 145253614
+  },
+  "hash_lock_sha256": "fc0a0667053978143653ccd83b47795b112b71f65d9a71943fd51e6a929614d2",
+  "manifest_sha256": "b213f2a4fdcd6034211b5259ebed1f70485996a8340ce7ad0b621f735861d917"
+}

@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-11-06T02:46:14.694432+00:00",
+  "mode": "pack",
+  "elapsed_seconds": 13.020845999999437,
+  "result": {
+    "status": "ENCRYPTED_VERIFIED_SNAPSHOT",
+    "schema": 1,
+    "cipher": "AES-256-GCM",
+    "manifest_sha256": "b75aaffc57d18a8b0bd2781783253c5dc5fe44b5c5b4a537f12e7ed89ae5960f",
+    "ciphertext_bytes": 240445663,
+    "secret_exclusion": {
+      "status": "KNOWN_SECRET_AND_PATH_EXCLUSIONS_PASSED",
+      "files": 767,
+      "bytes": 239854907,
+      "limits": "Allowlisted snapshot scope, forbidden secret-file paths, private-key markers and supplied known values; unknown or encoded secrets require operator review."
+    },
+    "limits": "Local packaging only; not off-host durability, authorized key custody or protection against an operator changing both archive and key."
+  },
+  "off_host_status": "OFF_HOST_VERIFICATION_REQUIRED",
+  "trading_decision": "NO_TRADE"
+}

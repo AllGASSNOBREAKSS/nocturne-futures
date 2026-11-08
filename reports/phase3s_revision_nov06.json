@@ -1,0 +1,128 @@
+{
+  "record": {
+    "forecast_id": "291aac9c9d893a888609aafd",
+    "forecast_sha256": "8344c61bcd20afe22003ef0f09f200308182d86694428044314afd560e9f6156",
+    "issuance_snapshot_ids": {
+      "index": "da873626ca075176ee1548fc619656b9de694ada90b7c46bbf7b8862ec019d0a",
+      "vix": "1fa8fc4e5d0914051166f494e93df36feb18c4a5b15773ff8ef49d5ef8647e0d"
+    },
+    "revised_snapshot_id": "9199d9acc9faf4792476b88665c0cb30972b2ad365b07d45e0ea623c78f0ba3e",
+    "revised_reference_close": 26629.810546875,
+    "revised_reference_bar_sha256": "d432964724e5914df180f54ae6a3072af435a0c848cd7c3887978e43cc2d51ab",
+    "classification": "VERIFIED_AS_ISSUED_PROVIDER_REVISION",
+    "recorded_at": "2026-11-08T08:37:04.243094+00:00",
+    "exchange_finality_confirmed": false,
+    "trading_decision": "NO_TRADE",
+    "policy": "score issued quantiles against original denominator; never rewrite forecasts",
+    "root_cause": "upstream source values changed; provider internal reason unconfirmed"
+  },
+  "original_source": {
+    "snapshot_id": "da873626ca075176ee1548fc619656b9de694ada90b7c46bbf7b8862ec019d0a",
+    "source": {
+      "availability": "next UTC midnight after the session date",
+      "frequency": "1d",
+      "license_scope": "public_research_unofficial",
+      "price_basis": "provider_quote_ohlc_not_adjclose",
+      "provider": "yahoo_public_unofficial",
+      "received_at": "2026-11-06T00:47:09.891512+00:00",
+      "session": "US_cash_daily",
+      "symbol": "^NDX",
+      "timezone": "America/New_York"
+    },
+    "raw_sha256": "bad406ec036b934ad4d69e67679be8df043898481a0a69ebe3812499d6607769",
+    "normalized_sha256": "2030705724f1d1d3618c92d92a51052afc9185b41ac2d5f9a2597cdcf726536b",
+    "exchange_timestamp": 1793889000,
+    "quote": {
+      "close": 26629.80859375,
+      "high": 28078.185546875,
+      "low": 26606.427734375,
+      "open": 28078.185546875,
+      "volume": 2617404000
+    },
+    "adjusted_close": 26629.80859375,
+    "metadata": {
+      "symbol": "^NDX",
+      "instrumentType": "INDEX",
+      "exchangeTimezoneName": "America/New_York",
+      "dataGranularity": "1d"
+    }
+  },
+  "revised_source": {
+    "snapshot_id": "9199d9acc9faf4792476b88665c0cb30972b2ad365b07d45e0ea623c78f0ba3e",
+    "source": {
+      "availability": "next UTC midnight after the session date",
+      "frequency": "1d",
+      "license_scope": "public_research_unofficial",
+      "price_basis": "provider_quote_ohlc_not_adjclose",
+      "provider": "yahoo_public_unofficial",
+      "received_at": "2026-11-08T08:17:08.566235+00:00",
+      "session": "US_cash_daily",
+      "symbol": "^NDX",
+      "timezone": "America/New_York"
+    },
+    "raw_sha256": "8b8ec0d1371c052a74bc50a51f094e83ffaad1c2f2b20fa7bc99b185c7cf42bb",
+    "normalized_sha256": "e74b26e84847821a5547a9b17b64581cd6d6201bd16cdd30d984476abe6ddc4f",
+    "exchange_timestamp": 1793889000,
+    "quote": {
+      "close": 26629.810546875,
+      "high": 28078.189453125,
+      "low": 26606.4296875,
+      "open": 28078.189453125,
+      "volume": 12833900000
+    },
+    "adjusted_close": 26629.810546875,
+    "metadata": {
+      "symbol": "^NDX",
+      "instrumentType": "INDEX",
+      "exchangeTimezoneName": "America/New_York",
+      "dataGranularity": "1d"
+    }
+  },
+  "changes": {
+    "open": {
+      "original": 28078.185546875,
+      "revised": 28078.189453125
+    },
+    "high": {
+      "original": 28078.185546875,
+      "revised": 28078.189453125
+    },
+    "low": {
+      "original": 26606.427734375,
+      "revised": 26606.4296875
+    },
+    "close": {
+      "original": 26629.80859375,
+      "revised": 26629.810546875
+    },
+    "volume": {
+      "original": 2617404000.0,
+      "revised": 12833900000.0
+    }
+  },
+  "issuance_features_exactly_reproduced": true,
+  "source_checks": [
+    {
+      "provider": "FRED_NASDAQ100",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv",
+      "requested_session": "2026-11-05",
+      "status": "UNVERIFIED",
+      "independent_upstream_confirmed": false,
+      "error_type": "ConnectionError"
+    },
+    {
+      "provider": "Nasdaq_public_index_history",
+      "url": "https://api.nasdaq.com/api/index/NDX/historical",
+      "requested_session": "2026-11-05",
+      "status": "ACCESS_BLOCKED_OR_UNAVAILABLE",
+      "independent_upstream_confirmed": false,
+      "http_status": 404,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "received_at": "2026-11-08T08:37:27.193656+00:00"
+    }
+  ],
+  "decision": "VERIFIED_AS_ISSUED_PROVIDER_REVISION",
+  "applied": false,
+  "journal_bytes_unchanged": true,
+  "outcome_status": "not evaluated by this command; original maturity gates remain required"
+}

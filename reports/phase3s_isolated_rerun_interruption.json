@@ -1,0 +1,11 @@
+{
+  "recorded_at": "2026-11-08T08:43:03Z",
+  "status": "ISOLATED_RERUN_COULD_NOT_START",
+  "environment": "C:/Users/huzai/AppData/Local/Temp/opencode/nocturne-phase3s-clean/venv",
+  "observation": "Scripts/python.exe absent on resumption; earlier XML receipts and source/restored evidence remain",
+  "cause": "UNKNOWN_NOT_ATTRIBUTED",
+  "test_exit_code": 1,
+  "test_execution": "NOT_STARTED",
+  "response": "Preserve old drill directory; create new independent clone/venv under nocturne-phase3s-final using existing verified offline wheelhouse",
+  "limitation": "Temporary same-host environments are not durable backups or independent-host recovery evidence"
+}

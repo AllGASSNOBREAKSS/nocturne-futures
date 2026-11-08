@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-11-06T02:01:11.948403+00:00",
+  "generated_at": "2026-11-08T08:17:09.258726+00:00",
   "model_id": "ndx-range-v1",
   "model_version": "1.0.0",
   "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
   "trading_decision": "NO_TRADE",
   "mode": "read_only_shadow",
-  "operational_status": "SHADOW_ACTIVE",
+  "operational_status": "AUDIT_BLOCKED",
   "generation": "ALREADY_ISSUED",
   "generation_detail": {
     "status": "ALREADY_ISSUED",
     "eligibility": {
       "eligible": true,
-      "data_date": "2026-11-05",
-      "target_date": "2026-11-06",
-      "session_open_utc": "2026-11-06T14:30:00+00:00"
+      "data_date": "2026-11-06",
+      "target_date": "2026-11-09",
+      "session_open_utc": "2026-11-09T14:30:00+00:00"
     }
   },
   "latest_forecast": {
@@ -28,39 +28,39 @@
       "p90": 0.03292110148141983
     },
     "calibration_status": "FROZEN_RESIDUAL_ADJUSTMENTS_APPLIED",
-    "created_at": "2026-11-06T00:47:12.720972+00:00",
-    "data_date": "2026-11-05",
+    "created_at": "2026-11-07T00:17:13.154782+00:00",
+    "data_date": "2026-11-06",
     "data_quality_status": "PASSED",
     "dataset_digest_format": "feature-input-csv-lf-v1",
-    "dataset_sha256": "706382ee5da8d26c24e4f004503c0b8d9c93657f888f60d2e6dab57c7d398311",
-    "feature_asof": "2026-11-06T00:47:10.805475+00:00",
-    "feature_digest": "4444d29d047834a0fa5cf2c466326428ae292d87d0c891604f99dfb60c9a9123",
+    "dataset_sha256": "1ad7b3efae4a01eacd6669ebf73a63441e2746983902d2000559e5ea0aad2433",
+    "feature_asof": "2026-11-07T00:17:10.936359+00:00",
+    "feature_digest": "bca02704d555cc1c1685478d54782414829e9cd823db76f5f98fb94749cc1208",
     "features": {
-      "atr_pct": 0.02317596396542819,
-      "efficiency_20": 0.48967587783233013,
-      "range_atr": 2.384682134156646,
-      "ret_1_abs": 3.236413072129194,
-      "ret_5_abs": 2.1475287918791013,
-      "vix_change_5": 0.6383720380928555,
-      "vix_level": 1.6407569136667386,
-      "vol_20": 1.7252683634020367,
-      "vol_ratio": 1.6104926099421393,
-      "volume_z": -3.0794801759899313,
-      "weekday": 3.0
+      "atr_pct": 0.023728760573580657,
+      "efficiency_20": 0.454406850330929,
+      "range_atr": 0.6689167099719187,
+      "ret_1_abs": 0.6764032990441244,
+      "ret_5_abs": 1.0990322582162764,
+      "vix_change_5": 0.3202883258969329,
+      "vix_level": 1.492867487913046,
+      "vol_20": 1.7567492262832647,
+      "vol_ratio": 1.6353473732414483,
+      "volume_z": -3.0013251729365766,
+      "weekday": 4.0
     },
-    "forecast_id": "291aac9c9d893a888609aafd",
+    "forecast_id": "cd26071237a957cd7a874933",
     "inference_revision": "residual-adjusted-v1",
     "instrument": "^NDX",
     "interval_widths": {
-      "p50": 0.034500404140336935,
-      "p80": 0.025816663746097687,
-      "p90": 0.0398772688570074
+      "p50": 0.024179815959388794,
+      "p80": 0.00818113859309431,
+      "p90": 0.018304651190629618
     },
-    "issuance_lead_seconds": 49367.279028,
+    "issuance_lead_seconds": 223966.845218,
     "kind": "cash_session_range",
     "market_snapshot_ids": {
-      "index": "da873626ca075176ee1548fc619656b9de694ada90b7c46bbf7b8862ec019d0a",
-      "vix": "1fa8fc4e5d0914051166f494e93df36feb18c4a5b15773ff8ef49d5ef8647e0d"
+      "index": "262cc54b584208e575fd475c940115e64bb63e05d6093aab1466439c3c7be553",
+      "vix": "41ae2629c3f96dcc70dd9301e431daa05dfe8ad8aa01222f22a563abe31ed136"
     },
     "model_id": "ndx-range-v1",
     "model_version": "1.0.0",
@@ -69,16 +69,16 @@
       "cash-session index range, not NQ futures",
       "read-only research shadow; not a trading signal"
     ],
-    "prediction_compute_seconds": 0.11630019999938668,
+    "prediction_compute_seconds": 0.13224479999917094,
     "quantiles": {
-      "p50": 0.034500404140336935,
-      "p80": 0.06031706788643462,
-      "p90": 0.07437767299734434
+      "p50": 0.024179815959388794,
+      "p80": 0.032360954552483105,
+      "p90": 0.04248446715001841
     },
-    "record_sha256": "f3237068f9ed090b18078ce84f015a39e2772c43f551a3d01a0b4860b2750b1d",
-    "reference_close": 26629.80859375,
-    "rows_used": 10355,
-    "session_open_utc": "2026-11-06T14:30:00+00:00",
+    "record_sha256": "b0dde96f529d0e67a6a1417f9a54b1547182dccf1fc1f7cd601d018ce61faf86",
+    "reference_close": 26989.9921875,
+    "rows_used": 10356,
+    "session_open_utc": "2026-11-09T14:30:00+00:00",
     "source": {
       "index": "data/shadow/market",
       "manifests": {
@@ -96,15 +96,15 @@
             "continuous futures proxies have unverified roll mapping",
             "adjusted vs unadjusted prices not distinguished by this adapter"
           ],
-          "last": "2026-11-05",
+          "last": "2026-11-06",
           "license_scope": "public_research_unofficial",
           "name": "Nasdaq-100 index",
-          "normalized_sha256": "2030705724f1d1d3618c92d92a51052afc9185b41ac2d5f9a2597cdcf726536b",
+          "normalized_sha256": "82ff172933ccddbc96007ca39baee3c993dde2b9c428cfd2f7ace7099f5048d8",
           "provider": "yahoo_public_unofficial",
-          "raw_sha256": "bad406ec036b934ad4d69e67679be8df043898481a0a69ebe3812499d6607769",
-          "received_at": "2026-11-06T00:47:09.891512+00:00",
-          "rows": 10355,
-          "snapshot_id": "da873626ca075176ee1548fc619656b9de694ada90b7c46bbf7b8862ec019d0a",
+          "raw_sha256": "6beebdab87772ae7b31f68617b32a678ef8670566792c6ece6155a6d4f38f214",
+          "received_at": "2026-11-07T00:17:10.145238+00:00",
+          "rows": 10356,
+          "snapshot_id": "262cc54b584208e575fd475c940115e64bb63e05d6093aab1466439c3c7be553",
           "span_years": 41.1,
           "symbol": "^NDX",
           "zero_volume_rows": 0
@@ -123,49 +123,72 @@
             "continuous futures proxies have unverified roll mapping",
             "adjusted vs unadjusted prices not distinguished by this adapter"
           ],
-          "last": "2026-11-05",
+          "last": "2026-11-06",
           "license_scope": "public_research_unofficial",
           "name": "CBOE VIX index (spot proxy)",
-          "normalized_sha256": "1c8e9c49880c6e57fe4c4709a6bc47afb7343b4fa434ebec09c3764b005b5359",
+          "normalized_sha256": "bc4bfd51091920bb3d42fa44a40359c7881263192e9f1f504db1b5e1bfe890ae",
           "provider": "yahoo_public_unofficial",
-          "raw_sha256": "489d088173aa250e569ce0bc794a45a26a25292ba8f81a8e2a49f3fdf318959b",
-          "received_at": "2026-11-06T00:47:10.524856+00:00",
-          "rows": 9282,
-          "snapshot_id": "1fa8fc4e5d0914051166f494e93df36feb18c4a5b15773ff8ef49d5ef8647e0d",
+          "raw_sha256": "154b01e814328a001944ea598b6e534c14a8531cc5550e5d3c0e54dd8efaf660",
+          "received_at": "2026-11-07T00:17:10.717571+00:00",
+          "rows": 9283,
+          "snapshot_id": "41ae2629c3f96dcc70dd9301e431daa05dfe8ad8aa01222f22a563abe31ed136",
           "span_years": 36.84,
           "symbol": "^VIX",
-          "zero_volume_rows": 9282
+          "zero_volume_rows": 9283
         }
       },
       "refresh": {
         "^NDX": {
-          "last": "2026-11-05",
-          "rows": 10355,
+          "last": "2026-11-06",
+          "rows": 10356,
           "status": "FETCHED"
         },
         "^VIX": {
-          "last": "2026-11-05",
-          "rows": 9282,
+          "last": "2026-11-06",
+          "rows": 9283,
           "status": "FETCHED"
         }
       },
       "snapshot_ids": {
-        "index": "da873626ca075176ee1548fc619656b9de694ada90b7c46bbf7b8862ec019d0a",
-        "vix": "1fa8fc4e5d0914051166f494e93df36feb18c4a5b15773ff8ef49d5ef8647e0d"
+        "index": "262cc54b584208e575fd475c940115e64bb63e05d6093aab1466439c3c7be553",
+        "vix": "41ae2629c3f96dcc70dd9301e431daa05dfe8ad8aa01222f22a563abe31ed136"
       },
       "vix": "data/shadow/market"
     },
     "status": "PENDING",
-    "target_date": "2026-11-06",
+    "target_date": "2026-11-09",
     "trading_decision": "NO_TRADE",
     "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW"
   },
   "matured_now": 0,
   "missed_now": 0,
   "audit": {
-    "forecasts": 3,
-    "passed": 3,
-    "failed": [],
+    "forecasts": 4,
+    "passed": 2,
+    "failed": [
+      {
+        "forecast_id": "291aac9c9d893a888609aafd",
+        "ok": false,
+        "issues": [
+          "REFERENCE_CLOSE_MISMATCH"
+        ],
+        "stored_reference_close": 26629.80859375,
+        "current_source_reference_close": 26629.810546875,
+        "warnings": [],
+        "reconciliation_id": null
+      },
+      {
+        "forecast_id": "cd26071237a957cd7a874933",
+        "ok": false,
+        "issues": [
+          "REFERENCE_CLOSE_MISMATCH"
+        ],
+        "stored_reference_close": 26989.9921875,
+        "current_source_reference_close": 26989.990234375,
+        "warnings": [],
+        "reconciliation_id": null
+      }
+    ],
     "records": [
       {
         "forecast_id": "20d48fc41c2cc0f5c0ae4f2d",
@@ -191,33 +214,49 @@
       },
       {
         "forecast_id": "291aac9c9d893a888609aafd",
-        "ok": true,
-        "issues": [],
+        "ok": false,
+        "issues": [
+          "REFERENCE_CLOSE_MISMATCH"
+        ],
         "stored_reference_close": 26629.80859375,
-        "current_source_reference_close": 26629.80859375,
+        "current_source_reference_close": 26629.810546875,
+        "warnings": [],
+        "reconciliation_id": null
+      },
+      {
+        "forecast_id": "cd26071237a957cd7a874933",
+        "ok": false,
+        "issues": [
+          "REFERENCE_CLOSE_MISMATCH"
+        ],
+        "stored_reference_close": 26989.9921875,
+        "current_source_reference_close": 26989.990234375,
         "warnings": [],
         "reconciliation_id": null
       }
     ]
   },
   "health": {
-    "status": "ok",
-    "warnings": [],
-    "last_run": "2026-11-06T02:01:11.948403+00:00",
-    "age_hours": 0.0,
-    "last_success": "2026-11-06T02:01:11.948403+00:00",
-    "last_attempt": "2026-11-06T02:01:11.948403+00:00",
-    "last_attempt_event": "CYCLE_OK",
-    "forecasts": 3,
+    "status": "degraded",
+    "warnings": [
+      "STALE_SERVICE",
+      "LATEST_CYCLE_NOT_OK"
+    ],
+    "last_run": "2026-11-06T04:47:10.415251+00:00",
+    "age_hours": 51.499678743055554,
+    "last_success": "2026-11-06T04:47:10.415251+00:00",
+    "last_attempt": "2026-11-08T08:17:09.258726+00:00",
+    "last_attempt_event": "CYCLE_AUDIT_FAILED",
+    "forecasts": 4,
     "matured": 2,
-    "pending": 1,
+    "pending": 2,
     "missed": 0,
     "recent_quality_failures": 0,
     "trading_decision": "NO_TRADE"
   },
   "evaluation": {
     "matured": 2,
-    "pending": 1,
+    "pending": 2,
     "quarantined_outcomes": 0,
     "status": "SHADOW_EVALUATING",
     "quality_failures": 2,
@@ -315,13 +354,13 @@
   "refresh": {
     "^NDX": {
       "status": "FETCHED",
-      "last": "2026-11-05",
-      "rows": 10355
+      "last": "2026-11-06",
+      "rows": 10356
     },
     "^VIX": {
       "status": "FETCHED",
-      "last": "2026-11-05",
-      "rows": 9282
+      "last": "2026-11-06",
+      "rows": 9283
     }
   },
   "sources": {
@@ -330,13 +369,13 @@
     "refresh": {
       "^NDX": {
         "status": "FETCHED",
-        "last": "2026-11-05",
-        "rows": 10355
+        "last": "2026-11-06",
+        "rows": 10356
       },
       "^VIX": {
         "status": "FETCHED",
-        "last": "2026-11-05",
-        "rows": 9282
+        "last": "2026-11-06",
+        "rows": 9283
       }
     },
     "manifests": {
@@ -347,17 +386,17 @@
         "provider": "yahoo_public_unofficial",
         "frequency": "1d",
         "license_scope": "public_research_unofficial",
-        "raw_sha256": "bad406ec036b934ad4d69e67679be8df043898481a0a69ebe3812499d6607769",
-        "normalized_sha256": "2030705724f1d1d3618c92d92a51052afc9185b41ac2d5f9a2597cdcf726536b",
-        "rows": 10355,
+        "raw_sha256": "8b8ec0d1371c052a74bc50a51f094e83ffaad1c2f2b20fa7bc99b185c7cf42bb",
+        "normalized_sha256": "e74b26e84847821a5547a9b17b64581cd6d6201bd16cdd30d984476abe6ddc4f",
+        "rows": 10356,
         "first": "1985-10-01",
-        "last": "2026-11-05",
+        "last": "2026-11-06",
         "span_years": 41.1,
         "zero_volume_rows": 0,
         "dropped_invalid_or_missing_bars": 0,
         "gap_days_median": 1.0,
         "gaps_over_5_days": 1,
-        "received_at": "2026-11-06T02:01:11.120191+00:00",
+        "received_at": "2026-11-08T08:17:08.566235+00:00",
         "availability": "next UTC midnight after the session date",
         "known_limitations": [
           "unofficial endpoint; not an exchange feed",
@@ -365,7 +404,7 @@
           "continuous futures proxies have unverified roll mapping",
           "adjusted vs unadjusted prices not distinguished by this adapter"
         ],
-        "snapshot_id": "100f8cc444ebc4c4e119a8daa0963370e94353a566fd6160d5ca8ad42198aac6"
+        "snapshot_id": "9199d9acc9faf4792476b88665c0cb30972b2ad365b07d45e0ea623c78f0ba3e"
       },
       "vix": {
         "symbol": "^VIX",
@@ -374,17 +413,17 @@
         "provider": "yahoo_public_unofficial",
         "frequency": "1d",
         "license_scope": "public_research_unofficial",
-        "raw_sha256": "489d088173aa250e569ce0bc794a45a26a25292ba8f81a8e2a49f3fdf318959b",
-        "normalized_sha256": "1c8e9c49880c6e57fe4c4709a6bc47afb7343b4fa434ebec09c3764b005b5359",
-        "rows": 9282,
+        "raw_sha256": "154b01e814328a001944ea598b6e534c14a8531cc5550e5d3c0e54dd8efaf660",
+        "normalized_sha256": "bc4bfd51091920bb3d42fa44a40359c7881263192e9f1f504db1b5e1bfe890ae",
+        "rows": 9283,
         "first": "1990-01-02",
-        "last": "2026-11-05",
+        "last": "2026-11-06",
         "span_years": 36.84,
-        "zero_volume_rows": 9282,
+        "zero_volume_rows": 9283,
         "dropped_invalid_or_missing_bars": 331,
         "gap_days_median": 1.0,
         "gaps_over_5_days": 1,
-        "received_at": "2026-11-06T02:01:11.707406+00:00",
+        "received_at": "2026-11-08T08:17:09.072566+00:00",
         "availability": "next UTC midnight after the session date",
         "known_limitations": [
           "unofficial endpoint; not an exchange feed",
@@ -392,12 +431,12 @@
           "continuous futures proxies have unverified roll mapping",
           "adjusted vs unadjusted prices not distinguished by this adapter"
         ],
-        "snapshot_id": "0078e6bd842af1631315d9fb2ef84a49631516f5a3a8c8fa6cb321a25b72c0ab"
+        "snapshot_id": "aacfe04e1882adf37a7dc3f7f3f958f8fd736d6ac94591255b4994be8fd1bab5"
       }
     },
     "snapshot_ids": {
-      "index": "100f8cc444ebc4c4e119a8daa0963370e94353a566fd6160d5ca8ad42198aac6",
-      "vix": "0078e6bd842af1631315d9fb2ef84a49631516f5a3a8c8fa6cb321a25b72c0ab"
+      "index": "9199d9acc9faf4792476b88665c0cb30972b2ad365b07d45e0ea623c78f0ba3e",
+      "vix": "aacfe04e1882adf37a7dc3f7f3f958f8fd736d6ac94591255b4994be8fd1bab5"
     }
   },
   "notes": [

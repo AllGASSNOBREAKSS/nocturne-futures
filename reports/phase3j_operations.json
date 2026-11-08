@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-06T02:01:25.311624+00:00",
-  "status": "ok",
+  "generated_at": "2026-11-08T08:34:16.485645+00:00",
+  "status": "degraded",
   "components": {
     "shadow_cycle": {
-      "status": "HEALTHY",
-      "reason": "SHADOW_ACTIVE"
+      "status": "BLOCKED",
+      "reason": "AUDIT_BLOCKED"
     },
     "forecast_integrity": {
-      "status": "HEALTHY",
+      "status": "BLOCKED",
       "reason": "see forecast audit issues; reconciliation is evidence-bound, not a health override"
     },
     "provider_refresh": {
@@ -15,28 +15,67 @@
       "reason": "latest timestamped cycle refresh results; not an uptime guarantee"
     },
     "outcome_evaluation": {
-      "status": "HEALTHY",
+      "status": "DEGRADED",
       "reason": "pending horizons are expected work, not fabricated outcomes; evaluation requires availability and audit gates"
     }
   },
-  "issues": {},
-  "overdue_outcomes": [],
+  "issues": {
+    "CYCLE_UNHEALTHY": {
+      "operational_status": "AUDIT_BLOCKED",
+      "reason": null
+    },
+    "FORECAST_AUDIT:291aac9c9d893a888609aafd": {
+      "forecast_id": "291aac9c9d893a888609aafd",
+      "ok": false,
+      "issues": [
+        "REFERENCE_CLOSE_MISMATCH"
+      ],
+      "stored_reference_close": 26629.80859375,
+      "current_source_reference_close": 26629.810546875,
+      "warnings": [],
+      "reconciliation_id": null
+    },
+    "FORECAST_AUDIT:cd26071237a957cd7a874933": {
+      "forecast_id": "cd26071237a957cd7a874933",
+      "ok": false,
+      "issues": [
+        "REFERENCE_CLOSE_MISMATCH"
+      ],
+      "stored_reference_close": 26989.9921875,
+      "current_source_reference_close": 26989.990234375,
+      "warnings": [],
+      "reconciliation_id": null
+    },
+    "OUTCOME_OVERDUE:291aac9c9d893a888609aafd": {
+      "forecast_id": "291aac9c9d893a888609aafd",
+      "expected_by": "2026-11-07T06:00:00+00:00"
+    }
+  },
+  "overdue_outcomes": [
+    {
+      "forecast_id": "291aac9c9d893a888609aafd",
+      "expected_by": "2026-11-07T06:00:00+00:00"
+    }
+  ],
   "health": {
-    "status": "ok",
-    "warnings": [],
-    "last_run": "2026-11-06T02:01:11.948403+00:00",
-    "age_hours": 0.0037120058333333333,
-    "last_success": "2026-11-06T02:01:11.948403+00:00",
-    "last_attempt": "2026-11-06T02:01:11.948403+00:00",
-    "last_attempt_event": "CYCLE_OK",
-    "forecasts": 3,
+    "status": "degraded",
+    "warnings": [
+      "STALE_SERVICE",
+      "LATEST_CYCLE_NOT_OK"
+    ],
+    "last_run": "2026-11-06T04:47:10.415251+00:00",
+    "age_hours": 51.785019553888894,
+    "last_success": "2026-11-06T04:47:10.415251+00:00",
+    "last_attempt": "2026-11-08T08:17:09.258726+00:00",
+    "last_attempt_event": "CYCLE_AUDIT_FAILED",
+    "forecasts": 4,
     "matured": 2,
-    "pending": 1,
+    "pending": 2,
     "missed": 0,
     "recent_quality_failures": 0,
     "trading_decision": "NO_TRADE"
   },
-  "issued": 3,
+  "issued": 4,
   "matured": 2,
   "missed": 0,
   "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
@@ -45,5 +84,60 @@
   "delivery": "local durable alerts only; no external paging configured",
   "limits": "same-host monitoring cannot detect or notify while this host is powered off",
   "transitions_now": [],
-  "open_alerts": []
+  "open_alerts": [
+    {
+      "at": "2026-11-06T05:17:25.532200+00:00",
+      "detail": {
+        "operational_status": "AUDIT_BLOCKED",
+        "reason": null
+      },
+      "key": "CYCLE_UNHEALTHY",
+      "state": "OPEN",
+      "trading_decision": "NO_TRADE"
+    },
+    {
+      "at": "2026-11-06T05:17:25.532200+00:00",
+      "detail": {
+        "current_source_reference_close": 26629.810546875,
+        "forecast_id": "291aac9c9d893a888609aafd",
+        "issues": [
+          "REFERENCE_CLOSE_MISMATCH"
+        ],
+        "ok": false,
+        "reconciliation_id": null,
+        "stored_reference_close": 26629.80859375,
+        "warnings": []
+      },
+      "key": "FORECAST_AUDIT:291aac9c9d893a888609aafd",
+      "state": "OPEN",
+      "trading_decision": "NO_TRADE"
+    },
+    {
+      "at": "2026-11-07T05:17:22.771808+00:00",
+      "detail": {
+        "current_source_reference_close": 26989.990234375,
+        "forecast_id": "cd26071237a957cd7a874933",
+        "issues": [
+          "REFERENCE_CLOSE_MISMATCH"
+        ],
+        "ok": false,
+        "reconciliation_id": null,
+        "stored_reference_close": 26989.9921875,
+        "warnings": []
+      },
+      "key": "FORECAST_AUDIT:cd26071237a957cd7a874933",
+      "state": "OPEN",
+      "trading_decision": "NO_TRADE"
+    },
+    {
+      "at": "2026-11-07T11:42:27.488092+00:00",
+      "detail": {
+        "expected_by": "2026-11-07T06:00:00+00:00",
+        "forecast_id": "291aac9c9d893a888609aafd"
+      },
+      "key": "OUTCOME_OVERDUE:291aac9c9d893a888609aafd",
+      "state": "OPEN",
+      "trading_decision": "NO_TRADE"
+    }
+  ]
 }

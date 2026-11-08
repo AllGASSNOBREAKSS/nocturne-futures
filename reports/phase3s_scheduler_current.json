@@ -1,0 +1,197 @@
+﻿{
+    "Status":  "DEGRADED",
+    "Observations":  [
+                         {
+                             "LogonType":  "Interactive",
+                             "NextRun":  "2026-11-08T08:47:05.0000000Z",
+                             "CompleteLifecycleReceipt":  true,
+                             "LastRun":  "2026-11-08T08:17:06.0000000Z",
+                             "Attempt":  1,
+                             "Events":  [
+                                            {
+                                                "Detail":  {
+                                                               "Lane":  "shadow"
+                                                           },
+                                                "PID":  29516,
+                                                "Event":  "RUN_STARTED",
+                                                "At":  "2026-11-08T08:17:07.2369144Z"
+                                            },
+                                            {
+                                                "Detail":  {
+                                                               "Stage":  "cycle"
+                                                           },
+                                                "PID":  29516,
+                                                "Event":  "STAGE_STARTED",
+                                                "At":  "2026-11-08T08:17:07.2811587Z"
+                                            },
+                                            {
+                                                "Detail":  {
+                                                               "Stage":  "cycle",
+                                                               "ExitCode":  1
+                                                           },
+                                                "PID":  29516,
+                                                "Event":  "STAGE_FINISHED",
+                                                "At":  "2026-11-08T08:17:11.4907421Z"
+                                            },
+                                            {
+                                                "Detail":  {
+                                                               "Stage":  "audit"
+                                                           },
+                                                "PID":  29516,
+                                                "Event":  "STAGE_STARTED",
+                                                "At":  "2026-11-08T08:17:11.4948977Z"
+                                            },
+                                            {
+                                                "Detail":  {
+                                                               "Stage":  "audit",
+                                                               "ExitCode":  0
+                                                           },
+                                                "PID":  29516,
+                                                "Event":  "STAGE_FINISHED",
+                                                "At":  "2026-11-08T08:17:14.3389932Z"
+                                            },
+                                            {
+                                                "Detail":  {
+                                                               "Stage":  "report"
+                                                           },
+                                                "PID":  29516,
+                                                "Event":  "STAGE_STARTED",
+                                                "At":  "2026-11-08T08:17:14.3430101Z"
+                                            },
+                                            {
+                                                "Detail":  {
+                                                               "Stage":  "report",
+                                                               "ExitCode":  0
+                                                           },
+                                                "PID":  29516,
+                                                "Event":  "STAGE_FINISHED",
+                                                "At":  "2026-11-08T08:17:18.1098514Z"
+                                            },
+                                            {
+                                                "Detail":  {
+                                                               "Stage":  "monitor"
+                                                           },
+                                                "PID":  29516,
+                                                "Event":  "STAGE_STARTED",
+                                                "At":  "2026-11-08T08:17:18.1138740Z"
+                                            },
+                                            {
+                                                "Detail":  {
+                                                               "Stage":  "monitor",
+                                                               "ExitCode":  1
+                                                           },
+                                                "PID":  29516,
+                                                "Event":  "STAGE_FINISHED",
+                                                "At":  "2026-11-08T08:17:18.8907441Z"
+                                            },
+                                            {
+                                                "Detail":  {
+                                                               "Stage":  "health"
+                                                           },
+                                                "PID":  29516,
+                                                "Event":  "STAGE_STARTED",
+                                                "At":  "2026-11-08T08:17:18.8939886Z"
+                                            },
+                                            {
+                                                "Detail":  {
+                                                               "Stage":  "health",
+                                                               "ExitCode":  1
+                                                           },
+                                                "PID":  29516,
+                                                "Event":  "STAGE_FINISHED",
+                                                "At":  "2026-11-08T08:17:21.0587091Z"
+                                            },
+                                            {
+                                                "Detail":  {
+                                                               "ExitCode":  1
+                                                           },
+                                                "PID":  29516,
+                                                "Event":  "RUN_FINISHED",
+                                                "At":  "2026-11-08T08:17:21.0657463Z"
+                                            }
+                                        ],
+                             "State":  "Ready",
+                             "Name":  "Nocturne-NDX-ReadOnly-Shadow",
+                             "WindowlessLauncher":  true,
+                             "ExitCode":  1,
+                             "LauncherEvents":  [
+                                                    {
+                                                        "at":  "2026-11-08T08:17:06.938856+00:00",
+                                                        "console_window":  false,
+                                                        "event":  "LAUNCHER_STARTED",
+                                                        "lane":  "shadow",
+                                                        "pid":  40836
+                                                    },
+                                                    {
+                                                        "at":  "2026-11-08T08:17:06.952323+00:00",
+                                                        "child_pid":  29516,
+                                                        "creation":  "CREATE_NO_WINDOW",
+                                                        "event":  "RUNNER_STARTED",
+                                                        "pid":  40836
+                                                    },
+                                                    {
+                                                        "at":  "2026-11-08T08:17:21.085915+00:00",
+                                                        "event":  "LAUNCHER_FINISHED",
+                                                        "exit_code":  1,
+                                                        "pid":  40836
+                                                    }
+                                                ],
+                             "ObservedAt":  "2026-11-08T08:37:23.2889158Z"
+                         },
+                         {
+                             "LogonType":  "Interactive",
+                             "NextRun":  "2026-11-08T14:13:57.0000000Z",
+                             "CompleteLifecycleReceipt":  true,
+                             "LastRun":  "2026-11-08T08:13:58.0000000Z",
+                             "Attempt":  1,
+                             "Events":  [
+                                            {
+                                                "Detail":  {
+                                                               "Lane":  "research"
+                                                           },
+                                                "PID":  2496,
+                                                "Event":  "RUN_STARTED",
+                                                "At":  "2026-11-08T08:13:58.9909631Z"
+                                            },
+                                            {
+                                                "Detail":  {
+                                                               "ExitCode":  0
+                                                           },
+                                                "PID":  2496,
+                                                "Event":  "RUN_FINISHED",
+                                                "At":  "2026-11-08T08:14:03.4179897Z"
+                                            }
+                                        ],
+                             "State":  "Ready",
+                             "Name":  "Nocturne-ReadOnly-Research",
+                             "WindowlessLauncher":  true,
+                             "ExitCode":  0,
+                             "LauncherEvents":  [
+                                                    {
+                                                        "at":  "2026-11-08T08:13:58.641208+00:00",
+                                                        "console_window":  false,
+                                                        "event":  "LAUNCHER_STARTED",
+                                                        "lane":  "research",
+                                                        "pid":  22772
+                                                    },
+                                                    {
+                                                        "at":  "2026-11-08T08:13:58.655300+00:00",
+                                                        "child_pid":  2496,
+                                                        "creation":  "CREATE_NO_WINDOW",
+                                                        "event":  "RUNNER_STARTED",
+                                                        "pid":  22772
+                                                    },
+                                                    {
+                                                        "at":  "2026-11-08T08:14:03.438190+00:00",
+                                                        "event":  "LAUNCHER_FINISHED",
+                                                        "exit_code":  0,
+                                                        "pid":  22772
+                                                    }
+                                                ],
+                             "ObservedAt":  "2026-11-08T08:37:23.8805136Z"
+                         }
+                     ],
+    "GeneratedAt":  "2026-11-08T08:37:23.8954841Z",
+    "Exercised":  false,
+    "Limitations":  "Awake interactive host only; no reboot/logoff, soak, off-host paging or 24/7 claim."
+}

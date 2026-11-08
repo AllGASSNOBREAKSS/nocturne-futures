@@ -1,45 +1,45 @@
 {
   "record": {
-    "forecast_id": "3db9c4cbd3a9cc5944db8437",
-    "forecast_sha256": "86169b61e5ed6c944b0c7fc617f810740c031510b79739524a88920c52df0e57",
+    "forecast_id": "cd26071237a957cd7a874933",
+    "forecast_sha256": "13e4fda9c1ce72889c6fad93a65ef3cc8ad32b4300ff2faa6d6dc20be9c492ed",
     "issuance_snapshot_ids": {
-      "index": "2bdadb4e3d17c80a4358eed656b475e0129bfc86dfd217695a9d9659f50f7ec0",
-      "vix": "689859ddb6cb20aceaa687509476af451bc0975b6d6bcfa79b255b61e7df60f9"
+      "index": "262cc54b584208e575fd475c940115e64bb63e05d6093aab1466439c3c7be553",
+      "vix": "41ae2629c3f96dcc70dd9301e431daa05dfe8ad8aa01222f22a563abe31ed136"
     },
-    "revised_snapshot_id": "078406d14e35d9582b36f16b9d50f0e78e24f73ebcbeefb788278092bccc5556",
-    "revised_reference_close": 28437.169921875,
-    "revised_reference_bar_sha256": "193abd1e744d090b69ae79b34720c17fbab8673ce96934f128187404cb26510a",
+    "revised_snapshot_id": "9199d9acc9faf4792476b88665c0cb30972b2ad365b07d45e0ea623c78f0ba3e",
+    "revised_reference_close": 26989.990234375,
+    "revised_reference_bar_sha256": "cc567295e6da4b0a01e122fc8f0cee694ed58f4b5c4b640bf0b6ad928f962830",
     "classification": "VERIFIED_AS_ISSUED_PROVIDER_REVISION",
-    "recorded_at": "2026-11-05T22:40:03.586049+00:00",
+    "recorded_at": "2026-11-08T08:34:33.695411+00:00",
     "exchange_finality_confirmed": false,
     "trading_decision": "NO_TRADE",
     "policy": "score issued quantiles against original denominator; never rewrite forecasts",
     "root_cause": "upstream source values changed; provider internal reason unconfirmed"
   },
   "original_source": {
-    "snapshot_id": "2bdadb4e3d17c80a4358eed656b475e0129bfc86dfd217695a9d9659f50f7ec0",
+    "snapshot_id": "262cc54b584208e575fd475c940115e64bb63e05d6093aab1466439c3c7be553",
     "source": {
       "availability": "next UTC midnight after the session date",
       "frequency": "1d",
       "license_scope": "public_research_unofficial",
       "price_basis": "provider_quote_ohlc_not_adjclose",
       "provider": "yahoo_public_unofficial",
-      "received_at": "2026-11-05T00:17:09.704122+00:00",
+      "received_at": "2026-11-07T00:17:10.145238+00:00",
       "session": "US_cash_daily",
       "symbol": "^NDX",
       "timezone": "America/New_York"
     },
-    "raw_sha256": "4b1e33c93d48d63fea2763646b66c02351c97c7a2637d6299d6e4cff8e30265c",
-    "normalized_sha256": "3a25e87ec507a0ab693acd1a1ad52db31190c1111f331f5cfa68024f6c84f1b1",
-    "exchange_timestamp": 1793802600,
+    "raw_sha256": "6beebdab87772ae7b31f68617b32a678ef8670566792c6ece6155a6d4f38f214",
+    "normalized_sha256": "82ff172933ccddbc96007ca39baee3c993dde2b9c428cfd2f7ace7099f5048d8",
+    "exchange_timestamp": 1793975400,
     "quote": {
-      "close": 28437.166015625,
-      "high": 28829.662109375,
-      "low": 28276.21875,
-      "open": 28346.80859375,
-      "volume": 1891980000
+      "close": 26989.9921875,
+      "high": 27316.09375,
+      "low": 26887.693359375,
+      "open": 27045.255859375,
+      "volume": 1625977000
     },
-    "adjusted_close": 28437.166015625,
+    "adjusted_close": 26989.9921875,
     "metadata": {
       "symbol": "^NDX",
       "instrumentType": "INDEX",
@@ -48,29 +48,29 @@
     }
   },
   "revised_source": {
-    "snapshot_id": "078406d14e35d9582b36f16b9d50f0e78e24f73ebcbeefb788278092bccc5556",
+    "snapshot_id": "9199d9acc9faf4792476b88665c0cb30972b2ad365b07d45e0ea623c78f0ba3e",
     "source": {
       "availability": "next UTC midnight after the session date",
       "frequency": "1d",
       "license_scope": "public_research_unofficial",
       "price_basis": "provider_quote_ohlc_not_adjclose",
       "provider": "yahoo_public_unofficial",
-      "received_at": "2026-11-05T22:17:09.198919+00:00",
+      "received_at": "2026-11-08T08:17:08.566235+00:00",
       "session": "US_cash_daily",
       "symbol": "^NDX",
       "timezone": "America/New_York"
     },
-    "raw_sha256": "8cd49b0a59336f02fd6441982f8787ff25a403a736ee3d4e20e5c1c89afd58c9",
-    "normalized_sha256": "3bd9d9d1582ad2b760d0fb7fe9478d3e5940280973e55f287a4fe5e8cfa0bf25",
-    "exchange_timestamp": 1793802600,
+    "raw_sha256": "8b8ec0d1371c052a74bc50a51f094e83ffaad1c2f2b20fa7bc99b185c7cf42bb",
+    "normalized_sha256": "e74b26e84847821a5547a9b17b64581cd6d6201bd16cdd30d984476abe6ddc4f",
+    "exchange_timestamp": 1793975400,
     "quote": {
-      "close": 28437.169921875,
-      "high": 28829.66015625,
-      "low": 28276.220703125,
-      "open": 28346.810546875,
-      "volume": 9953250000
+      "close": 26989.990234375,
+      "high": 27316.08984375,
+      "low": 26887.689453125,
+      "open": 27045.259765625,
+      "volume": 10621670000
     },
-    "adjusted_close": 28437.169921875,
+    "adjusted_close": 26989.990234375,
     "metadata": {
       "symbol": "^NDX",
       "instrumentType": "INDEX",
@@ -80,67 +80,30 @@
   },
   "changes": {
     "open": {
-      "original": 28346.80859375,
-      "revised": 28346.810546875
+      "original": 27045.255859375,
+      "revised": 27045.259765625
     },
     "high": {
-      "original": 28829.662109375,
-      "revised": 28829.66015625
+      "original": 27316.09375,
+      "revised": 27316.08984375
     },
     "low": {
-      "original": 28276.21875,
-      "revised": 28276.220703125
+      "original": 26887.693359375,
+      "revised": 26887.689453125
     },
     "close": {
-      "original": 28437.166015625,
-      "revised": 28437.169921875
+      "original": 26989.9921875,
+      "revised": 26989.990234375
     },
     "volume": {
-      "original": 1891980000.0,
-      "revised": 9953250000.0
+      "original": 1625977000.0,
+      "revised": 10621670000.0
     }
   },
   "issuance_features_exactly_reproduced": true,
-  "source_checks": [
-    {
-      "provider": "FRED_NASDAQ100",
-      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv",
-      "requested_session": "2026-11-04",
-      "status": "UNVERIFIED",
-      "independent_upstream_confirmed": false,
-      "error_type": "ReadTimeout"
-    },
-    {
-      "provider": "Nasdaq_public_index_history",
-      "url": "https://api.nasdaq.com/api/index/NDX/historical",
-      "requested_session": "2026-11-04",
-      "status": "ACCESS_BLOCKED_OR_UNAVAILABLE",
-      "independent_upstream_confirmed": false,
-      "http_status": 404,
-      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "received_at": "2026-11-05T22:37:53.800462+00:00"
-    }
-  ],
+  "source_checks": [],
   "decision": "VERIFIED_AS_ISSUED_PROVIDER_REVISION",
-  "applied": true,
-  "reconciliation": {
-    "forecast_id": "3db9c4cbd3a9cc5944db8437",
-    "forecast_sha256": "86169b61e5ed6c944b0c7fc617f810740c031510b79739524a88920c52df0e57",
-    "issuance_snapshot_ids": {
-      "index": "2bdadb4e3d17c80a4358eed656b475e0129bfc86dfd217695a9d9659f50f7ec0",
-      "vix": "689859ddb6cb20aceaa687509476af451bc0975b6d6bcfa79b255b61e7df60f9"
-    },
-    "revised_snapshot_id": "078406d14e35d9582b36f16b9d50f0e78e24f73ebcbeefb788278092bccc5556",
-    "revised_reference_close": 28437.169921875,
-    "revised_reference_bar_sha256": "193abd1e744d090b69ae79b34720c17fbab8673ce96934f128187404cb26510a",
-    "classification": "VERIFIED_AS_ISSUED_PROVIDER_REVISION",
-    "recorded_at": "2026-11-05T22:40:03.586049+00:00",
-    "exchange_finality_confirmed": false,
-    "trading_decision": "NO_TRADE",
-    "policy": "score issued quantiles against original denominator; never rewrite forecasts",
-    "root_cause": "upstream source values changed; provider internal reason unconfirmed",
-    "reconciliation_id": "637b42c4e6ba1ebff1eebc7076f4a2ddcb9a5827f040c2ad7566d0da6f13812d"
-  },
+  "applied": false,
   "journal_bytes_unchanged": true,
   "outcome_status": "not evaluated by this command; original maturity gates remain required"
 }

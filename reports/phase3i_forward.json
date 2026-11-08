@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-11-06T02:01:23.907841+00:00",
+  "generated_at": "2026-11-08T08:34:15.376643+00:00",
   "model_id": "ndx-range-v1",
   "scope": "NDX cash-session range quantiles; not NQ futures; not a trading signal",
   "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
   "trading_decision": "NO_TRADE",
-  "issued": 3,
+  "issued": 4,
   "matured": 2,
   "verified_matured": 2,
   "outcome_verification": {
@@ -112,20 +112,20 @@
       "verified_matured": 1
     },
     "residual-adjusted-v1": {
-      "issued": 2,
+      "issued": 3,
       "verified_matured": 1
     }
   },
-  "pending": 1,
+  "pending": 2,
   "missed": 0,
-  "failed": 0,
+  "failed": 2,
   "data_quality_incidents": {
     "MARKET_DATA_MISSING": 2
   },
   "cycle_availability": {
-    "attempts_logged": 73,
-    "failed_cycles": 13,
-    "failure_fraction": 0.1780821917808219,
+    "attempts_logged": 154,
+    "failed_cycles": 87,
+    "failure_fraction": 0.564935064935065,
     "note": "observed local cycles, not service uptime"
   },
   "issuance_timing": [
@@ -143,12 +143,40 @@
       "forecast_id": "291aac9c9d893a888609aafd",
       "lead_seconds": 49367.279028,
       "prediction_compute_seconds": 0.11630019999938668
+    },
+    {
+      "forecast_id": "cd26071237a957cd7a874933",
+      "lead_seconds": 223966.845218,
+      "prediction_compute_seconds": 0.13224479999917094
     }
   ],
   "audit": {
-    "forecasts": 3,
-    "passed": 3,
-    "failed": [],
+    "forecasts": 4,
+    "passed": 2,
+    "failed": [
+      {
+        "forecast_id": "291aac9c9d893a888609aafd",
+        "ok": false,
+        "issues": [
+          "REFERENCE_CLOSE_MISMATCH"
+        ],
+        "stored_reference_close": 26629.80859375,
+        "current_source_reference_close": 26629.810546875,
+        "warnings": [],
+        "reconciliation_id": null
+      },
+      {
+        "forecast_id": "cd26071237a957cd7a874933",
+        "ok": false,
+        "issues": [
+          "REFERENCE_CLOSE_MISMATCH"
+        ],
+        "stored_reference_close": 26989.9921875,
+        "current_source_reference_close": 26989.990234375,
+        "warnings": [],
+        "reconciliation_id": null
+      }
+    ],
     "records": [
       {
         "forecast_id": "20d48fc41c2cc0f5c0ae4f2d",
@@ -174,17 +202,30 @@
       },
       {
         "forecast_id": "291aac9c9d893a888609aafd",
-        "ok": true,
-        "issues": [],
+        "ok": false,
+        "issues": [
+          "REFERENCE_CLOSE_MISMATCH"
+        ],
         "stored_reference_close": 26629.80859375,
-        "current_source_reference_close": 26629.80859375,
+        "current_source_reference_close": 26629.810546875,
+        "warnings": [],
+        "reconciliation_id": null
+      },
+      {
+        "forecast_id": "cd26071237a957cd7a874933",
+        "ok": false,
+        "issues": [
+          "REFERENCE_CLOSE_MISMATCH"
+        ],
+        "stored_reference_close": 26989.9921875,
+        "current_source_reference_close": 26989.990234375,
         "warnings": [],
         "reconciliation_id": null
       }
     ]
   },
   "forecast_integrity": {
-    "journal_sha256": "8e23e8169cfb5abecd9908f9abf7d3bea5a77638729497a2674db30f46fb6b43",
+    "journal_sha256": "fbc52e88c2eb4364256ab706c08e5bea632e53ddc2132ddffb2393b02159ba86",
     "originals": [
       {
         "forecast_id": "20d48fc41c2cc0f5c0ae4f2d",
@@ -206,27 +247,37 @@
         "feature_digest": "4444d29d047834a0fa5cf2c466326428ae292d87d0c891604f99dfb60c9a9123",
         "inference_revision": "residual-adjusted-v1",
         "calibration_warning": null
+      },
+      {
+        "forecast_id": "cd26071237a957cd7a874933",
+        "created_at": "2026-11-07T00:17:13.154782+00:00",
+        "feature_digest": "bca02704d555cc1c1685478d54782414829e9cd823db76f5f98fb94749cc1208",
+        "inference_revision": "residual-adjusted-v1",
+        "calibration_warning": null
       }
     ]
   },
   "health": {
-    "status": "ok",
-    "warnings": [],
-    "last_run": "2026-11-06T02:01:11.948403+00:00",
-    "age_hours": 0.003092613888888889,
-    "last_success": "2026-11-06T02:01:11.948403+00:00",
-    "last_attempt": "2026-11-06T02:01:11.948403+00:00",
-    "last_attempt_event": "CYCLE_OK",
-    "forecasts": 3,
+    "status": "degraded",
+    "warnings": [
+      "STALE_SERVICE",
+      "LATEST_CYCLE_NOT_OK"
+    ],
+    "last_run": "2026-11-06T04:47:10.415251+00:00",
+    "age_hours": 51.78442072305556,
+    "last_success": "2026-11-06T04:47:10.415251+00:00",
+    "last_attempt": "2026-11-08T08:17:09.258726+00:00",
+    "last_attempt_event": "CYCLE_AUDIT_FAILED",
+    "forecasts": 4,
     "matured": 2,
-    "pending": 1,
+    "pending": 2,
     "missed": 0,
     "recent_quality_failures": 0,
     "trading_decision": "NO_TRADE"
   },
   "evaluation": {
     "matured": 2,
-    "pending": 1,
+    "pending": 2,
     "quarantined_outcomes": 0,
     "status": "SHADOW_EVALUATING",
     "quality_failures": 2,

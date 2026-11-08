@@ -1,0 +1,40 @@
+{
+  "checked_at": "2026-11-08T08:43:57.875469+00:00",
+  "id": 42464001630,
+  "head_sha": "b75ee440e3cfa4c18a9e5da68d34a4e46dfd652d",
+  "status": "in_progress",
+  "conclusion": null,
+  "html_url": "https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/42464001630",
+  "jobs": [
+    {
+      "name": "python",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/42464001630/job/128679202744"
+    },
+    {
+      "name": "windows-locked-runtime",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/42464001630/job/128679202814"
+    },
+    {
+      "name": "typescript",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/42464001630/job/128679202824"
+    },
+    {
+      "name": "native",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/42464001630/job/128679202925"
+    },
+    {
+      "name": "windows-shadow",
+      "status": "in_progress",
+      "conclusion": null,
+      "html_url": "https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/42464001630/job/128679202987"
+    }
+  ]
+}

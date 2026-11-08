@@ -2,11 +2,11 @@
 
 Model `ndx-range-v1` - status `RESEARCH_VALIDATED_PENDING_SHADOW` - decision `NO_TRADE`
 
-- Issued: **3**
+- Issued: **4**
 - Matured: **2**
-- Pending: **1**
+- Pending: **2**
 - Missed sessions: **0**
-- Audit failures: **0**
+- Audit failures: **2**
 
 | Quantile | Coverage | 95% interval | Mean pinball | Baseline pinball |
 |---|---:|---|---:|---:|

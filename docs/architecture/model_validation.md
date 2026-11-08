@@ -1,5 +1,27 @@
 # Model Validation
 
+## Current governance — Phase 3S
+
+The only shadow-active candidate remains frozen `ndx-range-v1`, predicting NDX
+cash-session range, not NQ/ES direction or executable targets. Its current state is
+four issued forecasts, two research-grade verified outcomes and two pending, with
+legacy/corrected inference cohorts separate. As of November 8, both pending
+forecasts have source-reference discrepancies and remain AUDIT_BLOCKED; November 6
+has passed its time bound but not the integrity gate. Preserve original features, sources,
+weights, forecast timestamps, denominators, outcomes and revision evidence.
+
+API administrator authentication grants read-only model/research views, **not**
+promotion, training or execution authority. HTTP cannot alter registry/artifacts,
+issue predictions or start paid acquisition. Encryption and passing CI add no
+statistical evidence. NO_PROMOTION / NO_TRADE remain enforced.
+
+Authenticated NQ/ES history, independent direction/consolidation/level/target-first
+evaluation and adequate calibrated forward samples are absent. Earlier daily
+continuous-proxy/index studies below remain historical development diagnostics;
+they are not raw-contract futures execution evidence. Previously exposed holdouts
+must not be reused for model/threshold selection. No models were retrained in 3S.
+See `../BACKEND_READINESS.md` and `../PHASE3S_FINDINGS.md` for current gates.
+
 Phase 3D implementation and frozen objectives are documented in
 `../PHASE3D_PROTOCOL.md`. `research/validation.py` implements forward-only
 day/signal grouping, inclusive label-end purging, elapsed embargo, rolling and

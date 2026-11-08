@@ -1,4 +1,83 @@
-# Backend readiness — Phase 3R
+# Backend readiness — Phase 3S
+
+## Phase 3S acceptance — NO_GO_FRONTEND (November 8, 2026 UTC)
+
+Evidence: `PHASE3S_FINDINGS.md`, `PHASE3S_SECURITY_DEPLOYMENT.md`,
+`reports/phase3s_acceptance.json`. Engineering controls improved; the complete
+pre-frontend acceptance criteria are **not met**. No numerical 70% claim is assigned.
+
+### Engineering gates
+
+- **Scheduler reliability — PARTIAL.** November 6 repeated zero-exit receipts are
+  retained; November 8 shadow exits 1 because source audit gates correctly block,
+  research exits 0. Both complete lifecycle journaling. Four alerts/core degraded.
+  `phase3s_scheduler.json`, `phase3s_scheduler_current.json`. Interactive/awake-host
+  only; unattended startup profiles are prepared/dry-run, not activated or soaked.
+- **Automated backtesting — COMPLETED, development scope.** Existing chronological
+  cost-aware research infrastructure/tests remain reproducible; no new authentic
+  futures results. `tests/test_backtest_regression.py`, `tests/test_daily_experiment.py`.
+- **ML training — COMPLETED, infrastructure scope.** Existing purging/embargo,
+  frozen identity/cache and governance tests pass. Zero new market fits and no
+  repeated tuning on exposed holdouts. Model quality is not an engineering pass.
+- **Forward testing — PARTIAL / AUDIT_BLOCKED.** Four genuine issues, two verified
+  historical outcomes, two pending; pending reference bars revised. November 6
+  passed time eligibility, not integrity eligibility. Unapplied investigations are
+  `phase3s_revision_nov06.json` and `phase3s_revision_nov09.json`. No forced evaluation.
+- **API security — COMPLETED bounded controls / PARTIAL deployment approval.**
+  Tested reader/admin auth, fail-closed artifact access/audits, minimal liveness,
+  host/input/request/rate limits and real isolated verified TLS. No mutation routes.
+  Single-process profile only; external security/load/ACL/TLS lifecycle review and
+  production configuration remain. `tests/test_api_security.py`, `tests/test_tls_deployment.py`.
+- **Data integrity — PARTIAL overall.** Frozen model, original journal prefixes,
+  archived outcomes and exact issued-row replay verify. Current source-reference
+  discrepancies remain detected/blocked, not silently normalized. Historical
+  research-grade outcomes are not exchange-finality evidence. `phase3s_acceptance.json`,
+  `phase3s_runtime.json`, `phase3j_operations.json`.
+- **Deployment reproducibility — COMPLETED isolated Windows scope / PARTIAL host
+  acceptance.** Fresh offline security environment, 58 reviewed wheel hashes,
+  13,458 installed-file hashes, fresh C++20 and exact original inference verify.
+  No live path migration, independent host cutover, reboot/logoff or hard memory
+  isolation evidence. `phase3s_dependency_lock.json`, `phase3s_runtime.json`.
+- **Recovery — PARTIAL.** AES-GCM package authentication, secret exclusions,
+  original manifest, model/source/journal/SQLite and cached-diagnostic replay work
+  on a real 765-file November 6 snapshot. Restore/replay 23.70s, not full RTO.
+  OFF_HOST_VERIFICATION_REQUIRED; no authorized independent destination/key custody.
+  Proposed RPO 30m/RTO 60m remain objectives, not achieved SLOs.
+- **Monitoring — PARTIAL.** Durable alerts/lifecycle journals report actual failures;
+  four alerts open. No independent paging, always-on backup/audit-capacity monitoring
+  or long soak. Do not equate fail-closed behavior with healthy operation.
+- **Python/C++ CI — COMPLETED at recorded implementation.** 406 local and isolated
+  tests pass including native parity; TypeScript passes; five CI jobs green at
+  `61878d5`, run 42153192576. Later commits need separately checked CI.
+
+### Quantitative intelligence gates
+
+- **Genuine futures data — BLOCKED / USER_ACTION_REQUIRED.** Zero licensed NQ/ES
+  receipts. GLBX.MDP3 credentials/entitlements/raw IDs/quote/approval unverified;
+  no paid consumption. `PHASE3S_FUTURES_PILOT.md`, `phase3s_data_access.json`.
+- **Historical coverage — PARTIAL context / BLOCKED futures.** Cash-index and
+  continuous-proxy archives are not raw-contract futures history; a one-session
+  pilot cannot establish adequate independent coverage.
+- **Market direction prediction — BLOCKED.** No independently qualified futures
+  directional model or new authentic event/path evidence.
+- **Consolidation prediction — BLOCKED.** No sufficient independent futures
+  observations or validated calibrated model.
+- **Significant price levels — PARTIAL feature infrastructure / BLOCKED predictive
+  qualification.** Genuine volume-at-price/depth paths and independent level-hit
+  evaluation remain absent; no synthetic order-flow claims.
+- **Target-before-stop calibration — BLOCKED.** Adequate authentic paths, realistic
+  costs, ambiguity handling, separate calibration and independent tests required.
+  Unsupported 200–500-point target probabilities remain null.
+- **Independent validation — BLOCKED.** No new untouched futures holdout; exposed
+  historical holdouts remain diagnostic and cannot be reused for selection.
+- **Genuine forward observations — PARTIAL / insufficient.** Four issued cash-index
+  range forecasts; two verified outcomes (one per inference cohort), two pending.
+  This does not establish reliable coverage, direction skill or trading accuracy.
+
+**Decision: NO_GO_FRONTEND / NO_PROMOTION / NO_TRADE.** No paid resources/public
+deployment or broker execution activated. Remaining independent engineering and
+quantitative gates cannot be replaced by more tests or an arbitrary completion score.
+Earlier sections below are historical checkpoints, not current operational health.
 
 ## Phase 3R acceptance — NO-GO frontend
 

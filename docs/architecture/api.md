@@ -1,5 +1,25 @@
 # Read-Only API
 
+## Phase 3S security contract (current)
+
+Authentication is now required for protected routes; anonymous startup/data access
+is not the supported interface. Configure separate reader/admin **token-file paths**
+and operator TLS certificate/key files, then use the loopback TLS launcher. Exact
+instructions, request/rate/audit limits and role boundaries:
+`../PHASE3S_SECURITY_DEPLOYMENT.md`.
+
+`/health` and `/health/live` now return only minimal liveness. Detailed API storage
+health is `/health/ready` and requires administrator authentication. It is not model
+or trading readiness. Research/model/operational/data-verification views require
+administrator access; ordinary forecast views require reader or administrator.
+No credential enables mutation, job execution, acquisition, promotion or orders.
+Docs/OpenAPI HTTP access is disabled; route response contracts otherwise remain.
+
+The endpoint catalog and examples below are historical payload descriptions, not
+anonymous access instructions or current predictive/trading approval. The old
+plaintext run example requires configured credentials and is loopback-only; prefer
+the current TLS deployment procedure. No public deployment has been authorized.
+
 Run:
 
 ```bash

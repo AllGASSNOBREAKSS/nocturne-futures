@@ -8,6 +8,33 @@
 
 ## What is implemented
 
+### Phase 3S — protected APIs and authenticated private recovery
+
+Reader/admin authentication, deny-by-default artifact access, bounded rate/request
+limits, secret-safe fail-closed audits and isolated verified TLS are implemented.
+Local/future always-on profiles preserve pythonw scheduling; unattended activation
+still requires operator approval. AES-256-GCM backup packaging restores/replays a
+real private snapshot in a fresh isolated environment, without activating it.
+
+**406 tests pass locally and in isolation**, including native parity. All five CI
+jobs pass at `61878d5`. Security-profile offline bootstrap verifies 58 wheel hashes,
+13,458 installed files and exact original frozen inference. Same-host encrypted
+recovery is verified, but **OFF_HOST_VERIFICATION_REQUIRED** remains.
+
+November 8 state: **4 issued / 2 verified matured / 2 pending**. Provider revisions
+block both pending forecast audits; shadow exits 1, research exits 0, four alerts
+are open. November 6 is not an evaluated outcome merely because time has elapsed.
+Separate revision investigations preserve all predictions/denominators and remain
+unapplied. No licensed futures receipts or paid consumption.
+
+**NO_GO_FRONTEND / NO_PROMOTION / NO_TRADE**; no arbitrary 70% claim. See
+[findings](docs/PHASE3S_FINDINGS.md),
+[secure deployment/recovery](docs/PHASE3S_SECURITY_DEPLOYMENT.md),
+[bounded futures activation](docs/PHASE3S_FUTURES_PILOT.md),
+[architecture](docs/ARCHITECTURE_PHASE3S.md),
+[acceptance evidence](reports/phase3s_acceptance.json) and
+[readiness gates](docs/BACKEND_READINESS.md). Sections below are historical.
+
 ### Phase 3R — hash-locked bootstrap and exact frozen inference
 
 55 reviewed wheel hashes support offline Windows/CPython-3.14 bootstrap; installed

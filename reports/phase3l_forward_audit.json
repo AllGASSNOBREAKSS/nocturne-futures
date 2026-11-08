@@ -96,13 +96,13 @@
   ],
   "sample_warning": "descriptive observations only; no forward calibration or trading-edge claim",
   "trading_decision": "NO_TRADE",
-  "generated_at": "2026-11-06T02:01:19.199984+00:00",
-  "issued": 3,
-  "pending": 1,
+  "generated_at": "2026-11-08T08:34:08.733883+00:00",
+  "issued": 4,
+  "pending": 2,
   "baseline_sha256": "cf6984327158af5517c35ca5ad2cd2ccc865a40022e50b411f1cc5872eaf298d",
   "baseline_provenance": "train-only comparator committed in 92cd098 before first outcome; not embedded in the first issued forecast",
   "journal_hashes": {
-    "forecasts": "8e23e8169cfb5abecd9908f9abf7d3bea5a77638729497a2674db30f46fb6b43",
+    "forecasts": "fbc52e88c2eb4364256ab706c08e5bea632e53ddc2132ddffb2393b02159ba86",
     "outcomes": "8b90fbee6cbd79ccd559240e1dc15d5b2e4de1507d4222a51641eb8c61443396"
   }
 }
