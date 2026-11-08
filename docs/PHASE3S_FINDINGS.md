@@ -61,6 +61,20 @@ evidence remain. The interruption is retained in
 new testing, without deleting the earlier directory. Temporary artifacts are not
 durable backups.
 
+The replacement environment completed **408 tests, zero failures/errors/skips** at
+`c5de881` (95.65s XML duration), with fresh native build. Local suite also passed
+408 (91.28s); subsequent acceptance-helper changes have targeted coverage and are
+included in the final complete isolated suite. November 8 TypeScript passes.
+Final runtime evidence in `phase3s_runtime_final.json` verifies 13,458 installed-file
+hashes and **all four issued forecasts** exactly. This supersedes the original
+three-case replay count, not the frozen model or original issuance evidence. CI
+results remain separately commit-bound in `phase3s_ci.json`; source `b75ee44` also
+passed all five jobs, run 42464001630.
+
+Final check confirms **all five CI jobs successful at `c5de881`**, run
+**42464277742**. Subsequent receipt/documentation-only commits are not implicitly
+covered by this run; no Python/C++ or workflow change follows the tested source.
+
 Real November 6 snapshot: **765 files / 239,693,198 bytes**, manifest
 `b75aaffc57d18a8b0bd2781783253c5dc5fe44b5c5b4a537f12e7ed89ae5960f`.
 Capture checked real task deadlines and completed in 14.14s. Local encrypted

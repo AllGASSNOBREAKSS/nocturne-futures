@@ -1,40 +1,40 @@
 {
-  "checked_at": "2026-11-08T08:43:57.875469+00:00",
-  "id": 42464001630,
-  "head_sha": "b75ee440e3cfa4c18a9e5da68d34a4e46dfd652d",
-  "status": "in_progress",
-  "conclusion": null,
-  "html_url": "https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/42464001630",
+  "checked_at": "2026-11-08T08:49:06.778145+00:00",
+  "id": 42464277742,
+  "head_sha": "c5de88140ed689a232a7b6b2f5923f5d1af519be",
+  "status": "completed",
+  "conclusion": "success",
+  "html_url": "https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/42464277742",
   "jobs": [
     {
-      "name": "python",
+      "name": "windows-shadow",
       "status": "completed",
       "conclusion": "success",
-      "html_url": "https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/42464001630/job/128679202744"
-    },
-    {
-      "name": "windows-locked-runtime",
-      "status": "completed",
-      "conclusion": "success",
-      "html_url": "https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/42464001630/job/128679202814"
-    },
-    {
-      "name": "typescript",
-      "status": "completed",
-      "conclusion": "success",
-      "html_url": "https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/42464001630/job/128679202824"
+      "html_url": "https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/42464277742/job/128680050535"
     },
     {
       "name": "native",
       "status": "completed",
       "conclusion": "success",
-      "html_url": "https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/42464001630/job/128679202925"
+      "html_url": "https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/42464277742/job/128680050747"
     },
     {
-      "name": "windows-shadow",
-      "status": "in_progress",
-      "conclusion": null,
-      "html_url": "https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/42464001630/job/128679202987"
+      "name": "windows-locked-runtime",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/42464277742/job/128680050805"
+    },
+    {
+      "name": "typescript",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/42464277742/job/128680050813"
+    },
+    {
+      "name": "python",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/42464277742/job/128680050918"
     }
   ]
 }

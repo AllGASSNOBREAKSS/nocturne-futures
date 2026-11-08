@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T08:44:56.250711+00:00",
+  "generated_at": "2026-11-08T08:49:06.975475+00:00",
   "baseline_commit": "504a168c455d945c42a5723a60c7d86236fcaadc",
   "decision": "NO_GO_FRONTEND",
   "percentage": null,
@@ -93,7 +93,7 @@
       "missing": "Independent paging, backup/audit-capacity monitoring, long soak/reboot/logoff and hard process-memory isolation"
     },
     "python_cpp_ci": {
-      "status": "in_progress",
+      "status": "success",
       "evidence": [
         "reports/phase3s_ci.json",
         "reports/phase3s_tests.json"
@@ -133,7 +133,7 @@
     }
   },
   "forward": {
-    "generated_at": "2026-11-08T08:34:15.376643+00:00",
+    "generated_at": "2026-11-08T08:48:18.714670+00:00",
     "issued": 4,
     "verified_matured": 2,
     "pending": 2,

@@ -1,20 +1,22 @@
 {
-  "recorded_at": "2026-11-08T08:37:24.066853+00:00",
-  "tested_commit": "61878d5bca04653ae35b477ae67ad9a22c03fdfd",
+  "recorded_at": "2026-11-08T08:48:35.087154+00:00",
+  "tested_commit": "c5de88140ed689a232a7b6b2f5923f5d1af519be",
+  "warning": "httpx TestClient deprecation; no dependency upgrade or warning suppression",
   "isolated": {
-    "tests": 406,
+    "tests": 408,
     "failures": 0,
     "errors": 0,
     "skipped": 0,
-    "seconds": 111.873,
-    "native": "fresh C++20 build included"
+    "seconds": 95.651,
+    "scope": "c5de881 complete suite; new offline venv and fresh C++20 build"
   },
   "local": {
-    "tests": 406,
+    "tests": 408,
     "failures": 0,
-    "seconds": 128.09,
-    "native": "existing build included"
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 91.284,
+    "scope": "b75ee44 full suite plus subsequent acceptance-helper targeted regression"
   },
-  "typescript": "npm run typecheck passed 2026-11-06",
-  "warning": "httpx TestClient deprecation; no warning suppression or dependency upgrade"
+  "typescript": "npm run typecheck passed 2026-11-08"
 }

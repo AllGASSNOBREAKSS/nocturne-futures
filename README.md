@@ -16,9 +16,11 @@ Local/future always-on profiles preserve pythonw scheduling; unattended activati
 still requires operator approval. AES-256-GCM backup packaging restores/replays a
 real private snapshot in a fresh isolated environment, without activating it.
 
-**406 tests pass locally and in isolation**, including native parity. All five CI
-jobs pass at `61878d5`. Security-profile offline bootstrap verifies 58 wheel hashes,
-13,458 installed files and exact original frozen inference. Same-host encrypted
+**408 tests pass locally and in isolation**, including native parity; the final
+isolated suite tested `c5de881`; all five CI jobs are green at that commit in
+run 42464277742 (`reports/phase3s_ci.json`).
+Security-profile offline bootstrap verifies 58 wheel hashes,
+13,458 installed files and exact inference for all four issued forecasts. Same-host encrypted
 recovery is verified, but **OFF_HOST_VERIFICATION_REQUIRED** remains.
 
 November 8 state: **4 issued / 2 verified matured / 2 pending**. Provider revisions

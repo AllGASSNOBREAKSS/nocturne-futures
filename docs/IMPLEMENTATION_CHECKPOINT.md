@@ -22,6 +22,15 @@ security profile verifies 58 wheel hashes / 145,253,614 bytes and 13,458 install
 file hashes. Exact three original issued-row replay remains unchanged. Later
 source/report commits require separately recorded CI; do not misattribute results.
 
+Final replacement-environment suite at `c5de881`: **408 passed, no skips**, fresh
+native build; local 408 also pass. Final report `phase3s_tests.json` records exact
+test scope/durations. `phase3s_runtime_final.json` verifies all **four** issued rows
+and 13,458 installed hashes. All five CI jobs are green at `c5de881`, run
+42464277742 (`phase3s_ci.json`); `b75ee44` is also confirmed five-job green in run
+42464001630. No source/model
+changes followed the `c5de881` full isolated suite; remaining updates are evidence
+and documentation only.
+
 November 6 coherent snapshot: 765 files / 239,693,198 bytes, manifest
 `b75aaffc57d18a8b0bd2781783253c5dc5fe44b5c5b4a537f12e7ed89ae5960f`.
 Encrypted package `data/recovery/phase3s-encrypted-20261106-v1.nct` is private/ignored;

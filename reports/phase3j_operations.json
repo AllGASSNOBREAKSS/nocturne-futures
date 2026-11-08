@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T08:34:16.485645+00:00",
+  "generated_at": "2026-11-08T08:48:19.624233+00:00",
   "status": "degraded",
   "components": {
     "shadow_cycle": {
@@ -64,9 +64,9 @@
       "LATEST_CYCLE_NOT_OK"
     ],
     "last_run": "2026-11-06T04:47:10.415251+00:00",
-    "age_hours": 51.785019553888894,
+    "age_hours": 52.01922471722222,
     "last_success": "2026-11-06T04:47:10.415251+00:00",
-    "last_attempt": "2026-11-08T08:17:09.258726+00:00",
+    "last_attempt": "2026-11-08T08:47:10.449268+00:00",
     "last_attempt_event": "CYCLE_AUDIT_FAILED",
     "forecasts": 4,
     "matured": 2,

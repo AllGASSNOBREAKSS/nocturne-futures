@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T08:34:15.376643+00:00",
+  "generated_at": "2026-11-08T08:48:18.714670+00:00",
   "model_id": "ndx-range-v1",
   "scope": "NDX cash-session range quantiles; not NQ futures; not a trading signal",
   "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
@@ -123,9 +123,9 @@
     "MARKET_DATA_MISSING": 2
   },
   "cycle_availability": {
-    "attempts_logged": 154,
-    "failed_cycles": 87,
-    "failure_fraction": 0.564935064935065,
+    "attempts_logged": 155,
+    "failed_cycles": 88,
+    "failure_fraction": 0.567741935483871,
     "note": "observed local cycles, not service uptime"
   },
   "issuance_timing": [
@@ -264,9 +264,9 @@
       "LATEST_CYCLE_NOT_OK"
     ],
     "last_run": "2026-11-06T04:47:10.415251+00:00",
-    "age_hours": 51.78442072305556,
+    "age_hours": 52.018722912222216,
     "last_success": "2026-11-06T04:47:10.415251+00:00",
-    "last_attempt": "2026-11-08T08:17:09.258726+00:00",
+    "last_attempt": "2026-11-08T08:47:10.449268+00:00",
     "last_attempt_event": "CYCLE_AUDIT_FAILED",
     "forecasts": 4,
     "matured": 2,

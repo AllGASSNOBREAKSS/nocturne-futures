@@ -46,9 +46,12 @@ pre-frontend acceptance criteria are **not met**. No numerical 70% claim is assi
 - **Monitoring — PARTIAL.** Durable alerts/lifecycle journals report actual failures;
   four alerts open. No independent paging, always-on backup/audit-capacity monitoring
   or long soak. Do not equate fail-closed behavior with healthy operation.
-- **Python/C++ CI — COMPLETED at recorded implementation.** 406 local and isolated
-  tests pass including native parity; TypeScript passes; five CI jobs green at
-  `61878d5`, run 42153192576. Later commits need separately checked CI.
+- **Python/C++ CI — COMPLETED at recorded implementation.** 408 local and isolated
+  tests pass including native parity; final full isolated source is `c5de881`,
+  with 13,458 installed hashes and all four issued-row replays verified in
+  `phase3s_runtime_final.json`. TypeScript passes November 8. All five CI jobs are
+  green at `c5de881`, run 42464277742 (`phase3s_ci.json`). Later receipt/documentation
+  commits need separately checked CI; no Python/C++ or workflow changes follow.
 
 ### Quantitative intelligence gates
 

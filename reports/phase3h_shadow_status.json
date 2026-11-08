@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T08:17:09.258726+00:00",
+  "generated_at": "2026-11-08T08:47:10.449268+00:00",
   "model_id": "ndx-range-v1",
   "model_version": "1.0.0",
   "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
@@ -243,9 +243,9 @@
       "LATEST_CYCLE_NOT_OK"
     ],
     "last_run": "2026-11-06T04:47:10.415251+00:00",
-    "age_hours": 51.499678743055554,
+    "age_hours": 52.00000944916667,
     "last_success": "2026-11-06T04:47:10.415251+00:00",
-    "last_attempt": "2026-11-08T08:17:09.258726+00:00",
+    "last_attempt": "2026-11-08T08:47:10.449268+00:00",
     "last_attempt_event": "CYCLE_AUDIT_FAILED",
     "forecasts": 4,
     "matured": 2,
@@ -396,7 +396,7 @@
         "dropped_invalid_or_missing_bars": 0,
         "gap_days_median": 1.0,
         "gaps_over_5_days": 1,
-        "received_at": "2026-11-08T08:17:08.566235+00:00",
+        "received_at": "2026-11-08T08:47:08.855657+00:00",
         "availability": "next UTC midnight after the session date",
         "known_limitations": [
           "unofficial endpoint; not an exchange feed",
@@ -404,7 +404,7 @@
           "continuous futures proxies have unverified roll mapping",
           "adjusted vs unadjusted prices not distinguished by this adapter"
         ],
-        "snapshot_id": "9199d9acc9faf4792476b88665c0cb30972b2ad365b07d45e0ea623c78f0ba3e"
+        "snapshot_id": "cfd6548fe883f7a256b1ec562229c98eec8ea03e74f6cff6088f6a4ad922d8bd"
       },
       "vix": {
         "symbol": "^VIX",
@@ -423,7 +423,7 @@
         "dropped_invalid_or_missing_bars": 331,
         "gap_days_median": 1.0,
         "gaps_over_5_days": 1,
-        "received_at": "2026-11-08T08:17:09.072566+00:00",
+        "received_at": "2026-11-08T08:47:09.444117+00:00",
         "availability": "next UTC midnight after the session date",
         "known_limitations": [
           "unofficial endpoint; not an exchange feed",
@@ -431,12 +431,12 @@
           "continuous futures proxies have unverified roll mapping",
           "adjusted vs unadjusted prices not distinguished by this adapter"
         ],
-        "snapshot_id": "aacfe04e1882adf37a7dc3f7f3f958f8fd736d6ac94591255b4994be8fd1bab5"
+        "snapshot_id": "86a84d41d5ba83ffffd28eda6b983aa76f3837ca2b954cd65ffd2847e677b76b"
       }
     },
     "snapshot_ids": {
-      "index": "9199d9acc9faf4792476b88665c0cb30972b2ad365b07d45e0ea623c78f0ba3e",
-      "vix": "aacfe04e1882adf37a7dc3f7f3f958f8fd736d6ac94591255b4994be8fd1bab5"
+      "index": "cfd6548fe883f7a256b1ec562229c98eec8ea03e74f6cff6088f6a4ad922d8bd",
+      "vix": "86a84d41d5ba83ffffd28eda6b983aa76f3837ca2b954cd65ffd2847e677b76b"
     }
   },
   "notes": [

@@ -96,7 +96,7 @@
   ],
   "sample_warning": "descriptive observations only; no forward calibration or trading-edge claim",
   "trading_decision": "NO_TRADE",
-  "generated_at": "2026-11-08T08:34:08.733883+00:00",
+  "generated_at": "2026-11-08T08:48:14.827759+00:00",
   "issued": 4,
   "pending": 2,
   "baseline_sha256": "cf6984327158af5517c35ca5ad2cd2ccc865a40022e50b411f1cc5872eaf298d",
