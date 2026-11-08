@@ -72,6 +72,26 @@ def test_corrupt_issuance_cannot_be_reclassified_as_benign_provider_revision(tmp
         incident_disposition({**forecast, 'reference_close': 1.0}, archive, revised, NOW)
 
 
+@pytest.mark.parametrize('revert_close', [False, True])
+def test_strict_bar_proof_cannot_fall_back_to_old_close_only_proof(tmp_path, revert_close):
+    from nocturne.shadow.reconciliation import investigate_revision
+    archive, store, _, forecast = evidence(tmp_path)
+    revised = capture(archive, revision=True, received='2025-03-25T02:00Z')
+    proof = investigate_revision(forecast, archive, revised, NOW)['record']
+    # Historical compatibility proof precedes the upgraded strict one.
+    legacy = {k: v for k, v in proof.items() if k != 'revised_reference_bar_sha256'}
+    store.append_reconciliation(legacy)
+    store.append_reconciliation(proof)
+    frame = archive.frame(revised)
+    assert not audit_forecasts(store, frame, snapshot_root=archive.root)['failed']
+    changed = frame.copy()
+    changed.loc[changed.date == forecast['data_date'], 'volume'] += 1
+    if revert_close:
+        changed.loc[changed.date == forecast['data_date'], 'close'] = forecast['reference_close']
+    assert audit_forecasts(store, changed, snapshot_root=archive.root)['failed']
+    assert not store.outcomes()
+
+
 def test_future_issue_proceeds_while_older_forecast_is_quarantined_and_retry_is_idempotent(tmp_path, monkeypatch):
     module = runner(tmp_path, monkeypatch)
     store = ShadowStore(module.STORE_DIR)

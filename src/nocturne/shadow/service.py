@@ -375,6 +375,7 @@ def audit_forecasts(store: ShadowStore, index_bars: pd.DataFrame, snapshot_root=
     """Verify immutability invariants without rewriting anything."""
     index = _prepared(index_bars)
     closes = {row.date.date().isoformat(): float(row.close) for row in index.itertuples(index=False)}
+    reconciliations = store.reconciliations()
     checks = []
     for forecast in store.forecasts():
         issues = []
@@ -404,14 +405,19 @@ def audit_forecasts(store: ShadowStore, index_bars: pd.DataFrame, snapshot_root=
             if digest != forecast["feature_digest"]:
                 issues.append("FEATURE_DIGEST_MISMATCH")
         expected_close = closes.get(forecast["data_date"])
+        applicable = [r for r in reconciliations if r.get('forecast_id') == forecast['forecast_id']]
+        bound = [r for r in applicable if r.get('revised_reference_bar_sha256')]
+        # Once full-bar evidence exists, neither an older close-only proof nor a
+        # close reverting to the original value can bypass its revision seal.
+        candidates = bound or applicable
         if expected_close is None:
             issues.append("DATA_DATE_BAR_MISSING")
-        elif abs(expected_close - forecast["reference_close"]) > 1e-6:
+        elif abs(expected_close - forecast["reference_close"]) > 1e-6 or bound:
             reconciled = False
             if snapshot_root is not None:
                 from ..adapters.snapshots import SnapshotStore
                 from .reconciliation import verify_reconciliation
-                for record in store.reconciliations():
+                for record in candidates:
                     try:
                         current_bar = index_bars[pd.to_datetime(index_bars.date).dt.strftime("%Y-%m-%d") == forecast["data_date"]].iloc[0]
                         reconciled = verify_reconciliation(forecast, record, SnapshotStore(snapshot_root), expected_close, current_bar=current_bar)
