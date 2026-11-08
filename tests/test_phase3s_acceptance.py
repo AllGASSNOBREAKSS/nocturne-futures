@@ -23,7 +23,8 @@ def test_acceptance_retains_current_blockers_and_detects_preservation_failure(tm
         'phase3i_forward.json': {'generated_at': '2026-11-08T08:00:00Z', 'issued': 4, 'verified_matured': 2,
                                 'pending': 2, 'inference_samples': {},
                                 'outcome_verification': {'status': 'VERIFIED_RESEARCH_GRADE'}},
-        'phase3j_operations.json': {'status': 'degraded', 'issues': {'one': {}, 'two': {}}},
+        'phase3j_operations.json': {'status': 'degraded', 'issues': {'one': {}, 'two': {}},
+                                  'open_alerts': [{}, {}]},
         'phase3s_scheduler_current.json': {'Status': 'DEGRADED'},
         'phase3s_encrypted_restore.json': {'result': {'status': 'RESTORED_NOT_ACTIVATED'}},
         'phase3s_ci.json': {'conclusion': 'success'},
@@ -37,7 +38,7 @@ def test_acceptance_retains_current_blockers_and_detects_preservation_failure(tm
     assert result['percentage'] is None
     assert result['engineering']['forward_testing']['status'] == 'AUDIT_BLOCKED'
     assert result['engineering']['scheduler']['status'] == 'DEGRADED'
-    assert result['engineering']['monitoring']['open_alerts'] == 2
+    assert result['engineering']['monitoring']['open_alert_count'] == 2
     assert result['forward']['pending'] == 2
     assert result['promotion'] == 'NO_PROMOTION'
     assert result['preservation'][-1]['original_bytes_preserved'] is not corrupt_model
