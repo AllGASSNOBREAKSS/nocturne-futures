@@ -137,3 +137,67 @@ def investigate_revision(forecast, archive, revised_id, now):
             "changes": {key: {"original": reference_values(a)[key], "revised": reference_values(b)[key]}
                         for key in reference_values(a) if reference_values(a)[key] != reference_values(b)[key]},
             "issuance_features_exactly_reproduced": True}
+
+
+def incident_disposition(forecast, archive, revised_id, now, source_checks=()):
+    """Read-only incident classification, NOT an applied reconciliation proof.
+
+    Reuses exact issuance/raw-bar verification. Public close-only checks cannot
+    authenticate final outcome high/low. This report cannot authorize evaluation,
+    even if a caller supplies a purported `verified` flag in source_checks.
+    A new independent outcome source needs its own reviewed evidence contract.
+    """
+    from datetime import timedelta
+    from .calendar import session_close
+    import numpy as np
+
+    proof = investigate_revision(forecast, archive, revised_id, now)
+    current = archive.frame(revised_id)
+    target = pd.Timestamp(forecast['target_date'])
+    bound = (target.tz_localize('UTC') + timedelta(days=1))
+    rows = current[pd.to_datetime(current.date).dt.strftime('%Y-%m-%d') == forecast['target_date']]
+    target_info = {'target_date': forecast['target_date'], 'availability_bound': bound.isoformat(),
+                   'time_bound_elapsed': bool(pd.Timestamp(now) >= bound), 'rows': len(rows),
+                   'provider_observed': False, 'independently_verified_final_ohlc': False}
+    if len(rows) == 1:
+        row = rows.iloc[0]
+        prices = np.asarray([row.open, row.high, row.low, row.close], dtype=float)
+        complete = bool(row.source_complete in (True, 'True') and np.isfinite(prices).all()
+                        and (prices > 0).all() and row.high >= max(row.open, row.close, row.low)
+                        and row.low <= min(row.open, row.close, row.high)
+                        and pd.Timestamp(row.available_at) >= session_close(target.date()))
+        target_info.update(provider_observed=True, provider_ohlc_complete=complete,
+                           available_at=pd.Timestamp(row.available_at).isoformat(),
+                           source_received_at=archive.manifest(revised_id)['source']['received_at'],
+                           available_now=bool(complete and pd.Timestamp(now) >= max(bound, pd.Timestamp(row.available_at))),
+                           bar_sha256=digest(canonical(reference_values(row))))
+    original = proof['original_source']
+    revised = proof['revised_source']
+    a, b = float(forecast['reference_close']), float(proof['record']['revised_reference_close'])
+    reasons = ['INDEPENDENT_FINAL_OUTCOME_OHLC_NOT_VERIFIED', 'REFERENCE_REVISION_NOT_APPLIED']
+    if not target_info['time_bound_elapsed']:
+        reasons.append('TARGET_AVAILABILITY_BOUND_NOT_REACHED')
+    if not target_info.get('available_now', False):
+        reasons.append('COMPLETE_AVAILABLE_TARGET_BAR_NOT_ESTABLISHED')
+    return {'schema': 1, 'recorded_at': pd.Timestamp(now).isoformat(),
+            'forecast_id': forecast['forecast_id'], 'forecast_sha256': digest(canonical(forecast)),
+            'target_date': forecast['target_date'], 'reference_date': forecast['data_date'],
+            'original_reference_close': a, 'revised_reference_close': b,
+            'difference_points': b - a, 'difference_fraction_original': (b - a) / a,
+            'source_timestamps': {'issued_at': forecast['created_at'],
+                                  'original_received_at': original['source']['received_at'],
+                                  'revised_received_at': revised['source']['received_at'],
+                                  'original_exchange_timestamp': original['exchange_timestamp'],
+                                  'revised_exchange_timestamp': revised['exchange_timestamp']},
+            'classification': 'OBSERVED_PROVIDER_REVISION_FINALITY_UNVERIFIED',
+            'cause_assessment': {'changed_upstream_payload': bool(proof['changes']),
+                                 'session_identity': 'MATCHED_ARCHIVED_INSTRUMENT_TIMEZONE_TIMESTAMP',
+                                 'adjustment_convention': 'QUOTE_EQUALS_ADJCLOSE_IN_INSPECTED_REFERENCE_ROWS',
+                                 'issuance_inputs': 'EXACTLY_REPRODUCED',
+                                 'provider_internal_cause': 'UNCONFIRMED',
+                                 'numerical_software_defect': 'NOT_EVIDENCED_BY_SOURCE_REVISION; SEE_SEPARATE_FROZEN_INFERENCE_REPLAY'},
+            'independent_evidence': list(source_checks), 'outcome_observation': target_info,
+            'verdict': 'AUDIT_BLOCKED', 'eligible_for_evaluation': False,
+            'blocking_reasons': reasons, 'reconciliation_applied': False,
+            'provider_revision_evidence': proof, 'trading_decision': 'NO_TRADE',
+            'limits': 'Classification is not independent final OHLC verification, an evaluation override or permission to change original forecasts/denominators.'}

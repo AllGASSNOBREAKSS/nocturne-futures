@@ -37,6 +37,44 @@ def dataset_from(store, job):
     return data, source
 
 
+def assess_shadow_receipt(kind, exit_code, receipt):
+    """Completion of a scoped job is not approval of quarantined outcomes.
+
+    Only a new per-attempt one-shot receipt can support this distinction; a
+    stale shared status report is never read here. Scheduled task exit codes stay
+    unchanged. Failed generation, data refresh or exceptions never become success.
+    """
+    failed = {'status': 'FAILED', 'reason': 'SHADOW_COMPONENT_EXIT', 'exit_code': exit_code}
+    if not isinstance(receipt, dict) or kind not in {'DATA_REFRESH', 'SHADOW_FORECAST', 'FORECAST_MATURITY_CHECK'}:
+        return failed
+    if exit_code == 75 and receipt.get('status') == 'LOCKED':
+        return {'status': 'BLOCKED', 'reason': 'SHADOW_COMPONENT_BUSY', 'exit_code': exit_code}
+    if exit_code == 1 and receipt.get('operational_status') == 'DATA_BLOCKED':
+        return {'status': 'BLOCKED', 'reason': 'SHADOW_SOURCE_DATA_BLOCKED', 'exit_code': exit_code}
+    if receipt.get('execution_status') != 'COMPLETED':
+        return failed
+    if kind == 'DATA_REFRESH' and any(receipt.get('refresh', {}).get(s, {}).get('status') != 'FETCHED' for s in ('^NDX', '^VIX')):
+        return {'status': 'BLOCKED', 'reason': 'SHADOW_REFRESH_NOT_VERIFIED', 'exit_code': exit_code}
+    if kind == 'SHADOW_FORECAST':
+        issuance = receipt.get('generation')
+        if issuance not in {'STORED', 'ALREADY_ISSUED'} and not (issuance == 'SKIPPED' and receipt.get('generation_detail', {}).get('reason') == 'TOO_LATE_FOR_TARGET'):
+            return failed
+    elif receipt.get('generation') != 'EVALUATE_ONLY':
+        return failed
+    if exit_code == 0 and receipt.get('operational_status') == 'SHADOW_ACTIVE':
+        return {'status': 'SUCCEEDED', 'reason': 'COMPONENT_COMPLETED', 'exit_code': 0,
+                'note': 'Not a claim that a new forecast was issued or any outcome matured'}
+    if exit_code == 1 and receipt.get('operational_status') == 'AUDIT_BLOCKED':
+        failures = receipt.get('audit', {}).get('failed', [])
+        ids = sorted(item['forecast_id'] for item in failures)
+        if ids and ids == receipt.get('quarantined_forecast_ids') and receipt.get('evaluation_integrity_status') == 'QUARANTINED':
+            return {'status': 'SUCCEEDED', 'reason': 'COMPONENT_COMPLETED_WITH_QUARANTINE',
+                    'integrity_status': 'AUDIT_BLOCKED', 'quarantined_forecast_ids': ids, 'exit_code': exit_code,
+                    'generation': receipt.get('generation'), 'matured_now': receipt.get('matured_now'),
+                    'note': 'Scoped operation completed; nonzero exit and data blockers retained. Never an outcome override or healthy-data claim.'}
+    return failed
+
+
 def execute_job(kind, payload, repository, directory, store, job):
     shadow_kinds = {"DATA_REFRESH", "SHADOW_FORECAST", "FORECAST_MATURITY_CHECK", "FORWARD_EVALUATION", "MODEL_DRIFT_MONITOR"}
     if kind in shadow_kinds:
@@ -49,11 +87,24 @@ def execute_job(kind, payload, repository, directory, store, job):
             "FORWARD_EVALUATION": ["scripts/phase3l_forward_audit.py"],
             "MODEL_DRIFT_MONITOR": ["scripts/phase3i_forward_report.py"],
         }
-        completed = subprocess.run([sys.executable, *commands[kind]], cwd=repository)
+        command = list(commands[kind])
+        cycle_component = kind in {'DATA_REFRESH', 'SHADOW_FORECAST', 'FORECAST_MATURITY_CHECK'}
+        receipt_path = directory / 'cycle-receipt.json'
+        if cycle_component:
+            command += ['--receipt-file', str(receipt_path.resolve())]
+        completed = subprocess.run([sys.executable, *command], cwd=repository)
+        if cycle_component:
+            try:
+                receipt_bytes = receipt_path.read_bytes()
+                receipt = json.loads(receipt_bytes)
+                assessed = assess_shadow_receipt(kind, completed.returncode, receipt)
+                return {**assessed, 'receipt_sha256': digest(receipt_bytes), 'receipt_path': str(receipt_path)}
+            except (OSError, ValueError, TypeError, KeyError):
+                return {'status': 'FAILED', 'reason': 'SHADOW_ATTEMPT_RECEIPT_INVALID', 'exit_code': completed.returncode}
         if completed.returncode:
             return {"status": "FAILED", "reason": "SHADOW_COMPONENT_EXIT", "exit_code": completed.returncode}
         return {"status": "SUCCEEDED", "component": commands[kind][0],
-                "note": "component success does not mean an observation matured or a new forecast issued"}
+                 "note": "component success does not mean an observation matured or a new forecast issued"}
     if kind == "DATA_VALIDATION":
         coverage = []
         for path in sorted((repository / "data/history/yahoo_daily/manifests").glob("*.json")):

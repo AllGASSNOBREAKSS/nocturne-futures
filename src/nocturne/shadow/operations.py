@@ -31,7 +31,8 @@ def assess_operations(store, status, now, outcome_verification=None):
             issues["OUTCOME_VERIFICATION_UNAVAILABLE"] = {}
     if status is not None and (not isinstance(status, dict)
                                or not isinstance(status.get("audit", {}), dict)
-                               or not isinstance(status.get("refresh", {}), dict)):
+                                or not isinstance(status.get("refresh", {}), dict)
+                                or not isinstance(status.get("generation_detail", {}), dict)):
         issues["CYCLE_STATUS_INVALID"] = {}
         status = None
     if not supported(now.date()):
@@ -71,13 +72,23 @@ def assess_operations(store, status, now, outcome_verification=None):
     cycle_state = (status or {}).get("operational_status")
     invalid = any(key in issues for key in ("CYCLE_STATUS_INVALID", "CYCLE_STATUS_STALE", "NO_CYCLE_STATUS"))
     components = {
+        "service_execution": {"status": "UNKNOWN" if invalid else "FAILED" if cycle_state == "CYCLE_FAILED"
+                              else "COMPLETED_WITH_DATA_BLOCK" if cycle_state == "DATA_BLOCKED"
+                              else "COMPLETED_WITH_QUARANTINE" if cycle_state == "AUDIT_BLOCKED"
+                              else "COMPLETED" if cycle_state == "SHADOW_ACTIVE" else "UNKNOWN",
+                              "reason": "Fresh cycle result only; source quarantine is not a process crash. Aggregate alerts and nonzero exits remain."},
+        "forecast_issuance": {"status": "UNKNOWN" if invalid else "BLOCKED" if cycle_state in {"DATA_BLOCKED", "CYCLE_FAILED"}
+                              else "ISSUED" if status.get("generation") in {"STORED", "ALREADY_ISSUED"}
+                              else "WINDOW_CLOSED" if status.get("generation_detail", {}).get("reason") == "TOO_LATE_FOR_TARGET"
+                              else "NOT_REQUESTED" if status.get("generation") == "EVALUATE_ONLY" else "UNKNOWN",
+                              "reason": "Current generation result; no claim about future uptime or deadline success"},
         "shadow_cycle": {"status": "DEGRADED" if invalid else "BLOCKED" if cycle_state in {"AUDIT_BLOCKED", "DATA_BLOCKED"} else "FAILED" if cycle_state == "CYCLE_FAILED" else "HEALTHY" if cycle_state == "SHADOW_ACTIVE" else "DEGRADED",
                          "reason": cycle_state or "NO_VALID_CYCLE_STATUS"},
-        "forecast_integrity": {"status": "DEGRADED" if invalid else "BLOCKED" if any(key.startswith("FORECAST_AUDIT:") for key in issues) else "HEALTHY",
+        "forecast_integrity": {"status": "DEGRADED" if invalid else "UNKNOWN" if cycle_state == "DATA_BLOCKED" else "BLOCKED" if any(key.startswith("FORECAST_AUDIT:") for key in issues) else "HEALTHY",
                                "reason": "see forecast audit issues; reconciliation is evidence-bound, not a health override"},
         "provider_refresh": {"status": "DEGRADED" if invalid else "FAILED" if any(key.startswith("PROVIDER_REFRESH:") for key in issues) else "HEALTHY",
                              "reason": "latest timestamped cycle refresh results; not an uptime guarantee"},
-        "outcome_evaluation": {"status": "BLOCKED" if any(key.startswith("OUTCOME_VERIFICATION") for key in issues) else "DEGRADED" if overdue else "HEALTHY",
+        "outcome_evaluation": {"status": "UNKNOWN" if invalid or cycle_state == "DATA_BLOCKED" else "BLOCKED" if any(key.startswith("OUTCOME_VERIFICATION") for key in issues) else "PARTIAL_QUARANTINE" if any(key.startswith("FORECAST_AUDIT:") for key in issues) else "DEGRADED" if overdue else "HEALTHY",
                                "reason": "pending horizons are expected work, not fabricated outcomes; evaluation requires availability and audit gates"},
     }
     return {"generated_at": now.isoformat(), "status": "degraded" if issues else "ok",

@@ -16,7 +16,9 @@ def assess_jobs(jobs, now):
         state = job["state"]
         result = (json.loads(job["result"]) if isinstance(job.get("result"), str) else job.get("result")) or {}
         category = {"SUCCEEDED": "HEALTHY", "BLOCKED": "BLOCKED", "DEPENDENCY_BLOCKED": "BLOCKED",
-                    "DISABLED": "DISABLED", "FAILED": "FAILED", "DEPENDENCY_FAILED": "FAILED"}.get(state, "DEGRADED")
+                     "DISABLED": "DISABLED", "FAILED": "FAILED", "DEPENDENCY_FAILED": "FAILED"}.get(state, "DEGRADED")
+        if state == 'SUCCEEDED' and result.get('integrity_status') == 'AUDIT_BLOCKED':
+            category = 'BLOCKED'
         if state == "RUNNING" and 0 <= now.timestamp() - job["updated"] <= job["timeout"] + 10:
             category = "HEALTHY"
         components.append({"job_id": job["id"], "kind": job["kind"], "lane": job["lane"], "state": state,

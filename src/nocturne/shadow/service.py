@@ -445,6 +445,13 @@ def health(store: ShadowStore, now: datetime) -> dict:
     attempts = [event for event in events if event["event"] in {"CYCLE_OK", "CYCLE_FAILED", "CYCLE_EXCEPTION", "CYCLE_AUDIT_FAILED"}
                 and pd.Timestamp(event["at"]) <= now]
     latest_attempt = attempts[-1] if attempts else None
+    attempt_age = ((now - pd.Timestamp(latest_attempt['at']).to_pydatetime()).total_seconds()
+                   if latest_attempt else None)
+    # A recent audit quarantine proves a completed cycle, not healthy market data.
+    # Never treat merely starting a task, or a fresh exception, as completion.
+    execution_status = ('UNKNOWN' if latest_attempt is None else 'STALE' if attempt_age > 90 * 60
+                        else 'COMPLETED' if latest_attempt['event'] in {'CYCLE_OK', 'CYCLE_AUDIT_FAILED'}
+                        else 'FAILED_OR_DATA_BLOCKED')
     age_hours = None
     if last_run:
         age_hours = (now - pd.Timestamp(last_run).to_pydatetime()).total_seconds() / 3600
@@ -455,7 +462,7 @@ def health(store: ShadowStore, now: datetime) -> dict:
     if last_run is None:
         warnings.append("NO_RUN_RECORDED")
     elif age_hours is not None and age_hours > 48:
-        warnings.append("STALE_SERVICE")
+        warnings.append("STALE_FULLY_HEALTHY_CYCLE" if execution_status == 'COMPLETED' else "STALE_SERVICE")
     if recent_failures:
         warnings.append("RECENT_DATA_QUALITY_FAILURES")
     if latest_attempt and latest_attempt["event"] != "CYCLE_OK":
@@ -463,6 +470,8 @@ def health(store: ShadowStore, now: datetime) -> dict:
     if pending > 5:
         warnings.append("LARGE_PENDING_BACKLOG")
     return {"status": "ok" if not warnings else "degraded", "warnings": warnings,
+             "cycle_execution_status": execution_status, "last_attempt_age_seconds": attempt_age,
+             "scope": "Completed-cycle heartbeat is separate from data integrity and predictive readiness; not host uptime",
              "last_run": last_run, "age_hours": age_hours,
              "last_success": last_run, "last_attempt": latest_attempt["at"] if latest_attempt else None,
              "last_attempt_event": latest_attempt["event"] if latest_attempt else None,

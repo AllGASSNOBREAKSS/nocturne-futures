@@ -123,6 +123,7 @@ def cycle(refresh_data: bool, now: datetime | None = None, evaluate_only: bool =
             store.record_quality_failure("MARKET_DATA_MISSING", {"error": str(exc)})
             store.log("CYCLE_FAILED", "ERROR", {"reason": "MARKET_DATA_MISSING"})
             blocked = {"status": "DATA_BLOCKED", "generation": "DATA_BLOCKED", "reason": "MARKET_DATA_MISSING_OR_INVALID",
+                       "execution_status": "COMPLETED_DATA_BLOCKED",
                        "generated_at": now.isoformat(), "model_id": MODEL_ID,
                        "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW", "trading_decision": "NO_TRADE",
                        "operational_status": "DATA_BLOCKED",
@@ -153,7 +154,8 @@ def cycle(refresh_data: bool, now: datetime | None = None, evaluate_only: bool =
         summary = evaluation_summary(store)
         latest = store.latest()
         generation_failed = generated.get("status") == "SKIPPED" and generated.get("reason") != "TOO_LATE_FOR_TARGET"
-        event = "CYCLE_AUDIT_FAILED" if audit["failed"] else "CYCLE_FAILED" if generation_failed else "CYCLE_OK"
+        # A historical quarantine must not conceal a concurrent issuance failure.
+        event = "CYCLE_FAILED" if generation_failed else "CYCLE_AUDIT_FAILED" if audit["failed"] else "CYCLE_OK"
         store.log(event, now=now, detail={"generation": generated.get("status"),
                                       "matured": len(matured), "missed": len(missed),
                                       "audit_failed": len(audit["failed"])})
@@ -165,7 +167,11 @@ def cycle(refresh_data: bool, now: datetime | None = None, evaluate_only: bool =
             "validation_status": artifact.metadata["validation_status"],
             "trading_decision": "NO_TRADE",
             "mode": "read_only_shadow",
-            "operational_status": "AUDIT_BLOCKED" if audit["failed"] else "CYCLE_FAILED" if generation_failed else "SHADOW_ACTIVE",
+            "operational_status": "CYCLE_FAILED" if generation_failed else "AUDIT_BLOCKED" if audit["failed"] else "SHADOW_ACTIVE",
+            "execution_status": "COMPLETED",
+            "issuance_status": "BLOCKED" if generation_failed else "WINDOW_CLOSED" if generated.get("reason") == "TOO_LATE_FOR_TARGET" else generated.get("status"),
+            "evaluation_integrity_status": "QUARANTINED" if audit["failed"] else "PASSED",
+            "quarantined_forecast_ids": sorted(failed_ids),
             "generation": generated.get("status"),
             "generation_detail": {k: v for k, v in generated.items() if k != "forecast"},
             "latest_forecast": latest,
@@ -187,6 +193,7 @@ def cycle(refresh_data: bool, now: datetime | None = None, evaluate_only: bool =
         # loop mode. Do not retain stale success or log exception text/secrets.
         store.log("CYCLE_EXCEPTION", "ERROR", {"error_type": type(exc).__name__}, now=now)
         failed = {"generated_at": now.isoformat(), "model_id": MODEL_ID,
+                  "execution_status": "FAILED",
                   "generation": "CYCLE_EXCEPTION", "operational_status": "CYCLE_FAILED",
                   "reason": type(exc).__name__, "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
                   "trading_decision": "NO_TRADE", "mode": "read_only_shadow"}
@@ -205,7 +212,12 @@ def main() -> int:
     parser.add_argument("--evaluate-only", action="store_true")
     parser.add_argument("--refresh", action="store_true")
     parser.add_argument("--interval-minutes", type=float, default=60.0)
+    parser.add_argument('--receipt-file', type=Path, help='new per-attempt local receipt; never overwrites an existing file')
     args = parser.parse_args()
+    if args.receipt_file and (args.loop or args.status or args.health):
+        parser.error('--receipt-file is only supported for one-shot cycles')
+    if args.receipt_file and args.receipt_file.exists():
+        parser.error('--receipt-file must be new; existing receipts cannot be overwritten')
     if args.status:
         print(STATUS_PATH.read_text(encoding="utf-8") if STATUS_PATH.exists()
               else json.dumps({"status": "NO_RUN_YET"}))
@@ -230,8 +242,16 @@ def main() -> int:
                 print(json.dumps({"error": type(exc).__name__}))
             time.sleep(args.interval_minutes * 60)
     result = cycle(args.refresh, evaluate_only=args.evaluate_only)
+    if args.receipt_file:
+        args.receipt_file.parent.mkdir(parents=True, exist_ok=True)
+        with args.receipt_file.open('x', encoding='utf-8') as handle:
+            handle.write(json.dumps(result, sort_keys=True, default=str, allow_nan=False) + '\n')
+            handle.flush()
+            os.fsync(handle.fileno())
     print(json.dumps({k: result.get(k) for k in ("generated_at", "generation", "model_id",
                                                  "validation_status", "trading_decision")}, indent=2))
+    if result.get('status') == 'LOCKED':
+        return 75
     return 1 if result.get("operational_status") in {"DATA_BLOCKED", "AUDIT_BLOCKED", "CYCLE_FAILED"} else 0
 
 

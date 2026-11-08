@@ -9,6 +9,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import re
 from functools import wraps
 from datetime import datetime, timezone
 from pathlib import Path
@@ -113,6 +114,29 @@ class ShadowStore:
         if not self.meta_path.exists():
             return {}
         return json.loads(self.meta_path.read_text(encoding="utf-8"))
+
+    @serialized
+    def acknowledge_alert(self, key: str, actor: str, reason_code: str, now: datetime) -> dict:
+        """Local operator acknowledgement, never resolution or a gate override.
+
+        Use identifiers/reason codes only: do not submit secrets or free-form text.
+        The latest state remains OPEN so existing monitors cannot lose the alert.
+        """
+        if (now.tzinfo is None or not re.fullmatch(r'[A-Za-z0-9_.-]{1,64}', actor)
+                or not re.fullmatch(r'[A-Z0-9_]{1,64}', reason_code)):
+            raise ValueError('aware time, bounded actor identifier and reason code required')
+        latest = {item['key']: item for item in self.alert_events()}.get(key)
+        if latest is None or latest['state'] != 'OPEN':
+            raise ValueError('only an existing open alert can be acknowledged')
+        if datetime.fromisoformat(latest['at']) > now:
+            raise ValueError('acknowledgement cannot precede the latest alert event')
+        acknowledgement = {'actor': actor, 'reason_code': reason_code}
+        if latest.get('acknowledgement') == acknowledgement:
+            return latest
+        record = {**latest, 'at': now.astimezone(UTC).isoformat(), 'state': 'OPEN',
+                  'event': 'ACKNOWLEDGED', 'acknowledgement': acknowledgement}
+        _append(self.alert_path, record)
+        return record
 
     @serialized
     def ensure_started(self, now: datetime, model_id: str) -> dict:
