@@ -17,6 +17,7 @@ def main():
     parser.add_argument("--forecast-id", required=True)
     parser.add_argument("--apply", action="store_true")
     parser.add_argument("--reference-check", action="store_true")
+    parser.add_argument('--report', type=Path, default=ROOT / 'reports/phase3o_reconciliation.json')
     args = parser.parse_args()
     store = ShadowStore(ROOT / "data/shadow/ndx_range")
     before = {p: p.read_bytes() if p.exists() else b"" for p in (store.forecast_path, store.outcome_path)}
@@ -24,7 +25,7 @@ def main():
     archive = SnapshotStore(ROOT / "data/shadow/market/snapshots")
     current_id = import_existing(ROOT / "data/shadow/market", "^NDX", archive)
     report = investigate_revision(forecast, archive, current_id, datetime.now(timezone.utc))
-    previous_path = ROOT / "reports/phase3o_reconciliation.json"
+    previous_path = args.report
     previous = json.loads(previous_path.read_text()) if previous_path.exists() else {}
     same = previous.get("record", {}).get("forecast_sha256") == report["record"]["forecast_sha256"] and previous.get("record", {}).get("revised_reference_bar_sha256") == report["record"]["revised_reference_bar_sha256"]
     report["source_checks"] = reference_check(archive.root, forecast["data_date"]) if args.reference_check else previous.get("source_checks", []) if same else []
@@ -45,7 +46,8 @@ def main():
     report["journal_bytes_unchanged"] = True
     report["outcome_status"] = "not evaluated by this command; original maturity gates remain required"
     immutable_write(archive.root / "investigations" / f"{digest(canonical(report))}.json", canonical(report))
-    (ROOT / "reports/phase3o_reconciliation.json").write_text(json.dumps(report, indent=2) + "\n")
+    args.report.parent.mkdir(parents=True, exist_ok=True)
+    args.report.write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps({"decision": report["decision"], "applied": report["applied"], "changes": report["changes"], "journal_bytes_unchanged": True}))
 
 

@@ -24,19 +24,20 @@ def main():
                              'appended_bytes': len(current) - len(original) if intact else None,
                              'sha256': hashlib.sha256(current).hexdigest()})
     forward = read('phase3i_forward.json')
+    operations = read('phase3j_operations.json')
     report = {'generated_at': datetime.now(timezone.utc).isoformat(), 'baseline_commit': BASE,
               'decision': 'NO_GO_FRONTEND', 'percentage': None, 'preservation': preservation,
               'engineering': {
                   'api_authentication_authorization': {'status': 'COMPLETED_BOUNDED_TEST_SCOPE', 'evidence': 'tests/test_api_security.py'},
                   'api_limits_validation_audit': {'status': 'COMPLETED_SINGLE_PROCESS_SCOPE', 'evidence': 'tests/test_api_security.py'},
                   'tls': {'status': 'COMPLETED_ISOLATED_LOOPBACK_TEST', 'evidence': 'tests/test_tls_deployment.py', 'production_activation': 'NOT_PERFORMED'},
-                  'scheduler': {'status': read('phase3s_scheduler.json')['Status'], 'evidence': 'reports/phase3s_scheduler.json', 'unattended_account': 'PREPARED_NOT_ACTIVATED'},
+                  'scheduler': {'status': read('phase3s_scheduler_current.json')['Status'], 'evidence': ['reports/phase3s_scheduler.json', 'reports/phase3s_scheduler_current.json'], 'unattended_account': 'PREPARED_NOT_ACTIVATED', 'note': 'November 6 bounded zero-exit completions retained; current shadow exit 1 correctly reports source audit failure, research exit 0'},
                   'backtesting_ml': {'status': 'COMPLETED_DEVELOPMENT_INFRASTRUCTURE_SCOPE', 'evidence': ['tests/test_daily_experiment.py', 'tests/test_backtest_regression.py'], 'new_market_fits': 0},
-                  'forward_testing': {'status': forward['outcome_verification']['status'], 'evidence': 'reports/phase3i_forward.json'},
+                  'forward_testing': {'status': 'AUDIT_BLOCKED' if operations['status'] != 'ok' else forward['outcome_verification']['status'], 'historical_outcome_verification': forward['outcome_verification']['status'], 'evidence': ['reports/phase3i_forward.json', 'reports/phase3j_operations.json'], 'note': 'Historical verified outcomes do not clear current forecast source discrepancies'},
                   'data_artifact_integrity': {'status': 'COMPLETED_FROZEN_REPLAY_SCOPE', 'evidence': 'reports/phase3s_runtime.json'},
                   'deployment_reproducibility': {'status': 'COMPLETED_ISOLATED_ENVIRONMENT_SCOPE', 'evidence': ['reports/phase3s_runtime.json', 'reports/phase3s_dependency_lock.json']},
                   'encrypted_recovery': {'status': read('phase3s_encrypted_restore.json')['result']['status'], 'off_host': 'OFF_HOST_VERIFICATION_REQUIRED', 'evidence': ['reports/phase3s_encrypted_pack.json', 'reports/phase3s_encrypted_restore.json']},
-                  'monitoring': {'status': 'PARTIAL', 'evidence': ['reports/phase3j_operations.json', 'docs/PHASE3S_SECURITY_DEPLOYMENT.md'], 'missing': 'Independent paging, backup/audit-capacity monitoring, long soak/reboot/logoff and hard process-memory isolation'},
+                  'monitoring': {'status': 'PARTIAL', 'current_health': operations['status'], 'open_alerts': operations['open_alerts'] if 'open_alerts' in operations else len(operations.get('issues', {})), 'evidence': ['reports/phase3j_operations.json', 'docs/PHASE3S_SECURITY_DEPLOYMENT.md'], 'missing': 'Independent paging, backup/audit-capacity monitoring, long soak/reboot/logoff and hard process-memory isolation'},
                   'python_cpp_ci': {'status': read('phase3s_ci.json')['conclusion'], 'evidence': ['reports/phase3s_ci.json', 'reports/phase3s_tests.json']}
               },
               'quantitative': {
