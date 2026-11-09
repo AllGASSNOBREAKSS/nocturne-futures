@@ -17,8 +17,11 @@ session range forecasts, an ML Model Studio that trains walk-forward models as
 background jobs, a Strategy & Indicator Lab with a rule builder, a Backtesting Center
 with full trade ledgers, signal analytics, model performance, market intelligence and
 operations. Studio backtests and training reproduce Phase 3V results exactly; a
-look-ahead defect was found and fixed before release. 471 tests pass. Databento
-acquisition is blocked until the exposed key is rotated and credits are verified.
+look-ahead defect was found and fixed before release. With operator-authorized credits,
+11.3M authentic NQ/ES one-minute contract bars (2010–2026, quoted $41.30 of $125) were
+acquired and validated; 16-year backtests of all existing strategies and an NQ
+target-before-stop study found **no strategy or geometry that passes independent
+validation**. 477 tests pass.
 See [Phase 4](docs/PHASE4_DESKTOP.md) and [desktop/README](desktop/README.md).
 
 ### Phase 3V — zero-cost futures research

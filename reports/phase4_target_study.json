@@ -1,0 +1,1857 @@
+{
+  "generated_at": "2026-11-09T05:47:01.093607+00:00",
+  "data": "databento/GLBX.MDP3/NQ_5m",
+  "sessions": 4220,
+  "records": 117740,
+  "method": "Phase 4: NQ target-before-stop on authentic Databento contract bars (2010 -> 2026).\n\nEntry: first 5m bar open at/after 10:00 ET each session (after the opening range).\nGeometries (points): 50/50, 100/50, 100/100, 200/100, 200/200, 350/175, 500/250.\nHorizons: rest of RTH (to 16:00 ET) and 24 hours. Path on 5m bars of the SAME\ncontract; a 5m bar touching both levels is resolved with that contract's 1m\nbars, and a 1m tie is STOP_FIRST. Sessions with a roll in the path are skipped.\nNet = gross - 0.75 points (commission + 1 tick slippage each side, approx.).\nEras by date: development 2010-2018, validation 2019-2022, holdout 2023-2026.",
+  "cells": [
+    {
+      "horizon": "24H",
+      "target": 50,
+      "stop": 50,
+      "side": "LONG",
+      "development": {
+        "n": 2191,
+        "target_first": 0.1209,
+        "target_first_ci95": [
+          0.108,
+          0.1353
+        ],
+        "stop_first": 0.1506,
+        "timeout": 0.7284,
+        "median_bars_to_target": 68.0,
+        "net_ev_points": 0.403,
+        "net_ev_ci95": [
+          -0.892,
+          1.698
+        ],
+        "median_entry_level": 4018.0,
+        "ambiguous_ties": 0
+      },
+      "validation": {
+        "n": 1021,
+        "target_first": 0.4643,
+        "target_first_ci95": [
+          0.4339,
+          0.4949
+        ],
+        "stop_first": 0.4476,
+        "timeout": 0.0881,
+        "median_bars_to_target": 9.0,
+        "net_ev_points": 0.678,
+        "net_ev_ci95": [
+          -2.275,
+          3.632
+        ],
+        "median_entry_level": 11592.5,
+        "ambiguous_ties": 0
+      },
+      "holdout": {
+        "n": 978,
+        "target_first": 0.501,
+        "target_first_ci95": [
+          0.4697,
+          0.5323
+        ],
+        "stop_first": 0.4949,
+        "timeout": 0.0041,
+        "median_bars_to_target": 4.0,
+        "net_ev_points": -0.537,
+        "net_ev_ci95": [
+          -3.667,
+          2.594
+        ],
+        "median_entry_level": 20316.0,
+        "ambiguous_ties": 2
+      },
+      "verdict": "REJECTED",
+      "by_vix": {
+        "vix<15": 0.2037,
+        "15-25": 0.3269,
+        "vix>25": 0.4041
+      }
+    },
+    {
+      "horizon": "24H",
+      "target": 50,
+      "stop": 50,
+      "side": "SHORT",
+      "development": {
+        "n": 2191,
+        "target_first": 0.1506,
+        "target_first_ci95": [
+          0.1363,
+          0.1662
+        ],
+        "stop_first": 0.1209,
+        "timeout": 0.7284,
+        "median_bars_to_target": 49.5,
+        "net_ev_points": -1.903,
+        "net_ev_ci95": [
+          -3.198,
+          -0.608
+        ],
+        "median_entry_level": 4018.0,
+        "ambiguous_ties": 0
+      },
+      "validation": {
+        "n": 1021,
+        "target_first": 0.4476,
+        "target_first_ci95": [
+          0.4174,
+          0.4782
+        ],
+        "stop_first": 0.4643,
+        "timeout": 0.0881,
+        "median_bars_to_target": 6.0,
+        "net_ev_points": -2.178,
+        "net_ev_ci95": [
+          -5.132,
+          0.775
+        ],
+        "median_entry_level": 11592.5,
+        "ambiguous_ties": 0
+      },
+      "holdout": {
+        "n": 978,
+        "target_first": 0.4928,
+        "target_first_ci95": [
+          0.4616,
+          0.5241
+        ],
+        "stop_first": 0.5031,
+        "timeout": 0.0041,
+        "median_bars_to_target": 3.0,
+        "net_ev_points": -1.168,
+        "net_ev_ci95": [
+          -4.298,
+          1.963
+        ],
+        "median_entry_level": 20316.0,
+        "ambiguous_ties": 2
+      },
+      "verdict": "REJECTED",
+      "by_vix": {
+        "vix<15": 0.2152,
+        "15-25": 0.3439,
+        "vix>25": 0.378
+      }
+    },
+    {
+      "horizon": "24H",
+      "target": 100,
+      "stop": 50,
+      "side": "LONG",
+      "development": {
+        "n": 2191,
+        "target_first": 0.0224,
+        "target_first_ci95": [
+          0.017,
+          0.0294
+        ],
+        "stop_first": 0.1584,
+        "timeout": 0.8193,
+        "median_bars_to_target": 77.0,
+        "net_ev_points": 0.435,
+        "net_ev_ci95": [
+          -0.983,
+          1.853
+        ],
+        "median_entry_level": 4018.0,
+        "ambiguous_ties": 0
+      },
+      "validation": {
+        "n": 1021,
+        "target_first": 0.2625,
+        "target_first_ci95": [
+          0.2364,
+          0.2903
+        ],
+        "stop_first": 0.5475,
+        "timeout": 0.19,
+        "median_bars_to_target": 32.0,
+        "net_ev_points": 3.288,
+        "net_ev_ci95": [
+          -0.733,
+          7.309
+        ],
+        "median_entry_level": 11592.5,
+        "ambiguous_ties": 0
+      },
+      "holdout": {
+        "n": 978,
+        "target_first": 0.3436,
+        "target_first_ci95": [
+          0.3145,
+          0.3739
+        ],
+        "stop_first": 0.637,
+        "timeout": 0.0194,
+        "median_bars_to_target": 13.5,
+        "net_ev_points": 2.134,
+        "net_ev_ci95": [
+          -2.322,
+          6.59
+        ],
+        "median_entry_level": 20316.0,
+        "ambiguous_ties": 0
+      },
+      "verdict": "REJECTED",
+      "by_vix": {
+        "vix<15": 0.0758,
+        "15-25": 0.1853,
+        "vix>25": 0.257
+      }
+    },
+    {
+      "horizon": "24H",
+      "target": 100,
+      "stop": 50,
+      "side": "SHORT",
+      "development": {
+        "n": 2191,
+        "target_first": 0.0429,
+        "target_first_ci95": [
+          0.0352,
+          0.0522
+        ],
+        "stop_first": 0.1292,
+        "timeout": 0.8279,
+        "median_bars_to_target": 60.5,
+        "net_ev_points": -1.667,
+        "net_ev_ci95": [
+          -3.15,
+          -0.184
+        ],
+        "median_entry_level": 4018.0,
+        "ambiguous_ties": 0
+      },
+      "validation": {
+        "n": 1021,
+        "target_first": 0.2644,
+        "target_first_ci95": [
+          0.2383,
+          0.2923
+        ],
+        "stop_first": 0.5808,
+        "timeout": 0.1548,
+        "median_bars_to_target": 14.0,
+        "net_ev_points": -2.256,
+        "net_ev_ci95": [
+          -6.257,
+          1.745
+        ],
+        "median_entry_level": 11592.5,
+        "ambiguous_ties": 0
+      },
+      "holdout": {
+        "n": 978,
+        "target_first": 0.3139,
+        "target_first_ci95": [
+          0.2856,
+          0.3437
+        ],
+        "stop_first": 0.6616,
+        "timeout": 0.0245,
+        "median_bars_to_target": 8.0,
+        "net_ev_points": -1.952,
+        "net_ev_ci95": [
+          -6.305,
+          2.401
+        ],
+        "median_entry_level": 20316.0,
+        "ambiguous_ties": 0
+      },
+      "verdict": "REJECTED",
+      "by_vix": {
+        "vix<15": 0.0913,
+        "15-25": 0.1931,
+        "vix>25": 0.216
+      }
+    },
+    {
+      "horizon": "24H",
+      "target": 100,
+      "stop": 100,
+      "side": "LONG",
+      "development": {
+        "n": 2191,
+        "target_first": 0.0265,
+        "target_first_ci95": [
+          0.0205,
+          0.0341
+        ],
+        "stop_first": 0.0488,
+        "timeout": 0.9247,
+        "median_bars_to_target": 76.5,
+        "net_ev_points": 0.037,
+        "net_ev_ci95": [
+          -1.591,
+          1.664
+        ],
+        "median_entry_level": 4018.0,
+        "ambiguous_ties": 0
+      },
+      "validation": {
+        "n": 1021,
+        "target_first": 0.3389,
+        "target_first_ci95": [
+          0.3105,
+          0.3685
+        ],
+        "stop_first": 0.3536,
+        "timeout": 0.3075,
+        "median_bars_to_target": 40.5,
+        "net_ev_points": 2.093,
+        "net_ev_ci95": [
+          -3.204,
+          7.39
+        ],
+        "median_entry_level": 11592.5,
+        "ambiguous_ties": 0
+      },
+      "holdout": {
+        "n": 978,
+        "target_first": 0.4836,
+        "target_first_ci95": [
+          0.4524,
+          0.515
+        ],
+        "stop_first": 0.4407,
+        "timeout": 0.0757,
+        "median_bars_to_target": 19.0,
+        "net_ev_points": 3.529,
+        "net_ev_ci95": [
+          -2.533,
+          9.59
+        ],
+        "median_entry_level": 20316.0,
+        "ambiguous_ties": 0
+      },
+      "verdict": "REJECTED",
+      "by_vix": {
+        "vix<15": 0.0974,
+        "15-25": 0.2538,
+        "vix>25": 0.3371
+      }
+    },
+    {
+      "horizon": "24H",
+      "target": 100,
+      "stop": 100,
+      "side": "SHORT",
+      "development": {
+        "n": 2191,
+        "target_first": 0.0488,
+        "target_first_ci95": [
+          0.0406,
+          0.0587
+        ],
+        "stop_first": 0.0265,
+        "timeout": 0.9247,
+        "median_bars_to_target": 66.0,
+        "net_ev_points": -1.537,
+        "net_ev_ci95": [
+          -3.164,
+          0.091
+        ],
+        "median_entry_level": 4018.0,
+        "ambiguous_ties": 0
+      },
+      "validation": {
+        "n": 1021,
+        "target_first": 0.3536,
+        "target_first_ci95": [
+          0.3248,
+          0.3834
+        ],
+        "stop_first": 0.3389,
+        "timeout": 0.3075,
+        "median_bars_to_target": 18.0,
+        "net_ev_points": -3.593,
+        "net_ev_ci95": [
+          -8.89,
+          1.704
+        ],
+        "median_entry_level": 11592.5,
+        "ambiguous_ties": 0
+      },
+      "holdout": {
+        "n": 978,
+        "target_first": 0.4407,
+        "target_first_ci95": [
+          0.4099,
+          0.472
+        ],
+        "stop_first": 0.4836,
+        "timeout": 0.0757,
+        "median_bars_to_target": 12.0,
+        "net_ev_points": -5.029,
+        "net_ev_ci95": [
+          -11.09,
+          1.033
+        ],
+        "median_entry_level": 20316.0,
+        "ambiguous_ties": 0
+      },
+      "verdict": "REJECTED",
+      "by_vix": {
+        "vix<15": 0.1089,
+        "15-25": 0.2566,
+        "vix>25": 0.3352
+      }
+    },
+    {
+      "horizon": "24H",
+      "target": 200,
+      "stop": 100,
+      "side": "LONG",
+      "development": {
+        "n": 2191,
+        "target_first": 0.0018,
+        "target_first_ci95": [
+          0.0007,
+          0.0047
+        ],
+        "stop_first": 0.0493,
+        "timeout": 0.9489,
+        "median_bars_to_target": 175.5,
+        "net_ev_points": -0.032,
+        "net_ev_ci95": [
+          -1.695,
+          1.631
+        ],
+        "median_entry_level": 4018.0,
+        "ambiguous_ties": 0
+      },
+      "validation": {
+        "n": 1021,
+        "target_first": 0.1224,
+        "target_first_ci95": [
+          0.1037,
+          0.144
+        ],
+        "stop_first": 0.4045,
+        "timeout": 0.4731,
+        "median_bars_to_target": 71.0,
+        "net_ev_points": 3.064,
+        "net_ev_ci95": [
+          -3.499,
+          9.626
+        ],
+        "median_entry_level": 11592.5,
+        "ambiguous_ties": 0
+      },
+      "holdout": {
+        "n": 978,
+        "target_first": 0.226,
+        "target_first_ci95": [
+          0.2009,
+          0.2532
+        ],
+        "stop_first": 0.5327,
+        "timeout": 0.2413,
+        "median_bars_to_target": 55.0,
+        "net_ev_points": 3.235,
+        "net_ev_ci95": [
+          -4.663,
+          11.134
+        ],
+        "median_entry_level": 20316.0,
+        "ambiguous_ties": 0
+      },
+      "verdict": "REJECTED",
+      "by_vix": {
+        "vix<15": 0.0264,
+        "15-25": 0.1025,
+        "vix>25": 0.1639
+      }
+    },
+    {
+      "horizon": "24H",
+      "target": 200,
+      "stop": 100,
+      "side": "SHORT",
+      "development": {
+        "n": 2191,
+        "target_first": 0.0068,
+        "target_first_ci95": [
+          0.0042,
+          0.0113
+        ],
+        "stop_first": 0.0288,
+        "timeout": 0.9644,
+        "median_bars_to_target": 61.0,
+        "net_ev_points": -2.08,
+        "net_ev_ci95": [
+          -3.78,
+          -0.38
+        ],
+        "median_entry_level": 4018.0,
+        "ambiguous_ties": 0
+      },
+      "validation": {
+        "n": 1021,
+        "target_first": 0.1596,
+        "target_first_ci95": [
+          0.1385,
+          0.1834
+        ],
+        "stop_first": 0.3888,
+        "timeout": 0.4515,
+        "median_bars_to_target": 52.0,
+        "net_ev_points": -4.002,
+        "net_ev_ci95": [
+          -10.675,
+          2.671
+        ],
+        "median_entry_level": 11592.5,
+        "ambiguous_ties": 0
+      },
+      "holdout": {
+        "n": 978,
+        "target_first": 0.2239,
+        "target_first_ci95": [
+          0.1989,
+          0.2511
+        ],
+        "stop_first": 0.5675,
+        "timeout": 0.2086,
+        "median_bars_to_target": 28.0,
+        "net_ev_points": -4.33,
+        "net_ev_ci95": [
+          -12.184,
+          3.523
+        ],
+        "median_entry_level": 20316.0,
+        "ambiguous_ties": 0
+      },
+      "verdict": "REJECTED",
+      "by_vix": {
+        "vix<15": 0.0372,
+        "15-25": 0.1122,
+        "vix>25": 0.1825
+      }
+    },
+    {
+      "horizon": "24H",
+      "target": 200,
+      "stop": 200,
+      "side": "LONG",
+      "development": {
+        "n": 2191,
+        "target_first": 0.0023,
+        "target_first_ci95": [
+          0.001,
+          0.0053
+        ],
+        "stop_first": 0.0073,
+        "timeout": 0.9904,
+        "median_bars_to_target": 231.0,
+        "net_ev_points": 0.534,
+        "net_ev_ci95": [
+          -1.221,
+          2.289
+        ],
+        "median_entry_level": 4018.0,
+        "ambiguous_ties": 0
+      },
+      "validation": {
+        "n": 1021,
+        "target_first": 0.1469,
+        "target_first_ci95": [
+          0.1265,
+          0.17
+        ],
+        "stop_first": 0.191,
+        "timeout": 0.6621,
+        "median_bars_to_target": 69.0,
+        "net_ev_points": 3.331,
+        "net_ev_ci95": [
+          -4.781,
+          11.444
+        ],
+        "median_entry_level": 11592.5,
+        "ambiguous_ties": 0
+      },
+      "holdout": {
+        "n": 978,
+        "target_first": 0.2771,
+        "target_first_ci95": [
+          0.25,
+          0.306
+        ],
+        "stop_first": 0.2853,
+        "timeout": 0.4376,
+        "median_bars_to_target": 59.0,
+        "net_ev_points": 1.896,
+        "net_ev_ci95": [
+          -8.124,
+          11.916
+        ],
+        "median_entry_level": 20316.0,
+        "ambiguous_ties": 0
+      },
+      "verdict": "REJECTED",
+      "by_vix": {
+        "vix<15": 0.0277,
+        "15-25": 0.1264,
+        "vix>25": 0.2048
+      }
+    },
+    {
+      "horizon": "24H",
+      "target": 200,
+      "stop": 200,
+      "side": "SHORT",
+      "development": {
+        "n": 2191,
+        "target_first": 0.0073,
+        "target_first_ci95": [
+          0.0045,
+          0.0118
+        ],
+        "stop_first": 0.0023,
+        "timeout": 0.9904,
+        "median_bars_to_target": 61.5,
+        "net_ev_points": -2.034,
+        "net_ev_ci95": [
+          -3.789,
+          -0.279
+        ],
+        "median_entry_level": 4018.0,
+        "ambiguous_ties": 0
+      },
+      "validation": {
+        "n": 1021,
+        "target_first": 0.191,
+        "target_first_ci95": [
+          0.1681,
+          0.2162
+        ],
+        "stop_first": 0.1469,
+        "timeout": 0.6621,
+        "median_bars_to_target": 58.0,
+        "net_ev_points": -4.831,
+        "net_ev_ci95": [
+          -12.944,
+          3.281
+        ],
+        "median_entry_level": 11592.5,
+        "ambiguous_ties": 0
+      },
+      "holdout": {
+        "n": 978,
+        "target_first": 0.2853,
+        "target_first_ci95": [
+          0.2579,
+          0.3144
+        ],
+        "stop_first": 0.2771,
+        "timeout": 0.4376,
+        "median_bars_to_target": 40.0,
+        "net_ev_points": -3.396,
+        "net_ev_ci95": [
+          -13.416,
+          6.624
+        ],
+        "median_entry_level": 20316.0,
+        "ambiguous_ties": 0
+      },
+      "verdict": "REJECTED",
+      "by_vix": {
+        "vix<15": 0.0406,
+        "15-25": 0.1375,
+        "vix>25": 0.2439
+      }
+    },
+    {
+      "horizon": "24H",
+      "target": 350,
+      "stop": 175,
+      "side": "LONG",
+      "development": {
+        "n": 2191,
+        "target_first": 0.0,
+        "target_first_ci95": [
+          -0.0,
+          0.0018
+        ],
+        "stop_first": 0.0114,
+        "timeout": 0.9886,
+        "median_bars_to_target": null,
+        "net_ev_points": 0.356,
+        "net_ev_ci95": [
+          -1.398,
+          2.111
+        ],
+        "median_entry_level": 4018.0,
+        "ambiguous_ties": 0
+      },
+      "validation": {
+        "n": 1021,
+        "target_first": 0.0441,
+        "target_first_ci95": [
+          0.0331,
+          0.0585
+        ],
+        "stop_first": 0.237,
+        "timeout": 0.7189,
+        "median_bars_to_target": 175.0,
+        "net_ev_points": 3.966,
+        "net_ev_ci95": [
+          -4.619,
+          12.551
+        ],
+        "median_entry_level": 11592.5,
+        "ambiguous_ties": 0
+      },
+      "holdout": {
+        "n": 978,
+        "target_first": 0.092,
+        "target_first_ci95": [
+          0.0755,
+          0.1118
+        ],
+        "stop_first": 0.3528,
+        "timeout": 0.5552,
+        "median_bars_to_target": 113.5,
+        "net_ev_points": 4.824,
+        "net_ev_ci95": [
+          -6.164,
+          15.812
+        ],
+        "median_entry_level": 20316.0,
+        "ambiguous_ties": 0
+      },
+      "verdict": "REJECTED",
+      "by_vix": {
+        "vix<15": 0.0034,
+        "15-25": 0.0441,
+        "vix>25": 0.0633
+      }
+    },
+    {
+      "horizon": "24H",
+      "target": 350,
+      "stop": 175,
+      "side": "SHORT",
+      "development": {
+        "n": 2191,
+        "target_first": 0.0014,
+        "target_first_ci95": [
+          0.0005,
+          0.004
+        ],
+        "stop_first": 0.0064,
+        "timeout": 0.9922,
+        "median_bars_to_target": 74.0,
+        "net_ev_points": -2.263,
+        "net_ev_ci95": [
+          -4.052,
+          -0.473
+        ],
+        "median_entry_level": 4018.0,
+        "ambiguous_ties": 0
+      },
+      "validation": {
+        "n": 1021,
+        "target_first": 0.0656,
+        "target_first_ci95": [
+          0.052,
+          0.0825
+        ],
+        "stop_first": 0.2047,
+        "timeout": 0.7297,
+        "median_bars_to_target": 75.0,
+        "net_ev_points": -4.494,
+        "net_ev_ci95": [
+          -13.324,
+          4.337
+        ],
+        "median_entry_level": 11592.5,
+        "ambiguous_ties": 0
+      },
+      "holdout": {
+        "n": 978,
+        "target_first": 0.1237,
+        "target_first_ci95": [
+          0.1045,
+          0.1458
+        ],
+        "stop_first": 0.3579,
+        "timeout": 0.5184,
+        "median_bars_to_target": 73.0,
+        "net_ev_points": -3.495,
+        "net_ev_ci95": [
+          -14.795,
+          7.805
+        ],
+        "median_entry_level": 20316.0,
+        "ambiguous_ties": 0
+      },
+      "verdict": "REJECTED",
+      "by_vix": {
+        "vix<15": 0.0135,
+        "15-25": 0.057,
+        "vix>25": 0.0875
+      }
+    },
+    {
+      "horizon": "24H",
+      "target": 500,
+      "stop": 250,
+      "side": "LONG",
+      "development": {
+        "n": 2191,
+        "target_first": 0.0,
+        "target_first_ci95": [
+          -0.0,
+          0.0018
+        ],
+        "stop_first": 0.0037,
+        "timeout": 0.9963,
+        "median_bars_to_target": null,
+        "net_ev_points": 0.608,
+        "net_ev_ci95": [
+          -1.153,
+          2.369
+        ],
+        "median_entry_level": 4018.0,
+        "ambiguous_ties": 0
+      },
+      "validation": {
+        "n": 1021,
+        "target_first": 0.0098,
+        "target_first_ci95": [
+          0.0053,
+          0.0179
+        ],
+        "stop_first": 0.1371,
+        "timeout": 0.8531,
+        "median_bars_to_target": 105.5,
+        "net_ev_points": 3.414,
+        "net_ev_ci95": [
+          -6.024,
+          12.852
+        ],
+        "median_entry_level": 11592.5,
+        "ambiguous_ties": 0
+      },
+      "holdout": {
+        "n": 978,
+        "target_first": 0.0266,
+        "target_first_ci95": [
+          0.0182,
+          0.0387
+        ],
+        "stop_first": 0.2249,
+        "timeout": 0.7485,
+        "median_bars_to_target": 112.0,
+        "net_ev_points": 5.175,
+        "net_ev_ci95": [
+          -7.239,
+          17.588
+        ],
+        "median_entry_level": 20316.0,
+        "ambiguous_ties": 0
+      },
+      "verdict": "REJECTED",
+      "by_vix": {
+        "vix<15": 0.0007,
+        "15-25": 0.0106,
+        "vix>25": 0.0223
+      }
+    },
+    {
+      "horizon": "24H",
+      "target": 500,
+      "stop": 250,
+      "side": "SHORT",
+      "development": {
+        "n": 2191,
+        "target_first": 0.0,
+        "target_first_ci95": [
+          -0.0,
+          0.0018
+        ],
+        "stop_first": 0.0009,
+        "timeout": 0.9991,
+        "median_bars_to_target": null,
+        "net_ev_points": -2.357,
+        "net_ev_ci95": [
+          -4.087,
+          -0.627
+        ],
+        "median_entry_level": 4018.0,
+        "ambiguous_ties": 0
+      },
+      "validation": {
+        "n": 1021,
+        "target_first": 0.0304,
+        "target_first_ci95": [
+          0.0215,
+          0.0428
+        ],
+        "stop_first": 0.1058,
+        "timeout": 0.8639,
+        "median_bars_to_target": 171.0,
+        "net_ev_points": -4.201,
+        "net_ev_ci95": [
+          -14.055,
+          5.653
+        ],
+        "median_entry_level": 11592.5,
+        "ambiguous_ties": 0
+      },
+      "holdout": {
+        "n": 978,
+        "target_first": 0.0562,
+        "target_first_ci95": [
+          0.0435,
+          0.0725
+        ],
+        "stop_first": 0.2147,
+        "timeout": 0.729,
+        "median_bars_to_target": 130.0,
+        "net_ev_points": -3.006,
+        "net_ev_ci95": [
+          -16.145,
+          10.132
+        ],
+        "median_entry_level": 20316.0,
+        "ambiguous_ties": 0
+      },
+      "verdict": "REJECTED",
+      "by_vix": {
+        "vix<15": 0.0027,
+        "15-25": 0.0257,
+        "vix>25": 0.0484
+      }
+    },
+    {
+      "horizon": "RTH",
+      "target": 50,
+      "stop": 50,
+      "side": "LONG",
+      "development": {
+        "n": 2194,
+        "target_first": 0.0652,
+        "target_first_ci95": [
+          0.0556,
+          0.0763
+        ],
+        "stop_first": 0.1021,
+        "timeout": 0.8327,
+        "median_bars_to_target": 37.0,
+        "net_ev_points": -0.643,
+        "net_ev_ci95": [
+          -1.726,
+          0.441
+        ],
+        "median_entry_level": 4017.5,
+        "ambiguous_ties": 0
+      },
+      "validation": {
+        "n": 1033,
+        "target_first": 0.394,
+        "target_first_ci95": [
+          0.3646,
+          0.4241
+        ],
+        "stop_first": 0.4134,
+        "timeout": 0.1926,
+        "median_bars_to_target": 7.0,
+        "net_ev_points": -0.288,
+        "net_ev_ci95": [
+          -3.089,
+          2.513
+        ],
+        "median_entry_level": 11595.5,
+        "ambiguous_ties": 0
+      },
+      "holdout": {
+        "n": 993,
+        "target_first": 0.4924,
+        "target_first_ci95": [
+          0.4614,
+          0.5235
+        ],
+        "stop_first": 0.4814,
+        "timeout": 0.0262,
+        "median_bars_to_target": 4.0,
+        "net_ev_points": -0.33,
+        "net_ev_ci95": [
+          -3.408,
+          2.748
+        ],
+        "median_entry_level": 20315.5,
+        "ambiguous_ties": 2
+      },
+      "verdict": "REJECTED",
+      "by_vix": {
+        "vix<15": 0.1376,
+        "15-25": 0.2885,
+        "vix>25": 0.372
+      }
+    },
+    {
+      "horizon": "RTH",
+      "target": 50,
+      "stop": 50,
+      "side": "SHORT",
+      "development": {
+        "n": 2194,
+        "target_first": 0.1021,
+        "target_first_ci95": [
+          0.0901,
+          0.1155
+        ],
+        "stop_first": 0.0652,
+        "timeout": 0.8327,
+        "median_bars_to_target": 29.0,
+        "net_ev_points": -0.857,
+        "net_ev_ci95": [
+          -1.941,
+          0.226
+        ],
+        "median_entry_level": 4017.5,
+        "ambiguous_ties": 0
+      },
+      "validation": {
+        "n": 1033,
+        "target_first": 0.4134,
+        "target_first_ci95": [
+          0.3837,
+          0.4437
+        ],
+        "stop_first": 0.394,
+        "timeout": 0.1926,
+        "median_bars_to_target": 5.0,
+        "net_ev_points": -1.212,
+        "net_ev_ci95": [
+          -4.013,
+          1.589
+        ],
+        "median_entry_level": 11595.5,
+        "ambiguous_ties": 0
+      },
+      "holdout": {
+        "n": 993,
+        "target_first": 0.4794,
+        "target_first_ci95": [
+          0.4484,
+          0.5104
+        ],
+        "stop_first": 0.4945,
+        "timeout": 0.0262,
+        "median_bars_to_target": 3.0,
+        "net_ev_points": -1.372,
+        "net_ev_ci95": [
+          -4.45,
+          1.706
+        ],
+        "median_entry_level": 20315.5,
+        "ambiguous_ties": 2
+      },
+      "verdict": "REJECTED",
+      "by_vix": {
+        "vix<15": 0.1639,
+        "15-25": 0.314,
+        "vix>25": 0.3591
+      }
+    },
+    {
+      "horizon": "RTH",
+      "target": 100,
+      "stop": 50,
+      "side": "LONG",
+      "development": {
+        "n": 2194,
+        "target_first": 0.0096,
+        "target_first_ci95": [
+          0.0063,
+          0.0146
+        ],
+        "stop_first": 0.1071,
+        "timeout": 0.8833,
+        "median_bars_to_target": 37.0,
+        "net_ev_points": -0.681,
+        "net_ev_ci95": [
+          -1.842,
+          0.48
+        ],
+        "median_entry_level": 4017.5,
+        "ambiguous_ties": 0
+      },
+      "validation": {
+        "n": 1033,
+        "target_first": 0.2043,
+        "target_first_ci95": [
+          0.1808,
+          0.2299
+        ],
+        "stop_first": 0.4956,
+        "timeout": 0.3001,
+        "median_bars_to_target": 18.0,
+        "net_ev_points": 1.196,
+        "net_ev_ci95": [
+          -2.503,
+          4.895
+        ],
+        "median_entry_level": 11595.5,
+        "ambiguous_ties": 0
+      },
+      "holdout": {
+        "n": 993,
+        "target_first": 0.3051,
+        "target_first_ci95": [
+          0.2773,
+          0.3345
+        ],
+        "stop_first": 0.6103,
+        "timeout": 0.0846,
+        "median_bars_to_target": 12.0,
+        "net_ev_points": 1.096,
+        "net_ev_ci95": [
+          -3.173,
+          5.364
+        ],
+        "median_entry_level": 20315.5,
+        "ambiguous_ties": 0
+      },
+      "verdict": "REJECTED",
+      "by_vix": {
+        "vix<15": 0.0539,
+        "15-25": 0.1504,
+        "vix>25": 0.2302
+      }
+    },
+    {
+      "horizon": "RTH",
+      "target": 100,
+      "stop": 50,
+      "side": "SHORT",
+      "development": {
+        "n": 2194,
+        "target_first": 0.0232,
+        "target_first_ci95": [
+          0.0177,
+          0.0304
+        ],
+        "stop_first": 0.0697,
+        "timeout": 0.907,
+        "median_bars_to_target": 30.0,
+        "net_ev_points": -0.729,
+        "net_ev_ci95": [
+          -1.948,
+          0.489
+        ],
+        "median_entry_level": 4017.5,
+        "ambiguous_ties": 0
+      },
+      "validation": {
+        "n": 1033,
+        "target_first": 0.2343,
+        "target_first_ci95": [
+          0.2095,
+          0.2611
+        ],
+        "stop_first": 0.4782,
+        "timeout": 0.2875,
+        "median_bars_to_target": 11.0,
+        "net_ev_points": 0.107,
+        "net_ev_ci95": [
+          -3.645,
+          3.859
+        ],
+        "median_entry_level": 11595.5,
+        "ambiguous_ties": 0
+      },
+      "holdout": {
+        "n": 993,
+        "target_first": 0.2971,
+        "target_first_ci95": [
+          0.2695,
+          0.3262
+        ],
+        "stop_first": 0.6354,
+        "timeout": 0.0675,
+        "median_bars_to_target": 8.0,
+        "net_ev_points": -2.031,
+        "net_ev_ci95": [
+          -6.263,
+          2.2
+        ],
+        "median_entry_level": 20315.5,
+        "ambiguous_ties": 0
+      },
+      "verdict": "REJECTED",
+      "by_vix": {
+        "vix<15": 0.0647,
+        "15-25": 0.1746,
+        "vix>25": 0.2007
+      }
+    },
+    {
+      "horizon": "RTH",
+      "target": 100,
+      "stop": 100,
+      "side": "LONG",
+      "development": {
+        "n": 2194,
+        "target_first": 0.0123,
+        "target_first_ci95": [
+          0.0085,
+          0.0178
+        ],
+        "stop_first": 0.0255,
+        "timeout": 0.9622,
+        "median_bars_to_target": 38.0,
+        "net_ev_points": -0.79,
+        "net_ev_ci95": [
+          -2.102,
+          0.523
+        ],
+        "median_entry_level": 4017.5,
+        "ambiguous_ties": 0
+      },
+      "validation": {
+        "n": 1033,
+        "target_first": 0.2565,
+        "target_first_ci95": [
+          0.2308,
+          0.284
+        ],
+        "stop_first": 0.2982,
+        "timeout": 0.4453,
+        "median_bars_to_target": 20.0,
+        "net_ev_points": -1.149,
+        "net_ev_ci95": [
+          -5.957,
+          3.659
+        ],
+        "median_entry_level": 11595.5,
+        "ambiguous_ties": 0
+      },
+      "holdout": {
+        "n": 993,
+        "target_first": 0.3968,
+        "target_first_ci95": [
+          0.3668,
+          0.4275
+        ],
+        "stop_first": 0.3917,
+        "timeout": 0.2115,
+        "median_bars_to_target": 14.0,
+        "net_ev_points": 1.919,
+        "net_ev_ci95": [
+          -3.741,
+          7.579
+        ],
+        "median_entry_level": 20315.5,
+        "ambiguous_ties": 0
+      },
+      "verdict": "REJECTED",
+      "by_vix": {
+        "vix<15": 0.0634,
+        "15-25": 0.1974,
+        "vix>25": 0.2928
+      }
+    },
+    {
+      "horizon": "RTH",
+      "target": 100,
+      "stop": 100,
+      "side": "SHORT",
+      "development": {
+        "n": 2194,
+        "target_first": 0.0255,
+        "target_first_ci95": [
+          0.0197,
+          0.033
+        ],
+        "stop_first": 0.0123,
+        "timeout": 0.9622,
+        "median_bars_to_target": 31.0,
+        "net_ev_points": -0.71,
+        "net_ev_ci95": [
+          -2.023,
+          0.602
+        ],
+        "median_entry_level": 4017.5,
+        "ambiguous_ties": 0
+      },
+      "validation": {
+        "n": 1033,
+        "target_first": 0.2982,
+        "target_first_ci95": [
+          0.2711,
+          0.3268
+        ],
+        "stop_first": 0.2565,
+        "timeout": 0.4453,
+        "median_bars_to_target": 14.0,
+        "net_ev_points": -0.351,
+        "net_ev_ci95": [
+          -5.159,
+          4.457
+        ],
+        "median_entry_level": 11595.5,
+        "ambiguous_ties": 0
+      },
+      "holdout": {
+        "n": 993,
+        "target_first": 0.3917,
+        "target_first_ci95": [
+          0.3619,
+          0.4225
+        ],
+        "stop_first": 0.3968,
+        "timeout": 0.2115,
+        "median_bars_to_target": 9.0,
+        "net_ev_points": -3.419,
+        "net_ev_ci95": [
+          -9.079,
+          2.241
+        ],
+        "median_entry_level": 20315.5,
+        "ambiguous_ties": 0
+      },
+      "verdict": "REJECTED",
+      "by_vix": {
+        "vix<15": 0.0728,
+        "15-25": 0.2211,
+        "vix>25": 0.2947
+      }
+    },
+    {
+      "horizon": "RTH",
+      "target": 200,
+      "stop": 100,
+      "side": "LONG",
+      "development": {
+        "n": 2194,
+        "target_first": 0.0005,
+        "target_first_ci95": [
+          0.0001,
+          0.0026
+        ],
+        "stop_first": 0.0255,
+        "timeout": 0.974,
+        "median_bars_to_target": 67.0,
+        "net_ev_points": -0.756,
+        "net_ev_ci95": [
+          -2.101,
+          0.589
+        ],
+        "median_entry_level": 4017.5,
+        "ambiguous_ties": 0
+      },
+      "validation": {
+        "n": 1033,
+        "target_first": 0.0658,
+        "target_first_ci95": [
+          0.0523,
+          0.0826
+        ],
+        "stop_first": 0.3243,
+        "timeout": 0.6099,
+        "median_bars_to_target": 36.5,
+        "net_ev_points": -0.923,
+        "net_ev_ci95": [
+          -6.534,
+          4.687
+        ],
+        "median_entry_level": 11595.5,
+        "ambiguous_ties": 0
+      },
+      "holdout": {
+        "n": 993,
+        "target_first": 0.136,
+        "target_first_ci95": [
+          0.116,
+          0.1587
+        ],
+        "stop_first": 0.4441,
+        "timeout": 0.4199,
+        "median_bars_to_target": 27.0,
+        "net_ev_points": 3.404,
+        "net_ev_ci95": [
+          -3.589,
+          10.396
+        ],
+        "median_entry_level": 20315.5,
+        "ambiguous_ties": 0
+      },
+      "verdict": "REJECTED",
+      "by_vix": {
+        "vix<15": 0.0081,
+        "15-25": 0.0602,
+        "vix>25": 0.1105
+      }
+    },
+    {
+      "horizon": "RTH",
+      "target": 200,
+      "stop": 100,
+      "side": "SHORT",
+      "development": {
+        "n": 2194,
+        "target_first": 0.0055,
+        "target_first_ci95": [
+          0.0031,
+          0.0095
+        ],
+        "stop_first": 0.0141,
+        "timeout": 0.9804,
+        "median_bars_to_target": 59.0,
+        "net_ev_points": -0.686,
+        "net_ev_ci95": [
+          -2.108,
+          0.737
+        ],
+        "median_entry_level": 4017.5,
+        "ambiguous_ties": 0
+      },
+      "validation": {
+        "n": 1033,
+        "target_first": 0.1055,
+        "target_first_ci95": [
+          0.0882,
+          0.1257
+        ],
+        "stop_first": 0.2894,
+        "timeout": 0.605,
+        "median_bars_to_target": 28.0,
+        "net_ev_points": -0.482,
+        "net_ev_ci95": [
+          -6.345,
+          5.381
+        ],
+        "median_entry_level": 11595.5,
+        "ambiguous_ties": 0
+      },
+      "holdout": {
+        "n": 993,
+        "target_first": 0.1621,
+        "target_first_ci95": [
+          0.1405,
+          0.1864
+        ],
+        "stop_first": 0.4471,
+        "timeout": 0.3907,
+        "median_bars_to_target": 15.0,
+        "net_ev_points": -3.911,
+        "net_ev_ci95": [
+          -10.928,
+          3.107
+        ],
+        "median_entry_level": 20315.5,
+        "ambiguous_ties": 0
+      },
+      "verdict": "REJECTED",
+      "by_vix": {
+        "vix<15": 0.0216,
+        "15-25": 0.0802,
+        "vix>25": 0.1363
+      }
+    },
+    {
+      "horizon": "RTH",
+      "target": 200,
+      "stop": 200,
+      "side": "LONG",
+      "development": {
+        "n": 2194,
+        "target_first": 0.0005,
+        "target_first_ci95": [
+          0.0001,
+          0.0026
+        ],
+        "stop_first": 0.0055,
+        "timeout": 0.9941,
+        "median_bars_to_target": 67.0,
+        "net_ev_points": -0.803,
+        "net_ev_ci95": [
+          -2.256,
+          0.65
+        ],
+        "median_entry_level": 4017.5,
+        "ambiguous_ties": 0
+      },
+      "validation": {
+        "n": 1033,
+        "target_first": 0.0794,
+        "target_first_ci95": [
+          0.0644,
+          0.0975
+        ],
+        "stop_first": 0.1229,
+        "timeout": 0.7977,
+        "median_bars_to_target": 40.0,
+        "net_ev_points": -0.495,
+        "net_ev_ci95": [
+          -7.298,
+          6.308
+        ],
+        "median_entry_level": 11595.5,
+        "ambiguous_ties": 0
+      },
+      "holdout": {
+        "n": 993,
+        "target_first": 0.1581,
+        "target_first_ci95": [
+          0.1367,
+          0.1821
+        ],
+        "stop_first": 0.1934,
+        "timeout": 0.6485,
+        "median_bars_to_target": 28.0,
+        "net_ev_points": 3.572,
+        "net_ev_ci95": [
+          -4.917,
+          12.061
+        ],
+        "median_entry_level": 20315.5,
+        "ambiguous_ties": 0
+      },
+      "verdict": "REJECTED",
+      "by_vix": {
+        "vix<15": 0.0081,
+        "15-25": 0.0702,
+        "vix>25": 0.1363
+      }
+    },
+    {
+      "horizon": "RTH",
+      "target": 200,
+      "stop": 200,
+      "side": "SHORT",
+      "development": {
+        "n": 2194,
+        "target_first": 0.0055,
+        "target_first_ci95": [
+          0.0031,
+          0.0095
+        ],
+        "stop_first": 0.0005,
+        "timeout": 0.9941,
+        "median_bars_to_target": 59.0,
+        "net_ev_points": -0.697,
+        "net_ev_ci95": [
+          -2.15,
+          0.756
+        ],
+        "median_entry_level": 4017.5,
+        "ambiguous_ties": 0
+      },
+      "validation": {
+        "n": 1033,
+        "target_first": 0.1229,
+        "target_first_ci95": [
+          0.1043,
+          0.1444
+        ],
+        "stop_first": 0.0794,
+        "timeout": 0.7977,
+        "median_bars_to_target": 35.0,
+        "net_ev_points": -1.005,
+        "net_ev_ci95": [
+          -7.808,
+          5.798
+        ],
+        "median_entry_level": 11595.5,
+        "ambiguous_ties": 0
+      },
+      "holdout": {
+        "n": 993,
+        "target_first": 0.1934,
+        "target_first_ci95": [
+          0.17,
+          0.2191
+        ],
+        "stop_first": 0.1581,
+        "timeout": 0.6485,
+        "median_bars_to_target": 19.0,
+        "net_ev_points": -5.072,
+        "net_ev_ci95": [
+          -13.561,
+          3.417
+        ],
+        "median_entry_level": 20315.5,
+        "ambiguous_ties": 0
+      },
+      "verdict": "REJECTED",
+      "by_vix": {
+        "vix<15": 0.0223,
+        "15-25": 0.0934,
+        "vix>25": 0.1713
+      }
+    },
+    {
+      "horizon": "RTH",
+      "target": 350,
+      "stop": 175,
+      "side": "LONG",
+      "development": {
+        "n": 2194,
+        "target_first": 0.0,
+        "target_first_ci95": [
+          -0.0,
+          0.0017
+        ],
+        "stop_first": 0.0077,
+        "timeout": 0.9923,
+        "median_bars_to_target": null,
+        "net_ev_points": -0.707,
+        "net_ev_ci95": [
+          -2.154,
+          0.74
+        ],
+        "median_entry_level": 4017.5,
+        "ambiguous_ties": 0
+      },
+      "validation": {
+        "n": 1033,
+        "target_first": 0.0145,
+        "target_first_ci95": [
+          0.0088,
+          0.0238
+        ],
+        "stop_first": 0.1626,
+        "timeout": 0.8228,
+        "median_bars_to_target": 57.0,
+        "net_ev_points": -0.205,
+        "net_ev_ci95": [
+          -7.156,
+          6.745
+        ],
+        "median_entry_level": 11595.5,
+        "ambiguous_ties": 0
+      },
+      "holdout": {
+        "n": 993,
+        "target_first": 0.0342,
+        "target_first_ci95": [
+          0.0246,
+          0.0475
+        ],
+        "stop_first": 0.2528,
+        "timeout": 0.713,
+        "median_bars_to_target": 40.5,
+        "net_ev_points": 2.268,
+        "net_ev_ci95": [
+          -6.56,
+          11.096
+        ],
+        "median_entry_level": 20315.5,
+        "ambiguous_ties": 0
+      },
+      "verdict": "REJECTED",
+      "by_vix": {
+        "vix<15": 0.0007,
+        "15-25": 0.016,
+        "vix>25": 0.0239
+      }
+    },
+    {
+      "horizon": "RTH",
+      "target": 350,
+      "stop": 175,
+      "side": "SHORT",
+      "development": {
+        "n": 2194,
+        "target_first": 0.0005,
+        "target_first_ci95": [
+          0.0001,
+          0.0026
+        ],
+        "stop_first": 0.0023,
+        "timeout": 0.9973,
+        "median_bars_to_target": 69.0,
+        "net_ev_points": -0.7,
+        "net_ev_ci95": [
+          -2.204,
+          0.805
+        ],
+        "median_entry_level": 4017.5,
+        "ambiguous_ties": 0
+      },
+      "validation": {
+        "n": 1033,
+        "target_first": 0.03,
+        "target_first_ci95": [
+          0.0212,
+          0.0423
+        ],
+        "stop_first": 0.1162,
+        "timeout": 0.8538,
+        "median_bars_to_target": 48.0,
+        "net_ev_points": -0.117,
+        "net_ev_ci95": [
+          -7.421,
+          7.187
+        ],
+        "median_entry_level": 11595.5,
+        "ambiguous_ties": 0
+      },
+      "holdout": {
+        "n": 993,
+        "target_first": 0.0614,
+        "target_first_ci95": [
+          0.0481,
+          0.0781
+        ],
+        "stop_first": 0.2195,
+        "timeout": 0.719,
+        "median_bars_to_target": 35.0,
+        "net_ev_points": -7.163,
+        "net_ev_ci95": [
+          -16.268,
+          1.943
+        ],
+        "median_entry_level": 20315.5,
+        "ambiguous_ties": 0
+      },
+      "verdict": "REJECTED",
+      "by_vix": {
+        "vix<15": 0.004,
+        "15-25": 0.0278,
+        "vix>25": 0.0479
+      }
+    },
+    {
+      "horizon": "RTH",
+      "target": 500,
+      "stop": 250,
+      "side": "LONG",
+      "development": {
+        "n": 2194,
+        "target_first": 0.0,
+        "target_first_ci95": [
+          -0.0,
+          0.0017
+        ],
+        "stop_first": 0.0027,
+        "timeout": 0.9973,
+        "median_bars_to_target": null,
+        "net_ev_points": -0.781,
+        "net_ev_ci95": [
+          -2.266,
+          0.705
+        ],
+        "median_entry_level": 4017.5,
+        "ambiguous_ties": 0
+      },
+      "validation": {
+        "n": 1033,
+        "target_first": 0.0048,
+        "target_first_ci95": [
+          0.0021,
+          0.0113
+        ],
+        "stop_first": 0.0871,
+        "timeout": 0.908,
+        "median_bars_to_target": 64.0,
+        "net_ev_points": -1.988,
+        "net_ev_ci95": [
+          -9.68,
+          5.703
+        ],
+        "median_entry_level": 11595.5,
+        "ambiguous_ties": 0
+      },
+      "holdout": {
+        "n": 993,
+        "target_first": 0.0091,
+        "target_first_ci95": [
+          0.0048,
+          0.0171
+        ],
+        "stop_first": 0.137,
+        "timeout": 0.854,
+        "median_bars_to_target": 65.0,
+        "net_ev_points": 2.99,
+        "net_ev_ci95": [
+          -6.43,
+          12.41
+        ],
+        "median_entry_level": 20315.5,
+        "ambiguous_ties": 0
+      },
+      "verdict": "REJECTED",
+      "by_vix": {
+        "vix<15": 0.0,
+        "15-25": 0.0027,
+        "vix>25": 0.0147
+      }
+    },
+    {
+      "horizon": "RTH",
+      "target": 500,
+      "stop": 250,
+      "side": "SHORT",
+      "development": {
+        "n": 2194,
+        "target_first": 0.0,
+        "target_first_ci95": [
+          -0.0,
+          0.0017
+        ],
+        "stop_first": 0.0005,
+        "timeout": 0.9995,
+        "median_bars_to_target": null,
+        "net_ev_points": -0.705,
+        "net_ev_ci95": [
+          -2.186,
+          0.776
+        ],
+        "median_entry_level": 4017.5,
+        "ambiguous_ties": 0
+      },
+      "validation": {
+        "n": 1033,
+        "target_first": 0.0048,
+        "target_first_ci95": [
+          0.0021,
+          0.0113
+        ],
+        "stop_first": 0.0474,
+        "timeout": 0.9477,
+        "median_bars_to_target": 68.0,
+        "net_ev_points": 0.675,
+        "net_ev_ci95": [
+          -7.113,
+          8.463
+        ],
+        "median_entry_level": 11595.5,
+        "ambiguous_ties": 0
+      },
+      "holdout": {
+        "n": 993,
+        "target_first": 0.0201,
+        "target_first_ci95": [
+          0.0131,
+          0.0309
+        ],
+        "stop_first": 0.0947,
+        "timeout": 0.8852,
+        "median_bars_to_target": 52.0,
+        "net_ev_points": -6.021,
+        "net_ev_ci95": [
+          -15.967,
+          3.925
+        ],
+        "median_entry_level": 20315.5,
+        "ambiguous_ties": 0
+      },
+      "verdict": "REJECTED",
+      "by_vix": {
+        "vix<15": 0.0,
+        "15-25": 0.0082,
+        "vix>25": 0.0129
+      }
+    }
+  ]
+}

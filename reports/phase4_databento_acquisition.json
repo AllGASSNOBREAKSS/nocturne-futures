@@ -1,0 +1,427 @@
+{
+  "started_at": "2026-11-09T05:24:48.872174+00:00",
+  "run_cap_usd": 50.0,
+  "credit_ceiling_usd": 125.0,
+  "operator_authorization": "Operator stated $125 promotional credits and authorized credit-only historical acquisition (2026-11-09).",
+  "live_data": false,
+  "chunks": [
+    {
+      "event": "COMPLETED",
+      "chunk_id": "definition_2010_2026",
+      "at": "2026-11-09T05:27:26.616980+00:00",
+      "raw_file": "raw\\definition\\definition_2010_2026.csv.zst",
+      "raw_sha256": "e3c5ab3f34380cd93a0c6459e41c0f4964e53581b255b9ccc2defead6867143c",
+      "compressed_bytes": 102985,
+      "quoted_cost_usd": "0.008483171463",
+      "quoted_records": 10304,
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "definition",
+        "start": "2010-06-06",
+        "end": "2026-11-08"
+      },
+      "reused": false
+    },
+    {
+      "event": "COMPLETED",
+      "chunk_id": "ohlcv1m_pilot",
+      "at": "2026-11-09T05:27:32.932432+00:00",
+      "raw_file": "raw\\ohlcv-1m\\ohlcv1m_pilot.csv.zst",
+      "raw_sha256": "43c7421e6c03d7124d973cd221573b7a1faf3d7ac281ecaee4a293469df4e32b",
+      "compressed_bytes": 517714,
+      "quoted_cost_usd": "0.100860223174",
+      "quoted_records": 27627,
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2026-10-25",
+        "end": "2026-11-08"
+      },
+      "reused": false
+    },
+    {
+      "event": "COMPLETED",
+      "chunk_id": "ohlcv1m_2010",
+      "at": "2026-11-09T05:27:52.156735+00:00",
+      "raw_file": "raw\\ohlcv-1m\\ohlcv1m_2010.csv.zst",
+      "raw_sha256": "07b7c2686c68cd76d096c9108a0efae8b2c1767bdc5cb80d949fddbdd279a5e6",
+      "compressed_bytes": 5369855,
+      "quoted_cost_usd": "1.384866684675",
+      "quoted_records": 379334,
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2010-06-06",
+        "end": "2011-01-01"
+      },
+      "reused": false
+    },
+    {
+      "event": "COMPLETED",
+      "chunk_id": "ohlcv1m_2011",
+      "at": "2026-11-09T05:28:27.001909+00:00",
+      "raw_file": "raw\\ohlcv-1m\\ohlcv1m_2011.csv.zst",
+      "raw_sha256": "9df2b4d2b0cde175141161850fdcf45d613d3acb8119cd259c5d273de6a48e92",
+      "compressed_bytes": 9763539,
+      "quoted_cost_usd": "2.452476546168",
+      "quoted_records": 671767,
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2011-01-01",
+        "end": "2012-01-01"
+      },
+      "reused": false
+    },
+    {
+      "event": "COMPLETED",
+      "chunk_id": "ohlcv1m_2012",
+      "at": "2026-11-09T05:28:45.227026+00:00",
+      "raw_file": "raw\\ohlcv-1m\\ohlcv1m_2012.csv.zst",
+      "raw_sha256": "6427a910641c7513a8011a8d1a60b1f98534fe8bd12cba013dff1496526cb906",
+      "compressed_bytes": 9500390,
+      "quoted_cost_usd": "2.437004521489",
+      "quoted_records": 667529,
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2012-01-01",
+        "end": "2013-01-01"
+      },
+      "reused": false
+    },
+    {
+      "event": "COMPLETED",
+      "chunk_id": "ohlcv1m_2013",
+      "at": "2026-11-09T05:29:24.914048+00:00",
+      "raw_file": "raw\\ohlcv-1m\\ohlcv1m_2013.csv.zst",
+      "raw_sha256": "00a77fc3e31a012feb496d453e79b712710f0c0d937e186e4dc3c8ee380a8449",
+      "compressed_bytes": 9176644,
+      "quoted_cost_usd": "2.381059899926",
+      "quoted_records": 652205,
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2013-01-01",
+        "end": "2014-01-01"
+      },
+      "reused": false
+    },
+    {
+      "event": "COMPLETED",
+      "chunk_id": "ohlcv1m_2014",
+      "at": "2026-11-09T05:30:24.684494+00:00",
+      "raw_file": "raw\\ohlcv-1m\\ohlcv1m_2014.csv.zst",
+      "raw_sha256": "f1f318f4d6b5eab1b2ef513e74e1e3c43a7f8083a0a8df08507f46e6870fa577",
+      "compressed_bytes": 9252842,
+      "quoted_cost_usd": "2.361951693892",
+      "quoted_records": 646971,
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2014-01-01",
+        "end": "2015-01-01"
+      },
+      "reused": false
+    },
+    {
+      "event": "COMPLETED",
+      "chunk_id": "ohlcv1m_2015",
+      "at": "2026-11-09T05:30:40.536851+00:00",
+      "raw_file": "raw\\ohlcv-1m\\ohlcv1m_2015.csv.zst",
+      "raw_sha256": "eadd3769b4b385754997677d36ee481f3070a943b318e70d85021a23e3034e8e",
+      "compressed_bytes": 10025006,
+      "quoted_cost_usd": "2.483015358448",
+      "quoted_records": 680132,
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2015-01-01",
+        "end": "2016-01-01"
+      },
+      "reused": false
+    },
+    {
+      "event": "COMPLETED",
+      "chunk_id": "ohlcv1m_2016",
+      "at": "2026-11-09T05:30:54.795481+00:00",
+      "raw_file": "raw\\ohlcv-1m\\ohlcv1m_2016.csv.zst",
+      "raw_sha256": "d8954754fb4705ab94dbc546e7f4b885451fe0f3b2bdbaa1b80d4e4674e85358",
+      "compressed_bytes": 10125270,
+      "quoted_cost_usd": "2.501813247800",
+      "quoted_records": 685281,
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2016-01-01",
+        "end": "2017-01-01"
+      },
+      "reused": false
+    },
+    {
+      "event": "COMPLETED",
+      "chunk_id": "ohlcv1m_2017",
+      "at": "2026-11-09T05:32:24.362930+00:00",
+      "raw_file": "raw\\ohlcv-1m\\ohlcv1m_2017.csv.zst",
+      "raw_sha256": "fe02d08b31c9dc8a70ffc69a76315e4b26650424737fa59f4c2fd379e4aabd18",
+      "compressed_bytes": 9785365,
+      "quoted_cost_usd": "2.505372762680",
+      "quoted_records": 686256,
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2017-01-01",
+        "end": "2018-01-01"
+      },
+      "reused": false
+    },
+    {
+      "event": "COMPLETED",
+      "chunk_id": "ohlcv1m_2018",
+      "at": "2026-11-09T05:32:37.290173+00:00",
+      "raw_file": "raw\\ohlcv-1m\\ohlcv1m_2018.csv.zst",
+      "raw_sha256": "331aae266f051fafd62270e9001b7c815ae9b5e819f39a35c8a2ef0f89370d38",
+      "compressed_bytes": 10900280,
+      "quoted_cost_usd": "2.548857256770",
+      "quoted_records": 698167,
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2018-01-01",
+        "end": "2019-01-01"
+      },
+      "reused": false
+    },
+    {
+      "event": "COMPLETED",
+      "chunk_id": "ohlcv1m_2019",
+      "at": "2026-11-09T05:32:51.762259+00:00",
+      "raw_file": "raw\\ohlcv-1m\\ohlcv1m_2019.csv.zst",
+      "raw_sha256": "506fbf8ae5b3d136890262e994a09bb7692b121b9140a904167630fd27ff2f14",
+      "compressed_bytes": 10866162,
+      "quoted_cost_usd": "2.553278356791",
+      "quoted_records": 699378,
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2019-01-01",
+        "end": "2020-01-01"
+      },
+      "reused": false
+    },
+    {
+      "event": "COMPLETED",
+      "chunk_id": "ohlcv1m_2020",
+      "at": "2026-11-09T05:33:09.606753+00:00",
+      "raw_file": "raw\\ohlcv-1m\\ohlcv1m_2020.csv.zst",
+      "raw_sha256": "e2c1ecc9d407d7a6efcc49bcf045ea754bd6c485e5ccd5f113aa1022bc32a074",
+      "compressed_bytes": 11845946,
+      "quoted_cost_usd": "2.555640414357",
+      "quoted_records": 700025,
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2020-01-01",
+        "end": "2021-01-01"
+      },
+      "reused": false
+    },
+    {
+      "event": "COMPLETED",
+      "chunk_id": "ohlcv1m_2021",
+      "at": "2026-11-09T05:33:33.309736+00:00",
+      "raw_file": "raw\\ohlcv-1m\\ohlcv1m_2021.csv.zst",
+      "raw_sha256": "54123fcc46fcb6ffc90156093f59df21eff87b356c9559890c10ac95afbe070e",
+      "compressed_bytes": 11803616,
+      "quoted_cost_usd": "2.580213844776",
+      "quoted_records": 706756,
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2021-01-01",
+        "end": "2022-01-01"
+      },
+      "reused": false
+    },
+    {
+      "event": "COMPLETED",
+      "chunk_id": "ohlcv1m_2022",
+      "at": "2026-11-09T05:33:42.098354+00:00",
+      "raw_file": "raw\\ohlcv-1m\\ohlcv1m_2022.csv.zst",
+      "raw_sha256": "14f218ae1ee9aa00f194891d26cf766b01df317e8a44cb2b27ad8aa99788400b",
+      "compressed_bytes": 12383354,
+      "quoted_cost_usd": "2.585598751903",
+      "quoted_records": 708231,
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2022-01-01",
+        "end": "2023-01-01"
+      },
+      "reused": false
+    },
+    {
+      "event": "COMPLETED",
+      "chunk_id": "ohlcv1m_2023",
+      "at": "2026-11-09T05:33:49.897867+00:00",
+      "raw_file": "raw\\ohlcv-1m\\ohlcv1m_2023.csv.zst",
+      "raw_sha256": "63a96705bda38b7727900af4371df1adc3a59e25f59fc781c215024505dc9d40",
+      "compressed_bytes": 11820361,
+      "quoted_cost_usd": "2.579323053360",
+      "quoted_records": 706512,
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2023-01-01",
+        "end": "2024-01-01"
+      },
+      "reused": false
+    },
+    {
+      "event": "COMPLETED",
+      "chunk_id": "ohlcv1m_2024",
+      "at": "2026-11-09T05:34:35.915901+00:00",
+      "raw_file": "raw\\ohlcv-1m\\ohlcv1m_2024.csv.zst",
+      "raw_sha256": "71fa4e6139fd8079e0abc8bbb64dbb57a856423fec78453b3bd8f6e31a4acded",
+      "compressed_bytes": 12018277,
+      "quoted_cost_usd": "2.591155245900",
+      "quoted_records": 709753,
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2024-01-01",
+        "end": "2025-01-01"
+      },
+      "reused": false
+    },
+    {
+      "event": "COMPLETED",
+      "chunk_id": "ohlcv1m_2025",
+      "at": "2026-11-09T05:34:48.116691+00:00",
+      "raw_file": "raw\\ohlcv-1m\\ohlcv1m_2025.csv.zst",
+      "raw_sha256": "504fc89e01a3770cd514c2d3d589d6d01b58edcfe624a5cae75669ef1b667ff0",
+      "compressed_bytes": 12313216,
+      "quoted_cost_usd": "2.573974654078",
+      "quoted_records": 705047,
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2025-01-01",
+        "end": "2026-01-01"
+      },
+      "reused": false
+    },
+    {
+      "event": "COMPLETED",
+      "chunk_id": "ohlcv1m_2026",
+      "at": "2026-11-09T05:37:45.213248+00:00",
+      "raw_file": "raw\\ohlcv-1m\\ohlcv1m_2026.csv.zst",
+      "raw_sha256": "fcc0e82be43cbabb561f676e0171797371e938005b70a592a1c5b4484e4a6029",
+      "compressed_bytes": 10421339,
+      "quoted_cost_usd": "2.111803591251",
+      "quoted_records": 578452,
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2026-01-01",
+        "end": "2026-10-25"
+      },
+      "reused": false
+    }
+  ],
+  "status": "COMPLETED",
+  "definitions": {
+    "instruments": 134,
+    "raw_symbols_sample": [
+      "ESH6",
+      "NQH6",
+      "ESM6",
+      "NQM6",
+      "NQU6",
+      "ESU6",
+      "ESZ6",
+      "NQZ6"
+    ],
+    "min_price_increment": [
+      0.25
+    ],
+    "multiplier": [
+      0.0,
+      20.0,
+      50.0
+    ]
+  },
+  "pilot_validation": {
+    "rows": 27600,
+    "symbols": {
+      "ES.v.0": 13800,
+      "NQ.v.0": 13800
+    },
+    "minute_aligned": true,
+    "duplicates": 0,
+    "ohlc_inconsistent": 0,
+    "off_tick_prices": 0,
+    "nonpositive_volume": 0,
+    "instruments": 2,
+    "unknown_instrument_ids": 0,
+    "clean_rows": 27600,
+    "yahoo_crosscheck": {
+      "NQ": {
+        "matched_5m_bars": 2747,
+        "median_abs_close_diff": 0.0,
+        "share_within_1_tick": 0.8412813978886058
+      },
+      "ES": {
+        "matched_5m_bars": 2747,
+        "median_abs_close_diff": 0.0,
+        "share_within_1_tick": 0.9825263924281034
+      }
+    }
+  },
+  "pilot_gate": "PASSED",
+  "spend": {
+    "run_quoted_usd": "41.296749278901",
+    "cumulative_reserved_quoted_usd": "41.296749278901",
+    "remaining_of_ceiling_usd": "83.703250721099",
+    "note": "Quoted costs from Databento metadata.get_cost; confirm actual usage in the portal."
+  },
+  "finished_at": "2026-11-09T05:37:45.222569+00:00"
+}

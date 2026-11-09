@@ -115,18 +115,19 @@ def create_app(token: str, worker: jobs.Worker | None = None) -> FastAPI:
     @app.get("/v1/markets/{root}/bars")
     def bars(root: str, interval: str = Query("5m", pattern=r"^(1m|5m|15m|1h|4h|1d|1w)$"),
              start: str | None = Query(None, max_length=32), end: str | None = Query(None, max_length=32),
-             limit: int = Query(3000, ge=10, le=50000)):
+             limit: int = Query(3000, ge=10, le=50000), source: str | None = Query(None, pattern=r"^(databento|yahoo)$")):
         def build():
-            frame, meta = market.bars(root, interval, start, end, limit)
+            frame, meta = market.bars(root, interval, start, end, limit, source=source)
             return {"meta": meta, "bars": [{"t": int(r.timestamp.timestamp()), "o": r.open, "h": r.high, "l": r.low, "c": r.close, "v": r.volume}
                                            for r in frame.itertuples()]}
         return guard(build)
 
     @app.get("/v1/markets/{root}/indicators")
     def indicator_series(root: str, interval: str = Query("5m", pattern=r"^(1m|5m|15m|1h|4h|1d|1w)$"),
-                         names: str = Query("vwap", max_length=400), limit: int = Query(3000, ge=10, le=50000)):
+                         names: str = Query("vwap", max_length=400), limit: int = Query(3000, ge=10, le=50000),
+                         source: str | None = Query(None, pattern=r"^(databento|yahoo)$")):
         def build():
-            frame, meta = market.bars(root, interval, limit=limit + 400)
+            frame, meta = market.bars(root, interval, limit=limit + 400, source=source)
             out = {}
             for item in names.split(","):
                 if not re.fullmatch(r"[a-z_]+(:[0-9.]+)*", item):

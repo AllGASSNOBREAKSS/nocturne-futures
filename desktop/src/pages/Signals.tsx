@@ -52,6 +52,20 @@ export default function Signals() {
             </div>
             <div className="mt-2 font-mono text-2xs text-ink-500">Bars: holdout target-first rate by VIX regime.</div>
           </Panel>
+          <Panel title="16-year strategy backtests — authentic Databento contract bars (2010–2026)" code="DB16" className="col-span-12" accent="info">
+            <Query q={research}>{(r) => r.phase4_backtests ? (
+              <Table dense rows={Object.entries(r.phase4_backtests.results).map(([name, v]: any) => ({ name, ...v }))} columns={[
+                { key: "name", label: "Strategy", render: (x) => <span className="text-ink-100">{x.name.replaceAll("_", " ")}</span> },
+                { key: "t", label: "Trades", align: "right", render: (x) => x.summary.trades }, { key: "w", label: "Win %", align: "right", render: (x) => pct(x.summary.win_rate) },
+                { key: "pf", label: "PF", align: "right", render: (x) => num(x.summary.profit_factor, 2) },
+                { key: "n", label: "Net", align: "right", render: (x) => <span className={tone(x.summary.net_pnl)}>{usd(x.summary.net_pnl)}</span> },
+                { key: "dd", label: "Max DD", align: "right", render: (x) => usd(x.summary.max_drawdown) },
+                ...["development", "validation", "holdout"].map((era) => ({ key: era, label: `${era.slice(0, 4)} exp [CI]`, align: "right" as const,
+                  render: (x: any) => { const m = x.eras[era]; return <span className={tone(m.expectancy)}>{usd(m.expectancy)}{m.expectancy_ci95 ? ` [${usd(m.expectancy_ci95[0])}, ${usd(m.expectancy_ci95[1])}]` : ""}</span>; } })),
+                { key: "v", label: "Verdict", render: (x) => <Badge>{x.verdict}</Badge> }]} />
+            ) : <div className="font-mono text-xs text-ink-400">Not run yet.</div>}</Query>
+            <div className="mt-2 font-mono text-2xs text-ink-500">Existing default parameters, no optimisation; eras by date: development 2010–18, validation 2019–22, holdout 2023–26. Per 2-contract position.</div>
+          </Panel>
           <Panel title="Your studio backtests" code="USR" className="col-span-7">
             {d.studio_backtests.length ? (
               <Table dense rows={d.studio_backtests} columns={[{ key: "name", label: "Name", render: (b) => b.name ?? b.job_id.slice(0, 8) },
@@ -60,6 +74,16 @@ export default function Signals() {
                 { key: "e", label: "Expectancy", align: "right", render: (b) => <span className={tone(b.summary?.expectancy)}>{usd(b.summary?.expectancy)}</span> },
                 { key: "v", label: "Verdict", render: (b) => <Badge>{b.verdict}</Badge> }]} />
             ) : <div className="font-mono text-xs text-ink-400">Run backtests from the Strategy Lab to see them ranked here.</div>}
+          </Panel>
+          <Panel title="NQ target-before-stop — authentic bars 2010–2026" code="TBS" className="col-span-12" accent="info">
+            <Query q={research}>{(r) => r.phase4_target_study ? (
+              <Table dense rows={r.phase4_target_study.cells} columns={[
+                { key: "g", label: "Geometry", render: (c) => `${c.horizon} · T${c.target}/S${c.stop} · ${c.side}` },
+                ...["development", "validation", "holdout"].map((era) => ({ key: era, label: `${era.slice(0, 4)} n · target-first · EV pts [CI]`, align: "right" as const,
+                  render: (c: any) => { const m = c[era]; return <span><span className="text-ink-400">{m.n} · </span>{pct(m.target_first)} · <span className={tone(m.net_ev_points)}>{num(m.net_ev_points, 2)}</span> {m.net_ev_ci95 ? `[${num(m.net_ev_ci95[0], 1)}, ${num(m.net_ev_ci95[1], 1)}]` : ""}</span>; } })),
+                { key: "v", label: "Verdict", render: (c) => <Badge>{c.verdict}</Badge> }]} />
+            ) : <div className="font-mono text-xs text-ink-400">Not run yet.</div>}</Query>
+            <div className="mt-2 font-mono text-2xs text-ink-500">Entry 10:00 ET; same-contract 5m paths, ties resolved on 1m, else stop-first; paths crossing a roll skipped; 0.75 pt costs.</div>
           </Panel>
           <Panel title="Existing strategies — Phase 3V splits" code="STR" className="col-span-5">
             <Query q={research}>{(r) => (

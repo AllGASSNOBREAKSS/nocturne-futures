@@ -110,7 +110,7 @@ export default function Overview() {
         <Query q={ops}>{(o) => (
           <div className="mt-3 border-t border-ink-800 pt-2">
             <KV items={[["Datasets", `${o.datasets.filter((d: any) => d.status === "AVAILABLE").length} available`],
-              ["Databento", <Badge key="db" tone="down">BLOCKED</Badge>],
+              ["Databento", <Badge key="db" tone={o.databento.status.startsWith("ACQUIRED") ? "up" : "down"}>{o.databento.status.split(";")[0]}</Badge>],
               ...o.scheduler.map((s: any) => [s.name.replace("Nocturne-", ""), s["Last Result"] !== undefined ? `last ${s["Last Result"]}` : s.status] as [string, string])]} />
           </div>
         )}</Query>

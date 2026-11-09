@@ -49,7 +49,7 @@ def test_responses_are_strict_json(client):
 
 
 def test_bars_are_available_only_after_they_close():
-    frame, _ = market.bars("NQ", "5m", limit=50)
+    frame, _ = market.bars("NQ", "5m", limit=50, source="yahoo")
     assert ((frame.available_at - frame.timestamp) == pd.Timedelta("5min")).all()
     daily, _ = market.bars("NQ", "15m", limit=20)
     assert ((daily.available_at - daily.timestamp) == pd.Timedelta("15min")).all()
@@ -92,7 +92,7 @@ def test_rule_validation_and_next_bar_entry():
 
 
 def test_backtest_matches_phase3v_reference(tmp_path):
-    result = backtest.run({"name": "orb", "root": "NQ", "interval": "5m", "strategy": {"type": "opening_range_breakout"},
+    result = backtest.run({"name": "orb", "root": "NQ", "interval": "5m", "source": "yahoo", "strategy": {"type": "opening_range_breakout"},
                            "costs": {"slippage_ticks": 1}, "contracts": 2}, tmp_path)
     reference = json.loads((market.ROOT / "reports/phase3v_strategies.json").read_text())["roots"]["NQ"]["strategies"]["opening_range_breakout"]["by_slippage_ticks"]["1.0"]["all"]
     assert (result["summary"]["trades"], result["summary"]["net_pnl"]) == (reference["trades"], reference["net"])

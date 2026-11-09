@@ -63,10 +63,20 @@ def datasets():
                             "first": entry.get("first"), "last": entry.get("last"), "retrieved_at": entry["retrieved_at"],
                             "normalized_sha256": entry["normalized_sha256"], "source": "Yahoo continuous front-month (unadjusted)",
                             "credibility": entry.get("credibility"), "status": "AVAILABLE", "license": "research-grade public, not for redistribution"})
-    licensed = ROOT / "data/licensed/databento/store"
-    out.append({"id": "databento/GLBX.MDP3", "root": "NQ,ES", "interval": "1m", "rows": sum(1 for _ in licensed.rglob("*.csv")) if licensed.exists() else 0,
-                "source": "Databento GLBX.MDP3 raw contracts", "status": "BLOCKED_KEY_ROTATION_AND_CREDIT_VERIFICATION",
-                "license": "licensed; private display only"})
+    manifest_path = DATABENTO / "manifest.json"
+    if manifest_path.exists():
+        manifest = json.loads(manifest_path.read_text())
+        for key, entry in manifest.items():
+            if isinstance(entry, dict) and "rows" in entry:
+                root, _, interval = key.partition("_")
+                out.append({"id": f"databento/GLBX.MDP3/{key if interval else key + '_1m'}", "root": root, "interval": interval or "1m",
+                            "rows": entry["rows"], "first": entry.get("first"), "last": entry.get("last"),
+                            "retrieved_at": manifest.get("generated_at"), "normalized_sha256": entry["sha256"],
+                            "source": "Databento GLBX.MDP3 front-month (v.0) with contract per bar", "status": "AVAILABLE",
+                            "license": "licensed; private display only"})
+    else:
+        out.append({"id": "databento/GLBX.MDP3", "root": "NQ,ES", "interval": "1m", "rows": 0, "status": "NOT_ACQUIRED",
+                    "source": "Databento GLBX.MDP3", "license": "licensed; private display only"})
     return out
 
 
@@ -78,34 +88,73 @@ def _load(root, native, sha):
     return frame[["timestamp", "open", "high", "low", "close", "volume"]].sort_values("timestamp").reset_index(drop=True)
 
 
-def bars(root, interval, start=None, end=None, limit=5000):
+DATABENTO = ROOT / "data/licensed/databento/normalized"
+DB_NATIVE = {"1m": "1m", "5m": "5m", "1h": "1h", "1d": "1d"}
+DB_DERIVED = {"15m": ("5m", "15min"), "4h": ("1h", "4h"), "1w": ("1d", "W-FRI")}
+SOURCES = ("databento", "yahoo")
+
+
+def databento_available(root):
+    return (DATABENTO / f"{root}_5m.csv.gz").exists() and (DATABENTO / "manifest.json").exists()
+
+
+@lru_cache(maxsize=12)
+def _load_databento(root, native, sha):
+    path = DATABENTO / (f"{root}_1m.csv.gz" if native == "1m" else f"{root}_{native}.csv.gz")
+    frame = pd.read_csv(path, dtype={"open": "float64", "high": "float64", "low": "float64", "close": "float64", "volume": "int64",
+                                     "instrument_id": "int64", "contract": "category"})
+    frame["timestamp"] = pd.to_datetime(frame.timestamp, utc=True)
+    roll = "roll_minute" if "roll_minute" in frame else "roll"
+    frame = frame.rename(columns={roll: "roll"})
+    return frame[["timestamp", "open", "high", "low", "close", "volume", "instrument_id", "contract", "roll"]]
+
+
+def bars(root, interval, start=None, end=None, limit=5000, source=None):
     if root not in ROOTS:
         raise ValueError("unsupported instrument")
-    if interval in NATIVE:
-        native, rule = NATIVE[interval], None
-    elif interval in DERIVED:
-        native, rule = DERIVED[interval]
+    source = source or ("databento" if databento_available(root) else "yahoo")
+    if source not in SOURCES:
+        raise ValueError("unsupported source")
+    if source == "databento":
+        if not databento_available(root):
+            raise ValueError("Databento dataset not acquired")
+        native, rule = (DB_NATIVE[interval], None) if interval in DB_NATIVE else DB_DERIVED.get(interval, (None, None))
+        if native is None:
+            raise ValueError("unsupported interval")
+        manifest = json.loads((DATABENTO / "manifest.json").read_text())
+        key = root if native == "1m" else f"{root}_{native}"
+        frame = _load_databento(root, native, manifest[key]["sha256"])
+        meta = {"dataset": f"databento/GLBX.MDP3/{root}_{native}", "normalized_sha256": manifest[key]["sha256"],
+                "retrieved_at": manifest.get("generated_at"), "derived_rule": rule, "source": "databento",
+                "license": "licensed; private display only", "freshness": "HISTORICAL_NOT_REALTIME"}
     else:
-        raise ValueError("unsupported interval")
-    entry = archive().latest("yahoo_futures", f"{root}_{native}")
-    if entry is None:
-        raise ValueError("dataset not collected")
-    frame = _load(root, native, entry["normalized_sha256"])
-    if rule:
-        frame = (frame.set_index("timestamp").resample(rule, label="left", closed="left")
-                 .agg({"open": "first", "high": "max", "low": "min", "close": "last", "volume": "sum"})
-                 .dropna().reset_index())
+        if interval in NATIVE:
+            native, rule = NATIVE[interval], None
+        elif interval in DERIVED:
+            native, rule = DERIVED[interval]
+        else:
+            raise ValueError("unsupported interval")
+        entry = archive().latest("yahoo_futures", f"{root}_{native}")
+        if entry is None:
+            raise ValueError("dataset not collected")
+        frame = _load(root, native, entry["normalized_sha256"])
+        meta = {"dataset": f"yahoo_futures/{root}_{native}", "normalized_sha256": entry["normalized_sha256"],
+                "retrieved_at": entry["retrieved_at"], "derived_rule": rule, "source": "yahoo",
+                "freshness": "HISTORICAL_DELAYED_NOT_REALTIME"}
     if start:
         frame = frame[frame.timestamp >= pd.Timestamp(start, tz="UTC")]
     if end:
         frame = frame[frame.timestamp < pd.Timestamp(end, tz="UTC")]
+    if rule:
+        agg = {"open": "first", "high": "max", "low": "min", "close": "last", "volume": "sum"}
+        if "instrument_id" in frame:
+            agg |= {"instrument_id": "last", "contract": "last", "roll": "max"}
+        frame = frame.set_index("timestamp").resample(rule, label="left", closed="left").agg(agg).dropna(subset=["close"]).reset_index()
     frame = frame.tail(limit).reset_index(drop=True)
     # A bar is knowable only once it has closed: never at its start time.
     step = {"1m": "1min", "5m": "5min", "15m": "15min", "1h": "1h", "4h": "4h", "1d": "1D", "1w": "7D"}[interval]
     frame["available_at"] = frame.timestamp + pd.Timedelta(step)
-    return frame, {"dataset": f"yahoo_futures/{root}_{native}", "normalized_sha256": entry["normalized_sha256"],
-                   "retrieved_at": entry["retrieved_at"], "derived_rule": rule,
-                   "freshness": "HISTORICAL_DELAYED_NOT_REALTIME"}
+    return frame, meta
 
 
 def _round(x, tick):

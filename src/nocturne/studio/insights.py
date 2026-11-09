@@ -92,14 +92,30 @@ def operations():
         ci = json.loads(name.read_text(encoding="utf-8-sig"))
     return {"generated_at": datetime.now(timezone.utc).isoformat(), "git": {"head": head, "branch": branch},
             "providers": registry()["providers"], "datasets": market.datasets(),
-            "databento": {"credential_present": bool(os.environ.get("DATABENTO_API_KEY")) or (ROOT / "data/security/databento.key").exists(),
-                          "status": "BLOCKED: rotate the exposed key and confirm portal credit balance before any download",
-                          "spend_usd": 0, "credit_ceiling_usd": 125, "quotes": preflight.get("quotes"),
-                          "range": preflight.get("range"), "preflight_at": preflight.get("generated_at")},
+            "databento": _databento(preflight),
             "scheduler": [_schtask("Nocturne-NDX-ReadOnly-Shadow"), _schtask("Nocturne-ReadOnly-Research")],
             "orchestrator_jobs": states(ROOT / "data/research/orchestrator"), "studio_jobs": states(STATE / "jobs"),
             "shadow_operations": _report("phase3j_operations.json"), "ci": ci,
             "tests": _report("phase3u_tests.json"), "trading_decision": "NO_TRADE"}
+
+
+def _databento(preflight):
+    ledger_path = ROOT / "data/licensed/databento/spend_ledger.jsonl"
+    ledger = [json.loads(x) for x in ledger_path.read_text().splitlines() if x.strip()] if ledger_path.exists() else []
+    reserved = sum(float(e["quoted_cost_usd"]) for e in ledger if e["event"] == "RESERVED")
+    completed = [e for e in ledger if e["event"] == "COMPLETED"]
+    acquisition = _report("phase4_databento_acquisition.json") or {}
+    quality = _report("phase4_databento_quality.json") or {}
+    uncertain = {e["chunk_id"] for e in ledger if e["event"] == "RESERVED"} - {e["chunk_id"] for e in completed}
+    return {"credential_present": bool(os.environ.get("DATABENTO_API_KEY")) or (ROOT / "data/security/databento.key").exists(),
+            "status": ("ACQUIRED" if acquisition.get("status") == "COMPLETED" else acquisition.get("status") or "NOT_ACQUIRED")
+                      + (f"; {len(uncertain)} uncertain reservation(s) need review" if uncertain else ""),
+            "spend_usd": round(reserved, 4), "spend_basis": "sum of provider quotes for reserved chunks; confirm in the Databento portal",
+            "credit_ceiling_usd": 125, "remaining_usd": round(125 - reserved, 4),
+            "chunks": [{"chunk_id": e["chunk_id"], "quoted_cost_usd": e["quoted_cost_usd"], "compressed_bytes": e.get("compressed_bytes"), "at": e["at"]} for e in completed],
+            "pilot_gate": acquisition.get("pilot_gate"), "pilot_validation": acquisition.get("pilot_validation"),
+            "quality": quality.get("roots"), "quotes": preflight.get("quotes"), "range": preflight.get("range"),
+            "preflight_at": preflight.get("generated_at"), "live_data": False}
 
 
 def research():
@@ -122,7 +138,8 @@ def research():
     return {"phase3v": summary, "phase3v_generated_at": v.get("generated_at"),
             "phase3u_backtest": (_report("phase3u_backtest.json") or {}).get("results", {}).get("verdicts"),
             "strategies": _report("phase3v_strategies.json"), "signal_ranking": _report("phase3v_signal_ranking.json"),
-            "ndx_shadow": _report("phase3u_forward.json")}
+            "ndx_shadow": _report("phase3u_forward.json"),
+            "phase4_backtests": _report("phase4_backtests.json"), "phase4_target_study": _report("phase4_target_study.json")}
 
 
 def _slug(name):

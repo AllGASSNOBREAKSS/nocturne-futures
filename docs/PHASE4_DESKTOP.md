@@ -68,23 +68,55 @@ recovery. Jobs survive navigating away or closing a view; cancellation is cooper
 - **Packaging:** `desktop/release/Nocturne Terminal 4.0.0.exe` (portable, unsigned, 81 MB)
   launches, starts the backend and renders all views.
 
-## Data and Databento
+## Databento acquisition (credit-bounded, completed)
 
-Data shown is the free, checksummed Yahoo continuous-futures archive (daily 2000→,
-hourly 2024→, 5m 60 days, 1m 30 days) plus Phase 3U macro/positioning/filing sources —
-**historical/delayed, never real-time**. Roll-contaminated bars exist in Yahoo's
-continuous series (e.g. 2025-09-16/17 NQ/ES hourly lows ~250 pts below neighbours);
-research labels already exclude ±3 sessions around the 66 Databento volume rolls.
+Operator supplied a rotated key and authorized up to $125 of promotional credits
+(2026-11-09). The key lives only in ignored `data/security/databento.key`.
+**The previous key still authenticated after rotation — revoke it in the portal.**
 
-**Databento acquisition did not run.** Phase 4 requires a freshly rotated key (the
-previous one was exposed in chat) and a verified credit balance before any download;
-the historical API does not expose the balance. Status in the app: `BLOCKED`, spend $0.
-Quotes on file: full NQ+ES 1-minute 2010–2026 ≈ $41.29; definitions $0.01.
+- Fresh quotes, then `scripts/phase4_databento_acquire.py`: definitions → 2-week pilot →
+  pilot gate → yearly chunks 2010–2026. Each chunk re-quoted, checked against a $50 run cap
+  and the $125 ceiling, and reserved in an append-only spend ledger before download; an
+  uncompleted reservation is never retried (no double charge). Tests cover all guards.
+- **Quoted spend: $41.30** (18 chunks: definitions $0.0085, pilot $0.10, years $41.19).
+  Remaining against the ceiling: **$83.70** (quotes, not invoices — confirm in the portal).
+- Pilot gate PASSED: 27,600 bars, minute-aligned, 0 off-tick, 0 OHLC errors, 0 unknown
+  instruments; Databento 5m closes vs independent Yahoo 5m: median |diff| 0.0 pts.
+- Acquired: **NQ 5,567,303** and **ES 5,742,093** one-minute bars, 2010-06-07 → 2026-11-06,
+  67 contracts / 66 rolls each, every bar tagged with its contract (e.g. `NQZ6-2026`);
+  0 structural issues across all chunks; 35 multi-day gaps per root (holidays/closures).
+- Raw provider bytes (zstd CSV) and normalized tables stay in ignored `data/licensed/`;
+  only aggregate statistics are committed (`reports/phase4_databento_*.json`).
+- The app now defaults to Databento bars (1m/5m/15m/1h/4h/1d/1w aggregated within a
+  contract, never across a roll) with Yahoo as a selectable fallback.
+
+## 16-year results on authentic contract bars
+
+Existing strategies, default parameters (no optimisation), 5m RTH, 2 contracts, cashflow-v2
+costs, eras by date (development 2010–18, validation 2019–22, holdout 2023–26)
+(`reports/phase4_backtests.md`):
+
+| Strategy | Trades | Win % | PF | Net $ | Dev exp [95% CI] | Holdout exp [95% CI] | Verdict |
+|---|---|---|---|---|---|---|---|
+| NQ opening range | 3,846 | 49.0 | 1.05 | +134,340 | −17 [−50, 15] | +191 [−56, 438] | REJECTED |
+| NQ VWAP pullback | 3,607 | 50.5 | 0.91 | −153,541 | −26 [−46, −7] | −21 [−181, 139] | REJECTED |
+| NQ value rejection | 2,722 | 44.9 | 0.89 | −124,430 | −36 [−57, −14] | −78 [−263, 106] | REJECTED |
+| ES opening range | 3,900 | 45.3 | 0.86 | −234,763 | −62 [−89, −34] | +13 [−111, 138] | REJECTED |
+| ES VWAP pullback | 3,721 | 50.0 | 0.79 | −236,682 | −46 [−62, −31] | −106 [−186, −26] | REJECTED |
+| ES value rejection | 2,462 | 45.0 | 0.76 | −175,820 | −65 [−85, −44] | −82 [−180, 16] | REJECTED |
+
+NQ opening range's profit comes almost entirely from 2021–2026 (larger point values) and
+92.8% of its trades time out; its development era is negative, so it is not a candidate.
+
+NQ target-before-stop (`reports/phase4_target_study.json`): 4,220 sessions, 117,740 path
+records, entry 10:00 ET, 50/50 … 500/250 point geometries, RTH and 24h horizons,
+same-contract 5m paths with 1m tie resolution: **0 of 28 accepted**. In 2010–2018 (NQ
+~2,000–7,000) 200–500-point targets were almost never reached; holdout EV intervals all
+span zero.
 
 ## Not done / blocked
 
-- Databento 2010–2026 download, contract-level validation, and any trades/MBP/MBO
-  order-flow features (disabled in the UI and labelled).
+- Trades/TBBO/MBP/MBO order-flow history (not purchased; order-flow features stay disabled).
 - Vercel deployment: replaced by the desktop app per operator instruction.
 - Code signing of the executable; macOS/Linux packages.
 - Directional forecasts remain withheld; no model is promoted.

@@ -30,12 +30,15 @@ export default function Operations() {
             ...Object.entries(health.data?.refresh?.sources ?? {}).map(([k, v]) => [k, String(v)] as [string, string])]} />
           <div className="mt-2 font-mono text-2xs text-ink-500">Yahoo futures, FRED, CFTC, SEC and Fed into the ignored operational archive; the committed snapshot is never modified.</div>
         </Panel>
-        <Panel title="Databento (licensed raw contracts)" code="DBN" className="col-span-4" accent="research">
+        <Panel title="Databento (licensed contract bars)" code="DBN" className="col-span-4" accent="research">
           <div className="space-y-2">
-            <Badge tone="down">BLOCKED</Badge>
-            <div className="font-mono text-2xs text-warn">{o.databento.status}</div>
-            <KV items={[["Credential file present", o.databento.credential_present ? "yes (value never shown)" : "no"], ["Spend to date", `$${o.databento.spend_usd}`],
-              ["Credit ceiling", `$${o.databento.credit_ceiling_usd}`], ["Range", `${o.databento.range?.start?.slice(0, 10)} → ${o.databento.range?.end?.slice(0, 10)}`], ["Preflight", when(o.databento.preflight_at)]]} />
+            <Badge tone={o.databento.status.startsWith("ACQUIRED") ? "up" : "down"}>{o.databento.status}</Badge>
+            <KV items={[["Quoted spend", `$${num(o.databento.spend_usd, 2)}`], ["Credit ceiling", `$${o.databento.credit_ceiling_usd}`],
+              ["Remaining (quoted)", `$${num(o.databento.remaining_usd, 2)}`], ["Chunks acquired", o.databento.chunks?.length ?? 0],
+              ["Pilot gate", o.databento.pilot_gate ?? "—"], ["NQ 1m bars", num(o.databento.quality?.NQ?.rows, 0)], ["ES 1m bars", num(o.databento.quality?.ES?.rows, 0)],
+              ["Contracts / rolls (NQ)", `${o.databento.quality?.NQ?.contracts ?? "—"} / ${o.databento.quality?.NQ?.rolls ?? "—"}`],
+              ["Credential", o.databento.credential_present ? "present (never shown)" : "missing"], ["Live data", "DISABLED"]]} />
+            <div className="font-mono text-2xs text-ink-500">{o.databento.spend_basis}</div>
           </div>
         </Panel>
         <Panel title="Datasets" code="DS" className="col-span-7">

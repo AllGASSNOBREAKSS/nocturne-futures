@@ -34,6 +34,8 @@ class Cancelled(Exception):
 
 def validate(config):
     errors = []
+    if config.get("source") not in (None, *market.SOURCES):
+        errors.append("source must be databento or yahoo")
     if config.get("root") not in market.ROOTS:
         errors.append("instrument must be NQ or ES")
     if config.get("interval") not in INTERVALS:
@@ -68,17 +70,23 @@ def _signals(config, bars, spec):
         if key in params:
             params[key] = int(params[key])
     instance = BUILTIN[strategy["type"]](**params)
-    framed = add_session_column(bars, spec)
-    days = sorted(framed.session.unique())
+    groups = sessions_of(bars, spec)
+    days = sorted(groups)
     out = []
     for i, day in enumerate(days):
-        group = framed[framed.session == day]
+        group = groups[day]
         if strategy["type"] == "value_rejection":
-            prior = framed[framed.session == days[i - 1]] if i else None
+            prior = groups[days[i - 1]] if i else None
             out += [(day, s) for s in instance.signals(group, spec, day, prior_bars=prior)]
         else:
             out += [(day, s) for s in instance.signals(group, spec, day)]
     return out
+
+
+def sessions_of(bars, spec):
+    """Group bars by trading session once (O(n)), not per-session filtering."""
+    framed = add_session_column(bars, spec)
+    return {day: g for day, g in framed.groupby("session", sort=True)}
 
 
 def _session_label(ts):
@@ -119,7 +127,7 @@ def run(config, directory, progress=lambda pct, msg: None, cancelled=lambda: Fal
     if errors:
         return {"status": "BLOCKED", "reason": "INVALID_CONFIGURATION", "errors": errors}
     spec = get_instrument(config["root"])
-    bars, meta = market.bars(config["root"], config["interval"], config.get("start"), config.get("end"), limit=2_000_000)
+    bars, meta = market.bars(config["root"], config["interval"], config.get("start"), config.get("end"), limit=5_000_000, source=config.get("source"))
     if len(bars) < 200:
         return {"status": "BLOCKED", "reason": "INSUFFICIENT_DATA_IN_RANGE", "rows": len(bars)}
     progress(5, f"loaded {len(bars)} bars from {meta['dataset']}")
@@ -130,7 +138,8 @@ def run(config, directory, progress=lambda pct, msg: None, cancelled=lambda: Fal
     contracts = int(config.get("contracts", 2))
     schedule = ((0, 0.5), (1, 0.5)) if contracts % 2 == 0 else ((0, 1.0),)
     results, stress = [], {}
-    framed = add_session_column(bars, spec) if config["strategy"]["type"] != "rule" else None
+    groups = sessions_of(bars, spec) if config["strategy"]["type"] != "rule" else None
+    rth_cache = {}
     index = pd.DatetimeIndex(bars.timestamp)
     for slip in sorted({0.5, float(costs.get("slippage_ticks", 1)), 2.0}):
         cfg = BacktestConfig(commission_per_contract=float(costs.get("commission_per_contract", 2.5)), slippage_ticks=slip,
@@ -139,8 +148,10 @@ def run(config, directory, progress=lambda pct, msg: None, cancelled=lambda: Fal
         for k, (day, signal) in enumerate(signals):
             if cancelled():
                 raise Cancelled()
-            if framed is not None:
-                window = session_bars(framed[framed.session == day], spec, "RTH", day)
+            if groups is not None:
+                if day not in rth_cache:
+                    rth_cache[day] = session_bars(groups[day], spec, "RTH", day)
+                window = rth_cache[day]
             else:
                 start = index.searchsorted(pd.Timestamp(signal.asof))
                 window = bars.iloc[start:start + signal.horizon_bars + 2]
@@ -148,7 +159,8 @@ def run(config, directory, progress=lambda pct, msg: None, cancelled=lambda: Fal
             if trade is None:
                 continue
             prior_vix = vix[vix.index < str(pd.Timestamp(trade.entry_time).date())]
-            rows.append({"strategy": signal.strategy_id, "contract": "CONTINUOUS_FRONT_UNADJUSTED", "side": trade.side,
+            contract = str(window.contract.iloc[0]) if "contract" in window and len(window) else "CONTINUOUS_FRONT_UNADJUSTED"
+            rows.append({"strategy": signal.strategy_id, "contract": contract, "side": trade.side,
                          "session_date": str(day), "session": _session_label(trade.entry_time),
                          "entry_time": str(trade.entry_time), "entry": trade.entry_price, "stop": trade.stop_price,
                          "tp1": trade.target_prices[0] if trade.target_prices else None,
@@ -168,7 +180,8 @@ def run(config, directory, progress=lambda pct, msg: None, cancelled=lambda: Fal
               "first_bar": str(bars.timestamp.iloc[0]), "last_bar": str(bars.timestamp.iloc[-1]),
               "position": f"{contracts} contracts; exit plan {schedule}", "summary": metrics(trades, point_value),
               "slippage_stress": {k: metrics(v, point_value) for k, v in stress.items()},
-              "scope": "SIMULATED_RESEARCH_ON_CONTINUOUS_PROXY_NOT_ACTUAL_TRADING", "trading_decision": "NO_TRADE"}
+              "scope": ("SIMULATED_RESEARCH_ON_AUTHENTIC_CONTRACT_BARS_NOT_ACTUAL_TRADING" if meta.get("source") == "databento"
+                        else "SIMULATED_RESEARCH_ON_CONTINUOUS_PROXY_NOT_ACTUAL_TRADING"), "trading_decision": "NO_TRADE"}
     if not trades.empty:
         trades = trades.sort_values("entry_time").reset_index(drop=True)
         n = len(trades)

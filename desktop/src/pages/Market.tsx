@@ -21,10 +21,11 @@ export default function Market() {
   const [osc, setOsc] = useState("rsi:14");
   const [showLevels, setShowLevels] = useState(true);
   const [tradeJob, setTradeJob] = useState("");
+  const [source, setSource] = useState<"databento" | "yahoo">("databento");
   const limit = interval === "1m" ? 2000 : interval === "1d" || interval === "1w" ? 1500 : 1200;
-  const bars = useApi<{ bars: Bar[]; meta: any }>(`/v1/markets/${root}/bars?interval=${interval}&limit=${limit}`);
+  const bars = useApi<{ bars: Bar[]; meta: any }>(`/v1/markets/${root}/bars?interval=${interval}&limit=${limit}&source=${source}`);
   const ind = useApi<{ series: Record<string, { t: number; v: number }[]> }>(
-    `/v1/markets/${root}/indicators?interval=${interval}&limit=${limit}&names=${[...overlays, osc].join(",") || "close"}`);
+    `/v1/markets/${root}/indicators?interval=${interval}&limit=${limit}&source=${source}&names=${[...overlays, osc].join(",") || "close"}`);
   const levels = useApi<{ levels: Level[]; last_price: number; as_of: string }>(`/v1/levels/${root}`);
   const regime = useApi<any>(`/v1/markets/${root}/regime`);
   const sessions = useApi<any>(`/v1/markets/${root}/sessions`);
@@ -44,6 +45,7 @@ export default function Market() {
         actions={<>
           <Segmented value={root} options={["NQ", "ES"] as const} onChange={(v) => { setRoot(v); setTradeJob(""); }} />
           <Segmented value={interval} options={INTERVALS} onChange={setInterval} />
+          <Segmented value={source} options={[{ value: "databento", label: "DATABENTO" }, { value: "yahoo", label: "YAHOO" }]} onChange={setSource} />
         </>}>
         <div className="flex flex-wrap items-center gap-1.5 border-b border-ink-800 px-3 py-1.5">
           {OVERLAYS.map((o) => (

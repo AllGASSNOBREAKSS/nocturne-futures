@@ -45,13 +45,13 @@ export default function StrategyLab() {
   const [kind, setKind] = useState<string>("rule");
   const [rule, setRule] = useState<any>(DEFAULT_RULE);
   const [params, setParams] = useState<Record<string, number>>({});
-  const [ctx, setCtx] = useState({ root: "NQ", interval: "5m", start: "", end: "", contracts: 2, commission: 2.5, slippage: 1 });
+  const [ctx, setCtx] = useState({ root: "NQ", interval: "5m", source: "databento", start: "", end: "", contracts: 2, commission: 2.5, slippage: 1 });
   const ind = catalog.data?.indicators ?? {};
   const builtin = catalog.data?.strategies ?? {};
   const setCond = (i: number, c: Cond) => setRule((r: any) => ({ ...r, conditions: r.conditions.map((x: Cond, k: number) => (k === i ? c : x)) }));
 
   const config = () => ({
-    name, root: ctx.root, interval: ctx.interval, start: ctx.start || undefined, end: ctx.end || undefined, contracts: ctx.contracts,
+    name, root: ctx.root, interval: ctx.interval, source: ctx.source, start: ctx.start || undefined, end: ctx.end || undefined, contracts: ctx.contracts,
     costs: { commission_per_contract: ctx.commission, slippage_ticks: ctx.slippage },
     strategy: kind === "rule" ? { type: "rule", rule } : { type: kind, params },
   });
@@ -104,7 +104,9 @@ export default function StrategyLab() {
             <div className="col-span-3 font-mono text-2xs text-ink-500">Existing Nocturne strategy with its documented entry/stop/target rules; RTH sessions on 1m/5m bars.</div>
           </div>
         )}
-        <div className="grid grid-cols-6 gap-2 border-t border-ink-800 pt-3">
+        <div className="grid grid-cols-7 gap-2 border-t border-ink-800 pt-3">
+          <Field label="Data source"><Select value={ctx.source} onChange={(e) => setCtx({ ...ctx, source: e.target.value })}>
+            <option value="databento">Databento (2010→, contracts)</option><option value="yahoo">Yahoo (free, recent)</option></Select></Field>
           <Field label="Start (UTC)"><Input placeholder="optional" value={ctx.start} onChange={(e) => setCtx({ ...ctx, start: e.target.value })} /></Field>
           <Field label="End (UTC)"><Input placeholder="optional" value={ctx.end} onChange={(e) => setCtx({ ...ctx, end: e.target.value })} /></Field>
           <Field label="Contracts"><Select value={ctx.contracts} onChange={(e) => setCtx({ ...ctx, contracts: Number(e.target.value) })}>{[1, 2, 3, 4].map((c) => <option key={c}>{c}</option>)}</Select></Field>

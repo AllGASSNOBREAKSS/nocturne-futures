@@ -6,9 +6,10 @@ Branch `feat/phase4-desktop`. Desktop app in `desktop/` (`npm install && npm run
 backend `python -m nocturne.desktop_server --port N` with `NOCTURNE_DESKTOP_TOKEN`.
 Studio code: `src/nocturne/studio/`. Runtime state (jobs, forecasts, configs, audit) lives in
 ignored `data/studio/`. Studio results must keep exact parity with Phase 3V (tests in
-`tests/test_phase4_desktop.py`). Databento: do not download until a rotated key is placed in
-`data/security/databento.key` and the operator confirms the portal credit balance; ceiling $125,
-no out-of-pocket charges. Read `docs/PHASE4_DESKTOP.md`.
+`tests/test_phase4_desktop.py`; pin `source: "yahoo"`). Databento 1m NQ/ES 2010-06-07→2026-11-06
+acquired (quoted $41.30 of $125; ledger `data/licensed/databento/spend_ledger.jsonl`). Re-running
+`scripts/phase4_databento_acquire.py` reuses completed chunks; extending past 2026-11-08 needs a
+new chunk id and stays under the ceiling. Old Databento key still authenticated: operator must revoke. Read `docs/PHASE4_DESKTOP.md`.
 
 ## Historical resume point — Phase 3V, 2026-11-09 UTC
 
