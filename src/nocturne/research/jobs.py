@@ -255,4 +255,33 @@ def execute_job(kind, payload, repository, directory, store, job):
                     lines.append(f"  {source['symbol']}: {source['rows']} rows, {source['first']} through {source['last']}, {source['kind']}.")
         (directory / "research_report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
         return {"status": "SUCCEEDED", "report_path": str(directory / "research_report.json"), "markdown_path": str(directory / "research_report.md")}
+    if kind == "FREE_DATA_COLLECTION":
+        # Scheduled acquisitions go to an ignored operational archive; the
+        # committed data/history/free snapshot stays fixed for reproducibility.
+        completed = subprocess.run([sys.executable, "scripts/phase3u_collect.py", "--root", str(repository / "data/research/free"),
+                                    "--report", str(directory / "collection.json"),
+                                    "--sources", ",".join(payload.get("sources", ["fred", "cftc", "treasury", "sec", "fed", "bls"]))],
+                                   cwd=repository)
+        try:
+            report = json.loads((directory / "collection.json").read_text())
+        except (OSError, ValueError):
+            return {"status": "FAILED", "reason": "COLLECTION_REPORT_MISSING", "exit_code": completed.returncode}
+        states = {name: v["status"] for name, v in report["sources"].items()}
+        collected = [name for name, state in states.items() if state == "COLLECTED"]
+        revised = {f"{name}/{d['dataset']}": d["revised_rows"] for name, v in report["sources"].items()
+                   for d in v.get("datasets", []) if d.get("revised_rows")}
+        return {"status": "SUCCEEDED" if collected else "BLOCKED", "sources": states, "revisions_detected": revised,
+                "partial": len(collected) != len(states), "report_path": str(directory / "collection.json"),
+                "note": "SUCCEEDED means at least one source collected; failed sources are listed, never hidden"}
+    if kind == "FREE_DATA_EXPERIMENT":
+        # Content-addressed by data + code + protocol: unchanged inputs reuse the
+        # stored result; changed data re-scores the same fixed protocol only.
+        completed = subprocess.run([sys.executable, "scripts/phase3u_backtest.py", "--free-root", str(repository / "data/research/free"),
+                                    "--report-dir", str(directory), "--study-root", str(repository / "data/research/free-studies")],
+                                   cwd=repository)
+        if completed.returncode:
+            return {"status": "FAILED", "reason": "EXPERIMENT_EXIT", "exit_code": completed.returncode}
+        report = json.loads((directory / "phase3u_backtest.json").read_text())
+        return {"status": "SUCCEEDED", "fingerprint": report["fingerprint"], "verdicts": report["results"]["verdicts"],
+                "reused": report.get("reused", False), "promotion": "NO_PROMOTION", "trading_decision": "NO_TRADE"}
     raise ValueError("no job handler")

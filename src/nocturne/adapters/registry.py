@@ -67,6 +67,61 @@ PROVIDERS = (
         endpoints=("https://api.bls.gov/publicAPI/v2/timeseries/data/",),
         instruments=("CUUR0000SA0", "WPUFD4", "CES0000000001", "LNS14000000"),
     ),
+    # Phase 3U keyless official sources, collected by nocturne.collector.
+    Provider(
+        name="cftc_cot", category="positioning", access="FREE_OFFICIAL", credential_env=None,
+        implemented=True, verified_with_real_data=True,
+        coverage="Traders in Financial Futures (futures-only) for E-mini Nasdaq-100, E-mini S&P 500, "
+                 "2y/10y T-notes, 2006-06 onward; weekly Tuesday positions.",
+        limits="Socrata public API; released Fridays 15:30 ET, delayed during government shutdowns.",
+        license_note="Public US government data.",
+        endpoints=("https://publicreporting.cftc.gov/resource/gpe5-46if.json",),
+        instruments=("209742", "13874A", "043602", "042601"),
+    ),
+    Provider(
+        name="treasury_fiscaldata", category="fiscal_liquidity", access="FREE_OFFICIAL", credential_env=None,
+        implemented=True, verified_with_real_data=True,
+        coverage="Daily Treasury Statement operating cash balance (TGA), 2005-10 onward.",
+        limits="Documented public API; account taxonomy changed in 2021 (context only).",
+        license_note="Public US government data.",
+        endpoints=("https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/dts/operating_cash_balance",),
+    ),
+    Provider(
+        name="sec_edgar", category="corporate_filings", access="FREE_OFFICIAL", credential_env=None,
+        implemented=True, verified_with_real_data=True,
+        coverage="10-K/10-Q/8-K submission metadata with exact acceptance times for ten Nasdaq megacaps.",
+        limits="SEC fair access: declared User-Agent, <=10 requests/second (collector uses 5/s).",
+        license_note="Public EDGAR data; filing text not redistributed.",
+        endpoints=("https://www.sec.gov/files/company_tickers.json", "https://data.sec.gov/submissions/"),
+    ),
+    Provider(
+        name="fed_press", category="events", access="FREE_OFFICIAL", credential_env=None,
+        implemented=True, verified_with_real_data=True,
+        coverage="Federal Reserve Board press-release RSS (recent ~20 items), rule-classified events.",
+        limits="Feed is recent-only; forward context, not backtest history.",
+        license_note="Public US government content.",
+        endpoints=("https://www.federalreserve.gov/feeds/press_all.xml",),
+    ),
+    Provider(
+        name="gdelt_doc", category="news_metadata", access="FREE_UNOFFICIAL", credential_env=None,
+        implemented=True, verified_with_real_data=False,
+        coverage="Article metadata (title/url/domain/seen time), rolling ~3 months.",
+        limits="One request per 5 seconds; this host received HTTP 429 during Phase 3U.",
+        license_note="GDELT open data terms; media content not stored.",
+        endpoints=("https://api.gdeltproject.org/api/v2/doc/doc",),
+    ),
+    Provider(
+        name="eia", category="energy", access="FREE_OFFICIAL", credential_env="EIA_API_KEY",
+        implemented=False, verified_with_real_data=False,
+        coverage="Energy prices and inventories.", limits="Free key required (403 API_KEY_MISSING without).",
+        license_note="Public US government data.", endpoints=("https://api.eia.gov/v2/",),
+    ),
+    Provider(
+        name="bea", category="macro", access="FREE_OFFICIAL", credential_env="BEA_API_KEY",
+        implemented=False, verified_with_real_data=False,
+        coverage="GDP, PCE, personal income.", limits="Free UserID registration required.",
+        license_note="Public US government data.", endpoints=("https://apps.bea.gov/api/data",),
+    ),
     Provider(
         name="databento", category="futures_intraday", access="LICENSED",
         credential_env="DATABENTO_API_KEY", implemented=True, verified_with_real_data=False,
@@ -110,6 +165,8 @@ def status(provider: Provider) -> str:
         if provider.credential_env and not os.environ.get(provider.credential_env):
             return "BLOCKED"
         return "ENTITLEMENT_UNVERIFIED"
+    if not provider.verified_with_real_data:
+        return "IMPLEMENTED_UNVERIFIED"
     return "AVAILABLE"
 
 

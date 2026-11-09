@@ -16,7 +16,19 @@ SERIES = {"DGS10": "Federal Reserve H.15 10-year Treasury yield",
           "DFF": "Federal Reserve effective federal funds rate",
           "CPIAUCSL": "BLS CPI (seasonally adjusted, revisable)",
           "UNRATE": "BLS unemployment (seasonally adjusted, revisable)",
-          "NASDAQ100": "Nasdaq-100 closing index via FRED; Nasdaq-origin distributor check, not independent upstream data"}
+          "NASDAQ100": "Nasdaq-100 closing index via FRED; Nasdaq-origin distributor check, not independent upstream data",
+          # Phase 3U free-data expansion (daily market series are rarely revised;
+          # monthly/weekly macro series remain revisable context, not PIT features).
+          "VIXCLS": "CBOE VIX close",
+          "VXNCLS": "CBOE Nasdaq-100 volatility index close",
+          "T10Y2Y": "10-year minus 2-year Treasury constant-maturity spread (H.15-derived)",
+          "T10YIE": "10-year breakeven inflation (H.15-derived)",
+          "BAA10Y": "Moody's Baa corporate yield minus 10-year Treasury",
+          "DTWEXBGS": "Broad trade-weighted US dollar index (H.10, weekly release)",
+          "WALCL": "Federal Reserve total assets (H.4.1, weekly Wednesday level)",
+          "RRPONTSYD": "Overnight reverse repurchase agreements (NY Fed)",
+          "NFCI": "Chicago Fed National Financial Conditions Index (weekly, revisable)",
+          "USREC": "NBER recession indicator (assigned retrospectively; never a PIT feature)"}
 
 
 def parse_series(payload: bytes, series: str):

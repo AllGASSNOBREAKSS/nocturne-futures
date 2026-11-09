@@ -31,5 +31,7 @@ data/shadow/**/log.jsonl
 data/shadow/task-logs/
 data/shadow/macro/
 data/research/orchestrator/
+data/research/free/
+data/research/free-studies/
 data/recovery/
 data/security/

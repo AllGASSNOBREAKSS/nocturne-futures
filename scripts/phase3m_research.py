@@ -17,6 +17,10 @@ def schedule(store, lane, bucket, index_diagnostics=False):
             previous = store.submit(kind, lane, bucket, dependencies=[previous] if previous else [], timeout=180)
     else:
         validated = store.submit("DATA_VALIDATION", lane, bucket)
+        # Phase 3U: daily free-data acquisition, then the fixed experiment, which
+        # only re-scores when collected data or code actually changed.
+        collected = store.submit("FREE_DATA_COLLECTION", lane, bucket, timeout=900, max_attempts=1)
+        store.submit("FREE_DATA_EXPERIMENT", lane, bucket, dependencies=[collected], timeout=900, max_attempts=1)
         # Phase 3N: do not keep repeating old index-context experiments merely
         # because a day passed. Retain them as an explicit diagnostic option.
         for symbol in (("^NDX", "^GSPC") if index_diagnostics else ()):

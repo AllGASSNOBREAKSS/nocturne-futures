@@ -50,7 +50,9 @@ def verified_history(root, symbol):
     return frame, manifest
 
 
-def build_dataset(frame):
+def build_dataset(frame, reserved_from=None):
+    """reserved_from defaults to the protocol holdout; Phase 3U passes its own bound."""
+    reserved_from = reserved_from or PROTOCOL["reserved_from"]
     frame = frame.sort_values("timestamp").reset_index(drop=True)
     # Incomplete observations are not replaced or forward filled into features.
     complete = frame.source_complete.astype(str).str.lower().eq("true")
@@ -70,7 +72,7 @@ def build_dataset(frame):
     out = out.replace([np.inf, -np.inf], np.nan).dropna().reset_index(drop=True)
     out = out[(out.feature_available_at < out.entry_time)
               & (out.date >= PROTOCOL["development_start"])
-              & (out.label_end < pd.Timestamp(PROTOCOL["reserved_from"], tz="UTC"))]
+              & (out.label_end < pd.Timestamp(reserved_from, tz="UTC"))]
     return out.reset_index(drop=True)
 
 
