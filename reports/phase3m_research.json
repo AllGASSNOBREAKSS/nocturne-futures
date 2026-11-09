@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-08T20:14:04.351732+00:00",
+  "generated_at": "2026-11-09T02:23:31.692081+00:00",
   "state_counts": {
-    "SUCCEEDED": 77,
+    "SUCCEEDED": 82,
     "BLOCKED": 15
   },
   "job_events": [
@@ -1327,6 +1327,76 @@
       "at": 1794168841.7813847,
       "state": "RUNNING",
       "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\3fbd05723f5a60e841733398\\\\1\"}"
+    },
+    {
+      "seq": 190,
+      "job_id": "3fbd05723f5a60e841733398",
+      "at": 1794168844.7163913,
+      "state": "SUCCEEDED",
+      "detail": "{\"status\": \"SUCCEEDED\", \"report_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\3fbd05723f5a60e841733398\\\\1\\\\research_report.json\", \"markdown_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\3fbd05723f5a60e841733398\\\\1\\\\research_report.md\", \"job_id\": \"3fbd05723f5a60e841733398\", \"kind\": \"RESEARCH_REPORT\", \"attempt\": 1, \"trading_decision\": \"NO_TRADE\"}"
+    },
+    {
+      "seq": 191,
+      "job_id": "aef7680ef54546f538a0847e",
+      "at": 1794190440.9888446,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\aef7680ef54546f538a0847e\\\\1\"}"
+    },
+    {
+      "seq": 192,
+      "job_id": "aef7680ef54546f538a0847e",
+      "at": 1794190445.1875079,
+      "state": "SUCCEEDED",
+      "detail": "{\"status\": \"SUCCEEDED\", \"coverage\": [{\"symbol\": \"ES=F\", \"kind\": \"futures_proxy\", \"rows\": 6587, \"first\": \"2000-09-18\", \"last\": \"2026-11-04\", \"span_years\": 26.13, \"raw_sha256\": \"d9775dbc800033c1edd0ba2b7719723d96cf779444f0a9ba2aaf4e928776d757\", \"normalized_sha256\": \"7fec9e2c73051e68c5f96bc4135b91b138d59c900eb8091a045241dc912b600b\"}, {\"symbol\": \"^GSPC\", \"kind\": \"index\", \"rows\": 24828, \"first\": \"1927-12-30\", \"last\": \"2026-11-03\", \"span_years\": 98.84, \"raw_sha256\": \"aa4fc9cf68342f522383170c1315114b47cf3ffffe838325559aa927ff3f622f\", \"normalized_sha256\": \"b23b5204d20c63348260412ab5fab8fd3d0fe6917b995faf5c5e26787d9f0856\"}, {\"symbol\": \"^NDX\", \"kind\": \"index\", \"rows\": 10353, \"first\": \"1985-10-01\", \"last\": \"2026-11-03\", \"span_years\": 41.09, \"raw_sha256\": \"5d7935b96df1c09a65fe71497782a6e700d4fbc9402495935ac8efe2dc2c7212\", \"normalized_sha256\": \"76af8a691b4b8af090630f002d78064f0442ebdb753c3e104b6fb6eeffdb073e\"}, {\"symbol\": \"^TNX\", \"kind\": \"rate_index\", \"rows\": 16198, \"first\": \"1962-01-02\", \"last\": \"2026-11-03\", \"span_years\": 64.84, \"raw_sha256\": \"8424f54649ed7f8275666e717f85edb69c6f162f8a112d18635aade2ebce0cac\", \"normalized_sha256\": \"248a0339e3bc0531e7ea1657f3790c22573c49c99ddb3d5b91fba809035bf385\"}, {\"symbol\": \"^VIX\", \"kind\": \"volatility_index\", \"rows\": 9280, \"first\": \"1990-01-02\", \"last\": \"2026-11-03\", \"span_years\": 36.84, \"raw_sha256\": \"5a398d98af6f95344a6de474f0e16f2d500da642dd9856d7569c1ec2f81a3b4e\", \"normalized_sha256\": \"02b14e16fadeb38d24afb55cd7adc47145dcfb30381874b73b70abb6832c7776\"}, {\"symbol\": \"NQ=F\", \"kind\": \"futures_proxy\", \"rows\": 6573, \"first\": \"2000-09-18\", \"last\": \"2026-11-04\", \"span_years\": 26.13, \"raw_sha256\": \"41ebe30d2e5ab5c8988d72274c505b631cb8846408a69861f7d15f5677b00648\", \"normalized_sha256\": \"7e03f2d9935a1844cfcb805fdfaaa742f5147a2ca6197ef4b2183ce09f3dbf94\"}, {\"symbol\": \"QQQ\", \"kind\": \"etf\", \"rows\": 6956, \"first\": \"1999-03-10\", \"last\": \"2026-11-02\", \"span_years\": 27.65, \"raw_sha256\": \"c37bc6db85710cde042684a5116f239ac77db189a278e41402c649c8a197faa8\", \"normalized_sha256\": \"66a8dc0ed31b1b97c1ca45f4d696f0f12c89008ece2622936dad4c0c1d744ef4\"}, {\"symbol\": \"SPY\", \"kind\": \"etf\", \"rows\": 8498, \"first\": \"1993-01-29\", \"last\": \"2026-11-02\", \"span_years\": 33.76, \"raw_sha256\": \"455cf2514c0133fcabf1933a55c6d07c27f13067528a84c645443e3e0993ecaf\", \"normalized_sha256\": \"a66dd7d361992fc6e53878648f1556a8679e4e72e82b8c39391b7747a56f979f\"}, {\"symbol\": \"TLT\", \"kind\": \"etf\", \"rows\": 6105, \"first\": \"2002-07-30\", \"last\": \"2026-11-02\", \"span_years\": 24.26, \"raw_sha256\": \"1f10f6f2542c9dbc1f1fbaba401347def9ec4a81da4db5485231bb4ce5bbe04e\", \"normalized_sha256\": \"2b856800d25200da2c7cf06bfdbbf13b731ec7800d42387b322946a7838da2a3\"}], \"availability\": \"historical bar-end lower bound; not release-vintage-certified PIT\", \"job_id\": \"aef7680ef54546f538a0847e\", \"kind\": \"DATA_VALIDATION\", \"attempt\": 1, \"trading_decision\": \"NO_TRADE\"}"
+    },
+    {
+      "seq": 193,
+      "job_id": "2b38f82cd432bbafd092efd2",
+      "at": 1794190445.242703,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\2b38f82cd432bbafd092efd2\\\\1\"}"
+    },
+    {
+      "seq": 194,
+      "job_id": "2b38f82cd432bbafd092efd2",
+      "at": 1794190447.9825013,
+      "state": "SUCCEEDED",
+      "detail": "{\"status\": \"SUCCEEDED\", \"report_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\2b38f82cd432bbafd092efd2\\\\1\\\\research_report.json\", \"markdown_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\2b38f82cd432bbafd092efd2\\\\1\\\\research_report.md\", \"job_id\": \"2b38f82cd432bbafd092efd2\", \"kind\": \"RESEARCH_REPORT\", \"attempt\": 1, \"trading_decision\": \"NO_TRADE\"}"
+    },
+    {
+      "seq": 195,
+      "job_id": "5148e400917e09be6fc97a62",
+      "at": 1794190943.7493653,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\5148e400917e09be6fc97a62\\\\1\"}"
+    },
+    {
+      "seq": 196,
+      "job_id": "5148e400917e09be6fc97a62",
+      "at": 1794190975.1857677,
+      "state": "SUCCEEDED",
+      "detail": "{\"status\": \"SUCCEEDED\", \"sources\": {\"fred\": \"COLLECTED\", \"cftc\": \"COLLECTED\", \"treasury\": \"COLLECTED\", \"sec\": \"COLLECTED\", \"fed\": \"COLLECTED\", \"bls\": \"COLLECTED\"}, \"revisions_detected\": {}, \"partial\": false, \"report_path\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\5148e400917e09be6fc97a62\\\\1\\\\collection.json\", \"note\": \"SUCCEEDED means at least one source collected; failed sources are listed, never hidden\", \"job_id\": \"5148e400917e09be6fc97a62\", \"kind\": \"FREE_DATA_COLLECTION\", \"attempt\": 1, \"trading_decision\": \"NO_TRADE\"}"
+    },
+    {
+      "seq": 197,
+      "job_id": "240e6bb1f5d2d8f9a7d7c802",
+      "at": 1794190975.2044573,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\240e6bb1f5d2d8f9a7d7c802\\\\1\"}"
+    },
+    {
+      "seq": 198,
+      "job_id": "240e6bb1f5d2d8f9a7d7c802",
+      "at": 1794191008.742619,
+      "state": "SUCCEEDED",
+      "detail": "{\"status\": \"SUCCEEDED\", \"fingerprint\": \"de358f794e96e44b821dea797e7b8749ccee016e5ba772e0670b5d4ab7cabead\", \"verdicts\": {\"direction_free_features\": \"INCONCLUSIVE\", \"range_free_features\": \"FAIL\"}, \"reused\": false, \"promotion\": \"NO_PROMOTION\", \"trading_decision\": \"NO_TRADE\", \"job_id\": \"240e6bb1f5d2d8f9a7d7c802\", \"kind\": \"FREE_DATA_EXPERIMENT\", \"attempt\": 1}"
+    },
+    {
+      "seq": 199,
+      "job_id": "a11962cc71bc20a287e06c43",
+      "at": 1794191008.7751448,
+      "state": "RUNNING",
+      "detail": "{\"attempt_directory\": \"D:\\\\nocturne-futures\\\\data\\\\research\\\\orchestrator\\\\attempts\\\\a11962cc71bc20a287e06c43\\\\1\"}"
     }
   ],
   "jobs": [
@@ -5302,6 +5372,229 @@
       },
       "created": 1794147240.7272213,
       "updated": 1794147242.8900743
+    },
+    {
+      "id": "3fbd05723f5a60e841733398",
+      "kind": "RESEARCH_REPORT",
+      "lane": "research",
+      "payload": {},
+      "dependencies": [],
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "max_attempts": 2,
+      "timeout": 60.0,
+      "ready_at": 1794168874.715845,
+      "result": {
+        "status": "SUCCEEDED",
+        "report_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\3fbd05723f5a60e841733398\\1\\research_report.json",
+        "markdown_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\3fbd05723f5a60e841733398\\1\\research_report.md",
+        "job_id": "3fbd05723f5a60e841733398",
+        "kind": "RESEARCH_REPORT",
+        "attempt": 1,
+        "trading_decision": "NO_TRADE"
+      },
+      "created": 1794168841.761387,
+      "updated": 1794168844.7163913
+    },
+    {
+      "id": "aef7680ef54546f538a0847e",
+      "kind": "DATA_VALIDATION",
+      "lane": "research",
+      "payload": {},
+      "dependencies": [],
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "max_attempts": 2,
+      "timeout": 300.0,
+      "ready_at": 1794190475.1870842,
+      "result": {
+        "status": "SUCCEEDED",
+        "coverage": [
+          {
+            "symbol": "ES=F",
+            "kind": "futures_proxy",
+            "rows": 6587,
+            "first": "2000-09-18",
+            "last": "2026-11-04",
+            "span_years": 26.13,
+            "raw_sha256": "d9775dbc800033c1edd0ba2b7719723d96cf779444f0a9ba2aaf4e928776d757",
+            "normalized_sha256": "7fec9e2c73051e68c5f96bc4135b91b138d59c900eb8091a045241dc912b600b"
+          },
+          {
+            "symbol": "^GSPC",
+            "kind": "index",
+            "rows": 24828,
+            "first": "1927-12-30",
+            "last": "2026-11-03",
+            "span_years": 98.84,
+            "raw_sha256": "aa4fc9cf68342f522383170c1315114b47cf3ffffe838325559aa927ff3f622f",
+            "normalized_sha256": "b23b5204d20c63348260412ab5fab8fd3d0fe6917b995faf5c5e26787d9f0856"
+          },
+          {
+            "symbol": "^NDX",
+            "kind": "index",
+            "rows": 10353,
+            "first": "1985-10-01",
+            "last": "2026-11-03",
+            "span_years": 41.09,
+            "raw_sha256": "5d7935b96df1c09a65fe71497782a6e700d4fbc9402495935ac8efe2dc2c7212",
+            "normalized_sha256": "76af8a691b4b8af090630f002d78064f0442ebdb753c3e104b6fb6eeffdb073e"
+          },
+          {
+            "symbol": "^TNX",
+            "kind": "rate_index",
+            "rows": 16198,
+            "first": "1962-01-02",
+            "last": "2026-11-03",
+            "span_years": 64.84,
+            "raw_sha256": "8424f54649ed7f8275666e717f85edb69c6f162f8a112d18635aade2ebce0cac",
+            "normalized_sha256": "248a0339e3bc0531e7ea1657f3790c22573c49c99ddb3d5b91fba809035bf385"
+          },
+          {
+            "symbol": "^VIX",
+            "kind": "volatility_index",
+            "rows": 9280,
+            "first": "1990-01-02",
+            "last": "2026-11-03",
+            "span_years": 36.84,
+            "raw_sha256": "5a398d98af6f95344a6de474f0e16f2d500da642dd9856d7569c1ec2f81a3b4e",
+            "normalized_sha256": "02b14e16fadeb38d24afb55cd7adc47145dcfb30381874b73b70abb6832c7776"
+          },
+          {
+            "symbol": "NQ=F",
+            "kind": "futures_proxy",
+            "rows": 6573,
+            "first": "2000-09-18",
+            "last": "2026-11-04",
+            "span_years": 26.13,
+            "raw_sha256": "41ebe30d2e5ab5c8988d72274c505b631cb8846408a69861f7d15f5677b00648",
+            "normalized_sha256": "7e03f2d9935a1844cfcb805fdfaaa742f5147a2ca6197ef4b2183ce09f3dbf94"
+          },
+          {
+            "symbol": "QQQ",
+            "kind": "etf",
+            "rows": 6956,
+            "first": "1999-03-10",
+            "last": "2026-11-02",
+            "span_years": 27.65,
+            "raw_sha256": "c37bc6db85710cde042684a5116f239ac77db189a278e41402c649c8a197faa8",
+            "normalized_sha256": "66a8dc0ed31b1b97c1ca45f4d696f0f12c89008ece2622936dad4c0c1d744ef4"
+          },
+          {
+            "symbol": "SPY",
+            "kind": "etf",
+            "rows": 8498,
+            "first": "1993-01-29",
+            "last": "2026-11-02",
+            "span_years": 33.76,
+            "raw_sha256": "455cf2514c0133fcabf1933a55c6d07c27f13067528a84c645443e3e0993ecaf",
+            "normalized_sha256": "a66dd7d361992fc6e53878648f1556a8679e4e72e82b8c39391b7747a56f979f"
+          },
+          {
+            "symbol": "TLT",
+            "kind": "etf",
+            "rows": 6105,
+            "first": "2002-07-30",
+            "last": "2026-11-02",
+            "span_years": 24.26,
+            "raw_sha256": "1f10f6f2542c9dbc1f1fbaba401347def9ec4a81da4db5485231bb4ce5bbe04e",
+            "normalized_sha256": "2b856800d25200da2c7cf06bfdbbf13b731ec7800d42387b322946a7838da2a3"
+          }
+        ],
+        "availability": "historical bar-end lower bound; not release-vintage-certified PIT",
+        "job_id": "aef7680ef54546f538a0847e",
+        "kind": "DATA_VALIDATION",
+        "attempt": 1,
+        "trading_decision": "NO_TRADE"
+      },
+      "created": 1794190440.9680226,
+      "updated": 1794190445.1875079
+    },
+    {
+      "id": "2b38f82cd432bbafd092efd2",
+      "kind": "RESEARCH_REPORT",
+      "lane": "research",
+      "payload": {},
+      "dependencies": [],
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "max_attempts": 2,
+      "timeout": 60.0,
+      "ready_at": 1794190477.9820154,
+      "result": {
+        "status": "SUCCEEDED",
+        "report_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\2b38f82cd432bbafd092efd2\\1\\research_report.json",
+        "markdown_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\2b38f82cd432bbafd092efd2\\1\\research_report.md",
+        "job_id": "2b38f82cd432bbafd092efd2",
+        "kind": "RESEARCH_REPORT",
+        "attempt": 1,
+        "trading_decision": "NO_TRADE"
+      },
+      "created": 1794190445.22444,
+      "updated": 1794190447.9825013
+    },
+    {
+      "id": "5148e400917e09be6fc97a62",
+      "kind": "FREE_DATA_COLLECTION",
+      "lane": "research",
+      "payload": {},
+      "dependencies": [],
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "max_attempts": 1,
+      "timeout": 900.0,
+      "ready_at": 1794191005.1852143,
+      "result": {
+        "status": "SUCCEEDED",
+        "sources": {
+          "fred": "COLLECTED",
+          "cftc": "COLLECTED",
+          "treasury": "COLLECTED",
+          "sec": "COLLECTED",
+          "fed": "COLLECTED",
+          "bls": "COLLECTED"
+        },
+        "revisions_detected": {},
+        "partial": false,
+        "report_path": "D:\\nocturne-futures\\data\\research\\orchestrator\\attempts\\5148e400917e09be6fc97a62\\1\\collection.json",
+        "note": "SUCCEEDED means at least one source collected; failed sources are listed, never hidden",
+        "job_id": "5148e400917e09be6fc97a62",
+        "kind": "FREE_DATA_COLLECTION",
+        "attempt": 1,
+        "trading_decision": "NO_TRADE"
+      },
+      "created": 1794190943.71896,
+      "updated": 1794190975.1857677
+    },
+    {
+      "id": "240e6bb1f5d2d8f9a7d7c802",
+      "kind": "FREE_DATA_EXPERIMENT",
+      "lane": "research",
+      "payload": {},
+      "dependencies": [
+        "5148e400917e09be6fc97a62"
+      ],
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "max_attempts": 1,
+      "timeout": 900.0,
+      "ready_at": 1794191038.7420228,
+      "result": {
+        "status": "SUCCEEDED",
+        "fingerprint": "de358f794e96e44b821dea797e7b8749ccee016e5ba772e0670b5d4ab7cabead",
+        "verdicts": {
+          "direction_free_features": "INCONCLUSIVE",
+          "range_free_features": "FAIL"
+        },
+        "reused": false,
+        "promotion": "NO_PROMOTION",
+        "trading_decision": "NO_TRADE",
+        "job_id": "240e6bb1f5d2d8f9a7d7c802",
+        "kind": "FREE_DATA_EXPERIMENT",
+        "attempt": 1
+      },
+      "created": 1794190943.727192,
+      "updated": 1794191008.742619
     }
   ],
   "forward_audit_snapshot": {
@@ -5402,7 +5695,7 @@
     ],
     "sample_warning": "descriptive observations only; no forward calibration or trading-edge claim",
     "trading_decision": "NO_TRADE",
-    "generated_at": "2026-11-08T19:47:16.075776+00:00",
+    "generated_at": "2026-11-09T02:17:53.946125+00:00",
     "issued": 4,
     "pending": 2,
     "baseline_sha256": "cf6984327158af5517c35ca5ad2cd2ccc865a40022e50b411f1cc5872eaf298d",
@@ -5414,7 +5707,7 @@
   },
   "historical_and_forward_metrics_separate": true,
   "shadow_operations_snapshot": {
-    "generated_at": "2026-11-08T19:47:22.718424+00:00",
+    "generated_at": "2026-11-09T02:17:22.986945+00:00",
     "status": "degraded",
     "components": {
       "service_execution": {
@@ -5487,12 +5780,12 @@
         "LATEST_CYCLE_NOT_OK"
       ],
       "cycle_execution_status": "COMPLETED",
-      "last_attempt_age_seconds": 13.323003,
+      "last_attempt_age_seconds": 13.521882,
       "scope": "Completed-cycle heartbeat is separate from data integrity and predictive readiness; not host uptime",
       "last_run": "2026-11-06T04:47:10.415251+00:00",
-      "age_hours": 63.00341754805555,
+      "age_hours": 69.50349213722222,
       "last_success": "2026-11-06T04:47:10.415251+00:00",
-      "last_attempt": "2026-11-08T19:47:09.395421+00:00",
+      "last_attempt": "2026-11-09T02:17:09.465063+00:00",
       "last_attempt_event": "CYCLE_AUDIT_FAILED",
       "forecasts": 4,
       "matured": 2,

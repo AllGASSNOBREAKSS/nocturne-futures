@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T01:47:19.061300+00:00",
+  "generated_at": "2026-11-09T02:17:22.986945+00:00",
   "status": "degraded",
   "components": {
     "service_execution": {
@@ -72,12 +72,12 @@
       "LATEST_CYCLE_NOT_OK"
     ],
     "cycle_execution_status": "COMPLETED",
-    "last_attempt_age_seconds": 10.29262,
+    "last_attempt_age_seconds": 13.521882,
     "scope": "Completed-cycle heartbeat is separate from data integrity and predictive readiness; not host uptime",
     "last_run": "2026-11-06T04:47:10.415251+00:00",
-    "age_hours": 69.00240168027779,
+    "age_hours": 69.50349213722222,
     "last_success": "2026-11-06T04:47:10.415251+00:00",
-    "last_attempt": "2026-11-09T01:47:08.768680+00:00",
+    "last_attempt": "2026-11-09T02:17:09.465063+00:00",
     "last_attempt_event": "CYCLE_AUDIT_FAILED",
     "forecasts": 4,
     "matured": 2,

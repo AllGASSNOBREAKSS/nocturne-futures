@@ -1,14 +1,14 @@
 # Research job snapshot
 
-Generated: 2026-11-08T20:14:04.351732+00:00
+Generated: 2026-11-09T02:23:31.692081+00:00
 
-States: {'SUCCEEDED': 77, 'BLOCKED': 15}
+States: {'SUCCEEDED': 82, 'BLOCKED': 15}
 
 Trading: NO_TRADE. No automatic promotions.
 
 Daily index diagnostics are not futures strategy P&L or independent validation.
 
-Shadow operations snapshot: **degraded** (as of 2026-11-08T19:47:22.718424+00:00).
+Shadow operations snapshot: **degraded** (as of 2026-11-09T02:17:22.986945+00:00).
 Open issues: ['CYCLE_UNHEALTHY', 'FORECAST_AUDIT:291aac9c9d893a888609aafd', 'FORECAST_AUDIT:cd26071237a957cd7a874933', 'OUTCOME_OVERDUE:291aac9c9d893a888609aafd']
 
 - `DATA_VALIDATION` (research): **SUCCEEDED** — `b26102aae53db5802cba4d08`
@@ -172,3 +172,17 @@ Open issues: ['CYCLE_UNHEALTHY', 'FORECAST_AUDIT:291aac9c9d893a888609aafd', 'FOR
 - `RESEARCH_REPORT` (research): **SUCCEEDED** — `c9fb40ca8c2e1b545e90ac6f`
 - `RESEARCH_REPORT` (research): **SUCCEEDED** — `1efeed912b467863bdce4b6d`
 - `RESEARCH_REPORT` (research): **SUCCEEDED** — `b07e90400976213d3f4a2b3b`
+- `RESEARCH_REPORT` (research): **SUCCEEDED** — `3fbd05723f5a60e841733398`
+- `DATA_VALIDATION` (research): **SUCCEEDED** — `aef7680ef54546f538a0847e`
+  ES=F: 6587 rows, 2000-09-18 through 2026-11-04, futures_proxy.
+  ^GSPC: 24828 rows, 1927-12-30 through 2026-11-03, index.
+  ^NDX: 10353 rows, 1985-10-01 through 2026-11-03, index.
+  ^TNX: 16198 rows, 1962-01-02 through 2026-11-03, rate_index.
+  ^VIX: 9280 rows, 1990-01-02 through 2026-11-03, volatility_index.
+  NQ=F: 6573 rows, 2000-09-18 through 2026-11-04, futures_proxy.
+  QQQ: 6956 rows, 1999-03-10 through 2026-11-02, etf.
+  SPY: 8498 rows, 1993-01-29 through 2026-11-02, etf.
+  TLT: 6105 rows, 2002-07-30 through 2026-11-02, etf.
+- `RESEARCH_REPORT` (research): **SUCCEEDED** — `2b38f82cd432bbafd092efd2`
+- `FREE_DATA_COLLECTION` (research): **SUCCEEDED** — `5148e400917e09be6fc97a62`
+- `FREE_DATA_EXPERIMENT` (research): **SUCCEEDED** — `240e6bb1f5d2d8f9a7d7c802`

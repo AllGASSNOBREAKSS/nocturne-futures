@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T01:47:08.768680+00:00",
+  "generated_at": "2026-11-09T02:17:39.928768+00:00",
   "model_id": "ndx-range-v1",
   "model_version": "1.0.0",
   "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
@@ -253,9 +253,9 @@
     "last_attempt_age_seconds": 0.0,
     "scope": "Completed-cycle heartbeat is separate from data integrity and predictive readiness; not host uptime",
     "last_run": "2026-11-06T04:47:10.415251+00:00",
-    "age_hours": 68.99954261916668,
+    "age_hours": 69.50819819916667,
     "last_success": "2026-11-06T04:47:10.415251+00:00",
-    "last_attempt": "2026-11-09T01:47:08.768680+00:00",
+    "last_attempt": "2026-11-09T02:17:39.928768+00:00",
     "last_attempt_event": "CYCLE_AUDIT_FAILED",
     "forecasts": 4,
     "matured": 2,
@@ -406,7 +406,7 @@
         "dropped_invalid_or_missing_bars": 0,
         "gap_days_median": 1.0,
         "gaps_over_5_days": 1,
-        "received_at": "2026-11-09T01:47:08.060289+00:00",
+        "received_at": "2026-11-09T02:17:39.068142+00:00",
         "availability": "next UTC midnight after the session date",
         "known_limitations": [
           "unofficial endpoint; not an exchange feed",
@@ -414,7 +414,7 @@
           "continuous futures proxies have unverified roll mapping",
           "adjusted vs unadjusted prices not distinguished by this adapter"
         ],
-        "snapshot_id": "ccd3e39d5a43f3a659ceeb5c1972d598ea1424a35e10f271faa117f20f871463"
+        "snapshot_id": "8e358f46c91e489e3481ade7ce76b86d0cd1d0fc41814ff6601d7c22430121e7"
       },
       "vix": {
         "symbol": "^VIX",
@@ -433,7 +433,7 @@
         "dropped_invalid_or_missing_bars": 331,
         "gap_days_median": 1.0,
         "gaps_over_5_days": 1,
-        "received_at": "2026-11-09T01:47:08.570656+00:00",
+        "received_at": "2026-11-09T02:17:39.688132+00:00",
         "availability": "next UTC midnight after the session date",
         "known_limitations": [
           "unofficial endpoint; not an exchange feed",
@@ -441,12 +441,12 @@
           "continuous futures proxies have unverified roll mapping",
           "adjusted vs unadjusted prices not distinguished by this adapter"
         ],
-        "snapshot_id": "43096f08a4a7392951f8bb97ed7f83ba8933665da02cca0959228490fa94086c"
+        "snapshot_id": "0fe410aa2422db5514a91bd3158e82581dcf0733f1f1d4086a0a65566712bd14"
       }
     },
     "snapshot_ids": {
-      "index": "ccd3e39d5a43f3a659ceeb5c1972d598ea1424a35e10f271faa117f20f871463",
-      "vix": "43096f08a4a7392951f8bb97ed7f83ba8933665da02cca0959228490fa94086c"
+      "index": "8e358f46c91e489e3481ade7ce76b86d0cd1d0fc41814ff6601d7c22430121e7",
+      "vix": "0fe410aa2422db5514a91bd3158e82581dcf0733f1f1d4086a0a65566712bd14"
     }
   },
   "notes": [

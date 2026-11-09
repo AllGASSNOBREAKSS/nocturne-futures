@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-09T01:47:21.125123+00:00",
+  "generated_at": "2026-11-09T02:17:26.863294+00:00",
   "shadow": {
-    "generated_at": "2026-11-09T01:47:19.061300+00:00",
+    "generated_at": "2026-11-09T02:17:22.986945+00:00",
     "status": "degraded",
     "components": {
       "service_execution": {
@@ -74,12 +74,12 @@
         "LATEST_CYCLE_NOT_OK"
       ],
       "cycle_execution_status": "COMPLETED",
-      "last_attempt_age_seconds": 10.29262,
+      "last_attempt_age_seconds": 13.521882,
       "scope": "Completed-cycle heartbeat is separate from data integrity and predictive readiness; not host uptime",
       "last_run": "2026-11-06T04:47:10.415251+00:00",
-      "age_hours": 69.00240168027779,
+      "age_hours": 69.50349213722222,
       "last_success": "2026-11-06T04:47:10.415251+00:00",
-      "last_attempt": "2026-11-09T01:47:08.768680+00:00",
+      "last_attempt": "2026-11-09T02:17:09.465063+00:00",
       "last_attempt_event": "CYCLE_AUDIT_FAILED",
       "forecasts": 4,
       "matured": 2,
@@ -157,13 +157,13 @@
   "research": {
     "components": [
       {
-        "job_id": "c537f9a0a1f9569bf271f340",
+        "job_id": "aef7680ef54546f538a0847e",
         "kind": "DATA_VALIDATION",
         "lane": "research",
         "state": "SUCCEEDED",
         "status": "HEALTHY",
         "reason": "SUCCEEDED",
-        "last_observed_at_epoch": 1794104045.4672723
+        "last_observed_at_epoch": 1794190445.1875079
       },
       {
         "job_id": "6c5abbdc35131e1c28fe4596",
@@ -265,13 +265,13 @@
         "last_observed_at_epoch": 1793844396.0760748
       },
       {
-        "job_id": "3fbd05723f5a60e841733398",
+        "job_id": "2b38f82cd432bbafd092efd2",
         "kind": "RESEARCH_REPORT",
         "lane": "research",
         "state": "SUCCEEDED",
         "status": "HEALTHY",
         "reason": "SUCCEEDED",
-        "last_observed_at_epoch": 1794168844.7163913
+        "last_observed_at_epoch": 1794190447.9825013
       },
       {
         "job_id": "7cd1831eef7b20d18ffa1825",
@@ -351,7 +351,7 @@
       "BLOCKED": 6
     },
     "historical_state_counts": {
-      "SUCCEEDED": 78,
+      "SUCCEEDED": 80,
       "BLOCKED": 15
     },
     "limits": "latest recorded result per lane/type/specification, not live host liveness or a market-data entitlement"
@@ -454,7 +454,7 @@
     ],
     "sample_warning": "descriptive observations only; no forward calibration or trading-edge claim",
     "trading_decision": "NO_TRADE",
-    "generated_at": "2026-11-09T01:47:13.885798+00:00",
+    "generated_at": "2026-11-09T02:17:16.863733+00:00",
     "issued": 4,
     "pending": 2,
     "baseline_sha256": "cf6984327158af5517c35ca5ad2cd2ccc865a40022e50b411f1cc5872eaf298d",

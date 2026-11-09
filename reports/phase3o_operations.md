@@ -1,6 +1,6 @@
 # Component health
 
-As of 2026-11-09T01:47:21.125123+00:00
+As of 2026-11-09T02:17:26.863294+00:00
 
 Core: DEGRADED
 
@@ -10,7 +10,7 @@ Core: DEGRADED
 - forecast_integrity: **BLOCKED** — see forecast audit issues; reconciliation is evidence-bound, not a health override
 - provider_refresh: **HEALTHY** — latest timestamped cycle refresh results; not an uptime guarantee
 - outcome_evaluation: **PARTIAL_QUARANTINE** — pending horizons are expected work, not fabricated outcomes; evaluation requires availability and audit gates
-- DATA_VALIDATION / c537f9a0a1f9569bf271f340: **HEALTHY** — SUCCEEDED
+- DATA_VALIDATION / aef7680ef54546f538a0847e: **HEALTHY** — SUCCEEDED
 - FEATURE_BUILD / 6c5abbdc35131e1c28fe4596: **HEALTHY** — SUCCEEDED
 - HISTORICAL_BACKTEST / 0d1c9bdb4d4add7cd173fd7d: **HEALTHY** — SUCCEEDED
 - WALK_FORWARD_VALIDATION / 777d85d11d0c796dbb875b1f: **HEALTHY** — SUCCEEDED
@@ -22,7 +22,7 @@ Core: DEGRADED
 - MODEL_TRAINING / 804c1127316b5d4e5a01d21b: **HEALTHY** — SUCCEEDED
 - MODEL_EVALUATION / 60d102ffabcb24efa44c9104: **HEALTHY** — SUCCEEDED
 - HISTORICAL_BACKTEST / 178923b71b51206a027758eb: **BLOCKED** — AUTHENTIC_CONTRACT_HISTORY_REQUIRED
-- RESEARCH_REPORT / 3fbd05723f5a60e841733398: **HEALTHY** — SUCCEEDED
+- RESEARCH_REPORT / 2b38f82cd432bbafd092efd2: **HEALTHY** — SUCCEEDED
 - DATA_REFRESH / 7cd1831eef7b20d18ffa1825: **BLOCKED** — COMPONENT_COMPLETED_WITH_QUARANTINE
 - SHADOW_FORECAST / 169fb2adcc2be9f8adef9e04: **BLOCKED** — COMPONENT_COMPLETED_WITH_QUARANTINE
 - FORECAST_MATURITY_CHECK / acf64a1af0033e46aeb84767: **BLOCKED** — COMPONENT_COMPLETED_WITH_QUARANTINE
