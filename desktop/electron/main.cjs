@@ -16,8 +16,13 @@ let token = null;
 let status = { state: "starting", detail: "Launching research backend" };
 let win = null;
 
+// Installed copies carry nocturne.json next to the executable: {"repo": "...", "python": "..."}.
+function installConfig() {
+  try { return JSON.parse(fs.readFileSync(path.join(path.dirname(process.execPath), "nocturne.json"), "utf8")); } catch { return {}; }
+}
+
 function findRepo() {
-  const candidates = [process.env.NOCTURNE_REPO, path.resolve(__dirname, "..", ".."),
+  const candidates = [process.env.NOCTURNE_REPO, installConfig().repo, path.resolve(__dirname, "..", ".."),
     path.resolve(path.dirname(process.execPath), ".."), "D:\\nocturne-futures"].filter(Boolean);
   return candidates.find((c) => fs.existsSync(path.join(c, "src", "nocturne", "desktop_server.py")));
 }
@@ -49,15 +54,23 @@ async function startBackend() {
   token = crypto.randomBytes(32).toString("base64url");
   const logPath = path.join(app.getPath("userData"), "backend.log");
   const log = fs.createWriteStream(logPath, { flags: "a" });
-  const python = process.env.NOCTURNE_PYTHON || "python";
+  const python = process.env.NOCTURNE_PYTHON || installConfig().python || "python";
   const env = { ...process.env, NOCTURNE_DESKTOP_TOKEN: token, PYTHONUNBUFFERED: "1",
     PYTHONPATH: [path.join(repo, "src"), path.join(repo, "native", "build"), process.env.PYTHONPATH].filter(Boolean).join(path.delimiter) };
   backend = spawn(python, ["-m", "nocturne.desktop_server", "--port", String(port)], { cwd: repo, env, windowsHide: true });
   backend.stdout.pipe(log);
   backend.stderr.pipe(log);
-  backend.on("exit", (code) => setStatus({ state: "stopped", detail: `Backend exited (${code}). Log: ${logPath}` }));
+  let spawnFailed = false;
+  backend.on("error", (err) => {
+    // e.g. ENOENT when NOCTURNE_PYTHON points nowhere: report it, never hang.
+    spawnFailed = true;
+    log.write(`[main] backend spawn failed: ${err.code || err.message}\n`);
+    setStatus({ state: "error", detail: `Python backend could not start (${err.code || err.message}) using "${python}". Set NOCTURNE_PYTHON to a valid interpreter. Log: ${logPath}`, logPath });
+  });
+  backend.on("exit", (code) => setStatus({ state: code === 0 ? "stopped" : "error", detail: `Backend exited (code ${code}). Log: ${logPath}`, logPath }));
   setStatus({ state: "starting", detail: `Backend starting on 127.0.0.1:${port}`, repo });
   for (let i = 0; i < 120; i++) {
+    if (spawnFailed || backend.exitCode !== null) return;
     try {
       const r = await fetch(`http://127.0.0.1:${port}/health`);
       if (r.ok) { setStatus({ state: "ready", detail: "Backend ready", port, repo, logPath }); return; }
@@ -75,7 +88,7 @@ function stopBackend() {
 
 const ALLOWED = /^\/(health|v1\/[A-Za-z0-9_\-/.]+)(\?[A-Za-z0-9_\-=&%:.,^+]*)?$/;
 
-ipcMain.handle("nocturne:request", async (_event, { method = "GET", path: p, body, raw = false }) => {
+async function request({ method = "GET", path: p, body, raw = false }) {
   if (status.state !== "ready") return { ok: false, status: 0, error: status.detail };
   if (!["GET", "POST"].includes(method) || typeof p !== "string" || !ALLOWED.test(p)) return { ok: false, status: 400, error: "request not allowed" };
   try {
@@ -90,7 +103,8 @@ ipcMain.handle("nocturne:request", async (_event, { method = "GET", path: p, bod
   } catch (e) {
     return { ok: false, status: 0, error: String(e && e.message || e) };
   }
-});
+}
+ipcMain.handle("nocturne:request", (_event, args) => request(args));
 ipcMain.handle("nocturne:status", () => status);
 ipcMain.handle("nocturne:save-file", async (_e, { name, content }) => {
   const { canceled, filePath } = await dialog.showSaveDialog(win, { defaultPath: name });
@@ -165,6 +179,11 @@ app.whenReady().then(() => {
   if (process.env.NOCTURNE_E2E) setTimeout(() => e2e(process.env.NOCTURNE_E2E), 0);
   createWindow();
   startBackend();
+  if (process.env.NOCTURNE_QA) {
+    win.webContents.once("did-finish-load", () => require("./qa.cjs")
+      .run(win, (method, p, body) => request({ method, path: p, body }), process.env.NOCTURNE_QA, process.env.NOCTURNE_QA_OUT, () => status)
+      .finally(() => app.quit()));
+  }
   if (process.env.NOCTURNE_CAPTURE) {
     const consoleLog = fs.createWriteStream(path.join(process.env.NOCTURNE_CAPTURE, "..", "renderer-console.log"));
     win.webContents.on("console-message", (_e, level, message, line, source) => consoleLog.write(`[${level}] ${message} (${source}:${line})

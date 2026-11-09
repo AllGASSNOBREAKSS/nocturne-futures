@@ -6,6 +6,7 @@ data/licensed/databento. Data is historical/delayed, never real-time.
 """
 from __future__ import annotations
 
+import hashlib
 import json
 from functools import lru_cache
 
@@ -98,14 +99,45 @@ def databento_available(root):
     return (DATABENTO / f"{root}_5m.csv.gz").exists() and (DATABENTO / "manifest.json").exists()
 
 
-@lru_cache(maxsize=12)
-def _load_databento(root, native, sha):
-    path = DATABENTO / (f"{root}_1m.csv.gz" if native == "1m" else f"{root}_{native}.csv.gz")
-    frame = pd.read_csv(path, dtype={"open": "float64", "high": "float64", "low": "float64", "close": "float64", "volume": "int64",
-                                     "instrument_id": "int64", "contract": "category"})
-    frame["timestamp"] = pd.to_datetime(frame.timestamp, utc=True)
-    roll = "roll_minute" if "roll_minute" in frame else "roll"
-    frame = frame.rename(columns={roll: "roll"})
+CACHE = ROOT / "data/licensed/databento/cache"
+COLUMNS = ("timestamp", "open", "high", "low", "close", "volume", "instrument_id", "roll")
+
+
+def _columns(root, native, sha):
+    """Column-wise .npy cache keyed by the normalized file's SHA-256; memory-mapped
+    so a chart query touches only the rows it slices (values are identical)."""
+    folder = CACHE / f"{root}_{native}_{sha[:16]}"
+    if not (folder / "done").exists():
+        path = DATABENTO / (f"{root}_1m.csv.gz" if native == "1m" else f"{root}_{native}.csv.gz")
+        if hashlib.sha256(path.read_bytes()).hexdigest() != sha:
+            raise ValueError("normalized Databento file does not match its manifest")
+        frame = pd.read_csv(path)
+        roll = "roll_minute" if "roll_minute" in frame else "roll"
+        folder.mkdir(parents=True, exist_ok=True)
+        np.save(folder / "timestamp.npy", pd.to_datetime(frame.timestamp, utc=True).dt.tz_convert(None).to_numpy("datetime64[ns]").view("int64"))
+        for col in ("open", "high", "low", "close"):
+            np.save(folder / f"{col}.npy", frame[col].to_numpy("float64"))
+        np.save(folder / "volume.npy", frame.volume.to_numpy("int64"))
+        np.save(folder / "instrument_id.npy", frame.instrument_id.to_numpy("int64"))
+        np.save(folder / "roll.npy", frame[roll].to_numpy("int8"))
+        codes, labels = pd.factorize(frame.contract.astype(str))
+        np.save(folder / "contract.npy", codes.astype("int16"))
+        (folder / "contracts.json").write_text(json.dumps(list(labels)))
+        (folder / "done").write_text(sha)
+    arrays = {c: np.load(folder / f"{c}.npy", mmap_mode="r") for c in (*COLUMNS, "contract")}
+    return arrays, json.loads((folder / "contracts.json").read_text())
+
+
+def _load_databento(root, native, sha, start=None, end=None, limit=None):
+    arrays, labels = _columns(root, native, sha)
+    ts = arrays["timestamp"]
+    lo = int(np.searchsorted(ts, pd.Timestamp(start, tz="UTC").tz_convert(None).value)) if start else 0
+    hi = int(np.searchsorted(ts, pd.Timestamp(end, tz="UTC").tz_convert(None).value)) if end else len(ts)
+    if limit and hi - lo > limit:
+        lo = hi - limit
+    frame = pd.DataFrame({c: np.asarray(arrays[c][lo:hi]) for c in COLUMNS[1:]})
+    frame.insert(0, "timestamp", pd.to_datetime(np.asarray(ts[lo:hi]), utc=True))
+    frame["contract"] = pd.Categorical.from_codes(np.asarray(arrays["contract"][lo:hi]), categories=labels)
     return frame[["timestamp", "open", "high", "low", "close", "volume", "instrument_id", "contract", "roll"]]
 
 
@@ -123,7 +155,11 @@ def bars(root, interval, start=None, end=None, limit=5000, source=None):
             raise ValueError("unsupported interval")
         manifest = json.loads((DATABENTO / "manifest.json").read_text())
         key = root if native == "1m" else f"{root}_{native}"
-        frame = _load_databento(root, native, manifest[key]["sha256"])
+        # Native intervals slice in the memory map; derived ones need whole buckets.
+        # Derived buckets need whole source bars: over-fetch by the bucket ratio plus a margin.
+        ratio = {"15m": 3, "4h": 4, "1w": 7}.get(interval, 1)
+        frame = _load_databento(root, native, manifest[key]["sha256"], start, end, limit * ratio + 2 * ratio if limit else None)
+        start = end = None
         meta = {"dataset": f"databento/GLBX.MDP3/{root}_{native}", "normalized_sha256": manifest[key]["sha256"],
                 "retrieved_at": manifest.get("generated_at"), "derived_rule": rule, "source": "databento",
                 "license": "licensed; private display only", "freshness": "HISTORICAL_NOT_REALTIME"}

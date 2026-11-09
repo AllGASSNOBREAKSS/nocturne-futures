@@ -1,0 +1,1305 @@
+{
+  "generated_at": "2026-11-09T06:40:32.524189+00:00",
+  "harness": "desktop/electron/qa.cjs driving the real Electron renderer (click by visible text, fill by field label)",
+  "runs": {
+    "phase4c-acceptance-run-1": {
+      "passed": 124,
+      "failed": 0,
+      "started": "2026-11-09T06:11:15.519Z",
+      "finished": "2026-11-09T06:15:55.314Z",
+      "steps": [
+        {
+          "index": 0,
+          "status": "PASS",
+          "ms": 6081,
+          "action": {
+            "nav": "/",
+            "shot": "A0-overview"
+          }
+        },
+        {
+          "index": 1,
+          "status": "PASS",
+          "ms": 1,
+          "action": {}
+        },
+        {
+          "index": 2,
+          "status": "PASS",
+          "ms": 31,
+          "action": {
+            "api": {
+              "path": "/v1/markets/NQ/regime"
+            }
+          }
+        },
+        {
+          "index": 3,
+          "status": "PASS",
+          "ms": 5018,
+          "action": {
+            "nav": "/market"
+          }
+        },
+        {
+          "index": 4,
+          "status": "PASS",
+          "ms": 2,
+          "action": {
+            "click": "NQ"
+          }
+        },
+        {
+          "index": 5,
+          "status": "PASS",
+          "ms": 3071,
+          "action": {
+            "click": "DATABENTO",
+            "shot": "A1-market-nq-5m-databento"
+          }
+        },
+        {
+          "index": 6,
+          "status": "PASS",
+          "ms": 3596,
+          "action": {
+            "click": "1D",
+            "shot": "A2-market-nq-1d"
+          }
+        },
+        {
+          "index": 7,
+          "status": "PASS",
+          "ms": 3561,
+          "action": {
+            "click": "1H",
+            "shot": "A3-market-nq-1h"
+          }
+        },
+        {
+          "index": 8,
+          "status": "PASS",
+          "ms": 4076,
+          "action": {
+            "click": "1M",
+            "shot": "A4-market-nq-1m"
+          }
+        },
+        {
+          "index": 9,
+          "status": "PASS",
+          "ms": 3592,
+          "action": {
+            "click": "ES",
+            "shot": "A5-market-es-1m"
+          }
+        },
+        {
+          "index": 10,
+          "status": "PASS",
+          "ms": 3571,
+          "action": {
+            "click": "YAHOO",
+            "shot": "A6-market-es-1m-yahoo"
+          }
+        },
+        {
+          "index": 11,
+          "status": "PASS",
+          "ms": 7,
+          "action": {
+            "click": "NQ"
+          }
+        },
+        {
+          "index": 12,
+          "status": "PASS",
+          "ms": 21,
+          "action": {
+            "click": "DATABENTO"
+          }
+        },
+        {
+          "index": 13,
+          "status": "PASS",
+          "ms": 3077,
+          "action": {
+            "click": "5M"
+          }
+        },
+        {
+          "index": 14,
+          "status": "PASS",
+          "ms": 1,
+          "action": {
+            "read": "Levels"
+          }
+        },
+        {
+          "index": 15,
+          "status": "PASS",
+          "ms": 4013,
+          "action": {
+            "api": {
+              "path": "/v1/levels/NQ"
+            }
+          }
+        },
+        {
+          "index": 16,
+          "status": "PASS",
+          "ms": 18,
+          "action": {
+            "api": {
+              "path": "/v1/markets/NQ/bars?interval=5m&limit=300&source=databento"
+            }
+          }
+        },
+        {
+          "index": 17,
+          "status": "PASS",
+          "ms": 848,
+          "action": {
+            "api": {
+              "path": "/v1/markets/NQ/bars?interval=1m&limit=50000&source=databento"
+            }
+          }
+        },
+        {
+          "index": 18,
+          "status": "PASS",
+          "ms": 999,
+          "action": {
+            "api": {
+              "path": "/v1/markets/NQ/bars?interval=5m&limit=50000&source=databento"
+            }
+          }
+        },
+        {
+          "index": 19,
+          "status": "PASS",
+          "ms": 73,
+          "action": {
+            "api": {
+              "path": "/v1/markets/NQ/indicators?interval=5m&limit=3000&source=databento&names=vwap,sma:50,rsi:14"
+            }
+          }
+        },
+        {
+          "index": 20,
+          "status": "PASS",
+          "ms": 40,
+          "action": {
+            "api": {
+              "path": "/v1/levels/ES"
+            }
+          }
+        },
+        {
+          "index": 21,
+          "status": "PASS",
+          "ms": 360,
+          "action": {
+            "api": {
+              "path": "/v1/intel"
+            }
+          }
+        },
+        {
+          "index": 22,
+          "status": "PASS",
+          "ms": 135,
+          "action": {
+            "api": {
+              "path": "/v1/operations"
+            }
+          }
+        },
+        {
+          "index": 23,
+          "status": "PASS",
+          "ms": 3016,
+          "action": {
+            "nav": "/models"
+          }
+        },
+        {
+          "index": 24,
+          "status": "PASS",
+          "ms": 2,
+          "action": {
+            "click": "DATABENTO 2010\u00e2\u20ac\u201c2026"
+          }
+        },
+        {
+          "index": 25,
+          "status": "PASS",
+          "ms": 8,
+          "action": {
+            "fill": "Experiment name"
+          }
+        },
+        {
+          "index": 26,
+          "status": "PASS",
+          "ms": 2,
+          "action": {
+            "fill": "Prediction objective"
+          }
+        },
+        {
+          "index": 27,
+          "status": "PASS",
+          "ms": 3,
+          "action": {
+            "fill": "Model family"
+          }
+        },
+        {
+          "index": 28,
+          "status": "PASS",
+          "ms": 3,
+          "action": {
+            "click": "intraday"
+          }
+        },
+        {
+          "index": 29,
+          "status": "PASS",
+          "ms": 1,
+          "action": {
+            "click": "Start training"
+          }
+        },
+        {
+          "index": 30,
+          "status": "PASS",
+          "ms": 10129,
+          "action": {
+            "waitJob": "QA NQ expansion LGBM"
+          }
+        },
+        {
+          "index": 31,
+          "status": "PASS",
+          "ms": 4008,
+          "action": {
+            "click": "QA NQ expansion LGBM"
+          }
+        },
+        {
+          "index": 32,
+          "status": "PASS",
+          "ms": 48,
+          "action": {
+            "read": "Experiment detail",
+            "shot": "B1-model-detail-expansion"
+          }
+        },
+        {
+          "index": 33,
+          "status": "PASS",
+          "ms": 2,
+          "action": {
+            "click": "Save config"
+          }
+        },
+        {
+          "index": 34,
+          "status": "PASS",
+          "ms": 1011,
+          "action": {
+            "waitText": "Saved QA NQ expansion LGBM"
+          }
+        },
+        {
+          "index": 35,
+          "status": "PASS",
+          "ms": 5,
+          "action": {
+            "fill": "Experiment name"
+          }
+        },
+        {
+          "index": 36,
+          "status": "PASS",
+          "ms": 6,
+          "action": {
+            "fill": "Prediction objective"
+          }
+        },
+        {
+          "index": 37,
+          "status": "PASS",
+          "ms": 17,
+          "action": {
+            "fill": "Geometry \u00c2\u00b7 side (ATR multiples)"
+          }
+        },
+        {
+          "index": 38,
+          "status": "PASS",
+          "ms": 4,
+          "action": {
+            "click": "Start training"
+          }
+        },
+        {
+          "index": 39,
+          "status": "PASS",
+          "ms": 12161,
+          "action": {
+            "waitJob": "QA NQ TBS long 0.5x0.25 LGBM"
+          }
+        },
+        {
+          "index": 40,
+          "status": "PASS",
+          "ms": 4064,
+          "action": {
+            "click": "QA NQ TBS long 0.5x0.25 LGBM",
+            "shot": "B2-model-detail-tbs"
+          }
+        },
+        {
+          "index": 41,
+          "status": "PASS",
+          "ms": 7,
+          "action": {
+            "fill": "First test yr"
+          }
+        },
+        {
+          "index": 42,
+          "status": "PASS",
+          "ms": 4,
+          "action": {
+            "click": "Start training"
+          }
+        },
+        {
+          "index": 43,
+          "status": "PASS",
+          "ms": 1077,
+          "action": {
+            "waitText": "test years must satisfy",
+            "shot": "J1-invalid-config-error"
+          }
+        },
+        {
+          "index": 44,
+          "status": "PASS",
+          "ms": 5,
+          "action": {
+            "fill": "First test yr"
+          }
+        },
+        {
+          "index": 45,
+          "status": "PASS",
+          "ms": 7,
+          "action": {
+            "fill": "Experiment name"
+          }
+        },
+        {
+          "index": 46,
+          "status": "PASS",
+          "ms": 7,
+          "action": {
+            "fill": "Prediction objective"
+          }
+        },
+        {
+          "index": 47,
+          "status": "PASS",
+          "ms": 12,
+          "action": {
+            "fill": "Model family"
+          }
+        },
+        {
+          "index": 48,
+          "status": "PASS",
+          "ms": 7,
+          "action": {
+            "fill": "Trees"
+          }
+        },
+        {
+          "index": 49,
+          "status": "PASS",
+          "ms": 8,
+          "action": {
+            "click": "rates credit"
+          }
+        },
+        {
+          "index": 50,
+          "status": "PASS",
+          "ms": 6,
+          "action": {
+            "click": "positioning"
+          }
+        },
+        {
+          "index": 51,
+          "status": "PASS",
+          "ms": 6006,
+          "action": {
+            "click": "Start training"
+          }
+        },
+        {
+          "index": 52,
+          "status": "PASS",
+          "ms": 2006,
+          "action": {
+            "click": "QA cancel RF"
+          }
+        },
+        {
+          "index": 53,
+          "status": "PASS",
+          "ms": 1,
+          "action": {
+            "click": "Cancel"
+          }
+        },
+        {
+          "index": 54,
+          "status": "PASS",
+          "ms": 2105,
+          "action": {
+            "waitJob": "QA cancel RF",
+            "shot": "B3-cancelled"
+          }
+        },
+        {
+          "index": 55,
+          "status": "PASS",
+          "ms": 3024,
+          "action": {
+            "nav": "/lab"
+          }
+        },
+        {
+          "index": 56,
+          "status": "PASS",
+          "ms": 4,
+          "action": {
+            "fill": "Algorithm"
+          }
+        },
+        {
+          "index": 57,
+          "status": "PASS",
+          "ms": 5,
+          "action": {
+            "fill": "Strategy name"
+          }
+        },
+        {
+          "index": 58,
+          "status": "PASS",
+          "ms": 2,
+          "action": {
+            "fill": "Data source"
+          }
+        },
+        {
+          "index": 59,
+          "status": "PASS",
+          "ms": 1,
+          "action": {
+            "click": "Backtest"
+          }
+        },
+        {
+          "index": 60,
+          "status": "PASS",
+          "ms": 113152,
+          "action": {
+            "waitJob": "QA VWAP pullback NQ 16y"
+          }
+        },
+        {
+          "index": 61,
+          "status": "PASS",
+          "ms": 5058,
+          "action": {
+            "shot": "C1-backtest-vwap-16y"
+          }
+        },
+        {
+          "index": 62,
+          "status": "PASS",
+          "ms": 1,
+          "action": {}
+        },
+        {
+          "index": 63,
+          "status": "PASS",
+          "ms": 3039,
+          "action": {
+            "nav": "/lab"
+          }
+        },
+        {
+          "index": 64,
+          "status": "PASS",
+          "ms": 3,
+          "action": {
+            "fill": "Algorithm"
+          }
+        },
+        {
+          "index": 65,
+          "status": "PASS",
+          "ms": 2,
+          "action": {
+            "fill": "Strategy name"
+          }
+        },
+        {
+          "index": 66,
+          "status": "PASS",
+          "ms": 2,
+          "action": {
+            "fillSel": "[data-qa=cond-0-left]"
+          }
+        },
+        {
+          "index": 67,
+          "status": "PASS",
+          "ms": 1,
+          "action": {
+            "fillSel": "[data-qa=cond-0-op]"
+          }
+        },
+        {
+          "index": 68,
+          "status": "PASS",
+          "ms": 1,
+          "action": {
+            "fillSel": "[data-qa=cond-0-right]"
+          }
+        },
+        {
+          "index": 69,
+          "status": "PASS",
+          "ms": 2,
+          "action": {
+            "fillSel": "[data-qa=cond-1-left]"
+          }
+        },
+        {
+          "index": 70,
+          "status": "PASS",
+          "ms": 2,
+          "action": {
+            "fillSel": "[data-qa=cond-1-op]"
+          }
+        },
+        {
+          "index": 71,
+          "status": "PASS",
+          "ms": 1,
+          "action": {
+            "fillSel": "[data-qa=cond-1-right]"
+          }
+        },
+        {
+          "index": 72,
+          "status": "PASS",
+          "ms": 2,
+          "action": {
+            "fillSel": "[data-qa=cond-1-right-num]"
+          }
+        },
+        {
+          "index": 73,
+          "status": "PASS",
+          "ms": 3,
+          "action": {
+            "click": "Add condition"
+          }
+        },
+        {
+          "index": 74,
+          "status": "PASS",
+          "ms": 4,
+          "action": {
+            "fillSel": "[data-qa=cond-2-left]"
+          }
+        },
+        {
+          "index": 75,
+          "status": "PASS",
+          "ms": 1,
+          "action": {
+            "fillSel": "[data-qa=cond-2-op]"
+          }
+        },
+        {
+          "index": 76,
+          "status": "PASS",
+          "ms": 2,
+          "action": {
+            "fillSel": "[data-qa=cond-2-right]"
+          }
+        },
+        {
+          "index": 77,
+          "status": "PASS",
+          "ms": 3,
+          "action": {
+            "fill": "Targets (R, comma)"
+          }
+        },
+        {
+          "index": 78,
+          "status": "PASS",
+          "ms": 3,
+          "action": {
+            "fill": "Max hold (bars)"
+          }
+        },
+        {
+          "index": 79,
+          "status": "PASS",
+          "ms": 2,
+          "action": {
+            "fill": "Contracts"
+          }
+        },
+        {
+          "index": 80,
+          "status": "PASS",
+          "ms": 3,
+          "action": {
+            "fill": "Start (UTC)"
+          }
+        },
+        {
+          "index": 81,
+          "status": "PASS",
+          "ms": 3,
+          "action": {
+            "fill": "Data source"
+          }
+        },
+        {
+          "index": 82,
+          "status": "PASS",
+          "ms": 2,
+          "action": {
+            "click": "Save version"
+          }
+        },
+        {
+          "index": 83,
+          "status": "PASS",
+          "ms": 1063,
+          "action": {
+            "waitText": "Saved QA trend continuation NQ",
+            "shot": "D1-rule-saved"
+          }
+        },
+        {
+          "index": 84,
+          "status": "PASS",
+          "ms": 1,
+          "action": {
+            "click": "Backtest"
+          }
+        },
+        {
+          "index": 85,
+          "status": "PASS",
+          "ms": 8154,
+          "action": {
+            "waitJob": "QA trend continuation NQ"
+          }
+        },
+        {
+          "index": 86,
+          "status": "PASS",
+          "ms": 5066,
+          "action": {
+            "shot": "D2-rule-backtest"
+          }
+        },
+        {
+          "index": 87,
+          "status": "PASS",
+          "ms": 3045,
+          "action": {
+            "nav": "/lab"
+          }
+        },
+        {
+          "index": 88,
+          "status": "PASS",
+          "ms": 3,
+          "action": {
+            "fill": "Algorithm"
+          }
+        },
+        {
+          "index": 89,
+          "status": "PASS",
+          "ms": 2,
+          "action": {
+            "fill": "Strategy name"
+          }
+        },
+        {
+          "index": 90,
+          "status": "PASS",
+          "ms": 3,
+          "action": {
+            "click": "ES"
+          }
+        },
+        {
+          "index": 91,
+          "status": "PASS",
+          "ms": 2,
+          "action": {
+            "fillSel": "[data-qa=cond-0-left]"
+          }
+        },
+        {
+          "index": 92,
+          "status": "PASS",
+          "ms": 2,
+          "action": {
+            "fillSel": "[data-qa=cond-0-op]"
+          }
+        },
+        {
+          "index": 93,
+          "status": "PASS",
+          "ms": 2,
+          "action": {
+            "fillSel": "[data-qa=cond-0-right]"
+          }
+        },
+        {
+          "index": 94,
+          "status": "PASS",
+          "ms": 3,
+          "action": {
+            "fillSel": "[data-qa=cond-1-left]"
+          }
+        },
+        {
+          "index": 95,
+          "status": "PASS",
+          "ms": 5,
+          "action": {
+            "fillSel": "[data-qa=cond-1-op]"
+          }
+        },
+        {
+          "index": 96,
+          "status": "PASS",
+          "ms": 16,
+          "action": {
+            "fillSel": "[data-qa=cond-1-right]"
+          }
+        },
+        {
+          "index": 97,
+          "status": "PASS",
+          "ms": 5,
+          "action": {
+            "fillSel": "[data-qa=cond-1-right-num]"
+          }
+        },
+        {
+          "index": 98,
+          "status": "PASS",
+          "ms": 4,
+          "action": {
+            "fill": "Targets (R, comma)"
+          }
+        },
+        {
+          "index": 99,
+          "status": "PASS",
+          "ms": 5,
+          "action": {
+            "fill": "Start (UTC)"
+          }
+        },
+        {
+          "index": 100,
+          "status": "PASS",
+          "ms": 7,
+          "action": {
+            "fill": "Data source"
+          }
+        },
+        {
+          "index": 101,
+          "status": "PASS",
+          "ms": 1,
+          "action": {
+            "click": "Save version"
+          }
+        },
+        {
+          "index": 102,
+          "status": "PASS",
+          "ms": 1008,
+          "action": {
+            "waitText": "Saved QA consolidation breakout ES"
+          }
+        },
+        {
+          "index": 103,
+          "status": "PASS",
+          "ms": 0,
+          "action": {
+            "click": "Backtest"
+          }
+        },
+        {
+          "index": 104,
+          "status": "PASS",
+          "ms": 10163,
+          "action": {
+            "waitJob": "QA consolidation breakout ES"
+          }
+        },
+        {
+          "index": 105,
+          "status": "PASS",
+          "ms": 6062,
+          "action": {
+            "nav": "/signals",
+            "shot": "E1-signals"
+          }
+        },
+        {
+          "index": 106,
+          "status": "PASS",
+          "ms": 4013,
+          "action": {
+            "nav": "/predictions"
+          }
+        },
+        {
+          "index": 107,
+          "status": "PASS",
+          "ms": 1,
+          "action": {
+            "click": "Issue next-session forecast"
+          }
+        },
+        {
+          "index": 108,
+          "status": "PASS",
+          "ms": 1069,
+          "action": {
+            "waitText": "outcomes evaluated",
+            "shot": "F1-prediction-issued"
+          }
+        },
+        {
+          "index": 109,
+          "status": "PASS",
+          "ms": 560,
+          "action": {
+            "api": {
+              "path": "/v1/forecasts/sessions?root=NQ"
+            }
+          }
+        },
+        {
+          "index": 110,
+          "status": "PASS",
+          "ms": 4094,
+          "action": {
+            "nav": "/performance",
+            "shot": "P1-performance"
+          }
+        },
+        {
+          "index": 111,
+          "status": "PASS",
+          "ms": 4095,
+          "action": {
+            "nav": "/intel",
+            "shot": "I1-intel"
+          }
+        },
+        {
+          "index": 112,
+          "status": "PASS",
+          "ms": 5100,
+          "action": {
+            "nav": "/ops",
+            "shot": "O1-ops"
+          }
+        },
+        {
+          "index": 113,
+          "status": "PASS",
+          "ms": 4,
+          "action": {
+            "api": {
+              "method": "POST",
+              "path": "/v1/backtests",
+              "body": {
+                "root": "XX"
+              }
+            }
+          }
+        },
+        {
+          "index": 114,
+          "status": "PASS",
+          "ms": 7,
+          "action": {
+            "api": {
+              "path": "/v1/markets/NQ/bars?interval=7m"
+            }
+          }
+        },
+        {
+          "index": 115,
+          "status": "PASS",
+          "ms": 5,
+          "action": {
+            "api": {
+              "path": "/v1/backtests/ffffffffffffffffffffffff"
+            }
+          }
+        },
+        {
+          "index": 116,
+          "status": "PASS",
+          "ms": 3024,
+          "action": {
+            "nav": "/models"
+          }
+        },
+        {
+          "index": 117,
+          "status": "PASS",
+          "ms": 4,
+          "action": {
+            "click": "DATABENTO 2010\u00e2\u20ac\u201c2026"
+          }
+        },
+        {
+          "index": 118,
+          "status": "PASS",
+          "ms": 7,
+          "action": {
+            "fill": "Experiment name"
+          }
+        },
+        {
+          "index": 119,
+          "status": "PASS",
+          "ms": 2,
+          "action": {
+            "fill": "Prediction objective"
+          }
+        },
+        {
+          "index": 120,
+          "status": "PASS",
+          "ms": 4,
+          "action": {
+            "fill": "Model family"
+          }
+        },
+        {
+          "index": 121,
+          "status": "PASS",
+          "ms": 3,
+          "action": {
+            "fill": "Trees"
+          }
+        },
+        {
+          "index": 122,
+          "status": "PASS",
+          "ms": 2,
+          "action": {
+            "click": "rates credit"
+          }
+        },
+        {
+          "index": 123,
+          "status": "PASS",
+          "ms": 8012,
+          "action": {
+            "click": "Start training"
+          }
+        }
+      ]
+    },
+    "phase4c-acceptance-run-2-restart": {
+      "passed": 16,
+      "failed": 0,
+      "started": "2026-11-09T06:16:17.335Z",
+      "finished": "2026-11-09T06:16:54.984Z",
+      "steps": [
+        {
+          "index": 0,
+          "status": "PASS",
+          "ms": 5025,
+          "action": {
+            "nav": "/lab"
+          }
+        },
+        {
+          "index": 1,
+          "status": "PASS",
+          "ms": 2,
+          "action": {
+            "waitText": "QA trend continuation NQ"
+          }
+        },
+        {
+          "index": 2,
+          "status": "PASS",
+          "ms": 59,
+          "action": {
+            "waitText": "QA consolidation breakout ES",
+            "shot": "I1-restart-saved-strategies"
+          }
+        },
+        {
+          "index": 3,
+          "status": "PASS",
+          "ms": 4016,
+          "action": {
+            "nav": "/models"
+          }
+        },
+        {
+          "index": 4,
+          "status": "PASS",
+          "ms": 1,
+          "action": {
+            "waitText": "QA NQ expansion LGBM"
+          }
+        },
+        {
+          "index": 5,
+          "status": "PASS",
+          "ms": 4012,
+          "action": {
+            "click": "QA NQ expansion LGBM"
+          }
+        },
+        {
+          "index": 6,
+          "status": "PASS",
+          "ms": 44,
+          "action": {
+            "read": "Experiment detail",
+            "shot": "I2-restart-experiment"
+          }
+        },
+        {
+          "index": 7,
+          "status": "PASS",
+          "ms": 5,
+          "action": {
+            "waitText": "QA NQ expansion LGBM"
+          }
+        },
+        {
+          "index": 8,
+          "status": "PASS",
+          "ms": 4019,
+          "action": {
+            "nav": "/backtests"
+          }
+        },
+        {
+          "index": 9,
+          "status": "PASS",
+          "ms": 4,
+          "action": {
+            "waitText": "QA VWAP pullback NQ 16y"
+          }
+        },
+        {
+          "index": 10,
+          "status": "PASS",
+          "ms": 6134,
+          "action": {
+            "click": "QA VWAP pullback NQ 16y",
+            "shot": "I3-restart-backtest"
+          }
+        },
+        {
+          "index": 11,
+          "status": "PASS",
+          "ms": 1,
+          "action": {}
+        },
+        {
+          "index": 12,
+          "status": "PASS",
+          "ms": 15,
+          "action": {
+            "api": {
+              "path": "/v1/training-jobs"
+            }
+          }
+        },
+        {
+          "index": 13,
+          "status": "PASS",
+          "ms": 12,
+          "action": {
+            "api": {
+              "path": "/v1/models"
+            }
+          }
+        },
+        {
+          "index": 14,
+          "status": "PASS",
+          "ms": 5111,
+          "action": {
+            "nav": "/ops",
+            "shot": "I4-restart-ops"
+          }
+        },
+        {
+          "index": 15,
+          "status": "PASS",
+          "ms": 6094,
+          "action": {
+            "nav": "/market",
+            "shot": "I5-restart-market"
+          }
+        }
+      ]
+    },
+    "phase4c-acceptance-run-3-startup-failure": {
+      "passed": 2,
+      "failed": 0,
+      "started": "2026-11-09T06:19:31.329Z",
+      "finished": "2026-11-09T06:19:34.451Z",
+      "steps": [
+        {
+          "index": 0,
+          "status": "PASS",
+          "ms": 3040,
+          "action": {}
+        },
+        {
+          "index": 1,
+          "status": "PASS",
+          "ms": 81,
+          "action": {
+            "shot": "J3-backend-start-failure"
+          }
+        }
+      ]
+    }
+  },
+  "jobs_from_ui": {
+    "job_ml_expansion": {
+      "state": "SUCCEEDED",
+      "seconds": 10.1,
+      "verdict": "ACCEPT_RESEARCH_ONLY",
+      "reason": null,
+      "trades": null,
+      "net": null
+    },
+    "job_ml_tbs": {
+      "state": "SUCCEEDED",
+      "seconds": 12.2,
+      "verdict": "REJECT",
+      "reason": null,
+      "trades": null,
+      "net": null
+    },
+    "job_cancel": {
+      "state": "FAILED",
+      "seconds": 2.1,
+      "verdict": null,
+      "reason": "CANCELLED_BY_USER",
+      "trades": null,
+      "net": null
+    },
+    "job_bt_vwap": {
+      "state": "SUCCEEDED",
+      "seconds": 113.2,
+      "verdict": "REJECTED",
+      "reason": null,
+      "trades": 3607,
+      "net": -153541.46
+    },
+    "job_bt_rule": {
+      "state": "SUCCEEDED",
+      "seconds": 8.2,
+      "verdict": "REJECTED",
+      "reason": null,
+      "trades": 738,
+      "net": -100820
+    },
+    "job_bt_consolidation": {
+      "state": "SUCCEEDED",
+      "seconds": 10.2,
+      "verdict": "REJECTED",
+      "reason": null,
+      "trades": 1171,
+      "net": -28097.5
+    }
+  },
+  "parity": {
+    "ui_ticker_vs_api_close": [
+      "27,107.50",
+      27107.5
+    ],
+    "chart_bars_vs_normalized_store": "300/300 exact OHLCV (checked offline against data/licensed normalized table)",
+    "levels_shown_vs_api": "17/17",
+    "experiment_detail_vs_report": "5/5 metrics (dev/holdout AUC, Brier, deltas)",
+    "ledger_title_vs_api_trades": [
+      "Trade ledger (3607)",
+      3607
+    ],
+    "vwap_16y_ui_vs_phase4_script": "3,607 trades, -$153,541.46 identical",
+    "detail_identical_after_restart": true,
+    "ledger_after_restart": "Trade ledger (3607)"
+  },
+  "latency_ms": {
+    "perf_bars_1m_50k": 848,
+    "perf_bars_5m_50k": 997,
+    "perf_indicators": 72,
+    "perf_levels": 39,
+    "perf_intel": 359,
+    "perf_operations": 135
+  },
+  "failure_handling": {
+    "invalid_ui_config": "error text shown (test years must satisfy ...)",
+    "invalid_api_backtest": {
+      "status": "REJECTED",
+      "errors": [
+        "instrument must be NQ or ES",
+        "interval must be one of ('1m', '5m', '15m', '1h')",
+        "unknown strategy type"
+      ]
+    },
+    "bad_interval_status": 422,
+    "missing_job_status": 404,
+    "backend_start_failure": "_PYTHON to a valid interpreter. Log: C:\\Users\\huzai\\AppData\\Roaming\\nocturne-terminal\\backend.log\nOpen backend log\nBACKEND ERROR\nWORKER \u00e2\u20ac\u201d\n0 JOBS ACTIVE\nREFRESH IDLE\nHISTORICAL /",
+    "worker_hard_kill": "FAILED / INTERRUPTED_PROCESS_RECOVERY",
+    "orphaned_worker_after_app_exit": "completed; next tick recorded SUCCEEDED"
+  },
+  "shadow_journals_unchanged": true
+}

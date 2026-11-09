@@ -11,7 +11,26 @@ export default function Performance() {
   const models = useApi<any>("/v1/models");
   return (
     <div className="grid min-h-full grid-cols-12 gap-3">
-      <Panel title={`Historical walk-forward — ${root} (retrospective)`} code="HIST" className="col-span-12"
+      <Panel title="Authentic Databento walk-forward — Phase 4C sweep (2012–2026, holdout 2023+ reused)" code="DB" className="col-span-12" accent="info">
+        <Query q={research}>{(r) => r.phase4c_ml ? (
+          <>
+            <div className="mb-2 flex gap-2">{Object.entries(r.phase4c_ml.verdicts).map(([k, v]: any) => <Badge key={k}>{`${k} ${v}`}</Badge>)}</div>
+            <Table dense maxRows={200} rows={r.phase4c_ml.rows.filter((x: any) => x.group === "main" && x.development)} columns={[
+              { key: "root", label: "Root" },
+              { key: "o", label: "Objective", render: (x: any) => `${x.objective.replaceAll("_", " ")}${x.threshold_points ? " " + x.threshold_points : ""}${x.threshold_atr ? " " + x.threshold_atr + "×ATR" : ""}${x.geometry ? ` ${x.side} ${x.geometry}` : ""}` },
+              { key: "model", label: "Model" },
+              { key: "auc", label: "Dev AUC", align: "right", render: (x: any) => num(x.development.auc, 3) },
+              { key: "bal", label: "Bal. acc", align: "right", render: (x: any) => num(x.development.balanced_accuracy, 3) },
+              { key: "brier", label: "Brier (base)", align: "right", render: (x: any) => x.development.brier != null ? `${num(x.development.brier, 4)} (${num(x.development.baseline_brier, 4)})` : `${num(x.development.pinball, 1)} (${num(x.development.baseline_pinball, 1)})` },
+              { key: "ll", label: "Log loss", align: "right", render: (x: any) => num(x.development.log_loss, 3) },
+              { key: "d", label: "Dev Δ [CI]", align: "right", render: (x: any) => <span className={x.development.delta < 0 ? "text-up" : "text-down"}>{signed(x.development.delta)} [{signed(x.development.ci95?.[0])}, {signed(x.development.ci95?.[1])}]</span> },
+              { key: "h", label: "Hold Δ", align: "right", render: (x: any) => <span className={(x.holdout?.delta ?? 0) < 0 ? "text-up" : "text-down"}>{signed(x.holdout?.delta)}</span> },
+              { key: "cal", label: "Cal. gap", align: "right", render: (x: any) => num(x.development.max_calibration_gap, 3) },
+              { key: "v", label: "Verdict", render: (x: any) => <Badge>{x.verdict}</Badge> }]} />
+          </>
+        ) : <div className="font-mono text-xs text-ink-400">Phase 4C sweep not run yet.</div>}</Query>
+      </Panel>
+      <Panel title={`Phase 3V Yahoo-proxy walk-forward — ${root} (retrospective, superseded by Databento above)`} code="HIST" className="col-span-12"
         actions={<Segmented value={root} options={["NQ", "ES"] as const} onChange={setRoot} />}>
         <Query q={research}>{(r) => {
           const tasks = r.phase3v?.[root]?.tasks ?? {};

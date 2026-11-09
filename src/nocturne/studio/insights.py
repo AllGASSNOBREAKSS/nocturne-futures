@@ -139,7 +139,8 @@ def research():
             "phase3u_backtest": (_report("phase3u_backtest.json") or {}).get("results", {}).get("verdicts"),
             "strategies": _report("phase3v_strategies.json"), "signal_ranking": _report("phase3v_signal_ranking.json"),
             "ndx_shadow": _report("phase3u_forward.json"),
-            "phase4_backtests": _report("phase4_backtests.json"), "phase4_target_study": _report("phase4_target_study.json")}
+            "phase4_backtests": _report("phase4_backtests.json"), "phase4_target_study": _report("phase4_target_study.json"),
+            "phase4c_ml": _report("phase4c_ml.json"), "phase4c_signals": _report("phase4c_signals.json")}
 
 
 def _slug(name):

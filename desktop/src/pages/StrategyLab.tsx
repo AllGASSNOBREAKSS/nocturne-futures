@@ -16,19 +16,19 @@ const DEFAULT_RULE = {
   ] as Cond[],
 };
 
-function RefEditor({ value, onChange, catalog, allowNumber }: { value: Ref; onChange: (r: Ref) => void; catalog: any; allowNumber?: boolean }) {
+function RefEditor({ value, onChange, catalog, allowNumber, qa }: { value: Ref; onChange: (r: Ref) => void; catalog: any; allowNumber?: boolean; qa: string }) {
   const isNum = typeof value === "number";
   const spec = !isNum ? catalog[(value as any).indicator] : null;
   return (
     <div className="flex min-w-0 flex-1 items-center gap-1">
-      <Select className="h-7 min-w-[140px] flex-1 text-[11px]" value={isNum ? "__number" : (value as any).indicator}
+      <Select data-qa={qa} className="h-7 min-w-[140px] flex-1 text-[11px]" value={isNum ? "__number" : (value as any).indicator}
         onChange={(e) => onChange(e.target.value === "__number" ? 50 : { indicator: e.target.value })}>
         {allowNumber && <option value="__number">Number…</option>}
         {Object.entries(catalog).map(([k, v]: any) => <option key={k} value={k}>{v.label}</option>)}
       </Select>
-      {isNum && <Input className="h-7 w-20 text-[11px]" type="number" value={value as number} onChange={(e) => onChange(Number(e.target.value))} />}
+      {isNum && <Input data-qa={`${qa}-num`} className="h-7 w-20 text-[11px]" type="number" value={value as number} onChange={(e) => onChange(Number(e.target.value))} />}
       {spec && Object.entries(spec.params).map(([p, [lo, hi, def]]: any) => (
-        <Input key={p} title={`${p} (${lo}–${hi})`} className="h-7 w-14 text-[11px]" type="number" min={lo} max={hi}
+        <Input key={p} data-qa={`${qa}-${p}`} title={`${p} (${lo}–${hi})`} className="h-7 w-14 text-[11px]" type="number" min={lo} max={hi}
           value={(value as any).params?.[p] ?? def} onChange={(e) => onChange({ ...(value as any), params: { ...(value as any).params, [p]: Number(e.target.value) } })} />
       ))}
     </div>
@@ -79,10 +79,10 @@ export default function StrategyLab() {
             {rule.conditions.map((c: Cond, i: number) => (
               <div key={i} className="flex items-center gap-2 rounded-[3px] border border-ink-700 bg-ink-900/60 p-2">
                 <span className="w-5 font-mono text-2xs text-amber-500">{i + 1}</span>
-                <RefEditor value={c.left} catalog={ind} onChange={(v) => setCond(i, { ...c, left: v })} />
-                <Select className="h-7 w-32 text-[11px]" value={c.op} onChange={(e) => setCond(i, { ...c, op: e.target.value })}>
+                <RefEditor qa={`cond-${i}-left`} value={c.left} catalog={ind} onChange={(v) => setCond(i, { ...c, left: v })} />
+                <Select data-qa={`cond-${i}-op`} className="h-7 w-32 text-[11px]" value={c.op} onChange={(e) => setCond(i, { ...c, op: e.target.value })}>
                   {(catalog.data?.operators ?? []).map((o: string) => <option key={o} value={o}>{o.replace("_", " ")}</option>)}</Select>
-                <RefEditor value={c.right} catalog={ind} allowNumber onChange={(v) => setCond(i, { ...c, right: v })} />
+                <RefEditor qa={`cond-${i}-right`} value={c.right} catalog={ind} allowNumber onChange={(v) => setCond(i, { ...c, right: v })} />
                 <button onClick={() => setRule({ ...rule, conditions: rule.conditions.filter((_: any, k: number) => k !== i) })} className="text-ink-500 hover:text-down"><Trash2 className="h-3.5 w-3.5" /></button>
               </div>
             ))}

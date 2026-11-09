@@ -52,6 +52,29 @@ export default function Signals() {
             </div>
             <div className="mt-2 font-mono text-2xs text-ink-500">Bars: holdout target-first rate by VIX regime.</div>
           </Panel>
+          <Panel title="Phase 4C evidence ranking — every tested strategy, setup and ML filter" code="RANK" className="col-span-12" accent="info">
+            <Query q={research}>{(r) => r.phase4c_signals ? (
+              <>
+                <div className="mb-2 font-mono text-2xs text-ink-400">{r.phase4c_signals.candidates} candidates · {r.phase4c_signals.accepted} accepted · {r.phase4c_signals.note}</div>
+                <Table dense maxRows={60} rows={r.phase4c_signals.ranking} columns={[
+                  { key: "rank", label: "#" }, { key: "signal", label: "Signal", render: (x: any) => <span className="block max-w-[340px] truncate text-ink-100" title={x.signal}>{x.signal}</span> },
+                  { key: "origin", label: "Origin" }, { key: "instrument", label: "Inst" },
+                  { key: "w", label: "Win %", align: "right", render: (x: any) => pct(x.win_rate ?? x.eras.holdout?.win_rate) },
+                  { key: "pts", label: "Mean pts", align: "right", render: (x: any) => num(x.mean_points, 1) },
+                  ...["development", "holdout"].map((era) => ({ key: era, label: `${era.slice(0, 4)} n · EV [CI]`, align: "right" as const,
+                    render: (x: any) => { const m = x.eras[era] ?? {}; return <span><span className="text-ink-400">{m.n} · </span><span className={tone(m.ev_points)}>{num(m.ev_points, 2)}</span> {m.ev_ci95 ? `[${num(m.ev_ci95[0], 2)}, ${num(m.ev_ci95[1], 2)}]` : ""}</span>; } })),
+                  { key: "s", label: "Status", render: (x: any) => <Badge>{x.status}</Badge> },
+                  { key: "reason", label: "Reason", render: (x: any) => <span className="text-ink-400">{x.reason ?? "—"}</span> }]} />
+                <div className="mt-3 font-mono text-2xs uppercase tracking-widest text-ink-500">Large NQ days — what the strategies actually captured</div>
+                <Table dense rows={Object.entries(r.phase4c_signals.large_move_capture).flatMap(([name, rows]: any) => Object.entries(rows).map(([k, v]: any) => ({ name, k, ...v })))} columns={[
+                  { key: "name", label: "Strategy" }, { key: "k", label: "Day range" }, { key: "sessions_in_history", label: "Sessions", align: "right" },
+                  { key: "trades", label: "Trades", align: "right" }, { key: "w", label: "Win %", align: "right", render: (x: any) => pct(x.win_rate) },
+                  { key: "m", label: "Mean pts", align: "right", render: (x: any) => <span className={tone(x.mean_points)}>{num(x.mean_points, 1)}</span> },
+                  { key: "s", label: "Share of range", align: "right", render: (x: any) => pct(x.share_of_day_range_captured) },
+                  { key: "b", label: "Best pts", align: "right", render: (x: any) => num(x.best_points, 1) }]} />
+              </>
+            ) : <div className="font-mono text-xs text-ink-400">Not generated yet.</div>}</Query>
+          </Panel>
           <Panel title="16-year strategy backtests — authentic Databento contract bars (2010–2026)" code="DB16" className="col-span-12" accent="info">
             <Query q={research}>{(r) => r.phase4_backtests ? (
               <Table dense rows={Object.entries(r.phase4_backtests.results).map(([name, v]: any) => ({ name, ...v }))} columns={[

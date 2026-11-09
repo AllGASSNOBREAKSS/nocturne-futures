@@ -1,0 +1,7 @@
+{
+  "name": "phase4c-acceptance-run-3-startup-failure",
+  "steps": [
+    {"wait": 3000},
+    {"eval": "document.body.innerText.slice(0, 400)", "save": "boot_text", "shot": "J3-backend-start-failure"}
+  ]
+}

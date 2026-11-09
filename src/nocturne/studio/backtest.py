@@ -118,6 +118,7 @@ def metrics(trades: pd.DataFrame, point_value: float):
             "max_drawdown": round(dd, 2), "avg_mfe_points": round(float(trades.mfe_points.mean()), 2),
             "avg_mae_points": round(float(trades.mae_points.mean()), 2),
             "target_hit_rate": round(float(target.mean()), 4), "stop_first_rate": round(float((outcomes == "STOP").mean()), 4),
+            **({f"tp{k}_hit_rate": round(float((trades.fills >= k).mean()), 4) for k in (1, 2, 3)} if "fills" in trades else {}),
             "timeout_rate": round(float(outcomes.str.contains("TIMEOUT").mean()), 4),
             "avg_bars_held": round(float(trades.bars_held.mean()), 2)}
 
@@ -136,7 +137,10 @@ def run(config, directory, progress=lambda pct, msg: None, cancelled=lambda: Fal
     vix = market.archive().load("fred", "VIXCLS").set_index("date").value
     costs = config.get("costs", {})
     contracts = int(config.get("contracts", 2))
-    schedule = ((0, 0.5), (1, 0.5)) if contracts % 2 == 0 else ((0, 1.0),)
+    n_targets = len(config["strategy"].get("rule", {}).get("targets_r", []))  # built-ins keep their own targets
+    # Whole-contract scale-out: 3 contracts with 3 targets exit 1/3 at TP1/TP2/TP3.
+    schedule = (((0, 1 / 3), (1, 1 / 3), (2, 1 / 3)) if contracts == 3 and n_targets >= 3 else
+                ((0, 0.5), (1, 0.5)) if contracts % 2 == 0 else ((0, 1.0),))
     results, stress = [], {}
     groups = sessions_of(bars, spec) if config["strategy"]["type"] != "rule" else None
     rth_cache = {}
@@ -169,6 +173,7 @@ def run(config, directory, progress=lambda pct, msg: None, cancelled=lambda: Fal
                          "exit_time": str(trade.exit_time), "exit": trade.exit_price, "outcome": trade.outcome,
                          "bars_held": trade.bars_held, "points": trade.points, "mfe_points": trade.mfe_points,
                          "mae_points": trade.mae_points, "gross": trade.gross_dollars, "costs": trade.costs, "net": trade.dollars,
+                         "fills": len(trade.target_fills),
                          "vix_prior": float(prior_vix.iloc[-1]) if len(prior_vix) else None})
             if slip == float(costs.get("slippage_ticks", 1)) and k % 50 == 0:
                 progress(20 + int(60 * k / max(1, len(signals))), f"simulated {k}/{len(signals)} signals")

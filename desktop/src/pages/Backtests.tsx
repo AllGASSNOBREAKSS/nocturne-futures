@@ -80,7 +80,7 @@ function Detail({ id }: { id: string }) {
               <Button size="sm" variant="outline" onClick={() => window.nocturne?.saveFile(`${(j.name ?? id).replaceAll(" ", "_")}_report.json`, JSON.stringify(r, null, 2))}><Download className="h-3 w-3" />Report</Button>
               <Button size="sm" variant="outline" onClick={async () => { const t = await window.nocturne!.request("GET", `/v1/backtests/${id}/trades.csv`, undefined, true); if (t.ok) window.nocturne!.saveFile(`${(j.name ?? id).replaceAll(" ", "_")}_trades.csv`, String(t.data)); }}><Download className="h-3 w-3" />Trades CSV</Button>
             </>}>
-            <div className="grid grid-cols-8 gap-2">
+            <div className="grid grid-cols-9 gap-2">
               <Stat label="Trades" value={s.trades} sub={`${s.wins}W / ${s.losses}L`} />
               <Stat label="Win rate" value={pct(s.win_rate)} sub={`loss ${pct(s.loss_rate)}`} />
               <Stat label="Profit factor" value={num(s.profit_factor, 2)} valueClass={s.profit_factor >= 1 ? "text-up" : "text-down"} />
@@ -88,6 +88,7 @@ function Detail({ id }: { id: string }) {
               <Stat label="Expectancy" value={usd(s.expectancy)} valueClass={tone(s.expectancy)} sub={s.expectancy_ci95 ? `95% ${usd(s.expectancy_ci95[0])}…${usd(s.expectancy_ci95[1])}` : ""} />
               <Stat label="Max drawdown" value={usd(s.max_drawdown)} valueClass="text-down" />
               <Stat label="Avg / median pts" value={`${num(s.avg_points, 1)} / ${num(s.median_points, 1)}`} sub={`best ${num(s.largest_win_points, 1)} · worst ${num(s.largest_loss_points, 1)}`} />
+              <Stat label="TP1 / TP2 / TP3" value={s.tp1_hit_rate != null ? `${pct(s.tp1_hit_rate, 0)}/${pct(s.tp2_hit_rate, 0)}/${pct(s.tp3_hit_rate, 0)}` : "—"} sub={`target touched ${pct(s.target_hit_rate)}`} />
               <Stat label="Target touched" value={pct(s.target_hit_rate)} sub={`stop-first ${pct(s.stop_first_rate)} · timeout ${pct(s.timeout_rate)} · ${num(s.avg_bars_held, 1)} bars`} />
             </div>
             <div className="mt-2 flex flex-wrap gap-3 font-mono text-2xs text-ink-500">

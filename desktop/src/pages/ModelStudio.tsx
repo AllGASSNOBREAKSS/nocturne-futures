@@ -6,8 +6,9 @@ import { Badge, Button, ErrorState, Field, Input, KV, Panel, Progress, Query, Se
 import { Bars, Reliability } from "@/components/charts";
 import type { Job } from "@/lib/api";
 
-const DEFAULT = { name: "NQ 350pt range · price+vol", root: "NQ", objective: "range_ge_points", threshold_points: 350, model: "logistic",
-  feature_families: ["price", "volatility"], first_test_year: 2008, last_test_year: 2026, holdout_from: 2024, training_window_years: null as number | null,
+const DEFAULT = { name: "NQ 350pt range · price+vol", source: "databento", root: "NQ", objective: "range_ge_points", threshold_points: 350, threshold_atr: 1.0,
+  geometry: "0.5x0.25", side: "long", model: "logistic",
+  feature_families: ["price", "volatility"], first_test_year: 2012, last_test_year: 2026, holdout_from: 2023, training_window_years: null as number | null,
   embargo_days: 5, calibration_rows: 250, C: 0.2, n_estimators: 200, learning_rate: 0.03, num_leaves: 15, max_depth: 6 };
 
 export default function ModelStudio() {
@@ -19,12 +20,19 @@ export default function ModelStudio() {
   const start = useAction<any>("/v1/training-jobs", ["/v1/training-jobs"]);
   const save = useAction<any>("/v1/configs/model", ["/v1/configs/model"]);
   const set = (k: string, v: any) => setCfg((c: any) => ({ ...c, [k]: v }));
-  const families = catalog.data?.feature_families ?? {};
+  const db = catalog.data?.databento;
+  const authentic = cfg.source === "databento";
+  const families = (authentic ? db?.feature_families : catalog.data?.feature_families) ?? {};
+  const objectives: string[] = (authentic ? db?.objectives : catalog.data?.objectives) ?? [];
 
   return (
     <div className="grid min-h-full grid-cols-12 gap-3">
       <Panel title="New experiment" code="ML" className="col-span-4" bodyClass="space-y-3">
         <Field label="Experiment name"><Input value={cfg.name} onChange={(e) => set("name", e.target.value)} /></Field>
+        <Field label="Data source">
+          <Segmented value={cfg.source} options={[{ value: "databento", label: "DATABENTO 2010–2026" }, { value: "yahoo", label: "YAHOO (PHASE 3V)" }]}
+            onChange={(v) => setCfg({ ...cfg, source: v, objective: "direction", feature_families: ["price"], first_test_year: v === "databento" ? 2012 : 2008, holdout_from: v === "databento" ? 2023 : 2024 })} />
+        </Field>
         <div className="grid grid-cols-2 gap-2">
           <Field label="Instrument"><Segmented value={cfg.root} options={["NQ", "ES"] as const} onChange={(v) => set("root", v)} /></Field>
           <Field label="Model family"><Select value={cfg.model} onChange={(e) => set("model", e.target.value)}>
@@ -32,10 +40,17 @@ export default function ModelStudio() {
         </div>
         <div className="grid grid-cols-2 gap-2">
           <Field label="Prediction objective"><Select value={cfg.objective} onChange={(e) => set("objective", e.target.value)}>
-            <option value="direction">Direction (next settle up)</option><option value="compression">Compression (range &lt; 0.6×ATR)</option>
-            <option value="range_ge_points">Range ≥ N points</option><option value="range_quantile">Range quantiles P50/80/90</option></Select></Field>
-          <Field label="Threshold (points)"><Input type="number" disabled={cfg.objective !== "range_ge_points"} value={cfg.threshold_points} onChange={(e) => set("threshold_points", Number(e.target.value))} /></Field>
+            {objectives.map((o) => <option key={o} value={o}>{o.replaceAll("_", " ")}</option>)}</Select></Field>
+          {cfg.objective === "range_ge_points" && <Field label="Threshold (points)">{authentic
+            ? <Select value={cfg.threshold_points} onChange={(e) => set("threshold_points", Number(e.target.value))}>{(db?.point_thresholds?.[cfg.root] ?? []).map((n: number) => <option key={n} value={n}>{n}</option>)}</Select>
+            : <Input type="number" value={cfg.threshold_points} onChange={(e) => set("threshold_points", Number(e.target.value))} />}</Field>}
+          {cfg.objective === "range_ge_atr" && <Field label="Threshold (× ATR20)"><Select value={cfg.threshold_atr} onChange={(e) => set("threshold_atr", Number(e.target.value))}>
+            {(db?.atr_thresholds ?? []).map((n: number) => <option key={n} value={n}>{n}</option>)}</Select></Field>}
+          {cfg.objective === "target_before_stop" && <Field label="Geometry · side (ATR multiples)"><div className="flex gap-1">
+            <Select value={cfg.geometry} onChange={(e) => set("geometry", e.target.value)}>{(db?.tbs_geometries ?? []).map((g: string) => <option key={g} value={g}>target {g.replace("x", " / stop ")}</option>)}</Select>
+            <Select className="w-24" value={cfg.side} onChange={(e) => set("side", e.target.value)}><option value="long">long</option><option value="short">short</option></Select></div></Field>}
         </div>
+        {authentic && db?.descriptions?.[cfg.objective] && <div className="font-mono text-2xs text-ink-500">{db.descriptions[cfg.objective]}</div>}
         <Field label="Feature families (point-in-time)">
           <div className="flex flex-wrap gap-1.5">
             {Object.entries(families).map(([fam, cols]: any) => {
@@ -61,7 +76,7 @@ export default function ModelStudio() {
         </div>
         <div className="grid grid-cols-3 gap-2">
           {cfg.model === "logistic" && <Field label="L2 C"><Input type="number" step="0.05" value={cfg.C} onChange={(e) => set("C", Number(e.target.value))} /></Field>}
-          {(cfg.model === "lightgbm" || cfg.model === "random_forest") && <Field label="Trees"><Input type="number" value={cfg.n_estimators} onChange={(e) => set("n_estimators", Number(e.target.value))} /></Field>}
+          {(cfg.model === "lightgbm" || cfg.model === "random_forest" || cfg.model === "gradient_boosting") && <Field label="Trees"><Input type="number" value={cfg.n_estimators} onChange={(e) => set("n_estimators", Number(e.target.value))} /></Field>}
           {cfg.model === "lightgbm" && <><Field label="Learn rate"><Input type="number" step="0.01" value={cfg.learning_rate} onChange={(e) => set("learning_rate", Number(e.target.value))} /></Field>
             <Field label="Leaves"><Input type="number" value={cfg.num_leaves} onChange={(e) => set("num_leaves", Number(e.target.value))} /></Field></>}
           {cfg.model === "random_forest" && <Field label="Max depth"><Input type="number" value={cfg.max_depth} onChange={(e) => set("max_depth", Number(e.target.value))} /></Field>}
@@ -90,8 +105,8 @@ export default function ModelStudio() {
         <Query q={jobs}>{(rows) => rows.length ? (
           <Table rows={rows} onRow={(j) => setSelected(j.job_id)} columns={[
             { key: "name", label: "Experiment", render: (j) => <span className={cn("text-ink-100", selected === j.job_id && "text-amber-300")}>{j.name ?? j.job_id.slice(0, 8)}</span> },
-            { key: "m", label: "Model", render: (j) => `${j.config.root} · ${j.config.model}` },
-            { key: "o", label: "Objective", render: (j) => j.config.objective + (j.config.objective === "range_ge_points" ? ` ${j.config.threshold_points}` : "") },
+            { key: "m", label: "Model", render: (j) => `${j.config.source === "databento" ? "DB" : "YH"} · ${j.config.root} · ${j.config.model}` },
+            { key: "o", label: "Objective", render: (j) => j.config.objective + (j.config.objective === "range_ge_points" ? ` ${j.config.threshold_points}` : j.config.objective === "range_ge_atr" ? ` ${j.config.threshold_atr}×ATR` : j.config.objective === "target_before_stop" ? ` ${j.config.side} ${j.config.geometry}` : "") },
             { key: "state", label: "State", render: (j) => j.state === "RUNNING" ? <div className="w-28"><Progress value={j.progress?.percent ?? 2} /></div> : <Badge>{j.state}</Badge> },
             { key: "v", label: "Verdict", render: (j) => j.result?.verdict ? <Badge>{j.result.verdict}</Badge> : j.result?.reason ? <Badge tone="down">{j.result.reason}</Badge> : "—" },
             { key: "d", label: "Dev Δ", align: "right", render: (j) => <span className={j.result?.headline?.development < 0 ? "text-up" : "text-down"}>{signed(j.result?.headline?.development)}</span> },
@@ -145,6 +160,16 @@ function ExperimentDetail({ id }: { id: string }) {
               {r?.feature_importance && <Table dense rows={r.feature_importance.slice(0, 10)} columns={[{ key: "feature", label: "Feature" },
                 { key: "importance", label: "Importance", align: "right", render: (f) => <div className="flex items-center justify-end gap-2"><div className="h-1.5 rounded bg-amber-500" style={{ width: `${f.importance * 140}px` }} />{(f.importance * 100).toFixed(1)}%</div> }]} />}
             </div>
+            {r?.economics && (
+              <div className="col-span-12 rounded-[3px] border border-ink-700 p-2">
+                <div className="mb-1 font-mono text-2xs uppercase tracking-widest text-amber-500">Economics — {r.economics.rule}</div>
+                <Table dense rows={["development", "holdout"].flatMap((era) => ["model_filtered", "always_trade"].map((k) => ({ era, k, ...(r.economics[era]?.[k] ?? {}) })))} columns={[
+                  { key: "era", label: "Era" }, { key: "k", label: "Rule", render: (x) => x.k.replace("_", " ") }, { key: "n", label: "Trades", align: "right" },
+                  { key: "mean_r", label: "Mean R", align: "right", render: (x) => <span className={x.mean_r > 0 ? "text-up" : "text-down"}>{num(x.mean_r, 3)}</span> },
+                  { key: "ci95", label: "95% CI", align: "right", render: (x) => x.ci95 ? `${num(x.ci95[0], 3)} … ${num(x.ci95[1], 3)}` : "—" },
+                  { key: "win_rate", label: "Win %", align: "right", render: (x) => x.win_rate != null ? `${(x.win_rate * 100).toFixed(1)}%` : "—" }]} />
+              </div>
+            )}
             <pre className="col-span-12 max-h-40 overflow-auto rounded-[3px] border border-ink-800 bg-ink-950 p-2 font-mono text-2xs text-ink-400">{j.logs?.["progress.log"] || "No log output yet."}{j.logs?.["stderr.log"] ? `\n${j.logs["stderr.log"]}` : ""}</pre>
           </div>
         );

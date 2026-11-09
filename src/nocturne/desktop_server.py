@@ -25,7 +25,7 @@ from fastapi.responses import Response
 
 from .api.security import SecurityMiddleware, SecurityPolicy, TOKEN
 from .shadow.locking import FileLock
-from .studio import ROOT, STATE, backtest, forecasts, indicators, insights, jobs, market, rules, training
+from .studio import ROOT, STATE, backtest, dataset, forecasts, indicators, insights, jobs, market, rules, training
 
 VERSION = "4.0.0"
 ID = r"[a-f0-9]{24}"
@@ -163,7 +163,13 @@ def create_app(token: str, worker: jobs.Worker | None = None) -> FastAPI:
         return {"indicators": indicators.CATALOG, "unavailable": indicators.UNAVAILABLE, "operators": rules.OPS,
                 "sessions": rules.SESSIONS, "strategies": backtest.BUILTIN_PARAMS, "intervals": backtest.INTERVALS,
                 "models": training.MODELS, "objectives": training.OBJECTIVES,
-                "feature_families": {k: v for k, v in training.FAMILIES.items()}}
+                "feature_families": {k: v for k, v in training.FAMILIES.items()},
+                "databento": {"objectives": training.DB_OBJECTIVES, "descriptions": dataset.OBJECTIVES,
+                              "point_thresholds": dataset.POINT_THRESHOLDS, "atr_thresholds": dataset.ATR_THRESHOLDS,
+                              "tbs_geometries": list(dataset.TBS_GEOMETRIES),
+                              "feature_families": {"price": dataset.PRICE, "intraday": dataset.INTRADAY,
+                                                   **{k: v for k, v in training.FAMILIES.items() if k != "price"}},
+                              "available": market.databento_available("NQ")}}
 
     @app.get("/v1/forecasts/sessions")
     def session_forecasts(root: str = Query("NQ", pattern=r"^(NQ|ES)$")):

@@ -21,7 +21,16 @@ def add_session_column(bars: pd.DataFrame, spec: InstrumentSpec) -> pd.DataFrame
     frame = bars.copy()
     frame["timestamp"] = pd.to_datetime(frame["timestamp"], utc=True)
     frame["available_at"] = pd.to_datetime(frame["available_at"], utc=True)
-    frame["session"] = [session_date(ts.to_pydatetime(), spec) for ts in frame["timestamp"]]
+    # Same rule as market_clock.session_date, evaluated once per distinct
+    # (ET date, after-18:00) pair instead of once per bar (identical output).
+    et = frame["timestamp"].dt.tz_convert("America/New_York")
+    after = et.dt.hour >= 18
+    keys = pd.DataFrame({"day": et.dt.date, "after": after})
+    lookup = {}
+    for day, late in keys.drop_duplicates().itertuples(index=False):
+        probe = pd.Timestamp(day).tz_localize("America/New_York") + pd.Timedelta(hours=19 if late else 12)
+        lookup[(day, late)] = session_date(probe.to_pydatetime(), spec)
+    frame["session"] = [lookup[k] for k in zip(keys["day"], keys["after"])]
     return frame
 
 

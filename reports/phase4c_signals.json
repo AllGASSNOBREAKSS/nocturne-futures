@@ -1,0 +1,3063 @@
+{
+  "generated_at": "2026-11-09T06:32:57.333303+00:00",
+  "candidates": 69,
+  "accepted": 0,
+  "large_move_capture": {
+    "NQ_opening_range_breakout": {
+      ">=100": {
+        "sessions_in_history": 2111,
+        "trades": 1979,
+        "win_rate": 0.5407,
+        "mean_points": 3.65,
+        "median_points": 6.0,
+        "share_of_day_range_captured": -0.0071,
+        "best_points": 740.75
+      },
+      ">=200": {
+        "sessions_in_history": 1404,
+        "trades": 1331,
+        "win_rate": 0.568,
+        "mean_points": 7.98,
+        "median_points": 13.0,
+        "share_of_day_range_captured": 0.006,
+        "best_points": 740.75
+      },
+      ">=350": {
+        "sessions_in_history": 631,
+        "trades": 604,
+        "win_rate": 0.6308,
+        "mean_points": 22.96,
+        "median_points": 32.75,
+        "share_of_day_range_captured": 0.0361,
+        "best_points": 740.75
+      },
+      ">=500": {
+        "sessions_in_history": 283,
+        "trades": 272,
+        "win_rate": 0.6507,
+        "mean_points": 35.62,
+        "median_points": 37.25,
+        "share_of_day_range_captured": 0.0423,
+        "best_points": 740.75
+      }
+    },
+    "NQ_value_rejection": {
+      ">=100": {
+        "sessions_in_history": 2111,
+        "trades": 1360,
+        "win_rate": 0.4529,
+        "mean_points": -0.97,
+        "median_points": -7.25,
+        "share_of_day_range_captured": -0.0024,
+        "best_points": 241.75
+      },
+      ">=200": {
+        "sessions_in_history": 1404,
+        "trades": 886,
+        "win_rate": 0.4413,
+        "mean_points": -1.81,
+        "median_points": -10.5,
+        "share_of_day_range_captured": -0.0054,
+        "best_points": 241.75
+      },
+      ">=350": {
+        "sessions_in_history": 631,
+        "trades": 372,
+        "win_rate": 0.4382,
+        "mean_points": -1.93,
+        "median_points": -12.38,
+        "share_of_day_range_captured": -0.004,
+        "best_points": 241.75
+      },
+      ">=500": {
+        "sessions_in_history": 283,
+        "trades": 164,
+        "win_rate": 0.4878,
+        "mean_points": 3.11,
+        "median_points": -7.12,
+        "share_of_day_range_captured": 0.0096,
+        "best_points": 241.75
+      }
+    },
+    "NQ_vwap_pullback": {
+      ">=100": {
+        "sessions_in_history": 2111,
+        "trades": 1764,
+        "win_rate": 0.5017,
+        "mean_points": -1.12,
+        "median_points": 1.25,
+        "share_of_day_range_captured": -0.0064,
+        "best_points": 198.34
+      },
+      ">=200": {
+        "sessions_in_history": 1404,
+        "trades": 1158,
+        "win_rate": 0.5035,
+        "mean_points": -0.38,
+        "median_points": 4.0,
+        "share_of_day_range_captured": -0.0003,
+        "best_points": 198.34
+      },
+      ">=350": {
+        "sessions_in_history": 631,
+        "trades": 490,
+        "win_rate": 0.5,
+        "mean_points": -0.53,
+        "median_points": 0.5,
+        "share_of_day_range_captured": 0.0019,
+        "best_points": 198.34
+      },
+      ">=500": {
+        "sessions_in_history": 283,
+        "trades": 213,
+        "win_rate": 0.4601,
+        "mean_points": -6.04,
+        "median_points": -25.33,
+        "share_of_day_range_captured": -0.0066,
+        "best_points": 198.34
+      }
+    },
+    "studio: QA trend continuation NQ": {
+      ">=100": {
+        "sessions_in_history": 2111,
+        "trades": 665,
+        "win_rate": 0.4827,
+        "mean_points": -1.85,
+        "median_points": -13.5,
+        "share_of_day_range_captured": -0.0151,
+        "best_points": 265.92
+      },
+      ">=200": {
+        "sessions_in_history": 1404,
+        "trades": 468,
+        "win_rate": 0.5,
+        "mean_points": -0.33,
+        "median_points": -3.0,
+        "share_of_day_range_captured": -0.0055,
+        "best_points": 265.92
+      },
+      ">=350": {
+        "sessions_in_history": 631,
+        "trades": 192,
+        "win_rate": 0.5104,
+        "mean_points": 7.36,
+        "median_points": 9.04,
+        "share_of_day_range_captured": 0.0156,
+        "best_points": 265.92
+      },
+      ">=500": {
+        "sessions_in_history": 283,
+        "trades": 84,
+        "win_rate": 0.5119,
+        "mean_points": 4.44,
+        "median_points": 8.92,
+        "share_of_day_range_captured": 0.0055,
+        "best_points": 265.92
+      }
+    },
+    "studio: QA VWAP pullback NQ 16y": {
+      ">=100": {
+        "sessions_in_history": 2111,
+        "trades": 1764,
+        "win_rate": 0.5017,
+        "mean_points": -1.12,
+        "median_points": 1.25,
+        "share_of_day_range_captured": -0.0064,
+        "best_points": 198.34
+      },
+      ">=200": {
+        "sessions_in_history": 1404,
+        "trades": 1158,
+        "win_rate": 0.5035,
+        "mean_points": -0.38,
+        "median_points": 4.0,
+        "share_of_day_range_captured": -0.0003,
+        "best_points": 198.34
+      },
+      ">=350": {
+        "sessions_in_history": 631,
+        "trades": 490,
+        "win_rate": 0.5,
+        "mean_points": -0.53,
+        "median_points": 0.5,
+        "share_of_day_range_captured": 0.0019,
+        "best_points": 198.34
+      },
+      ">=500": {
+        "sessions_in_history": 283,
+        "trades": 213,
+        "win_rate": 0.4601,
+        "mean_points": -6.04,
+        "median_points": -25.33,
+        "share_of_day_range_captured": -0.0066,
+        "best_points": 198.34
+      }
+    }
+  },
+  "ranking": [
+    {
+      "signal": "ML-filtered NQ long 0.25x0.25 ATR (lightgbm)",
+      "origin": "phase4c_ml",
+      "instrument": "NQ",
+      "trades": 90,
+      "eras": {
+        "development": {
+          "n": 87,
+          "win_rate": 0.5057,
+          "ev_points": -0.0273,
+          "ev_ci95": [
+            -0.2269,
+            0.1722
+          ]
+        },
+        "holdout": {
+          "n": 3,
+          "win_rate": 1.0,
+          "ev_points": 0.9926,
+          "ev_ci95": [
+            0.9898,
+            0.9954
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        0.9898,
+        -0.2269,
+        3
+      ],
+      "rank": 1
+    },
+    {
+      "signal": "ML-filtered NQ short 0.25x0.25 ATR (lightgbm)",
+      "origin": "phase4c_ml",
+      "instrument": "NQ",
+      "trades": 210,
+      "eras": {
+        "development": {
+          "n": 49,
+          "win_rate": 0.5714,
+          "ev_points": 0.099,
+          "ev_ci95": [
+            -0.1777,
+            0.3757
+          ]
+        },
+        "holdout": {
+          "n": 161,
+          "win_rate": 0.5466,
+          "ev_points": 0.1084,
+          "ev_ci95": [
+            -0.0423,
+            0.2591
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -0.0423,
+        -0.1777,
+        161
+      ],
+      "rank": 2
+    },
+    {
+      "signal": "ML-filtered ES long 0.25x0.25 ATR (lightgbm)",
+      "origin": "phase4c_ml",
+      "instrument": "ES",
+      "trades": 301,
+      "eras": {
+        "development": {
+          "n": 121,
+          "win_rate": 0.5372,
+          "ev_points": -0.013,
+          "ev_ci95": [
+            -0.188,
+            0.162
+          ]
+        },
+        "holdout": {
+          "n": 180,
+          "win_rate": 0.5167,
+          "ev_points": -0.0055,
+          "ev_ci95": [
+            -0.1451,
+            0.134
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -0.1451,
+        -0.188,
+        180
+      ],
+      "rank": 3
+    },
+    {
+      "signal": "ML-filtered NQ short 0.25x0.25 ATR (logistic)",
+      "origin": "phase4c_ml",
+      "instrument": "NQ",
+      "trades": 388,
+      "eras": {
+        "development": {
+          "n": 151,
+          "win_rate": 0.5298,
+          "ev_points": 0.0324,
+          "ev_ci95": [
+            -0.1256,
+            0.1903
+          ]
+        },
+        "holdout": {
+          "n": 237,
+          "win_rate": 0.4684,
+          "ev_points": -0.05,
+          "ev_ci95": [
+            -0.1744,
+            0.0743
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -0.1744,
+        -0.1256,
+        237
+      ],
+      "rank": 4
+    },
+    {
+      "signal": "ML-filtered NQ long 0.5x0.5 ATR (lightgbm)",
+      "origin": "phase4c_ml",
+      "instrument": "NQ",
+      "trades": 19,
+      "eras": {
+        "development": {
+          "n": 9,
+          "win_rate": 0.3333,
+          "ev_points": -0.346,
+          "ev_ci95": [
+            -0.9993,
+            0.3072
+          ]
+        },
+        "holdout": {
+          "n": 10,
+          "win_rate": 0.7,
+          "ev_points": 0.3963,
+          "ev_ci95": [
+            -0.2022,
+            0.9948
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -0.2022,
+        -0.9993,
+        10
+      ],
+      "rank": 5
+    },
+    {
+      "signal": "ML-filtered ES short 0.25x0.25 ATR (logistic)",
+      "origin": "phase4c_ml",
+      "instrument": "ES",
+      "trades": 599,
+      "eras": {
+        "development": {
+          "n": 375,
+          "win_rate": 0.504,
+          "ev_points": -0.1297,
+          "ev_ci95": [
+            -0.2296,
+            -0.0298
+          ]
+        },
+        "holdout": {
+          "n": 224,
+          "win_rate": 0.4777,
+          "ev_points": -0.0887,
+          "ev_ci95": [
+            -0.2171,
+            0.0397
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -0.2171,
+        -0.2296,
+        224
+      ],
+      "rank": 6
+    },
+    {
+      "signal": "ML-filtered ES long 0.5x0.5 ATR (logistic)",
+      "origin": "phase4c_ml",
+      "instrument": "ES",
+      "trades": 74,
+      "eras": {
+        "development": {
+          "n": 42,
+          "win_rate": 0.5476,
+          "ev_points": 0.0038,
+          "ev_ci95": [
+            -0.2816,
+            0.2892
+          ]
+        },
+        "holdout": {
+          "n": 32,
+          "win_rate": 0.5312,
+          "ev_points": 0.05,
+          "ev_ci95": [
+            -0.269,
+            0.3691
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -0.269,
+        -0.2816,
+        32
+      ],
+      "rank": 7
+    },
+    {
+      "signal": "ML-filtered ES short 0.25x0.25 ATR (lightgbm)",
+      "origin": "phase4c_ml",
+      "instrument": "ES",
+      "trades": 372,
+      "eras": {
+        "development": {
+          "n": 200,
+          "win_rate": 0.505,
+          "ev_points": -0.0694,
+          "ev_ci95": [
+            -0.2051,
+            0.0664
+          ]
+        },
+        "holdout": {
+          "n": 172,
+          "win_rate": 0.4535,
+          "ev_points": -0.1401,
+          "ev_ci95": [
+            -0.287,
+            0.0069
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -0.287,
+        -0.2051,
+        172
+      ],
+      "rank": 8
+    },
+    {
+      "signal": "ML-filtered ES long 0.25x0.25 ATR (logistic)",
+      "origin": "phase4c_ml",
+      "instrument": "ES",
+      "trades": 180,
+      "eras": {
+        "development": {
+          "n": 119,
+          "win_rate": 0.4958,
+          "ev_points": -0.0906,
+          "ev_ci95": [
+            -0.2664,
+            0.0852
+          ]
+        },
+        "holdout": {
+          "n": 61,
+          "win_rate": 0.4918,
+          "ev_points": -0.0494,
+          "ev_ci95": [
+            -0.2979,
+            0.1991
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -0.2979,
+        -0.2664,
+        61
+      ],
+      "rank": 9
+    },
+    {
+      "signal": "ML-filtered NQ short 0.5x0.25 ATR (lightgbm)",
+      "origin": "phase4c_ml",
+      "instrument": "NQ",
+      "trades": 144,
+      "eras": {
+        "development": {
+          "n": 53,
+          "win_rate": 0.3208,
+          "ev_points": -0.1253,
+          "ev_ci95": [
+            -0.4914,
+            0.2408
+          ]
+        },
+        "holdout": {
+          "n": 91,
+          "win_rate": 0.3626,
+          "ev_points": -0.0669,
+          "ev_ci95": [
+            -0.3289,
+            0.1951
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -0.3289,
+        -0.4914,
+        91
+      ],
+      "rank": 10
+    },
+    {
+      "signal": "ML-filtered ES short 0.5x0.25 ATR (logistic)",
+      "origin": "phase4c_ml",
+      "instrument": "ES",
+      "trades": 199,
+      "eras": {
+        "development": {
+          "n": 84,
+          "win_rate": 0.3571,
+          "ev_points": -0.101,
+          "ev_ci95": [
+            -0.4037,
+            0.2017
+          ]
+        },
+        "holdout": {
+          "n": 115,
+          "win_rate": 0.3478,
+          "ev_points": -0.0844,
+          "ev_ci95": [
+            -0.3302,
+            0.1614
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -0.3302,
+        -0.4037,
+        115
+      ],
+      "rank": 11
+    },
+    {
+      "signal": "ML-filtered NQ long 0.5x0.5 ATR (logistic)",
+      "origin": "phase4c_ml",
+      "instrument": "NQ",
+      "trades": 65,
+      "eras": {
+        "development": {
+          "n": 40,
+          "win_rate": 0.425,
+          "ev_points": -0.138,
+          "ev_ci95": [
+            -0.4235,
+            0.1475
+          ]
+        },
+        "holdout": {
+          "n": 25,
+          "win_rate": 0.56,
+          "ev_points": 0.0475,
+          "ev_ci95": [
+            -0.3326,
+            0.4277
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -0.3326,
+        -0.4235,
+        25
+      ],
+      "rank": 12
+    },
+    {
+      "signal": "ML-filtered ES short 0.5x0.25 ATR (lightgbm)",
+      "origin": "phase4c_ml",
+      "instrument": "ES",
+      "trades": 226,
+      "eras": {
+        "development": {
+          "n": 55,
+          "win_rate": 0.3091,
+          "ev_points": -0.2007,
+          "ev_ci95": [
+            -0.5419,
+            0.1406
+          ]
+        },
+        "holdout": {
+          "n": 171,
+          "win_rate": 0.3099,
+          "ev_points": -0.222,
+          "ev_ci95": [
+            -0.4104,
+            -0.0337
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -0.4104,
+        -0.5419,
+        171
+      ],
+      "rank": 13
+    },
+    {
+      "signal": "ML-filtered ES long 1.0x0.5 ATR (logistic)",
+      "origin": "phase4c_ml",
+      "instrument": "ES",
+      "trades": 20,
+      "eras": {
+        "development": {
+          "n": 12,
+          "win_rate": 0.25,
+          "ev_points": -0.2991,
+          "ev_ci95": [
+            -0.8996,
+            0.3014
+          ]
+        },
+        "holdout": {
+          "n": 8,
+          "win_rate": 0.625,
+          "ev_points": 0.6226,
+          "ev_ci95": [
+            -0.4127,
+            1.6579
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -0.4127,
+        -0.8996,
+        8
+      ],
+      "rank": 14
+    },
+    {
+      "signal": "ML-filtered ES short 0.5x0.5 ATR (lightgbm)",
+      "origin": "phase4c_ml",
+      "instrument": "ES",
+      "trades": 35,
+      "eras": {
+        "development": {
+          "n": 8,
+          "win_rate": 0.625,
+          "ev_points": 0.1036,
+          "ev_ci95": [
+            -0.4484,
+            0.6556
+          ]
+        },
+        "holdout": {
+          "n": 27,
+          "win_rate": 0.4444,
+          "ev_points": -0.1471,
+          "ev_ci95": [
+            -0.4818,
+            0.1875
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -0.4818,
+        -0.4484,
+        27
+      ],
+      "rank": 15
+    },
+    {
+      "signal": "ML-filtered NQ short 0.5x0.25 ATR (logistic)",
+      "origin": "phase4c_ml",
+      "instrument": "NQ",
+      "trades": 159,
+      "eras": {
+        "development": {
+          "n": 102,
+          "win_rate": 0.4118,
+          "ev_points": 0.1168,
+          "ev_ci95": [
+            -0.16,
+            0.3937
+          ]
+        },
+        "holdout": {
+          "n": 57,
+          "win_rate": 0.2632,
+          "ev_points": -0.2261,
+          "ev_ci95": [
+            -0.5519,
+            0.0998
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -0.5519,
+        -0.16,
+        57
+      ],
+      "rank": 16
+    },
+    {
+      "signal": "ML-filtered ES long 0.5x0.5 ATR (lightgbm)",
+      "origin": "phase4c_ml",
+      "instrument": "ES",
+      "trades": 45,
+      "eras": {
+        "development": {
+          "n": 37,
+          "win_rate": 0.7027,
+          "ev_points": 0.2515,
+          "ev_ci95": [
+            -0.0333,
+            0.5364
+          ]
+        },
+        "holdout": {
+          "n": 8,
+          "win_rate": 0.625,
+          "ev_points": 0.1271,
+          "ev_ci95": [
+            -0.5585,
+            0.8127
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -0.5585,
+        -0.0333,
+        8
+      ],
+      "rank": 17
+    },
+    {
+      "signal": "ML-filtered NQ long 0.5x0.25 ATR (logistic)",
+      "origin": "phase4c_ml",
+      "instrument": "NQ",
+      "trades": 93,
+      "eras": {
+        "development": {
+          "n": 61,
+          "win_rate": 0.2459,
+          "ev_points": -0.3233,
+          "ev_ci95": [
+            -0.6327,
+            -0.0138
+          ]
+        },
+        "holdout": {
+          "n": 32,
+          "win_rate": 0.25,
+          "ev_points": -0.2758,
+          "ev_ci95": [
+            -0.7131,
+            0.1616
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -0.7131,
+        -0.6327,
+        32
+      ],
+      "rank": 18
+    },
+    {
+      "signal": "ML-filtered NQ long 0.25x0.25 ATR (logistic)",
+      "origin": "phase4c_ml",
+      "instrument": "NQ",
+      "trades": 199,
+      "eras": {
+        "development": {
+          "n": 182,
+          "win_rate": 0.4615,
+          "ev_points": -0.0878,
+          "ev_ci95": [
+            -0.2283,
+            0.0527
+          ]
+        },
+        "holdout": {
+          "n": 17,
+          "win_rate": 0.2941,
+          "ev_points": -0.3661,
+          "ev_ci95": [
+            -0.8087,
+            0.0765
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -0.8087,
+        -0.2283,
+        17
+      ],
+      "rank": 19
+    },
+    {
+      "signal": "ML-filtered ES short 1.0x0.5 ATR (lightgbm)",
+      "origin": "phase4c_ml",
+      "instrument": "ES",
+      "trades": 16,
+      "eras": {
+        "development": {
+          "n": 4,
+          "win_rate": 0.25,
+          "ev_points": -0.5014,
+          "ev_ci95": [
+            -1.2561,
+            0.2534
+          ]
+        },
+        "holdout": {
+          "n": 12,
+          "win_rate": 0.3333,
+          "ev_points": -0.2523,
+          "ev_ci95": [
+            -0.813,
+            0.3085
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -0.813,
+        -1.2561,
+        12
+      ],
+      "rank": 20
+    },
+    {
+      "signal": "ML-filtered ES long 0.5x0.25 ATR (logistic)",
+      "origin": "phase4c_ml",
+      "instrument": "ES",
+      "trades": 79,
+      "eras": {
+        "development": {
+          "n": 55,
+          "win_rate": 0.3818,
+          "ev_points": -0.037,
+          "ev_ci95": [
+            -0.4015,
+            0.3276
+          ]
+        },
+        "holdout": {
+          "n": 24,
+          "win_rate": 0.25,
+          "ev_points": -0.3278,
+          "ev_ci95": [
+            -0.8336,
+            0.1781
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -0.8336,
+        -0.4015,
+        24
+      ],
+      "rank": 21
+    },
+    {
+      "signal": "ML-filtered NQ short 0.5x0.5 ATR (lightgbm)",
+      "origin": "phase4c_ml",
+      "instrument": "NQ",
+      "trades": 19,
+      "eras": {
+        "development": {
+          "n": 7,
+          "win_rate": 0.4286,
+          "ev_points": -0.2594,
+          "ev_ci95": [
+            -0.8512,
+            0.3323
+          ]
+        },
+        "holdout": {
+          "n": 12,
+          "win_rate": 0.3333,
+          "ev_points": -0.3938,
+          "ev_ci95": [
+            -0.8815,
+            0.094
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -0.8815,
+        -0.8512,
+        12
+      ],
+      "rank": 22
+    },
+    {
+      "signal": "ML-filtered NQ long 0.5x0.25 ATR (lightgbm)",
+      "origin": "phase4c_ml",
+      "instrument": "NQ",
+      "trades": 48,
+      "eras": {
+        "development": {
+          "n": 40,
+          "win_rate": 0.225,
+          "ev_points": -0.3889,
+          "ev_ci95": [
+            -0.7439,
+            -0.034
+          ]
+        },
+        "holdout": {
+          "n": 8,
+          "win_rate": 0.375,
+          "ev_points": -0.0391,
+          "ev_ci95": [
+            -0.9509,
+            0.8727
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -0.9509,
+        -0.7439,
+        8
+      ],
+      "rank": 23
+    },
+    {
+      "signal": "ML-filtered ES long 1.0x0.5 ATR (lightgbm)",
+      "origin": "phase4c_ml",
+      "instrument": "ES",
+      "trades": 20,
+      "eras": {
+        "development": {
+          "n": 17,
+          "win_rate": 0.2353,
+          "ev_points": -0.3858,
+          "ev_ci95": [
+            -0.9144,
+            0.1427
+          ]
+        },
+        "holdout": {
+          "n": 3,
+          "win_rate": 0.6667,
+          "ev_points": 0.3954,
+          "ev_ci95": [
+            -0.9881,
+            1.7789
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -0.9881,
+        -0.9144,
+        3
+      ],
+      "rank": 24
+    },
+    {
+      "signal": "ML-filtered ES short 0.5x0.5 ATR (logistic)",
+      "origin": "phase4c_ml",
+      "instrument": "ES",
+      "trades": 38,
+      "eras": {
+        "development": {
+          "n": 29,
+          "win_rate": 0.4138,
+          "ev_points": -0.2599,
+          "ev_ci95": [
+            -0.5686,
+            0.0487
+          ]
+        },
+        "holdout": {
+          "n": 9,
+          "win_rate": 0.3333,
+          "ev_points": -0.3574,
+          "ev_ci95": [
+            -1.0107,
+            0.2959
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -1.0107,
+        -0.5686,
+        9
+      ],
+      "rank": 25
+    },
+    {
+      "signal": "ML-filtered ES long 0.5x0.25 ATR (lightgbm)",
+      "origin": "phase4c_ml",
+      "instrument": "ES",
+      "trades": 84,
+      "eras": {
+        "development": {
+          "n": 82,
+          "win_rate": 0.3659,
+          "ev_points": -0.1193,
+          "ev_ci95": [
+            -0.3965,
+            0.158
+          ]
+        },
+        "holdout": {
+          "n": 2,
+          "win_rate": 0.0,
+          "ev_points": -1.0274,
+          "ev_ci95": [
+            -1.0383,
+            -1.0164
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -1.0383,
+        -0.3965,
+        2
+      ],
+      "rank": 26
+    },
+    {
+      "signal": "ML-filtered ES short 1.0x0.5 ATR (logistic)",
+      "origin": "phase4c_ml",
+      "instrument": "ES",
+      "trades": 22,
+      "eras": {
+        "development": {
+          "n": 12,
+          "win_rate": 0.25,
+          "ev_points": -0.5238,
+          "ev_ci95": [
+            -1.0828,
+            0.0352
+          ]
+        },
+        "holdout": {
+          "n": 10,
+          "win_rate": 0.1,
+          "ev_points": -0.7136,
+          "ev_ci95": [
+            -1.1079,
+            -0.3194
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -1.1079,
+        -1.0828,
+        10
+      ],
+      "rank": 27
+    },
+    {
+      "signal": "ES_opening_range_breakout",
+      "origin": "phase4_16y",
+      "instrument": "ES",
+      "trades": 3900,
+      "wins": 1767,
+      "losses": 2133,
+      "win_rate": 0.4531,
+      "mean_points": -0.5,
+      "median_points": -0.5,
+      "net_usd": -234762.5,
+      "by_regime_win_rate": {
+        "vix<15": 0.4292,
+        "15-25": 0.4731,
+        "vix>25": 0.4359
+      },
+      "eras": {
+        "development": {
+          "n": 1992,
+          "win_rate": 0.4342,
+          "mean_points": -0.52,
+          "ev_points": -0.615,
+          "ev_ci95": [
+            -0.891,
+            -0.34
+          ]
+        },
+        "validation": {
+          "n": 969,
+          "win_rate": 0.453,
+          "mean_points": -1.19,
+          "ev_points": -1.288,
+          "ev_ci95": [
+            -2.298,
+            -0.278
+          ]
+        },
+        "holdout": {
+          "n": 939,
+          "win_rate": 0.4931,
+          "mean_points": 0.23,
+          "ev_points": 0.135,
+          "ev_ci95": [
+            -1.109,
+            1.379
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -1.109,
+        -0.891,
+        939
+      ],
+      "rank": 28
+    },
+    {
+      "signal": "ML-filtered NQ short 1.0x0.5 ATR (lightgbm)",
+      "origin": "phase4c_ml",
+      "instrument": "NQ",
+      "trades": 11,
+      "eras": {
+        "development": {
+          "n": 4,
+          "win_rate": 0.25,
+          "ev_points": -0.7508,
+          "ev_ci95": [
+            -1.2514,
+            -0.2502
+          ]
+        },
+        "holdout": {
+          "n": 7,
+          "win_rate": 0.2857,
+          "ev_points": -0.3184,
+          "ev_ci95": [
+            -1.2243,
+            0.5874
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -1.2243,
+        -1.2514,
+        7
+      ],
+      "rank": 29
+    },
+    {
+      "signal": "studio: QA consolidation breakout ES",
+      "origin": "studio_ui",
+      "instrument": "ES",
+      "trades": 1171,
+      "wins": 600,
+      "losses": 571,
+      "win_rate": 0.5124,
+      "mean_points": -0.14,
+      "median_points": 0.62,
+      "net_usd": -28097.5,
+      "by_regime_win_rate": {
+        "vix<15": 0.4939,
+        "15-25": 0.511,
+        "vix>25": 0.5408
+      },
+      "eras": {
+        "development": {
+          "n": 0,
+          "win_rate": null,
+          "mean_points": null,
+          "ev_points": null,
+          "ev_ci95": null
+        },
+        "validation": {
+          "n": 620,
+          "win_rate": 0.5242,
+          "mean_points": 0.1,
+          "ev_points": -0.002,
+          "ev_ci95": [
+            -0.698,
+            0.694
+          ]
+        },
+        "holdout": {
+          "n": 551,
+          "win_rate": 0.4991,
+          "mean_points": -0.41,
+          "ev_points": -0.508,
+          "ev_ci95": [
+            -1.238,
+            0.222
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -1.238,
+        -Infinity,
+        551
+      ],
+      "rank": 30
+    },
+    {
+      "signal": "ML-filtered NQ short 1.0x0.5 ATR (logistic)",
+      "origin": "phase4c_ml",
+      "instrument": "NQ",
+      "trades": 25,
+      "eras": {
+        "development": {
+          "n": 22,
+          "win_rate": 0.3636,
+          "ev_points": 0.0168,
+          "ev_ci95": [
+            -0.5028,
+            0.5365
+          ]
+        },
+        "holdout": {
+          "n": 3,
+          "win_rate": 0.3333,
+          "ev_points": -0.0339,
+          "ev_ci95": [
+            -1.3842,
+            1.3165
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -1.3842,
+        -0.5028,
+        3
+      ],
+      "rank": 31
+    },
+    {
+      "signal": "NQ_opening_range_breakout",
+      "origin": "phase4_16y",
+      "instrument": "NQ",
+      "trades": 3846,
+      "wins": 1883,
+      "losses": 1963,
+      "win_rate": 0.4896,
+      "mean_points": 1.12,
+      "median_points": 0.0,
+      "net_usd": 134340.0,
+      "by_regime_win_rate": {
+        "vix<15": 0.4443,
+        "15-25": 0.5152,
+        "vix>25": 0.5058
+      },
+      "eras": {
+        "development": {
+          "n": 1980,
+          "win_rate": 0.4662,
+          "mean_points": -0.19,
+          "ev_points": -0.437,
+          "ev_ci95": [
+            -1.242,
+            0.368
+          ]
+        },
+        "validation": {
+          "n": 947,
+          "win_rate": 0.51,
+          "mean_points": 0.07,
+          "ev_points": -0.175,
+          "ev_ci95": [
+            -4.234,
+            3.883
+          ]
+        },
+        "holdout": {
+          "n": 919,
+          "win_rate": 0.519,
+          "mean_points": 5.03,
+          "ev_points": 4.777,
+          "ev_ci95": [
+            -1.405,
+            10.959
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -1.405,
+        -1.242,
+        919
+      ],
+      "rank": 32
+    },
+    {
+      "signal": "ML-filtered NQ long 1.0x0.5 ATR (logistic)",
+      "origin": "phase4c_ml",
+      "instrument": "NQ",
+      "trades": 10,
+      "eras": {
+        "development": {
+          "n": 8,
+          "win_rate": 0.25,
+          "ev_points": -0.2087,
+          "ev_ci95": [
+            -1.0842,
+            0.6667
+          ]
+        },
+        "holdout": {
+          "n": 2,
+          "win_rate": 0.5,
+          "ev_points": -0.3819,
+          "ev_ci95": [
+            -1.5975,
+            0.8336
+          ]
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -1.5975,
+        -1.0842,
+        2
+      ],
+      "rank": 33
+    },
+    {
+      "signal": "ES_value_rejection",
+      "origin": "phase4_16y",
+      "instrument": "ES",
+      "trades": 2462,
+      "wins": 1109,
+      "losses": 1353,
+      "win_rate": 0.4504,
+      "mean_points": -0.61,
+      "median_points": -1.75,
+      "net_usd": -175820.0,
+      "by_regime_win_rate": {
+        "vix<15": 0.4485,
+        "15-25": 0.469,
+        "vix>25": 0.3815
+      },
+      "eras": {
+        "development": {
+          "n": 1212,
+          "win_rate": 0.4596,
+          "mean_points": -0.55,
+          "ev_points": -0.649,
+          "ev_ci95": [
+            -0.855,
+            -0.443
+          ]
+        },
+        "validation": {
+          "n": 608,
+          "win_rate": 0.4474,
+          "mean_points": -0.63,
+          "ev_points": -0.734,
+          "ev_ci95": [
+            -1.473,
+            0.005
+          ]
+        },
+        "holdout": {
+          "n": 642,
+          "win_rate": 0.4361,
+          "mean_points": -0.72,
+          "ev_points": -0.818,
+          "ev_ci95": [
+            -1.798,
+            0.161
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -1.798,
+        -0.855,
+        642
+      ],
+      "rank": 34
+    },
+    {
+      "signal": "ES_vwap_pullback",
+      "origin": "phase4_16y",
+      "instrument": "ES",
+      "trades": 3721,
+      "wins": 1860,
+      "losses": 1861,
+      "win_rate": 0.4999,
+      "mean_points": -0.54,
+      "median_points": 0.1,
+      "net_usd": -236682.15,
+      "by_regime_win_rate": {
+        "vix<15": 0.4814,
+        "15-25": 0.5013,
+        "vix>25": 0.5447
+      },
+      "eras": {
+        "development": {
+          "n": 1942,
+          "win_rate": 0.5005,
+          "mean_points": -0.36,
+          "ev_points": -0.464,
+          "ev_ci95": [
+            -0.622,
+            -0.305
+          ]
+        },
+        "validation": {
+          "n": 912,
+          "win_rate": 0.5055,
+          "mean_points": -0.5,
+          "ev_points": -0.599,
+          "ev_ci95": [
+            -1.266,
+            0.068
+          ]
+        },
+        "holdout": {
+          "n": 867,
+          "win_rate": 0.4925,
+          "mean_points": -0.96,
+          "ev_points": -1.061,
+          "ev_ci95": [
+            -1.865,
+            -0.257
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -1.865,
+        -0.622,
+        867
+      ],
+      "rank": 35
+    },
+    {
+      "signal": "NQ fixed LONG T100/S50 24H from 10:00 ET",
+      "origin": "phase4_target_study",
+      "instrument": "NQ",
+      "trades": 4190,
+      "eras": {
+        "development": {
+          "n": 2191,
+          "win_rate": 0.0224,
+          "ev_points": 0.435,
+          "ev_ci95": [
+            -0.983,
+            1.853
+          ]
+        },
+        "validation": {
+          "n": 1021,
+          "win_rate": 0.2625,
+          "ev_points": 3.288,
+          "ev_ci95": [
+            -0.733,
+            7.309
+          ]
+        },
+        "holdout": {
+          "n": 978,
+          "win_rate": 0.3436,
+          "ev_points": 2.134,
+          "ev_ci95": [
+            -2.322,
+            6.59
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -2.322,
+        -0.983,
+        978
+      ],
+      "rank": 36
+    },
+    {
+      "signal": "NQ fixed LONG T100/S100 24H from 10:00 ET",
+      "origin": "phase4_target_study",
+      "instrument": "NQ",
+      "trades": 4190,
+      "eras": {
+        "development": {
+          "n": 2191,
+          "win_rate": 0.0265,
+          "ev_points": 0.037,
+          "ev_ci95": [
+            -1.591,
+            1.664
+          ]
+        },
+        "validation": {
+          "n": 1021,
+          "win_rate": 0.3389,
+          "ev_points": 2.093,
+          "ev_ci95": [
+            -3.204,
+            7.39
+          ]
+        },
+        "holdout": {
+          "n": 978,
+          "win_rate": 0.4836,
+          "ev_points": 3.529,
+          "ev_ci95": [
+            -2.533,
+            9.59
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -2.533,
+        -1.591,
+        978
+      ],
+      "rank": 37
+    },
+    {
+      "signal": "NQ fixed LONG T100/S50 RTH from 10:00 ET",
+      "origin": "phase4_target_study",
+      "instrument": "NQ",
+      "trades": 4220,
+      "eras": {
+        "development": {
+          "n": 2194,
+          "win_rate": 0.0096,
+          "ev_points": -0.681,
+          "ev_ci95": [
+            -1.842,
+            0.48
+          ]
+        },
+        "validation": {
+          "n": 1033,
+          "win_rate": 0.2043,
+          "ev_points": 1.196,
+          "ev_ci95": [
+            -2.503,
+            4.895
+          ]
+        },
+        "holdout": {
+          "n": 993,
+          "win_rate": 0.3051,
+          "ev_points": 1.096,
+          "ev_ci95": [
+            -3.173,
+            5.364
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -3.173,
+        -1.842,
+        993
+      ],
+      "rank": 38
+    },
+    {
+      "signal": "NQ fixed LONG T50/S50 RTH from 10:00 ET",
+      "origin": "phase4_target_study",
+      "instrument": "NQ",
+      "trades": 4220,
+      "eras": {
+        "development": {
+          "n": 2194,
+          "win_rate": 0.0652,
+          "ev_points": -0.643,
+          "ev_ci95": [
+            -1.726,
+            0.441
+          ]
+        },
+        "validation": {
+          "n": 1033,
+          "win_rate": 0.394,
+          "ev_points": -0.288,
+          "ev_ci95": [
+            -3.089,
+            2.513
+          ]
+        },
+        "holdout": {
+          "n": 993,
+          "win_rate": 0.4924,
+          "ev_points": -0.33,
+          "ev_ci95": [
+            -3.408,
+            2.748
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -3.408,
+        -1.726,
+        993
+      ],
+      "rank": 39
+    },
+    {
+      "signal": "NQ fixed LONG T200/S100 RTH from 10:00 ET",
+      "origin": "phase4_target_study",
+      "instrument": "NQ",
+      "trades": 4220,
+      "eras": {
+        "development": {
+          "n": 2194,
+          "win_rate": 0.0005,
+          "ev_points": -0.756,
+          "ev_ci95": [
+            -2.101,
+            0.589
+          ]
+        },
+        "validation": {
+          "n": 1033,
+          "win_rate": 0.0658,
+          "ev_points": -0.923,
+          "ev_ci95": [
+            -6.534,
+            4.687
+          ]
+        },
+        "holdout": {
+          "n": 993,
+          "win_rate": 0.136,
+          "ev_points": 3.404,
+          "ev_ci95": [
+            -3.589,
+            10.396
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -3.589,
+        -2.101,
+        993
+      ],
+      "rank": 40
+    },
+    {
+      "signal": "NQ fixed LONG T50/S50 24H from 10:00 ET",
+      "origin": "phase4_target_study",
+      "instrument": "NQ",
+      "trades": 4190,
+      "eras": {
+        "development": {
+          "n": 2191,
+          "win_rate": 0.1209,
+          "ev_points": 0.403,
+          "ev_ci95": [
+            -0.892,
+            1.698
+          ]
+        },
+        "validation": {
+          "n": 1021,
+          "win_rate": 0.4643,
+          "ev_points": 0.678,
+          "ev_ci95": [
+            -2.275,
+            3.632
+          ]
+        },
+        "holdout": {
+          "n": 978,
+          "win_rate": 0.501,
+          "ev_points": -0.537,
+          "ev_ci95": [
+            -3.667,
+            2.594
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -3.667,
+        -0.892,
+        978
+      ],
+      "rank": 41
+    },
+    {
+      "signal": "NQ fixed LONG T100/S100 RTH from 10:00 ET",
+      "origin": "phase4_target_study",
+      "instrument": "NQ",
+      "trades": 4220,
+      "eras": {
+        "development": {
+          "n": 2194,
+          "win_rate": 0.0123,
+          "ev_points": -0.79,
+          "ev_ci95": [
+            -2.102,
+            0.523
+          ]
+        },
+        "validation": {
+          "n": 1033,
+          "win_rate": 0.2565,
+          "ev_points": -1.149,
+          "ev_ci95": [
+            -5.957,
+            3.659
+          ]
+        },
+        "holdout": {
+          "n": 993,
+          "win_rate": 0.3968,
+          "ev_points": 1.919,
+          "ev_ci95": [
+            -3.741,
+            7.579
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -3.741,
+        -2.102,
+        993
+      ],
+      "rank": 42
+    },
+    {
+      "signal": "NQ fixed SHORT T50/S50 24H from 10:00 ET",
+      "origin": "phase4_target_study",
+      "instrument": "NQ",
+      "trades": 4190,
+      "eras": {
+        "development": {
+          "n": 2191,
+          "win_rate": 0.1506,
+          "ev_points": -1.903,
+          "ev_ci95": [
+            -3.198,
+            -0.608
+          ]
+        },
+        "validation": {
+          "n": 1021,
+          "win_rate": 0.4476,
+          "ev_points": -2.178,
+          "ev_ci95": [
+            -5.132,
+            0.775
+          ]
+        },
+        "holdout": {
+          "n": 978,
+          "win_rate": 0.4928,
+          "ev_points": -1.168,
+          "ev_ci95": [
+            -4.298,
+            1.963
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -4.298,
+        -3.198,
+        978
+      ],
+      "rank": 43
+    },
+    {
+      "signal": "NQ fixed SHORT T50/S50 RTH from 10:00 ET",
+      "origin": "phase4_target_study",
+      "instrument": "NQ",
+      "trades": 4220,
+      "eras": {
+        "development": {
+          "n": 2194,
+          "win_rate": 0.1021,
+          "ev_points": -0.857,
+          "ev_ci95": [
+            -1.941,
+            0.226
+          ]
+        },
+        "validation": {
+          "n": 1033,
+          "win_rate": 0.4134,
+          "ev_points": -1.212,
+          "ev_ci95": [
+            -4.013,
+            1.589
+          ]
+        },
+        "holdout": {
+          "n": 993,
+          "win_rate": 0.4794,
+          "ev_points": -1.372,
+          "ev_ci95": [
+            -4.45,
+            1.706
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -4.45,
+        -1.941,
+        993
+      ],
+      "rank": 44
+    },
+    {
+      "signal": "NQ_vwap_pullback",
+      "origin": "phase4_16y",
+      "instrument": "NQ",
+      "trades": 3607,
+      "wins": 1822,
+      "losses": 1785,
+      "win_rate": 0.5051,
+      "mean_points": -0.81,
+      "median_points": 0.62,
+      "net_usd": -153541.46,
+      "by_regime_win_rate": {
+        "vix<15": 0.5082,
+        "15-25": 0.5,
+        "vix>25": 0.5171
+      },
+      "eras": {
+        "development": {
+          "n": 1881,
+          "win_rate": 0.5061,
+          "mean_points": -0.4,
+          "ev_points": -0.654,
+          "ev_ci95": [
+            -1.144,
+            -0.164
+          ]
+        },
+        "validation": {
+          "n": 874,
+          "win_rate": 0.5103,
+          "mean_points": -2.22,
+          "ev_points": -2.471,
+          "ev_ci95": [
+            -5.395,
+            0.454
+          ]
+        },
+        "holdout": {
+          "n": 852,
+          "win_rate": 0.4977,
+          "mean_points": -0.28,
+          "ev_points": -0.526,
+          "ev_ci95": [
+            -4.525,
+            3.473
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -4.525,
+        -1.144,
+        852
+      ],
+      "rank": 45
+    },
+    {
+      "signal": "studio: QA VWAP pullback NQ 16y",
+      "origin": "studio_ui",
+      "instrument": "NQ",
+      "trades": 3607,
+      "wins": 1822,
+      "losses": 1785,
+      "win_rate": 0.5051,
+      "mean_points": -0.81,
+      "median_points": 0.62,
+      "net_usd": -153541.46,
+      "by_regime_win_rate": {
+        "vix<15": 0.5082,
+        "15-25": 0.5,
+        "vix>25": 0.5171
+      },
+      "eras": {
+        "development": {
+          "n": 1881,
+          "win_rate": 0.5061,
+          "mean_points": -0.4,
+          "ev_points": -0.654,
+          "ev_ci95": [
+            -1.144,
+            -0.164
+          ]
+        },
+        "validation": {
+          "n": 874,
+          "win_rate": 0.5103,
+          "mean_points": -2.22,
+          "ev_points": -2.471,
+          "ev_ci95": [
+            -5.395,
+            0.454
+          ]
+        },
+        "holdout": {
+          "n": 852,
+          "win_rate": 0.4977,
+          "mean_points": -0.28,
+          "ev_points": -0.526,
+          "ev_ci95": [
+            -4.525,
+            3.473
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -4.525,
+        -1.144,
+        852
+      ],
+      "rank": 46
+    },
+    {
+      "signal": "NQ fixed LONG T200/S100 24H from 10:00 ET",
+      "origin": "phase4_target_study",
+      "instrument": "NQ",
+      "trades": 4190,
+      "eras": {
+        "development": {
+          "n": 2191,
+          "win_rate": 0.0018,
+          "ev_points": -0.032,
+          "ev_ci95": [
+            -1.695,
+            1.631
+          ]
+        },
+        "validation": {
+          "n": 1021,
+          "win_rate": 0.1224,
+          "ev_points": 3.064,
+          "ev_ci95": [
+            -3.499,
+            9.626
+          ]
+        },
+        "holdout": {
+          "n": 978,
+          "win_rate": 0.226,
+          "ev_points": 3.235,
+          "ev_ci95": [
+            -4.663,
+            11.134
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -4.663,
+        -1.695,
+        978
+      ],
+      "rank": 47
+    },
+    {
+      "signal": "NQ fixed LONG T200/S200 RTH from 10:00 ET",
+      "origin": "phase4_target_study",
+      "instrument": "NQ",
+      "trades": 4220,
+      "eras": {
+        "development": {
+          "n": 2194,
+          "win_rate": 0.0005,
+          "ev_points": -0.803,
+          "ev_ci95": [
+            -2.256,
+            0.65
+          ]
+        },
+        "validation": {
+          "n": 1033,
+          "win_rate": 0.0794,
+          "ev_points": -0.495,
+          "ev_ci95": [
+            -7.298,
+            6.308
+          ]
+        },
+        "holdout": {
+          "n": 993,
+          "win_rate": 0.1581,
+          "ev_points": 3.572,
+          "ev_ci95": [
+            -4.917,
+            12.061
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -4.917,
+        -2.256,
+        993
+      ],
+      "rank": 48
+    },
+    {
+      "signal": "NQ fixed LONG T350/S175 24H from 10:00 ET",
+      "origin": "phase4_target_study",
+      "instrument": "NQ",
+      "trades": 4190,
+      "eras": {
+        "development": {
+          "n": 2191,
+          "win_rate": 0.0,
+          "ev_points": 0.356,
+          "ev_ci95": [
+            -1.398,
+            2.111
+          ]
+        },
+        "validation": {
+          "n": 1021,
+          "win_rate": 0.0441,
+          "ev_points": 3.966,
+          "ev_ci95": [
+            -4.619,
+            12.551
+          ]
+        },
+        "holdout": {
+          "n": 978,
+          "win_rate": 0.092,
+          "ev_points": 4.824,
+          "ev_ci95": [
+            -6.164,
+            15.812
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -6.164,
+        -1.398,
+        978
+      ],
+      "rank": 49
+    },
+    {
+      "signal": "NQ fixed SHORT T100/S50 RTH from 10:00 ET",
+      "origin": "phase4_target_study",
+      "instrument": "NQ",
+      "trades": 4220,
+      "eras": {
+        "development": {
+          "n": 2194,
+          "win_rate": 0.0232,
+          "ev_points": -0.729,
+          "ev_ci95": [
+            -1.948,
+            0.489
+          ]
+        },
+        "validation": {
+          "n": 1033,
+          "win_rate": 0.2343,
+          "ev_points": 0.107,
+          "ev_ci95": [
+            -3.645,
+            3.859
+          ]
+        },
+        "holdout": {
+          "n": 993,
+          "win_rate": 0.2971,
+          "ev_points": -2.031,
+          "ev_ci95": [
+            -6.263,
+            2.2
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -6.263,
+        -1.948,
+        993
+      ],
+      "rank": 50
+    },
+    {
+      "signal": "NQ fixed SHORT T100/S50 24H from 10:00 ET",
+      "origin": "phase4_target_study",
+      "instrument": "NQ",
+      "trades": 4190,
+      "eras": {
+        "development": {
+          "n": 2191,
+          "win_rate": 0.0429,
+          "ev_points": -1.667,
+          "ev_ci95": [
+            -3.15,
+            -0.184
+          ]
+        },
+        "validation": {
+          "n": 1021,
+          "win_rate": 0.2644,
+          "ev_points": -2.256,
+          "ev_ci95": [
+            -6.257,
+            1.745
+          ]
+        },
+        "holdout": {
+          "n": 978,
+          "win_rate": 0.3139,
+          "ev_points": -1.952,
+          "ev_ci95": [
+            -6.305,
+            2.401
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -6.305,
+        -3.15,
+        978
+      ],
+      "rank": 51
+    },
+    {
+      "signal": "NQ fixed LONG T500/S250 RTH from 10:00 ET",
+      "origin": "phase4_target_study",
+      "instrument": "NQ",
+      "trades": 4220,
+      "eras": {
+        "development": {
+          "n": 2194,
+          "win_rate": 0.0,
+          "ev_points": -0.781,
+          "ev_ci95": [
+            -2.266,
+            0.705
+          ]
+        },
+        "validation": {
+          "n": 1033,
+          "win_rate": 0.0048,
+          "ev_points": -1.988,
+          "ev_ci95": [
+            -9.68,
+            5.703
+          ]
+        },
+        "holdout": {
+          "n": 993,
+          "win_rate": 0.0091,
+          "ev_points": 2.99,
+          "ev_ci95": [
+            -6.43,
+            12.41
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -6.43,
+        -2.266,
+        993
+      ],
+      "rank": 52
+    },
+    {
+      "signal": "NQ fixed LONG T350/S175 RTH from 10:00 ET",
+      "origin": "phase4_target_study",
+      "instrument": "NQ",
+      "trades": 4220,
+      "eras": {
+        "development": {
+          "n": 2194,
+          "win_rate": 0.0,
+          "ev_points": -0.707,
+          "ev_ci95": [
+            -2.154,
+            0.74
+          ]
+        },
+        "validation": {
+          "n": 1033,
+          "win_rate": 0.0145,
+          "ev_points": -0.205,
+          "ev_ci95": [
+            -7.156,
+            6.745
+          ]
+        },
+        "holdout": {
+          "n": 993,
+          "win_rate": 0.0342,
+          "ev_points": 2.268,
+          "ev_ci95": [
+            -6.56,
+            11.096
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -6.56,
+        -2.154,
+        993
+      ],
+      "rank": 53
+    },
+    {
+      "signal": "NQ_value_rejection",
+      "origin": "phase4_16y",
+      "instrument": "NQ",
+      "trades": 2722,
+      "wins": 1222,
+      "losses": 1500,
+      "win_rate": 0.4489,
+      "mean_points": -0.89,
+      "median_points": -3.0,
+      "net_usd": -124430.0,
+      "by_regime_win_rate": {
+        "vix<15": 0.4724,
+        "15-25": 0.4454,
+        "vix>25": 0.3977
+      },
+      "eras": {
+        "development": {
+          "n": 1408,
+          "win_rate": 0.4453,
+          "mean_points": -0.64,
+          "ev_points": -0.89,
+          "ev_ci95": [
+            -1.423,
+            -0.358
+          ]
+        },
+        "validation": {
+          "n": 669,
+          "win_rate": 0.4484,
+          "mean_points": -0.64,
+          "ev_points": -0.885,
+          "ev_ci95": [
+            -3.884,
+            2.114
+          ]
+        },
+        "holdout": {
+          "n": 645,
+          "win_rate": 0.4574,
+          "mean_points": -1.71,
+          "ev_points": -1.962,
+          "ev_ci95": [
+            -6.565,
+            2.642
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -6.565,
+        -1.423,
+        645
+      ],
+      "rank": 54
+    },
+    {
+      "signal": "NQ fixed LONG T500/S250 24H from 10:00 ET",
+      "origin": "phase4_target_study",
+      "instrument": "NQ",
+      "trades": 4190,
+      "eras": {
+        "development": {
+          "n": 2191,
+          "win_rate": 0.0,
+          "ev_points": 0.608,
+          "ev_ci95": [
+            -1.153,
+            2.369
+          ]
+        },
+        "validation": {
+          "n": 1021,
+          "win_rate": 0.0098,
+          "ev_points": 3.414,
+          "ev_ci95": [
+            -6.024,
+            12.852
+          ]
+        },
+        "holdout": {
+          "n": 978,
+          "win_rate": 0.0266,
+          "ev_points": 5.175,
+          "ev_ci95": [
+            -7.239,
+            17.588
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -7.239,
+        -1.153,
+        978
+      ],
+      "rank": 55
+    },
+    {
+      "signal": "NQ fixed LONG T200/S200 24H from 10:00 ET",
+      "origin": "phase4_target_study",
+      "instrument": "NQ",
+      "trades": 4190,
+      "eras": {
+        "development": {
+          "n": 2191,
+          "win_rate": 0.0023,
+          "ev_points": 0.534,
+          "ev_ci95": [
+            -1.221,
+            2.289
+          ]
+        },
+        "validation": {
+          "n": 1021,
+          "win_rate": 0.1469,
+          "ev_points": 3.331,
+          "ev_ci95": [
+            -4.781,
+            11.444
+          ]
+        },
+        "holdout": {
+          "n": 978,
+          "win_rate": 0.2771,
+          "ev_points": 1.896,
+          "ev_ci95": [
+            -8.124,
+            11.916
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -8.124,
+        -1.221,
+        978
+      ],
+      "rank": 56
+    },
+    {
+      "signal": "studio: QA trend continuation NQ",
+      "origin": "studio_ui",
+      "instrument": "NQ",
+      "trades": 738,
+      "wins": 354,
+      "losses": 384,
+      "win_rate": 0.4797,
+      "mean_points": -2.03,
+      "median_points": -10.88,
+      "net_usd": -100820.0,
+      "by_regime_win_rate": {
+        "vix<15": 0.4737,
+        "15-25": 0.4792,
+        "vix>25": 0.4909
+      },
+      "eras": {
+        "development": {
+          "n": 0,
+          "win_rate": null,
+          "mean_points": null,
+          "ev_points": null,
+          "ev_ci95": null
+        },
+        "validation": {
+          "n": 375,
+          "win_rate": 0.4587,
+          "mean_points": -4.37,
+          "ev_points": -6.934,
+          "ev_ci95": [
+            -13.007,
+            -0.862
+          ]
+        },
+        "holdout": {
+          "n": 363,
+          "win_rate": 0.5014,
+          "mean_points": 0.4,
+          "ev_points": 0.22,
+          "ev_ci95": [
+            -8.663,
+            9.104
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -8.663,
+        -Infinity,
+        363
+      ],
+      "rank": 57
+    },
+    {
+      "signal": "NQ fixed SHORT T100/S100 RTH from 10:00 ET",
+      "origin": "phase4_target_study",
+      "instrument": "NQ",
+      "trades": 4220,
+      "eras": {
+        "development": {
+          "n": 2194,
+          "win_rate": 0.0255,
+          "ev_points": -0.71,
+          "ev_ci95": [
+            -2.023,
+            0.602
+          ]
+        },
+        "validation": {
+          "n": 1033,
+          "win_rate": 0.2982,
+          "ev_points": -0.351,
+          "ev_ci95": [
+            -5.159,
+            4.457
+          ]
+        },
+        "holdout": {
+          "n": 993,
+          "win_rate": 0.3917,
+          "ev_points": -3.419,
+          "ev_ci95": [
+            -9.079,
+            2.241
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -9.079,
+        -2.023,
+        993
+      ],
+      "rank": 58
+    },
+    {
+      "signal": "NQ fixed SHORT T200/S100 RTH from 10:00 ET",
+      "origin": "phase4_target_study",
+      "instrument": "NQ",
+      "trades": 4220,
+      "eras": {
+        "development": {
+          "n": 2194,
+          "win_rate": 0.0055,
+          "ev_points": -0.686,
+          "ev_ci95": [
+            -2.108,
+            0.737
+          ]
+        },
+        "validation": {
+          "n": 1033,
+          "win_rate": 0.1055,
+          "ev_points": -0.482,
+          "ev_ci95": [
+            -6.345,
+            5.381
+          ]
+        },
+        "holdout": {
+          "n": 993,
+          "win_rate": 0.1621,
+          "ev_points": -3.911,
+          "ev_ci95": [
+            -10.928,
+            3.107
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -10.928,
+        -2.108,
+        993
+      ],
+      "rank": 59
+    },
+    {
+      "signal": "NQ fixed SHORT T100/S100 24H from 10:00 ET",
+      "origin": "phase4_target_study",
+      "instrument": "NQ",
+      "trades": 4190,
+      "eras": {
+        "development": {
+          "n": 2191,
+          "win_rate": 0.0488,
+          "ev_points": -1.537,
+          "ev_ci95": [
+            -3.164,
+            0.091
+          ]
+        },
+        "validation": {
+          "n": 1021,
+          "win_rate": 0.3536,
+          "ev_points": -3.593,
+          "ev_ci95": [
+            -8.89,
+            1.704
+          ]
+        },
+        "holdout": {
+          "n": 978,
+          "win_rate": 0.4407,
+          "ev_points": -5.029,
+          "ev_ci95": [
+            -11.09,
+            1.033
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -11.09,
+        -3.164,
+        978
+      ],
+      "rank": 60
+    },
+    {
+      "signal": "NQ fixed SHORT T200/S100 24H from 10:00 ET",
+      "origin": "phase4_target_study",
+      "instrument": "NQ",
+      "trades": 4190,
+      "eras": {
+        "development": {
+          "n": 2191,
+          "win_rate": 0.0068,
+          "ev_points": -2.08,
+          "ev_ci95": [
+            -3.78,
+            -0.38
+          ]
+        },
+        "validation": {
+          "n": 1021,
+          "win_rate": 0.1596,
+          "ev_points": -4.002,
+          "ev_ci95": [
+            -10.675,
+            2.671
+          ]
+        },
+        "holdout": {
+          "n": 978,
+          "win_rate": 0.2239,
+          "ev_points": -4.33,
+          "ev_ci95": [
+            -12.184,
+            3.523
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -12.184,
+        -3.78,
+        978
+      ],
+      "rank": 61
+    },
+    {
+      "signal": "NQ fixed SHORT T200/S200 24H from 10:00 ET",
+      "origin": "phase4_target_study",
+      "instrument": "NQ",
+      "trades": 4190,
+      "eras": {
+        "development": {
+          "n": 2191,
+          "win_rate": 0.0073,
+          "ev_points": -2.034,
+          "ev_ci95": [
+            -3.789,
+            -0.279
+          ]
+        },
+        "validation": {
+          "n": 1021,
+          "win_rate": 0.191,
+          "ev_points": -4.831,
+          "ev_ci95": [
+            -12.944,
+            3.281
+          ]
+        },
+        "holdout": {
+          "n": 978,
+          "win_rate": 0.2853,
+          "ev_points": -3.396,
+          "ev_ci95": [
+            -13.416,
+            6.624
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -13.416,
+        -3.789,
+        978
+      ],
+      "rank": 62
+    },
+    {
+      "signal": "NQ fixed SHORT T200/S200 RTH from 10:00 ET",
+      "origin": "phase4_target_study",
+      "instrument": "NQ",
+      "trades": 4220,
+      "eras": {
+        "development": {
+          "n": 2194,
+          "win_rate": 0.0055,
+          "ev_points": -0.697,
+          "ev_ci95": [
+            -2.15,
+            0.756
+          ]
+        },
+        "validation": {
+          "n": 1033,
+          "win_rate": 0.1229,
+          "ev_points": -1.005,
+          "ev_ci95": [
+            -7.808,
+            5.798
+          ]
+        },
+        "holdout": {
+          "n": 993,
+          "win_rate": 0.1934,
+          "ev_points": -5.072,
+          "ev_ci95": [
+            -13.561,
+            3.417
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -13.561,
+        -2.15,
+        993
+      ],
+      "rank": 63
+    },
+    {
+      "signal": "NQ fixed SHORT T350/S175 24H from 10:00 ET",
+      "origin": "phase4_target_study",
+      "instrument": "NQ",
+      "trades": 4190,
+      "eras": {
+        "development": {
+          "n": 2191,
+          "win_rate": 0.0014,
+          "ev_points": -2.263,
+          "ev_ci95": [
+            -4.052,
+            -0.473
+          ]
+        },
+        "validation": {
+          "n": 1021,
+          "win_rate": 0.0656,
+          "ev_points": -4.494,
+          "ev_ci95": [
+            -13.324,
+            4.337
+          ]
+        },
+        "holdout": {
+          "n": 978,
+          "win_rate": 0.1237,
+          "ev_points": -3.495,
+          "ev_ci95": [
+            -14.795,
+            7.805
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -14.795,
+        -4.052,
+        978
+      ],
+      "rank": 64
+    },
+    {
+      "signal": "NQ fixed SHORT T500/S250 RTH from 10:00 ET",
+      "origin": "phase4_target_study",
+      "instrument": "NQ",
+      "trades": 4220,
+      "eras": {
+        "development": {
+          "n": 2194,
+          "win_rate": 0.0,
+          "ev_points": -0.705,
+          "ev_ci95": [
+            -2.186,
+            0.776
+          ]
+        },
+        "validation": {
+          "n": 1033,
+          "win_rate": 0.0048,
+          "ev_points": 0.675,
+          "ev_ci95": [
+            -7.113,
+            8.463
+          ]
+        },
+        "holdout": {
+          "n": 993,
+          "win_rate": 0.0201,
+          "ev_points": -6.021,
+          "ev_ci95": [
+            -15.967,
+            3.925
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -15.967,
+        -2.186,
+        993
+      ],
+      "rank": 65
+    },
+    {
+      "signal": "NQ fixed SHORT T500/S250 24H from 10:00 ET",
+      "origin": "phase4_target_study",
+      "instrument": "NQ",
+      "trades": 4190,
+      "eras": {
+        "development": {
+          "n": 2191,
+          "win_rate": 0.0,
+          "ev_points": -2.357,
+          "ev_ci95": [
+            -4.087,
+            -0.627
+          ]
+        },
+        "validation": {
+          "n": 1021,
+          "win_rate": 0.0304,
+          "ev_points": -4.201,
+          "ev_ci95": [
+            -14.055,
+            5.653
+          ]
+        },
+        "holdout": {
+          "n": 978,
+          "win_rate": 0.0562,
+          "ev_points": -3.006,
+          "ev_ci95": [
+            -16.145,
+            10.132
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -16.145,
+        -4.087,
+        978
+      ],
+      "rank": 66
+    },
+    {
+      "signal": "NQ fixed SHORT T350/S175 RTH from 10:00 ET",
+      "origin": "phase4_target_study",
+      "instrument": "NQ",
+      "trades": 4220,
+      "eras": {
+        "development": {
+          "n": 2194,
+          "win_rate": 0.0005,
+          "ev_points": -0.7,
+          "ev_ci95": [
+            -2.204,
+            0.805
+          ]
+        },
+        "validation": {
+          "n": 1033,
+          "win_rate": 0.03,
+          "ev_points": -0.117,
+          "ev_ci95": [
+            -7.421,
+            7.187
+          ]
+        },
+        "holdout": {
+          "n": 993,
+          "win_rate": 0.0614,
+          "ev_points": -7.163,
+          "ev_ci95": [
+            -16.268,
+            1.943
+          ]
+        }
+      },
+      "unit": "points per contract (net)",
+      "status": "REJECTED",
+      "reason": "DEVELOPMENT_EV_CI_NOT_POSITIVE",
+      "rank_key": [
+        -16.268,
+        -2.204,
+        993
+      ],
+      "rank": 67
+    },
+    {
+      "signal": "ML-filtered NQ long 1.0x0.5 ATR (lightgbm)",
+      "origin": "phase4c_ml",
+      "instrument": "NQ",
+      "trades": 12,
+      "eras": {
+        "development": {
+          "n": 11,
+          "win_rate": 0.7273,
+          "ev_points": 0.7838,
+          "ev_ci95": [
+            0.0934,
+            1.4742
+          ]
+        },
+        "holdout": {
+          "n": 1,
+          "win_rate": 1.0,
+          "ev_points": 1.224,
+          "ev_ci95": null
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -Infinity,
+        0.0934,
+        1
+      ],
+      "rank": 68
+    },
+    {
+      "signal": "ML-filtered NQ short 0.5x0.5 ATR (logistic)",
+      "origin": "phase4c_ml",
+      "instrument": "NQ",
+      "trades": 47,
+      "eras": {
+        "development": {
+          "n": 47,
+          "win_rate": 0.5532,
+          "ev_points": 0.0216,
+          "ev_ci95": [
+            -0.248,
+            0.2913
+          ]
+        },
+        "holdout": {
+          "n": 0,
+          "win_rate": null,
+          "ev_points": null,
+          "ev_ci95": null
+        }
+      },
+      "unit": "R multiples (net)",
+      "status": "REJECTED",
+      "reason": "INSUFFICIENT_INDEPENDENT_SAMPLE",
+      "rank_key": [
+        -Infinity,
+        -0.248,
+        0
+      ],
+      "rank": 69
+    }
+  ],
+  "note": "Ranks order evidence; they are not recommendations. NO_TRADE.",
+  "trading_decision": "NO_TRADE"
+}

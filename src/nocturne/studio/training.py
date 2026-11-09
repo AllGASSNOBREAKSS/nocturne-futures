@@ -16,28 +16,40 @@ import pandas as pd
 
 from ..research import futures_free as ff
 from ..research.free_data_experiment import block_bootstrap, direction_metrics
-from . import ROOT, atomic_write, market
+from . import ROOT, atomic_write, dataset, market
 
 FAMILIES = {"price": ff.PRICE, **ff.FAMILIES}
-MODELS = ("frequency", "logistic", "random_forest", "lightgbm")
+DB_FAMILIES = {"price": None, "intraday": None, **ff.FAMILIES}  # resolved from studio.dataset
+MODELS = ("frequency", "logistic", "random_forest", "gradient_boosting", "lightgbm")
 OBJECTIVES = ("direction", "compression", "range_ge_points", "range_quantile")
+DB_OBJECTIVES = ("direction", "compression", "expansion", "trend_day", "touch_prior_high", "touch_prior_low", "touch_prior_vwap",
+                 "range_ge_points", "range_ge_atr", "range_quantile", "target_before_stop")
 ROLLS = ROOT / "data/history/free/rolls/front_month_volume_rolls.json"
 
 
 def validate(c):
     e = []
+    databento = c.get("source") == "databento"
+    if c.get("source") not in (None, "yahoo", "databento"):
+        e.append("source must be yahoo or databento")
     if c.get("root") not in market.ROOTS:
         e.append("instrument must be NQ or ES")
-    if c.get("objective") not in OBJECTIVES:
-        e.append("unknown objective")
+    if c.get("objective") not in (DB_OBJECTIVES if databento else OBJECTIVES):
+        e.append("unknown objective for this data source")
+    if databento and c.get("objective") == "range_ge_points" and int(c.get("threshold_points", 0)) not in dataset.POINT_THRESHOLDS.get(c.get("root"), ()):
+        e.append(f"threshold_points must be one of {dataset.POINT_THRESHOLDS.get(c.get('root'))}")
+    if databento and c.get("objective") == "range_ge_atr" and float(c.get("threshold_atr", 0)) not in dataset.ATR_THRESHOLDS:
+        e.append(f"threshold_atr must be one of {dataset.ATR_THRESHOLDS}")
+    if databento and c.get("objective") == "target_before_stop" and (c.get("geometry") not in dataset.TBS_GEOMETRIES or c.get("side") not in ("long", "short")):
+        e.append(f"geometry must be one of {list(dataset.TBS_GEOMETRIES)} and side long/short")
+    if not databento and c.get("objective") == "range_ge_points" and not 1 <= float(c.get("threshold_points", 0)) <= 5000:
+        e.append("threshold_points must be 1-5000")
     if c.get("model") not in MODELS:
         e.append("unknown model family")
     if c.get("objective") == "range_quantile" and c.get("model") not in ("frequency", "lightgbm"):
         e.append("range quantiles support frequency baseline or LightGBM")
-    if c.get("objective") == "range_ge_points" and not 1 <= float(c.get("threshold_points", 0)) <= 5000:
-        e.append("threshold_points must be 1-5000")
     fams = c.get("feature_families") or ["price"]
-    if any(f not in FAMILIES for f in fams):
+    if any(f not in (DB_FAMILIES if databento else FAMILIES) for f in fams):
         e.append("unknown feature family")
     first, last, hold = int(c.get("first_test_year", 2008)), int(c.get("last_test_year", 2026)), int(c.get("holdout_from", 2024))
     if not 2003 <= first <= last <= 2026 or not first < hold <= last + 1:
@@ -69,6 +81,11 @@ def _model(c):
         from sklearn.pipeline import make_pipeline
         from sklearn.preprocessing import StandardScaler
         return make_pipeline(StandardScaler(), LogisticRegression(C=float(c.get("C", 0.2)), max_iter=2000))
+    if kind == "gradient_boosting":
+        from sklearn.ensemble import HistGradientBoostingClassifier
+        return HistGradientBoostingClassifier(max_iter=int(c.get("n_estimators", 200)), learning_rate=float(c.get("learning_rate", 0.05)),
+                                              max_leaf_nodes=int(c.get("num_leaves", 15)), min_samples_leaf=50, l2_regularization=1.0,
+                                              random_state=seed)
     if kind == "random_forest":
         from sklearn.ensemble import RandomForestClassifier
         return RandomForestClassifier(n_estimators=int(c.get("n_estimators", 300)), max_depth=int(c.get("max_depth", 6)),
@@ -106,10 +123,27 @@ def run(c, directory, progress=lambda pct, msg: None, cancelled=lambda: False):
     threshold = float(c["threshold_points"]) if c["objective"] == "range_ge_points" else None
     if threshold is not None and threshold.is_integer():
         threshold = int(threshold)
+    objective = c["objective"]
+    if c.get("source") == "databento":
+        data, provenance = dataset.build(c["root"])
+        data = data.copy()
+        families = {"price": dataset.PRICE, "intraday": dataset.INTRADAY, **ff.FAMILIES}
+        features = [f for fam in (c.get("feature_families") or ["price"]) for f in families[fam]]
+        features = list(dict.fromkeys(features))
+        names = {"range_ge_points": f"range_ge_{int(c.get('threshold_points', 0))}pts", "range_ge_atr": f"range_ge_{c.get('threshold_atr')}atr"}
+        if objective == "target_before_stop":
+            key = f"tbs_{c['side']}_{c['geometry']}"
+            label, base = key, f"base_{key}"
+        elif objective == "range_quantile":
+            label, base = "next_range", None
+        else:
+            name = names.get(objective, objective)
+            label, base = f"y_{name}", f"base_{name}"
+        progress(5, f"{len(data)} authentic Databento sessions ({provenance['source']})")
+        return _walk(c, data, features, label, base, provenance, directory, progress, cancelled)
     data, provenance = _dataset(c["root"], threshold)
     progress(5, f"{len(data)} sessions after roll exclusion")
     features = sorted({f for fam in (c.get("feature_families") or ["price"]) for f in FAMILIES[fam]}, key=lambda x: (x not in ff.PRICE, x))
-    objective = c["objective"]
     if objective == "direction":
         label, base = "next_up", "base_up"
     elif objective == "compression":
@@ -118,6 +152,11 @@ def run(c, directory, progress=lambda pct, msg: None, cancelled=lambda: False):
         label, base = f"y_range_{threshold}", f"base_range_{threshold}"
     else:
         label, base = "next_range", None
+    return _walk(c, data, features, label, base, provenance, directory, progress, cancelled)
+
+
+def _walk(c, data, features, label, base, provenance, directory, progress, cancelled):
+    objective = c["objective"]
     usable = data.dropna(subset=features + [label] + ([base] if base else []))
     years = list(range(int(c.get("first_test_year", 2008)), int(c.get("last_test_year", 2026)) + 1))
     holdout = int(c.get("holdout_from", 2024))
@@ -135,6 +174,8 @@ def run(c, directory, progress=lambda pct, msg: None, cancelled=lambda: False):
             folds.append({"year": year, "status": "SKIPPED_INSUFFICIENT_TRAINING"})
             continue
         frame = pd.DataFrame({"date": test.date.to_numpy(), "year": year, "y": test[label].to_numpy()})
+        if objective == "target_before_stop":
+            frame["r"] = test["r_" + label[4:]].to_numpy()
         if objective == "range_quantile":
             trail = data.range_pts.rolling(250)
             for q in (0.5, 0.8, 0.9):
@@ -190,6 +231,17 @@ def run(c, directory, progress=lambda pct, msg: None, cancelled=lambda: False):
                  "brier_model_minus_baseline": block_bootstrap(f, (f.p_model - y) ** 2, (f.p_base - y) ** 2, 1000, 7),
                  "reliability": reliability(y, f.p_model.to_numpy())}
         report["metrics"][era] = m
+    if objective == "target_before_stop":
+        a, b = dataset.TBS_GEOMETRIES[c["geometry"]]
+        breakeven = b / (a + b)
+        report["economics"] = {"rule": f"trade only when calibrated p(target-first) > break-even {breakeven:.3f} (payoff {a}/{b} ATR, timeout marked to market, costs included)"}
+        for era in ("development", "holdout"):
+            f = pred[pred.era == era]
+            take = f[f.p_model > breakeven]
+            stat = lambda r: {"n": int(len(r)), "mean_r": round(float(r.mean()), 4) if len(r) else None,
+                              "ci95": [round(float(r.mean() - 1.96 * r.std(ddof=1) / np.sqrt(len(r))), 4), round(float(r.mean() + 1.96 * r.std(ddof=1) / np.sqrt(len(r))), 4)] if len(r) > 1 else None,
+                              "win_rate": round(float((r > 0).mean()), 4) if len(r) else None}
+            report["economics"][era] = {"model_filtered": stat(take.r.dropna()), "always_trade": stat(f.r.dropna())}
     for year, f in pred.groupby("year"):
         if objective == "range_quantile":
             report["by_year"][str(year)] = {"n": len(f), "coverage_q80": round(float((f.y <= f.q80).mean()), 4),

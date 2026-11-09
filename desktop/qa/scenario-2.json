@@ -1,0 +1,21 @@
+{
+  "name": "phase4c-acceptance-run-2-restart",
+  "steps": [
+    {"nav": "/lab", "settle": 5000},
+    {"waitText": "QA trend continuation NQ", "timeout": 30000},
+    {"waitText": "QA consolidation breakout ES", "timeout": 10000, "shot": "I1-restart-saved-strategies"},
+    {"nav": "/models", "settle": 4000},
+    {"waitText": "QA NQ expansion LGBM", "timeout": 30000},
+    {"click": "QA NQ expansion LGBM", "within": "Experiments", "wait": 4000},
+    {"read": "Experiment detail", "save": "ui_detail_expansion_after_restart", "shot": "I2-restart-experiment"},
+    {"waitText": "QA NQ expansion LGBM", "within": "Saved configs"},
+    {"nav": "/backtests", "settle": 4000},
+    {"waitText": "QA VWAP pullback NQ 16y", "timeout": 30000},
+    {"click": "QA VWAP pullback NQ 16y", "wait": 6000, "shot": "I3-restart-backtest"},
+    {"eval": "[...document.querySelectorAll('h2')].map(h => h.textContent).find(t => t.includes('Trade ledger'))", "save": "ui_ledger_title_after_restart"},
+    {"api": {"path": "/v1/training-jobs"}, "save": "training_jobs_after_restart"},
+    {"api": {"path": "/v1/models"}, "save": "models_after_restart"},
+    {"nav": "/ops", "settle": 5000, "shot": "I4-restart-ops"},
+    {"nav": "/market", "settle": 6000, "shot": "I5-restart-market"}
+  ]
+}
