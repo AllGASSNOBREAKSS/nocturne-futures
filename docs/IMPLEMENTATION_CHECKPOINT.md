@@ -1,6 +1,16 @@
 # Implementation Checkpoint
 
-## Current resume point — Phase 3U, 2026-11-09 UTC
+## Current resume point — Phase 3V, 2026-11-09 UTC
+
+Branch `feat/phase3v`. Operator policy: **no spending**. Never request Databento
+time series (`timeseries.get_range`) without explicit approval of an exact quote.
+The key lives only in ignored `data/security/databento.key`; load it with
+`DATABENTO_API_KEY=$(cat data/security/databento.key) python scripts/phase3v_preflight.py`.
+Free research: `scripts/phase3u_collect.py --sources yahoo_futures`, then
+`phase3v_research.py`, `phase3v_strategies.py`, `phase3v_rank.py`. Roll dates are
+committed at `data/history/free/rolls/`. Read `PHASE3V_FINDINGS.md`.
+
+## Historical resume point — Phase 3U, 2026-11-09 UTC
 
 Branch `feat/phase3u`, base `632bcaf`. Read `PHASE3U_FINDINGS.md`,
 `reports/phase3u_backtest.md`, `reports/phase3u_collection.json`,

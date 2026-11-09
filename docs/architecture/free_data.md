@@ -40,3 +40,15 @@ then `FREE_DATA_EXPERIMENT`, which reuses the stored result when data, code and
 protocol are unchanged. Both are research-lane only and cannot touch shadow
 inference. A collection job succeeds when at least one source is collected and
 lists every failed source; detected revisions are returned in the job result.
+
+## Phase 3V additions
+
+- `yahoo_futures` source: NQ=F/ES=F at 1m (4 × 7-day windows), 5m (60 days),
+  60m (730 days) and daily (explicit epoch bounds). Bars must be interval-aligned
+  and complete; Yahoo's continuous series is unadjusted front-month.
+- Roll calendar: `data/history/free/rolls/front_month_volume_rolls.json`, derived
+  from free Databento symbology (`symbology.resolve`, continuous `v.0`), with
+  the receipt SHA-256; no raw provider payload is committed.
+- `research/futures_free.py`: daily cutoff = 17:59 ET (one minute before the next
+  Globex session); labels exclude ±3 sessions around rolls; hourly
+  target-before-stop paths resolve same-bar ties with 1m/5m bars, else stop-first.

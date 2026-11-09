@@ -1,4 +1,16 @@
-# Backend readiness — Phase 3U
+# Backend readiness — Phase 3V
+
+## Phase 3V update — NO_GO_FRONTEND (November 9, 2026 UTC)
+
+Engineering: Databento metadata preflight verified and its range-key defect
+fixed; free futures collection (1m/5m/60m/1d) with live-bar and monthly-downsample
+defects fixed; deterministic, reproducible futures research and ranking; 451 tests.
+Quantitative: authentic raw-contract, trade, quote and depth history still
+absent by operator $0 policy. Validated research-only: compression and
+large-range probability models (volatility persistence). Rejected: direction,
+all target-before-stop geometries, all ranked signals; strategies insufficient.
+No promotion; no readiness percentage.
+
 
 ## Phase 3U update — NO_GO_FRONTEND (November 9, 2026 UTC)
 

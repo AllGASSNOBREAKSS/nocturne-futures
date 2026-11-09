@@ -8,6 +8,19 @@
 
 ## What is implemented
 
+### Phase 3V — zero-cost futures research
+
+Operator policy is **$0 spend**: Databento was used only for free metadata (auth
+OK, GLBX.MDP3 2010–2026, quotes on file, nothing purchased). Free Yahoo NQ=F/ES=F
+1m/5m/60m/daily history (154,506 rows) runs through the existing engines with
+roll dates from free Databento symbology. Results: direction **rejected** for
+NQ and ES; next-session compression (LightGBM) and large-range probabilities
+beat trailing baselines (volatility persistence); VIX/VXN help 350-point NQ
+range forecasts while positioning/rates mostly hurt; existing strategies have
+insufficient samples (24–44 trades); all 20 hourly target-before-stop geometries
+and **all 26 ranked signals rejected**. 451 tests pass. See
+[findings](docs/PHASE3V_FINDINGS.md) and [tables](reports/phase3v_research.md).
+
 ### Phase 3U — free-data collection, backtest and forward cycle
 
 `nocturne.collector` gathers keyless official data with a declared user agent,
