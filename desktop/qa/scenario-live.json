@@ -1,0 +1,33 @@
+{
+  "name": "live-and-backtest",
+  "steps": [
+    {"nav": "/", "settle": 3000},
+    {"waitText": "Market now", "timeout": 120000},
+    {"waitText": "Take-profit levels", "timeout": 30000},
+    {"wait": 3000, "shot": "L1-live-nq"},
+    {"api": {"method": "GET", "path": "/v1/live/NQ"}, "save": "api_live_nq"},
+    {"read": "Take-profit levels", "save": "ui_tp"},
+    {"click": "TradingView", "exact": true, "wait": 9000, "shot": "L2-tradingview"},
+    {"click": "Levels", "exact": true, "wait": 1500},
+    {"click": "ES", "exact": true},
+    {"waitText": "Market now", "timeout": 120000},
+    {"wait": 4000, "shot": "L3-live-es"},
+    {"click": "Next session", "exact": true},
+    {"click": "Predict next session", "exact": true},
+    {"waitText": "Expected range", "timeout": 240000},
+    {"wait": 2500, "shot": "L4-next-es"},
+    {"nav": "/test", "settle": 2500},
+    {"waitText": "Backtest everything", "timeout": 20000},
+    {"fill": "Contracts (1–50)", "value": "3"},
+    {"click": "1:2", "exact": true}, {"click": "1:3", "exact": true}, {"click": "1:5", "exact": true}, {"click": "1:8", "exact": true},
+    {"wait": 500, "shot": "B1-setup"},
+    {"click": "Backtest everything", "exact": true},
+    {"waitText": "Top by win rate", "timeout": 1500000},
+    {"wait": 2000, "shot": "B2-leaderboard"},
+    {"read": "Leaderboard", "save": "ui_board"},
+    {"click": "By profit", "exact": true, "wait": 1500, "shot": "B3-by-profit"},
+    {"click": "Backtest", "within": "Backtest one strategy", "exact": true},
+    {"waitText": "Trade ledger", "timeout": 900000},
+    {"wait": 3000, "shot": "B4-single-report"}
+  ]
+}

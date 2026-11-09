@@ -18,7 +18,7 @@ from pathlib import Path
 from ..research.orchestrator import JobStore, run_lane
 from . import ROOT, STATE, atomic_write, read_json
 
-KINDS = {"training": "STUDIO_TRAINING", "backtest": "STUDIO_BACKTEST"}
+KINDS = {"training": "STUDIO_TRAINING", "backtest": "STUDIO_BACKTEST", "sweep": "STUDIO_SWEEP"}
 STORE_ROOT = STATE / "jobs"
 CANCEL = STORE_ROOT / "cancel"
 
@@ -29,8 +29,8 @@ def store():
 
 
 def submit(kind, config):
-    from . import backtest, training
-    errors = (training.validate if kind == "training" else backtest.validate)(config)
+    from . import backtest, sweep, training
+    errors = {"training": training.validate, "backtest": backtest.validate, "sweep": sweep.validate}[kind](config)
     if errors:
         return {"status": "REJECTED", "errors": errors}
     payload = {**config, "submitted_at": datetime.now(timezone.utc).isoformat()}
@@ -86,7 +86,7 @@ def cancel(identifier):
 
 def execute(kind, payload, directory):
     """Called inside the worker subprocess by research.jobs.execute_job."""
-    from . import backtest, training
+    from . import backtest, sweep, training
     directory = Path(directory)
     identifier = directory.parent.name
     log = directory / "progress.log"
@@ -100,7 +100,7 @@ def execute(kind, payload, directory):
     cancelled = lambda: (CANCEL / identifier).exists()
     config = {k: v for k, v in payload.items() if k != "submitted_at"}
     try:
-        runner = training.run if kind == "STUDIO_TRAINING" else backtest.run
+        runner = {"STUDIO_TRAINING": training.run, "STUDIO_BACKTEST": backtest.run, "STUDIO_SWEEP": sweep.run}[kind]
         return runner(config, directory, progress, cancelled)
     except backtest.Cancelled:
         progress(100, "cancelled by user")

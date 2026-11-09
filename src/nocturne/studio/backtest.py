@@ -18,7 +18,8 @@ from ..backtest.data import add_session_column
 from ..backtest.engine import BacktestConfig, run_signal
 from ..instruments import get_instrument
 from ..strategies import OpeningRangeBreakout, ValueRejection, VWAPPullback
-from . import atomic_write, market
+from ..strategies.base import TargetSpec
+from . import atomic_write, market, modelsignals
 from .rules import RuleStrategy, validate as validate_rule
 
 BUILTIN = {"opening_range_breakout": OpeningRangeBreakout, "vwap_pullback": VWAPPullback, "value_rejection": ValueRejection}
@@ -26,6 +27,7 @@ BUILTIN_PARAMS = {"opening_range_breakout": {"ib_minutes": [15, 120, 60], "buffe
                   "vwap_pullback": {"tolerance_atr": [0.05, 2, 0.25], "stop_atr": [0.25, 5, 0.75], "horizon_bars": [6, 200, 18]},
                   "value_rejection": {"horizon_bars": [6, 200, 18], "min_excursion_ticks": [1, 40, 2]}}
 INTERVALS = ("1m", "5m", "15m", "1h")
+MAX_CONTRACTS = 50
 
 
 class Cancelled(Exception):
@@ -44,6 +46,10 @@ def validate(config):
     kind = strategy.get("type")
     if kind == "rule":
         errors += validate_rule(strategy.get("rule", {}))
+    elif kind in modelsignals.KINDS:
+        if config.get("interval") != "5m" or config.get("source", "databento") != "databento":
+            errors.append("model strategies run on authentic Databento 5m bars")
+        errors += modelsignals.validate(kind, strategy.get("params"), config.get("exit"))
     elif kind in BUILTIN:
         if config.get("interval") not in ("1m", "5m"):
             errors.append("built-in session strategies require 1m or 5m bars")
@@ -56,15 +62,31 @@ def validate(config):
     costs = config.get("costs", {})
     if not 0 <= float(costs.get("commission_per_contract", 2.5)) <= 50 or not 0 <= float(costs.get("slippage_ticks", 1)) <= 20:
         errors.append("costs out of bounds")
-    if int(config.get("contracts", 2)) not in (1, 2, 3, 4):
-        errors.append("contracts must be 1-4")
+    if not 1 <= int(config.get("contracts", 2)) <= MAX_CONTRACTS:
+        errors.append(f"contracts must be 1-{MAX_CONTRACTS}")
+    exit_cfg = config.get("exit")
+    if exit_cfg:
+        rr = exit_cfg.get("rr") or []
+        if not 1 <= len(rr) <= 3 or any(not 0.25 <= float(r) <= 20 for r in rr) or list(rr) != sorted(rr):
+            errors.append("exit.rr: 1-3 ascending reward:risk multiples in [0.25, 20]")
+        stop = exit_cfg.get("stop")
+        if stop and (stop.get("type") not in ("atr", "points") or not 0 < float(stop.get("value", 0)) <= 2000):
+            errors.append("exit.stop must be atr multiple or points (0, 2000]")
+        if stop and stop.get("type") == "atr" and kind in BUILTIN:
+            errors.append("built-in strategies accept a points stop override only")
     return errors
 
 
 def _signals(config, bars, spec):
     strategy = config["strategy"]
+    if strategy["type"] in modelsignals.KINDS:
+        return modelsignals.signals(strategy["type"], strategy.get("params"), config["root"], config.get("exit"),
+                                    config.get("start"), config.get("end"))
     if strategy["type"] == "rule":
-        return RuleStrategy(strategy["rule"], strategy_id=f"rule:{config.get('name', 'user')}").signals(bars, spec)
+        rule = dict(strategy["rule"])
+        if config.get("exit"):
+            rule["targets_r"] = config["exit"]["rr"]
+        return RuleStrategy(rule, strategy_id=f"rule:{config.get('name', 'user')}").signals(bars, spec)
     params = dict(strategy.get("params") or {})
     for key in ("ib_minutes", "buffer_ticks", "horizon_bars", "min_excursion_ticks"):
         if key in params:
@@ -81,6 +103,79 @@ def _signals(config, bars, spec):
         else:
             out += [(day, s) for s in instance.signals(group, spec, day)]
     return out
+
+
+def apply_exit(signals, exit_cfg):
+    """Rewrite targets as RR x risk (optionally with a points stop) for built-in strategies."""
+    if not exit_cfg:
+        return signals
+    out = []
+    for day, s in signals:
+        ref = (s.entry_low + s.entry_high) / 2
+        sign = 1 if s.side == "LONG" else -1
+        stop = (ref - sign * float(exit_cfg["stop"]["value"])) if exit_cfg.get("stop") else s.stop
+        risk = abs(ref - stop)
+        if risk <= 0:
+            continue
+        targets = tuple(TargetSpec(f"TP{i + 1}", round(ref + sign * float(r) * risk, 2), float(r)) for i, r in enumerate(exit_cfg["rr"]))
+        try:
+            out.append((day, dataclasses.replace(s, stop=round(stop, 2), targets=targets)))
+        except ValueError:
+            continue
+    return out
+
+
+def schedule_for(contracts, n_targets):
+    """Whole-contract scale-out across targets (earlier targets take the remainder)."""
+    if n_targets <= 1 or contracts == 1:
+        return ((0, 1.0),)
+    n = min(n_targets, contracts)
+    base, rem = divmod(contracts, n)
+    return tuple((i, (base + (1 if i < rem else 0)) / contracts) for i in range(n))
+
+
+def target_count(config):
+    if config.get("exit"):
+        return len(config["exit"]["rr"])
+    strategy = config["strategy"]
+    if strategy["type"] == "rule":
+        return len(strategy.get("rule", {}).get("targets_r", []))
+    return 1 if strategy["type"] == "ml_levels" else 2
+
+
+def simulate(signals, bars, spec, cfg, groups=None, cancelled=lambda: False, progress=None, vix=None):
+    """Run every signal through the engine; returns one row per filled trade."""
+    rows, rth_cache = [], {}
+    index = pd.DatetimeIndex(bars.timestamp)
+    for k, (day, signal) in enumerate(signals):
+        if cancelled():
+            raise Cancelled()
+        if groups is not None:
+            if day not in rth_cache:
+                rth_cache[day] = session_bars(groups[day], spec, "RTH", day)
+            window = rth_cache[day]
+        else:
+            start = index.searchsorted(pd.Timestamp(signal.asof))
+            window = bars.iloc[start:start + signal.horizon_bars + 2]
+        trade = run_signal(signal, window, spec, cfg)
+        if trade is None:
+            continue
+        prior_vix = vix[vix.index < str(pd.Timestamp(trade.entry_time).date())] if vix is not None else None
+        contract = str(window.contract.iloc[0]) if "contract" in window and len(window) else "CONTINUOUS_FRONT_UNADJUSTED"
+        rows.append({"strategy": signal.strategy_id, "contract": contract, "side": trade.side,
+                     "session_date": str(day), "session": _session_label(trade.entry_time),
+                     "entry_time": str(trade.entry_time), "entry": trade.entry_price, "stop": trade.stop_price,
+                     "tp1": trade.target_prices[0] if trade.target_prices else None,
+                     "tp2": trade.target_prices[1] if len(trade.target_prices) > 1 else None,
+                     "tp3": trade.target_prices[2] if len(trade.target_prices) > 2 else None,
+                     "exit_time": str(trade.exit_time), "exit": trade.exit_price, "outcome": trade.outcome,
+                     "bars_held": trade.bars_held, "points": trade.points, "mfe_points": trade.mfe_points,
+                     "mae_points": trade.mae_points, "gross": trade.gross_dollars, "costs": trade.costs, "net": trade.dollars,
+                     "fills": len(trade.target_fills), "reason": ";".join(signal.reason_codes),
+                     "vix_prior": float(prior_vix.iloc[-1]) if prior_vix is not None and len(prior_vix) else None})
+        if progress and k % 50 == 0:
+            progress(k)
+    return pd.DataFrame(rows)
 
 
 def sessions_of(bars, spec):
@@ -133,51 +228,21 @@ def run(config, directory, progress=lambda pct, msg: None, cancelled=lambda: Fal
         return {"status": "BLOCKED", "reason": "INSUFFICIENT_DATA_IN_RANGE", "rows": len(bars)}
     progress(5, f"loaded {len(bars)} bars from {meta['dataset']}")
     signals = _signals(config, bars, spec)
+    if config["strategy"]["type"] in BUILTIN:
+        signals = apply_exit(signals, config.get("exit"))
     progress(20, f"{len(signals)} signals generated")
     vix = market.archive().load("fred", "VIXCLS").set_index("date").value
     costs = config.get("costs", {})
     contracts = int(config.get("contracts", 2))
-    n_targets = len(config["strategy"].get("rule", {}).get("targets_r", []))  # built-ins keep their own targets
-    # Whole-contract scale-out: 3 contracts with 3 targets exit 1/3 at TP1/TP2/TP3.
-    schedule = (((0, 1 / 3), (1, 1 / 3), (2, 1 / 3)) if contracts == 3 and n_targets >= 3 else
-                ((0, 0.5), (1, 0.5)) if contracts % 2 == 0 else ((0, 1.0),))
-    results, stress = [], {}
-    groups = sessions_of(bars, spec) if config["strategy"]["type"] != "rule" else None
-    rth_cache = {}
-    index = pd.DatetimeIndex(bars.timestamp)
+    schedule = schedule_for(contracts, target_count(config))
+    stress = {}
+    groups = sessions_of(bars, spec) if config["strategy"]["type"] in BUILTIN else None
     for slip in sorted({0.5, float(costs.get("slippage_ticks", 1)), 2.0}):
         cfg = BacktestConfig(commission_per_contract=float(costs.get("commission_per_contract", 2.5)), slippage_ticks=slip,
                              contracts=contracts, cost_model="cashflow-v2", exit_schedule=schedule)
-        rows = []
-        for k, (day, signal) in enumerate(signals):
-            if cancelled():
-                raise Cancelled()
-            if groups is not None:
-                if day not in rth_cache:
-                    rth_cache[day] = session_bars(groups[day], spec, "RTH", day)
-                window = rth_cache[day]
-            else:
-                start = index.searchsorted(pd.Timestamp(signal.asof))
-                window = bars.iloc[start:start + signal.horizon_bars + 2]
-            trade = run_signal(signal, window, spec, cfg)
-            if trade is None:
-                continue
-            prior_vix = vix[vix.index < str(pd.Timestamp(trade.entry_time).date())]
-            contract = str(window.contract.iloc[0]) if "contract" in window and len(window) else "CONTINUOUS_FRONT_UNADJUSTED"
-            rows.append({"strategy": signal.strategy_id, "contract": contract, "side": trade.side,
-                         "session_date": str(day), "session": _session_label(trade.entry_time),
-                         "entry_time": str(trade.entry_time), "entry": trade.entry_price, "stop": trade.stop_price,
-                         "tp1": trade.target_prices[0] if trade.target_prices else None,
-                         "tp2": trade.target_prices[1] if len(trade.target_prices) > 1 else None,
-                         "tp3": trade.target_prices[2] if len(trade.target_prices) > 2 else None,
-                         "exit_time": str(trade.exit_time), "exit": trade.exit_price, "outcome": trade.outcome,
-                         "bars_held": trade.bars_held, "points": trade.points, "mfe_points": trade.mfe_points,
-                         "mae_points": trade.mae_points, "gross": trade.gross_dollars, "costs": trade.costs, "net": trade.dollars,
-                         "fills": len(trade.target_fills),
-                         "vix_prior": float(prior_vix.iloc[-1]) if len(prior_vix) else None})
-            if slip == float(costs.get("slippage_ticks", 1)) and k % 50 == 0:
-                progress(20 + int(60 * k / max(1, len(signals))), f"simulated {k}/{len(signals)} signals")
-        stress[str(slip)] = pd.DataFrame(rows)
+        main = slip == float(costs.get("slippage_ticks", 1))
+        report = (lambda k: progress(20 + int(60 * k / max(1, len(signals))), f"simulated {k}/{len(signals)} signals")) if main else None
+        stress[str(slip)] = simulate(signals, bars, spec, cfg, groups, cancelled, report, vix)
     trades = stress[str(float(costs.get("slippage_ticks", 1)))]
     progress(85, "computing metrics")
     point_value = spec.multiplier

@@ -123,7 +123,11 @@ function createWindow() {
   });
   win.once("ready-to-show", () => win.show());
   win.webContents.on("will-navigate", (e) => e.preventDefault());
-  win.webContents.setWindowOpenHandler(() => ({ action: "deny" }));
+  // News links open in the user's browser; nothing opens inside the app.
+  win.webContents.setWindowOpenHandler(({ url }) => {
+    if (/^https:\/\//.test(url)) shell.openExternal(url);
+    return { action: "deny" };
+  });
   if (DEV) win.loadURL("http://localhost:5173");
   else win.loadFile(path.join(__dirname, "..", "dist", "index.html"));
 }

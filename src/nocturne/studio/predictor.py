@@ -268,11 +268,16 @@ def _drivers(models, row):
     return out
 
 
+def oos_path(root):
+    """Out-of-sample walk-forward excursion quantiles per issuing date (used as ML levels)."""
+    return DIR / f"{root}_{_key(root)}_oos2.csv"
+
+
 def track_record(root):
     """Walk-forward accuracy of this exact method (annual refits 2013-2026), cached."""
     DIR.mkdir(parents=True, exist_ok=True)
     path = DIR / f"{root}_{_key(root)}_track.json"
-    if path.exists():
+    if path.exists() and oos_path(root).exists():
         return json.loads(path.read_text())
     data, _ = dataset.build(root, "databento")
     data = data.dropna(subset=["up_exc_atr", "dn_exc_atr"]).reset_index(drop=True)
@@ -283,10 +288,11 @@ def track_record(root):
         if len(train) < 1000 or test.empty:
             continue
         out = infer(fit(train), test)
-        frame = pd.DataFrame({"year": year, "up": test.up_exc_atr.to_numpy(), "dn": test.dn_exc_atr.to_numpy()})
+        frame = pd.DataFrame({"year": year, "date": test.date.to_numpy(), "close": test.close.to_numpy(), "atr": test.atr20_pts.to_numpy(),
+                              "up": test.up_exc_atr.to_numpy(), "dn": test.dn_exc_atr.to_numpy()})
         for k, q in enumerate(QUANTILES):
             frame[f"up_q{q}"], frame[f"dn_q{q}"] = out["up"][:, k], out["dn"][:, k]
-        for name in ("touch_prior_high", "touch_prior_low", "touch_prior_vwap", "expansion", "compression"):
+        for name in ("touch_prior_high", "touch_prior_low", "touch_prior_vwap", "expansion", "compression", "direction"):
             frame[f"p_{name}"], frame[f"y_{name}"] = out[name], test[f"y_{name}"].to_numpy()
             frame[f"b_{name}"] = test[f"base_{name}"].to_numpy()
         rows.append(frame)
@@ -303,6 +309,7 @@ def track_record(root):
                                        "n_p_over_70": int((p > 0.7).sum())}
     for year, g in f.groupby("year"):
         record["by_year_high_p75_reached"][str(year)] = round(float((g.up >= g["up_q0.25"]).mean()), 3)
+    f.drop(columns=[c for c in f if c.startswith(("y_", "b_"))]).to_csv(oos_path(root), index=False)
     path.write_text(json.dumps(record, indent=2))
     return record
 

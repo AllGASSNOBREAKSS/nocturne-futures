@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { Activity, BarChart3, Binary, BrainCircuit, CandlestickChart, Command, Crosshair, FlaskConical, Gauge, Globe2, LayoutDashboard, Server, Target } from "lucide-react";
+import { Activity, BarChart3, Binary, BrainCircuit, CandlestickChart, Command, Crosshair, FlaskConical, Gauge, Globe2, LayoutDashboard, Server, Target, Rocket } from "lucide-react";
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useApi, useBackendStatus, useClock } from "@/lib/hooks";
@@ -10,7 +10,7 @@ import { ErrorBoundary } from "./ErrorBoundary";
 export const NAV = [
   { to: "/", code: "PRED", label: "Predict", icon: Crosshair, key: "F1", primary: true },
   { to: "/market", code: "CHART", label: "Chart", icon: CandlestickChart, key: "F2", primary: true },
-  { to: "/lab", code: "TEST", label: "Build & backtest", icon: FlaskConical, key: "F3", primary: true },
+  { to: "/test", code: "TEST", label: "Backtest", icon: Rocket, key: "F3", primary: true },
   { to: "/models", code: "ML", label: "Models", icon: BrainCircuit, key: "F4", primary: true },
   { to: "/ops", code: "DATA", label: "Data & status", icon: Server, key: "F5", primary: true },
   { to: "/backtests", code: "BT", label: "Backtest results", icon: BarChart3, key: "F6" },
@@ -19,6 +19,7 @@ export const NAV = [
   { to: "/intel", code: "INTL", label: "Macro & news", icon: Globe2, key: "F9" },
   { to: "/overview", code: "OVR", label: "Overview", icon: LayoutDashboard, key: "F10" },
   { to: "/predictions", code: "SESS", label: "Session forecasts", icon: Activity, key: "F11" },
+  { to: "/lab", code: "RULE", label: "Rule builder", icon: FlaskConical, key: "F12" },
 ];
 
 function Clock({ zone, label }: { zone: string; label: string }) {
@@ -33,15 +34,15 @@ function Clock({ zone, label }: { zone: string; label: string }) {
 }
 
 function Ticker({ root }: { root: "NQ" | "ES" }) {
-  const q = useApi<any>(`/v1/markets/${root}/regime`, { refetchInterval: 120_000 });
-  const d = q.data;
-  const change = d ? d.close - d.sma50 : undefined;
+  const live = useApi<any>(`/v1/live/${root}/quote`, { refetchInterval: 60_000 });
+  const arc = useApi<any>(live.error ? `/v1/markets/${root}/regime` : null, { refetchInterval: 120_000 });
+  const d = live.data;
   return (
-    <div className="flex items-center gap-2 border-l border-ink-700 pl-3 font-mono">
+    <div className="flex items-center gap-2 border-l border-ink-700 pl-3 font-mono" title={d ? `Delayed free quote · last bar ${d.last_bar}` : "Archive close (live quote unavailable)"}>
       <span className="text-[11px] font-semibold text-amber-500">{root}1!</span>
-      <span className="text-[12px] tabular-nums text-ink-100">{d ? num(d.close, 2) : "—"}</span>
-      {d && <span className="text-2xs text-ink-400">ATR {num(d.atr20, 0)}</span>}
-      {d && <span className={cn("text-2xs", change! >= 0 ? "text-up" : "text-down")}>{d.trend}</span>}
+      <span className="text-[12px] tabular-nums text-ink-100">{d ? num(d.price, 2) : arc.data ? num(arc.data.close, 2) : "—"}</span>
+      {d?.change != null && <span className={cn("text-2xs tabular-nums", d.change >= 0 ? "text-up" : "text-down")}>{d.change >= 0 ? "+" : ""}{num(d.change, 2)} ({d.change >= 0 ? "+" : ""}{num(d.change_pct, 2)}%)</span>}
+      {!d && arc.data && <span className="text-2xs text-ink-500">archive</span>}
     </div>
   );
 }

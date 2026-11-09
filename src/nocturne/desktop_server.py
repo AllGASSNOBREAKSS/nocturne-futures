@@ -25,16 +25,18 @@ from fastapi.responses import Response
 
 from .api.security import SecurityMiddleware, SecurityPolicy, TOKEN
 from .shadow.locking import FileLock
-from .studio import ROOT, STATE, backtest, dataset, forecasts, indicators, insights, jobs, market, predictor, rules, training
+from .studio import (ROOT, STATE, backtest, dataset, forecasts, indicators, insights, jobs, live, market, modelsignals, news, predictor,
+                     rules, sweep, training)
 
 VERSION = "4.0.0"
 ID = r"[a-f0-9]{24}"
 ROOT_RE = r"(NQ|ES)"
-MUTATIONS = (("POST", r"/v1/backtests"), ("POST", r"/v1/training-jobs"), ("POST", rf"/v1/jobs/{ID}/cancel"),
+MUTATIONS = (("POST", r"/v1/backtests"), ("POST", r"/v1/sweeps"), ("POST", r"/v1/training-jobs"), ("POST", rf"/v1/jobs/{ID}/cancel"),
              ("POST", rf"/v1/forecasts/sessions/{ROOT_RE}/issue"), ("POST", r"/v1/configs/(strategy|model)"),
              ("POST", r"/v1/data/refresh"), ("POST", rf"/v1/predict/{ROOT_RE}"))
 ROUTES = ((rf"/v1/markets/{ROOT_RE}/[a-z]+", "/v1/markets/{root}/{view}"), (rf"/v1/levels/{ROOT_RE}", "/v1/levels/{root}"),
-          (rf"/v1/(backtests|training-jobs|jobs)/{ID}(/[a-z.]+)?", "/v1/{jobs}/{id}"),
+          (rf"/v1/(backtests|training-jobs|sweeps|jobs)/{ID}(/[a-z.]+)?", "/v1/{jobs}/{id}"),
+          (rf"/v1/(live|news)/{ROOT_RE}(/quote)?", "/v1/{view}/{root}"),
           (rf"/v1/forecasts/sessions/{ROOT_RE}/issue", "/v1/forecasts/sessions/{root}/issue"),
           (r"/v1/[a-z/-]+", "/v1/{resource}"))
 
@@ -185,7 +187,10 @@ def create_app(token: str, worker: jobs.Worker | None = None) -> FastAPI:
                               "tbs_geometries": list(dataset.TBS_GEOMETRIES),
                               "feature_families": {"price": dataset.PRICE, "intraday": dataset.INTRADAY,
                                                    **{k: v for k, v in training.FAMILIES.items() if k != "price"}},
-                              "available": market.databento_available("NQ")}}
+                              "available": market.databento_available("NQ")},
+                "model_strategies": modelsignals.KINDS, "max_contracts": backtest.MAX_CONTRACTS,
+                "sweep": {"catalog": [{"label": c["label"], "family": c["family"], "strategy": c["strategy"]} for c in sweep.CATALOG],
+                          "rr_default": sweep.RR_DEFAULT}}
 
     @app.get("/v1/forecasts/sessions")
     def session_forecasts(root: str = Query("NQ", pattern=r"^(NQ|ES)$")):
@@ -247,6 +252,44 @@ def create_app(token: str, worker: jobs.Worker | None = None) -> FastAPI:
     @app.post("/v1/training-jobs")
     def start_training(body: dict = Body(...)):
         return guard(jobs.submit, "training", body)
+
+    @app.post("/v1/sweeps")
+    def start_sweep(body: dict = Body(...)):
+        return guard(jobs.submit, "sweep", body)
+
+    @app.get("/v1/sweeps")
+    def list_sweeps():
+        return guard(jobs.list_jobs, "sweep")
+
+    @app.get("/v1/live/{root}")
+    def live_view(root: str):
+        if root not in market.ROOTS:
+            raise HTTPException(422, "unsupported instrument")
+        try:
+            return live.snapshot(root)
+        except RuntimeError as exc:  # upstream fetch failure: tell the UI plainly
+            raise HTTPException(503, f"Free intraday feed unavailable right now ({str(exc)[:120]})")
+
+    @app.get("/v1/live/{root}/quote")
+    def live_quote(root: str):
+        if root not in market.ROOTS:
+            raise HTTPException(422, "unsupported instrument")
+        try:
+            return live.quote(root)
+        except RuntimeError as exc:
+            raise HTTPException(503, f"Free intraday feed unavailable right now ({str(exc)[:120]})")
+
+    @app.get("/v1/news/{root}")
+    def news_view(root: str):
+        if root not in market.ROOTS:
+            raise HTTPException(422, "unsupported instrument")
+        def build():
+            try:
+                one = live.fetch(root)["one"]
+            except Exception:  # noqa: BLE001 - headlines still useful without price reaction
+                one = None
+            return news.brief(root, one)
+        return guard(build)
 
     @app.get("/v1/training-jobs")
     def list_training():
