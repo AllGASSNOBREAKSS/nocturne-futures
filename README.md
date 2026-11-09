@@ -8,6 +8,19 @@
 
 ## What is implemented
 
+### Phase 4 — Nocturne Terminal desktop app
+
+A Windows desktop research terminal (`desktop/`, Electron + React + TypeScript +
+Tailwind) launches the Python backend on loopback with a per-launch token and connects
+ten views to real services: market charts with causal indicators and auction levels,
+session range forecasts, an ML Model Studio that trains walk-forward models as
+background jobs, a Strategy & Indicator Lab with a rule builder, a Backtesting Center
+with full trade ledgers, signal analytics, model performance, market intelligence and
+operations. Studio backtests and training reproduce Phase 3V results exactly; a
+look-ahead defect was found and fixed before release. 471 tests pass. Databento
+acquisition is blocked until the exposed key is rotated and credits are verified.
+See [Phase 4](docs/PHASE4_DESKTOP.md) and [desktop/README](desktop/README.md).
+
 ### Phase 3V — zero-cost futures research
 
 Operator policy is **$0 spend**: Databento was used only for free metadata (auth

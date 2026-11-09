@@ -1,6 +1,16 @@
 # Implementation Checkpoint
 
-## Current resume point — Phase 3V, 2026-11-09 UTC
+## Current resume point — Phase 4 desktop, 2026-11-09
+
+Branch `feat/phase4-desktop`. Desktop app in `desktop/` (`npm install && npm run build && npm start`);
+backend `python -m nocturne.desktop_server --port N` with `NOCTURNE_DESKTOP_TOKEN`.
+Studio code: `src/nocturne/studio/`. Runtime state (jobs, forecasts, configs, audit) lives in
+ignored `data/studio/`. Studio results must keep exact parity with Phase 3V (tests in
+`tests/test_phase4_desktop.py`). Databento: do not download until a rotated key is placed in
+`data/security/databento.key` and the operator confirms the portal credit balance; ceiling $125,
+no out-of-pocket charges. Read `docs/PHASE4_DESKTOP.md`.
+
+## Historical resume point — Phase 3V, 2026-11-09 UTC
 
 Branch `feat/phase3v`. Operator policy: **no spending**. Never request Databento
 time series (`timeseries.get_range`) without explicit approval of an exact quote.

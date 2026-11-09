@@ -117,8 +117,12 @@ class WindowLimiter:
 
 
 class SecurityMiddleware:
-    def __init__(self, app, policy, audit, clock=time.monotonic):
+    def __init__(self, app, policy, audit, clock=time.monotonic, mutations=(), routes=()):
         self.app, self.policy, self.audit = app, policy, audit
+        # Desktop studio only: explicit admin-only (method, path-regex) mutations
+        # and audit labels. The default read-only API passes neither.
+        self.mutations = tuple((m, re.compile(p)) for m, p in mutations)
+        self.routes = tuple((re.compile(p), label) for p, label in routes)
         self.peers = WindowLimiter(policy.max_peers, clock)
         self.principals = WindowLimiter(2, clock)
 
@@ -134,6 +138,10 @@ class SecurityMiddleware:
         prediction = bool(re.fullmatch(r'/v1/predictions/[A-Za-z0-9_-]{1,128}', path))
         if prediction and path != '/v1/predictions/latest':
             label = '/v1/predictions/{prediction_id}'
+        for pattern, name in self.routes:
+            if pattern.fullmatch(path):
+                label = name
+                break
         request_id, role = uuid.uuid4().hex, 'anonymous'
         started = False
 
@@ -203,7 +211,8 @@ class SecurityMiddleware:
                     return await reject(429, 'credential rate exceeded', {'Retry-After': '60'})
                 if role != 'admin' and path not in READER and not prediction:
                     return await reject(403, 'administrator role required')
-            if method not in ('GET', 'HEAD'):
+            mutation = any(m == method and p.fullmatch(path) for m, p in self.mutations)
+            if method not in ('GET', 'HEAD') and not (mutation and role == 'admin'):
                 return await reject(405, 'read-only API', {'Allow': 'GET, HEAD'})
             body = bytearray()
             try:

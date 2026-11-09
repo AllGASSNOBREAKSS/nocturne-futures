@@ -255,6 +255,10 @@ def execute_job(kind, payload, repository, directory, store, job):
                     lines.append(f"  {source['symbol']}: {source['rows']} rows, {source['first']} through {source['last']}, {source['kind']}.")
         (directory / "research_report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
         return {"status": "SUCCEEDED", "report_path": str(directory / "research_report.json"), "markdown_path": str(directory / "research_report.md")}
+    if kind in ("STUDIO_TRAINING", "STUDIO_BACKTEST"):
+        # User-configured desktop research jobs; validated again inside the runner.
+        from ..studio.jobs import execute as studio_execute
+        return studio_execute(kind, payload, directory)
     if kind == "FREE_DATA_COLLECTION":
         # Scheduled acquisitions go to an ignored operational archive; the
         # committed data/history/free snapshot stays fixed for reproducibility.

@@ -1,4 +1,14 @@
-# Backend readiness — Phase 3V
+# Backend readiness — Phase 4
+
+## Phase 4 update (November 9, 2026)
+
+Frontend now exists as a local desktop app (operator chose desktop over Vercel). It is a
+loopback-only, single-user research tool: per-launch token, admin-only allow-listed mutations,
+background jobs on the existing orchestrator, strict-JSON API, append-only session forecasts.
+Engineering verification: 471 tests, Phase 3V parity, E2E through Electron, packaged exe.
+Quantitative readiness is unchanged: no validated directional or trading model; Databento
+history blocked pending key rotation and credit verification. NO_TRADE.
+
 
 ## Phase 3V update — NO_GO_FRONTEND (November 9, 2026 UTC)
 
