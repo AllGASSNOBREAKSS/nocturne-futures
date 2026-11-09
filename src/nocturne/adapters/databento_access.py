@@ -38,6 +38,7 @@ class DatabentoAccess:
             raise ValueError("DATABENTO_API_KEY missing")
         if method not in {"metadata.list_datasets", "metadata.list_schemas", "metadata.get_dataset_range",
                           "metadata.get_dataset_condition", "metadata.get_record_count", "metadata.get_billable_size",
+                          "metadata.list_unit_prices",
                           "metadata.get_cost", "symbology.resolve"}:
             raise ValueError("only non-consumption metadata/symbology methods allowed")
         response = (self.transport.post(BASE + method, data=parameters, auth=(self.key, ""), timeout=(10, 30))
@@ -78,7 +79,7 @@ class DatabentoAccess:
                 raise ValueError("OHLCV_SCHEMA_NOT_LISTED")
             available = call("metadata.get_dataset_range", {"dataset": "GLBX.MDP3"})
             report["available_range"] = available
-            span = available.get("range_by_schema", {}).get("ohlcv-1m")
+            span = available.get("schema", available.get("range_by_schema", {})).get("ohlcv-1m")
             if not span or not pd.Timestamp(span["start"]) <= pd.Timestamp(request["start"]) < pd.Timestamp(request["end"]) <= pd.Timestamp(span["end"]):
                 raise ValueError("PILOT_OUTSIDE_ENTITLED_SCHEMA_RANGE")
             start_date = pd.Timestamp(request["start"]).date().isoformat()

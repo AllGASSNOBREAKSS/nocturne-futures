@@ -260,7 +260,7 @@ def execute_job(kind, payload, repository, directory, store, job):
         # committed data/history/free snapshot stays fixed for reproducibility.
         completed = subprocess.run([sys.executable, "scripts/phase3u_collect.py", "--root", str(repository / "data/research/free"),
                                     "--report", str(directory / "collection.json"),
-                                    "--sources", ",".join(payload.get("sources", ["fred", "cftc", "treasury", "sec", "fed", "bls"]))],
+                                    "--sources", ",".join(payload.get("sources", ["yahoo_futures", "fred", "cftc", "treasury", "sec", "fed", "bls"]))],
                                    cwd=repository)
         try:
             report = json.loads((directory / "collection.json").read_text())

@@ -297,6 +297,71 @@ class _PostShim:
                                         headers={"User-Agent": "NocturneFutures-research/3U"})
 
 
+YAHOO_FUTURES = {"NQ=F": "NQ", "ES=F": "ES"}
+# Free Yahoo windows: 1m only for the last ~30 days in <=8-day requests.
+# range=max silently downsamples daily bars to monthly; use explicit epoch bounds.
+YAHOO_INTERVALS = {"1d": {"period1": 946684800}, "60m": {"range": "730d"}, "5m": {"range": "60d"}}
+
+
+def parse_yahoo_chart(payload: bytes, symbol: str, interval_seconds: int, now=None):
+    """Complete bars only; a bar with any missing OHLC field is dropped, never imputed."""
+    result = json.loads(payload)["chart"]["result"][0]
+    if result["meta"]["symbol"] != symbol:
+        raise ValueError("Yahoo symbol identity mismatch")
+    quote = result["indicators"]["quote"][0]
+    frame = pd.DataFrame({"timestamp": pd.to_datetime(result.get("timestamp", []), unit="s", utc=True),
+                          **{k: quote[k] for k in ("open", "high", "low", "close", "volume")}})
+    now = now or pd.Timestamp.now(tz="UTC")
+    frame["available_at"] = frame.timestamp + pd.Timedelta(seconds=interval_seconds)
+    dropped = int(frame[["open", "high", "low", "close"]].isna().any(axis=1).sum())
+    frame = frame.dropna(subset=["open", "high", "low", "close"])
+    frame = frame[frame.available_at <= now]
+    if interval_seconds < 86400:
+        # Yahoo appends a live partial bar stamped at the last tick; keep aligned bars only.
+        epoch = (frame.timestamp - pd.Timestamp(0, tz="UTC")).dt.total_seconds().round().astype("int64")
+        frame = frame[epoch % interval_seconds == 0]
+    frame["volume"] = frame.volume.fillna(0)
+    frame = frame.drop_duplicates("timestamp", keep="last")
+    bad = (frame.high < frame[["open", "close", "low"]].max(axis=1)) | (frame.low > frame[["open", "close", "high"]].min(axis=1))
+    frame = frame.assign(timestamp=frame.timestamp.astype(str), available_at=frame.available_at.astype(str),
+                         ohlc_consistent=~bad, contract_id="CONTINUOUS_FRONT_UNADJUSTED")
+    return frame, {"dropped_incomplete_bars": dropped, "inconsistent_bars": int(bad.sum()),
+                   "exchange_timezone": result["meta"].get("exchangeTimezoneName")}
+
+
+def collect_yahoo_futures(client, archive, intervals=None):
+    entries = []
+    seconds = {"1d": 86400, "60m": 3600, "5m": 300, "1m": 60}
+    for symbol, root in YAHOO_FUTURES.items():
+        for interval in intervals or [*YAHOO_INTERVALS, "1m"]:
+            if interval == "1m":
+                now = pd.Timestamp.now(tz="UTC")
+                chunks = [(now - pd.Timedelta(days=d + 7), now - pd.Timedelta(days=d)) for d in (0, 7, 14, 21)]
+                frames, raws, meta = [], [], {"dropped_incomplete_bars": 0, "inconsistent_bars": 0}
+                for start, end in chunks:
+                    r = client.get(f"https://query2.finance.yahoo.com/v8/finance/chart/{symbol}",
+                                   params={"interval": "1m", "period1": int(start.timestamp()), "period2": int(end.timestamp())})
+                    f, m = parse_yahoo_chart(r.content, symbol, 60)
+                    frames.append(f), raws.append(r.content)
+                    meta = {k: meta[k] + m[k] for k in ("dropped_incomplete_bars", "inconsistent_bars")} | {"exchange_timezone": m["exchange_timezone"]}
+                frame = pd.concat(frames).drop_duplicates("timestamp", keep="last")
+                raw = b"[" + b",".join(raws) + b"]"
+                url = "chart?interval=1m (4 x 7-day windows)"
+            else:
+                r = client.get(f"https://query2.finance.yahoo.com/v8/finance/chart/{symbol}",
+                               params={"interval": interval, **YAHOO_INTERVALS[interval],
+                                       **({"period2": int(pd.Timestamp.now(tz="UTC").timestamp())} if interval == "1d" else {})})
+                frame, meta = parse_yahoo_chart(r.content, symbol, seconds[interval])
+                raw, url = r.content, r.url
+            entries.append(archive.record("yahoo_futures", f"{root}_{interval}", raw, frame, ["timestamp"],
+                                          {"url": url, "credibility": UNOFFICIAL, "pit_eligible": True,
+                                           "availability_rule": "bar end (lower bound; dissemination latency unknown)",
+                                           "first": frame.timestamp.min(), "last": frame.timestamp.max(),
+                                           "limitation": "continuous front-month, unadjusted, Yahoo roll schedule; not raw contracts",
+                                           **meta}, ["open", "high", "low", "close", "volume"]))
+    return entries
+
+
 BLOCKED_SOURCES = {
     "eia": {"status": "BLOCKED_KEY_REQUIRED", "evidence": "api.eia.gov returned 403 API_KEY_MISSING", "credential_env": "EIA_API_KEY"},
     "bea": {"status": "BLOCKED_KEY_REQUIRED", "evidence": "apps.bea.gov API requires UserID registration; keyless request returned empty body", "credential_env": "BEA_API_KEY"},
@@ -307,8 +372,8 @@ BLOCKED_SOURCES = {
     "databento": {"status": "FUTURES_DATA_BLOCKED", "evidence": "DATABENTO_API_KEY absent; USER_ACTION_REQUIRED"},
 }
 
-COLLECTORS = {"fred": collect_fred, "cftc": collect_cftc, "treasury": collect_treasury, "sec": collect_sec,
+COLLECTORS = {"yahoo_futures": collect_yahoo_futures, "fred": collect_fred, "cftc": collect_cftc, "treasury": collect_treasury, "sec": collect_sec,
               "fed": collect_fed, "gdelt": collect_gdelt, "bls": collect_bls}
-INTERVALS = {"fred.stlouisfed.org": 1.0, "publicreporting.cftc.gov": 1.0, "api.fiscaldata.treasury.gov": 0.5,
+INTERVALS = {"query2.finance.yahoo.com": 2.0, "fred.stlouisfed.org": 1.0, "publicreporting.cftc.gov": 1.0, "api.fiscaldata.treasury.gov": 0.5,
              "www.sec.gov": 0.2, "data.sec.gov": 0.2, "www.federalreserve.gov": 1.0,
              "api.gdeltproject.org": 6.0, "api.bls.gov": 2.0}
