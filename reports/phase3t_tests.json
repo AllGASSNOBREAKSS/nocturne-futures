@@ -1,0 +1,49 @@
+{
+  "recorded_at": "2026-11-09T01:53:58.543420+00:00",
+  "tested_commit": "6bd0f75771dcf6271fe319a209ec1aea1967111a",
+  "native": "Fresh MSVC/pybind11 build in new isolated locked venv; parity tests included",
+  "typescript": "npm run typecheck passed 2026-11-09",
+  "warning": "httpx TestClient deprecation; no dependency changes or warning suppression",
+  "local": {
+    "tests": 431,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 85.9
+  },
+  "isolated": {
+    "tests": 431,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 107.019
+  },
+  "isolated_environment": "C:/Users/huzai/AppData/Local/Temp/opencode/nocturne-phase3t-final (new; phase3s-final venv python.exe was absent on 2026-11-09, cause unknown, directory preserved)",
+  "isolated_bootstrap": {
+    "status": "VERIFIED_ISOLATED_RUNTIME",
+    "dependency_files": 13458,
+    "inference_cases": 4,
+    "native": "IMPORTED_FRESH_BUILD"
+  },
+  "previous": {
+    "recorded_at": "2026-11-08T09:12:36.391000+00:00",
+    "tested_commit": "fcac56c3dbb80942b9b9179f88a9612f5c58d1f3",
+    "native": "Existing reviewed native builds reused; parity tests included",
+    "typescript": "npm run typecheck passed 2026-11-08",
+    "warning": "httpx TestClient deprecation; no dependency changes or warning suppression",
+    "local": {
+      "tests": 429,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 92.446
+    },
+    "isolated": {
+      "tests": 429,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 92.856
+    }
+  }
+}

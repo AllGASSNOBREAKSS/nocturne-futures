@@ -1,6 +1,22 @@
 # Phase 3S — bounded futures-data activation decision
 
 **USER_ACTION_REQUIRED. Zero genuine licensed receipts. Price unknown, not zero.**
+
+Phase 3T rechecked process/user/machine credential presence on November 8: absent;
+`reports/phase3t_external_access.json`. No paid consumption or new receipt. Load a
+key from an operator-protected private file into the current process without
+printing it or putting its value in shell history, for example:
+
+```powershell
+$env:DATABENTO_API_KEY = [IO.File]::ReadAllText('<approved-private-key-file>').Trim()
+python scripts/phase3n_futures.py --research-check
+```
+
+Review file/service-account ACLs first. Never put the key itself in chat, Git,
+arguments, reports or a command literal. This command is metadata preflight, not
+download approval. Actual dataset access, credits and price must come from the
+account/provider; no supplied credential or free-credit assumption is authorization
+to consume data. The existing exact-quote approval checklist below still applies.
 Reuse the exact instructions and existing preflight/quote/approval/reservation system
 in `PHASE3P_DATA_ACCESS.md`; do not create a second acquisition mechanism.
 

@@ -1,14 +1,14 @@
 # Research job snapshot
 
-Generated: 2026-11-08T08:14:02.928408+00:00
+Generated: 2026-11-08T20:14:04.351732+00:00
 
-States: {'SUCCEEDED': 66, 'BLOCKED': 15}
+States: {'SUCCEEDED': 77, 'BLOCKED': 15}
 
 Trading: NO_TRADE. No automatic promotions.
 
 Daily index diagnostics are not futures strategy P&L or independent validation.
 
-Shadow operations snapshot: **degraded** (as of 2026-11-08T07:47:24.647302+00:00).
+Shadow operations snapshot: **degraded** (as of 2026-11-08T19:47:22.718424+00:00).
 Open issues: ['CYCLE_UNHEALTHY', 'FORECAST_AUDIT:291aac9c9d893a888609aafd', 'FORECAST_AUDIT:cd26071237a957cd7a874933', 'OUTCOME_OVERDUE:291aac9c9d893a888609aafd']
 
 - `DATA_VALIDATION` (research): **SUCCEEDED** — `b26102aae53db5802cba4d08`
@@ -158,3 +158,17 @@ Open issues: ['CYCLE_UNHEALTHY', 'FORECAST_AUDIT:291aac9c9d893a888609aafd', 'FOR
   SPY: 8498 rows, 1993-01-29 through 2026-11-02, etf.
   TLT: 6105 rows, 2002-07-30 through 2026-11-02, etf.
 - `RESEARCH_REPORT` (research): **SUCCEEDED** — `3efc9dfabd4f767be8e77168`
+- `RESEARCH_REPORT` (research): **SUCCEEDED** — `73c3bb381a941f1c3dda2d54`
+- `DATA_REFRESH` (shadow): **SUCCEEDED** — `7cd1831eef7b20d18ffa1825`
+  Reason: COMPONENT_COMPLETED_WITH_QUARANTINE
+- `SHADOW_FORECAST` (shadow): **SUCCEEDED** — `169fb2adcc2be9f8adef9e04`
+  Reason: COMPONENT_COMPLETED_WITH_QUARANTINE
+- `FORECAST_MATURITY_CHECK` (shadow): **SUCCEEDED** — `acf64a1af0033e46aeb84767`
+  Reason: COMPONENT_COMPLETED_WITH_QUARANTINE
+- `FORWARD_EVALUATION` (shadow): **SUCCEEDED** — `99ada9b5f1eacdae0dcb41f8`
+- `MODEL_DRIFT_MONITOR` (shadow): **SUCCEEDED** — `077692ad757ec5c2e67328d7`
+- `RESEARCH_REPORT` (research): **SUCCEEDED** — `312c100a0f1e2ea8017ae18d`
+- `RESEARCH_REPORT` (shadow): **SUCCEEDED** — `85717b5f3f369cf088cac99b`
+- `RESEARCH_REPORT` (research): **SUCCEEDED** — `c9fb40ca8c2e1b545e90ac6f`
+- `RESEARCH_REPORT` (research): **SUCCEEDED** — `1efeed912b467863bdce4b6d`
+- `RESEARCH_REPORT` (research): **SUCCEEDED** — `b07e90400976213d3f4a2b3b`

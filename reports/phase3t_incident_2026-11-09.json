@@ -1,0 +1,171 @@
+{
+  "schema": 1,
+  "recorded_at": "2026-11-08T08:58:45.545829+00:00",
+  "forecast_id": "cd26071237a957cd7a874933",
+  "forecast_sha256": "13e4fda9c1ce72889c6fad93a65ef3cc8ad32b4300ff2faa6d6dc20be9c492ed",
+  "target_date": "2026-11-09",
+  "reference_date": "2026-11-06",
+  "original_reference_close": 26989.9921875,
+  "revised_reference_close": 26989.990234375,
+  "difference_points": -0.001953125,
+  "difference_fraction_original": -7.236478567431967e-08,
+  "source_timestamps": {
+    "issued_at": "2026-11-07T00:17:13.154782+00:00",
+    "original_received_at": "2026-11-07T00:17:10.145238+00:00",
+    "revised_received_at": "2026-11-08T08:47:08.855657+00:00",
+    "original_exchange_timestamp": 1793975400,
+    "revised_exchange_timestamp": 1793975400
+  },
+  "classification": "OBSERVED_PROVIDER_REVISION_FINALITY_UNVERIFIED",
+  "cause_assessment": {
+    "changed_upstream_payload": true,
+    "session_identity": "MATCHED_ARCHIVED_INSTRUMENT_TIMEZONE_TIMESTAMP",
+    "adjustment_convention": "QUOTE_EQUALS_ADJCLOSE_IN_INSPECTED_REFERENCE_ROWS",
+    "issuance_inputs": "EXACTLY_REPRODUCED",
+    "provider_internal_cause": "UNCONFIRMED",
+    "numerical_software_defect": "NOT_EVIDENCED_BY_SOURCE_REVISION; SEE_SEPARATE_FROZEN_INFERENCE_REPLAY"
+  },
+  "independent_evidence": [
+    {
+      "provider": "FRED_NASDAQ100",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv",
+      "requested_session": "2026-11-06",
+      "status": "UNVERIFIED",
+      "independent_upstream_confirmed": false,
+      "error_type": "ReadTimeout"
+    },
+    {
+      "provider": "Nasdaq_public_index_history",
+      "url": "https://api.nasdaq.com/api/index/NDX/historical",
+      "requested_session": "2026-11-06",
+      "status": "ACCESS_BLOCKED_OR_UNAVAILABLE",
+      "independent_upstream_confirmed": false,
+      "http_status": 404,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "received_at": "2026-11-08T08:59:36.147139+00:00"
+    }
+  ],
+  "outcome_observation": {
+    "target_date": "2026-11-09",
+    "availability_bound": "2026-11-10T00:00:00+00:00",
+    "time_bound_elapsed": false,
+    "rows": 0,
+    "provider_observed": false,
+    "independently_verified_final_ohlc": false
+  },
+  "verdict": "AUDIT_BLOCKED",
+  "eligible_for_evaluation": false,
+  "blocking_reasons": [
+    "INDEPENDENT_FINAL_OUTCOME_OHLC_NOT_VERIFIED",
+    "REFERENCE_REVISION_NOT_APPLIED",
+    "TARGET_AVAILABILITY_BOUND_NOT_REACHED",
+    "COMPLETE_AVAILABLE_TARGET_BAR_NOT_ESTABLISHED"
+  ],
+  "reconciliation_applied": false,
+  "provider_revision_evidence": {
+    "record": {
+      "forecast_id": "cd26071237a957cd7a874933",
+      "forecast_sha256": "13e4fda9c1ce72889c6fad93a65ef3cc8ad32b4300ff2faa6d6dc20be9c492ed",
+      "issuance_snapshot_ids": {
+        "index": "262cc54b584208e575fd475c940115e64bb63e05d6093aab1466439c3c7be553",
+        "vix": "41ae2629c3f96dcc70dd9301e431daa05dfe8ad8aa01222f22a563abe31ed136"
+      },
+      "revised_snapshot_id": "cfd6548fe883f7a256b1ec562229c98eec8ea03e74f6cff6088f6a4ad922d8bd",
+      "revised_reference_close": 26989.990234375,
+      "revised_reference_bar_sha256": "cc567295e6da4b0a01e122fc8f0cee694ed58f4b5c4b640bf0b6ad928f962830",
+      "classification": "VERIFIED_AS_ISSUED_PROVIDER_REVISION",
+      "recorded_at": "2026-11-08T08:58:45.545829+00:00",
+      "exchange_finality_confirmed": false,
+      "trading_decision": "NO_TRADE",
+      "policy": "score issued quantiles against original denominator; never rewrite forecasts",
+      "root_cause": "upstream source values changed; provider internal reason unconfirmed"
+    },
+    "original_source": {
+      "snapshot_id": "262cc54b584208e575fd475c940115e64bb63e05d6093aab1466439c3c7be553",
+      "source": {
+        "availability": "next UTC midnight after the session date",
+        "frequency": "1d",
+        "license_scope": "public_research_unofficial",
+        "price_basis": "provider_quote_ohlc_not_adjclose",
+        "provider": "yahoo_public_unofficial",
+        "received_at": "2026-11-07T00:17:10.145238+00:00",
+        "session": "US_cash_daily",
+        "symbol": "^NDX",
+        "timezone": "America/New_York"
+      },
+      "raw_sha256": "6beebdab87772ae7b31f68617b32a678ef8670566792c6ece6155a6d4f38f214",
+      "normalized_sha256": "82ff172933ccddbc96007ca39baee3c993dde2b9c428cfd2f7ace7099f5048d8",
+      "exchange_timestamp": 1793975400,
+      "quote": {
+        "close": 26989.9921875,
+        "high": 27316.09375,
+        "low": 26887.693359375,
+        "open": 27045.255859375,
+        "volume": 1625977000
+      },
+      "adjusted_close": 26989.9921875,
+      "metadata": {
+        "symbol": "^NDX",
+        "instrumentType": "INDEX",
+        "exchangeTimezoneName": "America/New_York",
+        "dataGranularity": "1d"
+      }
+    },
+    "revised_source": {
+      "snapshot_id": "cfd6548fe883f7a256b1ec562229c98eec8ea03e74f6cff6088f6a4ad922d8bd",
+      "source": {
+        "availability": "next UTC midnight after the session date",
+        "frequency": "1d",
+        "license_scope": "public_research_unofficial",
+        "price_basis": "provider_quote_ohlc_not_adjclose",
+        "provider": "yahoo_public_unofficial",
+        "received_at": "2026-11-08T08:47:08.855657+00:00",
+        "session": "US_cash_daily",
+        "symbol": "^NDX",
+        "timezone": "America/New_York"
+      },
+      "raw_sha256": "8b8ec0d1371c052a74bc50a51f094e83ffaad1c2f2b20fa7bc99b185c7cf42bb",
+      "normalized_sha256": "e74b26e84847821a5547a9b17b64581cd6d6201bd16cdd30d984476abe6ddc4f",
+      "exchange_timestamp": 1793975400,
+      "quote": {
+        "close": 26989.990234375,
+        "high": 27316.08984375,
+        "low": 26887.689453125,
+        "open": 27045.259765625,
+        "volume": 10621670000
+      },
+      "adjusted_close": 26989.990234375,
+      "metadata": {
+        "symbol": "^NDX",
+        "instrumentType": "INDEX",
+        "exchangeTimezoneName": "America/New_York",
+        "dataGranularity": "1d"
+      }
+    },
+    "changes": {
+      "open": {
+        "original": 27045.255859375,
+        "revised": 27045.259765625
+      },
+      "high": {
+        "original": 27316.09375,
+        "revised": 27316.08984375
+      },
+      "low": {
+        "original": 26887.693359375,
+        "revised": 26887.689453125
+      },
+      "close": {
+        "original": 26989.9921875,
+        "revised": 26989.990234375
+      },
+      "volume": {
+        "original": 1625977000.0,
+        "revised": 10621670000.0
+      }
+    },
+    "issuance_features_exactly_reproduced": true
+  },
+  "trading_decision": "NO_TRADE",
+  "limits": "Classification is not independent final OHLC verification, an evaluation override or permission to change original forecasts/denominators."
+}

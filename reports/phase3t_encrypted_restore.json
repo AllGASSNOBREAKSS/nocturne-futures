@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-11-08T09:08:02.970695+00:00",
+  "mode": "restore",
+  "elapsed_seconds": 20.642836300001363,
+  "result": {
+    "status": "RESTORED_NOT_ACTIVATED",
+    "files": 765,
+    "authentication": "AES_GCM_TAG_VERIFIED_BEFORE_EXTRACTION",
+    "secret_exclusion": {
+      "status": "KNOWN_SECRET_AND_PATH_EXCLUSIONS_PASSED",
+      "files": 767,
+      "bytes": 239854907,
+      "limits": "Allowlisted snapshot scope, forbidden secret-file paths, private-key markers and supplied known values; unknown or encoded secrets require operator review."
+    },
+    "off_host_status": "OFF_HOST_VERIFICATION_REQUIRED",
+    "evidence": {
+      "status": "VERIFIED_LOCAL_RELOCATION",
+      "issued": 3,
+      "verified_matured": 2,
+      "reproduced_index_diagnostics": [
+        {
+          "symbol": "^NDX",
+          "observations": 6036,
+          "scope": "NON_EXECUTABLE_INDEX_CONTEXT_NOT_NQ_ES_PNL",
+          "net_mean_fraction_2bp": -0.00016316773640181952
+        },
+        {
+          "symbol": "^GSPC",
+          "observations": 6036,
+          "scope": "NON_EXECUTABLE_INDEX_CONTEXT_NOT_NQ_ES_PNL",
+          "net_mean_fraction_2bp": -0.0003269370965258071
+        }
+      ],
+      "cached_challenger_files_verified": 6,
+      "new_models_trained": 0,
+      "network_requests": 0,
+      "trading_decision": "NO_TRADE",
+      "limitations": "same-host offline relocation using installed code; not off-host durability, different-machine restore or service activation"
+    }
+  },
+  "off_host_status": "OFF_HOST_VERIFICATION_REQUIRED",
+  "trading_decision": "NO_TRADE"
+}

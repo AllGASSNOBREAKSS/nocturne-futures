@@ -1,6 +1,80 @@
 # Implementation Checkpoint
 
-## Current resume point — Phase 3S, 2026-11-08 UTC
+## Current resume point — Phase 3T, 2026-11-08 UTC
+
+Branch `feat/phase3t`, base `d69f853`, core implementation `fcac56c`, fix `6bd0f75`.
+Read `PHASE3T_FINDINGS.md`, `BACKEND_READINESS.md`, `reports/phase3t_acceptance.json`
+and both `phase3t_incident_*.json`. Baseline HEAD `d69f853` independently has all
+five CI jobs green in run 42464563825. No frontend, paid consumption, broker
+activation, numerical/model changes, source rewrites or new market-model fits.
+
+Two incidents classified **OBSERVED_PROVIDER_REVISION_FINALITY_UNVERIFIED**;
+both remain **AUDIT_BLOCKED**, unapplied. November 6 reference 26629.80859375 →
+26629.810546875 (+0.001953125); November 9 reference 26989.9921875 → 26989.990234375
+(−0.001953125). Raw source identity/session/adjustment conventions match, and exact
+issued inputs replay. Independent final outcome high/low cannot be established;
+FRED checks failed and Nasdaq unavailable/404. November 6 provider target bar is
+present/available, but not independently final; November 9 also has not occurred.
+Do not apply a candidate proof, rescale denominators or manufacture a maturity.
+Disposition evidence is append-only/content-addressed in the private snapshot
+archive; public per-forecast reports include timestamps, hashes, differences,
+independent checks and exact blocking reasons. Investigation changed no journal.
+
+Operational execution/issuance/integrity now have separate components. Fresh
+completed quarantine is not a crash; aggregate health is still degraded. Fixed
+precedence so concurrent generation failure cannot be hidden by historical audits.
+Scoped shadow jobs now require exclusive per-attempt receipts. Completion with
+historical quarantine retains exit 1, IDs, receipt hash and BLOCKED job health;
+only a truly completed scoped operation releases its dependencies. Missing receipt,
+failed refresh/issuance, exception/wrong exit are not forgiven. One-shot lock
+contention returns 75. Existing Windows runner/actions/settings remain unchanged.
+
+Local ack CLI extends `phase3j_operations.py` with `--ack-alert --actor --reason-code`;
+state remains OPEN, no secret/free text, no gate bypass or HTTP mutation. Only
+fixture acknowledgement was exercised; all four real alerts remain open. Existing
+evidence-based monitor resolution is preserved.
+
+Actual shadow lane executed five job types; concurrent research tick ran zero new
+research jobs, correctly reusing cached work. Two report jobs updated; all 12 types
+are inventoried in `phase3t_assurance.json`. No exhausted market fit/holdout tuning.
+Two real exercised task completions each: shadow exit1, research exit0, complete
+lifecycle receipts in `phase3t_scheduler.json`. Actual host still Interactive,
+awake/logged-in only. Current state **4 issued / 2 verified matured / 2 pending /
+0 missed / 4 open alerts**, one matured observation per inference cohort.
+
+At `fcac56c`, local and isolated suites pass **429 tests**, native parity included;
+TypeScript passes; all five CI jobs green in run 42465576451. Locked numerical
+runtime/native build was reused, not rebuilt. 13,458 installed hashes and four exact
+issued quantile cases verify (`phase3t_runtime.json`). Later assurance/report commits
+need separately recorded CI; do not claim prior green applies automatically.
+Fix `6bd0f75` (full-bar reconciliation blocks close-only fallback): 431 tests pass
+locally and in new isolated env `C:/Users/huzai/AppData/Local/Temp/opencode/nocturne-phase3t-final`
+(old phase3s-final venv python.exe missing again; cause unknown). Five CI jobs green,
+run 42466314331. Live check 2026-11-09 01:47 UTC: scheduler still runs every 30 min,
+shadow exit 1/AUDIT_BLOCKED, execution COMPLETED, 4/2/2/0, four alerts open.
+
+Existing AES-GCM private archive restored into new approved temp destination
+`C:/Users/huzai/AppData/Local/Temp/opencode/nocturne-phase3t-recovery/evidence`:
+765 files, authenticated before extraction, replay20.64s, RESTORED_NOT_ACTIVATED.
+It is the November 6 three-issue/two-outcome snapshot, not a latest-state backup.
+Demo key remains separate/outside repo, not production independent custody.
+OFF_HOST_VERIFICATION_REQUIRED; proposed RPO30m/RTO60m not achieved off-host SLOs.
+
+External-access report `phase3t_external_access.json`: provider credentials absent
+at checked process/user/machine scopes, licensed receipts0, quote/entitlements/
+credits/IDs unknown, no paid consumption. Exact existing secure configuration and
+bounded pilot approval are in `PHASE3S_FUTURES_PILOT.md` / `PHASE3P_DATA_ACCESS.md`.
+Futures direction/consolidation/levels/100/200/350/500-point target-first research is
+BLOCKED; probabilities unsupported/null. No new authentic strategy results.
+
+Next dependent actions: provide verifiable independent final NDX outcome OHLC with
+source/session/availability provenance for deliberate incident review; configure
+entitled GLBX.MDP3 access and approve exact quotes; authorize private independent
+recovery/key custody and unattended host/monitoring/security review. Continue actual
+guarded issuance/audit/report cadence; do not rebuild working infrastructure or
+repeat rejected models on unchanged data. NO_GO_FRONTEND / NO_PROMOTION / NO_TRADE.
+
+## Historical resume point — Phase 3S, 2026-11-08 UTC
 
 Branch `feat/phase3s`, base `504a168`. Implementation `b722033`, hardening `61878d5`,
 current-blocker/report regressions `b75ee44`, alert/CI status normalization `b0364b9`.

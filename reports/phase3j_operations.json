@@ -1,7 +1,15 @@
 {
-  "generated_at": "2026-11-08T08:48:19.624233+00:00",
+  "generated_at": "2026-11-09T01:47:19.061300+00:00",
   "status": "degraded",
   "components": {
+    "service_execution": {
+      "status": "COMPLETED_WITH_QUARANTINE",
+      "reason": "Fresh cycle result only; source quarantine is not a process crash. Aggregate alerts and nonzero exits remain."
+    },
+    "forecast_issuance": {
+      "status": "ISSUED",
+      "reason": "Current generation result; no claim about future uptime or deadline success"
+    },
     "shadow_cycle": {
       "status": "BLOCKED",
       "reason": "AUDIT_BLOCKED"
@@ -15,7 +23,7 @@
       "reason": "latest timestamped cycle refresh results; not an uptime guarantee"
     },
     "outcome_evaluation": {
-      "status": "DEGRADED",
+      "status": "PARTIAL_QUARANTINE",
       "reason": "pending horizons are expected work, not fabricated outcomes; evaluation requires availability and audit gates"
     }
   },
@@ -60,13 +68,16 @@
   "health": {
     "status": "degraded",
     "warnings": [
-      "STALE_SERVICE",
+      "STALE_FULLY_HEALTHY_CYCLE",
       "LATEST_CYCLE_NOT_OK"
     ],
+    "cycle_execution_status": "COMPLETED",
+    "last_attempt_age_seconds": 10.29262,
+    "scope": "Completed-cycle heartbeat is separate from data integrity and predictive readiness; not host uptime",
     "last_run": "2026-11-06T04:47:10.415251+00:00",
-    "age_hours": 52.01922471722222,
+    "age_hours": 69.00240168027779,
     "last_success": "2026-11-06T04:47:10.415251+00:00",
-    "last_attempt": "2026-11-08T08:47:10.449268+00:00",
+    "last_attempt": "2026-11-09T01:47:08.768680+00:00",
     "last_attempt_event": "CYCLE_AUDIT_FAILED",
     "forecasts": 4,
     "matured": 2,

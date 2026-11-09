@@ -1,11 +1,18 @@
 {
-  "generated_at": "2026-11-08T08:47:10.449268+00:00",
+  "generated_at": "2026-11-09T01:47:08.768680+00:00",
   "model_id": "ndx-range-v1",
   "model_version": "1.0.0",
   "validation_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
   "trading_decision": "NO_TRADE",
   "mode": "read_only_shadow",
   "operational_status": "AUDIT_BLOCKED",
+  "execution_status": "COMPLETED",
+  "issuance_status": "ALREADY_ISSUED",
+  "evaluation_integrity_status": "QUARANTINED",
+  "quarantined_forecast_ids": [
+    "291aac9c9d893a888609aafd",
+    "cd26071237a957cd7a874933"
+  ],
   "generation": "ALREADY_ISSUED",
   "generation_detail": {
     "status": "ALREADY_ISSUED",
@@ -239,13 +246,16 @@
   "health": {
     "status": "degraded",
     "warnings": [
-      "STALE_SERVICE",
+      "STALE_FULLY_HEALTHY_CYCLE",
       "LATEST_CYCLE_NOT_OK"
     ],
+    "cycle_execution_status": "COMPLETED",
+    "last_attempt_age_seconds": 0.0,
+    "scope": "Completed-cycle heartbeat is separate from data integrity and predictive readiness; not host uptime",
     "last_run": "2026-11-06T04:47:10.415251+00:00",
-    "age_hours": 52.00000944916667,
+    "age_hours": 68.99954261916668,
     "last_success": "2026-11-06T04:47:10.415251+00:00",
-    "last_attempt": "2026-11-08T08:47:10.449268+00:00",
+    "last_attempt": "2026-11-09T01:47:08.768680+00:00",
     "last_attempt_event": "CYCLE_AUDIT_FAILED",
     "forecasts": 4,
     "matured": 2,
@@ -386,7 +396,7 @@
         "provider": "yahoo_public_unofficial",
         "frequency": "1d",
         "license_scope": "public_research_unofficial",
-        "raw_sha256": "8b8ec0d1371c052a74bc50a51f094e83ffaad1c2f2b20fa7bc99b185c7cf42bb",
+        "raw_sha256": "fa8081d6f3101e26a67dfdfcfca9dc6165bc017ac624995889f716d134e5dcb1",
         "normalized_sha256": "e74b26e84847821a5547a9b17b64581cd6d6201bd16cdd30d984476abe6ddc4f",
         "rows": 10356,
         "first": "1985-10-01",
@@ -396,7 +406,7 @@
         "dropped_invalid_or_missing_bars": 0,
         "gap_days_median": 1.0,
         "gaps_over_5_days": 1,
-        "received_at": "2026-11-08T08:47:08.855657+00:00",
+        "received_at": "2026-11-09T01:47:08.060289+00:00",
         "availability": "next UTC midnight after the session date",
         "known_limitations": [
           "unofficial endpoint; not an exchange feed",
@@ -404,7 +414,7 @@
           "continuous futures proxies have unverified roll mapping",
           "adjusted vs unadjusted prices not distinguished by this adapter"
         ],
-        "snapshot_id": "cfd6548fe883f7a256b1ec562229c98eec8ea03e74f6cff6088f6a4ad922d8bd"
+        "snapshot_id": "ccd3e39d5a43f3a659ceeb5c1972d598ea1424a35e10f271faa117f20f871463"
       },
       "vix": {
         "symbol": "^VIX",
@@ -423,7 +433,7 @@
         "dropped_invalid_or_missing_bars": 331,
         "gap_days_median": 1.0,
         "gaps_over_5_days": 1,
-        "received_at": "2026-11-08T08:47:09.444117+00:00",
+        "received_at": "2026-11-09T01:47:08.570656+00:00",
         "availability": "next UTC midnight after the session date",
         "known_limitations": [
           "unofficial endpoint; not an exchange feed",
@@ -431,12 +441,12 @@
           "continuous futures proxies have unverified roll mapping",
           "adjusted vs unadjusted prices not distinguished by this adapter"
         ],
-        "snapshot_id": "86a84d41d5ba83ffffd28eda6b983aa76f3837ca2b954cd65ffd2847e677b76b"
+        "snapshot_id": "43096f08a4a7392951f8bb97ed7f83ba8933665da02cca0959228490fa94086c"
       }
     },
     "snapshot_ids": {
-      "index": "cfd6548fe883f7a256b1ec562229c98eec8ea03e74f6cff6088f6a4ad922d8bd",
-      "vix": "86a84d41d5ba83ffffd28eda6b983aa76f3837ca2b954cd65ffd2847e677b76b"
+      "index": "ccd3e39d5a43f3a659ceeb5c1972d598ea1424a35e10f271faa117f20f871463",
+      "vix": "43096f08a4a7392951f8bb97ed7f83ba8933665da02cca0959228490fa94086c"
     }
   },
   "notes": [

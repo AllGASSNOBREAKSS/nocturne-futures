@@ -1,0 +1,389 @@
+{
+  "generated_at": "2026-11-08T09:05:22.559436+00:00",
+  "status": "VERIFIED_ISOLATED_RUNTIME",
+  "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "prefix": "C:\\Users\\huzai\\AppData\\Local\\Temp\\opencode\\nocturne-phase3s-final\\venv",
+  "source_commit": "fcac56c3dbb80942b9b9179f88a9612f5c58d1f3",
+  "tracked_deployment_source_clean": true,
+  "pip_version": "26.1.2",
+  "dependency_integrity": {
+    "status": "VERIFIED_INSTALLED_RECORDS",
+    "files": 13458,
+    "packages": [
+      {
+        "name": "annotated-doc",
+        "version": "0.0.5",
+        "hashed_files": 9
+      },
+      {
+        "name": "annotated-types",
+        "version": "0.8.0",
+        "hashed_files": 8
+      },
+      {
+        "name": "anyio",
+        "version": "4.16.0",
+        "hashed_files": 54
+      },
+      {
+        "name": "attrs",
+        "version": "26.1.0",
+        "hashed_files": 36
+      },
+      {
+        "name": "certifi",
+        "version": "2026.10.23",
+        "hashed_files": 13
+      },
+      {
+        "name": "cffi",
+        "version": "2.1.1",
+        "hashed_files": 33
+      },
+      {
+        "name": "charset-normalizer",
+        "version": "3.5.2",
+        "hashed_files": 23
+      },
+      {
+        "name": "click",
+        "version": "8.5.0",
+        "hashed_files": 23
+      },
+      {
+        "name": "cloudpickle",
+        "version": "3.1.2",
+        "hashed_files": 8
+      },
+      {
+        "name": "cmake",
+        "version": "4.4.4",
+        "hashed_files": 4176
+      },
+      {
+        "name": "colorama",
+        "version": "0.4.6",
+        "hashed_files": 18
+      },
+      {
+        "name": "contourpy",
+        "version": "1.4.0",
+        "hashed_files": 26
+      },
+      {
+        "name": "cryptography",
+        "version": "50.0.2",
+        "hashed_files": 121
+      },
+      {
+        "name": "cycler",
+        "version": "0.12.1",
+        "hashed_files": 8
+      },
+      {
+        "name": "fastapi",
+        "version": "0.162.0",
+        "hashed_files": 67
+      },
+      {
+        "name": "fonttools",
+        "version": "4.68.0",
+        "hashed_files": 379
+      },
+      {
+        "name": "h11",
+        "version": "0.16.0",
+        "hashed_files": 18
+      },
+      {
+        "name": "httpcore",
+        "version": "1.0.9",
+        "hashed_files": 37
+      },
+      {
+        "name": "httpx",
+        "version": "0.28.1",
+        "hashed_files": 31
+      },
+      {
+        "name": "idna",
+        "version": "3.20",
+        "hashed_files": 18
+      },
+      {
+        "name": "iniconfig",
+        "version": "2.3.1",
+        "hashed_files": 11
+      },
+      {
+        "name": "joblib",
+        "version": "1.6.0",
+        "hashed_files": 142
+      },
+      {
+        "name": "jsonschema",
+        "version": "4.26.0",
+        "hashed_files": 45
+      },
+      {
+        "name": "jsonschema-specifications",
+        "version": "2025.9.1",
+        "hashed_files": 29
+      },
+      {
+        "name": "kiwisolver",
+        "version": "1.5.1",
+        "hashed_files": 11
+      },
+      {
+        "name": "lightgbm",
+        "version": "4.7.0",
+        "hashed_files": 18
+      },
+      {
+        "name": "matplotlib",
+        "version": "3.11.2",
+        "hashed_files": 602
+      },
+      {
+        "name": "narwhals",
+        "version": "2.28.0",
+        "hashed_files": 169
+      },
+      {
+        "name": "ninja",
+        "version": "1.13.2",
+        "hashed_files": 13
+      },
+      {
+        "name": "numpy",
+        "version": "2.5.0",
+        "hashed_files": 950
+      },
+      {
+        "name": "opentelemetry-api",
+        "version": "1.45.2",
+        "hashed_files": 48
+      },
+      {
+        "name": "packaging",
+        "version": "26.3",
+        "hashed_files": 30
+      },
+      {
+        "name": "pandas",
+        "version": "3.0.3",
+        "hashed_files": 1569
+      },
+      {
+        "name": "pillow",
+        "version": "13.0.0",
+        "hashed_files": 121
+      },
+      {
+        "name": "pluggy",
+        "version": "1.7.0",
+        "hashed_files": 20
+      },
+      {
+        "name": "pybind11",
+        "version": "3.1.0",
+        "hashed_files": 79
+      },
+      {
+        "name": "pycparser",
+        "version": "3.12",
+        "hashed_files": 14
+      },
+      {
+        "name": "pydantic",
+        "version": "2.14.3",
+        "hashed_files": 113
+      },
+      {
+        "name": "pydantic-core",
+        "version": "2.50.4",
+        "hashed_files": 12
+      },
+      {
+        "name": "pygments",
+        "version": "2.21.0",
+        "hashed_files": 351
+      },
+      {
+        "name": "pyparsing",
+        "version": "3.3.3",
+        "hashed_files": 24
+      },
+      {
+        "name": "pytest",
+        "version": "9.2.0",
+        "hashed_files": 93
+      },
+      {
+        "name": "python-dateutil",
+        "version": "4.0.0",
+        "hashed_files": 27
+      },
+      {
+        "name": "pyyaml",
+        "version": "6.0.3",
+        "hashed_files": 25
+      },
+      {
+        "name": "referencing",
+        "version": "0.37.0",
+        "hashed_files": 20
+      },
+      {
+        "name": "requests",
+        "version": "2.34.2",
+        "hashed_files": 27
+      },
+      {
+        "name": "rpds-py",
+        "version": "2026.9.1",
+        "hashed_files": 10
+      },
+      {
+        "name": "scikit-learn",
+        "version": "1.9.1",
+        "hashed_files": 1078
+      },
+      {
+        "name": "scipy",
+        "version": "1.18.1",
+        "hashed_files": 1536
+      },
+      {
+        "name": "setuptools",
+        "version": "84.2.1",
+        "hashed_files": 349
+      },
+      {
+        "name": "starlette",
+        "version": "1.10.0",
+        "hashed_files": 42
+      },
+      {
+        "name": "threadpoolctl",
+        "version": "3.8.0",
+        "hashed_files": 6
+      },
+      {
+        "name": "typing-extensions",
+        "version": "4.16.0",
+        "hashed_files": 6
+      },
+      {
+        "name": "typing-inspection",
+        "version": "0.4.5",
+        "hashed_files": 10
+      },
+      {
+        "name": "tzdata",
+        "version": "2026.6",
+        "hashed_files": 634
+      },
+      {
+        "name": "urllib3",
+        "version": "2.8.0",
+        "hashed_files": 43
+      },
+      {
+        "name": "uvicorn",
+        "version": "0.54.0",
+        "hashed_files": 53
+      },
+      {
+        "name": "wheel",
+        "version": "0.48.0",
+        "hashed_files": 22
+      }
+    ],
+    "limitations": "Trusted local RECORD metadata; unhashed RECORD/bytecode excluded. Not malware scanning or protection against coordinated metadata tampering."
+  },
+  "inference_parity": {
+    "status": "VERIFIED_FROZEN_INFERENCE",
+    "model_id": "ndx-range-v1",
+    "model_version": "1.0.0",
+    "artifact_digests": {
+      "model.joblib": "515fbf7222fd81159fa017facb68c88020afd63c3e2ddec00178d65d0821434e",
+      "metadata.json": "a94ed6bd568af7adcbf0d336ebaaa18837cfad211ce75d7c0ee27b7c1cca30e7",
+      "baseline.json": "cf6984327158af5517c35ca5ad2cd2ccc865a40022e50b411f1cc5872eaf298d"
+    },
+    "records": [
+      {
+        "forecast_id": "20d48fc41c2cc0f5c0ae4f2d",
+        "forecast_sha256": "26604fd0603ca5f5e6dac216797fe24b96143e4abc63ceeae597a32b7290d3e2",
+        "inference_revision": "legacy-unadjusted",
+        "quantiles": {
+          "p50": 0.016976789311298954,
+          "p80": 0.026183191240699396,
+          "p90": 0.02856812814119795
+        },
+        "comparison": "EXACT_FLOAT_HEX"
+      },
+      {
+        "forecast_id": "3db9c4cbd3a9cc5944db8437",
+        "forecast_sha256": "86169b61e5ed6c944b0c7fc617f810740c031510b79739524a88920c52df0e57",
+        "inference_revision": "residual-adjusted-v1",
+        "quantiles": {
+          "p50": 0.016858438244665742,
+          "p80": 0.025113282583718373,
+          "p90": 0.031045690835127347
+        },
+        "comparison": "EXACT_FLOAT_HEX"
+      },
+      {
+        "forecast_id": "291aac9c9d893a888609aafd",
+        "forecast_sha256": "8344c61bcd20afe22003ef0f09f200308182d86694428044314afd560e9f6156",
+        "inference_revision": "residual-adjusted-v1",
+        "quantiles": {
+          "p50": 0.034500404140336935,
+          "p80": 0.06031706788643462,
+          "p90": 0.07437767299734434
+        },
+        "comparison": "EXACT_FLOAT_HEX"
+      },
+      {
+        "forecast_id": "cd26071237a957cd7a874933",
+        "forecast_sha256": "13e4fda9c1ce72889c6fad93a65ef3cc8ad32b4300ff2faa6d6dc20be9c492ed",
+        "inference_revision": "residual-adjusted-v1",
+        "quantiles": {
+          "p50": 0.024179815959388794,
+          "p80": 0.032360954552483105,
+          "p90": 0.04248446715001841
+        },
+        "comparison": "EXACT_FLOAT_HEX"
+      }
+    ],
+    "limits": "Replay of stored feature rows, not upstream feature reconstruction or predictive validation. Run original archived-source proof gates separately."
+  },
+  "native": {
+    "status": "IMPORTED_FRESH_BUILD",
+    "binary_sha256": "4405dd2c8b17efbca9d95eced63c082b06caebe9fa94e1ac1e74239fe529a664",
+    "cmake_configuration": [
+      "CMAKE_BUILD_TYPE:STRING=Release",
+      "CMAKE_CXX_COMPILER:FILEPATH=C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/cl.exe",
+      "CMAKE_CXX_FLAGS:STRING=/DWIN32 /D_WINDOWS /EHsc",
+      "CMAKE_CXX_FLAGS_DEBUG:STRING=/Zi /Ob0 /Od /RTC1",
+      "CMAKE_CXX_FLAGS_MINSIZEREL:STRING=/O1 /Ob1 /DNDEBUG",
+      "CMAKE_CXX_FLAGS_RELEASE:STRING=/O2 /Ob2 /DNDEBUG",
+      "CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=/Zi /O2 /Ob1 /DNDEBUG",
+      "PYTHON_EXECUTABLE:FILEPATH=C:/Users/huzai/AppData/Local/Temp/opencode/nocturne-phase3s-final/venv/Scripts/python.exe",
+      "CMAKE_CXX_FLAGS-ADVANCED:INTERNAL=1",
+      "CMAKE_CXX_FLAGS_DEBUG-ADVANCED:INTERNAL=1",
+      "CMAKE_CXX_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1",
+      "CMAKE_CXX_FLAGS_RELEASE-ADVANCED:INTERNAL=1",
+      "CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1",
+      "CMAKE_GENERATOR:INTERNAL=Ninja"
+    ],
+    "limits": "Binary hash identifies this build; not bitwise reproducibility across compilers/hosts."
+  },
+  "network_requests": 0,
+  "new_models_trained": 0,
+  "promotion": "NO_PROMOTION",
+  "trading_decision": "NO_TRADE"
+}

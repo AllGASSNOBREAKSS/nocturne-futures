@@ -1,13 +1,15 @@
 # Component health
 
-As of 2026-11-08T08:48:21.578124+00:00
+As of 2026-11-09T01:47:21.125123+00:00
 
 Core: DEGRADED
 
+- service_execution: **COMPLETED_WITH_QUARANTINE** — Fresh cycle result only; source quarantine is not a process crash. Aggregate alerts and nonzero exits remain.
+- forecast_issuance: **ISSUED** — Current generation result; no claim about future uptime or deadline success
 - shadow_cycle: **BLOCKED** — AUDIT_BLOCKED
 - forecast_integrity: **BLOCKED** — see forecast audit issues; reconciliation is evidence-bound, not a health override
 - provider_refresh: **HEALTHY** — latest timestamped cycle refresh results; not an uptime guarantee
-- outcome_evaluation: **DEGRADED** — pending horizons are expected work, not fabricated outcomes; evaluation requires availability and audit gates
+- outcome_evaluation: **PARTIAL_QUARANTINE** — pending horizons are expected work, not fabricated outcomes; evaluation requires availability and audit gates
 - DATA_VALIDATION / c537f9a0a1f9569bf271f340: **HEALTHY** — SUCCEEDED
 - FEATURE_BUILD / 6c5abbdc35131e1c28fe4596: **HEALTHY** — SUCCEEDED
 - HISTORICAL_BACKTEST / 0d1c9bdb4d4add7cd173fd7d: **HEALTHY** — SUCCEEDED
@@ -20,13 +22,13 @@ Core: DEGRADED
 - MODEL_TRAINING / 804c1127316b5d4e5a01d21b: **HEALTHY** — SUCCEEDED
 - MODEL_EVALUATION / 60d102ffabcb24efa44c9104: **HEALTHY** — SUCCEEDED
 - HISTORICAL_BACKTEST / 178923b71b51206a027758eb: **BLOCKED** — AUTHENTIC_CONTRACT_HISTORY_REQUIRED
-- RESEARCH_REPORT / 73c3bb381a941f1c3dda2d54: **HEALTHY** — SUCCEEDED
-- DATA_REFRESH / a00e5bf3ed23fc6b496f7acc: **HEALTHY** — SUCCEEDED
-- SHADOW_FORECAST / cf914682f79d563e4a9d1b3e: **HEALTHY** — SUCCEEDED
-- FORECAST_MATURITY_CHECK / 6a46119627fd1d445c394ff6: **HEALTHY** — SUCCEEDED
-- FORWARD_EVALUATION / 258bfa92e87427a87e57919d: **HEALTHY** — SUCCEEDED
-- MODEL_DRIFT_MONITOR / 532307848a2317c310d70481: **HEALTHY** — SUCCEEDED
-- RESEARCH_REPORT / d41d9341d48c7b020b7d449d: **HEALTHY** — SUCCEEDED
+- RESEARCH_REPORT / 3fbd05723f5a60e841733398: **HEALTHY** — SUCCEEDED
+- DATA_REFRESH / 7cd1831eef7b20d18ffa1825: **BLOCKED** — COMPONENT_COMPLETED_WITH_QUARANTINE
+- SHADOW_FORECAST / 169fb2adcc2be9f8adef9e04: **BLOCKED** — COMPONENT_COMPLETED_WITH_QUARANTINE
+- FORECAST_MATURITY_CHECK / acf64a1af0033e46aeb84767: **BLOCKED** — COMPONENT_COMPLETED_WITH_QUARANTINE
+- FORWARD_EVALUATION / 99ada9b5f1eacdae0dcb41f8: **HEALTHY** — SUCCEEDED
+- MODEL_DRIFT_MONITOR / 077692ad757ec5c2e67328d7: **HEALTHY** — SUCCEEDED
+- RESEARCH_REPORT / 85717b5f3f369cf088cac99b: **HEALTHY** — SUCCEEDED
 - HISTORICAL_BACKTEST / a9715adfe952f45c39945767: **BLOCKED** — AUTHENTIC_CONTRACT_HISTORY_REQUIRED
 - HISTORICAL_BACKTEST / 9cb95320b29b8d1e41e80d9a: **BLOCKED** — AUTHENTIC_CONTRACT_HISTORY_REQUIRED
 

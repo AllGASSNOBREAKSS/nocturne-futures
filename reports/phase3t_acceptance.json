@@ -1,0 +1,350 @@
+{
+  "generated_at": "2026-11-09T01:54:10.474833+00:00",
+  "base": "d69f853",
+  "implementation_commit": "fcac56c3dbb80942b9b9179f88a9612f5c58d1f3",
+  "verified_head": "6bd0f75771dcf6271fe319a209ec1aea1967111a",
+  "decision": "NO_GO_FRONTEND",
+  "percentage": null,
+  "preservation": [
+    {
+      "path": "data/shadow/ndx_range/forecasts.jsonl",
+      "original_prefix_unchanged": true,
+      "entire_file_unchanged": true,
+      "bytes_appended": 0,
+      "sha256": "fbc52e88c2eb4364256ab706c08e5bea632e53ddc2132ddffb2393b02159ba86"
+    },
+    {
+      "path": "data/shadow/ndx_range/outcomes.jsonl",
+      "original_prefix_unchanged": true,
+      "entire_file_unchanged": true,
+      "bytes_appended": 0,
+      "sha256": "8b90fbee6cbd79ccd559240e1dc15d5b2e4de1507d4222a51641eb8c61443396"
+    },
+    {
+      "path": "data/shadow/ndx_range/reconciliations.jsonl",
+      "original_prefix_unchanged": true,
+      "entire_file_unchanged": true,
+      "bytes_appended": 0,
+      "sha256": "9da0ade99c51317f9a7bb9d0a2b4d5170628948160e2a91577b218ed721fa7aa"
+    },
+    {
+      "path": "models/shadow/ndx-range-v1/model.joblib",
+      "original_prefix_unchanged": true,
+      "entire_file_unchanged": true,
+      "bytes_appended": 0,
+      "sha256": "515fbf7222fd81159fa017facb68c88020afd63c3e2ddec00178d65d0821434e"
+    }
+  ],
+  "incidents": {
+    "generated_at": "2026-11-08T08:58:45.545829+00:00",
+    "records": [
+      {
+        "forecast_id": "291aac9c9d893a888609aafd",
+        "target_date": "2026-11-06",
+        "classification": "OBSERVED_PROVIDER_REVISION_FINALITY_UNVERIFIED",
+        "verdict": "AUDIT_BLOCKED",
+        "eligible_for_evaluation": false,
+        "blocking_reasons": [
+          "INDEPENDENT_FINAL_OUTCOME_OHLC_NOT_VERIFIED",
+          "REFERENCE_REVISION_NOT_APPLIED"
+        ]
+      },
+      {
+        "forecast_id": "cd26071237a957cd7a874933",
+        "target_date": "2026-11-09",
+        "classification": "OBSERVED_PROVIDER_REVISION_FINALITY_UNVERIFIED",
+        "verdict": "AUDIT_BLOCKED",
+        "eligible_for_evaluation": false,
+        "blocking_reasons": [
+          "INDEPENDENT_FINAL_OUTCOME_OHLC_NOT_VERIFIED",
+          "REFERENCE_REVISION_NOT_APPLIED",
+          "TARGET_AVAILABILITY_BOUND_NOT_REACHED",
+          "COMPLETE_AVAILABLE_TARGET_BAR_NOT_ESTABLISHED"
+        ]
+      }
+    ],
+    "journal_bytes_unchanged": true,
+    "provider_requests": "bounded public references only",
+    "paid_consumption": false,
+    "trading_decision": "NO_TRADE"
+  },
+  "operational": {
+    "status": "degraded",
+    "components": {
+      "service_execution": {
+        "status": "COMPLETED_WITH_QUARANTINE",
+        "reason": "Fresh cycle result only; source quarantine is not a process crash. Aggregate alerts and nonzero exits remain."
+      },
+      "forecast_issuance": {
+        "status": "ISSUED",
+        "reason": "Current generation result; no claim about future uptime or deadline success"
+      },
+      "shadow_cycle": {
+        "status": "BLOCKED",
+        "reason": "AUDIT_BLOCKED"
+      },
+      "forecast_integrity": {
+        "status": "BLOCKED",
+        "reason": "see forecast audit issues; reconciliation is evidence-bound, not a health override"
+      },
+      "provider_refresh": {
+        "status": "HEALTHY",
+        "reason": "latest timestamped cycle refresh results; not an uptime guarantee"
+      },
+      "outcome_evaluation": {
+        "status": "PARTIAL_QUARANTINE",
+        "reason": "pending horizons are expected work, not fabricated outcomes; evaluation requires availability and audit gates"
+      }
+    },
+    "open_alert_count": 4,
+    "scheduler": "DEGRADED",
+    "scope": "Fresh completed task/cycle results, not independent host uptime"
+  },
+  "forward": {
+    "issued": 4,
+    "verified_matured": 2,
+    "pending": 2,
+    "missed": 0,
+    "inference_samples": {
+      "legacy-unadjusted": {
+        "issued": 1,
+        "verified_matured": 1
+      },
+      "residual-adjusted-v1": {
+        "issued": 3,
+        "verified_matured": 1
+      }
+    }
+  },
+  "research": {
+    "actual_phase_window_job_updates": {
+      "DATA_REFRESH": {
+        "SUCCEEDED": 1
+      },
+      "DATA_VALIDATION": {},
+      "FEATURE_BUILD": {},
+      "HISTORICAL_BACKTEST": {},
+      "WALK_FORWARD_VALIDATION": {},
+      "MODEL_TRAINING": {},
+      "MODEL_EVALUATION": {},
+      "SHADOW_FORECAST": {
+        "SUCCEEDED": 1
+      },
+      "FORECAST_MATURITY_CHECK": {
+        "SUCCEEDED": 1
+      },
+      "FORWARD_EVALUATION": {
+        "SUCCEEDED": 1
+      },
+      "MODEL_DRIFT_MONITOR": {
+        "SUCCEEDED": 1
+      },
+      "RESEARCH_REPORT": {
+        "SUCCEEDED": 2
+      }
+    },
+    "shadow_tick_executed": 5,
+    "research_tick_executed": 0,
+    "new_market_model_fits": 0,
+    "futures_cycle": "BLOCKED_NO_AUTHENTIC_LICENSED_RECEIPTS",
+    "note": "Counts are actual observed tick outputs and persisted identities, not every type rerun; old index diagnostics replayed only for recovery"
+  },
+  "engineering": {
+    "orchestration": "SCOPED_COMPLETION_VERIFIED_QUARANTINES_RETAINED",
+    "backtesting_ml": "DEVELOPMENT_INFRASTRUCTURE_VERIFIED_NO_NEW_FUTURES_RESULTS",
+    "forward_evaluation": "PARTIAL_TWO_INCIDENTS_AUDIT_BLOCKED",
+    "api_security": "EXISTING_BOUNDED_CONTROLS_TESTED_PRODUCTION_APPROVAL_PARTIAL",
+    "scheduler": "REPEATED_COMPLETE_LIFECYCLES_SHADOW_EXIT1_RESEARCH_EXIT0",
+    "recovery": "VERIFIED_SAME_HOST_ENCRYPTED_RESTORE_NOT_ACTIVATED",
+    "monitoring": "PARTIAL_EXECUTION_AND_INTEGRITY_SEPARATE_FOUR_ALERTS_OPEN",
+    "python_cpp": "431_TESTS_LOCAL_ISOLATED_PARITY_INCLUDED"
+  },
+  "quantitative": {
+    "authentic_nq_es": "USER_ACTION_REQUIRED",
+    "sample_adequacy": "BLOCKED",
+    "bull_bear_discrimination": "BLOCKED",
+    "consolidation": "BLOCKED",
+    "significant_levels": "FEATURE_INFRASTRUCTURE_ONLY_PREDICTIVE_VALIDATION_BLOCKED",
+    "target_before_stop": "BLOCKED",
+    "independent_strategy_validation": "BLOCKED",
+    "forward_performance": "INSUFFICIENT_TWO_VERIFIED_OUTCOMES_ONE_PER_COHORT",
+    "nq_target_first_probabilities": {
+      "100": null,
+      "200": null,
+      "350": null,
+      "500": null
+    }
+  },
+  "external_access": {
+    "Dataset": "GLBX.MDP3",
+    "Entitlements": "UNVERIFIED",
+    "CredentialsPresent": {
+      "DATABENTO_API_KEY": {
+        "Machine": false,
+        "User": false,
+        "Process": false
+      },
+      "NASDAQ_DATA_LINK_API_KEY": {
+        "Machine": false,
+        "User": false,
+        "Process": false
+      },
+      "FRED_API_KEY": {
+        "Machine": false,
+        "User": false,
+        "Process": false
+      },
+      "BLS_API_KEY": {
+        "Machine": false,
+        "User": false,
+        "Process": false
+      }
+    },
+    "QuotedCostUsd": null,
+    "Checklist": "docs/PHASE3S_FUTURES_PILOT.md",
+    "LicensedReceiptCount": 0,
+    "ConsumptionAttempted": false,
+    "GeneratedAt": "2026-11-08T09:05:18.3927673Z",
+    "Status": "USER_ACTION_REQUIRED",
+    "OffHostRecovery": "OFF_HOST_VERIFICATION_REQUIRED"
+  },
+  "security_and_recovery": {
+    "runtime": "VERIFIED_ISOLATED_RUNTIME",
+    "installed_hashed_files": 13458,
+    "four_issued_inference_replays": "EXACT",
+    "restore": {
+      "generated_at": "2026-11-08T09:08:02.970695+00:00",
+      "mode": "restore",
+      "elapsed_seconds": 20.642836300001363,
+      "result": {
+        "status": "RESTORED_NOT_ACTIVATED",
+        "files": 765,
+        "authentication": "AES_GCM_TAG_VERIFIED_BEFORE_EXTRACTION",
+        "secret_exclusion": {
+          "status": "KNOWN_SECRET_AND_PATH_EXCLUSIONS_PASSED",
+          "files": 767,
+          "bytes": 239854907,
+          "limits": "Allowlisted snapshot scope, forbidden secret-file paths, private-key markers and supplied known values; unknown or encoded secrets require operator review."
+        },
+        "off_host_status": "OFF_HOST_VERIFICATION_REQUIRED",
+        "evidence": {
+          "status": "VERIFIED_LOCAL_RELOCATION",
+          "issued": 3,
+          "verified_matured": 2,
+          "reproduced_index_diagnostics": [
+            {
+              "symbol": "^NDX",
+              "observations": 6036,
+              "scope": "NON_EXECUTABLE_INDEX_CONTEXT_NOT_NQ_ES_PNL",
+              "net_mean_fraction_2bp": -0.00016316773640181952
+            },
+            {
+              "symbol": "^GSPC",
+              "observations": 6036,
+              "scope": "NON_EXECUTABLE_INDEX_CONTEXT_NOT_NQ_ES_PNL",
+              "net_mean_fraction_2bp": -0.0003269370965258071
+            }
+          ],
+          "cached_challenger_files_verified": 6,
+          "new_models_trained": 0,
+          "network_requests": 0,
+          "trading_decision": "NO_TRADE",
+          "limitations": "same-host offline relocation using installed code; not off-host durability, different-machine restore or service activation"
+        }
+      },
+      "off_host_status": "OFF_HOST_VERIFICATION_REQUIRED",
+      "trading_decision": "NO_TRADE"
+    },
+    "off_host": "OFF_HOST_VERIFICATION_REQUIRED",
+    "proposed_rpo_minutes": 30,
+    "proposed_rto_minutes": 60,
+    "slo_status": "NOT_ACHIEVED_OFF_HOST_SLOS"
+  },
+  "ci": {
+    "checked_at": "2026-11-09T01:53:58.543420+00:00",
+    "id": 42466314331,
+    "head_sha": "6bd0f75771dcf6271fe319a209ec1aea1967111a",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/42466314331",
+    "jobs": [
+      {
+        "name": "typescript",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "python",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "native",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows-locked-runtime",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "windows-shadow",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    ],
+    "previous": {
+      "checked_at": "2026-11-08T09:08:02.403115+00:00",
+      "id": 42465576451,
+      "head_sha": "fcac56c3dbb80942b9b9179f88a9612f5c58d1f3",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/AllGASSNOBREAKSS/nocturne-futures/actions/runs/42465576451",
+      "jobs": [
+        {
+          "name": "native",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "windows-shadow",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "python",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "windows-locked-runtime",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "typescript",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    }
+  },
+  "evidence": [
+    "phase3t_tests.json",
+    "phase3t_runtime.json",
+    "phase3t_assurance.json",
+    "phase3t_scheduler.json",
+    "phase3t_incident_2026-11-06.json",
+    "phase3t_incident_2026-11-09.json"
+  ],
+  "required_user_actions": [
+    "Provide authoritative independent final NDX outcome OHLC, session and availability provenance for deliberate incident review",
+    "Configure entitled GLBX.MDP3 credential privately; verify credits/IDs/exact bounded quote; explicitly approve before consumption",
+    "Authorize independent private backup destination and key custody, then perform genuine off-host restore and cutover/rollback",
+    "Approve unattended host/account, independent monitoring/paging, network/ACL/TLS lifecycle/security/load and memory isolation review",
+    "Accumulate adequate authentic independent futures and forward observations; do not reuse exposed holdouts"
+  ],
+  "promotion": "NO_PROMOTION",
+  "trading_decision": "NO_TRADE"
+}

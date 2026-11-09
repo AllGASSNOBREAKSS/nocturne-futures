@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-11-08T08:58:45.545829+00:00",
+  "records": [
+    {
+      "forecast_id": "291aac9c9d893a888609aafd",
+      "target_date": "2026-11-06",
+      "classification": "OBSERVED_PROVIDER_REVISION_FINALITY_UNVERIFIED",
+      "verdict": "AUDIT_BLOCKED",
+      "eligible_for_evaluation": false,
+      "blocking_reasons": [
+        "INDEPENDENT_FINAL_OUTCOME_OHLC_NOT_VERIFIED",
+        "REFERENCE_REVISION_NOT_APPLIED"
+      ]
+    },
+    {
+      "forecast_id": "cd26071237a957cd7a874933",
+      "target_date": "2026-11-09",
+      "classification": "OBSERVED_PROVIDER_REVISION_FINALITY_UNVERIFIED",
+      "verdict": "AUDIT_BLOCKED",
+      "eligible_for_evaluation": false,
+      "blocking_reasons": [
+        "INDEPENDENT_FINAL_OUTCOME_OHLC_NOT_VERIFIED",
+        "REFERENCE_REVISION_NOT_APPLIED",
+        "TARGET_AVAILABILITY_BOUND_NOT_REACHED",
+        "COMPLETE_AVAILABLE_TARGET_BAR_NOT_ESTABLISHED"
+      ]
+    }
+  ],
+  "journal_bytes_unchanged": true,
+  "provider_requests": "bounded public references only",
+  "paid_consumption": false,
+  "trading_decision": "NO_TRADE"
+}

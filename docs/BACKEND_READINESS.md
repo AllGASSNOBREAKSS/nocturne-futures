@@ -1,4 +1,96 @@
-# Backend readiness — Phase 3S
+# Backend readiness — Phase 3T
+
+## Phase 3T acceptance — NO_GO_FRONTEND (November 8, 2026 UTC)
+
+Evidence: `PHASE3T_FINDINGS.md`, `reports/phase3t_acceptance.json`, per-forecast
+incident reports and current operational reports. Engineering and quantitative
+gates are separate. The full pre-frontend conditions are **not met**; no 70% score
+or predictive-accuracy claim is assigned. Earlier sections are historical.
+
+### Engineering readiness
+
+- **Automated orchestration — completed bounded functionality / partial deployment.**
+  Five genuine shadow jobs and two reports updated; a concurrent research tick
+  correctly reused existing work (zero new research jobs). Exclusive per-attempt
+  receipts allow scoped completion with historical quarantine, retaining exit 1,
+  IDs and BLOCKED job health. Actual failure/missing receipt does not take that
+  path. `phase3t_assurance.json`, `tests/test_phase3t_integrity.py`. No independent
+  always-on/long-soak or hard memory-isolation acceptance.
+- **Historical backtesting — completed infrastructure / futures externally blocked.**
+  Existing costs, replay, chronological validation and native parity contracts
+  pass. No new authentic futures backtest was eligible or manufactured. License,
+  sufficient contract coverage and real receipts are missing.
+- **ML experimentation — completed infrastructure / new market fits not eligible.**
+  Frozen model/cache/governance contracts pass; zero new market training jobs in
+  phase. Purging/embargo and exposed-holdout restrictions preserved. No new
+  independent data/hypothesis warrants repeating rejected experiments.
+- **Continuous forward forecasting — partial, bounded operational proof.**
+  Four genuine issues, no duplicates/misses. Existing November 9 issue returned
+  idempotently while older audits blocked. Fixture tests demonstrate new eligible
+  issuance independent of old quarantine; this is not a claim of a future actual
+  deadline completion. Host must remain awake/interactively logged in.
+- **Immutable outcome evaluation — partial / current incidents blocked.**
+  Two existing outcomes independently replay against their archived research-grade
+  observations. Both pending incidents have evidence-backed dispositions, original
+  denominators/journal bytes preserved, but final independent OHLC is absent.
+  November 6 is overdue and integrity-blocked; November 9 is additionally future.
+  Classification is complete, clearance/evaluation is not. See `phase3t_incidents.json`.
+- **API security — bounded controls verified / production acceptance partial.**
+  Auth/roles/artifact restrictions, TLS, bounds, rate limits and secret-safe audit
+  tests pass unchanged. No new HTTP mutation/acknowledgement/job route. External
+  network/ACL/TLS lifecycle/security/load approval and independent paging remain.
+- **Scheduler reliability — completed bounded lifecycle / partial availability.**
+  Two exercised completions per deployed task preserve pythonw transport and all
+  task definitions. Shadow exit 1 is quarantine, research exit 0; neither is claimed
+  a crash, and overall health remains degraded. `phase3t_scheduler.json`. No account
+  change, paid hosting, reboot/logoff or unattended soak was authorized/performed.
+- **Recovery — partial.** Existing encrypted archive authenticated/restored/replayed
+  765 files in 20.64s into a new isolated local directory, RESTORED_NOT_ACTIVATED.
+  It is the November 6 three-issue recovery point, not current four-issue backup.
+  `phase3t_encrypted_restore.json`. Independent destination/key custody, off-host
+  restore and cutover/rollback remain **OFF_HOST_VERIFICATION_REQUIRED**. Proposed
+  RPO 30m/RTO 60m are not achieved off-host SLOs.
+- **Monitoring — partial.** Execution, issuance, provider freshness and outcome
+  integrity are separate components. Four alerts remain open; acknowledgement
+  retains OPEN and cannot waive/rescind a blocker. Exceptions/issuance failures
+  cannot be concealed by older quarantine. Stale/malformed evidence is not health.
+  Independent host-loss detection/paging and service/backup/audit capacity soak remain.
+- **Python/C++ integration — completed at tested source.** Core `fcac56c`: 429 local
+  and isolated tests pass, native parity included. TypeScript passes. Five CI jobs
+  green at that commit, run 42465576451. 13,458 installed hashes and exact four-issue
+  inference verify in reused locked environment. `phase3t_runtime.json`,
+  `phase3t_tests.json`, `phase3t_ci.json`. Fix `6bd0f75` (no close-only fallback after
+  full-bar reconciliation): 431 local and fresh-isolated tests pass; five CI jobs green
+  in run 42466314331. Later report-only commits need their own CI result.
+
+### Quantitative readiness
+
+- **Authentic NQ/ES history — blocked / USER_ACTION_REQUIRED.** Credentials absent
+  across checked scopes, zero licensed receipts. GLBX.MDP3 entitlement, raw-ID
+  resolution, credits, price and approval unknown. No paid download. The existing
+  bounded pilot/checklist remains `PHASE3S_FUTURES_PILOT.md`.
+- **Training sample adequacy — blocked for futures.** No suitable independent
+  contract history/events; a one-session plumbing pilot alone cannot qualify ML.
+- **Bullish/bearish discrimination — blocked.** No new independently validated
+  futures directional finding. Cash-session range forecasts are not NQ direction.
+- **Consolidation forecasting — blocked.** Infrastructure is not a calibrated
+  futures consolidation model; independent labels/observations are absent.
+- **Significant levels — partial feature plumbing / predictive qualification blocked.**
+  Authentic trade/volume-at-price, bid/ask and justified depth coverage plus independent
+  level/path evaluation are missing. Daily bars never substitute for order flow.
+- **Target-before-stop calibration — blocked.** 100/200/350/500-point NQ destination
+  probabilities remain null/unsupported. Adequate authentic paths, realistic costs,
+  tie/ambiguity policy, horizon selection, separate calibration and independent
+  holdout are required; no attractive targets were forced.
+- **Independent strategy validation — blocked.** No untouched authentic futures
+  holdout/events. Old exposed index/proxy diagnostics remain diagnostic only.
+- **Forward performance evidence — partial / insufficient.** Four cash-index range
+  issues, two verified outcomes (one per cohort), two quarantined/pending. This
+  cannot establish reliable calibration, directional skill or executable edge.
+
+**Decision: NO_GO_FRONTEND / NO_PROMOTION / NO_TRADE.** Remaining source-finality,
+licensed-data, independent deployment/recovery/security/monitoring and statistical
+evidence gates require real inputs/authorization, not redundant infrastructure.
 
 ## Phase 3S acceptance — NO_GO_FRONTEND (November 8, 2026 UTC)
 

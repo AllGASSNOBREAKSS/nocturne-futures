@@ -1,5 +1,21 @@
 # Model Validation
 
+## Phase 3T integrity and scope
+
+Both outstanding reference incidents are classified as observed upstream revisions
+with unverified finality; no independent final outcome OHLC is established. Neither
+was applied as a reconciliation or evaluated. Four original issues/two verified
+outcomes/two pending remain; frozen inference for all four replays exactly.
+
+Per-attempt orchestration receipts may distinguish scoped completion from historical
+quarantine. SUCCEEDED job state in that case does not validate data or promote a
+model: receipt exit 1, quarantined IDs and BLOCKED component health remain visible.
+Independent allowed-ID evaluation never changes a failed forecast's denominator.
+100/200/350/500-point NQ target-first probabilities remain null/unsupported without
+authentic suitable paths, costs, separate calibration and independent observations.
+No new market training or directional/target-first finding was produced in 3T.
+See `../PHASE3T_FINDINGS.md` and `../BACKEND_READINESS.md`.
+
 ## Current governance — Phase 3S
 
 The only shadow-active candidate remains frozen `ndx-range-v1`, predicting NDX

@@ -8,6 +8,33 @@
 
 ## What is implemented
 
+### Phase 3T — incident dispositions and quarantine isolation
+
+Both pending forecast incidents are classified as observed provider revisions with
+unverified finality. Exact original issuance inputs/inference reproduce; neither
+incident is independently cleared or force-evaluated. **4 issued / 2 verified
+matured / 2 pending / 0 missed**; four alerts remain open.
+
+Execution, issuance and outcome-integrity health are now distinct. Exclusive
+per-attempt research receipts let five genuine shadow operations complete despite
+historical quarantine, retaining exit 1 and BLOCKED component health. Failed
+generation/refresh, stale/missing receipts and exceptions are not forgiven. Local
+alert acknowledgement retains OPEN; no HTTP mutation capability was added.
+
+**431 tests pass locally and in isolation**, native parity included; five CI jobs
+green at `6bd0f75` (run 42466314331). All four issued forecasts replay exactly. Two exercised
+completions per task retain shadow exit 1 / research exit 0, with full lifecycle
+receipts. Existing encrypted backup restores/replays 765 files in 20.64s, same
+host only; independent recovery remains unverified.
+
+No licensed futures data, new market fits, paid consumption or directional/
+target-first finding. **USER_ACTION_REQUIRED / OFF_HOST_VERIFICATION_REQUIRED**.
+**NO_GO_FRONTEND / NO_PROMOTION / NO_TRADE**, no unsupported 70% claim. See
+[findings](docs/PHASE3T_FINDINGS.md), [readiness](docs/BACKEND_READINESS.md),
+[operator data checklist](docs/PHASE3S_FUTURES_PILOT.md),
+[incident dispositions](reports/phase3t_incidents.json) and
+[acceptance evidence](reports/phase3t_acceptance.json). Earlier phases below are historical.
+
 ### Phase 3S — protected APIs and authenticated private recovery
 
 Reader/admin authentication, deny-by-default artifact access, bounded rate/request

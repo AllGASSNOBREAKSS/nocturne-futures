@@ -1,9 +1,17 @@
 {
-  "generated_at": "2026-11-08T08:48:21.578124+00:00",
+  "generated_at": "2026-11-09T01:47:21.125123+00:00",
   "shadow": {
-    "generated_at": "2026-11-08T08:48:19.624233+00:00",
+    "generated_at": "2026-11-09T01:47:19.061300+00:00",
     "status": "degraded",
     "components": {
+      "service_execution": {
+        "status": "COMPLETED_WITH_QUARANTINE",
+        "reason": "Fresh cycle result only; source quarantine is not a process crash. Aggregate alerts and nonzero exits remain."
+      },
+      "forecast_issuance": {
+        "status": "ISSUED",
+        "reason": "Current generation result; no claim about future uptime or deadline success"
+      },
       "shadow_cycle": {
         "status": "BLOCKED",
         "reason": "AUDIT_BLOCKED"
@@ -17,7 +25,7 @@
         "reason": "latest timestamped cycle refresh results; not an uptime guarantee"
       },
       "outcome_evaluation": {
-        "status": "DEGRADED",
+        "status": "PARTIAL_QUARANTINE",
         "reason": "pending horizons are expected work, not fabricated outcomes; evaluation requires availability and audit gates"
       }
     },
@@ -62,13 +70,16 @@
     "health": {
       "status": "degraded",
       "warnings": [
-        "STALE_SERVICE",
+        "STALE_FULLY_HEALTHY_CYCLE",
         "LATEST_CYCLE_NOT_OK"
       ],
+      "cycle_execution_status": "COMPLETED",
+      "last_attempt_age_seconds": 10.29262,
+      "scope": "Completed-cycle heartbeat is separate from data integrity and predictive readiness; not host uptime",
       "last_run": "2026-11-06T04:47:10.415251+00:00",
-      "age_hours": 52.01922471722222,
+      "age_hours": 69.00240168027779,
       "last_success": "2026-11-06T04:47:10.415251+00:00",
-      "last_attempt": "2026-11-08T08:47:10.449268+00:00",
+      "last_attempt": "2026-11-09T01:47:08.768680+00:00",
       "last_attempt_event": "CYCLE_AUDIT_FAILED",
       "forecasts": 4,
       "matured": 2,
@@ -254,67 +265,67 @@
         "last_observed_at_epoch": 1793844396.0760748
       },
       {
-        "job_id": "73c3bb381a941f1c3dda2d54",
+        "job_id": "3fbd05723f5a60e841733398",
         "kind": "RESEARCH_REPORT",
         "lane": "research",
         "state": "SUCCEEDED",
         "status": "HEALTHY",
         "reason": "SUCCEEDED",
-        "last_observed_at_epoch": 1794125643.2061226
+        "last_observed_at_epoch": 1794168844.7163913
       },
       {
-        "job_id": "a00e5bf3ed23fc6b496f7acc",
+        "job_id": "7cd1831eef7b20d18ffa1825",
         "kind": "DATA_REFRESH",
         "lane": "shadow",
         "state": "SUCCEEDED",
-        "status": "HEALTHY",
-        "reason": "SUCCEEDED",
-        "last_observed_at_epoch": 1793929289.4863622
+        "status": "BLOCKED",
+        "reason": "COMPONENT_COMPLETED_WITH_QUARANTINE",
+        "last_observed_at_epoch": 1794128698.5659692
       },
       {
-        "job_id": "cf914682f79d563e4a9d1b3e",
+        "job_id": "169fb2adcc2be9f8adef9e04",
         "kind": "SHADOW_FORECAST",
         "lane": "shadow",
         "state": "SUCCEEDED",
-        "status": "HEALTHY",
-        "reason": "SUCCEEDED",
-        "last_observed_at_epoch": 1793929296.618516
+        "status": "BLOCKED",
+        "reason": "COMPONENT_COMPLETED_WITH_QUARANTINE",
+        "last_observed_at_epoch": 1794128705.7665992
       },
       {
-        "job_id": "6a46119627fd1d445c394ff6",
+        "job_id": "acf64a1af0033e46aeb84767",
         "kind": "FORECAST_MATURITY_CHECK",
         "lane": "shadow",
         "state": "SUCCEEDED",
-        "status": "HEALTHY",
-        "reason": "SUCCEEDED",
-        "last_observed_at_epoch": 1793929303.7039387
+        "status": "BLOCKED",
+        "reason": "COMPONENT_COMPLETED_WITH_QUARANTINE",
+        "last_observed_at_epoch": 1794128712.0616827
       },
       {
-        "job_id": "258bfa92e87427a87e57919d",
+        "job_id": "99ada9b5f1eacdae0dcb41f8",
         "kind": "FORWARD_EVALUATION",
         "lane": "shadow",
         "state": "SUCCEEDED",
         "status": "HEALTHY",
         "reason": "SUCCEEDED",
-        "last_observed_at_epoch": 1793929310.6824813
+        "last_observed_at_epoch": 1794128718.5326028
       },
       {
-        "job_id": "532307848a2317c310d70481",
+        "job_id": "077692ad757ec5c2e67328d7",
         "kind": "MODEL_DRIFT_MONITOR",
         "lane": "shadow",
         "state": "SUCCEEDED",
         "status": "HEALTHY",
         "reason": "SUCCEEDED",
-        "last_observed_at_epoch": 1793929318.8539286
+        "last_observed_at_epoch": 1794128725.9314342
       },
       {
-        "job_id": "d41d9341d48c7b020b7d449d",
+        "job_id": "85717b5f3f369cf088cac99b",
         "kind": "RESEARCH_REPORT",
         "lane": "shadow",
         "state": "SUCCEEDED",
         "status": "HEALTHY",
         "reason": "SUCCEEDED",
-        "last_observed_at_epoch": 1793929321.739735
+        "last_observed_at_epoch": 1794128728.542007
       },
       {
         "job_id": "a9715adfe952f45c39945767",
@@ -336,11 +347,11 @@
       }
     ],
     "counts": {
-      "HEALTHY": 18,
-      "BLOCKED": 3
+      "HEALTHY": 15,
+      "BLOCKED": 6
     },
     "historical_state_counts": {
-      "SUCCEEDED": 67,
+      "SUCCEEDED": 78,
       "BLOCKED": 15
     },
     "limits": "latest recorded result per lane/type/specification, not live host liveness or a market-data entitlement"
@@ -443,7 +454,7 @@
     ],
     "sample_warning": "descriptive observations only; no forward calibration or trading-edge claim",
     "trading_decision": "NO_TRADE",
-    "generated_at": "2026-11-08T08:48:14.827759+00:00",
+    "generated_at": "2026-11-09T01:47:13.885798+00:00",
     "issued": 4,
     "pending": 2,
     "baseline_sha256": "cf6984327158af5517c35ca5ad2cd2ccc865a40022e50b411f1cc5872eaf298d",

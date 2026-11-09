@@ -1,5 +1,11 @@
 # Read-Only API
 
+Phase 3T adds separate execution/issuance/quarantine components to the protected
+operational view; aggregate health and nonzero integrity exits remain. Alert
+acknowledgement is a local operator CLI capability only, not an HTTP mutation route.
+All Phase 3S authentication, authorization, input/rate/request bounds and TLS controls
+are unchanged. A completed request/job/cycle is not a model/data readiness approval.
+
 ## Phase 3S security contract (current)
 
 Authentication is now required for protected routes; anonymous startup/data access
