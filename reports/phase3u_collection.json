@@ -1,0 +1,861 @@
+{
+  "generated_at": "2026-11-09T02:11:41.903411+00:00",
+  "archive_root": "data\\history\\free",
+  "sources": {
+    "fred": {
+      "status": "COLLECTED",
+      "seconds": 26.91,
+      "datasets": [
+        {
+          "dataset": "VIXCLS",
+          "status": "NEW",
+          "rows": 9311,
+          "first": "1990-01-02",
+          "last": "2026-11-05",
+          "appended_rows": 9311,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "c62f03723d469d30df7481999c2c8ed69168f6924b74e25163681d9cd2dff2f9",
+          "normalized_sha256": "41e572d32169e29818086b9601d3f234187e1ad9478680265a330507a2e05450",
+          "raw_bytes": 161867,
+          "credibility": "OFFICIAL_DISTRIBUTOR",
+          "pit_eligible": true,
+          "availability_rule": "+0 business days 22:00 UTC: CBOE close known after the session",
+          "limitation": null,
+          "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=VIXCLS&cosd=1986-01-01&coed=2026-11-09"
+        },
+        {
+          "dataset": "VXNCLS",
+          "status": "NEW",
+          "rows": 6479,
+          "first": "2001-02-02",
+          "last": "2026-11-05",
+          "appended_rows": 6479,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "ea09bf0b4923c32c87d3e6663786097c12654060d35dbb30048960c4e1a606c9",
+          "normalized_sha256": "7847887dda872c8b4295dc62209b73859a617f98ee6d060447958a5d8f3ed1a7",
+          "raw_bytes": 113071,
+          "credibility": "OFFICIAL_DISTRIBUTOR",
+          "pit_eligible": true,
+          "availability_rule": "+0 business days 22:00 UTC: CBOE close known after the session",
+          "limitation": null,
+          "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=VXNCLS&cosd=1986-01-01&coed=2026-11-09"
+        },
+        {
+          "dataset": "RRPONTSYD",
+          "status": "NEW",
+          "rows": 3363,
+          "first": "2003-02-07",
+          "last": "2026-11-06",
+          "appended_rows": 3363,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "e3ebe3e48471ede079eccd070000b96c64376c5b172b8430fabf1cda64984130",
+          "normalized_sha256": "92be883dd5d01539581f3bcbba8ce9f695daa5a32022d5aca8bd09675c86e0cd",
+          "raw_bytes": 95777,
+          "credibility": "OFFICIAL_DISTRIBUTOR",
+          "pit_eligible": true,
+          "availability_rule": "+0 business days 22:00 UTC: NY Fed publishes the same afternoon",
+          "limitation": null,
+          "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=RRPONTSYD&cosd=1986-01-01&coed=2026-11-09"
+        },
+        {
+          "dataset": "DGS10",
+          "status": "NEW",
+          "rows": 10218,
+          "first": "1986-01-02",
+          "last": "2026-11-05",
+          "appended_rows": 10218,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "1ad48ae08271d5b611327fb749a3ab5b6cb815633e09659231a92ccff718f74e",
+          "normalized_sha256": "eaec83e8871ea39baae97aa74a058d8a9ba683ad7daa550667671d0cb0848dee",
+          "raw_bytes": 168771,
+          "credibility": "OFFICIAL_DISTRIBUTOR",
+          "pit_eligible": true,
+          "availability_rule": "+1 business days 22:00 UTC: H.15 posted next business day ~16:15 ET",
+          "limitation": null,
+          "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10&cosd=1986-01-01&coed=2026-11-09"
+        },
+        {
+          "dataset": "DGS2",
+          "status": "NEW",
+          "rows": 10218,
+          "first": "1986-01-02",
+          "last": "2026-11-05",
+          "appended_rows": 10218,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "69bf7b7d44abebdcf0f07210b48858248cdf6778b85b0938931685399172d679",
+          "normalized_sha256": "a66f0c2b584bec3295ccd9833a15eee55db8f28b0bad31d132ce07b8b0177f35",
+          "raw_bytes": 168766,
+          "credibility": "OFFICIAL_DISTRIBUTOR",
+          "pit_eligible": true,
+          "availability_rule": "+1 business days 22:00 UTC: H.15 posted next business day ~16:15 ET",
+          "limitation": null,
+          "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS2&cosd=1986-01-01&coed=2026-11-09"
+        },
+        {
+          "dataset": "DFF",
+          "status": "NEW",
+          "rows": 14919,
+          "first": "1986-01-01",
+          "last": "2026-11-05",
+          "appended_rows": 14919,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "2018ca1a91a9d01ddd406bdb7c8df7f90cb872180f47f97b81467aba7ead49b8",
+          "normalized_sha256": "dc45e39ed1f43f0bb3c22960a0d885a6f15de47349b764ce529d5aaae30c3161",
+          "raw_bytes": 238735,
+          "credibility": "OFFICIAL_DISTRIBUTOR",
+          "pit_eligible": true,
+          "availability_rule": "+1 business days 22:00 UTC: EFFR published next business day",
+          "limitation": null,
+          "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFF&cosd=1986-01-01&coed=2026-11-09"
+        },
+        {
+          "dataset": "T10Y2Y",
+          "status": "NEW",
+          "rows": 10219,
+          "first": "1986-01-02",
+          "last": "2026-11-06",
+          "appended_rows": 10219,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "7e4a2f0e14ebedf0c7b21f450fa60661fc047c22279ab6f0d29614119bdf4253",
+          "normalized_sha256": "381f4702e2177aa39c46633cdbdf4e65e63cb33a8ca5c2abc008d2b7b568cae3",
+          "raw_bytes": 170010,
+          "credibility": "OFFICIAL_DISTRIBUTOR",
+          "pit_eligible": true,
+          "availability_rule": "+1 business days 22:00 UTC: derived from next-day H.15",
+          "limitation": null,
+          "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=T10Y2Y&cosd=1986-01-01&coed=2026-11-09"
+        },
+        {
+          "dataset": "T10YIE",
+          "status": "NEW",
+          "rows": 5967,
+          "first": "2003-01-02",
+          "last": "2026-11-06",
+          "appended_rows": 5967,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "d829504eaf98f640211fd569d97df9b6afc86050dccb1ba2f877adc5167326f4",
+          "normalized_sha256": "f1bdd655157a8eb625d7c5bd0029f36c1d052ebd743d7ce3fee3f775948bf58d",
+          "raw_bytes": 98556,
+          "credibility": "OFFICIAL_DISTRIBUTOR",
+          "pit_eligible": true,
+          "availability_rule": "+1 business days 22:00 UTC: derived from next-day H.15",
+          "limitation": null,
+          "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=T10YIE&cosd=1986-01-01&coed=2026-11-09"
+        },
+        {
+          "dataset": "BAA10Y",
+          "status": "NEW",
+          "rows": 10212,
+          "first": "1986-01-02",
+          "last": "2026-11-05",
+          "appended_rows": 10212,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "60e1cbec9010b311e8aeba6905e970226434de169250ece5dd338fad879ff990",
+          "normalized_sha256": "c8053656cef4fdbf000bbb0220e237231bfc0a2d2d1d531293adc0cc641ddfbd",
+          "raw_bytes": 168744,
+          "credibility": "OFFICIAL_DISTRIBUTOR",
+          "pit_eligible": true,
+          "availability_rule": "+1 business days 22:00 UTC: Moody's/H.15 next business day",
+          "limitation": null,
+          "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAA10Y&cosd=1986-01-01&coed=2026-11-09"
+        },
+        {
+          "dataset": "WALCL",
+          "status": "NEW",
+          "rows": 1247,
+          "first": "2002-12-18",
+          "last": "2026-11-04",
+          "appended_rows": 1247,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "6da6cc05f96f69b10c38b08af8fdff2fddd2753cab0dadcf21ba1014981249ef",
+          "normalized_sha256": "edb5677db82f72d15d328356e7ed761d4ca51d5c68fb69099def0a871efccc14",
+          "raw_bytes": 23415,
+          "credibility": "OFFICIAL_DISTRIBUTOR",
+          "pit_eligible": true,
+          "availability_rule": "+2 business days 22:00 UTC: H.4.1 Thursday 16:30 ET for Wednesday level; +1 day margin",
+          "limitation": null,
+          "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WALCL&cosd=1986-01-01&coed=2026-11-09"
+        },
+        {
+          "dataset": "DTWEXBGS",
+          "status": "NEW",
+          "rows": 5222,
+          "first": "2006-01-02",
+          "last": "2026-10-30",
+          "appended_rows": 5222,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "908a19a96d1ba529ef51ae559b8bc384bf8af4d4013185426e5ee9c3cca4213f",
+          "normalized_sha256": "d00ab585acb42a037442be54bf5612dcb3554adcf0ff47571a13ea301131a699",
+          "raw_bytes": 104929,
+          "credibility": "OFFICIAL_DISTRIBUTOR",
+          "pit_eligible": true,
+          "availability_rule": "+7 business days 22:00 UTC: H.10 released weekly for the prior week",
+          "limitation": null,
+          "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DTWEXBGS&cosd=1986-01-01&coed=2026-11-09"
+        },
+        {
+          "dataset": "NASDAQ100",
+          "status": "NEW",
+          "rows": 10294,
+          "first": "1986-01-02",
+          "last": "2026-11-06",
+          "appended_rows": 10294,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "f608a2c16dd0ad4f89aaaf473879ffce981d1d26e30676e919d2ba77eb60f76d",
+          "normalized_sha256": "a96743aa89d1620fa655625fe1a1c0a2861974cec9d1d676dc5055fee0ba3f38",
+          "raw_bytes": 208818,
+          "credibility": "OFFICIAL_DISTRIBUTOR",
+          "pit_eligible": false,
+          "availability_rule": "+1 business days 22:00 UTC: reference close for reconciliation, not a feature",
+          "limitation": null,
+          "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=NASDAQ100&cosd=1986-01-01&coed=2026-11-09"
+        },
+        {
+          "dataset": "NFCI",
+          "status": "NEW",
+          "rows": 2131,
+          "first": "1986-01-03",
+          "last": "2026-10-30",
+          "appended_rows": 2131,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "dcdb2c6fe491676e22bf8429cb971c30a6684a08db9975f543da77796eb93c04",
+          "normalized_sha256": "82020d917f3c5092746f38df5665c986a1d4cbc7754231a35365f3d32163e145",
+          "raw_bytes": 38055,
+          "credibility": "OFFICIAL_DISTRIBUTOR",
+          "pit_eligible": false,
+          "availability_rule": "+7 business days 22:00 UTC: weekly index revised retrospectively; no vintage here",
+          "limitation": null,
+          "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=NFCI&cosd=1986-01-01&coed=2026-11-09"
+        },
+        {
+          "dataset": "CPIAUCSL",
+          "status": "NEW",
+          "rows": 488,
+          "first": "1986-01-01",
+          "last": "2026-09-01",
+          "appended_rows": 488,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "1101a98a89f1ffffdc965a477bda07195a76c74c15c2b8573c31dc800a29c9e3",
+          "normalized_sha256": "1683c5d917f93c720d48713d208a8ff0bcde4079fd4ae1153929a63f05bfbb3b",
+          "raw_bytes": 9310,
+          "credibility": "OFFICIAL_DISTRIBUTOR",
+          "pit_eligible": false,
+          "availability_rule": "+45 business days 22:00 UTC: monthly, seasonally revised; ALFRED vintages required",
+          "limitation": null,
+          "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCSL&cosd=1986-01-01&coed=2026-11-09"
+        },
+        {
+          "dataset": "UNRATE",
+          "status": "NEW",
+          "rows": 489,
+          "first": "1986-01-01",
+          "last": "2026-10-01",
+          "appended_rows": 489,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "c1d0fea9cbeb42cf1c2f205b7023e91050db65ff8f964c023faf149074912349",
+          "normalized_sha256": "882df0824693d3d6df0a35b4ed96c9ede8261bd466cd5cbcf0739053451e8e08",
+          "raw_bytes": 7376,
+          "credibility": "OFFICIAL_DISTRIBUTOR",
+          "pit_eligible": false,
+          "availability_rule": "+35 business days 22:00 UTC: monthly, seasonally revised; ALFRED vintages required",
+          "limitation": null,
+          "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=UNRATE&cosd=1986-01-01&coed=2026-11-09"
+        },
+        {
+          "dataset": "USREC",
+          "status": "NEW",
+          "rows": 490,
+          "first": "1986-01-01",
+          "last": "2026-10-01",
+          "appended_rows": 490,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "104d8e71493fe1f627675cf9f513a9233f3444f55756f70258255465a186ba73",
+          "normalized_sha256": "014d348bf3f24c08f125988014353e4a2c0a626337ad7cc2291eba331d31e6bd",
+          "raw_bytes": 6393,
+          "credibility": "OFFICIAL_DISTRIBUTOR",
+          "pit_eligible": false,
+          "availability_rule": "+365 business days 22:00 UTC: NBER dates assigned months/years later",
+          "limitation": null,
+          "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=USREC&cosd=1986-01-01&coed=2026-11-09"
+        }
+      ]
+    },
+    "cftc": {
+      "status": "COLLECTED",
+      "seconds": 0.75,
+      "datasets": [
+        {
+          "dataset": "tff_futures_only",
+          "status": "NEW",
+          "rows": 4260,
+          "first": "2006-06-13",
+          "last": "2026-11-03",
+          "appended_rows": 4260,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "debdbb5f596da9b781f1158ccf2513bcaef9aaa958b9c88802b0d3f67e107230",
+          "normalized_sha256": "f8eaf290bac7bf322ef6649def144eba132d6298f142e27547fdde847545a17e",
+          "raw_bytes": 1977039,
+          "credibility": "OFFICIAL_PRIMARY",
+          "pit_eligible": true,
+          "availability_rule": "report Tuesday + 6 days 21:00 UTC; shutdown backlogs use conservative late dates",
+          "limitation": null,
+          "url": "https://publicreporting.cftc.gov/resource/gpe5-46if.json"
+        }
+      ]
+    },
+    "treasury": {
+      "status": "COLLECTED",
+      "seconds": 3.87,
+      "datasets": [
+        {
+          "dataset": "dts_operating_cash",
+          "status": "NEW",
+          "rows": 16758,
+          "first": "2005-10-03",
+          "last": "2026-11-05",
+          "appended_rows": 16758,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "5a71dea3c9b76b61ab18b0850f71a65a71ba2e66e32b3cf29cbbf7da651ec5d1",
+          "normalized_sha256": "940bf0e2b30c8f5d09360246acbd172ae49f3c3540100f7ead25c962ac97ecc7",
+          "raw_bytes": 7759121,
+          "credibility": "OFFICIAL_PRIMARY",
+          "pit_eligible": false,
+          "availability_rule": "+2 business days 22:00 UTC (DTS posts next business day ~16:00 ET)",
+          "limitation": "account-type taxonomy changed 2021; context only until mapped",
+          "url": "https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/dts/operating_cash_balance"
+        }
+      ]
+    },
+    "sec": {
+      "status": "COLLECTED",
+      "seconds": 5.36,
+      "datasets": [
+        {
+          "dataset": "megacap_filings",
+          "status": "NEW",
+          "rows": 3039,
+          "first": "1994-01-05",
+          "last": "2026-11-05",
+          "appended_rows": 3039,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "48095503941b7a2cd432db174ab12e518e590322900b05f17addc001ea9ac247",
+          "normalized_sha256": "372ca54b0fd8b811508c99964852222527a3a5f37606b5d371b469775eb1952f",
+          "raw_bytes": 676622,
+          "credibility": "OFFICIAL_PRIMARY",
+          "pit_eligible": true,
+          "availability_rule": "EDGAR acceptanceDateTime (exact)",
+          "limitation": "ticker set is today's megacaps: survivorship-biased membership",
+          "url": "https://data.sec.gov/submissions/"
+        }
+      ]
+    },
+    "fed": {
+      "status": "COLLECTED",
+      "seconds": 0.33,
+      "datasets": [
+        {
+          "dataset": "press_releases",
+          "status": "NEW",
+          "rows": 20,
+          "first": "2026-09-18T15:00:00+00:00",
+          "last": "2026-11-05T16:00:00+00:00",
+          "appended_rows": 20,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "0848e80fa7c4d66ac1ff2e51f8d3eea7ef35a26758ca52c1a92c9490059274b4",
+          "normalized_sha256": "cdd8356d82f22e2b1795b9833c20ffa13c602396e6b49bfd1d877c03ccc8be3c",
+          "raw_bytes": 14736,
+          "credibility": "OFFICIAL_PRIMARY",
+          "pit_eligible": false,
+          "availability_rule": "RSS pubDate",
+          "limitation": "feed holds recent items only; forward event context, no backtest history",
+          "url": "https://www.federalreserve.gov/feeds/press_all.xml"
+        }
+      ]
+    },
+    "gdelt": {
+      "status": "FAILED",
+      "error": "TypeError: Cannot localize tz-aware Timestamp, use tz_convert for conversions",
+      "seconds": 29.25,
+      "retry": {
+        "status": "FAILED",
+        "error": "FetchFailed: api.gdeltproject.org: HTTP 429 after 4 attempts (6s spacing)",
+        "note": "first error was a seendate timezone parsing bug, fixed before retry"
+      },
+      "retry_2": {
+        "at": "2026-11-09T02:28:52.515017+00:00",
+        "status": "FAILED",
+        "error": "FetchFailed: HTTP 429 after 4 attempts (105s with backoff)"
+      },
+      "disposition": "BLOCKED_RATE_LIMITED_THIS_HOST"
+    },
+    "bls": {
+      "status": "COLLECTED",
+      "seconds": 0.33,
+      "datasets": [
+        {
+          "dataset": "core_series",
+          "status": "NEW",
+          "rows": 470,
+          "first": "2017-01-01",
+          "last": "2026-10-01",
+          "appended_rows": 470,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "17a016bdbe86fa5caaae718e8c0b399d3930d0fb687fdec1c37751fd4aed0fde",
+          "normalized_sha256": "87e8bb811afa406095e1fb141e49118c18092d085176ce2a9d6f0e317886c087",
+          "raw_bytes": 153907,
+          "credibility": "OFFICIAL_PRIMARY",
+          "pit_eligible": false,
+          "availability_rule": "none: monthly period only, revised; needs release calendar + vintages",
+          "limitation": null,
+          "url": "https://api.bls.gov/publicAPI/v2/timeseries/data/"
+        }
+      ]
+    }
+  },
+  "blocked_or_not_used": {
+    "eia": {
+      "status": "BLOCKED_KEY_REQUIRED",
+      "evidence": "api.eia.gov returned 403 API_KEY_MISSING",
+      "credential_env": "EIA_API_KEY"
+    },
+    "bea": {
+      "status": "BLOCKED_KEY_REQUIRED",
+      "evidence": "apps.bea.gov API requires UserID registration; keyless request returned empty body",
+      "credential_env": "BEA_API_KEY"
+    },
+    "nasdaq_data_link": {
+      "status": "BLOCKED_KEY_REQUIRED",
+      "evidence": "dataset access needs NASDAQ_DATA_LINK_API_KEY; premium index feeds not free",
+      "credential_env": "NASDAQ_DATA_LINK_API_KEY"
+    },
+    "nasdaq_web_api": {
+      "status": "NOT_USED_UNOFFICIAL_UNAVAILABLE",
+      "evidence": "api.nasdaq.com timed out from this host; undocumented site API without published terms"
+    },
+    "forexfactory": {
+      "status": "NOT_CRAWLED_TERMS_UNVERIFIED",
+      "evidence": "robots.txt permits, but permission for automated collection in site terms was not verified; official Fed/BLS sources used instead"
+    },
+    "bloomberg_reuters": {
+      "status": "LICENSED_NOT_ACCESSED",
+      "evidence": "paywalled/licensed; no bypass"
+    },
+    "databento": {
+      "status": "FUTURES_DATA_BLOCKED",
+      "evidence": "DATABENTO_API_KEY absent; USER_ACTION_REQUIRED"
+    }
+  },
+  "http_log": [
+    {
+      "domain": "fred.stlouisfed.org",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "fred.stlouisfed.org",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "fred.stlouisfed.org",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "fred.stlouisfed.org",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "fred.stlouisfed.org",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "fred.stlouisfed.org",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "fred.stlouisfed.org",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "fred.stlouisfed.org",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "fred.stlouisfed.org",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "fred.stlouisfed.org",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "fred.stlouisfed.org",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "fred.stlouisfed.org",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "fred.stlouisfed.org",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "fred.stlouisfed.org",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "fred.stlouisfed.org",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "fred.stlouisfed.org",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "publicreporting.cftc.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "api.fiscaldata.treasury.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "ABSENT_404_ALLOW",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "api.fiscaldata.treasury.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "ABSENT_404_ALLOW",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "www.sec.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "data.sec.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "ABSENT_404_ALLOW",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "data.sec.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "ABSENT_404_ALLOW",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "data.sec.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "ABSENT_404_ALLOW",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "data.sec.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "ABSENT_404_ALLOW",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "data.sec.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "ABSENT_404_ALLOW",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "data.sec.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "ABSENT_404_ALLOW",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "data.sec.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "ABSENT_404_ALLOW",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "data.sec.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "ABSENT_404_ALLOW",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "data.sec.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "ABSENT_404_ALLOW",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "data.sec.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "ABSENT_404_ALLOW",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "data.sec.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "ABSENT_404_ALLOW",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "data.sec.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "ABSENT_404_ALLOW",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "data.sec.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "ABSENT_404_ALLOW",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "data.sec.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "ABSENT_404_ALLOW",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "data.sec.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "ABSENT_404_ALLOW",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "data.sec.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "ABSENT_404_ALLOW",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "data.sec.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "ABSENT_404_ALLOW",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "data.sec.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "ABSENT_404_ALLOW",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "data.sec.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "ABSENT_404_ALLOW",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "data.sec.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "ABSENT_404_ALLOW",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "data.sec.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "ABSENT_404_ALLOW",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "data.sec.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "ABSENT_404_ALLOW",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "data.sec.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "ABSENT_404_ALLOW",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "data.sec.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "ABSENT_404_ALLOW",
+      "robots_allows": true,
+      "access": "api"
+    },
+    {
+      "domain": "www.federalreserve.gov",
+      "attempts": 1,
+      "status": 200,
+      "robots": "ABSENT_404_ALLOW",
+      "robots_allows": true,
+      "access": "crawl"
+    },
+    {
+      "domain": "api.gdeltproject.org",
+      "attempts": 2,
+      "status": 200,
+      "robots": "ABSENT_404_ALLOW",
+      "robots_allows": true,
+      "access": "api"
+    }
+  ],
+  "policy": "official documented APIs follow published API terms; crawl access requires robots.txt permission; no paywall/CAPTCHA/auth bypass; rows with pit_eligible=false never enter backtests"
+}

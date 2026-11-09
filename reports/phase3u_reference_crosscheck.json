@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-11-09T02:28:52.527538+00:00",
+  "purpose": "independent-distributor cross-check of reference closes for the two AUDIT_BLOCKED forecasts",
+  "source": {
+    "name": "FRED NASDAQ100 (Nasdaq OMX via FRED)",
+    "normalized_sha256": "a96743aa89d1620fa655625fe1a1c0a2861974cec9d1d676dc5055fee0ba3f38",
+    "raw_sha256": "f608a2c16dd0ad4f89aaaf473879ffce981d1d26e30676e919d2ba77eb60f76d",
+    "retrieved_at": "2026-11-09T02:10:58.505828+00:00",
+    "published_precision": 0.01
+  },
+  "cases": [
+    {
+      "forecast_id": "291aac9c9d893a888609aafd",
+      "reference_date": "2026-11-05",
+      "yahoo_original": 26629.80859375,
+      "yahoo_revised": 26629.810546875,
+      "fred_close": 26629.81,
+      "original_minus_fred": -0.00140625,
+      "revised_minus_fred": 0.000546875,
+      "both_round_to_fred": true
+    },
+    {
+      "forecast_id": "cd26071237a957cd7a874933",
+      "reference_date": "2026-11-06",
+      "yahoo_original": 26989.9921875,
+      "yahoo_revised": 26989.990234375,
+      "fred_close": 26989.99,
+      "original_minus_fred": 0.0021875,
+      "revised_minus_fred": 0.000234375,
+      "both_round_to_fred": true
+    }
+  ],
+  "applied": false,
+  "verdict": "REFERENCE_REVISION_BELOW_PUBLISHED_PRECISION; OUTCOME_HIGH_LOW_STILL_UNVERIFIED; AUDIT_BLOCKED_RETAINED",
+  "note": "FRED publishes closes only (2 decimals). Both Yahoo original and revised references round to the FRED close, so the revision is not a material source disagreement. Final high/low for the target sessions are not available from this source; no proof was appended, no forecast/outcome/denominator changed."
+}

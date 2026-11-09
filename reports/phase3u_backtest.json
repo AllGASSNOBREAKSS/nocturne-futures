@@ -1,0 +1,4496 @@
+{
+  "generated_at": "2026-11-09T02:21:18.517260+00:00",
+  "fingerprint": "de358f794e96e44b821dea797e7b8749ccee016e5ba772e0670b5d4ab7cabead",
+  "inputs": {
+    "history_raw_sha256": "5d7935b96df1c09a65fe71497782a6e700d4fbc9402495935ac8efe2dc2c7212",
+    "code_sha256": "3fabd7850ed3ba82b1761b669ab8d1d21c9a016fe0b9a7b15e896e0fa129d05e",
+    "protocol": {
+      "version": "phase3u-free-data-v1",
+      "symbol": "^NDX",
+      "test_years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "development_years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "exposed_years": [
+        2024,
+        2025,
+        2026
+      ],
+      "exposed_note": "2024+ was inspected by earlier phases with other features; scored once, never tuned on",
+      "refit": "annual, expanding unless a window is given",
+      "embargo_days": 5,
+      "calibration_rows": 250,
+      "primary_C": 0.2,
+      "C_grid": [
+        0.05,
+        0.2,
+        1.0
+      ],
+      "windows_years": [
+        5,
+        10,
+        20,
+        null
+      ],
+      "seed": 7,
+      "quantiles": [
+        0.5,
+        0.8,
+        0.9
+      ],
+      "baseline_quantile_window": 250,
+      "bootstrap": {
+        "block": "calendar month",
+        "reps": 2000
+      },
+      "lgbm": {
+        "n_estimators": 300,
+        "learning_rate": 0.03,
+        "num_leaves": 15,
+        "min_child_samples": 50,
+        "subsample": 0.8,
+        "subsample_freq": 1,
+        "colsample_bytree": 0.8,
+        "random_state": 7,
+        "verbose": -1
+      },
+      "verdict_rule": "PASS only if the free-feature model improves Brier (direction) or mean pinball (range) over BOTH the frequency/trailing baseline and the base-feature model with a 95% block-bootstrap CI excluding zero in development years, and keeps the same sign in exposed years; FAIL if the CI shows it is worse than the base model; otherwise INCONCLUSIVE.",
+      "label_direction": "next observed session close greater than its open",
+      "label_range": "next session (high - low) / feature-day close"
+    },
+    "fred/VIXCLS": "41e572d32169e29818086b9601d3f234187e1ad9478680265a330507a2e05450",
+    "fred/VXNCLS": "7847887dda872c8b4295dc62209b73859a617f98ee6d060447958a5d8f3ed1a7",
+    "fred/T10Y2Y": "381f4702e2177aa39c46633cdbdf4e65e63cb33a8ca5c2abc008d2b7b568cae3",
+    "fred/DGS10": "eaec83e8871ea39baae97aa74a058d8a9ba683ad7daa550667671d0cb0848dee",
+    "fred/BAA10Y": "c8053656cef4fdbf000bbb0220e237231bfc0a2d2d1d531293adc0cc641ddfbd",
+    "fred/WALCL": "edb5677db82f72d15d328356e7ed761d4ca51d5c68fb69099def0a871efccc14",
+    "fred/DTWEXBGS": "d00ab585acb42a037442be54bf5612dcb3554adcf0ff47571a13ea301131a699",
+    "cftc/tff_futures_only": "f8eaf290bac7bf322ef6649def144eba132d6298f142e27547fdde847545a17e",
+    "sec/megacap_filings": "372ca54b0fd8b811508c99964852222527a3a5f37606b5d371b469775eb1952f"
+  },
+  "protocol": {
+    "version": "phase3u-free-data-v1",
+    "symbol": "^NDX",
+    "test_years": [
+      2008,
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "development_years": [
+      2008,
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023
+    ],
+    "exposed_years": [
+      2024,
+      2025,
+      2026
+    ],
+    "exposed_note": "2024+ was inspected by earlier phases with other features; scored once, never tuned on",
+    "refit": "annual, expanding unless a window is given",
+    "embargo_days": 5,
+    "calibration_rows": 250,
+    "primary_C": 0.2,
+    "C_grid": [
+      0.05,
+      0.2,
+      1.0
+    ],
+    "windows_years": [
+      5,
+      10,
+      20,
+      null
+    ],
+    "seed": 7,
+    "quantiles": [
+      0.5,
+      0.8,
+      0.9
+    ],
+    "baseline_quantile_window": 250,
+    "bootstrap": {
+      "block": "calendar month",
+      "reps": 2000
+    },
+    "lgbm": {
+      "n_estimators": 300,
+      "learning_rate": 0.03,
+      "num_leaves": 15,
+      "min_child_samples": 50,
+      "subsample": 0.8,
+      "subsample_freq": 1,
+      "colsample_bytree": 0.8,
+      "random_state": 7,
+      "verbose": -1
+    },
+    "verdict_rule": "PASS only if the free-feature model improves Brier (direction) or mean pinball (range) over BOTH the frequency/trailing baseline and the base-feature model with a 95% block-bootstrap CI excluding zero in development years, and keeps the same sign in exposed years; FAIL if the CI shows it is worse than the base model; otherwise INCONCLUSIVE.",
+    "label_direction": "next observed session close greater than its open",
+    "label_range": "next session (high - low) / feature-day close"
+  },
+  "features": {
+    "base": [
+      "return_1",
+      "return_5",
+      "return_20",
+      "volatility_20",
+      "range_fraction"
+    ],
+    "free": [
+      "vix",
+      "vix_chg5",
+      "vxn_minus_vix",
+      "t10y2y",
+      "dgs10_chg5",
+      "baa10y",
+      "baa10y_chg20",
+      "walcl_chg13",
+      "usd_chg20",
+      "cot_nq_am_net",
+      "cot_nq_am_net_chg4",
+      "cot_nq_lev_net",
+      "cot_es_am_net",
+      "megacap_filings_5d"
+    ]
+  },
+  "dataset": {
+    "instrument": "^NDX cash index (Yahoo research-grade, frozen, checksum-verified)",
+    "history_rows": 10353,
+    "history_first": "1985-10-01",
+    "history_last": "2026-11-03",
+    "modelling_rows": 6749,
+    "test_rows": 4624,
+    "first_test": "2008-01-02",
+    "last_test": "2026-11-02"
+  },
+  "folds": [
+    {
+      "year": 2008,
+      "test_rows": 253,
+      "base_C0.05_w5": {
+        "train_rows": 1253,
+        "train_start": "2003-01-02",
+        "train_end": "2007-12-21"
+      },
+      "base_C0.05_w10": {
+        "train_rows": 2005,
+        "train_start": "2000-01-03",
+        "train_end": "2007-12-21"
+      },
+      "base_C0.05_w20": {
+        "train_rows": 2005,
+        "train_start": "2000-01-03",
+        "train_end": "2007-12-21"
+      },
+      "base_C0.05_wall": {
+        "train_rows": 2005,
+        "train_start": "2000-01-03",
+        "train_end": "2007-12-21"
+      },
+      "base_C0.2_w5": {
+        "train_rows": 1253,
+        "train_start": "2003-01-02",
+        "train_end": "2007-12-21"
+      },
+      "base_C0.2_w10": {
+        "train_rows": 2005,
+        "train_start": "2000-01-03",
+        "train_end": "2007-12-21"
+      },
+      "base_C0.2_w20": {
+        "train_rows": 2005,
+        "train_start": "2000-01-03",
+        "train_end": "2007-12-21"
+      },
+      "base_C0.2_wall": {
+        "train_rows": 2005,
+        "train_start": "2000-01-03",
+        "train_end": "2007-12-21"
+      },
+      "base_C1.0_w5": {
+        "train_rows": 1253,
+        "train_start": "2003-01-02",
+        "train_end": "2007-12-21"
+      },
+      "base_C1.0_w10": {
+        "train_rows": 2005,
+        "train_start": "2000-01-03",
+        "train_end": "2007-12-21"
+      },
+      "base_C1.0_w20": {
+        "train_rows": 2005,
+        "train_start": "2000-01-03",
+        "train_end": "2007-12-21"
+      },
+      "base_C1.0_wall": {
+        "train_rows": 2005,
+        "train_start": "2000-01-03",
+        "train_end": "2007-12-21"
+      },
+      "free_C0.05_w5": {
+        "train_rows": 363,
+        "train_start": "2006-07-17",
+        "train_end": "2007-12-21"
+      },
+      "free_C0.05_w10": {
+        "train_rows": 363,
+        "train_start": "2006-07-17",
+        "train_end": "2007-12-21"
+      },
+      "free_C0.05_wall": {
+        "train_rows": 363,
+        "train_start": "2006-07-17",
+        "train_end": "2007-12-21"
+      },
+      "free_C0.2_w5": {
+        "train_rows": 363,
+        "train_start": "2006-07-17",
+        "train_end": "2007-12-21"
+      },
+      "free_C0.2_w10": {
+        "train_rows": 363,
+        "train_start": "2006-07-17",
+        "train_end": "2007-12-21"
+      },
+      "free_C0.2_wall": {
+        "train_rows": 363,
+        "train_start": "2006-07-17",
+        "train_end": "2007-12-21"
+      },
+      "free_C1.0_w5": {
+        "train_rows": 363,
+        "train_start": "2006-07-17",
+        "train_end": "2007-12-21"
+      },
+      "free_C1.0_w10": {
+        "train_rows": 363,
+        "train_start": "2006-07-17",
+        "train_end": "2007-12-21"
+      },
+      "free_C1.0_wall": {
+        "train_rows": 363,
+        "train_start": "2006-07-17",
+        "train_end": "2007-12-21"
+      }
+    },
+    {
+      "year": 2009,
+      "test_rows": 252,
+      "base_C0.05_w5": {
+        "train_rows": 1254,
+        "train_start": "2004-01-02",
+        "train_end": "2008-12-23"
+      },
+      "base_C0.05_w10": {
+        "train_rows": 2258,
+        "train_start": "2000-01-03",
+        "train_end": "2008-12-23"
+      },
+      "base_C0.05_w20": {
+        "train_rows": 2258,
+        "train_start": "2000-01-03",
+        "train_end": "2008-12-23"
+      },
+      "base_C0.05_wall": {
+        "train_rows": 2258,
+        "train_start": "2000-01-03",
+        "train_end": "2008-12-23"
+      },
+      "base_C0.2_w5": {
+        "train_rows": 1254,
+        "train_start": "2004-01-02",
+        "train_end": "2008-12-23"
+      },
+      "base_C0.2_w10": {
+        "train_rows": 2258,
+        "train_start": "2000-01-03",
+        "train_end": "2008-12-23"
+      },
+      "base_C0.2_w20": {
+        "train_rows": 2258,
+        "train_start": "2000-01-03",
+        "train_end": "2008-12-23"
+      },
+      "base_C0.2_wall": {
+        "train_rows": 2258,
+        "train_start": "2000-01-03",
+        "train_end": "2008-12-23"
+      },
+      "base_C1.0_w5": {
+        "train_rows": 1254,
+        "train_start": "2004-01-02",
+        "train_end": "2008-12-23"
+      },
+      "base_C1.0_w10": {
+        "train_rows": 2258,
+        "train_start": "2000-01-03",
+        "train_end": "2008-12-23"
+      },
+      "base_C1.0_w20": {
+        "train_rows": 2258,
+        "train_start": "2000-01-03",
+        "train_end": "2008-12-23"
+      },
+      "base_C1.0_wall": {
+        "train_rows": 2258,
+        "train_start": "2000-01-03",
+        "train_end": "2008-12-23"
+      },
+      "free_C0.05_w5": {
+        "train_rows": 616,
+        "train_start": "2006-07-17",
+        "train_end": "2008-12-23"
+      },
+      "free_C0.05_w10": {
+        "train_rows": 616,
+        "train_start": "2006-07-17",
+        "train_end": "2008-12-23"
+      },
+      "free_C0.05_wall": {
+        "train_rows": 616,
+        "train_start": "2006-07-17",
+        "train_end": "2008-12-23"
+      },
+      "free_C0.2_w5": {
+        "train_rows": 616,
+        "train_start": "2006-07-17",
+        "train_end": "2008-12-23"
+      },
+      "free_C0.2_w10": {
+        "train_rows": 616,
+        "train_start": "2006-07-17",
+        "train_end": "2008-12-23"
+      },
+      "free_C0.2_wall": {
+        "train_rows": 616,
+        "train_start": "2006-07-17",
+        "train_end": "2008-12-23"
+      },
+      "free_C1.0_w5": {
+        "train_rows": 616,
+        "train_start": "2006-07-17",
+        "train_end": "2008-12-23"
+      },
+      "free_C1.0_w10": {
+        "train_rows": 616,
+        "train_start": "2006-07-17",
+        "train_end": "2008-12-23"
+      },
+      "free_C1.0_wall": {
+        "train_rows": 616,
+        "train_start": "2006-07-17",
+        "train_end": "2008-12-23"
+      }
+    },
+    {
+      "year": 2010,
+      "test_rows": 252,
+      "base_C0.05_w5": {
+        "train_rows": 1254,
+        "train_start": "2005-01-03",
+        "train_end": "2009-12-23"
+      },
+      "base_C0.05_w10": {
+        "train_rows": 2510,
+        "train_start": "2000-01-03",
+        "train_end": "2009-12-23"
+      },
+      "base_C0.05_w20": {
+        "train_rows": 2510,
+        "train_start": "2000-01-03",
+        "train_end": "2009-12-23"
+      },
+      "base_C0.05_wall": {
+        "train_rows": 2510,
+        "train_start": "2000-01-03",
+        "train_end": "2009-12-23"
+      },
+      "base_C0.2_w5": {
+        "train_rows": 1254,
+        "train_start": "2005-01-03",
+        "train_end": "2009-12-23"
+      },
+      "base_C0.2_w10": {
+        "train_rows": 2510,
+        "train_start": "2000-01-03",
+        "train_end": "2009-12-23"
+      },
+      "base_C0.2_w20": {
+        "train_rows": 2510,
+        "train_start": "2000-01-03",
+        "train_end": "2009-12-23"
+      },
+      "base_C0.2_wall": {
+        "train_rows": 2510,
+        "train_start": "2000-01-03",
+        "train_end": "2009-12-23"
+      },
+      "base_C1.0_w5": {
+        "train_rows": 1254,
+        "train_start": "2005-01-03",
+        "train_end": "2009-12-23"
+      },
+      "base_C1.0_w10": {
+        "train_rows": 2510,
+        "train_start": "2000-01-03",
+        "train_end": "2009-12-23"
+      },
+      "base_C1.0_w20": {
+        "train_rows": 2510,
+        "train_start": "2000-01-03",
+        "train_end": "2009-12-23"
+      },
+      "base_C1.0_wall": {
+        "train_rows": 2510,
+        "train_start": "2000-01-03",
+        "train_end": "2009-12-23"
+      },
+      "free_C0.05_w5": {
+        "train_rows": 868,
+        "train_start": "2006-07-17",
+        "train_end": "2009-12-23"
+      },
+      "free_C0.05_w10": {
+        "train_rows": 868,
+        "train_start": "2006-07-17",
+        "train_end": "2009-12-23"
+      },
+      "free_C0.05_wall": {
+        "train_rows": 868,
+        "train_start": "2006-07-17",
+        "train_end": "2009-12-23"
+      },
+      "free_C0.2_w5": {
+        "train_rows": 868,
+        "train_start": "2006-07-17",
+        "train_end": "2009-12-23"
+      },
+      "free_C0.2_w10": {
+        "train_rows": 868,
+        "train_start": "2006-07-17",
+        "train_end": "2009-12-23"
+      },
+      "free_C0.2_wall": {
+        "train_rows": 868,
+        "train_start": "2006-07-17",
+        "train_end": "2009-12-23"
+      },
+      "free_C1.0_w5": {
+        "train_rows": 868,
+        "train_start": "2006-07-17",
+        "train_end": "2009-12-23"
+      },
+      "free_C1.0_w10": {
+        "train_rows": 868,
+        "train_start": "2006-07-17",
+        "train_end": "2009-12-23"
+      },
+      "free_C1.0_wall": {
+        "train_rows": 868,
+        "train_start": "2006-07-17",
+        "train_end": "2009-12-23"
+      }
+    },
+    {
+      "year": 2011,
+      "test_rows": 252,
+      "base_C0.05_w5": {
+        "train_rows": 1253,
+        "train_start": "2006-01-03",
+        "train_end": "2010-12-22"
+      },
+      "base_C0.05_w10": {
+        "train_rows": 2509,
+        "train_start": "2001-01-02",
+        "train_end": "2010-12-22"
+      },
+      "base_C0.05_w20": {
+        "train_rows": 2761,
+        "train_start": "2000-01-03",
+        "train_end": "2010-12-22"
+      },
+      "base_C0.05_wall": {
+        "train_rows": 2761,
+        "train_start": "2000-01-03",
+        "train_end": "2010-12-22"
+      },
+      "base_C0.2_w5": {
+        "train_rows": 1253,
+        "train_start": "2006-01-03",
+        "train_end": "2010-12-22"
+      },
+      "base_C0.2_w10": {
+        "train_rows": 2509,
+        "train_start": "2001-01-02",
+        "train_end": "2010-12-22"
+      },
+      "base_C0.2_w20": {
+        "train_rows": 2761,
+        "train_start": "2000-01-03",
+        "train_end": "2010-12-22"
+      },
+      "base_C0.2_wall": {
+        "train_rows": 2761,
+        "train_start": "2000-01-03",
+        "train_end": "2010-12-22"
+      },
+      "base_C1.0_w5": {
+        "train_rows": 1253,
+        "train_start": "2006-01-03",
+        "train_end": "2010-12-22"
+      },
+      "base_C1.0_w10": {
+        "train_rows": 2509,
+        "train_start": "2001-01-02",
+        "train_end": "2010-12-22"
+      },
+      "base_C1.0_w20": {
+        "train_rows": 2761,
+        "train_start": "2000-01-03",
+        "train_end": "2010-12-22"
+      },
+      "base_C1.0_wall": {
+        "train_rows": 2761,
+        "train_start": "2000-01-03",
+        "train_end": "2010-12-22"
+      },
+      "free_C0.05_w5": {
+        "train_rows": 1119,
+        "train_start": "2006-07-17",
+        "train_end": "2010-12-22"
+      },
+      "free_C0.05_w10": {
+        "train_rows": 1119,
+        "train_start": "2006-07-17",
+        "train_end": "2010-12-22"
+      },
+      "free_C0.05_wall": {
+        "train_rows": 1119,
+        "train_start": "2006-07-17",
+        "train_end": "2010-12-22"
+      },
+      "free_C0.2_w5": {
+        "train_rows": 1119,
+        "train_start": "2006-07-17",
+        "train_end": "2010-12-22"
+      },
+      "free_C0.2_w10": {
+        "train_rows": 1119,
+        "train_start": "2006-07-17",
+        "train_end": "2010-12-22"
+      },
+      "free_C0.2_wall": {
+        "train_rows": 1119,
+        "train_start": "2006-07-17",
+        "train_end": "2010-12-22"
+      },
+      "free_C1.0_w5": {
+        "train_rows": 1119,
+        "train_start": "2006-07-17",
+        "train_end": "2010-12-22"
+      },
+      "free_C1.0_w10": {
+        "train_rows": 1119,
+        "train_start": "2006-07-17",
+        "train_end": "2010-12-22"
+      },
+      "free_C1.0_wall": {
+        "train_rows": 1119,
+        "train_start": "2006-07-17",
+        "train_end": "2010-12-22"
+      }
+    },
+    {
+      "year": 2012,
+      "test_rows": 250,
+      "base_C0.05_w5": {
+        "train_rows": 1255,
+        "train_start": "2007-01-03",
+        "train_end": "2011-12-22"
+      },
+      "base_C0.05_w10": {
+        "train_rows": 2514,
+        "train_start": "2002-01-02",
+        "train_end": "2011-12-22"
+      },
+      "base_C0.05_w20": {
+        "train_rows": 3014,
+        "train_start": "2000-01-03",
+        "train_end": "2011-12-22"
+      },
+      "base_C0.05_wall": {
+        "train_rows": 3014,
+        "train_start": "2000-01-03",
+        "train_end": "2011-12-22"
+      },
+      "base_C0.2_w5": {
+        "train_rows": 1255,
+        "train_start": "2007-01-03",
+        "train_end": "2011-12-22"
+      },
+      "base_C0.2_w10": {
+        "train_rows": 2514,
+        "train_start": "2002-01-02",
+        "train_end": "2011-12-22"
+      },
+      "base_C0.2_w20": {
+        "train_rows": 3014,
+        "train_start": "2000-01-03",
+        "train_end": "2011-12-22"
+      },
+      "base_C0.2_wall": {
+        "train_rows": 3014,
+        "train_start": "2000-01-03",
+        "train_end": "2011-12-22"
+      },
+      "base_C1.0_w5": {
+        "train_rows": 1255,
+        "train_start": "2007-01-03",
+        "train_end": "2011-12-22"
+      },
+      "base_C1.0_w10": {
+        "train_rows": 2514,
+        "train_start": "2002-01-02",
+        "train_end": "2011-12-22"
+      },
+      "base_C1.0_w20": {
+        "train_rows": 3014,
+        "train_start": "2000-01-03",
+        "train_end": "2011-12-22"
+      },
+      "base_C1.0_wall": {
+        "train_rows": 3014,
+        "train_start": "2000-01-03",
+        "train_end": "2011-12-22"
+      },
+      "free_C0.05_w5": {
+        "train_rows": 1255,
+        "train_start": "2007-01-03",
+        "train_end": "2011-12-22"
+      },
+      "free_C0.05_w10": {
+        "train_rows": 1372,
+        "train_start": "2006-07-17",
+        "train_end": "2011-12-22"
+      },
+      "free_C0.05_wall": {
+        "train_rows": 1372,
+        "train_start": "2006-07-17",
+        "train_end": "2011-12-22"
+      },
+      "free_C0.2_w5": {
+        "train_rows": 1255,
+        "train_start": "2007-01-03",
+        "train_end": "2011-12-22"
+      },
+      "free_C0.2_w10": {
+        "train_rows": 1372,
+        "train_start": "2006-07-17",
+        "train_end": "2011-12-22"
+      },
+      "free_C0.2_wall": {
+        "train_rows": 1372,
+        "train_start": "2006-07-17",
+        "train_end": "2011-12-22"
+      },
+      "free_C1.0_w5": {
+        "train_rows": 1255,
+        "train_start": "2007-01-03",
+        "train_end": "2011-12-22"
+      },
+      "free_C1.0_w10": {
+        "train_rows": 1372,
+        "train_start": "2006-07-17",
+        "train_end": "2011-12-22"
+      },
+      "free_C1.0_wall": {
+        "train_rows": 1372,
+        "train_start": "2006-07-17",
+        "train_end": "2011-12-22"
+      }
+    },
+    {
+      "year": 2013,
+      "test_rows": 227,
+      "base_C0.05_w5": {
+        "train_rows": 1254,
+        "train_start": "2008-01-02",
+        "train_end": "2012-12-21"
+      },
+      "base_C0.05_w10": {
+        "train_rows": 2512,
+        "train_start": "2003-01-02",
+        "train_end": "2012-12-21"
+      },
+      "base_C0.05_w20": {
+        "train_rows": 3264,
+        "train_start": "2000-01-03",
+        "train_end": "2012-12-21"
+      },
+      "base_C0.05_wall": {
+        "train_rows": 3264,
+        "train_start": "2000-01-03",
+        "train_end": "2012-12-21"
+      },
+      "base_C0.2_w5": {
+        "train_rows": 1254,
+        "train_start": "2008-01-02",
+        "train_end": "2012-12-21"
+      },
+      "base_C0.2_w10": {
+        "train_rows": 2512,
+        "train_start": "2003-01-02",
+        "train_end": "2012-12-21"
+      },
+      "base_C0.2_w20": {
+        "train_rows": 3264,
+        "train_start": "2000-01-03",
+        "train_end": "2012-12-21"
+      },
+      "base_C0.2_wall": {
+        "train_rows": 3264,
+        "train_start": "2000-01-03",
+        "train_end": "2012-12-21"
+      },
+      "base_C1.0_w5": {
+        "train_rows": 1254,
+        "train_start": "2008-01-02",
+        "train_end": "2012-12-21"
+      },
+      "base_C1.0_w10": {
+        "train_rows": 2512,
+        "train_start": "2003-01-02",
+        "train_end": "2012-12-21"
+      },
+      "base_C1.0_w20": {
+        "train_rows": 3264,
+        "train_start": "2000-01-03",
+        "train_end": "2012-12-21"
+      },
+      "base_C1.0_wall": {
+        "train_rows": 3264,
+        "train_start": "2000-01-03",
+        "train_end": "2012-12-21"
+      },
+      "free_C0.05_w5": {
+        "train_rows": 1254,
+        "train_start": "2008-01-02",
+        "train_end": "2012-12-21"
+      },
+      "free_C0.05_w10": {
+        "train_rows": 1622,
+        "train_start": "2006-07-17",
+        "train_end": "2012-12-21"
+      },
+      "free_C0.05_wall": {
+        "train_rows": 1622,
+        "train_start": "2006-07-17",
+        "train_end": "2012-12-21"
+      },
+      "free_C0.2_w5": {
+        "train_rows": 1254,
+        "train_start": "2008-01-02",
+        "train_end": "2012-12-21"
+      },
+      "free_C0.2_w10": {
+        "train_rows": 1622,
+        "train_start": "2006-07-17",
+        "train_end": "2012-12-21"
+      },
+      "free_C0.2_wall": {
+        "train_rows": 1622,
+        "train_start": "2006-07-17",
+        "train_end": "2012-12-21"
+      },
+      "free_C1.0_w5": {
+        "train_rows": 1254,
+        "train_start": "2008-01-02",
+        "train_end": "2012-12-21"
+      },
+      "free_C1.0_w10": {
+        "train_rows": 1622,
+        "train_start": "2006-07-17",
+        "train_end": "2012-12-21"
+      },
+      "free_C1.0_wall": {
+        "train_rows": 1622,
+        "train_start": "2006-07-17",
+        "train_end": "2012-12-21"
+      }
+    },
+    {
+      "year": 2014,
+      "test_rows": 252,
+      "base_C0.05_w5": {
+        "train_rows": 1253,
+        "train_start": "2009-01-02",
+        "train_end": "2013-12-23"
+      },
+      "base_C0.05_w10": {
+        "train_rows": 2512,
+        "train_start": "2004-01-02",
+        "train_end": "2013-12-23"
+      },
+      "base_C0.05_w20": {
+        "train_rows": 3516,
+        "train_start": "2000-01-03",
+        "train_end": "2013-12-23"
+      },
+      "base_C0.05_wall": {
+        "train_rows": 3516,
+        "train_start": "2000-01-03",
+        "train_end": "2013-12-23"
+      },
+      "base_C0.2_w5": {
+        "train_rows": 1253,
+        "train_start": "2009-01-02",
+        "train_end": "2013-12-23"
+      },
+      "base_C0.2_w10": {
+        "train_rows": 2512,
+        "train_start": "2004-01-02",
+        "train_end": "2013-12-23"
+      },
+      "base_C0.2_w20": {
+        "train_rows": 3516,
+        "train_start": "2000-01-03",
+        "train_end": "2013-12-23"
+      },
+      "base_C0.2_wall": {
+        "train_rows": 3516,
+        "train_start": "2000-01-03",
+        "train_end": "2013-12-23"
+      },
+      "base_C1.0_w5": {
+        "train_rows": 1253,
+        "train_start": "2009-01-02",
+        "train_end": "2013-12-23"
+      },
+      "base_C1.0_w10": {
+        "train_rows": 2512,
+        "train_start": "2004-01-02",
+        "train_end": "2013-12-23"
+      },
+      "base_C1.0_w20": {
+        "train_rows": 3516,
+        "train_start": "2000-01-03",
+        "train_end": "2013-12-23"
+      },
+      "base_C1.0_wall": {
+        "train_rows": 3516,
+        "train_start": "2000-01-03",
+        "train_end": "2013-12-23"
+      },
+      "free_C0.05_w5": {
+        "train_rows": 1228,
+        "train_start": "2009-01-02",
+        "train_end": "2013-12-23"
+      },
+      "free_C0.05_w10": {
+        "train_rows": 1849,
+        "train_start": "2006-07-17",
+        "train_end": "2013-12-23"
+      },
+      "free_C0.05_wall": {
+        "train_rows": 1849,
+        "train_start": "2006-07-17",
+        "train_end": "2013-12-23"
+      },
+      "free_C0.2_w5": {
+        "train_rows": 1228,
+        "train_start": "2009-01-02",
+        "train_end": "2013-12-23"
+      },
+      "free_C0.2_w10": {
+        "train_rows": 1849,
+        "train_start": "2006-07-17",
+        "train_end": "2013-12-23"
+      },
+      "free_C0.2_wall": {
+        "train_rows": 1849,
+        "train_start": "2006-07-17",
+        "train_end": "2013-12-23"
+      },
+      "free_C1.0_w5": {
+        "train_rows": 1228,
+        "train_start": "2009-01-02",
+        "train_end": "2013-12-23"
+      },
+      "free_C1.0_w10": {
+        "train_rows": 1849,
+        "train_start": "2006-07-17",
+        "train_end": "2013-12-23"
+      },
+      "free_C1.0_wall": {
+        "train_rows": 1849,
+        "train_start": "2006-07-17",
+        "train_end": "2013-12-23"
+      }
+    },
+    {
+      "year": 2015,
+      "test_rows": 252,
+      "base_C0.05_w5": {
+        "train_rows": 1253,
+        "train_start": "2010-01-04",
+        "train_end": "2014-12-23"
+      },
+      "base_C0.05_w10": {
+        "train_rows": 2512,
+        "train_start": "2005-01-03",
+        "train_end": "2014-12-23"
+      },
+      "base_C0.05_w20": {
+        "train_rows": 3768,
+        "train_start": "2000-01-03",
+        "train_end": "2014-12-23"
+      },
+      "base_C0.05_wall": {
+        "train_rows": 3768,
+        "train_start": "2000-01-03",
+        "train_end": "2014-12-23"
+      },
+      "base_C0.2_w5": {
+        "train_rows": 1253,
+        "train_start": "2010-01-04",
+        "train_end": "2014-12-23"
+      },
+      "base_C0.2_w10": {
+        "train_rows": 2512,
+        "train_start": "2005-01-03",
+        "train_end": "2014-12-23"
+      },
+      "base_C0.2_w20": {
+        "train_rows": 3768,
+        "train_start": "2000-01-03",
+        "train_end": "2014-12-23"
+      },
+      "base_C0.2_wall": {
+        "train_rows": 3768,
+        "train_start": "2000-01-03",
+        "train_end": "2014-12-23"
+      },
+      "base_C1.0_w5": {
+        "train_rows": 1253,
+        "train_start": "2010-01-04",
+        "train_end": "2014-12-23"
+      },
+      "base_C1.0_w10": {
+        "train_rows": 2512,
+        "train_start": "2005-01-03",
+        "train_end": "2014-12-23"
+      },
+      "base_C1.0_w20": {
+        "train_rows": 3768,
+        "train_start": "2000-01-03",
+        "train_end": "2014-12-23"
+      },
+      "base_C1.0_wall": {
+        "train_rows": 3768,
+        "train_start": "2000-01-03",
+        "train_end": "2014-12-23"
+      },
+      "free_C0.05_w5": {
+        "train_rows": 1228,
+        "train_start": "2010-01-04",
+        "train_end": "2014-12-23"
+      },
+      "free_C0.05_w10": {
+        "train_rows": 2101,
+        "train_start": "2006-07-17",
+        "train_end": "2014-12-23"
+      },
+      "free_C0.05_wall": {
+        "train_rows": 2101,
+        "train_start": "2006-07-17",
+        "train_end": "2014-12-23"
+      },
+      "free_C0.2_w5": {
+        "train_rows": 1228,
+        "train_start": "2010-01-04",
+        "train_end": "2014-12-23"
+      },
+      "free_C0.2_w10": {
+        "train_rows": 2101,
+        "train_start": "2006-07-17",
+        "train_end": "2014-12-23"
+      },
+      "free_C0.2_wall": {
+        "train_rows": 2101,
+        "train_start": "2006-07-17",
+        "train_end": "2014-12-23"
+      },
+      "free_C1.0_w5": {
+        "train_rows": 1228,
+        "train_start": "2010-01-04",
+        "train_end": "2014-12-23"
+      },
+      "free_C1.0_w10": {
+        "train_rows": 2101,
+        "train_start": "2006-07-17",
+        "train_end": "2014-12-23"
+      },
+      "free_C1.0_wall": {
+        "train_rows": 2101,
+        "train_start": "2006-07-17",
+        "train_end": "2014-12-23"
+      }
+    },
+    {
+      "year": 2016,
+      "test_rows": 252,
+      "base_C0.05_w5": {
+        "train_rows": 1253,
+        "train_start": "2011-01-03",
+        "train_end": "2015-12-23"
+      },
+      "base_C0.05_w10": {
+        "train_rows": 2512,
+        "train_start": "2006-01-03",
+        "train_end": "2015-12-23"
+      },
+      "base_C0.05_w20": {
+        "train_rows": 4020,
+        "train_start": "2000-01-03",
+        "train_end": "2015-12-23"
+      },
+      "base_C0.05_wall": {
+        "train_rows": 4020,
+        "train_start": "2000-01-03",
+        "train_end": "2015-12-23"
+      },
+      "base_C0.2_w5": {
+        "train_rows": 1253,
+        "train_start": "2011-01-03",
+        "train_end": "2015-12-23"
+      },
+      "base_C0.2_w10": {
+        "train_rows": 2512,
+        "train_start": "2006-01-03",
+        "train_end": "2015-12-23"
+      },
+      "base_C0.2_w20": {
+        "train_rows": 4020,
+        "train_start": "2000-01-03",
+        "train_end": "2015-12-23"
+      },
+      "base_C0.2_wall": {
+        "train_rows": 4020,
+        "train_start": "2000-01-03",
+        "train_end": "2015-12-23"
+      },
+      "base_C1.0_w5": {
+        "train_rows": 1253,
+        "train_start": "2011-01-03",
+        "train_end": "2015-12-23"
+      },
+      "base_C1.0_w10": {
+        "train_rows": 2512,
+        "train_start": "2006-01-03",
+        "train_end": "2015-12-23"
+      },
+      "base_C1.0_w20": {
+        "train_rows": 4020,
+        "train_start": "2000-01-03",
+        "train_end": "2015-12-23"
+      },
+      "base_C1.0_wall": {
+        "train_rows": 4020,
+        "train_start": "2000-01-03",
+        "train_end": "2015-12-23"
+      },
+      "free_C0.05_w5": {
+        "train_rows": 1228,
+        "train_start": "2011-01-03",
+        "train_end": "2015-12-23"
+      },
+      "free_C0.05_w10": {
+        "train_rows": 2353,
+        "train_start": "2006-07-17",
+        "train_end": "2015-12-23"
+      },
+      "free_C0.05_wall": {
+        "train_rows": 2353,
+        "train_start": "2006-07-17",
+        "train_end": "2015-12-23"
+      },
+      "free_C0.2_w5": {
+        "train_rows": 1228,
+        "train_start": "2011-01-03",
+        "train_end": "2015-12-23"
+      },
+      "free_C0.2_w10": {
+        "train_rows": 2353,
+        "train_start": "2006-07-17",
+        "train_end": "2015-12-23"
+      },
+      "free_C0.2_wall": {
+        "train_rows": 2353,
+        "train_start": "2006-07-17",
+        "train_end": "2015-12-23"
+      },
+      "free_C1.0_w5": {
+        "train_rows": 1228,
+        "train_start": "2011-01-03",
+        "train_end": "2015-12-23"
+      },
+      "free_C1.0_w10": {
+        "train_rows": 2353,
+        "train_start": "2006-07-17",
+        "train_end": "2015-12-23"
+      },
+      "free_C1.0_wall": {
+        "train_rows": 2353,
+        "train_start": "2006-07-17",
+        "train_end": "2015-12-23"
+      }
+    },
+    {
+      "year": 2017,
+      "test_rows": 251,
+      "base_C0.05_w5": {
+        "train_rows": 1253,
+        "train_start": "2012-01-03",
+        "train_end": "2016-12-22"
+      },
+      "base_C0.05_w10": {
+        "train_rows": 2513,
+        "train_start": "2007-01-03",
+        "train_end": "2016-12-22"
+      },
+      "base_C0.05_w20": {
+        "train_rows": 4272,
+        "train_start": "2000-01-03",
+        "train_end": "2016-12-22"
+      },
+      "base_C0.05_wall": {
+        "train_rows": 4272,
+        "train_start": "2000-01-03",
+        "train_end": "2016-12-22"
+      },
+      "base_C0.2_w5": {
+        "train_rows": 1253,
+        "train_start": "2012-01-03",
+        "train_end": "2016-12-22"
+      },
+      "base_C0.2_w10": {
+        "train_rows": 2513,
+        "train_start": "2007-01-03",
+        "train_end": "2016-12-22"
+      },
+      "base_C0.2_w20": {
+        "train_rows": 4272,
+        "train_start": "2000-01-03",
+        "train_end": "2016-12-22"
+      },
+      "base_C0.2_wall": {
+        "train_rows": 4272,
+        "train_start": "2000-01-03",
+        "train_end": "2016-12-22"
+      },
+      "base_C1.0_w5": {
+        "train_rows": 1253,
+        "train_start": "2012-01-03",
+        "train_end": "2016-12-22"
+      },
+      "base_C1.0_w10": {
+        "train_rows": 2513,
+        "train_start": "2007-01-03",
+        "train_end": "2016-12-22"
+      },
+      "base_C1.0_w20": {
+        "train_rows": 4272,
+        "train_start": "2000-01-03",
+        "train_end": "2016-12-22"
+      },
+      "base_C1.0_wall": {
+        "train_rows": 4272,
+        "train_start": "2000-01-03",
+        "train_end": "2016-12-22"
+      },
+      "free_C0.05_w5": {
+        "train_rows": 1228,
+        "train_start": "2012-01-03",
+        "train_end": "2016-12-22"
+      },
+      "free_C0.05_w10": {
+        "train_rows": 2488,
+        "train_start": "2007-01-03",
+        "train_end": "2016-12-22"
+      },
+      "free_C0.05_wall": {
+        "train_rows": 2605,
+        "train_start": "2006-07-17",
+        "train_end": "2016-12-22"
+      },
+      "free_C0.2_w5": {
+        "train_rows": 1228,
+        "train_start": "2012-01-03",
+        "train_end": "2016-12-22"
+      },
+      "free_C0.2_w10": {
+        "train_rows": 2488,
+        "train_start": "2007-01-03",
+        "train_end": "2016-12-22"
+      },
+      "free_C0.2_wall": {
+        "train_rows": 2605,
+        "train_start": "2006-07-17",
+        "train_end": "2016-12-22"
+      },
+      "free_C1.0_w5": {
+        "train_rows": 1228,
+        "train_start": "2012-01-03",
+        "train_end": "2016-12-22"
+      },
+      "free_C1.0_w10": {
+        "train_rows": 2488,
+        "train_start": "2007-01-03",
+        "train_end": "2016-12-22"
+      },
+      "free_C1.0_wall": {
+        "train_rows": 2605,
+        "train_start": "2006-07-17",
+        "train_end": "2016-12-22"
+      }
+    },
+    {
+      "year": 2018,
+      "test_rows": 251,
+      "base_C0.05_w5": {
+        "train_rows": 1254,
+        "train_start": "2013-01-02",
+        "train_end": "2017-12-21"
+      },
+      "base_C0.05_w10": {
+        "train_rows": 2513,
+        "train_start": "2008-01-02",
+        "train_end": "2017-12-21"
+      },
+      "base_C0.05_w20": {
+        "train_rows": 4523,
+        "train_start": "2000-01-03",
+        "train_end": "2017-12-21"
+      },
+      "base_C0.05_wall": {
+        "train_rows": 4523,
+        "train_start": "2000-01-03",
+        "train_end": "2017-12-21"
+      },
+      "base_C0.2_w5": {
+        "train_rows": 1254,
+        "train_start": "2013-01-02",
+        "train_end": "2017-12-21"
+      },
+      "base_C0.2_w10": {
+        "train_rows": 2513,
+        "train_start": "2008-01-02",
+        "train_end": "2017-12-21"
+      },
+      "base_C0.2_w20": {
+        "train_rows": 4523,
+        "train_start": "2000-01-03",
+        "train_end": "2017-12-21"
+      },
+      "base_C0.2_wall": {
+        "train_rows": 4523,
+        "train_start": "2000-01-03",
+        "train_end": "2017-12-21"
+      },
+      "base_C1.0_w5": {
+        "train_rows": 1254,
+        "train_start": "2013-01-02",
+        "train_end": "2017-12-21"
+      },
+      "base_C1.0_w10": {
+        "train_rows": 2513,
+        "train_start": "2008-01-02",
+        "train_end": "2017-12-21"
+      },
+      "base_C1.0_w20": {
+        "train_rows": 4523,
+        "train_start": "2000-01-03",
+        "train_end": "2017-12-21"
+      },
+      "base_C1.0_wall": {
+        "train_rows": 4523,
+        "train_start": "2000-01-03",
+        "train_end": "2017-12-21"
+      },
+      "free_C0.05_w5": {
+        "train_rows": 1229,
+        "train_start": "2013-01-02",
+        "train_end": "2017-12-21"
+      },
+      "free_C0.05_w10": {
+        "train_rows": 2488,
+        "train_start": "2008-01-02",
+        "train_end": "2017-12-21"
+      },
+      "free_C0.05_wall": {
+        "train_rows": 2856,
+        "train_start": "2006-07-17",
+        "train_end": "2017-12-21"
+      },
+      "free_C0.2_w5": {
+        "train_rows": 1229,
+        "train_start": "2013-01-02",
+        "train_end": "2017-12-21"
+      },
+      "free_C0.2_w10": {
+        "train_rows": 2488,
+        "train_start": "2008-01-02",
+        "train_end": "2017-12-21"
+      },
+      "free_C0.2_wall": {
+        "train_rows": 2856,
+        "train_start": "2006-07-17",
+        "train_end": "2017-12-21"
+      },
+      "free_C1.0_w5": {
+        "train_rows": 1229,
+        "train_start": "2013-01-02",
+        "train_end": "2017-12-21"
+      },
+      "free_C1.0_w10": {
+        "train_rows": 2488,
+        "train_start": "2008-01-02",
+        "train_end": "2017-12-21"
+      },
+      "free_C1.0_wall": {
+        "train_rows": 2856,
+        "train_start": "2006-07-17",
+        "train_end": "2017-12-21"
+      }
+    },
+    {
+      "year": 2019,
+      "test_rows": 219,
+      "base_C0.05_w5": {
+        "train_rows": 1253,
+        "train_start": "2014-01-02",
+        "train_end": "2018-12-21"
+      },
+      "base_C0.05_w10": {
+        "train_rows": 2511,
+        "train_start": "2009-01-02",
+        "train_end": "2018-12-21"
+      },
+      "base_C0.05_w20": {
+        "train_rows": 4774,
+        "train_start": "2000-01-03",
+        "train_end": "2018-12-21"
+      },
+      "base_C0.05_wall": {
+        "train_rows": 4774,
+        "train_start": "2000-01-03",
+        "train_end": "2018-12-21"
+      },
+      "base_C0.2_w5": {
+        "train_rows": 1253,
+        "train_start": "2014-01-02",
+        "train_end": "2018-12-21"
+      },
+      "base_C0.2_w10": {
+        "train_rows": 2511,
+        "train_start": "2009-01-02",
+        "train_end": "2018-12-21"
+      },
+      "base_C0.2_w20": {
+        "train_rows": 4774,
+        "train_start": "2000-01-03",
+        "train_end": "2018-12-21"
+      },
+      "base_C0.2_wall": {
+        "train_rows": 4774,
+        "train_start": "2000-01-03",
+        "train_end": "2018-12-21"
+      },
+      "base_C1.0_w5": {
+        "train_rows": 1253,
+        "train_start": "2014-01-02",
+        "train_end": "2018-12-21"
+      },
+      "base_C1.0_w10": {
+        "train_rows": 2511,
+        "train_start": "2009-01-02",
+        "train_end": "2018-12-21"
+      },
+      "base_C1.0_w20": {
+        "train_rows": 4774,
+        "train_start": "2000-01-03",
+        "train_end": "2018-12-21"
+      },
+      "base_C1.0_wall": {
+        "train_rows": 4774,
+        "train_start": "2000-01-03",
+        "train_end": "2018-12-21"
+      },
+      "free_C0.05_w5": {
+        "train_rows": 1253,
+        "train_start": "2014-01-02",
+        "train_end": "2018-12-21"
+      },
+      "free_C0.05_w10": {
+        "train_rows": 2486,
+        "train_start": "2009-01-02",
+        "train_end": "2018-12-21"
+      },
+      "free_C0.05_wall": {
+        "train_rows": 3107,
+        "train_start": "2006-07-17",
+        "train_end": "2018-12-21"
+      },
+      "free_C0.2_w5": {
+        "train_rows": 1253,
+        "train_start": "2014-01-02",
+        "train_end": "2018-12-21"
+      },
+      "free_C0.2_w10": {
+        "train_rows": 2486,
+        "train_start": "2009-01-02",
+        "train_end": "2018-12-21"
+      },
+      "free_C0.2_wall": {
+        "train_rows": 3107,
+        "train_start": "2006-07-17",
+        "train_end": "2018-12-21"
+      },
+      "free_C1.0_w5": {
+        "train_rows": 1253,
+        "train_start": "2014-01-02",
+        "train_end": "2018-12-21"
+      },
+      "free_C1.0_w10": {
+        "train_rows": 2486,
+        "train_start": "2009-01-02",
+        "train_end": "2018-12-21"
+      },
+      "free_C1.0_wall": {
+        "train_rows": 3107,
+        "train_start": "2006-07-17",
+        "train_end": "2018-12-21"
+      }
+    },
+    {
+      "year": 2020,
+      "test_rows": 253,
+      "base_C0.05_w5": {
+        "train_rows": 1253,
+        "train_start": "2015-01-02",
+        "train_end": "2019-12-23"
+      },
+      "base_C0.05_w10": {
+        "train_rows": 2511,
+        "train_start": "2010-01-04",
+        "train_end": "2019-12-23"
+      },
+      "base_C0.05_w20": {
+        "train_rows": 5026,
+        "train_start": "2000-01-03",
+        "train_end": "2019-12-23"
+      },
+      "base_C0.05_wall": {
+        "train_rows": 5026,
+        "train_start": "2000-01-03",
+        "train_end": "2019-12-23"
+      },
+      "base_C0.2_w5": {
+        "train_rows": 1253,
+        "train_start": "2015-01-02",
+        "train_end": "2019-12-23"
+      },
+      "base_C0.2_w10": {
+        "train_rows": 2511,
+        "train_start": "2010-01-04",
+        "train_end": "2019-12-23"
+      },
+      "base_C0.2_w20": {
+        "train_rows": 5026,
+        "train_start": "2000-01-03",
+        "train_end": "2019-12-23"
+      },
+      "base_C0.2_wall": {
+        "train_rows": 5026,
+        "train_start": "2000-01-03",
+        "train_end": "2019-12-23"
+      },
+      "base_C1.0_w5": {
+        "train_rows": 1253,
+        "train_start": "2015-01-02",
+        "train_end": "2019-12-23"
+      },
+      "base_C1.0_w10": {
+        "train_rows": 2511,
+        "train_start": "2010-01-04",
+        "train_end": "2019-12-23"
+      },
+      "base_C1.0_w20": {
+        "train_rows": 5026,
+        "train_start": "2000-01-03",
+        "train_end": "2019-12-23"
+      },
+      "base_C1.0_wall": {
+        "train_rows": 5026,
+        "train_start": "2000-01-03",
+        "train_end": "2019-12-23"
+      },
+      "free_C0.05_w5": {
+        "train_rows": 1220,
+        "train_start": "2015-01-02",
+        "train_end": "2019-12-23"
+      },
+      "free_C0.05_w10": {
+        "train_rows": 2453,
+        "train_start": "2010-01-04",
+        "train_end": "2019-12-23"
+      },
+      "free_C0.05_wall": {
+        "train_rows": 3326,
+        "train_start": "2006-07-17",
+        "train_end": "2019-12-23"
+      },
+      "free_C0.2_w5": {
+        "train_rows": 1220,
+        "train_start": "2015-01-02",
+        "train_end": "2019-12-23"
+      },
+      "free_C0.2_w10": {
+        "train_rows": 2453,
+        "train_start": "2010-01-04",
+        "train_end": "2019-12-23"
+      },
+      "free_C0.2_wall": {
+        "train_rows": 3326,
+        "train_start": "2006-07-17",
+        "train_end": "2019-12-23"
+      },
+      "free_C1.0_w5": {
+        "train_rows": 1220,
+        "train_start": "2015-01-02",
+        "train_end": "2019-12-23"
+      },
+      "free_C1.0_w10": {
+        "train_rows": 2453,
+        "train_start": "2010-01-04",
+        "train_end": "2019-12-23"
+      },
+      "free_C1.0_wall": {
+        "train_rows": 3326,
+        "train_start": "2006-07-17",
+        "train_end": "2019-12-23"
+      }
+    },
+    {
+      "year": 2021,
+      "test_rows": 252,
+      "base_C0.05_w5": {
+        "train_rows": 1254,
+        "train_start": "2016-01-04",
+        "train_end": "2020-12-23"
+      },
+      "base_C0.05_w10": {
+        "train_rows": 2512,
+        "train_start": "2011-01-03",
+        "train_end": "2020-12-23"
+      },
+      "base_C0.05_w20": {
+        "train_rows": 5027,
+        "train_start": "2001-01-02",
+        "train_end": "2020-12-23"
+      },
+      "base_C0.05_wall": {
+        "train_rows": 5279,
+        "train_start": "2000-01-03",
+        "train_end": "2020-12-23"
+      },
+      "base_C0.2_w5": {
+        "train_rows": 1254,
+        "train_start": "2016-01-04",
+        "train_end": "2020-12-23"
+      },
+      "base_C0.2_w10": {
+        "train_rows": 2512,
+        "train_start": "2011-01-03",
+        "train_end": "2020-12-23"
+      },
+      "base_C0.2_w20": {
+        "train_rows": 5027,
+        "train_start": "2001-01-02",
+        "train_end": "2020-12-23"
+      },
+      "base_C0.2_wall": {
+        "train_rows": 5279,
+        "train_start": "2000-01-03",
+        "train_end": "2020-12-23"
+      },
+      "base_C1.0_w5": {
+        "train_rows": 1254,
+        "train_start": "2016-01-04",
+        "train_end": "2020-12-23"
+      },
+      "base_C1.0_w10": {
+        "train_rows": 2512,
+        "train_start": "2011-01-03",
+        "train_end": "2020-12-23"
+      },
+      "base_C1.0_w20": {
+        "train_rows": 5027,
+        "train_start": "2001-01-02",
+        "train_end": "2020-12-23"
+      },
+      "base_C1.0_wall": {
+        "train_rows": 5279,
+        "train_start": "2000-01-03",
+        "train_end": "2020-12-23"
+      },
+      "free_C0.05_w5": {
+        "train_rows": 1221,
+        "train_start": "2016-01-04",
+        "train_end": "2020-12-23"
+      },
+      "free_C0.05_w10": {
+        "train_rows": 2454,
+        "train_start": "2011-01-03",
+        "train_end": "2020-12-23"
+      },
+      "free_C0.05_wall": {
+        "train_rows": 3579,
+        "train_start": "2006-07-17",
+        "train_end": "2020-12-23"
+      },
+      "free_C0.2_w5": {
+        "train_rows": 1221,
+        "train_start": "2016-01-04",
+        "train_end": "2020-12-23"
+      },
+      "free_C0.2_w10": {
+        "train_rows": 2454,
+        "train_start": "2011-01-03",
+        "train_end": "2020-12-23"
+      },
+      "free_C0.2_wall": {
+        "train_rows": 3579,
+        "train_start": "2006-07-17",
+        "train_end": "2020-12-23"
+      },
+      "free_C1.0_w5": {
+        "train_rows": 1221,
+        "train_start": "2016-01-04",
+        "train_end": "2020-12-23"
+      },
+      "free_C1.0_w10": {
+        "train_rows": 2454,
+        "train_start": "2011-01-03",
+        "train_end": "2020-12-23"
+      },
+      "free_C1.0_wall": {
+        "train_rows": 3579,
+        "train_start": "2006-07-17",
+        "train_end": "2020-12-23"
+      }
+    },
+    {
+      "year": 2022,
+      "test_rows": 251,
+      "base_C0.05_w5": {
+        "train_rows": 1253,
+        "train_start": "2017-01-03",
+        "train_end": "2021-12-22"
+      },
+      "base_C0.05_w10": {
+        "train_rows": 2511,
+        "train_start": "2012-01-03",
+        "train_end": "2021-12-22"
+      },
+      "base_C0.05_w20": {
+        "train_rows": 5030,
+        "train_start": "2002-01-02",
+        "train_end": "2021-12-22"
+      },
+      "base_C0.05_wall": {
+        "train_rows": 5530,
+        "train_start": "2000-01-03",
+        "train_end": "2021-12-22"
+      },
+      "base_C0.2_w5": {
+        "train_rows": 1253,
+        "train_start": "2017-01-03",
+        "train_end": "2021-12-22"
+      },
+      "base_C0.2_w10": {
+        "train_rows": 2511,
+        "train_start": "2012-01-03",
+        "train_end": "2021-12-22"
+      },
+      "base_C0.2_w20": {
+        "train_rows": 5030,
+        "train_start": "2002-01-02",
+        "train_end": "2021-12-22"
+      },
+      "base_C0.2_wall": {
+        "train_rows": 5530,
+        "train_start": "2000-01-03",
+        "train_end": "2021-12-22"
+      },
+      "base_C1.0_w5": {
+        "train_rows": 1253,
+        "train_start": "2017-01-03",
+        "train_end": "2021-12-22"
+      },
+      "base_C1.0_w10": {
+        "train_rows": 2511,
+        "train_start": "2012-01-03",
+        "train_end": "2021-12-22"
+      },
+      "base_C1.0_w20": {
+        "train_rows": 5030,
+        "train_start": "2002-01-02",
+        "train_end": "2021-12-22"
+      },
+      "base_C1.0_wall": {
+        "train_rows": 5530,
+        "train_start": "2000-01-03",
+        "train_end": "2021-12-22"
+      },
+      "free_C0.05_w5": {
+        "train_rows": 1220,
+        "train_start": "2017-01-03",
+        "train_end": "2021-12-22"
+      },
+      "free_C0.05_w10": {
+        "train_rows": 2453,
+        "train_start": "2012-01-03",
+        "train_end": "2021-12-22"
+      },
+      "free_C0.05_wall": {
+        "train_rows": 3830,
+        "train_start": "2006-07-17",
+        "train_end": "2021-12-22"
+      },
+      "free_C0.2_w5": {
+        "train_rows": 1220,
+        "train_start": "2017-01-03",
+        "train_end": "2021-12-22"
+      },
+      "free_C0.2_w10": {
+        "train_rows": 2453,
+        "train_start": "2012-01-03",
+        "train_end": "2021-12-22"
+      },
+      "free_C0.2_wall": {
+        "train_rows": 3830,
+        "train_start": "2006-07-17",
+        "train_end": "2021-12-22"
+      },
+      "free_C1.0_w5": {
+        "train_rows": 1220,
+        "train_start": "2017-01-03",
+        "train_end": "2021-12-22"
+      },
+      "free_C1.0_w10": {
+        "train_rows": 2453,
+        "train_start": "2012-01-03",
+        "train_end": "2021-12-22"
+      },
+      "free_C1.0_wall": {
+        "train_rows": 3830,
+        "train_start": "2006-07-17",
+        "train_end": "2021-12-22"
+      }
+    },
+    {
+      "year": 2023,
+      "test_rows": 250,
+      "base_C0.05_w5": {
+        "train_rows": 1254,
+        "train_start": "2018-01-02",
+        "train_end": "2022-12-22"
+      },
+      "base_C0.05_w10": {
+        "train_rows": 2513,
+        "train_start": "2013-01-02",
+        "train_end": "2022-12-22"
+      },
+      "base_C0.05_w20": {
+        "train_rows": 5030,
+        "train_start": "2003-01-02",
+        "train_end": "2022-12-22"
+      },
+      "base_C0.05_wall": {
+        "train_rows": 5782,
+        "train_start": "2000-01-03",
+        "train_end": "2022-12-22"
+      },
+      "base_C0.2_w5": {
+        "train_rows": 1254,
+        "train_start": "2018-01-02",
+        "train_end": "2022-12-22"
+      },
+      "base_C0.2_w10": {
+        "train_rows": 2513,
+        "train_start": "2013-01-02",
+        "train_end": "2022-12-22"
+      },
+      "base_C0.2_w20": {
+        "train_rows": 5030,
+        "train_start": "2003-01-02",
+        "train_end": "2022-12-22"
+      },
+      "base_C0.2_wall": {
+        "train_rows": 5782,
+        "train_start": "2000-01-03",
+        "train_end": "2022-12-22"
+      },
+      "base_C1.0_w5": {
+        "train_rows": 1254,
+        "train_start": "2018-01-02",
+        "train_end": "2022-12-22"
+      },
+      "base_C1.0_w10": {
+        "train_rows": 2513,
+        "train_start": "2013-01-02",
+        "train_end": "2022-12-22"
+      },
+      "base_C1.0_w20": {
+        "train_rows": 5030,
+        "train_start": "2003-01-02",
+        "train_end": "2022-12-22"
+      },
+      "base_C1.0_wall": {
+        "train_rows": 5782,
+        "train_start": "2000-01-03",
+        "train_end": "2022-12-22"
+      },
+      "free_C0.05_w5": {
+        "train_rows": 1221,
+        "train_start": "2018-01-02",
+        "train_end": "2022-12-22"
+      },
+      "free_C0.05_w10": {
+        "train_rows": 2455,
+        "train_start": "2013-01-02",
+        "train_end": "2022-12-22"
+      },
+      "free_C0.05_wall": {
+        "train_rows": 4082,
+        "train_start": "2006-07-17",
+        "train_end": "2022-12-22"
+      },
+      "free_C0.2_w5": {
+        "train_rows": 1221,
+        "train_start": "2018-01-02",
+        "train_end": "2022-12-22"
+      },
+      "free_C0.2_w10": {
+        "train_rows": 2455,
+        "train_start": "2013-01-02",
+        "train_end": "2022-12-22"
+      },
+      "free_C0.2_wall": {
+        "train_rows": 4082,
+        "train_start": "2006-07-17",
+        "train_end": "2022-12-22"
+      },
+      "free_C1.0_w5": {
+        "train_rows": 1221,
+        "train_start": "2018-01-02",
+        "train_end": "2022-12-22"
+      },
+      "free_C1.0_w10": {
+        "train_rows": 2455,
+        "train_start": "2013-01-02",
+        "train_end": "2022-12-22"
+      },
+      "free_C1.0_wall": {
+        "train_rows": 4082,
+        "train_start": "2006-07-17",
+        "train_end": "2022-12-22"
+      }
+    },
+    {
+      "year": 2024,
+      "test_rows": 252,
+      "base_C0.05_w5": {
+        "train_rows": 1253,
+        "train_start": "2019-01-02",
+        "train_end": "2023-12-21"
+      },
+      "base_C0.05_w10": {
+        "train_rows": 2511,
+        "train_start": "2014-01-02",
+        "train_end": "2023-12-21"
+      },
+      "base_C0.05_w20": {
+        "train_rows": 5028,
+        "train_start": "2004-01-02",
+        "train_end": "2023-12-21"
+      },
+      "base_C0.05_wall": {
+        "train_rows": 6032,
+        "train_start": "2000-01-03",
+        "train_end": "2023-12-21"
+      },
+      "base_C0.2_w5": {
+        "train_rows": 1253,
+        "train_start": "2019-01-02",
+        "train_end": "2023-12-21"
+      },
+      "base_C0.2_w10": {
+        "train_rows": 2511,
+        "train_start": "2014-01-02",
+        "train_end": "2023-12-21"
+      },
+      "base_C0.2_w20": {
+        "train_rows": 5028,
+        "train_start": "2004-01-02",
+        "train_end": "2023-12-21"
+      },
+      "base_C0.2_wall": {
+        "train_rows": 6032,
+        "train_start": "2000-01-03",
+        "train_end": "2023-12-21"
+      },
+      "base_C1.0_w5": {
+        "train_rows": 1253,
+        "train_start": "2019-01-02",
+        "train_end": "2023-12-21"
+      },
+      "base_C1.0_w10": {
+        "train_rows": 2511,
+        "train_start": "2014-01-02",
+        "train_end": "2023-12-21"
+      },
+      "base_C1.0_w20": {
+        "train_rows": 5028,
+        "train_start": "2004-01-02",
+        "train_end": "2023-12-21"
+      },
+      "base_C1.0_wall": {
+        "train_rows": 6032,
+        "train_start": "2000-01-03",
+        "train_end": "2023-12-21"
+      },
+      "free_C0.05_w5": {
+        "train_rows": 1220,
+        "train_start": "2019-01-02",
+        "train_end": "2023-12-21"
+      },
+      "free_C0.05_w10": {
+        "train_rows": 2478,
+        "train_start": "2014-01-02",
+        "train_end": "2023-12-21"
+      },
+      "free_C0.05_wall": {
+        "train_rows": 4332,
+        "train_start": "2006-07-17",
+        "train_end": "2023-12-21"
+      },
+      "free_C0.2_w5": {
+        "train_rows": 1220,
+        "train_start": "2019-01-02",
+        "train_end": "2023-12-21"
+      },
+      "free_C0.2_w10": {
+        "train_rows": 2478,
+        "train_start": "2014-01-02",
+        "train_end": "2023-12-21"
+      },
+      "free_C0.2_wall": {
+        "train_rows": 4332,
+        "train_start": "2006-07-17",
+        "train_end": "2023-12-21"
+      },
+      "free_C1.0_w5": {
+        "train_rows": 1220,
+        "train_start": "2019-01-02",
+        "train_end": "2023-12-21"
+      },
+      "free_C1.0_w10": {
+        "train_rows": 2478,
+        "train_start": "2014-01-02",
+        "train_end": "2023-12-21"
+      },
+      "free_C1.0_wall": {
+        "train_rows": 4332,
+        "train_start": "2006-07-17",
+        "train_end": "2023-12-21"
+      }
+    },
+    {
+      "year": 2025,
+      "test_rows": 199,
+      "base_C0.05_w5": {
+        "train_rows": 1253,
+        "train_start": "2020-01-02",
+        "train_end": "2024-12-23"
+      },
+      "base_C0.05_w10": {
+        "train_rows": 2511,
+        "train_start": "2015-01-02",
+        "train_end": "2024-12-23"
+      },
+      "base_C0.05_w20": {
+        "train_rows": 5028,
+        "train_start": "2005-01-03",
+        "train_end": "2024-12-23"
+      },
+      "base_C0.05_wall": {
+        "train_rows": 6284,
+        "train_start": "2000-01-03",
+        "train_end": "2024-12-23"
+      },
+      "base_C0.2_w5": {
+        "train_rows": 1253,
+        "train_start": "2020-01-02",
+        "train_end": "2024-12-23"
+      },
+      "base_C0.2_w10": {
+        "train_rows": 2511,
+        "train_start": "2015-01-02",
+        "train_end": "2024-12-23"
+      },
+      "base_C0.2_w20": {
+        "train_rows": 5028,
+        "train_start": "2005-01-03",
+        "train_end": "2024-12-23"
+      },
+      "base_C0.2_wall": {
+        "train_rows": 6284,
+        "train_start": "2000-01-03",
+        "train_end": "2024-12-23"
+      },
+      "base_C1.0_w5": {
+        "train_rows": 1253,
+        "train_start": "2020-01-02",
+        "train_end": "2024-12-23"
+      },
+      "base_C1.0_w10": {
+        "train_rows": 2511,
+        "train_start": "2015-01-02",
+        "train_end": "2024-12-23"
+      },
+      "base_C1.0_w20": {
+        "train_rows": 5028,
+        "train_start": "2005-01-03",
+        "train_end": "2024-12-23"
+      },
+      "base_C1.0_wall": {
+        "train_rows": 6284,
+        "train_start": "2000-01-03",
+        "train_end": "2024-12-23"
+      },
+      "free_C0.05_w5": {
+        "train_rows": 1253,
+        "train_start": "2020-01-02",
+        "train_end": "2024-12-23"
+      },
+      "free_C0.05_w10": {
+        "train_rows": 2478,
+        "train_start": "2015-01-02",
+        "train_end": "2024-12-23"
+      },
+      "free_C0.05_wall": {
+        "train_rows": 4584,
+        "train_start": "2006-07-17",
+        "train_end": "2024-12-23"
+      },
+      "free_C0.2_w5": {
+        "train_rows": 1253,
+        "train_start": "2020-01-02",
+        "train_end": "2024-12-23"
+      },
+      "free_C0.2_w10": {
+        "train_rows": 2478,
+        "train_start": "2015-01-02",
+        "train_end": "2024-12-23"
+      },
+      "free_C0.2_wall": {
+        "train_rows": 4584,
+        "train_start": "2006-07-17",
+        "train_end": "2024-12-23"
+      },
+      "free_C1.0_w5": {
+        "train_rows": 1253,
+        "train_start": "2020-01-02",
+        "train_end": "2024-12-23"
+      },
+      "free_C1.0_w10": {
+        "train_rows": 2478,
+        "train_start": "2015-01-02",
+        "train_end": "2024-12-23"
+      },
+      "free_C1.0_wall": {
+        "train_rows": 4584,
+        "train_start": "2006-07-17",
+        "train_end": "2024-12-23"
+      }
+    },
+    {
+      "year": 2026,
+      "test_rows": 204,
+      "base_C0.05_w5": {
+        "train_rows": 1250,
+        "train_start": "2021-01-04",
+        "train_end": "2025-12-23"
+      },
+      "base_C0.05_w10": {
+        "train_rows": 2509,
+        "train_start": "2016-01-04",
+        "train_end": "2025-12-23"
+      },
+      "base_C0.05_w20": {
+        "train_rows": 5026,
+        "train_start": "2006-01-03",
+        "train_end": "2025-12-23"
+      },
+      "base_C0.05_wall": {
+        "train_rows": 6534,
+        "train_start": "2000-01-03",
+        "train_end": "2025-12-23"
+      },
+      "base_C0.2_w5": {
+        "train_rows": 1250,
+        "train_start": "2021-01-04",
+        "train_end": "2025-12-23"
+      },
+      "base_C0.2_w10": {
+        "train_rows": 2509,
+        "train_start": "2016-01-04",
+        "train_end": "2025-12-23"
+      },
+      "base_C0.2_w20": {
+        "train_rows": 5026,
+        "train_start": "2006-01-03",
+        "train_end": "2025-12-23"
+      },
+      "base_C0.2_wall": {
+        "train_rows": 6534,
+        "train_start": "2000-01-03",
+        "train_end": "2025-12-23"
+      },
+      "base_C1.0_w5": {
+        "train_rows": 1250,
+        "train_start": "2021-01-04",
+        "train_end": "2025-12-23"
+      },
+      "base_C1.0_w10": {
+        "train_rows": 2509,
+        "train_start": "2016-01-04",
+        "train_end": "2025-12-23"
+      },
+      "base_C1.0_w20": {
+        "train_rows": 5026,
+        "train_start": "2006-01-03",
+        "train_end": "2025-12-23"
+      },
+      "base_C1.0_wall": {
+        "train_rows": 6534,
+        "train_start": "2000-01-03",
+        "train_end": "2025-12-23"
+      },
+      "free_C0.05_w5": {
+        "train_rows": 1204,
+        "train_start": "2021-01-04",
+        "train_end": "2025-10-17"
+      },
+      "free_C0.05_w10": {
+        "train_rows": 2430,
+        "train_start": "2016-01-04",
+        "train_end": "2025-10-17"
+      },
+      "free_C0.05_wall": {
+        "train_rows": 4788,
+        "train_start": "2006-07-17",
+        "train_end": "2025-10-17"
+      },
+      "free_C0.2_w5": {
+        "train_rows": 1204,
+        "train_start": "2021-01-04",
+        "train_end": "2025-10-17"
+      },
+      "free_C0.2_w10": {
+        "train_rows": 2430,
+        "train_start": "2016-01-04",
+        "train_end": "2025-10-17"
+      },
+      "free_C0.2_wall": {
+        "train_rows": 4788,
+        "train_start": "2006-07-17",
+        "train_end": "2025-10-17"
+      },
+      "free_C1.0_w5": {
+        "train_rows": 1204,
+        "train_start": "2021-01-04",
+        "train_end": "2025-10-17"
+      },
+      "free_C1.0_w10": {
+        "train_rows": 2430,
+        "train_start": "2016-01-04",
+        "train_end": "2025-10-17"
+      },
+      "free_C1.0_wall": {
+        "train_rows": 4788,
+        "train_start": "2006-07-17",
+        "train_end": "2025-10-17"
+      }
+    }
+  ],
+  "pit_audit": {
+    "VIXCLS": {
+      "matched_fraction": 1.0,
+      "median_lag_days": 0.083,
+      "min_lag_days": 0.0833
+    },
+    "VXNCLS": {
+      "matched_fraction": 0.9594,
+      "median_lag_days": 0.083,
+      "min_lag_days": 0.0833
+    },
+    "T10Y2Y": {
+      "matched_fraction": 1.0,
+      "median_lag_days": 0.083,
+      "min_lag_days": 0.0833
+    },
+    "DGS10": {
+      "matched_fraction": 1.0,
+      "median_lag_days": 0.083,
+      "min_lag_days": 0.0833
+    },
+    "BAA10Y": {
+      "matched_fraction": 1.0,
+      "median_lag_days": 0.083,
+      "min_lag_days": 0.0833
+    },
+    "WALCL": {
+      "matched_fraction": 0.8896,
+      "median_lag_days": 4.083,
+      "min_lag_days": 0.0833
+    },
+    "DTWEXBGS": {
+      "matched_fraction": 0.7757,
+      "median_lag_days": 0.083,
+      "min_lag_days": 0.0833
+    },
+    "CFTC_209742": {
+      "matched_fraction": 0.7425,
+      "median_lag_days": 2.125,
+      "min_lag_days": 0.125
+    },
+    "CFTC_13874A": {
+      "matched_fraction": 0.7425,
+      "median_lag_days": 2.125,
+      "min_lag_days": 0.125
+    },
+    "SEC_10K_10Q": {
+      "rows": 912,
+      "rule": "acceptance time <= cutoff, 5-day count"
+    }
+  },
+  "results": {
+    "direction": {
+      "development": {
+        "p_frequency": {
+          "n": 3969,
+          "auc": 0.49591937188229307,
+          "balanced_accuracy": 0.5,
+          "brier": 0.24851585396309933,
+          "log_loss": 0.6901770996396898,
+          "mean_p": 0.5215886439752578,
+          "base_rate": 0.5474930713025951
+        },
+        "p_base_C0.05_w5": {
+          "n": 3969,
+          "auc": 0.4960376231068273,
+          "balanced_accuracy": 0.49302855863159634,
+          "brier": 0.250086298148142,
+          "log_loss": 0.6934610820367685,
+          "mean_p": 0.5428454034026154,
+          "base_rate": 0.5474930713025951
+        },
+        "p_base_C0.05_w10": {
+          "n": 3969,
+          "auc": 0.4927101899501577,
+          "balanced_accuracy": 0.4944916452883485,
+          "brier": 0.24977365538082827,
+          "log_loss": 0.6926777023795624,
+          "mean_p": 0.5457851700002243,
+          "base_rate": 0.5474930713025951
+        },
+        "p_base_C0.05_w20": {
+          "n": 3969,
+          "auc": 0.48878112326107925,
+          "balanced_accuracy": 0.4942132488518229,
+          "brier": 0.25161326942133433,
+          "log_loss": 0.6967128504519903,
+          "mean_p": 0.5468619801937503,
+          "base_rate": 0.5474930713025951
+        },
+        "p_base_C0.05_wall": {
+          "n": 3969,
+          "auc": 0.49032953528678036,
+          "balanced_accuracy": 0.4942132488518229,
+          "brier": 0.2508042446256052,
+          "log_loss": 0.6949534144309435,
+          "mean_p": 0.545785894992983,
+          "base_rate": 0.5474930713025951
+        },
+        "p_base_C0.2_w5": {
+          "n": 3969,
+          "auc": 0.4958467300141337,
+          "balanced_accuracy": 0.4939489451939525,
+          "brier": 0.2501080803021784,
+          "log_loss": 0.6935135074182881,
+          "mean_p": 0.542836403014336,
+          "base_rate": 0.5474930713025951
+        },
+        "p_base_C0.2_w10": {
+          "n": 3969,
+          "auc": 0.4925464574854178,
+          "balanced_accuracy": 0.4949887360263694,
+          "brier": 0.24979888312177614,
+          "log_loss": 0.6927429960899826,
+          "mean_p": 0.5459904018823479,
+          "base_rate": 0.5474930713025951
+        },
+        "p_base_C0.2_w20": {
+          "n": 3969,
+          "auc": 0.48805880429691384,
+          "balanced_accuracy": 0.49508533561824253,
+          "brier": 0.2516011559606883,
+          "log_loss": 0.6966871628367337,
+          "mean_p": 0.5470955919073255,
+          "base_rate": 0.5474930713025951
+        },
+        "p_base_C0.2_wall": {
+          "n": 3969,
+          "auc": 0.48960388530220555,
+          "balanced_accuracy": 0.4948069391817169,
+          "brier": 0.25081366147432993,
+          "log_loss": 0.6949770677285089,
+          "mean_p": 0.5459566037688094,
+          "base_rate": 0.5474930713025951
+        },
+        "p_base_C1.0_w5": {
+          "n": 3969,
+          "auc": 0.4957152828241313,
+          "balanced_accuracy": 0.493900645398016,
+          "brier": 0.25011759736681805,
+          "log_loss": 0.6935353822444214,
+          "mean_p": 0.5428361663723935,
+          "base_rate": 0.5474930713025951
+        },
+        "p_base_C1.0_w10": {
+          "n": 3969,
+          "auc": 0.49257874276015523,
+          "balanced_accuracy": 0.4949773336872756,
+          "brier": 0.2498069144552368,
+          "log_loss": 0.6927624378433643,
+          "mean_p": 0.5460387308213601,
+          "base_rate": 0.5474930713025951
+        },
+        "p_base_C1.0_w20": {
+          "n": 3969,
+          "auc": 0.4879801409687837,
+          "balanced_accuracy": 0.49563072615219994,
+          "brier": 0.2515961252237983,
+          "log_loss": 0.6966765735789009,
+          "mean_p": 0.547109754026323,
+          "base_rate": 0.5474930713025951
+        },
+        "p_base_C1.0_wall": {
+          "n": 3969,
+          "auc": 0.4895639130572925,
+          "balanced_accuracy": 0.4950739332791487,
+          "brier": 0.25081843914623686,
+          "log_loss": 0.6949880511242257,
+          "mean_p": 0.5459718064616179,
+          "base_rate": 0.5474930713025951
+        },
+        "p_free_C0.05_w5": {
+          "n": 3969,
+          "auc": 0.4950313987108438,
+          "balanced_accuracy": 0.5024349759192848,
+          "brier": 0.2509316511064955,
+          "log_loss": 0.6954120130021152,
+          "mean_p": 0.5348876932877741,
+          "base_rate": 0.5474930713025951
+        },
+        "p_free_C0.05_w10": {
+          "n": 3969,
+          "auc": 0.4853155808735883,
+          "balanced_accuracy": 0.4922899689138926,
+          "brier": 0.25112139381374726,
+          "log_loss": 0.6955336800453911,
+          "mean_p": 0.5440226126932078,
+          "base_rate": 0.5474930713025951
+        },
+        "p_free_C0.05_wall": {
+          "n": 3969,
+          "auc": 0.48695136812695183,
+          "balanced_accuracy": 0.49180697095452697,
+          "brier": 0.25117285819670476,
+          "log_loss": 0.6956465030449931,
+          "mean_p": 0.5419294865910645,
+          "base_rate": 0.5474930713025951
+        },
+        "p_free_C0.2_w5": {
+          "n": 3969,
+          "auc": 0.4929397741260683,
+          "balanced_accuracy": 0.4989211337358573,
+          "brier": 0.25133540078191585,
+          "log_loss": 0.6962735743764009,
+          "mean_p": 0.5342829404490205,
+          "base_rate": 0.5474930713025951
+        },
+        "p_free_C0.2_w10": {
+          "n": 3969,
+          "auc": 0.48179187374510213,
+          "balanced_accuracy": 0.4938040458061428,
+          "brier": 0.25140258166616414,
+          "log_loss": 0.69611893240571,
+          "mean_p": 0.5451931576169887,
+          "base_rate": 0.5474930713025951
+        },
+        "p_free_C0.2_wall": {
+          "n": 3969,
+          "auc": 0.48378459264695184,
+          "balanced_accuracy": 0.4917472688194966,
+          "brier": 0.2514429716391055,
+          "log_loss": 0.6962153898281179,
+          "mean_p": 0.5430021828246413,
+          "base_rate": 0.5474930713025951
+        },
+        "p_free_C1.0_w5": {
+          "n": 3969,
+          "auc": 0.49321253345113186,
+          "balanced_accuracy": 0.4993927293561291,
+          "brier": 0.25156829846775236,
+          "log_loss": 0.6967615186103449,
+          "mean_p": 0.533220579084573,
+          "base_rate": 0.5474930713025951
+        },
+        "p_free_C1.0_w10": {
+          "n": 3969,
+          "auc": 0.48101638657055557,
+          "balanced_accuracy": 0.49226716423570505,
+          "brier": 0.2515323569275297,
+          "log_loss": 0.696387556884939,
+          "mean_p": 0.5450529173278861,
+          "base_rate": 0.5474930713025951
+        },
+        "p_free_C1.0_wall": {
+          "n": 3969,
+          "auc": 0.48310775492299185,
+          "balanced_accuracy": 0.490670580530237,
+          "brier": 0.25157738482227,
+          "log_loss": 0.6964957619089845,
+          "mean_p": 0.5428330808340077,
+          "base_rate": 0.5474930713025951
+        }
+      },
+      "exposed": {
+        "p_frequency": {
+          "n": 655,
+          "auc": 0.48982201405152226,
+          "balanced_accuracy": 0.5,
+          "brier": 0.24883519814132227,
+          "log_loss": 0.6908158528890662,
+          "mean_p": 0.5331710092627588,
+          "base_rate": 0.5343511450381679
+        },
+        "p_base_C0.05_w5": {
+          "n": 655,
+          "auc": 0.4920749414519907,
+          "balanced_accuracy": 0.4950585480093677,
+          "brier": 0.2524172182070346,
+          "log_loss": 0.6982067188695661,
+          "mean_p": 0.555073031132305,
+          "base_rate": 0.5343511450381679
+        },
+        "p_base_C0.05_w10": {
+          "n": 655,
+          "auc": 0.49772365339578456,
+          "balanced_accuracy": 0.4938407494145199,
+          "brier": 0.2524489650994449,
+          "log_loss": 0.6983146533711772,
+          "mean_p": 0.5550548879580931,
+          "base_rate": 0.5343511450381679
+        },
+        "p_base_C0.05_w20": {
+          "n": 655,
+          "auc": 0.4887587822014051,
+          "balanced_accuracy": 0.5018501170960187,
+          "brier": 0.25049499645305723,
+          "log_loss": 0.6942199033511762,
+          "mean_p": 0.558143223108733,
+          "base_rate": 0.5343511450381679
+        },
+        "p_base_C0.05_wall": {
+          "n": 655,
+          "auc": 0.5047400468384075,
+          "balanced_accuracy": 0.4990866510538642,
+          "brier": 0.25086099269182116,
+          "log_loss": 0.6949291068462939,
+          "mean_p": 0.5564450626560643,
+          "base_rate": 0.5343511450381679
+        },
+        "p_base_C0.2_w5": {
+          "n": 655,
+          "auc": 0.49194379391100707,
+          "balanced_accuracy": 0.4950585480093677,
+          "brier": 0.252422651859613,
+          "log_loss": 0.6982273152576227,
+          "mean_p": 0.555234179758167,
+          "base_rate": 0.5343511450381679
+        },
+        "p_base_C0.2_w10": {
+          "n": 655,
+          "auc": 0.49753629976580793,
+          "balanced_accuracy": 0.49241217798594844,
+          "brier": 0.25246387702546474,
+          "log_loss": 0.6983509625702501,
+          "mean_p": 0.5550960804362882,
+          "base_rate": 0.5343511450381679
+        },
+        "p_base_C0.2_w20": {
+          "n": 655,
+          "auc": 0.4899484777517565,
+          "balanced_accuracy": 0.5018501170960187,
+          "brier": 0.25046053296804616,
+          "log_loss": 0.694149658727765,
+          "mean_p": 0.5580029943357326,
+          "base_rate": 0.5343511450381679
+        },
+        "p_base_C0.2_wall": {
+          "n": 655,
+          "auc": 0.5059203747072599,
+          "balanced_accuracy": 0.4990866510538642,
+          "brier": 0.2508848289875552,
+          "log_loss": 0.6949788435884019,
+          "mean_p": 0.5564531021567333,
+          "base_rate": 0.5343511450381679
+        },
+        "p_base_C1.0_w5": {
+          "n": 655,
+          "auc": 0.49218735362997657,
+          "balanced_accuracy": 0.4950585480093677,
+          "brier": 0.25242541022962767,
+          "log_loss": 0.6982362565282288,
+          "mean_p": 0.5552529786353981,
+          "base_rate": 0.5343511450381679
+        },
+        "p_base_C1.0_w10": {
+          "n": 655,
+          "auc": 0.4976580796252928,
+          "balanced_accuracy": 0.49241217798594844,
+          "brier": 0.25246852637691475,
+          "log_loss": 0.6983622567536658,
+          "mean_p": 0.5551108295366468,
+          "base_rate": 0.5343511450381679
+        },
+        "p_base_C1.0_w20": {
+          "n": 655,
+          "auc": 0.48980796252927394,
+          "balanced_accuracy": 0.5018501170960187,
+          "brier": 0.25045306970896,
+          "log_loss": 0.6941344794406388,
+          "mean_p": 0.5579948757312813,
+          "base_rate": 0.5343511450381679
+        },
+        "p_base_C1.0_wall": {
+          "n": 655,
+          "auc": 0.5058829039812647,
+          "balanced_accuracy": 0.5007259953161592,
+          "brier": 0.25089117442681136,
+          "log_loss": 0.6949921211430884,
+          "mean_p": 0.5564559680692055,
+          "base_rate": 0.5343511450381679
+        },
+        "p_free_C0.05_w5": {
+          "n": 655,
+          "auc": 0.5056955503512881,
+          "balanced_accuracy": 0.5013583138173302,
+          "brier": 0.2521701807538313,
+          "log_loss": 0.6979094089767696,
+          "mean_p": 0.5629537754448042,
+          "base_rate": 0.5343511450381679
+        },
+        "p_free_C0.05_w10": {
+          "n": 655,
+          "auc": 0.4962154566744731,
+          "balanced_accuracy": 0.5035831381733021,
+          "brier": 0.2507762399846727,
+          "log_loss": 0.6948310519221939,
+          "mean_p": 0.5606773281922781,
+          "base_rate": 0.5343511450381679
+        },
+        "p_free_C0.05_wall": {
+          "n": 655,
+          "auc": 0.5058360655737705,
+          "balanced_accuracy": 0.5012646370023419,
+          "brier": 0.25118570551441155,
+          "log_loss": 0.6957048791874922,
+          "mean_p": 0.5627423422632589,
+          "base_rate": 0.5343511450381679
+        },
+        "p_free_C0.2_w5": {
+          "n": 655,
+          "auc": 0.5070819672131147,
+          "balanced_accuracy": 0.5145667447306792,
+          "brier": 0.25188924635196036,
+          "log_loss": 0.6972972093571904,
+          "mean_p": 0.5611929751551078,
+          "base_rate": 0.5343511450381679
+        },
+        "p_free_C0.2_w10": {
+          "n": 655,
+          "auc": 0.49736768149882904,
+          "balanced_accuracy": 0.501311475409836,
+          "brier": 0.2507497006793707,
+          "log_loss": 0.6947690301713166,
+          "mean_p": 0.560947406734347,
+          "base_rate": 0.5343511450381679
+        },
+        "p_free_C0.2_wall": {
+          "n": 655,
+          "auc": 0.5060702576112412,
+          "balanced_accuracy": 0.5004215456674473,
+          "brier": 0.2512029216104932,
+          "log_loss": 0.6957356292005789,
+          "mean_p": 0.5635515807289638,
+          "base_rate": 0.5343511450381679
+        },
+        "p_free_C1.0_w5": {
+          "n": 655,
+          "auc": 0.5070351288056206,
+          "balanced_accuracy": 0.5242388758782202,
+          "brier": 0.2516793713911495,
+          "log_loss": 0.6968357418494664,
+          "mean_p": 0.5591811537852477,
+          "base_rate": 0.5343511450381679
+        },
+        "p_free_C1.0_w10": {
+          "n": 655,
+          "auc": 0.4977892271662764,
+          "balanced_accuracy": 0.49988290398126467,
+          "brier": 0.25075447572592063,
+          "log_loss": 0.6947764634555035,
+          "mean_p": 0.5610224747259184,
+          "base_rate": 0.5343511450381679
+        },
+        "p_free_C1.0_wall": {
+          "n": 655,
+          "auc": 0.5071569086651053,
+          "balanced_accuracy": 0.5,
+          "brier": 0.25119992453848006,
+          "log_loss": 0.6957272832660416,
+          "mean_p": 0.5637338846334727,
+          "base_rate": 0.5343511450381679
+        }
+      },
+      "all": {
+        "p_frequency": {
+          "n": 4624,
+          "auc": 0.4919592674571477,
+          "balanced_accuracy": 0.5,
+          "brier": 0.24856108978419275,
+          "log_loss": 0.6902675804741061,
+          "mean_p": 0.523229312068535,
+          "base_rate": 0.5456314878892734
+        },
+        "p_base_C0.05_w5": {
+          "n": 4624,
+          "auc": 0.49503860060975435,
+          "balanced_accuracy": 0.4930021243870999,
+          "brier": 0.25041647821703783,
+          "log_loss": 0.6941333121677118,
+          "mean_p": 0.5445774743721108,
+          "base_rate": 0.5456314878892734
+        },
+        "p_base_C0.05_w10": {
+          "n": 4624,
+          "auc": 0.49358731653556437,
+          "balanced_accuracy": 0.49407516530923595,
+          "brier": 0.2501526190196029,
+          "log_loss": 0.693476189165788,
+          "mean_p": 0.547098246397803,
+          "base_rate": 0.5456314878892734
+        },
+        "p_base_C0.05_w20": {
+          "n": 4624,
+          "auc": 0.4881707991381715,
+          "balanced_accuracy": 0.49470525614607397,
+          "brier": 0.25145486354023106,
+          "log_loss": 0.6963597188881856,
+          "mean_p": 0.5484599936256954,
+          "base_rate": 0.5456314878892734
+        },
+        "p_base_C0.05_wall": {
+          "n": 4624,
+          "auc": 0.4899429767792661,
+          "balanced_accuracy": 0.49446982100703984,
+          "brier": 0.25081228311681875,
+          "log_loss": 0.6949499712069068,
+          "mean_p": 0.547295790066365,
+          "base_rate": 0.5456314878892734
+        },
+        "p_base_C0.2_w5": {
+          "n": 4624,
+          "auc": 0.49484353656026625,
+          "balanced_accuracy": 0.4937948314818284,
+          "brier": 0.2504359445690728,
+          "log_loss": 0.6941812289007199,
+          "mean_p": 0.5445925759743725,
+          "base_rate": 0.5456314878892734
+        },
+        "p_base_C0.2_w10": {
+          "n": 4624,
+          "auc": 0.49348940721091805,
+          "balanced_accuracy": 0.49431229829783035,
+          "brier": 0.2501763855021646,
+          "log_loss": 0.6935373771549858,
+          "mean_p": 0.5472802417294135,
+          "base_rate": 0.5456314878892734
+        },
+        "p_base_C0.2_w20": {
+          "n": 4624,
+          "auc": 0.48756674199459216,
+          "balanced_accuracy": 0.49545815810111,
+          "brier": 0.25143958414836554,
+          "log_loss": 0.6963277196725091,
+          "mean_p": 0.5486406499935294,
+          "base_rate": 0.5456314878892734
+        },
+        "p_base_C0.2_wall": {
+          "n": 4624,
+          "auc": 0.4893783474754769,
+          "balanced_accuracy": 0.4949847410487013,
+          "brier": 0.2508237425126436,
+          "log_loss": 0.6949773192830567,
+          "mean_p": 0.5474434563735001,
+          "base_rate": 0.5456314878892734
+        },
+        "p_base_C1.0_w5": {
+          "n": 4624,
+          "auc": 0.49472676224050494,
+          "balanced_accuracy": 0.4937550263421359,
+          "brier": 0.25044450424941755,
+          "log_loss": 0.6942012716596233,
+          "mean_p": 0.5445950357565346,
+          "base_rate": 0.5456314878892734
+        },
+        "p_base_C1.0_w10": {
+          "n": 4624,
+          "auc": 0.49354109729753287,
+          "balanced_accuracy": 0.49431144937305016,
+          "brier": 0.25018393777026693,
+          "log_loss": 0.6935556647867571,
+          "mean_p": 0.5473238140087547,
+          "base_rate": 0.5456314878892734
+        },
+        "p_base_C1.0_w20": {
+          "n": 4624,
+          "auc": 0.48749863936222737,
+          "balanced_accuracy": 0.495933273003079,
+          "brier": 0.2514342088392354,
+          "log_loss": 0.6963164802267033,
+          "mean_p": 0.548651655997938,
+          "base_rate": 0.5456314878892734
+        },
+        "p_base_C1.0_wall": {
+          "n": 4624,
+          "auc": 0.48937683827586775,
+          "balanced_accuracy": 0.4954598559506703,
+          "brier": 0.25082874226232166,
+          "log_loss": 0.6949886276515516,
+          "mean_p": 0.5474569115336269,
+          "base_rate": 0.5456314878892734
+        },
+        "p_free_C0.05_w5": {
+          "n": 4624,
+          "auc": 0.4960203349555342,
+          "balanced_accuracy": 0.501739729849497,
+          "brier": 0.2511070916166609,
+          "log_loss": 0.6957657747589054,
+          "mean_p": 0.5388633169497237,
+          "base_rate": 0.5456314878892734
+        },
+        "p_free_C0.05_w10": {
+          "n": 4624,
+          "auc": 0.4866433004837173,
+          "balanced_accuracy": 0.49347639036428875,
+          "brier": 0.25107250199756126,
+          "log_loss": 0.6954341511914346,
+          "mean_p": 0.5463817906023538,
+          "base_rate": 0.5456314878892734
+        },
+        "p_free_C0.05_wall": {
+          "n": 4624,
+          "auc": 0.4886378964172168,
+          "balanced_accuracy": 0.4926404824307471,
+          "brier": 0.25117467804815324,
+          "log_loss": 0.695654772156874,
+          "mean_p": 0.5448776744079519,
+          "base_rate": 0.5456314878892734
+        },
+        "p_free_C0.2_w5": {
+          "n": 4624,
+          "auc": 0.4948442911600708,
+          "balanced_accuracy": 0.5007547884545476,
+          "brier": 0.2514138542525861,
+          "log_loss": 0.6964185745737229,
+          "mean_p": 0.5380948073894372,
+          "base_rate": 0.5456314878892734
+        },
+        "p_free_C0.2_w10": {
+          "n": 4624,
+          "auc": 0.48390712159225086,
+          "balanced_accuracy": 0.4944266201682267,
+          "brier": 0.2513100996059674,
+          "log_loss": 0.6959277157180958,
+          "mean_p": 0.5474247824378948,
+          "base_rate": 0.5456314878892734
+        },
+        "p_free_C0.2_wall": {
+          "n": 4624,
+          "auc": 0.48557535311026234,
+          "balanced_accuracy": 0.4924406078075046,
+          "brier": 0.2514089680126477,
+          "log_loss": 0.6961474306561805,
+          "mean_p": 0.5459130512561575,
+          "base_rate": 0.5456314878892734
+        },
+        "p_free_C1.0_w5": {
+          "n": 4624,
+          "auc": 0.4950047379435232,
+          "balanced_accuracy": 0.502620536471412,
+          "brier": 0.25158403219716957,
+          "log_loss": 0.6967720324991046,
+          "mean_p": 0.5368979528797595,
+          "base_rate": 0.5456314878892734
+        },
+        "p_free_C1.0_w10": {
+          "n": 4624,
+          "auc": 0.48329749927511256,
+          "balanced_accuracy": 0.4929191184085943,
+          "brier": 0.2514221683057619,
+          "log_loss": 0.6961593418770929,
+          "mean_p": 0.5473150410510069,
+          "base_rate": 0.5456314878892734
+        },
+        "p_free_C1.0_wall": {
+          "n": 4624,
+          "auc": 0.4850257214775894,
+          "balanced_accuracy": 0.49144802608953364,
+          "brier": 0.25152391672411206,
+          "log_loss": 0.6963869051807995,
+          "mean_p": 0.5457937267009303,
+          "base_rate": 0.5456314878892734
+        }
+      }
+    },
+    "range": {
+      "development": {
+        "trailing_baseline": {
+          "q50": {
+            "coverage": 0.509196271101033,
+            "pinball": 0.003279302517698932
+          },
+          "q80": {
+            "coverage": 0.7944066515495087,
+            "pinball": 0.0030410794531149244
+          },
+          "q90": {
+            "coverage": 0.8851095993953136,
+            "pinball": 0.0022381097841135933
+          },
+          "mean_pinball": 0.0028528305849758167
+        },
+        "base_lgbm": {
+          "q50": {
+            "coverage": 0.582010582010582,
+            "pinball": 0.002525561840688541
+          },
+          "q80": {
+            "coverage": 0.8223733938019653,
+            "pinball": 0.002109205650062366
+          },
+          "q90": {
+            "coverage": 0.9017384731670446,
+            "pinball": 0.001432199908103283
+          },
+          "mean_pinball": 0.00202232246628473
+        },
+        "free_lgbm": {
+          "q50": {
+            "coverage": 0.5704207608969514,
+            "pinball": 0.0027712862360363393
+          },
+          "q80": {
+            "coverage": 0.799949609473419,
+            "pinball": 0.0024221982959596058
+          },
+          "q90": {
+            "coverage": 0.8795666414714034,
+            "pinball": 0.0018150273877388708
+          },
+          "mean_pinball": 0.0023361706399116053
+        }
+      },
+      "exposed": {
+        "trailing_baseline": {
+          "q50": {
+            "coverage": 0.4854961832061069,
+            "pinball": 0.0026873909844051347
+          },
+          "q80": {
+            "coverage": 0.7862595419847328,
+            "pinball": 0.002488992328267546
+          },
+          "q90": {
+            "coverage": 0.8809160305343512,
+            "pinball": 0.0018996315379850408
+          },
+          "mean_pinball": 0.002358671616885907
+        },
+        "base_lgbm": {
+          "q50": {
+            "coverage": 0.5419847328244275,
+            "pinball": 0.0023772420022155844
+          },
+          "q80": {
+            "coverage": 0.8290076335877863,
+            "pinball": 0.002020970776405262
+          },
+          "q90": {
+            "coverage": 0.9068702290076336,
+            "pinball": 0.0014680753538116509
+          },
+          "mean_pinball": 0.001955429377477499
+        },
+        "free_lgbm": {
+          "q50": {
+            "coverage": 0.5419847328244275,
+            "pinball": 0.002207470317275671
+          },
+          "q80": {
+            "coverage": 0.833587786259542,
+            "pinball": 0.0018951893587606228
+          },
+          "q90": {
+            "coverage": 0.9083969465648855,
+            "pinball": 0.001390331852048488
+          },
+          "mean_pinball": 0.0018309971760282606
+        }
+      },
+      "all": {
+        "trailing_baseline": {
+          "q50": {
+            "coverage": 0.5058391003460208,
+            "pinball": 0.0031954569177189496
+          },
+          "q80": {
+            "coverage": 0.7932525951557093,
+            "pinball": 0.0029628750701618466
+          },
+          "q90": {
+            "coverage": 0.884515570934256,
+            "pinball": 0.002190163579266231
+          },
+          "mean_pinball": 0.0027828318557156753
+        },
+        "base_lgbm": {
+          "q50": {
+            "coverage": 0.576340830449827,
+            "pinball": 0.0025045520019775142
+          },
+          "q80": {
+            "coverage": 0.8233131487889274,
+            "pinball": 0.002096706981756699
+          },
+          "q90": {
+            "coverage": 0.9024653979238755,
+            "pinball": 0.001437281745676592
+          },
+          "mean_pinball": 0.002012846909803602
+        },
+        "free_lgbm": {
+          "q50": {
+            "coverage": 0.5663927335640139,
+            "pinball": 0.0026914204430458035
+          },
+          "q80": {
+            "coverage": 0.8047145328719724,
+            "pinball": 0.002347546294691151
+          },
+          "q90": {
+            "coverage": 0.8836505190311419,
+            "pinball": 0.0017548683099107565
+          },
+          "mean_pinball": 0.002264611682549237
+        }
+      }
+    },
+    "comparisons": {
+      "development": {
+        "brier_free_minus_frequency": {
+          "mean": 0.002927117676006179,
+          "ci95": [
+            0.0013603430134015227,
+            0.004447999776242488
+          ]
+        },
+        "brier_free_minus_base": {
+          "mean": 0.000629310164775558,
+          "ci95": [
+            -0.0007619236240575433,
+            0.0019610664449975193
+          ]
+        },
+        "brier_base_minus_frequency": {
+          "mean": 0.002297807511230621,
+          "ci95": [
+            0.0007684944525597056,
+            0.003925341186976375
+          ]
+        },
+        "pinball_free_minus_trailing": {
+          "mean": -0.0005166599450642112,
+          "ci95": [
+            -0.0007979751495165484,
+            -0.00028413231999256704
+          ]
+        },
+        "pinball_free_minus_base": {
+          "mean": 0.00031384817362687544,
+          "ci95": [
+            4.879513868195194e-05,
+            0.0006985365178564481
+          ]
+        },
+        "pinball_base_minus_trailing": {
+          "mean": -0.0008305081186910867,
+          "ci95": [
+            -0.001203843303638071,
+            -0.000527786150845474
+          ]
+        }
+      },
+      "exposed": {
+        "brier_free_minus_frequency": {
+          "mean": 0.0023677234691708935,
+          "ci95": [
+            -0.0008981447970697315,
+            0.00640070088469216
+          ]
+        },
+        "brier_free_minus_base": {
+          "mean": 0.0003180926229380118,
+          "ci95": [
+            -0.0020140785320218115,
+            0.002672803444371646
+          ]
+        },
+        "brier_base_minus_frequency": {
+          "mean": 0.0020496308462328813,
+          "ci95": [
+            -0.0004685959327963385,
+            0.00486158091877452
+          ]
+        },
+        "pinball_free_minus_trailing": {
+          "mean": -0.0005276744408576464,
+          "ci95": [
+            -0.0009904736708795225,
+            -0.0002082360494244419
+          ]
+        },
+        "pinball_free_minus_base": {
+          "mean": -0.00012443220144923824,
+          "ci95": [
+            -0.00024379237542557068,
+            -3.0466754059922013e-05
+          ]
+        },
+        "pinball_base_minus_trailing": {
+          "mean": -0.00040324223940840814,
+          "ci95": [
+            -0.000779369542664695,
+            -0.000113460952239282
+          ]
+        }
+      },
+      "all": {
+        "brier_free_minus_frequency": {
+          "mean": 0.0028478782284549003,
+          "ci95": [
+            0.0014237837281441395,
+            0.004346526933435886
+          ]
+        },
+        "brier_free_minus_base": {
+          "mean": 0.0005852255000040197,
+          "ci95": [
+            -0.0006118169328660141,
+            0.0018831853035570917
+          ]
+        },
+        "brier_base_minus_frequency": {
+          "mean": 0.0022626527284508808,
+          "ci95": [
+            0.000860498749109398,
+            0.0037301596001194748
+          ]
+        },
+        "pinball_free_minus_trailing": {
+          "mean": -0.0005182201731664387,
+          "ci95": [
+            -0.0007880324178133011,
+            -0.0002972277395450446
+          ]
+        },
+        "pinball_free_minus_base": {
+          "mean": 0.00025176477274563525,
+          "ci95": [
+            1.924105817957231e-05,
+            0.0006003317933543998
+          ]
+        },
+        "pinball_base_minus_trailing": {
+          "mean": -0.000769984945912074,
+          "ci95": [
+            -0.0011000474643534336,
+            -0.0005081114456197682
+          ]
+        }
+      }
+    },
+    "by_year": {
+      "2008": {
+        "n": 253,
+        "direction": {
+          "p_frequency": {
+            "n": 253,
+            "auc": 0.5,
+            "balanced_accuracy": 0.5,
+            "brier": 0.25004117799298886,
+            "log_loss": 0.693229539683315,
+            "mean_p": 0.5047381546134665,
+            "base_rate": 0.4980237154150198
+          },
+          "p_base_C0.2_wall": {
+            "n": 253,
+            "auc": 0.47731533558305206,
+            "balanced_accuracy": 0.49206349206349204,
+            "brier": 0.2534904671649464,
+            "log_loss": 0.7001644165235971,
+            "mean_p": 0.5456719960924085,
+            "base_rate": 0.4980237154150198
+          },
+          "p_free_C0.2_wall": {
+            "n": 253,
+            "auc": 0.4886889138857643,
+            "balanced_accuracy": 0.5039370078740157,
+            "brier": 0.2515299432023302,
+            "log_loss": 0.6962189083777797,
+            "mean_p": 0.5420074540982941,
+            "base_rate": 0.4980237154150198
+          }
+        },
+        "range_mean_pinball": {
+          "trailing": 0.006340070759164682,
+          "base": 0.003667524481281458,
+          "free": 0.007862691451374136
+        },
+        "free_q80_coverage": 0.42292490118577075
+      },
+      "2009": {
+        "n": 252,
+        "direction": {
+          "p_frequency": {
+            "n": 252,
+            "auc": 0.5,
+            "balanced_accuracy": 0.5,
+            "brier": 0.24956674075288648,
+            "log_loss": 0.6922806510849914,
+            "mean_p": 0.5031000885739594,
+            "base_rate": 0.5714285714285714
+          },
+          "p_base_C0.2_wall": {
+            "n": 252,
+            "auc": 0.4468878600823045,
+            "balanced_accuracy": 0.49189814814814814,
+            "brier": 0.25108752723483607,
+            "log_loss": 0.6953224248427187,
+            "mean_p": 0.4943768546499124,
+            "base_rate": 0.5714285714285714
+          },
+          "p_free_C0.2_wall": {
+            "n": 252,
+            "auc": 0.4954989711934156,
+            "balanced_accuracy": 0.5023148148148149,
+            "brier": 0.24995171951632422,
+            "log_loss": 0.6930507638279921,
+            "mean_p": 0.5004030984833737,
+            "base_rate": 0.5714285714285714
+          }
+        },
+        "range_mean_pinball": {
+          "trailing": 0.003983095773718575,
+          "base": 0.002182252019635309,
+          "free": 0.0036801922417223115
+        },
+        "free_q80_coverage": 0.9841269841269841
+      },
+      "2010": {
+        "n": 252,
+        "direction": {
+          "p_frequency": {
+            "n": 252,
+            "auc": 0.5,
+            "balanced_accuracy": 0.5,
+            "brier": 0.24915061816857023,
+            "log_loss": 0.6914482052692331,
+            "mean_p": 0.5099601593625497,
+            "base_rate": 0.5476190476190477
+          },
+          "p_base_C0.2_wall": {
+            "n": 252,
+            "auc": 0.5087719298245614,
+            "balanced_accuracy": 0.5146834477498093,
+            "brier": 0.24845276539186215,
+            "log_loss": 0.6900156911436893,
+            "mean_p": 0.5717107456969854,
+            "base_rate": 0.5476190476190477
+          },
+          "p_free_C0.2_wall": {
+            "n": 252,
+            "auc": 0.4347190439867785,
+            "balanced_accuracy": 0.5,
+            "brier": 0.24908952307856574,
+            "log_loss": 0.6913774490543108,
+            "mean_p": 0.5795743559814245,
+            "base_rate": 0.5476190476190477
+          }
+        },
+        "range_mean_pinball": {
+          "trailing": 0.0024946100147912186,
+          "base": 0.001999663996285909,
+          "free": 0.002075446344888786
+        },
+        "free_q80_coverage": 0.8571428571428571
+      },
+      "2011": {
+        "n": 252,
+        "direction": {
+          "p_frequency": {
+            "n": 252,
+            "auc": 0.5,
+            "balanced_accuracy": 0.5,
+            "brier": 0.24941976229654203,
+            "log_loss": 0.6919864545946414,
+            "mean_p": 0.5139442231075699,
+            "base_rate": 0.5277777777777778
+          },
+          "p_base_C0.2_wall": {
+            "n": 252,
+            "auc": 0.4879636064952297,
+            "balanced_accuracy": 0.5,
+            "brier": 0.2506028242294242,
+            "log_loss": 0.6943893507657846,
+            "mean_p": 0.5567446151196109,
+            "base_rate": 0.5277777777777778
+          },
+          "p_free_C0.2_wall": {
+            "n": 252,
+            "auc": 0.5063499083844064,
+            "balanced_accuracy": 0.5006634232640425,
+            "brier": 0.2510651762169748,
+            "log_loss": 0.6952868521585481,
+            "mean_p": 0.5022566075333121,
+            "base_rate": 0.5277777777777778
+          }
+        },
+        "range_mean_pinball": {
+          "trailing": 0.0028719950433200928,
+          "base": 0.0020507675271334647,
+          "free": 0.001972738018346558
+        },
+        "free_q80_coverage": 0.8214285714285714
+      },
+      "2012": {
+        "n": 250,
+        "direction": {
+          "p_frequency": {
+            "n": 250,
+            "auc": 0.5,
+            "balanced_accuracy": 0.5,
+            "brier": 0.24855071819234195,
+            "log_loss": 0.6902478212757241,
+            "mean_p": 0.5149303251493034,
+            "base_rate": 0.556
+          },
+          "p_base_C0.2_wall": {
+            "n": 250,
+            "auc": 0.5188281806986843,
+            "balanced_accuracy": 0.5,
+            "brier": 0.24763975924964804,
+            "log_loss": 0.6884225417958691,
+            "mean_p": 0.5281008768703837,
+            "base_rate": 0.556
+          },
+          "p_free_C0.2_wall": {
+            "n": 250,
+            "auc": 0.5184393026119645,
+            "balanced_accuracy": 0.5,
+            "brier": 0.2479051823695852,
+            "log_loss": 0.6889548108829078,
+            "mean_p": 0.522901062414865,
+            "base_rate": 0.556
+          }
+        },
+        "range_mean_pinball": {
+          "trailing": 0.0017134072950562823,
+          "base": 0.001399830505965396,
+          "free": 0.0013571258474668
+        },
+        "free_q80_coverage": 0.888
+      },
+      "2013": {
+        "n": 227,
+        "direction": {
+          "p_frequency": {
+            "n": 227,
+            "auc": 0.5,
+            "balanced_accuracy": 0.5,
+            "brier": 0.24738043589308567,
+            "log_loss": 0.6879059105987597,
+            "mean_p": 0.5180759803921566,
+            "base_rate": 0.5814977973568282
+          },
+          "p_base_C0.2_wall": {
+            "n": 227,
+            "auc": 0.47105263157894733,
+            "balanced_accuracy": 0.5,
+            "brier": 0.24496042310772712,
+            "log_loss": 0.6830457488632345,
+            "mean_p": 0.5619646837896889,
+            "base_rate": 0.5814977973568282
+          },
+          "p_free_C0.2_wall": {
+            "n": 227,
+            "auc": 0.44338118022328543,
+            "balanced_accuracy": 0.5120015948963318,
+            "brier": 0.24626175906429487,
+            "log_loss": 0.6856719685544226,
+            "mean_p": 0.5366488205750454,
+            "base_rate": 0.5814977973568282
+          }
+        },
+        "range_mean_pinball": {
+          "trailing": 0.0013199613488528031,
+          "base": 0.0014040952787012261,
+          "free": 0.0012225375915883403
+        },
+        "free_q80_coverage": 0.8634361233480177
+      },
+      "2014": {
+        "n": 252,
+        "direction": {
+          "p_frequency": {
+            "n": 252,
+            "auc": 0.5,
+            "balanced_accuracy": 0.5,
+            "brier": 0.2477224067778413,
+            "log_loss": 0.6885894446838433,
+            "mean_p": 0.5216154721274177,
+            "base_rate": 0.5634920634920635
+          },
+          "p_base_C0.2_wall": {
+            "n": 252,
+            "auc": 0.4924455825864276,
+            "balanced_accuracy": 0.5,
+            "brier": 0.24605015297367486,
+            "log_loss": 0.6852288809966968,
+            "mean_p": 0.5719651571016965,
+            "base_rate": 0.5634920634920635
+          },
+          "p_free_C0.2_wall": {
+            "n": 252,
+            "auc": 0.5022407170294494,
+            "balanced_accuracy": 0.4939820742637644,
+            "brier": 0.2533627025058263,
+            "log_loss": 0.7014920485453702,
+            "mean_p": 0.6234830895733469,
+            "base_rate": 0.5634920634920635
+          }
+        },
+        "range_mean_pinball": {
+          "trailing": 0.001739314521668006,
+          "base": 0.0015464681576651664,
+          "free": 0.0014412035833076776
+        },
+        "free_q80_coverage": 0.8134920634920635
+      },
+      "2015": {
+        "n": 252,
+        "direction": {
+          "p_frequency": {
+            "n": 252,
+            "auc": 0.5,
+            "balanced_accuracy": 0.5,
+            "brier": 0.2490459168417706,
+            "log_loss": 0.6912379700995779,
+            "mean_p": 0.524416135881104,
+            "base_rate": 0.5317460317460317
+          },
+          "p_base_C0.2_wall": {
+            "n": 252,
+            "auc": 0.5280799392866178,
+            "balanced_accuracy": 0.5042372881355932,
+            "brier": 0.2503257001792145,
+            "log_loss": 0.6938883436550841,
+            "mean_p": 0.5761871656648414,
+            "base_rate": 0.5317460317460317
+          },
+          "p_free_C0.2_wall": {
+            "n": 252,
+            "auc": 0.5084745762711864,
+            "balanced_accuracy": 0.5,
+            "brier": 0.25006374825197025,
+            "log_loss": 0.6932987819683009,
+            "mean_p": 0.5643644829774294,
+            "base_rate": 0.5317460317460317
+          }
+        },
+        "range_mean_pinball": {
+          "trailing": 0.0021589125765740166,
+          "base": 0.0018080602539811974,
+          "free": 0.0016973488964812753
+        },
+        "free_q80_coverage": 0.7341269841269841
+      },
+      "2016": {
+        "n": 252,
+        "direction": {
+          "p_frequency": {
+            "n": 252,
+            "auc": 0.5,
+            "balanced_accuracy": 0.5,
+            "brier": 0.24826106673455747,
+            "log_loss": 0.6896669889564715,
+            "mean_p": 0.5246268656716416,
+            "base_rate": 0.5476190476190477
+          },
+          "p_base_C0.2_wall": {
+            "n": 252,
+            "auc": 0.5177981184846173,
+            "balanced_accuracy": 0.5005720823798627,
+            "brier": 0.2485115487393028,
+            "log_loss": 0.6901744002126682,
+            "mean_p": 0.5220587821853321,
+            "base_rate": 0.5476190476190477
+          },
+          "p_free_C0.2_wall": {
+            "n": 252,
+            "auc": 0.47254004576659037,
+            "balanced_accuracy": 0.49713958810068654,
+            "brier": 0.2487028128684262,
+            "log_loss": 0.6905527661441664,
+            "mean_p": 0.5306129351108793,
+            "base_rate": 0.5476190476190477
+          }
+        },
+        "range_mean_pinball": {
+          "trailing": 0.002174390476174575,
+          "base": 0.0016396479505894279,
+          "free": 0.0016157513757851974
+        },
+        "free_q80_coverage": 0.8690476190476191
+      },
+      "2017": {
+        "n": 251,
+        "direction": {
+          "p_frequency": {
+            "n": 251,
+            "auc": 0.5,
+            "balanced_accuracy": 0.5,
+            "brier": 0.24556923870677566,
+            "log_loss": 0.684278154651265,
+            "mean_p": 0.5262172284644194,
+            "base_rate": 0.5976095617529881
+          },
+          "p_base_C0.2_wall": {
+            "n": 251,
+            "auc": 0.5671287128712872,
+            "balanced_accuracy": 0.5,
+            "brier": 0.24291125325355356,
+            "log_loss": 0.6789327432352614,
+            "mean_p": 0.5481081402136507,
+            "base_rate": 0.5976095617529881
+          },
+          "p_free_C0.2_wall": {
+            "n": 251,
+            "auc": 0.4943234323432343,
+            "balanced_accuracy": 0.49,
+            "brier": 0.24415337982061439,
+            "log_loss": 0.6813999955533682,
+            "mean_p": 0.5472372061137626,
+            "base_rate": 0.5976095617529881
+          }
+        },
+        "range_mean_pinball": {
+          "trailing": 0.0013868747655612918,
+          "base": 0.001348585890659288,
+          "free": 0.0013355392439401384
+        },
+        "free_q80_coverage": 0.9083665338645418
+      },
+      "2018": {
+        "n": 251,
+        "direction": {
+          "p_frequency": {
+            "n": 251,
+            "auc": 0.5,
+            "balanced_accuracy": 0.5,
+            "brier": 0.2512714833433949,
+            "log_loss": 0.695694351368773,
+            "mean_p": 0.5301790846783109,
+            "base_rate": 0.4940239043824701
+          },
+          "p_base_C0.2_wall": {
+            "n": 251,
+            "auc": 0.5345440690881382,
+            "balanced_accuracy": 0.4958089916179832,
+            "brier": 0.2576862332596959,
+            "log_loss": 0.7101692959580129,
+            "mean_p": 0.5234572823115973,
+            "base_rate": 0.4940239043824701
+          },
+          "p_free_C0.2_wall": {
+            "n": 251,
+            "auc": 0.5539116078232156,
+            "balanced_accuracy": 0.5,
+            "brier": 0.2590333264684688,
+            "log_loss": 0.7115154509028044,
+            "mean_p": 0.59245037071994,
+            "base_rate": 0.4940239043824701
+          }
+        },
+        "range_mean_pinball": {
+          "trailing": 0.0036949057904550595,
+          "base": 0.0023595436909435545,
+          "free": 0.0025093674965922298
+        },
+        "free_q80_coverage": 0.6852589641434262
+      },
+      "2019": {
+        "n": 219,
+        "direction": {
+          "p_frequency": {
+            "n": 219,
+            "auc": 0.5,
+            "balanced_accuracy": 0.5,
+            "brier": 0.2475836621035676,
+            "log_loss": 0.6883102482738718,
+            "mean_p": 0.5280687054880603,
+            "base_rate": 0.5570776255707762
+          },
+          "p_base_C0.2_wall": {
+            "n": 219,
+            "auc": 0.49357782660131827,
+            "balanced_accuracy": 0.5057461551461889,
+            "brier": 0.2526355246348643,
+            "log_loss": 0.6984595550846011,
+            "mean_p": 0.49169069558673295,
+            "base_rate": 0.5570776255707762
+          },
+          "p_free_C0.2_wall": {
+            "n": 219,
+            "auc": 0.500422511407808,
+            "balanced_accuracy": 0.48719790434341725,
+            "brier": 0.2547985992184639,
+            "log_loss": 0.7027799024139838,
+            "mean_p": 0.47234582949164367,
+            "base_rate": 0.5570776255707762
+          }
+        },
+        "range_mean_pinball": {
+          "trailing": 0.0020389953924675607,
+          "base": 0.0017458664810766661,
+          "free": 0.0015983842029114509
+        },
+        "free_q80_coverage": 0.8493150684931506
+      },
+      "2020": {
+        "n": 253,
+        "direction": {
+          "p_frequency": {
+            "n": 253,
+            "auc": 0.5,
+            "balanced_accuracy": 0.5,
+            "brier": 0.24584025462196046,
+            "log_loss": 0.6848189529233903,
+            "mean_p": 0.5296458416235577,
+            "base_rate": 0.5849802371541502
+          },
+          "p_base_C0.2_wall": {
+            "n": 253,
+            "auc": 0.4925997425997426,
+            "balanced_accuracy": 0.5,
+            "brier": 0.24481364373279138,
+            "log_loss": 0.6829453821836698,
+            "mean_p": 0.5700206468699623,
+            "base_rate": 0.5849802371541502
+          },
+          "p_free_C0.2_wall": {
+            "n": 253,
+            "auc": 0.5087516087516087,
+            "balanced_accuracy": 0.5,
+            "brier": 0.2455855116302959,
+            "log_loss": 0.6843075003342355,
+            "mean_p": 0.5318996066110476,
+            "base_rate": 0.5849802371541502
+          }
+        },
+        "range_mean_pinball": {
+          "trailing": 0.005103651773104877,
+          "base": 0.002731224915058787,
+          "free": 0.002571922480099081
+        },
+        "free_q80_coverage": 0.766798418972332
+      },
+      "2021": {
+        "n": 252,
+        "direction": {
+          "p_frequency": {
+            "n": 252,
+            "auc": 0.5,
+            "balanced_accuracy": 0.5,
+            "brier": 0.24770356368036464,
+            "log_loss": 0.6885493185384401,
+            "mean_p": 0.5324872134874028,
+            "base_rate": 0.5515873015873016
+          },
+          "p_base_C0.2_wall": {
+            "n": 252,
+            "auc": 0.477239447380149,
+            "balanced_accuracy": 0.5,
+            "brier": 0.2496536499665746,
+            "log_loss": 0.6925808518277821,
+            "mean_p": 0.5969612098588003,
+            "base_rate": 0.5515873015873016
+          },
+          "p_free_C0.2_wall": {
+            "n": 252,
+            "auc": 0.45317374419048834,
+            "balanced_accuracy": 0.5,
+            "brier": 0.2504683554492168,
+            "log_loss": 0.694264059140122,
+            "mean_p": 0.5985105104293265,
+            "base_rate": 0.5515873015873016
+          }
+        },
+        "range_mean_pinball": {
+          "trailing": 0.00225599937098502,
+          "base": 0.0016795900910345988,
+          "free": 0.0016930138357614446
+        },
+        "free_q80_coverage": 0.8928571428571429
+      },
+      "2022": {
+        "n": 251,
+        "direction": {
+          "p_frequency": {
+            "n": 251,
+            "auc": 0.5,
+            "balanced_accuracy": 0.5,
+            "brier": 0.2531183989423182,
+            "log_loss": 0.6993949862128772,
+            "mean_p": 0.5334538878842676,
+            "base_rate": 0.4701195219123506
+          },
+          "p_base_C0.2_wall": {
+            "n": 251,
+            "auc": 0.5061169873837136,
+            "balanced_accuracy": 0.5037593984962406,
+            "brier": 0.2674958669828145,
+            "log_loss": 0.7292872340604224,
+            "mean_p": 0.6023004237315828,
+            "base_rate": 0.4701195219123506
+          },
+          "p_free_C0.2_wall": {
+            "n": 251,
+            "auc": 0.4949025105135721,
+            "balanced_accuracy": 0.4570855103861348,
+            "brier": 0.2631582114134493,
+            "log_loss": 0.720135379539693,
+            "mean_p": 0.567655607312412,
+            "base_rate": 0.4701195219123506
+          }
+        },
+        "range_mean_pinball": {
+          "trailing": 0.0038639909675627485,
+          "base": 0.0030181636767783356,
+          "free": 0.0029119862711545715
+        },
+        "free_q80_coverage": 0.6533864541832669
+      },
+      "2023": {
+        "n": 250,
+        "direction": {
+          "p_frequency": {
+            "n": 250,
+            "auc": 0.5,
+            "balanced_accuracy": 0.5,
+            "brier": 0.24579425239483543,
+            "log_loss": 0.6847263260795549,
+            "mean_p": 0.5306122448979592,
+            "base_rate": 0.584
+          },
+          "p_base_C0.2_wall": {
+            "n": 250,
+            "auc": 0.5235774499473129,
+            "balanced_accuracy": 0.5,
+            "brier": 0.2564540173516899,
+            "log_loss": 0.7060745856095637,
+            "mean_p": 0.46775435150904315,
+            "base_rate": 0.584
+          },
+          "p_free_C0.2_wall": {
+            "n": 250,
+            "auc": 0.47833245521601686,
+            "balanced_accuracy": 0.4910432033719705,
+            "brier": 0.25797737737273696,
+            "log_loss": 0.7091423185442953,
+            "mean_p": 0.465384293341962,
+            "base_rate": 0.584
+          }
+        },
+        "range_mean_pinball": {
+          "trailing": 0.0022111000716802886,
+          "base": 0.0016638290014803995,
+          "free": 0.0015888208038090249
+        },
+        "free_q80_coverage": 0.804
+      },
+      "2024": {
+        "n": 252,
+        "direction": {
+          "p_frequency": {
+            "n": 252,
+            "auc": 0.5,
+            "balanced_accuracy": 0.5,
+            "brier": 0.24873283815105596,
+            "log_loss": 0.6906107598155062,
+            "mean_p": 0.5328249336870028,
+            "base_rate": 0.5357142857142857
+          },
+          "p_base_C0.2_wall": {
+            "n": 252,
+            "auc": 0.547894903450459,
+            "balanced_accuracy": 0.5,
+            "brier": 0.25103187507289726,
+            "log_loss": 0.6952976647017552,
+            "mean_p": 0.583990250358949,
+            "base_rate": 0.5357142857142857
+          },
+          "p_free_C0.2_wall": {
+            "n": 252,
+            "auc": 0.4759100981323203,
+            "balanced_accuracy": 0.5,
+            "brier": 0.2548774150579654,
+            "log_loss": 0.7033715763887012,
+            "mean_p": 0.6063203595566194,
+            "base_rate": 0.5357142857142857
+          }
+        },
+        "range_mean_pinball": {
+          "trailing": 0.0019178780674998404,
+          "base": 0.0017239970745973178,
+          "free": 0.0016612755152811962
+        },
+        "free_q80_coverage": 0.8214285714285714
+      },
+      "2025": {
+        "n": 199,
+        "direction": {
+          "p_frequency": {
+            "n": 199,
+            "auc": 0.5,
+            "balanced_accuracy": 0.5,
+            "brier": 0.24727786806270916,
+            "log_loss": 0.6876965947562654,
+            "mean_p": 0.5329408020369193,
+            "base_rate": 0.5577889447236181
+          },
+          "p_base_C0.2_wall": {
+            "n": 199,
+            "auc": 0.4994881244881244,
+            "balanced_accuracy": 0.5053235053235053,
+            "brier": 0.249524804076284,
+            "log_loss": 0.6922600608579323,
+            "mean_p": 0.5219865590611739,
+            "base_rate": 0.5577889447236181
+          },
+          "p_free_C0.2_wall": {
+            "n": 199,
+            "auc": 0.5173013923013923,
+            "balanced_accuracy": 0.5,
+            "brier": 0.24730066443450927,
+            "log_loss": 0.6877423929394489,
+            "mean_p": 0.5320252460496705,
+            "base_rate": 0.5577889447236181
+          }
+        },
+        "range_mean_pinball": {
+          "trailing": 0.0032346500421045602,
+          "base": 0.0023307908658270547,
+          "free": 0.002049121822706494
+        },
+        "free_q80_coverage": 0.8291457286432161
+      },
+      "2026": {
+        "n": 204,
+        "direction": {
+          "p_frequency": {
+            "n": 204,
+            "auc": 0.5,
+            "balanced_accuracy": 0.5,
+            "brier": 0.25048080305892584,
+            "log_loss": 0.6941120088839898,
+            "mean_p": 0.5338230792776246,
+            "base_rate": 0.5098039215686274
+          },
+          "p_base_C0.2_wall": {
+            "n": 204,
+            "auc": 0.5384615384615385,
+            "balanced_accuracy": 0.5,
+            "brier": 0.2520298747906765,
+            "log_loss": 0.6972371516413349,
+            "mean_p": 0.5560583998481934,
+            "base_rate": 0.5098039215686274
+          },
+          "p_free_C0.2_wall": {
+            "n": 204,
+            "auc": 0.5237499999999999,
+            "balanced_accuracy": 0.5003846153846153,
+            "brier": 0.2504704550872471,
+            "log_loss": 0.6941003121640986,
+            "mean_p": 0.5414731902221508,
+            "base_rate": 0.5098039215686274
+          }
+        },
+        "range_mean_pinball": {
+          "trailing": 0.002048672929762264,
+          "base": 0.0018751548879884998,
+          "free": 0.001827874890828711
+        },
+        "free_q80_coverage": 0.8529411764705882
+      }
+    },
+    "regimes": {
+      "vix_lt15": {
+        "n": 1405,
+        "direction": {
+          "p_frequency": {
+            "n": 1405,
+            "auc": 0.4930022105837335,
+            "balanced_accuracy": 0.5,
+            "brier": 0.24798507477510942,
+            "log_loss": 0.6891146109093229,
+            "mean_p": 0.5257942338731947,
+            "base_rate": 0.5544483985765124
+          },
+          "p_base_C0.2_wall": {
+            "n": 1405,
+            "auc": 0.4721072727794707,
+            "balanced_accuracy": 0.49012824666669397,
+            "brier": 0.250425595837426,
+            "log_loss": 0.6941034433296375,
+            "mean_p": 0.5486311731838533,
+            "base_rate": 0.5544483985765124
+          },
+          "p_free_C0.2_wall": {
+            "n": 1405,
+            "auc": 0.46518433151373717,
+            "balanced_accuracy": 0.4857634716417788,
+            "brier": 0.25229735859248525,
+            "log_loss": 0.6979344174409332,
+            "mean_p": 0.5518111223488419,
+            "base_rate": 0.5544483985765124
+          }
+        },
+        "range_mean_pinball": {
+          "trailing": 0.001587724976030308,
+          "base": 0.0013919344920272799,
+          "free": 0.0013121207074606055
+        }
+      },
+      "vix_15_25": {
+        "n": 2368,
+        "direction": {
+          "p_frequency": {
+            "n": 2368,
+            "auc": 0.49716823970705293,
+            "balanced_accuracy": 0.5,
+            "brier": 0.2485176157973722,
+            "log_loss": 0.6901804578878848,
+            "mean_p": 0.5236054950185495,
+            "base_rate": 0.5443412162162162
+          },
+          "p_base_C0.2_wall": {
+            "n": 2368,
+            "auc": 0.5060327243209275,
+            "balanced_accuracy": 0.5043236741200046,
+            "brier": 0.24996683337749342,
+            "log_loss": 0.6932244729042565,
+            "mean_p": 0.5430241618363307,
+            "base_rate": 0.5443412162162162
+          },
+          "p_free_C0.2_wall": {
+            "n": 2368,
+            "auc": 0.49695326031703346,
+            "balanced_accuracy": 0.49651107862853217,
+            "brier": 0.251048762465575,
+            "log_loss": 0.6954727840529096,
+            "mean_p": 0.5451839804328853,
+            "base_rate": 0.5443412162162162
+          }
+        },
+        "range_mean_pinball": {
+          "trailing": 0.002331175409971947,
+          "base": 0.0018919916688489309,
+          "free": 0.0019060390750822807
+        }
+      },
+      "vix_gt25": {
+        "n": 851,
+        "direction": {
+          "p_frequency": {
+            "n": 851,
+            "auc": 0.4694638694638694,
+            "balanced_accuracy": 0.5,
+            "brier": 0.24963306098108254,
+            "log_loss": 0.6924135599367295,
+            "mean_p": 0.5179478592351845,
+            "base_rate": 0.5346650998824912
+          },
+          "p_base_C0.2_wall": {
+            "n": 851,
+            "auc": 0.47849927849927854,
+            "balanced_accuracy": 0.47430902430902433,
+            "brier": 0.2538655250164233,
+            "log_loss": 0.7012975730310628,
+            "mean_p": 0.557779704723054,
+            "base_rate": 0.5346650998824912
+          },
+          "p_free_C0.2_wall": {
+            "n": 851,
+            "auc": 0.4768953268953269,
+            "balanced_accuracy": 0.49270729270729274,
+            "brier": 0.2509445472967797,
+            "log_loss": 0.6950743950791748,
+            "mean_p": 0.5382040616254729,
+            "base_rate": 0.5346650998824912
+          }
+        },
+        "range_mean_pinball": {
+          "trailing": 0.006012735063094163,
+          "base": 0.0033742654263211025,
+          "free": 0.004834940418719954
+        }
+      },
+      "above_200d": {
+        "n": 3680,
+        "direction": {
+          "p_frequency": {
+            "n": 3680,
+            "auc": 0.49632023142073245,
+            "balanced_accuracy": 0.5,
+            "brier": 0.24830750018942427,
+            "log_loss": 0.6897597331287705,
+            "mean_p": 0.524099054636371,
+            "base_rate": 0.5489130434782609
+          },
+          "p_base_C0.2_wall": {
+            "n": 3680,
+            "auc": 0.49277436478587616,
+            "balanced_accuracy": 0.49767386377191936,
+            "brier": 0.24971939807675606,
+            "log_loss": 0.6926647700433889,
+            "mean_p": 0.5471410854255662,
+            "base_rate": 0.5489130434782609
+          },
+          "p_free_C0.2_wall": {
+            "n": 3680,
+            "auc": 0.4873109268758201,
+            "balanced_accuracy": 0.4949182870094238,
+            "brier": 0.2511733282008878,
+            "log_loss": 0.6956840776603248,
+            "mean_p": 0.5466504989279019,
+            "base_rate": 0.5489130434782609
+          }
+        },
+        "range_mean_pinball": {
+          "trailing": 0.0021881993562438275,
+          "base": 0.0017145696254242217,
+          "free": 0.0017463227381817274
+        }
+      },
+      "below_200d": {
+        "n": 944,
+        "direction": {
+          "p_frequency": {
+            "n": 944,
+            "auc": 0.47797568331507556,
+            "balanced_accuracy": 0.5,
+            "brier": 0.24954965939091744,
+            "log_loss": 0.6922473243627024,
+            "mean_p": 0.5198387901939198,
+            "base_rate": 0.5328389830508474
+          },
+          "p_base_C0.2_wall": {
+            "n": 944,
+            "auc": 0.4812215144507107,
+            "balanced_accuracy": 0.4834868340974561,
+            "brier": 0.2551288140423749,
+            "log_loss": 0.7039923417427789,
+            "mean_p": 0.5486221905773099,
+            "base_rate": 0.5328389830508474
+          },
+          "p_free_C0.2_wall": {
+            "n": 944,
+            "auc": 0.47591999026250664,
+            "balanced_accuracy": 0.4847310693661162,
+            "brier": 0.2523275638889998,
+            "log_loss": 0.697953721995957,
+            "mean_p": 0.5430382552476631,
+            "base_rate": 0.5328389830508474
+          }
+        },
+        "range_mean_pinball": {
+          "trailing": 0.005100890751961865,
+          "base": 0.003175622764163897,
+          "free": 0.004285060109744614
+        }
+      },
+      "bear_drawdown_gt20pct": {
+        "n": 469,
+        "direction": {
+          "p_frequency": {
+            "n": 469,
+            "auc": 0.4637163276525563,
+            "balanced_accuracy": 0.5,
+            "brier": 0.24953666826804544,
+            "log_loss": 0.6922209408877179,
+            "mean_p": 0.517038687021899,
+            "base_rate": 0.5437100213219617
+          },
+          "p_base_C0.2_wall": {
+            "n": 469,
+            "auc": 0.45968480850284044,
+            "balanced_accuracy": 0.4615906175554334,
+            "brier": 0.2560407122352542,
+            "log_loss": 0.7056508451352872,
+            "mean_p": 0.5525664671598811,
+            "base_rate": 0.5437100213219617
+          },
+          "p_free_C0.2_wall": {
+            "n": 469,
+            "auc": 0.4536192046912223,
+            "balanced_accuracy": 0.4730529595015576,
+            "brier": 0.25336550716657674,
+            "log_loss": 0.7000807521365082,
+            "mean_p": 0.534946597700084,
+            "base_rate": 0.5437100213219617
+          }
+        },
+        "range_mean_pinball": {
+          "trailing": 0.0061536199260542115,
+          "base": 0.00360941747526387,
+          "free": 0.006254008819986141
+        }
+      }
+    },
+    "strategy": {
+      "development": {
+        "free_primary": {
+          "0bps": {
+            "trades": 3384,
+            "exposure_fraction": 0.8526077097505669,
+            "long_fraction": 0.7389770723104057,
+            "win_rate": 0.5236406619385343,
+            "net_expectancy_fraction": 6.571019323317278e-06,
+            "profit_factor": 1.0016317067746148,
+            "total_return_fraction": -0.18875173190610983,
+            "max_drawdown_fraction": 0.5363587484357697
+          },
+          "2bps": {
+            "trades": 3384,
+            "exposure_fraction": 0.8526077097505669,
+            "long_fraction": 0.7389770723104057,
+            "win_rate": 0.5141843971631206,
+            "net_expectancy_fraction": -0.00019342898067668246,
+            "profit_factor": 0.9530859999444582,
+            "total_return_fraction": -0.5877548610774903,
+            "max_drawdown_fraction": 0.6427231754061041
+          },
+          "5bps": {
+            "trades": 3384,
+            "exposure_fraction": 0.8526077097505669,
+            "long_fraction": 0.7389770723104057,
+            "win_rate": 0.49674940898345155,
+            "net_expectancy_fraction": -0.0004934289806766832,
+            "profit_factor": 0.8844786688702683,
+            "total_return_fraction": -0.8507041056173495,
+            "max_drawdown_fraction": 0.8535007662596114
+          }
+        },
+        "base_primary": {
+          "0bps": {
+            "trades": 3366,
+            "exposure_fraction": 0.8480725623582767,
+            "long_fraction": 0.7505668934240363,
+            "win_rate": 0.5317884729649436,
+            "net_expectancy_fraction": 1.8925802583784535e-06,
+            "profit_factor": 1.0004599157251093,
+            "total_return_fraction": -0.20540272232561207,
+            "max_drawdown_fraction": 0.4727394139527755
+          },
+          "2bps": {
+            "trades": 3366,
+            "exposure_fraction": 0.8480725623582767,
+            "long_fraction": 0.7505668934240363,
+            "win_rate": 0.5225787284610814,
+            "net_expectancy_fraction": -0.00019810741974162128,
+            "profit_factor": 0.952937323847806,
+            "total_return_fraction": -0.5947619731329441,
+            "max_drawdown_fraction": 0.603285524731848
+          },
+          "5bps": {
+            "trades": 3366,
+            "exposure_fraction": 0.8480725623582767,
+            "long_fraction": 0.7505668934240363,
+            "win_rate": 0.5062388591800356,
+            "net_expectancy_fraction": -0.0004981074197416219,
+            "profit_factor": 0.8856241774723493,
+            "total_return_fraction": -0.8524479879060063,
+            "max_drawdown_fraction": 0.8552052882829086
+          }
+        },
+        "always_long": {
+          "0bps": {
+            "trades": 3969,
+            "exposure_fraction": 1.0,
+            "long_fraction": 1.0,
+            "win_rate": 0.5474930713025951,
+            "net_expectancy_fraction": 0.0003402441833490439,
+            "profit_factor": 1.0871434329068965,
+            "total_return_fraction": 1.9293383194990095,
+            "max_drawdown_fraction": 0.40783918359901516
+          },
+          "2bps": {
+            "trades": 3969,
+            "exposure_fraction": 1.0,
+            "long_fraction": 1.0,
+            "win_rate": 0.5366591080876795,
+            "net_expectancy_fraction": 0.0001402441833490442,
+            "profit_factor": 1.035098454453714,
+            "total_return_fraction": 0.3245289212657856,
+            "max_drawdown_fraction": 0.42209685623071
+          },
+          "5bps": {
+            "trades": 3969,
+            "exposure_fraction": 1.0,
+            "long_fraction": 1.0,
+            "win_rate": 0.5197782816830436,
+            "net_expectancy_fraction": -0.00015975581665095647,
+            "profit_factor": 0.9613849082600509,
+            "total_return_fraction": -0.5974034862116127,
+            "max_drawdown_fraction": 0.6730450707308901
+          }
+        }
+      },
+      "exposed": {
+        "free_primary": {
+          "0bps": {
+            "trades": 631,
+            "exposure_fraction": 0.9633587786259542,
+            "long_fraction": 0.9633587786259542,
+            "win_rate": 0.5388272583201268,
+            "net_expectancy_fraction": 0.00039234358432519464,
+            "profit_factor": 1.114639415773656,
+            "total_return_fraction": 0.23633182613450843,
+            "max_drawdown_fraction": 0.15702632836900587
+          },
+          "2bps": {
+            "trades": 631,
+            "exposure_fraction": 0.9633587786259542,
+            "long_fraction": 0.9633587786259542,
+            "win_rate": 0.5309033280507132,
+            "net_expectancy_fraction": 0.00019234358432519482,
+            "profit_factor": 1.0547184562842626,
+            "total_return_fraction": 0.08977536409515219,
+            "max_drawdown_fraction": 0.1878418156334104
+          },
+          "5bps": {
+            "trades": 631,
+            "exposure_fraction": 0.9633587786259542,
+            "long_fraction": 0.9633587786259542,
+            "win_rate": 0.5118858954041204,
+            "net_expectancy_fraction": -0.0001076564156748058,
+            "profit_factor": 0.9705716365172966,
+            "total_return_fraction": -0.0981810902598026,
+            "max_drawdown_fraction": 0.25047575954854684
+          }
+        },
+        "base_primary": {
+          "0bps": {
+            "trades": 619,
+            "exposure_fraction": 0.9450381679389313,
+            "long_fraction": 0.9068702290076336,
+            "win_rate": 0.5282714054927302,
+            "net_expectancy_fraction": 6.174750287613374e-05,
+            "profit_factor": 1.017577852583379,
+            "total_return_fraction": 0.004972479575386046,
+            "max_drawdown_fraction": 0.18930553569687336
+          },
+          "2bps": {
+            "trades": 619,
+            "exposure_fraction": 0.9450381679389313,
+            "long_fraction": 0.9068702290076336,
+            "win_rate": 0.5169628432956381,
+            "net_expectancy_fraction": -0.00013825249712386606,
+            "profit_factor": 0.961680006862697,
+            "total_return_fraction": -0.11206596625700216,
+            "max_drawdown_fraction": 0.2394656175094595
+          },
+          "5bps": {
+            "trades": 619,
+            "exposure_fraction": 0.9450381679389313,
+            "long_fraction": 0.9068702290076336,
+            "win_rate": 0.4991922455573506,
+            "net_expectancy_fraction": -0.0004382524971238667,
+            "profit_factor": 0.8832941788244445,
+            "total_return_fraction": -0.26260476486773543,
+            "max_drawdown_fraction": 0.3304542679629974
+          }
+        },
+        "always_long": {
+          "0bps": {
+            "trades": 655,
+            "exposure_fraction": 1.0,
+            "long_fraction": 1.0,
+            "win_rate": 0.5343511450381679,
+            "net_expectancy_fraction": 0.00032068135963146926,
+            "profit_factor": 1.092566722582776,
+            "total_return_fraction": 0.1896024417514972,
+            "max_drawdown_fraction": 0.1590462405615347
+          },
+          "2bps": {
+            "trades": 655,
+            "exposure_fraction": 1.0,
+            "long_fraction": 1.0,
+            "win_rate": 0.5267175572519084,
+            "net_expectancy_fraction": 0.00012068135963146945,
+            "profit_factor": 1.0339188937407557,
+            "total_return_fraction": 0.0435554404890135,
+            "max_drawdown_fraction": 0.18995032017157776
+          },
+          "5bps": {
+            "trades": 655,
+            "exposure_fraction": 1.0,
+            "long_fraction": 1.0,
+            "win_rate": 0.5083969465648855,
+            "net_expectancy_fraction": -0.0001793186403685312,
+            "profit_factor": 0.9515644511347346,
+            "total_return_fraction": -0.14263705796014736,
+            "max_drawdown_fraction": 0.2537935215069421
+          }
+        }
+      },
+      "all": {
+        "free_primary": {
+          "0bps": {
+            "trades": 4015,
+            "exposure_fraction": 0.8682958477508651,
+            "long_fraction": 0.7707612456747405,
+            "win_rate": 0.5260273972602739,
+            "net_expectancy_fraction": 6.719928545437198e-05,
+            "profit_factor": 1.0170901259758038,
+            "total_return_fraction": 0.00297205274097867,
+            "max_drawdown_fraction": 0.5575520050129192
+          },
+          "2bps": {
+            "trades": 4015,
+            "exposure_fraction": 0.8682958477508651,
+            "long_fraction": 0.7707612456747405,
+            "win_rate": 0.5168119551681195,
+            "net_expectancy_fraction": -0.00013280071454562777,
+            "profit_factor": 0.967026644026591,
+            "total_return_fraction": -0.5507454036342658,
+            "max_drawdown_fraction": 0.6803893755866846
+          },
+          "5bps": {
+            "trades": 4015,
+            "exposure_fraction": 0.8682958477508651,
+            "long_fraction": 0.7707612456747405,
+            "win_rate": 0.4991282689912827,
+            "net_expectancy_fraction": -0.00043280071454562845,
+            "profit_factor": 0.8963344893563912,
+            "total_return_fraction": -0.865362139299151,
+            "max_drawdown_fraction": 0.8810551936150145
+          }
+        },
+        "base_primary": {
+          "0bps": {
+            "trades": 3985,
+            "exposure_fraction": 0.8618079584775087,
+            "long_fraction": 0.7727076124567474,
+            "win_rate": 0.5312421580928481,
+            "net_expectancy_fraction": 1.1189994838150228e-05,
+            "profit_factor": 1.0027825365610405,
+            "total_return_fraction": -0.2014516035917211,
+            "max_drawdown_fraction": 0.48120354635462437
+          },
+          "2bps": {
+            "trades": 3985,
+            "exposure_fraction": 0.8618079584775087,
+            "long_fraction": 0.7727076124567474,
+            "win_rate": 0.5217063989962358,
+            "net_expectancy_fraction": -0.00018881000516184947,
+            "profit_factor": 0.9541276890768069,
+            "total_return_fraction": -0.6401753641778813,
+            "max_drawdown_fraction": 0.6680779873258665
+          },
+          "5bps": {
+            "trades": 3985,
+            "exposure_fraction": 0.8618079584775087,
+            "long_fraction": 0.7727076124567474,
+            "win_rate": 0.5051442910915934,
+            "net_expectancy_fraction": -0.0004888100051618502,
+            "profit_factor": 0.885305278428083,
+            "total_return_fraction": -0.8911958493477107,
+            "max_drawdown_fraction": 0.8949835352527717
+          }
+        },
+        "always_long": {
+          "0bps": {
+            "trades": 4624,
+            "exposure_fraction": 1.0,
+            "long_fraction": 1.0,
+            "win_rate": 0.5456314878892734,
+            "net_expectancy_fraction": 0.000337473065370019,
+            "profit_factor": 1.0878361232750868,
+            "total_return_fraction": 2.4847480175922487,
+            "max_drawdown_fraction": 0.40783918359901516
+          },
+          "2bps": {
+            "trades": 4624,
+            "exposure_fraction": 1.0,
+            "long_fraction": 1.0,
+            "win_rate": 0.5352508650519031,
+            "net_expectancy_fraction": 0.0001374730653700192,
+            "profit_factor": 1.0349473286386002,
+            "total_return_fraction": 0.38221936187195427,
+            "max_drawdown_fraction": 0.42209685623071
+          },
+          "5bps": {
+            "trades": 4624,
+            "exposure_fraction": 1.0,
+            "long_fraction": 1.0,
+            "win_rate": 0.5181660899653979,
+            "net_expectancy_fraction": -0.00016252693462998145,
+            "profit_factor": 0.9601212411585435,
+            "total_return_fraction": -0.6548286684833997,
+            "max_drawdown_fraction": 0.6806690882456874
+          }
+        }
+      }
+    },
+    "verdicts": {
+      "direction_free_features": "INCONCLUSIVE",
+      "range_free_features": "FAIL"
+    }
+  },
+  "predictions_path": "D:\\nocturne-futures\\data\\studies\\phase3u\\de358f794e96e44b821dea79\\predictions.csv",
+  "predictions_sha256": "0eee464efba5a51859cf49ac4f76a393c1c9597429092a871677e3d08e681226",
+  "limitations": [
+    "Cash index, not NQ/ES contracts; no roll, no futures session, no order flow.",
+    "FRED/CFTC values are latest vintages; daily market series are rarely revised, revisable macro series are excluded.",
+    "Conservative availability lags reduce, but cannot prove absence of, publication-time error.",
+    "SEC ticker set is today's megacaps (survivorship-biased membership).",
+    "2024+ was examined by earlier phases with other features; it is not an untouched holdout.",
+    "Hypothetical index exposure ignores financing, futures basis and realistic execution."
+  ],
+  "promotion": "NO_PROMOTION",
+  "trading_decision": "NO_TRADE",
+  "futures_status": "FUTURES_DATA_BLOCKED"
+}

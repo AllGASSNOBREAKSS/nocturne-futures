@@ -1,0 +1,250 @@
+{
+  "generated_at": "2026-11-09T02:18:54.540746+00:00",
+  "model_status": "RESEARCH_VALIDATED_PENDING_SHADOW",
+  "counts": {
+    "issued": 4,
+    "matured": 2,
+    "pending": 2,
+    "audit_blocked": 2,
+    "missed": 0
+  },
+  "latest_forecast": {
+    "forecast_id": "cd26071237a957cd7a874933",
+    "issued_at": "2026-11-07T00:17:13.154782+00:00",
+    "data_date": "2026-11-06",
+    "target_date": "2026-11-09",
+    "horizon": "next NDX cash session high-low range",
+    "model": "ndx-range-v1 1.0.0 (residual-adjusted-v1)",
+    "reference_close": 26989.9921875,
+    "forecast_fraction": {
+      "p50": 0.024179815959388794,
+      "p80": 0.032360954552483105,
+      "p90": 0.04248446715001841
+    },
+    "forecast_points": {
+      "p50": 652.61,
+      "p80": 873.42,
+      "p90": 1146.66
+    },
+    "trailing250_baseline_fraction": {
+      "p50": 0.012509880673746143,
+      "p80": 0.019182861833478847,
+      "p90": 0.02243258141655299
+    },
+    "context": {
+      "vix_close_on_data_date": NaN,
+      "baseline_window_last": "2026-11-06"
+    },
+    "status": "PENDING_AUDIT_BLOCKED",
+    "evaluation_requirement": "target bar complete after next-day 00:00 UTC bound AND reference-close audit cleared by independent final OHLC evidence; never force-evaluated"
+  },
+  "forecasts": [
+    {
+      "forecast_id": "20d48fc41c2cc0f5c0ae4f2d",
+      "issued_at": "2026-11-04T02:53:30.237804+00:00",
+      "data_date": "2026-11-03",
+      "target_date": "2026-11-04",
+      "horizon": "next NDX cash session high-low range",
+      "model": "ndx-range-v1 1.0.0 (legacy-unadjusted)",
+      "reference_close": 28180.263671875,
+      "forecast_fraction": {
+        "p50": 0.016976789311298954,
+        "p80": 0.026183191240699396,
+        "p90": 0.02856812814119795
+      },
+      "forecast_points": {
+        "p50": 478.41,
+        "p80": 737.85,
+        "p90": 805.06
+      },
+      "trailing250_baseline_fraction": {
+        "p50": 0.012509880673746143,
+        "p80": 0.018884913675551913,
+        "p90": 0.02226469595541088
+      },
+      "context": {
+        "vix_close_on_data_date": 20.83,
+        "baseline_window_last": "2026-11-03"
+      },
+      "status": "MATURED_VERIFIED",
+      "realized_fraction": 0.019639396061696825,
+      "realized_points": 553.443359375,
+      "covered": {
+        "p50": false,
+        "p80": true,
+        "p90": true
+      },
+      "pinball_model": {
+        "p50": 0.0013313033751989351,
+        "p80": 0.0013087590358005139,
+        "p90": 0.0008928732079501124
+      },
+      "pinball_trailing_baseline": {
+        "p50": 0.0035647576939753407,
+        "p80": 0.0006035859089159296,
+        "p90": 0.00026252998937140545
+      },
+      "outcome_source": "research_grade_unofficial_not_exchange_finality",
+      "mean_pinball": {
+        "model": 0.0011776452063165207,
+        "trailing_baseline": 0.0014769578640875585
+      }
+    },
+    {
+      "forecast_id": "3db9c4cbd3a9cc5944db8437",
+      "issued_at": "2026-11-05T00:17:12.620017+00:00",
+      "data_date": "2026-11-04",
+      "target_date": "2026-11-05",
+      "horizon": "next NDX cash session high-low range",
+      "model": "ndx-range-v1 1.0.0 (residual-adjusted-v1)",
+      "reference_close": 28437.166015625,
+      "forecast_fraction": {
+        "p50": 0.016858438244665742,
+        "p80": 0.025113282583718373,
+        "p90": 0.031045690835127347
+      },
+      "forecast_points": {
+        "p50": 479.41,
+        "p80": 714.15,
+        "p90": 882.85
+      },
+      "trailing250_baseline_fraction": {
+        "p50": 0.012509880673746143,
+        "p80": 0.019182861833478847,
+        "p90": 0.02226469595541088
+      },
+      "context": {
+        "vix_close_on_data_date": 16.61,
+        "baseline_window_last": "2026-11-04"
+      },
+      "status": "MATURED_VERIFIED",
+      "realized_fraction": 0.05175472871281661,
+      "realized_points": 1471.7578125,
+      "covered": {
+        "p50": false,
+        "p80": false,
+        "p90": false
+      },
+      "pinball_model": {
+        "p50": 0.017448145234075434,
+        "p80": 0.02131315690327859,
+        "p90": 0.01863813408992034
+      },
+      "pinball_trailing_baseline": {
+        "p50": 0.019622424019535234,
+        "p80": 0.02605749350347021,
+        "p90": 0.02654102948166516
+      },
+      "outcome_source": "research_grade_unofficial_not_exchange_finality",
+      "mean_pinball": {
+        "model": 0.019133145409091456,
+        "trailing_baseline": 0.02407364900155687
+      }
+    },
+    {
+      "forecast_id": "291aac9c9d893a888609aafd",
+      "issued_at": "2026-11-06T00:47:12.720972+00:00",
+      "data_date": "2026-11-05",
+      "target_date": "2026-11-06",
+      "horizon": "next NDX cash session high-low range",
+      "model": "ndx-range-v1 1.0.0 (residual-adjusted-v1)",
+      "reference_close": 26629.80859375,
+      "forecast_fraction": {
+        "p50": 0.034500404140336935,
+        "p80": 0.06031706788643462,
+        "p90": 0.07437767299734434
+      },
+      "forecast_points": {
+        "p50": 918.74,
+        "p80": 1606.23,
+        "p90": 1980.66
+      },
+      "trailing250_baseline_fraction": {
+        "p50": 0.012509880673746143,
+        "p80": 0.019182861833478847,
+        "p90": 0.02243258141655299
+      },
+      "context": {
+        "vix_close_on_data_date": 28.18,
+        "baseline_window_last": "2026-11-05"
+      },
+      "status": "PENDING_AUDIT_BLOCKED",
+      "evaluation_requirement": "target bar complete after next-day 00:00 UTC bound AND reference-close audit cleared by independent final OHLC evidence; never force-evaluated"
+    },
+    {
+      "forecast_id": "cd26071237a957cd7a874933",
+      "issued_at": "2026-11-07T00:17:13.154782+00:00",
+      "data_date": "2026-11-06",
+      "target_date": "2026-11-09",
+      "horizon": "next NDX cash session high-low range",
+      "model": "ndx-range-v1 1.0.0 (residual-adjusted-v1)",
+      "reference_close": 26989.9921875,
+      "forecast_fraction": {
+        "p50": 0.024179815959388794,
+        "p80": 0.032360954552483105,
+        "p90": 0.04248446715001841
+      },
+      "forecast_points": {
+        "p50": 652.61,
+        "p80": 873.42,
+        "p90": 1146.66
+      },
+      "trailing250_baseline_fraction": {
+        "p50": 0.012509880673746143,
+        "p80": 0.019182861833478847,
+        "p90": 0.02243258141655299
+      },
+      "context": {
+        "vix_close_on_data_date": NaN,
+        "baseline_window_last": "2026-11-06"
+      },
+      "status": "PENDING_AUDIT_BLOCKED",
+      "evaluation_requirement": "target bar complete after next-day 00:00 UTC bound AND reference-close audit cleared by independent final OHLC evidence; never force-evaluated"
+    }
+  ],
+  "aggregate_descriptive_only": {
+    "n": 2,
+    "mean_pinball_model": 0.010155395307703988,
+    "mean_pinball_trailing_baseline": 0.012775303432822214,
+    "p80_coverage": 0.5,
+    "note": "n=2; no statistical accuracy claim is possible"
+  },
+  "market_context_now": {
+    "latest_cot_nq_report_date": "2026-11-03",
+    "latest_cot_nq_available_at": "2026-11-09 21:00:00+00:00",
+    "nq_asset_manager_net_pct_oi": 0.24996667657824853,
+    "recent_fed_events": [
+      {
+        "published_at": "2026-10-13T18:00:00+00:00",
+        "event_type": "MONETARY_POLICY",
+        "title": "Minutes of the Board's discount rate meetings on August 17, September 9, and September 16, 2026"
+      },
+      {
+        "published_at": "2026-10-16T15:00:00+00:00",
+        "event_type": "BANK_SUPERVISION",
+        "title": "Federal Reserve Board announces termination of enforcement actions with Gardner Bancshares, Inc. and Small Business Bank"
+      },
+      {
+        "published_at": "2026-10-28T18:00:00+00:00",
+        "event_type": "FOMC_STATEMENT",
+        "title": "Federal Reserve issues FOMC statement"
+      },
+      {
+        "published_at": "2026-10-29T20:30:00+00:00",
+        "event_type": "OTHER_PRESS_RELEASE",
+        "title": "Federal Reserve Board announces approval of application by The Bank of Nova Scotia"
+      },
+      {
+        "published_at": "2026-11-05T16:00:00+00:00",
+        "event_type": "BANK_SUPERVISION",
+        "title": "Federal Reserve Board announces termination of enforcement action with Allegiant United Holdings, LLC, Nano Financial Holdings, Inc., and Nano Banc"
+      }
+    ]
+  },
+  "journal_sha256": {
+    "forecasts.jsonl": "fbc52e88c2eb4364256ab706c08e5bea632e53ddc2132ddffb2393b02159ba86",
+    "outcomes.jsonl": "8b90fbee6cbd79ccd559240e1dc15d5b2e4de1507d4222a51641eb8c61443396"
+  },
+  "writes_to_journal": false,
+  "trading_decision": "NO_TRADE"
+}
