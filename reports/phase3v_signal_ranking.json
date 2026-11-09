@@ -1,0 +1,2011 @@
+{
+  "generated_at": "2026-11-09T04:09:24.153963+00:00",
+  "method": "Rank Phase 3V candidate signals on independent evidence (no confidence scores).\n\nInputs: reports/phase3v_research.json (NQ target-before-stop cells) and\nreports/phase3v_strategies.json. Expectancy is normalised to points per single\ncontract. Rank key: holdout expectancy 95% CI lower bound, then development\nlower bound, then sample size. A signal is accepted only if both development\nand holdout lower bounds are above zero with >= 100 trades each; everything\nelse is rejected with a stated reason. NO_TRADE regardless of rank.",
+  "accepted": 0,
+  "candidates": 26,
+  "ranking": [
+    {
+      "signal": "NQ fixed-geometry LONG T200/S100 6h from 15:00 UTC open",
+      "family": "target_before_stop",
+      "unit": "points/contract",
+      "conditions": "any day outside roll windows; hourly path, fine-bar tie resolution",
+      "levels": {
+        "target_points": 200,
+        "stop_points": 100
+      },
+      "development": {
+        "n": 324,
+        "target_first": {
+          "k": 31,
+          "n": 324,
+          "p": 0.0957,
+          "ci95": [
+            0.0682,
+            0.1326
+          ]
+        },
+        "ev": -4.131,
+        "ev_ci95": [
+          -15.707,
+          7.445
+        ]
+      },
+      "holdout": {
+        "n": 217,
+        "target_first": {
+          "k": 46,
+          "n": 217,
+          "p": 0.212,
+          "ci95": [
+            0.1629,
+            0.2711
+          ]
+        },
+        "ev": 11.309,
+        "ev_ci95": [
+          -5.195,
+          27.813
+        ]
+      },
+      "regime_target_first": {
+        "development": {
+          "vix<15": {
+            "n": 51,
+            "target_first": 0.0196
+          },
+          "15-25": {
+            "n": 251,
+            "target_first": 0.0837
+          },
+          "vix>25": {
+            "n": 22,
+            "target_first": 0.4091
+          }
+        },
+        "holdout": {
+          "vix<15": {
+            "n": 26,
+            "target_first": 0.0769
+          },
+          "15-25": {
+            "n": 177,
+            "target_first": 0.2316
+          },
+          "vix>25": {
+            "n": 14,
+            "target_first": 0.2143
+          }
+        }
+      },
+      "validation_status": "REJECTED",
+      "rejection_reason": "DEVELOPMENT_CI_INCLUDES_ZERO_OR_NEGATIVE",
+      "rank_key": [
+        -5.195,
+        -15.707,
+        217
+      ],
+      "trading_decision": "NO_TRADE",
+      "rank": 1
+    },
+    {
+      "signal": "ES opening_range_breakout (existing strategy, 5m)",
+      "family": "strategy",
+      "unit": "points/contract",
+      "conditions": "RTH, existing rule parameters, 1 tick slippage",
+      "levels": "rule-defined per signal",
+      "development": {
+        "n": 21,
+        "win_rate": 0.3333,
+        "ev": -2.874,
+        "ev_ci95": [
+          -10.527,
+          4.779
+        ],
+        "profit_factor": 0.6822
+      },
+      "validation": {
+        "n": 11,
+        "win_rate": 0.4545,
+        "ev": 2.082,
+        "ev_ci95": [
+          -11.358,
+          15.522
+        ],
+        "profit_factor": 1.2514
+      },
+      "holdout": {
+        "n": 12,
+        "win_rate": 0.5,
+        "ev": 7.171,
+        "ev_ci95": [
+          -5.572,
+          19.913
+        ],
+        "profit_factor": 2.259
+      },
+      "slippage_sensitivity_dollars_per_position": {
+        "0.5": 135.31,
+        "1.0": 110.45,
+        "2.0": 60.74
+      },
+      "intrabar_ordering_1m": {
+        "compared": 18,
+        "outcome_changed": 0,
+        "net_dollars_5m": 13995.0,
+        "net_dollars_1m": 10945.0
+      },
+      "validation_status": "REJECTED",
+      "rejection_reason": "INSUFFICIENT_SAMPLE",
+      "rank_key": [
+        -5.572,
+        -10.527,
+        12
+      ],
+      "trading_decision": "NO_TRADE",
+      "rank": 2
+    },
+    {
+      "signal": "ES value_rejection (existing strategy, 5m)",
+      "family": "strategy",
+      "unit": "points/contract",
+      "conditions": "RTH, existing rule parameters, 1 tick slippage",
+      "levels": "rule-defined per signal",
+      "development": {
+        "n": 11,
+        "win_rate": 0.6364,
+        "ev": -0.645,
+        "ev_ci95": [
+          -8.476,
+          7.185
+        ],
+        "profit_factor": 0.882
+      },
+      "validation": {
+        "n": 7,
+        "win_rate": 0.7143,
+        "ev": 5.793,
+        "ev_ci95": [
+          -4.391,
+          15.977
+        ],
+        "profit_factor": 2.8904
+      },
+      "holdout": {
+        "n": 8,
+        "win_rate": 0.5,
+        "ev": 1.681,
+        "ev_ci95": [
+          -7.53,
+          10.893
+        ],
+        "profit_factor": 1.391
+      },
+      "slippage_sensitivity_dollars_per_position": {
+        "0.5": 205.38,
+        "1.0": 180.38,
+        "2.0": 130.38
+      },
+      "intrabar_ordering_1m": {
+        "compared": 13,
+        "outcome_changed": 0,
+        "net_dollars_5m": 7545.0,
+        "net_dollars_1m": 7145.0
+      },
+      "validation_status": "REJECTED",
+      "rejection_reason": "INSUFFICIENT_SAMPLE",
+      "rank_key": [
+        -7.53,
+        -8.476,
+        8
+      ],
+      "trading_decision": "NO_TRADE",
+      "rank": 3
+    },
+    {
+      "signal": "NQ fixed-geometry LONG T100/S100 24h from 15:00 UTC open",
+      "family": "target_before_stop",
+      "unit": "points/contract",
+      "conditions": "any day outside roll windows; hourly path, fine-bar tie resolution",
+      "levels": {
+        "target_points": 100,
+        "stop_points": 100
+      },
+      "development": {
+        "n": 326,
+        "target_first": {
+          "k": 154,
+          "n": 326,
+          "p": 0.4724,
+          "ci95": [
+            0.4188,
+            0.5266
+          ]
+        },
+        "ev": -4.249,
+        "ev_ci95": [
+          -15.033,
+          6.535
+        ]
+      },
+      "holdout": {
+        "n": 217,
+        "target_first": {
+          "k": 114,
+          "n": 217,
+          "p": 0.5253,
+          "ci95": [
+            0.459,
+            0.5908
+          ]
+        },
+        "ev": 4.877,
+        "ev_ci95": [
+          -8.409,
+          18.162
+        ]
+      },
+      "regime_target_first": {
+        "development": {
+          "vix<15": {
+            "n": 51,
+            "target_first": 0.4314
+          },
+          "15-25": {
+            "n": 253,
+            "target_first": 0.4743
+          },
+          "vix>25": {
+            "n": 22,
+            "target_first": 0.5455
+          }
+        },
+        "holdout": {
+          "vix<15": {
+            "n": 26,
+            "target_first": 0.3846
+          },
+          "15-25": {
+            "n": 178,
+            "target_first": 0.5618
+          },
+          "vix>25": {
+            "n": 13,
+            "target_first": 0.3077
+          }
+        }
+      },
+      "validation_status": "REJECTED",
+      "rejection_reason": "DEVELOPMENT_CI_INCLUDES_ZERO_OR_NEGATIVE",
+      "rank_key": [
+        -8.409,
+        -15.033,
+        217
+      ],
+      "trading_decision": "NO_TRADE",
+      "rank": 4
+    },
+    {
+      "signal": "NQ fixed-geometry LONG T200/S100 24h from 15:00 UTC open",
+      "family": "target_before_stop",
+      "unit": "points/contract",
+      "conditions": "any day outside roll windows; hourly path, fine-bar tie resolution",
+      "levels": {
+        "target_points": 200,
+        "stop_points": 100
+      },
+      "development": {
+        "n": 326,
+        "target_first": {
+          "k": 83,
+          "n": 326,
+          "p": 0.2546,
+          "ci95": [
+            0.2104,
+            0.3046
+          ]
+        },
+        "ev": -3.473,
+        "ev_ci95": [
+          -17.773,
+          10.827
+        ]
+      },
+      "holdout": {
+        "n": 217,
+        "target_first": {
+          "k": 79,
+          "n": 217,
+          "p": 0.3641,
+          "ci95": [
+            0.3029,
+            0.4299
+          ]
+        },
+        "ev": 10.516,
+        "ev_ci95": [
+          -8.658,
+          29.691
+        ]
+      },
+      "regime_target_first": {
+        "development": {
+          "vix<15": {
+            "n": 51,
+            "target_first": 0.1569
+          },
+          "15-25": {
+            "n": 253,
+            "target_first": 0.2569
+          },
+          "vix>25": {
+            "n": 22,
+            "target_first": 0.4545
+          }
+        },
+        "holdout": {
+          "vix<15": {
+            "n": 26,
+            "target_first": 0.1923
+          },
+          "15-25": {
+            "n": 178,
+            "target_first": 0.3933
+          },
+          "vix>25": {
+            "n": 13,
+            "target_first": 0.3077
+          }
+        }
+      },
+      "validation_status": "REJECTED",
+      "rejection_reason": "DEVELOPMENT_CI_INCLUDES_ZERO_OR_NEGATIVE",
+      "rank_key": [
+        -8.658,
+        -17.773,
+        217
+      ],
+      "trading_decision": "NO_TRADE",
+      "rank": 5
+    },
+    {
+      "signal": "NQ fixed-geometry LONG T100/S100 6h from 15:00 UTC open",
+      "family": "target_before_stop",
+      "unit": "points/contract",
+      "conditions": "any day outside roll windows; hourly path, fine-bar tie resolution",
+      "levels": {
+        "target_points": 100,
+        "stop_points": 100
+      },
+      "development": {
+        "n": 324,
+        "target_first": {
+          "k": 122,
+          "n": 324,
+          "p": 0.3765,
+          "ci95": [
+            0.3255,
+            0.4305
+          ]
+        },
+        "ev": -2.208,
+        "ev_ci95": [
+          -12.105,
+          7.689
+        ]
+      },
+      "holdout": {
+        "n": 217,
+        "target_first": {
+          "k": 102,
+          "n": 217,
+          "p": 0.47,
+          "ci95": [
+            0.4047,
+            0.5364
+          ]
+        },
+        "ev": 3.816,
+        "ev_ci95": [
+          -8.95,
+          16.581
+        ]
+      },
+      "regime_target_first": {
+        "development": {
+          "vix<15": {
+            "n": 51,
+            "target_first": 0.2549
+          },
+          "15-25": {
+            "n": 251,
+            "target_first": 0.3865
+          },
+          "vix>25": {
+            "n": 22,
+            "target_first": 0.5455
+          }
+        },
+        "holdout": {
+          "vix<15": {
+            "n": 26,
+            "target_first": 0.3077
+          },
+          "15-25": {
+            "n": 177,
+            "target_first": 0.5085
+          },
+          "vix>25": {
+            "n": 14,
+            "target_first": 0.2857
+          }
+        }
+      },
+      "validation_status": "REJECTED",
+      "rejection_reason": "DEVELOPMENT_CI_INCLUDES_ZERO_OR_NEGATIVE",
+      "rank_key": [
+        -8.95,
+        -12.105,
+        217
+      ],
+      "trading_decision": "NO_TRADE",
+      "rank": 6
+    },
+    {
+      "signal": "NQ fixed-geometry LONG T200/S200 6h from 15:00 UTC open",
+      "family": "target_before_stop",
+      "unit": "points/contract",
+      "conditions": "any day outside roll windows; hourly path, fine-bar tie resolution",
+      "levels": {
+        "target_points": 200,
+        "stop_points": 200
+      },
+      "development": {
+        "n": 324,
+        "target_first": {
+          "k": 39,
+          "n": 324,
+          "p": 0.1204,
+          "ci95": [
+            0.0893,
+            0.1603
+          ]
+        },
+        "ev": -3.292,
+        "ev_ci95": [
+          -17.865,
+          11.282
+        ]
+      },
+      "holdout": {
+        "n": 217,
+        "target_first": {
+          "k": 57,
+          "n": 217,
+          "p": 0.2627,
+          "ci95": [
+            0.2086,
+            0.325
+          ]
+        },
+        "ev": 9.724,
+        "ev_ci95": [
+          -10.868,
+          30.315
+        ]
+      },
+      "regime_target_first": {
+        "development": {
+          "vix<15": {
+            "n": 51,
+            "target_first": 0.0196
+          },
+          "15-25": {
+            "n": 251,
+            "target_first": 0.1155
+          },
+          "vix>25": {
+            "n": 22,
+            "target_first": 0.4091
+          }
+        },
+        "holdout": {
+          "vix<15": {
+            "n": 26,
+            "target_first": 0.0769
+          },
+          "15-25": {
+            "n": 177,
+            "target_first": 0.2938
+          },
+          "vix>25": {
+            "n": 14,
+            "target_first": 0.2143
+          }
+        }
+      },
+      "validation_status": "REJECTED",
+      "rejection_reason": "DEVELOPMENT_CI_INCLUDES_ZERO_OR_NEGATIVE",
+      "rank_key": [
+        -10.868,
+        -17.865,
+        217
+      ],
+      "trading_decision": "NO_TRADE",
+      "rank": 7
+    },
+    {
+      "signal": "ES vwap_pullback (existing strategy, 5m)",
+      "family": "strategy",
+      "unit": "points/contract",
+      "conditions": "RTH, existing rule parameters, 1 tick slippage",
+      "levels": "rule-defined per signal",
+      "development": {
+        "n": 22,
+        "win_rate": 0.3636,
+        "ev": -4.053,
+        "ev_ci95": [
+          -8.494,
+          0.389
+        ],
+        "profit_factor": 0.3826
+      },
+      "validation": {
+        "n": 8,
+        "win_rate": 0.625,
+        "ev": -0.016,
+        "ev_ci95": [
+          -5.846,
+          5.814
+        ],
+        "profit_factor": 0.9955
+      },
+      "holdout": {
+        "n": 10,
+        "win_rate": 0.5,
+        "ev": -0.472,
+        "ev_ci95": [
+          -11.321,
+          10.377
+        ],
+        "profit_factor": 0.9388
+      },
+      "slippage_sensitivity_dollars_per_position": {
+        "0.5": -203.14,
+        "1.0": -235.0,
+        "2.0": -287.82
+      },
+      "intrabar_ordering_1m": {
+        "compared": 13,
+        "outcome_changed": 0,
+        "net_dollars_5m": -1161.38,
+        "net_dollars_1m": -261.38
+      },
+      "validation_status": "REJECTED",
+      "rejection_reason": "INSUFFICIENT_SAMPLE",
+      "rank_key": [
+        -11.321,
+        -8.494,
+        10
+      ],
+      "trading_decision": "NO_TRADE",
+      "rank": 8
+    },
+    {
+      "signal": "NQ fixed-geometry SHORT T500/S250 24h from 15:00 UTC open",
+      "family": "target_before_stop",
+      "unit": "points/contract",
+      "conditions": "any day outside roll windows; hourly path, fine-bar tie resolution",
+      "levels": {
+        "target_points": 500,
+        "stop_points": 250
+      },
+      "development": {
+        "n": 326,
+        "target_first": {
+          "k": 35,
+          "n": 326,
+          "p": 0.1074,
+          "ci95": [
+            0.0782,
+            0.1457
+          ]
+        },
+        "ev": -0.782,
+        "ev_ci95": [
+          -26.666,
+          25.101
+        ]
+      },
+      "holdout": {
+        "n": 217,
+        "target_first": {
+          "k": 41,
+          "n": 217,
+          "p": 0.1889,
+          "ci95": [
+            0.1424,
+            0.2463
+          ]
+        },
+        "ev": 23.865,
+        "ev_ci95": [
+          -15.248,
+          62.978
+        ]
+      },
+      "regime_target_first": {
+        "development": {
+          "vix<15": {
+            "n": 51,
+            "target_first": 0.0784
+          },
+          "15-25": {
+            "n": 253,
+            "target_first": 0.0949
+          },
+          "vix>25": {
+            "n": 22,
+            "target_first": 0.3182
+          }
+        },
+        "holdout": {
+          "vix<15": {
+            "n": 26,
+            "target_first": 0.1154
+          },
+          "15-25": {
+            "n": 178,
+            "target_first": 0.2022
+          },
+          "vix>25": {
+            "n": 13,
+            "target_first": 0.1538
+          }
+        }
+      },
+      "validation_status": "REJECTED",
+      "rejection_reason": "DEVELOPMENT_CI_INCLUDES_ZERO_OR_NEGATIVE",
+      "rank_key": [
+        -15.248,
+        -26.666,
+        217
+      ],
+      "trading_decision": "NO_TRADE",
+      "rank": 9
+    },
+    {
+      "signal": "NQ fixed-geometry SHORT T200/S100 24h from 15:00 UTC open",
+      "family": "target_before_stop",
+      "unit": "points/contract",
+      "conditions": "any day outside roll windows; hourly path, fine-bar tie resolution",
+      "levels": {
+        "target_points": 200,
+        "stop_points": 100
+      },
+      "development": {
+        "n": 326,
+        "target_first": {
+          "k": 92,
+          "n": 326,
+          "p": 0.2822,
+          "ci95": [
+            0.2361,
+            0.3334
+          ]
+        },
+        "ev": -3.992,
+        "ev_ci95": [
+          -18.533,
+          10.55
+        ]
+      },
+      "holdout": {
+        "n": 217,
+        "target_first": {
+          "k": 71,
+          "n": 217,
+          "p": 0.3272,
+          "ci95": [
+            0.2682,
+            0.3921
+          ]
+        },
+        "ev": 2.331,
+        "ev_ci95": [
+          -16.372,
+          21.034
+        ]
+      },
+      "regime_target_first": {
+        "development": {
+          "vix<15": {
+            "n": 51,
+            "target_first": 0.3333
+          },
+          "15-25": {
+            "n": 253,
+            "target_first": 0.2648
+          },
+          "vix>25": {
+            "n": 22,
+            "target_first": 0.3636
+          }
+        },
+        "holdout": {
+          "vix<15": {
+            "n": 26,
+            "target_first": 0.3462
+          },
+          "15-25": {
+            "n": 178,
+            "target_first": 0.3034
+          },
+          "vix>25": {
+            "n": 13,
+            "target_first": 0.6154
+          }
+        }
+      },
+      "validation_status": "REJECTED",
+      "rejection_reason": "DEVELOPMENT_CI_INCLUDES_ZERO_OR_NEGATIVE",
+      "rank_key": [
+        -16.372,
+        -18.533,
+        217
+      ],
+      "trading_decision": "NO_TRADE",
+      "rank": 10
+    },
+    {
+      "signal": "NQ fixed-geometry SHORT T200/S100 6h from 15:00 UTC open",
+      "family": "target_before_stop",
+      "unit": "points/contract",
+      "conditions": "any day outside roll windows; hourly path, fine-bar tie resolution",
+      "levels": {
+        "target_points": 200,
+        "stop_points": 100
+      },
+      "development": {
+        "n": 324,
+        "target_first": {
+          "k": 58,
+          "n": 324,
+          "p": 0.179,
+          "ci95": [
+            0.1411,
+            0.2244
+          ]
+        },
+        "ev": -2.148,
+        "ev_ci95": [
+          -14.641,
+          10.344
+        ]
+      },
+      "holdout": {
+        "n": 217,
+        "target_first": {
+          "k": 45,
+          "n": 217,
+          "p": 0.2074,
+          "ci95": [
+            0.1587,
+            0.2662
+          ]
+        },
+        "ev": -2.594,
+        "ev_ci95": [
+          -19.041,
+          13.852
+        ]
+      },
+      "regime_target_first": {
+        "development": {
+          "vix<15": {
+            "n": 51,
+            "target_first": 0.1569
+          },
+          "15-25": {
+            "n": 251,
+            "target_first": 0.1753
+          },
+          "vix>25": {
+            "n": 22,
+            "target_first": 0.2727
+          }
+        },
+        "holdout": {
+          "vix<15": {
+            "n": 26,
+            "target_first": 0.1538
+          },
+          "15-25": {
+            "n": 177,
+            "target_first": 0.1921
+          },
+          "vix>25": {
+            "n": 14,
+            "target_first": 0.5
+          }
+        }
+      },
+      "validation_status": "REJECTED",
+      "rejection_reason": "DEVELOPMENT_CI_INCLUDES_ZERO_OR_NEGATIVE",
+      "rank_key": [
+        -19.041,
+        -14.641,
+        217
+      ],
+      "trading_decision": "NO_TRADE",
+      "rank": 11
+    },
+    {
+      "signal": "NQ fixed-geometry LONG T350/S175 6h from 15:00 UTC open",
+      "family": "target_before_stop",
+      "unit": "points/contract",
+      "conditions": "any day outside roll windows; hourly path, fine-bar tie resolution",
+      "levels": {
+        "target_points": 350,
+        "stop_points": 175
+      },
+      "development": {
+        "n": 324,
+        "target_first": {
+          "k": 9,
+          "n": 324,
+          "p": 0.0278,
+          "ci95": [
+            0.0147,
+            0.0519
+          ]
+        },
+        "ev": -5.671,
+        "ev_ci95": [
+          -20.498,
+          9.156
+        ]
+      },
+      "holdout": {
+        "n": 217,
+        "target_first": {
+          "k": 10,
+          "n": 217,
+          "p": 0.0461,
+          "ci95": [
+            0.0252,
+            0.0827
+          ]
+        },
+        "ev": -1.342,
+        "ev_ci95": [
+          -22.334,
+          19.65
+        ]
+      },
+      "regime_target_first": {
+        "development": {
+          "vix<15": {
+            "n": 51,
+            "target_first": 0.0
+          },
+          "15-25": {
+            "n": 251,
+            "target_first": 0.0239
+          },
+          "vix>25": {
+            "n": 22,
+            "target_first": 0.1364
+          }
+        },
+        "holdout": {
+          "vix<15": {
+            "n": 26,
+            "target_first": 0.0
+          },
+          "15-25": {
+            "n": 177,
+            "target_first": 0.0452
+          },
+          "vix>25": {
+            "n": 14,
+            "target_first": 0.1429
+          }
+        }
+      },
+      "validation_status": "REJECTED",
+      "rejection_reason": "DEVELOPMENT_CI_INCLUDES_ZERO_OR_NEGATIVE",
+      "rank_key": [
+        -22.334,
+        -20.498,
+        217
+      ],
+      "trading_decision": "NO_TRADE",
+      "rank": 12
+    },
+    {
+      "signal": "NQ fixed-geometry LONG T500/S250 6h from 15:00 UTC open",
+      "family": "target_before_stop",
+      "unit": "points/contract",
+      "conditions": "any day outside roll windows; hourly path, fine-bar tie resolution",
+      "levels": {
+        "target_points": 500,
+        "stop_points": 250
+      },
+      "development": {
+        "n": 324,
+        "target_first": {
+          "k": 4,
+          "n": 324,
+          "p": 0.0123,
+          "ci95": [
+            0.0048,
+            0.0313
+          ]
+        },
+        "ev": -7.546,
+        "ev_ci95": [
+          -24.01,
+          8.918
+        ]
+      },
+      "holdout": {
+        "n": 217,
+        "target_first": {
+          "k": 3,
+          "n": 217,
+          "p": 0.0138,
+          "ci95": [
+            0.0047,
+            0.0399
+          ]
+        },
+        "ev": 0.016,
+        "ev_ci95": [
+          -22.561,
+          22.594
+        ]
+      },
+      "regime_target_first": {
+        "development": {
+          "vix<15": {
+            "n": 51,
+            "target_first": 0.0
+          },
+          "15-25": {
+            "n": 251,
+            "target_first": 0.012
+          },
+          "vix>25": {
+            "n": 22,
+            "target_first": 0.0455
+          }
+        },
+        "holdout": {
+          "vix<15": {
+            "n": 26,
+            "target_first": 0.0
+          },
+          "15-25": {
+            "n": 177,
+            "target_first": 0.0056
+          },
+          "vix>25": {
+            "n": 14,
+            "target_first": 0.1429
+          }
+        }
+      },
+      "validation_status": "REJECTED",
+      "rejection_reason": "DEVELOPMENT_CI_INCLUDES_ZERO_OR_NEGATIVE",
+      "rank_key": [
+        -22.561,
+        -24.01,
+        217
+      ],
+      "trading_decision": "NO_TRADE",
+      "rank": 13
+    },
+    {
+      "signal": "NQ fixed-geometry SHORT T100/S100 6h from 15:00 UTC open",
+      "family": "target_before_stop",
+      "unit": "points/contract",
+      "conditions": "any day outside roll windows; hourly path, fine-bar tie resolution",
+      "levels": {
+        "target_points": 100,
+        "stop_points": 100
+      },
+      "development": {
+        "n": 324,
+        "target_first": {
+          "k": 127,
+          "n": 324,
+          "p": 0.392,
+          "ci95": [
+            0.3404,
+            0.4461
+          ]
+        },
+        "ev": -2.378,
+        "ev_ci95": [
+          -12.275,
+          7.519
+        ]
+      },
+      "holdout": {
+        "n": 217,
+        "target_first": {
+          "k": 89,
+          "n": 217,
+          "p": 0.4101,
+          "ci95": [
+            0.3468,
+            0.4766
+          ]
+        },
+        "ev": -9.924,
+        "ev_ci95": [
+          -22.645,
+          2.797
+        ]
+      },
+      "regime_target_first": {
+        "development": {
+          "vix<15": {
+            "n": 51,
+            "target_first": 0.3333
+          },
+          "15-25": {
+            "n": 251,
+            "target_first": 0.4024
+          },
+          "vix>25": {
+            "n": 22,
+            "target_first": 0.4091
+          }
+        },
+        "holdout": {
+          "vix<15": {
+            "n": 26,
+            "target_first": 0.3846
+          },
+          "15-25": {
+            "n": 177,
+            "target_first": 0.3898
+          },
+          "vix>25": {
+            "n": 14,
+            "target_first": 0.7143
+          }
+        }
+      },
+      "validation_status": "REJECTED",
+      "rejection_reason": "DEVELOPMENT_CI_INCLUDES_ZERO_OR_NEGATIVE",
+      "rank_key": [
+        -22.645,
+        -12.275,
+        217
+      ],
+      "trading_decision": "NO_TRADE",
+      "rank": 14
+    },
+    {
+      "signal": "NQ fixed-geometry SHORT T350/S175 24h from 15:00 UTC open",
+      "family": "target_before_stop",
+      "unit": "points/contract",
+      "conditions": "any day outside roll windows; hourly path, fine-bar tie resolution",
+      "levels": {
+        "target_points": 350,
+        "stop_points": 175
+      },
+      "development": {
+        "n": 326,
+        "target_first": {
+          "k": 60,
+          "n": 326,
+          "p": 0.184,
+          "ci95": [
+            0.1457,
+            0.2297
+          ]
+        },
+        "ev": -4.012,
+        "ev_ci95": [
+          -26.188,
+          18.165
+        ]
+      },
+      "holdout": {
+        "n": 217,
+        "target_first": {
+          "k": 61,
+          "n": 217,
+          "p": 0.2811,
+          "ci95": [
+            0.2255,
+            0.3443
+          ]
+        },
+        "ev": 8.077,
+        "ev_ci95": [
+          -23.01,
+          39.164
+        ]
+      },
+      "regime_target_first": {
+        "development": {
+          "vix<15": {
+            "n": 51,
+            "target_first": 0.1569
+          },
+          "15-25": {
+            "n": 253,
+            "target_first": 0.17
+          },
+          "vix>25": {
+            "n": 22,
+            "target_first": 0.4091
+          }
+        },
+        "holdout": {
+          "vix<15": {
+            "n": 26,
+            "target_first": 0.2308
+          },
+          "15-25": {
+            "n": 178,
+            "target_first": 0.2753
+          },
+          "vix>25": {
+            "n": 13,
+            "target_first": 0.4615
+          }
+        }
+      },
+      "validation_status": "REJECTED",
+      "rejection_reason": "DEVELOPMENT_CI_INCLUDES_ZERO_OR_NEGATIVE",
+      "rank_key": [
+        -23.01,
+        -26.188,
+        217
+      ],
+      "trading_decision": "NO_TRADE",
+      "rank": 15
+    },
+    {
+      "signal": "NQ fixed-geometry SHORT T100/S100 24h from 15:00 UTC open",
+      "family": "target_before_stop",
+      "unit": "points/contract",
+      "conditions": "any day outside roll windows; hourly path, fine-bar tie resolution",
+      "levels": {
+        "target_points": 100,
+        "stop_points": 100
+      },
+      "development": {
+        "n": 326,
+        "target_first": {
+          "k": 161,
+          "n": 326,
+          "p": 0.4939,
+          "ci95": [
+            0.44,
+            0.5479
+          ]
+        },
+        "ev": -0.318,
+        "ev_ci95": [
+          -11.109,
+          10.473
+        ]
+      },
+      "holdout": {
+        "n": 217,
+        "target_first": {
+          "k": 97,
+          "n": 217,
+          "p": 0.447,
+          "ci95": [
+            0.3823,
+            0.5135
+          ]
+        },
+        "ev": -10.985,
+        "ev_ci95": [
+          -24.222,
+          2.251
+        ]
+      },
+      "regime_target_first": {
+        "development": {
+          "vix<15": {
+            "n": 51,
+            "target_first": 0.5098
+          },
+          "15-25": {
+            "n": 253,
+            "target_first": 0.498
+          },
+          "vix>25": {
+            "n": 22,
+            "target_first": 0.4091
+          }
+        },
+        "holdout": {
+          "vix<15": {
+            "n": 26,
+            "target_first": 0.5769
+          },
+          "15-25": {
+            "n": 178,
+            "target_first": 0.4101
+          },
+          "vix>25": {
+            "n": 13,
+            "target_first": 0.6923
+          }
+        }
+      },
+      "validation_status": "REJECTED",
+      "rejection_reason": "DEVELOPMENT_CI_INCLUDES_ZERO_OR_NEGATIVE",
+      "rank_key": [
+        -24.222,
+        -11.109,
+        217
+      ],
+      "trading_decision": "NO_TRADE",
+      "rank": 16
+    },
+    {
+      "signal": "NQ fixed-geometry SHORT T200/S200 24h from 15:00 UTC open",
+      "family": "target_before_stop",
+      "unit": "points/contract",
+      "conditions": "any day outside roll windows; hourly path, fine-bar tie resolution",
+      "levels": {
+        "target_points": 200,
+        "stop_points": 200
+      },
+      "development": {
+        "n": 326,
+        "target_first": {
+          "k": 120,
+          "n": 326,
+          "p": 0.3681,
+          "ci95": [
+            0.3176,
+            0.4217
+          ]
+        },
+        "ev": -4.66,
+        "ev_ci95": [
+          -23.576,
+          14.257
+        ]
+      },
+      "holdout": {
+        "n": 217,
+        "target_first": {
+          "k": 101,
+          "n": 217,
+          "p": 0.4654,
+          "ci95": [
+            0.4002,
+            0.5318
+          ]
+        },
+        "ev": 1.067,
+        "ev_ci95": [
+          -24.774,
+          26.908
+        ]
+      },
+      "regime_target_first": {
+        "development": {
+          "vix<15": {
+            "n": 51,
+            "target_first": 0.3725
+          },
+          "15-25": {
+            "n": 253,
+            "target_first": 0.3557
+          },
+          "vix>25": {
+            "n": 22,
+            "target_first": 0.5
+          }
+        },
+        "holdout": {
+          "vix<15": {
+            "n": 26,
+            "target_first": 0.5
+          },
+          "15-25": {
+            "n": 178,
+            "target_first": 0.4494
+          },
+          "vix>25": {
+            "n": 13,
+            "target_first": 0.6154
+          }
+        }
+      },
+      "validation_status": "REJECTED",
+      "rejection_reason": "DEVELOPMENT_CI_INCLUDES_ZERO_OR_NEGATIVE",
+      "rank_key": [
+        -24.774,
+        -23.576,
+        217
+      ],
+      "trading_decision": "NO_TRADE",
+      "rank": 17
+    },
+    {
+      "signal": "NQ fixed-geometry SHORT T350/S175 6h from 15:00 UTC open",
+      "family": "target_before_stop",
+      "unit": "points/contract",
+      "conditions": "any day outside roll windows; hourly path, fine-bar tie resolution",
+      "levels": {
+        "target_points": 350,
+        "stop_points": 175
+      },
+      "development": {
+        "n": 324,
+        "target_first": {
+          "k": 25,
+          "n": 324,
+          "p": 0.0772,
+          "ci95": [
+            0.0528,
+            0.1114
+          ]
+        },
+        "ev": 3.52,
+        "ev_ci95": [
+          -12.582,
+          19.622
+        ]
+      },
+      "holdout": {
+        "n": 217,
+        "target_first": {
+          "k": 23,
+          "n": 217,
+          "p": 0.106,
+          "ci95": [
+            0.0717,
+            0.154
+          ]
+        },
+        "ev": -3.855,
+        "ev_ci95": [
+          -26.588,
+          18.879
+        ]
+      },
+      "regime_target_first": {
+        "development": {
+          "vix<15": {
+            "n": 51,
+            "target_first": 0.0
+          },
+          "15-25": {
+            "n": 251,
+            "target_first": 0.0757
+          },
+          "vix>25": {
+            "n": 22,
+            "target_first": 0.2727
+          }
+        },
+        "holdout": {
+          "vix<15": {
+            "n": 26,
+            "target_first": 0.1154
+          },
+          "15-25": {
+            "n": 177,
+            "target_first": 0.1017
+          },
+          "vix>25": {
+            "n": 14,
+            "target_first": 0.1429
+          }
+        }
+      },
+      "validation_status": "REJECTED",
+      "rejection_reason": "DEVELOPMENT_CI_INCLUDES_ZERO_OR_NEGATIVE",
+      "rank_key": [
+        -26.588,
+        -12.582,
+        217
+      ],
+      "trading_decision": "NO_TRADE",
+      "rank": 18
+    },
+    {
+      "signal": "NQ opening_range_breakout (existing strategy, 5m)",
+      "family": "strategy",
+      "unit": "points/contract",
+      "conditions": "RTH, existing rule parameters, 1 tick slippage",
+      "levels": "rule-defined per signal",
+      "development": {
+        "n": 21,
+        "win_rate": 0.2857,
+        "ev": -24.524,
+        "ev_ci95": [
+          -54.943,
+          5.896
+        ],
+        "profit_factor": 0.4279
+      },
+      "validation": {
+        "n": 9,
+        "win_rate": 0.6667,
+        "ev": 45.181,
+        "ev_ci95": [
+          -23.687,
+          114.048
+        ],
+        "profit_factor": 2.9549
+      },
+      "holdout": {
+        "n": 12,
+        "win_rate": 0.75,
+        "ev": 47.239,
+        "ev_ci95": [
+          -27.885,
+          122.364
+        ],
+        "profit_factor": 2.589
+      },
+      "slippage_sensitivity_dollars_per_position": {
+        "0.5": 446.67,
+        "1.0": 436.67,
+        "2.0": 416.67
+      },
+      "intrabar_ordering_1m": {
+        "compared": 17,
+        "outcome_changed": 0,
+        "net_dollars_5m": 34010.0,
+        "net_dollars_1m": 36825.0
+      },
+      "validation_status": "REJECTED",
+      "rejection_reason": "INSUFFICIENT_SAMPLE",
+      "rank_key": [
+        -27.885,
+        -54.943,
+        12
+      ],
+      "trading_decision": "NO_TRADE",
+      "rank": 19
+    },
+    {
+      "signal": "NQ fixed-geometry LONG T200/S200 24h from 15:00 UTC open",
+      "family": "target_before_stop",
+      "unit": "points/contract",
+      "conditions": "any day outside roll windows; hourly path, fine-bar tie resolution",
+      "levels": {
+        "target_points": 200,
+        "stop_points": 200
+      },
+      "development": {
+        "n": 326,
+        "target_first": {
+          "k": 108,
+          "n": 326,
+          "p": 0.3313,
+          "ci95": [
+            0.2824,
+            0.3841
+          ]
+        },
+        "ev": 3.16,
+        "ev_ci95": [
+          -15.757,
+          22.076
+        ]
+      },
+      "holdout": {
+        "n": 217,
+        "target_first": {
+          "k": 100,
+          "n": 217,
+          "p": 0.4608,
+          "ci95": [
+            0.3958,
+            0.5273
+          ]
+        },
+        "ev": -2.567,
+        "ev_ci95": [
+          -28.408,
+          23.274
+        ]
+      },
+      "regime_target_first": {
+        "development": {
+          "vix<15": {
+            "n": 51,
+            "target_first": 0.1569
+          },
+          "15-25": {
+            "n": 253,
+            "target_first": 0.3518
+          },
+          "vix>25": {
+            "n": 22,
+            "target_first": 0.5
+          }
+        },
+        "holdout": {
+          "vix<15": {
+            "n": 26,
+            "target_first": 0.1923
+          },
+          "15-25": {
+            "n": 178,
+            "target_first": 0.5056
+          },
+          "vix>25": {
+            "n": 13,
+            "target_first": 0.3846
+          }
+        }
+      },
+      "validation_status": "REJECTED",
+      "rejection_reason": "DEVELOPMENT_CI_INCLUDES_ZERO_OR_NEGATIVE",
+      "rank_key": [
+        -28.408,
+        -15.757,
+        217
+      ],
+      "trading_decision": "NO_TRADE",
+      "rank": 20
+    },
+    {
+      "signal": "NQ fixed-geometry SHORT T500/S250 6h from 15:00 UTC open",
+      "family": "target_before_stop",
+      "unit": "points/contract",
+      "conditions": "any day outside roll windows; hourly path, fine-bar tie resolution",
+      "levels": {
+        "target_points": 500,
+        "stop_points": 250
+      },
+      "development": {
+        "n": 324,
+        "target_first": {
+          "k": 8,
+          "n": 324,
+          "p": 0.0247,
+          "ci95": [
+            0.0126,
+            0.048
+          ]
+        },
+        "ev": 3.215,
+        "ev_ci95": [
+          -14.012,
+          20.442
+        ]
+      },
+      "holdout": {
+        "n": 217,
+        "target_first": {
+          "k": 8,
+          "n": 217,
+          "p": 0.0369,
+          "ci95": [
+            0.0188,
+            0.071
+          ]
+        },
+        "ev": -4.081,
+        "ev_ci95": [
+          -29.339,
+          21.178
+        ]
+      },
+      "regime_target_first": {
+        "development": {
+          "vix<15": {
+            "n": 51,
+            "target_first": 0.0
+          },
+          "15-25": {
+            "n": 251,
+            "target_first": 0.012
+          },
+          "vix>25": {
+            "n": 22,
+            "target_first": 0.2273
+          }
+        },
+        "holdout": {
+          "vix<15": {
+            "n": 26,
+            "target_first": 0.0
+          },
+          "15-25": {
+            "n": 177,
+            "target_first": 0.0452
+          },
+          "vix>25": {
+            "n": 14,
+            "target_first": 0.0
+          }
+        }
+      },
+      "validation_status": "REJECTED",
+      "rejection_reason": "DEVELOPMENT_CI_INCLUDES_ZERO_OR_NEGATIVE",
+      "rank_key": [
+        -29.339,
+        -14.012,
+        217
+      ],
+      "trading_decision": "NO_TRADE",
+      "rank": 21
+    },
+    {
+      "signal": "NQ fixed-geometry SHORT T200/S200 6h from 15:00 UTC open",
+      "family": "target_before_stop",
+      "unit": "points/contract",
+      "conditions": "any day outside roll windows; hourly path, fine-bar tie resolution",
+      "levels": {
+        "target_points": 200,
+        "stop_points": 200
+      },
+      "development": {
+        "n": 324,
+        "target_first": {
+          "k": 69,
+          "n": 324,
+          "p": 0.213,
+          "ci95": [
+            0.1719,
+            0.2608
+          ]
+        },
+        "ev": 1.792,
+        "ev_ci95": [
+          -12.782,
+          16.365
+        ]
+      },
+      "holdout": {
+        "n": 217,
+        "target_first": {
+          "k": 52,
+          "n": 217,
+          "p": 0.2396,
+          "ci95": [
+            0.1877,
+            0.3006
+          ]
+        },
+        "ev": -11.224,
+        "ev_ci95": [
+          -31.815,
+          9.368
+        ]
+      },
+      "regime_target_first": {
+        "development": {
+          "vix<15": {
+            "n": 51,
+            "target_first": 0.1569
+          },
+          "15-25": {
+            "n": 251,
+            "target_first": 0.2072
+          },
+          "vix>25": {
+            "n": 22,
+            "target_first": 0.4091
+          }
+        },
+        "holdout": {
+          "vix<15": {
+            "n": 26,
+            "target_first": 0.1538
+          },
+          "15-25": {
+            "n": 177,
+            "target_first": 0.2316
+          },
+          "vix>25": {
+            "n": 14,
+            "target_first": 0.5
+          }
+        }
+      },
+      "validation_status": "REJECTED",
+      "rejection_reason": "DEVELOPMENT_CI_INCLUDES_ZERO_OR_NEGATIVE",
+      "rank_key": [
+        -31.815,
+        -12.782,
+        217
+      ],
+      "trading_decision": "NO_TRADE",
+      "rank": 22
+    },
+    {
+      "signal": "NQ fixed-geometry LONG T500/S250 24h from 15:00 UTC open",
+      "family": "target_before_stop",
+      "unit": "points/contract",
+      "conditions": "any day outside roll windows; hourly path, fine-bar tie resolution",
+      "levels": {
+        "target_points": 500,
+        "stop_points": 250
+      },
+      "development": {
+        "n": 326,
+        "target_first": {
+          "k": 12,
+          "n": 326,
+          "p": 0.0368,
+          "ci95": [
+            0.0212,
+            0.0632
+          ]
+        },
+        "ev": -3.653,
+        "ev_ci95": [
+          -27.503,
+          20.198
+        ]
+      },
+      "holdout": {
+        "n": 217,
+        "target_first": {
+          "k": 19,
+          "n": 217,
+          "p": 0.0876,
+          "ci95": [
+            0.0568,
+            0.1327
+          ]
+        },
+        "ev": -9.291,
+        "ev_ci95": [
+          -45.244,
+          26.661
+        ]
+      },
+      "regime_target_first": {
+        "development": {
+          "vix<15": {
+            "n": 51,
+            "target_first": 0.0
+          },
+          "15-25": {
+            "n": 253,
+            "target_first": 0.0316
+          },
+          "vix>25": {
+            "n": 22,
+            "target_first": 0.1818
+          }
+        },
+        "holdout": {
+          "vix<15": {
+            "n": 26,
+            "target_first": 0.0
+          },
+          "15-25": {
+            "n": 178,
+            "target_first": 0.0899
+          },
+          "vix>25": {
+            "n": 13,
+            "target_first": 0.2308
+          }
+        }
+      },
+      "validation_status": "REJECTED",
+      "rejection_reason": "DEVELOPMENT_CI_INCLUDES_ZERO_OR_NEGATIVE",
+      "rank_key": [
+        -45.244,
+        -27.503,
+        217
+      ],
+      "trading_decision": "NO_TRADE",
+      "rank": 23
+    },
+    {
+      "signal": "NQ fixed-geometry LONG T350/S175 24h from 15:00 UTC open",
+      "family": "target_before_stop",
+      "unit": "points/contract",
+      "conditions": "any day outside roll windows; hourly path, fine-bar tie resolution",
+      "levels": {
+        "target_points": 350,
+        "stop_points": 175
+      },
+      "development": {
+        "n": 326,
+        "target_first": {
+          "k": 37,
+          "n": 326,
+          "p": 0.1135,
+          "ci95": [
+            0.0835,
+            0.1525
+          ]
+        },
+        "ev": -3.787,
+        "ev_ci95": [
+          -24.105,
+          16.531
+        ]
+      },
+      "holdout": {
+        "n": 217,
+        "target_first": {
+          "k": 38,
+          "n": 217,
+          "p": 0.1751,
+          "ci95": [
+            0.1303,
+            0.2312
+          ]
+        },
+        "ev": -24.051,
+        "ev_ci95": [
+          -52.241,
+          4.14
+        ]
+      },
+      "regime_target_first": {
+        "development": {
+          "vix<15": {
+            "n": 51,
+            "target_first": 0.0196
+          },
+          "15-25": {
+            "n": 253,
+            "target_first": 0.1186
+          },
+          "vix>25": {
+            "n": 22,
+            "target_first": 0.2727
+          }
+        },
+        "holdout": {
+          "vix<15": {
+            "n": 26,
+            "target_first": 0.0385
+          },
+          "15-25": {
+            "n": 178,
+            "target_first": 0.1966
+          },
+          "vix>25": {
+            "n": 13,
+            "target_first": 0.1538
+          }
+        }
+      },
+      "validation_status": "REJECTED",
+      "rejection_reason": "DEVELOPMENT_CI_INCLUDES_ZERO_OR_NEGATIVE",
+      "rank_key": [
+        -52.241,
+        -24.105,
+        217
+      ],
+      "trading_decision": "NO_TRADE",
+      "rank": 24
+    },
+    {
+      "signal": "NQ vwap_pullback (existing strategy, 5m)",
+      "family": "strategy",
+      "unit": "points/contract",
+      "conditions": "RTH, existing rule parameters, 1 tick slippage",
+      "levels": "rule-defined per signal",
+      "development": {
+        "n": 22,
+        "win_rate": 0.5909,
+        "ev": 3.809,
+        "ev_ci95": [
+          -19.936,
+          27.556
+        ],
+        "profit_factor": 1.1681
+      },
+      "validation": {
+        "n": 10,
+        "win_rate": 0.7,
+        "ev": 23.085,
+        "ev_ci95": [
+          -19.016,
+          65.186
+        ],
+        "profit_factor": 2.3614
+      },
+      "holdout": {
+        "n": 9,
+        "win_rate": 0.6667,
+        "ev": -9.591,
+        "ev_ci95": [
+          -98.094,
+          78.911
+        ],
+        "profit_factor": 0.8377
+      },
+      "slippage_sensitivity_dollars_per_position": {
+        "0.5": 232.22,
+        "1.0": 222.77,
+        "2.0": 203.86
+      },
+      "intrabar_ordering_1m": {
+        "compared": 14,
+        "outcome_changed": 0,
+        "net_dollars_5m": 1136.08,
+        "net_dollars_1m": 1171.08
+      },
+      "validation_status": "REJECTED",
+      "rejection_reason": "INSUFFICIENT_SAMPLE",
+      "rank_key": [
+        -98.094,
+        -19.936,
+        9
+      ],
+      "trading_decision": "NO_TRADE",
+      "rank": 25
+    },
+    {
+      "signal": "NQ value_rejection (existing strategy, 5m)",
+      "family": "strategy",
+      "unit": "points/contract",
+      "conditions": "RTH, existing rule parameters, 1 tick slippage",
+      "levels": "rule-defined per signal",
+      "development": {
+        "n": 12,
+        "win_rate": 0.5,
+        "ev": 0.333,
+        "ev_ci95": [
+          -33.316,
+          33.983
+        ],
+        "profit_factor": 1.014
+      },
+      "validation": {
+        "n": 7,
+        "win_rate": 0.4286,
+        "ev": -16.286,
+        "ev_ci95": [
+          -63.728,
+          31.157
+        ],
+        "profit_factor": 0.5399
+      },
+      "holdout": {
+        "n": 5,
+        "win_rate": 0.0,
+        "ev": -71.65,
+        "ev_ci95": [
+          -103.243,
+          -40.057
+        ],
+        "profit_factor": 0.0
+      },
+      "slippage_sensitivity_dollars_per_position": {
+        "0.5": -770.42,
+        "1.0": -780.42,
+        "2.0": -800.42
+      },
+      "intrabar_ordering_1m": {
+        "compared": 10,
+        "outcome_changed": 0,
+        "net_dollars_5m": -13440.0,
+        "net_dollars_1m": -13430.0
+      },
+      "validation_status": "REJECTED",
+      "rejection_reason": "INSUFFICIENT_SAMPLE",
+      "rank_key": [
+        -103.243,
+        -33.316,
+        5
+      ],
+      "trading_decision": "NO_TRADE",
+      "rank": 26
+    }
+  ],
+  "note": "Ranking orders weak evidence; it is not a recommendation. No signal passed independent evaluation."
+}

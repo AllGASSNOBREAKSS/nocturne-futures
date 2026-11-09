@@ -1,0 +1,2168 @@
+{
+  "generated_at": "2026-11-09T04:08:42.735156+00:00",
+  "spend_usd": 0,
+  "scope": "RETROSPECTIVE_CONTINUOUS_PROXY_5M_NOT_RAW_CONTRACT_FILLS",
+  "position": "2 contracts: 1 exits at TP1, 1 at TP2, stop to breakeven after TP1; dollars per 2-contract position",
+  "roots": {
+    "NQ": {
+      "rth_sessions": 49,
+      "first": "2026-08-31",
+      "last": "2026-11-06",
+      "split_end": {
+        "development": "2026-10-02",
+        "validation": "2026-10-20",
+        "holdout": "2026-11-06"
+      },
+      "sessions_with_full_1m_rth": 20,
+      "strategies": {
+        "opening_range_breakout": {
+          "signals": 42,
+          "by_slippage_ticks": {
+            "0.5": {
+              "development": {
+                "trades": 21,
+                "win_rate": 0.2857,
+                "avg_win": 2578.33,
+                "avg_loss": -2390.67,
+                "profit_factor": 0.4314,
+                "expectancy": -970.95,
+                "expectancy_ci95": [
+                  -2187.73,
+                  245.83
+                ],
+                "net": -20390.0,
+                "max_drawdown": 21030.0,
+                "daily_sharpe_annualized": -5.418,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.0,
+                "timeout_pct": 1.0,
+                "outcomes": {
+                  "TIMEOUT": 21
+                }
+              },
+              "validation": {
+                "trades": 9,
+                "win_rate": 0.6667,
+                "avg_win": 4107.5,
+                "avg_loss": -2763.33,
+                "profit_factor": 2.9729,
+                "expectancy": 1817.22,
+                "expectancy_ci95": [
+                  -937.47,
+                  4571.91
+                ],
+                "net": 16355.0,
+                "max_drawdown": 3470.0,
+                "daily_sharpe_annualized": 6.842,
+                "target_first_pct": 0.1111,
+                "stop_first_pct": 0.0,
+                "timeout_pct": 1.0,
+                "outcomes": {
+                  "TIMEOUT": 8,
+                  "TP_THEN_TIMEOUT": 1
+                }
+              },
+              "holdout": {
+                "trades": 12,
+                "win_rate": 0.75,
+                "avg_win": 4115.0,
+                "avg_loss": -4746.67,
+                "profit_factor": 2.6008,
+                "expectancy": 1899.58,
+                "expectancy_ci95": [
+                  -1105.4,
+                  4904.57
+                ],
+                "net": 22795.0,
+                "max_drawdown": 7210.0,
+                "daily_sharpe_annualized": 5.678,
+                "target_first_pct": 0.0833,
+                "stop_first_pct": 0.0,
+                "timeout_pct": 1.0,
+                "outcomes": {
+                  "TIMEOUT": 11,
+                  "TP_THEN_TIMEOUT": 1
+                }
+              },
+              "all": {
+                "trades": 42,
+                "win_rate": 0.5,
+                "avg_win": 3673.81,
+                "avg_loss": -2780.48,
+                "profit_factor": 1.3213,
+                "expectancy": 446.67,
+                "expectancy_ci95": [
+                  -801.92,
+                  1695.25
+                ],
+                "net": 18760.0,
+                "max_drawdown": 23100.0,
+                "daily_sharpe_annualized": 1.718,
+                "target_first_pct": 0.0476,
+                "stop_first_pct": 0.0,
+                "timeout_pct": 1.0,
+                "outcomes": {
+                  "TIMEOUT": 40,
+                  "TP_THEN_TIMEOUT": 2
+                }
+              }
+            },
+            "1.0": {
+              "development": {
+                "trades": 21,
+                "win_rate": 0.2857,
+                "avg_win": 2568.33,
+                "avg_loss": -2400.67,
+                "profit_factor": 0.4279,
+                "expectancy": -980.95,
+                "expectancy_ci95": [
+                  -2197.73,
+                  235.83
+                ],
+                "net": -20600.0,
+                "max_drawdown": 21230.0,
+                "daily_sharpe_annualized": -5.474,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.0,
+                "timeout_pct": 1.0,
+                "outcomes": {
+                  "TIMEOUT": 21
+                }
+              },
+              "validation": {
+                "trades": 9,
+                "win_rate": 0.6667,
+                "avg_win": 4097.5,
+                "avg_loss": -2773.33,
+                "profit_factor": 2.9549,
+                "expectancy": 1807.22,
+                "expectancy_ci95": [
+                  -947.47,
+                  4561.91
+                ],
+                "net": 16265.0,
+                "max_drawdown": 3480.0,
+                "daily_sharpe_annualized": 6.804,
+                "target_first_pct": 0.1111,
+                "stop_first_pct": 0.0,
+                "timeout_pct": 1.0,
+                "outcomes": {
+                  "TIMEOUT": 8,
+                  "TP_THEN_TIMEOUT": 1
+                }
+              },
+              "holdout": {
+                "trades": 12,
+                "win_rate": 0.75,
+                "avg_win": 4105.0,
+                "avg_loss": -4756.67,
+                "profit_factor": 2.589,
+                "expectancy": 1889.58,
+                "expectancy_ci95": [
+                  -1115.4,
+                  4894.57
+                ],
+                "net": 22675.0,
+                "max_drawdown": 7220.0,
+                "daily_sharpe_annualized": 5.648,
+                "target_first_pct": 0.0833,
+                "stop_first_pct": 0.0,
+                "timeout_pct": 1.0,
+                "outcomes": {
+                  "TIMEOUT": 11,
+                  "TP_THEN_TIMEOUT": 1
+                }
+              },
+              "all": {
+                "trades": 42,
+                "win_rate": 0.5,
+                "avg_win": 3663.81,
+                "avg_loss": -2790.48,
+                "profit_factor": 1.313,
+                "expectancy": 436.67,
+                "expectancy_ci95": [
+                  -811.92,
+                  1685.25
+                ],
+                "net": 18340.0,
+                "max_drawdown": 23330.0,
+                "daily_sharpe_annualized": 1.679,
+                "target_first_pct": 0.0476,
+                "stop_first_pct": 0.0,
+                "timeout_pct": 1.0,
+                "outcomes": {
+                  "TIMEOUT": 40,
+                  "TP_THEN_TIMEOUT": 2
+                }
+              },
+              "by_vix": {
+                "vix<15": {
+                  "trades": 7,
+                  "win_rate": 0.1429,
+                  "avg_win": 5670.0,
+                  "avg_loss": -2361.67,
+                  "profit_factor": 0.4001,
+                  "expectancy": -1214.29,
+                  "expectancy_ci95": [
+                    -3604.22,
+                    1175.65
+                  ],
+                  "net": -8500.0,
+                  "max_drawdown": 9330.0,
+                  "daily_sharpe_annualized": -5.975,
+                  "target_first_pct": 0.0,
+                  "stop_first_pct": 0.0,
+                  "timeout_pct": 1.0,
+                  "outcomes": {
+                    "TIMEOUT": 7
+                  }
+                },
+                "15-25": {
+                  "trades": 34,
+                  "win_rate": 0.5882,
+                  "avg_win": 3563.5,
+                  "avg_loss": -2657.86,
+                  "profit_factor": 1.9153,
+                  "expectancy": 1001.76,
+                  "expectancy_ci95": [
+                    -367.76,
+                    2371.29
+                  ],
+                  "net": 34060.0,
+                  "max_drawdown": 19060.0,
+                  "daily_sharpe_annualized": 3.903,
+                  "target_first_pct": 0.0588,
+                  "stop_first_pct": 0.0,
+                  "timeout_pct": 1.0,
+                  "outcomes": {
+                    "TIMEOUT": 32,
+                    "TP_THEN_TIMEOUT": 2
+                  }
+                },
+                "vix>25": {
+                  "trades": 1,
+                  "win_rate": 0.0,
+                  "avg_win": null,
+                  "avg_loss": -7220.0,
+                  "profit_factor": 0.0,
+                  "expectancy": -7220.0,
+                  "expectancy_ci95": null,
+                  "net": -7220.0,
+                  "max_drawdown": 7220.0,
+                  "daily_sharpe_annualized": null,
+                  "target_first_pct": 0.0,
+                  "stop_first_pct": 0.0,
+                  "timeout_pct": 1.0,
+                  "outcomes": {
+                    "TIMEOUT": 1
+                  }
+                }
+              }
+            },
+            "2.0": {
+              "development": {
+                "trades": 21,
+                "win_rate": 0.2857,
+                "avg_win": 2548.33,
+                "avg_loss": -2420.67,
+                "profit_factor": 0.4211,
+                "expectancy": -1000.95,
+                "expectancy_ci95": [
+                  -2217.73,
+                  215.83
+                ],
+                "net": -21020.0,
+                "max_drawdown": 21630.0,
+                "daily_sharpe_annualized": -5.585,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.0,
+                "timeout_pct": 1.0,
+                "outcomes": {
+                  "TIMEOUT": 21
+                }
+              },
+              "validation": {
+                "trades": 9,
+                "win_rate": 0.6667,
+                "avg_win": 4077.5,
+                "avg_loss": -2793.33,
+                "profit_factor": 2.9195,
+                "expectancy": 1787.22,
+                "expectancy_ci95": [
+                  -967.47,
+                  4541.91
+                ],
+                "net": 16085.0,
+                "max_drawdown": 3500.0,
+                "daily_sharpe_annualized": 6.729,
+                "target_first_pct": 0.1111,
+                "stop_first_pct": 0.0,
+                "timeout_pct": 1.0,
+                "outcomes": {
+                  "TIMEOUT": 8,
+                  "TP_THEN_TIMEOUT": 1
+                }
+              },
+              "holdout": {
+                "trades": 12,
+                "win_rate": 0.75,
+                "avg_win": 4085.0,
+                "avg_loss": -4776.67,
+                "profit_factor": 2.5656,
+                "expectancy": 1869.58,
+                "expectancy_ci95": [
+                  -1135.4,
+                  4874.57
+                ],
+                "net": 22435.0,
+                "max_drawdown": 7260.0,
+                "daily_sharpe_annualized": 5.588,
+                "target_first_pct": 0.0833,
+                "stop_first_pct": 0.0,
+                "timeout_pct": 1.0,
+                "outcomes": {
+                  "TIMEOUT": 11,
+                  "TP_THEN_TIMEOUT": 1
+                }
+              },
+              "all": {
+                "trades": 42,
+                "win_rate": 0.5,
+                "avg_win": 3643.81,
+                "avg_loss": -2810.48,
+                "profit_factor": 1.2965,
+                "expectancy": 416.67,
+                "expectancy_ci95": [
+                  -831.92,
+                  1665.25
+                ],
+                "net": 17500.0,
+                "max_drawdown": 23790.0,
+                "daily_sharpe_annualized": 1.602,
+                "target_first_pct": 0.0476,
+                "stop_first_pct": 0.0,
+                "timeout_pct": 1.0,
+                "outcomes": {
+                  "TIMEOUT": 40,
+                  "TP_THEN_TIMEOUT": 2
+                }
+              }
+            }
+          },
+          "intrabar_ordering_1m": {
+            "compared": 17,
+            "outcome_changed": 0,
+            "net_dollars_5m": 34010.0,
+            "net_dollars_1m": 36825.0
+          },
+          "verdict": "INSUFFICIENT_SAMPLE"
+        },
+        "vwap_pullback": {
+          "signals": 41,
+          "by_slippage_ticks": {
+            "0.5": {
+              "development": {
+                "trades": 22,
+                "win_rate": 0.5909,
+                "avg_win": 1801.11,
+                "avg_loss": -2206.06,
+                "profit_factor": 1.1793,
+                "expectancy": 161.81,
+                "expectancy_ci95": [
+                  -787.91,
+                  1111.53
+                ],
+                "net": 3559.92,
+                "max_drawdown": 7734.43,
+                "daily_sharpe_annualized": 1.13,
+                "target_first_pct": 0.7727,
+                "stop_first_pct": 0.3636,
+                "timeout_pct": 0.1818,
+                "outcomes": {
+                  "STOP": 8,
+                  "TP2": 5,
+                  "TP_THEN_STOP": 5,
+                  "TP_THEN_TIMEOUT": 2,
+                  "TIMEOUT": 2
+                }
+              },
+              "validation": {
+                "trades": 10,
+                "win_rate": 0.7,
+                "avg_win": 2297.76,
+                "avg_loss": -2250.96,
+                "profit_factor": 2.3818,
+                "expectancy": 933.14,
+                "expectancy_ci95": [
+                  -750.89,
+                  2617.18
+                ],
+                "net": 9331.45,
+                "max_drawdown": 5192.87,
+                "daily_sharpe_annualized": 5.452,
+                "target_first_pct": 0.6,
+                "stop_first_pct": 0.3,
+                "timeout_pct": 0.5,
+                "outcomes": {
+                  "TP_THEN_TIMEOUT": 3,
+                  "STOP": 3,
+                  "TIMEOUT": 2,
+                  "TP_THEN_STOP": 1,
+                  "TP2": 1
+                }
+              },
+              "holdout": {
+                "trades": 9,
+                "win_rate": 0.6667,
+                "avg_win": 2978.55,
+                "avg_loss": -7080.58,
+                "profit_factor": 0.8413,
+                "expectancy": -374.5,
+                "expectancy_ci95": [
+                  -3914.4,
+                  3165.41
+                ],
+                "net": -3370.46,
+                "max_drawdown": 17551.73,
+                "daily_sharpe_annualized": -1.097,
+                "target_first_pct": 0.7778,
+                "stop_first_pct": 0.3333,
+                "timeout_pct": 0.2222,
+                "outcomes": {
+                  "TP_THEN_STOP": 3,
+                  "STOP": 3,
+                  "TP_THEN_TIMEOUT": 2,
+                  "TP2": 1
+                }
+              },
+              "all": {
+                "trades": 41,
+                "win_rate": 0.6341,
+                "avg_win": 2206.54,
+                "avg_loss": -3189.94,
+                "profit_factor": 1.199,
+                "expectancy": 232.22,
+                "expectancy_ci95": [
+                  -757.42,
+                  1221.86
+                ],
+                "net": 9520.91,
+                "max_drawdown": 17551.73,
+                "daily_sharpe_annualized": 1.14,
+                "target_first_pct": 0.7317,
+                "stop_first_pct": 0.3415,
+                "timeout_pct": 0.2683,
+                "outcomes": {
+                  "STOP": 14,
+                  "TP_THEN_STOP": 9,
+                  "TP2": 7,
+                  "TP_THEN_TIMEOUT": 7,
+                  "TIMEOUT": 4
+                }
+              }
+            },
+            "1.0": {
+              "development": {
+                "trades": 22,
+                "win_rate": 0.5909,
+                "avg_win": 1792.08,
+                "avg_loss": -2216.06,
+                "profit_factor": 1.1681,
+                "expectancy": 152.38,
+                "expectancy_ci95": [
+                  -797.45,
+                  1102.22
+                ],
+                "net": 3352.42,
+                "max_drawdown": 7794.43,
+                "daily_sharpe_annualized": 1.064,
+                "target_first_pct": 0.7727,
+                "stop_first_pct": 0.3636,
+                "timeout_pct": 0.1818,
+                "outcomes": {
+                  "STOP": 8,
+                  "TP2": 5,
+                  "TP_THEN_STOP": 5,
+                  "TP_THEN_TIMEOUT": 2,
+                  "TIMEOUT": 2
+                }
+              },
+              "validation": {
+                "trades": 10,
+                "win_rate": 0.7,
+                "avg_win": 2288.12,
+                "avg_loss": -2260.96,
+                "profit_factor": 2.3614,
+                "expectancy": 923.39,
+                "expectancy_ci95": [
+                  -760.64,
+                  2607.43
+                ],
+                "net": 9233.95,
+                "max_drawdown": 5232.87,
+                "daily_sharpe_annualized": 5.395,
+                "target_first_pct": 0.6,
+                "stop_first_pct": 0.3,
+                "timeout_pct": 0.5,
+                "outcomes": {
+                  "TP_THEN_TIMEOUT": 3,
+                  "STOP": 3,
+                  "TIMEOUT": 2,
+                  "TP_THEN_STOP": 1,
+                  "TP2": 1
+                }
+              },
+              "holdout": {
+                "trades": 9,
+                "win_rate": 0.6667,
+                "avg_win": 2969.8,
+                "avg_loss": -7090.58,
+                "profit_factor": 0.8377,
+                "expectancy": -383.66,
+                "expectancy_ci95": [
+                  -3923.77,
+                  3156.44
+                ],
+                "net": -3452.96,
+                "max_drawdown": 17596.73,
+                "daily_sharpe_annualized": -1.124,
+                "target_first_pct": 0.7778,
+                "stop_first_pct": 0.3333,
+                "timeout_pct": 0.2222,
+                "outcomes": {
+                  "TP_THEN_STOP": 3,
+                  "STOP": 3,
+                  "TP_THEN_TIMEOUT": 2,
+                  "TP2": 1
+                }
+              },
+              "all": {
+                "trades": 41,
+                "win_rate": 0.6341,
+                "avg_win": 2197.41,
+                "avg_loss": -3199.94,
+                "profit_factor": 1.1903,
+                "expectancy": 222.77,
+                "expectancy_ci95": [
+                  -766.93,
+                  1212.46
+                ],
+                "net": 9133.41,
+                "max_drawdown": 17596.73,
+                "daily_sharpe_annualized": 1.094,
+                "target_first_pct": 0.7317,
+                "stop_first_pct": 0.3415,
+                "timeout_pct": 0.2683,
+                "outcomes": {
+                  "STOP": 14,
+                  "TP_THEN_STOP": 9,
+                  "TP2": 7,
+                  "TP_THEN_TIMEOUT": 7,
+                  "TIMEOUT": 4
+                }
+              },
+              "by_vix": {
+                "vix<15": {
+                  "trades": 7,
+                  "win_rate": 0.2857,
+                  "avg_win": 2644.18,
+                  "avg_loss": -1432.01,
+                  "profit_factor": 0.7386,
+                  "expectancy": -267.39,
+                  "expectancy_ci95": [
+                    -1809.53,
+                    1274.76
+                  ],
+                  "net": -1871.7,
+                  "max_drawdown": 4348.84,
+                  "daily_sharpe_annualized": -2.039,
+                  "target_first_pct": 0.5714,
+                  "stop_first_pct": 0.5714,
+                  "timeout_pct": 0.1429,
+                  "outcomes": {
+                    "STOP": 4,
+                    "TP2": 2,
+                    "TIMEOUT": 1
+                  }
+                },
+                "15-25": {
+                  "trades": 33,
+                  "win_rate": 0.7273,
+                  "avg_win": 2160.18,
+                  "avg_loss": -3993.45,
+                  "profit_factor": 1.4425,
+                  "expectancy": 481.92,
+                  "expectancy_ci95": [
+                    -665.7,
+                    1629.53
+                  ],
+                  "net": 15903.22,
+                  "max_drawdown": 12698.62,
+                  "daily_sharpe_annualized": 2.274,
+                  "target_first_pct": 0.7879,
+                  "stop_first_pct": 0.2727,
+                  "timeout_pct": 0.303,
+                  "outcomes": {
+                    "STOP": 9,
+                    "TP_THEN_STOP": 9,
+                    "TP_THEN_TIMEOUT": 7,
+                    "TP2": 5,
+                    "TIMEOUT": 3
+                  }
+                },
+                "vix>25": {
+                  "trades": 1,
+                  "win_rate": 0.0,
+                  "avg_win": null,
+                  "avg_loss": -4898.11,
+                  "profit_factor": 0.0,
+                  "expectancy": -4898.11,
+                  "expectancy_ci95": null,
+                  "net": -4898.11,
+                  "max_drawdown": 4898.11,
+                  "daily_sharpe_annualized": null,
+                  "target_first_pct": 0.0,
+                  "stop_first_pct": 1.0,
+                  "timeout_pct": 0.0,
+                  "outcomes": {
+                    "STOP": 1
+                  }
+                }
+              }
+            },
+            "2.0": {
+              "development": {
+                "trades": 22,
+                "win_rate": 0.5909,
+                "avg_win": 1774.0,
+                "avg_loss": -2236.06,
+                "profit_factor": 1.146,
+                "expectancy": 133.52,
+                "expectancy_ci95": [
+                  -816.54,
+                  1083.58
+                ],
+                "net": 2937.42,
+                "max_drawdown": 7914.43,
+                "daily_sharpe_annualized": 0.932,
+                "target_first_pct": 0.7727,
+                "stop_first_pct": 0.3636,
+                "timeout_pct": 0.1818,
+                "outcomes": {
+                  "STOP": 8,
+                  "TP2": 5,
+                  "TP_THEN_STOP": 5,
+                  "TP_THEN_TIMEOUT": 2,
+                  "TIMEOUT": 2
+                }
+              },
+              "validation": {
+                "trades": 10,
+                "win_rate": 0.7,
+                "avg_win": 2268.83,
+                "avg_loss": -2280.96,
+                "profit_factor": 2.3209,
+                "expectancy": 903.89,
+                "expectancy_ci95": [
+                  -780.14,
+                  2587.93
+                ],
+                "net": 9038.95,
+                "max_drawdown": 5312.87,
+                "daily_sharpe_annualized": 5.281,
+                "target_first_pct": 0.6,
+                "stop_first_pct": 0.3,
+                "timeout_pct": 0.5,
+                "outcomes": {
+                  "TP_THEN_TIMEOUT": 3,
+                  "STOP": 3,
+                  "TIMEOUT": 2,
+                  "TP_THEN_STOP": 1,
+                  "TP2": 1
+                }
+              },
+              "holdout": {
+                "trades": 9,
+                "win_rate": 0.6667,
+                "avg_win": 2952.3,
+                "avg_loss": -7110.58,
+                "profit_factor": 0.8304,
+                "expectancy": -402.0,
+                "expectancy_ci95": [
+                  -3942.52,
+                  3138.53
+                ],
+                "net": -3617.96,
+                "max_drawdown": 17686.73,
+                "daily_sharpe_annualized": -1.178,
+                "target_first_pct": 0.7778,
+                "stop_first_pct": 0.3333,
+                "timeout_pct": 0.2222,
+                "outcomes": {
+                  "TP_THEN_STOP": 3,
+                  "STOP": 3,
+                  "TP_THEN_TIMEOUT": 2,
+                  "TP2": 1
+                }
+              },
+              "all": {
+                "trades": 41,
+                "win_rate": 0.6341,
+                "avg_win": 2179.14,
+                "avg_loss": -3219.94,
+                "profit_factor": 1.1731,
+                "expectancy": 203.86,
+                "expectancy_ci95": [
+                  -785.94,
+                  1193.67
+                ],
+                "net": 8358.41,
+                "max_drawdown": 17686.73,
+                "daily_sharpe_annualized": 1.001,
+                "target_first_pct": 0.7317,
+                "stop_first_pct": 0.3415,
+                "timeout_pct": 0.2683,
+                "outcomes": {
+                  "STOP": 14,
+                  "TP_THEN_STOP": 9,
+                  "TP2": 7,
+                  "TP_THEN_TIMEOUT": 7,
+                  "TIMEOUT": 4
+                }
+              }
+            }
+          },
+          "intrabar_ordering_1m": {
+            "compared": 14,
+            "outcome_changed": 0,
+            "net_dollars_5m": 1136.08,
+            "net_dollars_1m": 1171.08
+          },
+          "verdict": "INSUFFICIENT_SAMPLE"
+        },
+        "value_rejection": {
+          "signals": 24,
+          "by_slippage_ticks": {
+            "0.5": {
+              "development": {
+                "trades": 12,
+                "win_rate": 0.5,
+                "avg_win": 1938.33,
+                "avg_loss": -1891.67,
+                "profit_factor": 1.0247,
+                "expectancy": 23.33,
+                "expectancy_ci95": [
+                  -1322.65,
+                  1369.31
+                ],
+                "net": 280.0,
+                "max_drawdown": 4650.0,
+                "daily_sharpe_annualized": 0.156,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.4167,
+                "timeout_pct": 0.25,
+                "outcomes": {
+                  "STOP": 5,
+                  "POC": 4,
+                  "TIMEOUT": 3
+                }
+              },
+              "validation": {
+                "trades": 7,
+                "win_rate": 0.4286,
+                "avg_win": 1793.33,
+                "avg_loss": -2467.5,
+                "profit_factor": 0.5451,
+                "expectancy": -641.43,
+                "expectancy_ci95": [
+                  -2539.13,
+                  1256.28
+                ],
+                "net": -4490.0,
+                "max_drawdown": 8930.0,
+                "daily_sharpe_annualized": -3.975,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.5714,
+                "timeout_pct": 0.0,
+                "outcomes": {
+                  "STOP": 4,
+                  "POC": 3
+                }
+              },
+              "holdout": {
+                "trades": 5,
+                "win_rate": 0.0,
+                "avg_win": null,
+                "avg_loss": -2856.0,
+                "profit_factor": 0.0,
+                "expectancy": -2856.0,
+                "expectancy_ci95": [
+                  -4119.72,
+                  -1592.28
+                ],
+                "net": -14280.0,
+                "max_drawdown": 14280.0,
+                "daily_sharpe_annualized": -31.447,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.8,
+                "timeout_pct": 0.2,
+                "outcomes": {
+                  "STOP": 4,
+                  "TIMEOUT": 1
+                }
+              },
+              "all": {
+                "trades": 24,
+                "win_rate": 0.375,
+                "avg_win": 1890.0,
+                "avg_loss": -2366.67,
+                "profit_factor": 0.4792,
+                "expectancy": -770.42,
+                "expectancy_ci95": [
+                  -1755.24,
+                  214.41
+                ],
+                "net": -18490.0,
+                "max_drawdown": 22650.0,
+                "daily_sharpe_annualized": -4.968,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.5417,
+                "timeout_pct": 0.1667,
+                "outcomes": {
+                  "STOP": 13,
+                  "POC": 7,
+                  "TIMEOUT": 4
+                }
+              }
+            },
+            "1.0": {
+              "development": {
+                "trades": 12,
+                "win_rate": 0.5,
+                "avg_win": 1928.33,
+                "avg_loss": -1901.67,
+                "profit_factor": 1.014,
+                "expectancy": 13.33,
+                "expectancy_ci95": [
+                  -1332.65,
+                  1359.31
+                ],
+                "net": 160.0,
+                "max_drawdown": 4680.0,
+                "daily_sharpe_annualized": 0.089,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.4167,
+                "timeout_pct": 0.25,
+                "outcomes": {
+                  "STOP": 5,
+                  "POC": 4,
+                  "TIMEOUT": 3
+                }
+              },
+              "validation": {
+                "trades": 7,
+                "win_rate": 0.4286,
+                "avg_win": 1783.33,
+                "avg_loss": -2477.5,
+                "profit_factor": 0.5399,
+                "expectancy": -651.43,
+                "expectancy_ci95": [
+                  -2549.13,
+                  1246.28
+                ],
+                "net": -4560.0,
+                "max_drawdown": 8960.0,
+                "daily_sharpe_annualized": -4.037,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.5714,
+                "timeout_pct": 0.0,
+                "outcomes": {
+                  "STOP": 4,
+                  "POC": 3
+                }
+              },
+              "holdout": {
+                "trades": 5,
+                "win_rate": 0.0,
+                "avg_win": null,
+                "avg_loss": -2866.0,
+                "profit_factor": 0.0,
+                "expectancy": -2866.0,
+                "expectancy_ci95": [
+                  -4129.72,
+                  -1602.28
+                ],
+                "net": -14330.0,
+                "max_drawdown": 14330.0,
+                "daily_sharpe_annualized": -31.557,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.8,
+                "timeout_pct": 0.2,
+                "outcomes": {
+                  "STOP": 4,
+                  "TIMEOUT": 1
+                }
+              },
+              "all": {
+                "trades": 24,
+                "win_rate": 0.375,
+                "avg_win": 1880.0,
+                "avg_loss": -2376.67,
+                "profit_factor": 0.4746,
+                "expectancy": -780.42,
+                "expectancy_ci95": [
+                  -1765.24,
+                  204.41
+                ],
+                "net": -18730.0,
+                "max_drawdown": 22840.0,
+                "daily_sharpe_annualized": -5.033,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.5417,
+                "timeout_pct": 0.1667,
+                "outcomes": {
+                  "STOP": 13,
+                  "POC": 7,
+                  "TIMEOUT": 4
+                }
+              },
+              "by_vix": {
+                "vix<15": {
+                  "trades": 3,
+                  "win_rate": 0.3333,
+                  "avg_win": 1270.0,
+                  "avg_loss": -2155.0,
+                  "profit_factor": 0.2947,
+                  "expectancy": -1013.33,
+                  "expectancy_ci95": [
+                    -3725.94,
+                    1699.27
+                  ],
+                  "net": -3040.0,
+                  "max_drawdown": 4310.0,
+                  "daily_sharpe_annualized": -6.711,
+                  "target_first_pct": 0.0,
+                  "stop_first_pct": 0.6667,
+                  "timeout_pct": 0.0,
+                  "outcomes": {
+                    "STOP": 2,
+                    "POC": 1
+                  }
+                },
+                "15-25": {
+                  "trades": 21,
+                  "win_rate": 0.381,
+                  "avg_win": 1956.25,
+                  "avg_loss": -2410.77,
+                  "profit_factor": 0.4994,
+                  "expectancy": -747.14,
+                  "expectancy_ci95": [
+                    -1827.83,
+                    333.54
+                  ],
+                  "net": -15690.0,
+                  "max_drawdown": 18910.0,
+                  "daily_sharpe_annualized": -4.694,
+                  "target_first_pct": 0.0,
+                  "stop_first_pct": 0.5238,
+                  "timeout_pct": 0.1905,
+                  "outcomes": {
+                    "STOP": 11,
+                    "POC": 6,
+                    "TIMEOUT": 4
+                  }
+                },
+                "vix>25": {
+                  "trades": 0
+                }
+              }
+            },
+            "2.0": {
+              "development": {
+                "trades": 12,
+                "win_rate": 0.5,
+                "avg_win": 1908.33,
+                "avg_loss": -1921.67,
+                "profit_factor": 0.9931,
+                "expectancy": -6.67,
+                "expectancy_ci95": [
+                  -1352.65,
+                  1339.31
+                ],
+                "net": -80.0,
+                "max_drawdown": 4740.0,
+                "daily_sharpe_annualized": -0.044,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.4167,
+                "timeout_pct": 0.25,
+                "outcomes": {
+                  "STOP": 5,
+                  "POC": 4,
+                  "TIMEOUT": 3
+                }
+              },
+              "validation": {
+                "trades": 7,
+                "win_rate": 0.4286,
+                "avg_win": 1763.33,
+                "avg_loss": -2497.5,
+                "profit_factor": 0.5295,
+                "expectancy": -671.43,
+                "expectancy_ci95": [
+                  -2569.13,
+                  1226.28
+                ],
+                "net": -4700.0,
+                "max_drawdown": 9020.0,
+                "daily_sharpe_annualized": -4.161,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.5714,
+                "timeout_pct": 0.0,
+                "outcomes": {
+                  "STOP": 4,
+                  "POC": 3
+                }
+              },
+              "holdout": {
+                "trades": 5,
+                "win_rate": 0.0,
+                "avg_win": null,
+                "avg_loss": -2886.0,
+                "profit_factor": 0.0,
+                "expectancy": -2886.0,
+                "expectancy_ci95": [
+                  -4149.72,
+                  -1622.28
+                ],
+                "net": -14430.0,
+                "max_drawdown": 14430.0,
+                "daily_sharpe_annualized": -31.777,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.8,
+                "timeout_pct": 0.2,
+                "outcomes": {
+                  "STOP": 4,
+                  "TIMEOUT": 1
+                }
+              },
+              "all": {
+                "trades": 24,
+                "win_rate": 0.375,
+                "avg_win": 1860.0,
+                "avg_loss": -2396.67,
+                "profit_factor": 0.4656,
+                "expectancy": -800.42,
+                "expectancy_ci95": [
+                  -1785.24,
+                  184.41
+                ],
+                "net": -19210.0,
+                "max_drawdown": 23220.0,
+                "daily_sharpe_annualized": -5.162,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.5417,
+                "timeout_pct": 0.1667,
+                "outcomes": {
+                  "STOP": 13,
+                  "POC": 7,
+                  "TIMEOUT": 4
+                }
+              }
+            }
+          },
+          "intrabar_ordering_1m": {
+            "compared": 10,
+            "outcome_changed": 0,
+            "net_dollars_5m": -13440.0,
+            "net_dollars_1m": -13430.0
+          },
+          "verdict": "INSUFFICIENT_SAMPLE"
+        }
+      }
+    },
+    "ES": {
+      "rth_sessions": 49,
+      "first": "2026-08-31",
+      "last": "2026-11-06",
+      "split_end": {
+        "development": "2026-10-02",
+        "validation": "2026-10-20",
+        "holdout": "2026-11-06"
+      },
+      "sessions_with_full_1m_rth": 20,
+      "strategies": {
+        "opening_range_breakout": {
+          "signals": 44,
+          "by_slippage_ticks": {
+            "0.5": {
+              "development": {
+                "trades": 21,
+                "win_rate": 0.3333,
+                "avg_win": 1874.82,
+                "avg_loss": -1331.43,
+                "profit_factor": 0.7041,
+                "expectancy": -262.68,
+                "expectancy_ci95": [
+                  -1027.92,
+                  502.56
+                ],
+                "net": -5516.25,
+                "max_drawdown": 8460.0,
+                "daily_sharpe_annualized": -2.331,
+                "target_first_pct": 0.0952,
+                "stop_first_pct": 0.0476,
+                "timeout_pct": 0.9048,
+                "outcomes": {
+                  "TIMEOUT": 18,
+                  "STOP": 1,
+                  "TP_THEN_STOP": 1,
+                  "TP_THEN_TIMEOUT": 1
+                }
+              },
+              "validation": {
+                "trades": 11,
+                "win_rate": 0.4545,
+                "avg_win": 2305.0,
+                "avg_loss": -1493.33,
+                "profit_factor": 1.2863,
+                "expectancy": 233.18,
+                "expectancy_ci95": [
+                  -1110.82,
+                  1577.18
+                ],
+                "net": 2565.0,
+                "max_drawdown": 5930.0,
+                "daily_sharpe_annualized": 1.628,
+                "target_first_pct": 0.0909,
+                "stop_first_pct": 0.1818,
+                "timeout_pct": 0.8182,
+                "outcomes": {
+                  "TIMEOUT": 8,
+                  "STOP": 2,
+                  "TP_THEN_TIMEOUT": 1
+                }
+              },
+              "holdout": {
+                "trades": 12,
+                "win_rate": 0.5,
+                "avg_win": 2598.33,
+                "avg_loss": -1114.17,
+                "profit_factor": 2.3321,
+                "expectancy": 742.08,
+                "expectancy_ci95": [
+                  -532.18,
+                  2016.35
+                ],
+                "net": 8905.0,
+                "max_drawdown": 4210.0,
+                "daily_sharpe_annualized": 5.231,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.0,
+                "timeout_pct": 1.0,
+                "outcomes": {
+                  "TIMEOUT": 12
+                }
+              },
+              "all": {
+                "trades": 44,
+                "win_rate": 0.4091,
+                "avg_win": 2235.49,
+                "avg_loss": -1318.65,
+                "profit_factor": 1.1737,
+                "expectancy": 135.31,
+                "expectancy_ci95": [
+                  -468.21,
+                  738.83
+                ],
+                "net": 5953.75,
+                "max_drawdown": 9656.25,
+                "daily_sharpe_annualized": 1.052,
+                "target_first_pct": 0.0682,
+                "stop_first_pct": 0.0682,
+                "timeout_pct": 0.9091,
+                "outcomes": {
+                  "TIMEOUT": 38,
+                  "STOP": 3,
+                  "TP_THEN_TIMEOUT": 2,
+                  "TP_THEN_STOP": 1
+                }
+              }
+            },
+            "1.0": {
+              "development": {
+                "trades": 21,
+                "win_rate": 0.3333,
+                "avg_win": 1850.71,
+                "avg_loss": -1356.43,
+                "profit_factor": 0.6822,
+                "expectancy": -287.38,
+                "expectancy_ci95": [
+                  -1052.72,
+                  477.95
+                ],
+                "net": -6035.0,
+                "max_drawdown": 8860.0,
+                "daily_sharpe_annualized": -2.549,
+                "target_first_pct": 0.0952,
+                "stop_first_pct": 0.0476,
+                "timeout_pct": 0.9048,
+                "outcomes": {
+                  "TIMEOUT": 18,
+                  "STOP": 1,
+                  "TP_THEN_STOP": 1,
+                  "TP_THEN_TIMEOUT": 1
+                }
+              },
+              "validation": {
+                "trades": 11,
+                "win_rate": 0.4545,
+                "avg_win": 2280.0,
+                "avg_loss": -1518.33,
+                "profit_factor": 1.2514,
+                "expectancy": 208.18,
+                "expectancy_ci95": [
+                  -1135.82,
+                  1552.18
+                ],
+                "net": 2290.0,
+                "max_drawdown": 6005.0,
+                "daily_sharpe_annualized": 1.453,
+                "target_first_pct": 0.0909,
+                "stop_first_pct": 0.1818,
+                "timeout_pct": 0.8182,
+                "outcomes": {
+                  "TIMEOUT": 8,
+                  "STOP": 2,
+                  "TP_THEN_TIMEOUT": 1
+                }
+              },
+              "holdout": {
+                "trades": 12,
+                "win_rate": 0.5,
+                "avg_win": 2573.33,
+                "avg_loss": -1139.17,
+                "profit_factor": 2.259,
+                "expectancy": 717.08,
+                "expectancy_ci95": [
+                  -557.18,
+                  1991.35
+                ],
+                "net": 8605.0,
+                "max_drawdown": 4360.0,
+                "daily_sharpe_annualized": 5.054,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.0,
+                "timeout_pct": 1.0,
+                "outcomes": {
+                  "TIMEOUT": 12
+                }
+              },
+              "all": {
+                "trades": 44,
+                "win_rate": 0.4091,
+                "avg_win": 2210.83,
+                "avg_loss": -1343.65,
+                "profit_factor": 1.1391,
+                "expectancy": 110.45,
+                "expectancy_ci95": [
+                  -493.08,
+                  713.99
+                ],
+                "net": 4860.0,
+                "max_drawdown": 10275.0,
+                "daily_sharpe_annualized": 0.858,
+                "target_first_pct": 0.0682,
+                "stop_first_pct": 0.0682,
+                "timeout_pct": 0.9091,
+                "outcomes": {
+                  "TIMEOUT": 38,
+                  "STOP": 3,
+                  "TP_THEN_TIMEOUT": 2,
+                  "TP_THEN_STOP": 1
+                }
+              },
+              "by_vix": {
+                "vix<15": {
+                  "trades": 7,
+                  "win_rate": 0.4286,
+                  "avg_win": 1369.17,
+                  "avg_loss": -1022.5,
+                  "profit_factor": 1.0043,
+                  "expectancy": 2.5,
+                  "expectancy_ci95": [
+                    -1187.81,
+                    1192.81
+                  ],
+                  "net": 17.5,
+                  "max_drawdown": 3295.0,
+                  "daily_sharpe_annualized": 0.025,
+                  "target_first_pct": 0.1429,
+                  "stop_first_pct": 0.0,
+                  "timeout_pct": 0.8571,
+                  "outcomes": {
+                    "TIMEOUT": 6,
+                    "TP_THEN_STOP": 1
+                  }
+                },
+                "15-25": {
+                  "trades": 37,
+                  "win_rate": 0.4054,
+                  "avg_win": 2379.17,
+                  "avg_loss": -1402.05,
+                  "profit_factor": 1.157,
+                  "expectancy": 130.88,
+                  "expectancy_ci95": [
+                    -556.47,
+                    818.23
+                  ],
+                  "net": 4842.5,
+                  "max_drawdown": 11332.5,
+                  "daily_sharpe_annualized": 0.974,
+                  "target_first_pct": 0.0541,
+                  "stop_first_pct": 0.0811,
+                  "timeout_pct": 0.9189,
+                  "outcomes": {
+                    "TIMEOUT": 32,
+                    "STOP": 3,
+                    "TP_THEN_TIMEOUT": 2
+                  }
+                },
+                "vix>25": {
+                  "trades": 0
+                }
+              }
+            },
+            "2.0": {
+              "development": {
+                "trades": 21,
+                "win_rate": 0.3333,
+                "avg_win": 1802.5,
+                "avg_loss": -1406.43,
+                "profit_factor": 0.6408,
+                "expectancy": -336.79,
+                "expectancy_ci95": [
+                  -1102.32,
+                  428.75
+                ],
+                "net": -7072.5,
+                "max_drawdown": 9660.0,
+                "daily_sharpe_annualized": -2.987,
+                "target_first_pct": 0.0952,
+                "stop_first_pct": 0.0476,
+                "timeout_pct": 0.9048,
+                "outcomes": {
+                  "TIMEOUT": 18,
+                  "STOP": 1,
+                  "TP_THEN_STOP": 1,
+                  "TP_THEN_TIMEOUT": 1
+                }
+              },
+              "validation": {
+                "trades": 11,
+                "win_rate": 0.4545,
+                "avg_win": 2230.0,
+                "avg_loss": -1568.33,
+                "profit_factor": 1.1849,
+                "expectancy": 158.18,
+                "expectancy_ci95": [
+                  -1185.82,
+                  1502.18
+                ],
+                "net": 1740.0,
+                "max_drawdown": 6155.0,
+                "daily_sharpe_annualized": 1.104,
+                "target_first_pct": 0.0909,
+                "stop_first_pct": 0.1818,
+                "timeout_pct": 0.8182,
+                "outcomes": {
+                  "TIMEOUT": 8,
+                  "STOP": 2,
+                  "TP_THEN_TIMEOUT": 1
+                }
+              },
+              "holdout": {
+                "trades": 12,
+                "win_rate": 0.5,
+                "avg_win": 2523.33,
+                "avg_loss": -1189.17,
+                "profit_factor": 2.1219,
+                "expectancy": 667.08,
+                "expectancy_ci95": [
+                  -607.18,
+                  1941.35
+                ],
+                "net": 8005.0,
+                "max_drawdown": 4660.0,
+                "daily_sharpe_annualized": 4.702,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.0,
+                "timeout_pct": 1.0,
+                "outcomes": {
+                  "TIMEOUT": 12
+                }
+              },
+              "all": {
+                "trades": 44,
+                "win_rate": 0.4091,
+                "avg_win": 2161.53,
+                "avg_loss": -1393.65,
+                "profit_factor": 1.0738,
+                "expectancy": 60.74,
+                "expectancy_ci95": [
+                  -542.84,
+                  664.32
+                ],
+                "net": 2672.5,
+                "max_drawdown": 11512.5,
+                "daily_sharpe_annualized": 0.472,
+                "target_first_pct": 0.0682,
+                "stop_first_pct": 0.0682,
+                "timeout_pct": 0.9091,
+                "outcomes": {
+                  "TIMEOUT": 38,
+                  "STOP": 3,
+                  "TP_THEN_TIMEOUT": 2,
+                  "TP_THEN_STOP": 1
+                }
+              }
+            }
+          },
+          "intrabar_ordering_1m": {
+            "compared": 18,
+            "outcome_changed": 0,
+            "net_dollars_5m": 13995.0,
+            "net_dollars_1m": 10945.0
+          },
+          "verdict": "INSUFFICIENT_SAMPLE"
+        },
+        "vwap_pullback": {
+          "signals": 40,
+          "by_slippage_ticks": {
+            "0.5": {
+              "development": {
+                "trades": 22,
+                "win_rate": 0.4091,
+                "avg_win": 671.03,
+                "avg_loss": -1085.02,
+                "profit_factor": 0.4282,
+                "expectancy": -366.63,
+                "expectancy_ci95": [
+                  -814.42,
+                  81.15
+                ],
+                "net": -8065.94,
+                "max_drawdown": 11018.78,
+                "daily_sharpe_annualized": -5.431,
+                "target_first_pct": 0.4091,
+                "stop_first_pct": 0.5909,
+                "timeout_pct": 0.1818,
+                "outcomes": {
+                  "STOP": 13,
+                  "TP2": 4,
+                  "TIMEOUT": 4,
+                  "TP_THEN_STOP": 1
+                }
+              },
+              "validation": {
+                "trades": 8,
+                "win_rate": 0.625,
+                "avg_win": 591.7,
+                "avg_loss": -927.94,
+                "profit_factor": 1.0628,
+                "expectancy": 21.84,
+                "expectancy_ci95": [
+                  -560.61,
+                  604.29
+                ],
+                "net": 174.7,
+                "max_drawdown": 1435.0,
+                "daily_sharpe_annualized": 0.412,
+                "target_first_pct": 0.75,
+                "stop_first_pct": 0.25,
+                "timeout_pct": 0.375,
+                "outcomes": {
+                  "STOP": 2,
+                  "TP_THEN_STOP": 2,
+                  "TP_THEN_TIMEOUT": 2,
+                  "TP2": 1,
+                  "TIMEOUT": 1
+                }
+              },
+              "holdout": {
+                "trades": 10,
+                "win_rate": 0.5,
+                "avg_win": 1471.57,
+                "avg_loss": -1518.47,
+                "profit_factor": 0.9691,
+                "expectancy": -23.45,
+                "expectancy_ci95": [
+                  -1107.99,
+                  1061.1
+                ],
+                "net": -234.47,
+                "max_drawdown": 2864.37,
+                "daily_sharpe_annualized": -0.213,
+                "target_first_pct": 0.7,
+                "stop_first_pct": 0.5,
+                "timeout_pct": 0.1,
+                "outcomes": {
+                  "STOP": 5,
+                  "TP2": 2,
+                  "TP_THEN_STOP": 2,
+                  "TP_THEN_TIMEOUT": 1
+                }
+              },
+              "all": {
+                "trades": 40,
+                "win_rate": 0.475,
+                "avg_win": 860.82,
+                "avg_loss": -1165.78,
+                "profit_factor": 0.6681,
+                "expectancy": -203.14,
+                "expectancy_ci95": [
+                  -580.85,
+                  174.56
+                ],
+                "net": -8125.71,
+                "max_drawdown": 13418.46,
+                "daily_sharpe_annualized": -2.646,
+                "target_first_pct": 0.55,
+                "stop_first_pct": 0.5,
+                "timeout_pct": 0.2,
+                "outcomes": {
+                  "STOP": 20,
+                  "TP2": 7,
+                  "TIMEOUT": 5,
+                  "TP_THEN_STOP": 5,
+                  "TP_THEN_TIMEOUT": 3
+                }
+              }
+            },
+            "1.0": {
+              "development": {
+                "trades": 22,
+                "win_rate": 0.3636,
+                "avg_win": 690.6,
+                "avg_loss": -1031.44,
+                "profit_factor": 0.3826,
+                "expectancy": -405.25,
+                "expectancy_ci95": [
+                  -849.36,
+                  38.87
+                ],
+                "net": -8915.4,
+                "max_drawdown": 11818.24,
+                "daily_sharpe_annualized": -6.053,
+                "target_first_pct": 0.3636,
+                "stop_first_pct": 0.5909,
+                "timeout_pct": 0.1818,
+                "outcomes": {
+                  "STOP": 13,
+                  "TIMEOUT": 4,
+                  "TP2": 3,
+                  "TP_THEN_STOP": 2
+                }
+              },
+              "validation": {
+                "trades": 8,
+                "win_rate": 0.625,
+                "avg_win": 569.2,
+                "avg_loss": -952.94,
+                "profit_factor": 0.9955,
+                "expectancy": -1.6,
+                "expectancy_ci95": [
+                  -584.6,
+                  581.4
+                ],
+                "net": -12.8,
+                "max_drawdown": 1460.0,
+                "daily_sharpe_annualized": -0.03,
+                "target_first_pct": 0.75,
+                "stop_first_pct": 0.25,
+                "timeout_pct": 0.375,
+                "outcomes": {
+                  "STOP": 2,
+                  "TP_THEN_STOP": 2,
+                  "TP_THEN_TIMEOUT": 2,
+                  "TP2": 1,
+                  "TIMEOUT": 1
+                }
+              },
+              "holdout": {
+                "trades": 10,
+                "win_rate": 0.5,
+                "avg_win": 1449.07,
+                "avg_loss": -1543.47,
+                "profit_factor": 0.9388,
+                "expectancy": -47.2,
+                "expectancy_ci95": [
+                  -1132.14,
+                  1037.75
+                ],
+                "net": -471.97,
+                "max_drawdown": 2889.37,
+                "daily_sharpe_annualized": -0.428,
+                "target_first_pct": 0.7,
+                "stop_first_pct": 0.5,
+                "timeout_pct": 0.1,
+                "outcomes": {
+                  "STOP": 5,
+                  "TP2": 2,
+                  "TP_THEN_STOP": 2,
+                  "TP_THEN_TIMEOUT": 1
+                }
+              },
+              "all": {
+                "trades": 40,
+                "win_rate": 0.45,
+                "avg_win": 867.57,
+                "avg_loss": -1137.11,
+                "profit_factor": 0.6242,
+                "expectancy": -235.0,
+                "expectancy_ci95": [
+                  -611.88,
+                  141.87
+                ],
+                "net": -9400.17,
+                "max_drawdown": 14455.42,
+                "daily_sharpe_annualized": -3.068,
+                "target_first_pct": 0.525,
+                "stop_first_pct": 0.5,
+                "timeout_pct": 0.2,
+                "outcomes": {
+                  "STOP": 20,
+                  "TP2": 6,
+                  "TP_THEN_STOP": 6,
+                  "TIMEOUT": 5,
+                  "TP_THEN_TIMEOUT": 3
+                }
+              },
+              "by_vix": {
+                "vix<15": {
+                  "trades": 5,
+                  "win_rate": 0.8,
+                  "avg_win": 716.43,
+                  "avg_loss": -513.66,
+                  "profit_factor": 5.579,
+                  "expectancy": 470.41,
+                  "expectancy_ci95": [
+                    -104.01,
+                    1044.84
+                  ],
+                  "net": 2352.07,
+                  "max_drawdown": 513.66,
+                  "daily_sharpe_annualized": 11.395,
+                  "target_first_pct": 1.0,
+                  "stop_first_pct": 0.2,
+                  "timeout_pct": 0.2,
+                  "outcomes": {
+                    "TP2": 2,
+                    "STOP": 1,
+                    "TIMEOUT": 1,
+                    "TP_THEN_STOP": 1
+                  }
+                },
+                "15-25": {
+                  "trades": 34,
+                  "win_rate": 0.3824,
+                  "avg_win": 895.35,
+                  "avg_loss": -1166.8,
+                  "profit_factor": 0.475,
+                  "expectancy": -378.33,
+                  "expectancy_ci95": [
+                    -796.05,
+                    39.39
+                  ],
+                  "net": -12863.12,
+                  "max_drawdown": 15772.13,
+                  "daily_sharpe_annualized": -4.833,
+                  "target_first_pct": 0.4412,
+                  "stop_first_pct": 0.5588,
+                  "timeout_pct": 0.2059,
+                  "outcomes": {
+                    "STOP": 19,
+                    "TP2": 4,
+                    "TIMEOUT": 4,
+                    "TP_THEN_STOP": 4,
+                    "TP_THEN_TIMEOUT": 3
+                  }
+                },
+                "vix>25": {
+                  "trades": 1,
+                  "win_rate": 1.0,
+                  "avg_win": 1110.88,
+                  "avg_loss": null,
+                  "profit_factor": null,
+                  "expectancy": 1110.88,
+                  "expectancy_ci95": null,
+                  "net": 1110.88,
+                  "max_drawdown": 0.0,
+                  "daily_sharpe_annualized": null,
+                  "target_first_pct": 1.0,
+                  "stop_first_pct": 0.0,
+                  "timeout_pct": 0.0,
+                  "outcomes": {
+                    "TP_THEN_STOP": 1
+                  }
+                }
+              }
+            },
+            "2.0": {
+              "development": {
+                "trades": 22,
+                "win_rate": 0.3636,
+                "avg_win": 643.73,
+                "avg_loss": -1081.44,
+                "profit_factor": 0.3401,
+                "expectancy": -454.11,
+                "expectancy_ci95": [
+                  -898.56,
+                  -9.66
+                ],
+                "net": -9990.4,
+                "max_drawdown": 12793.24,
+                "daily_sharpe_annualized": -6.778,
+                "target_first_pct": 0.3636,
+                "stop_first_pct": 0.5909,
+                "timeout_pct": 0.1818,
+                "outcomes": {
+                  "STOP": 13,
+                  "TIMEOUT": 4,
+                  "TP2": 3,
+                  "TP_THEN_STOP": 2
+                }
+              },
+              "validation": {
+                "trades": 8,
+                "win_rate": 0.625,
+                "avg_win": 486.7,
+                "avg_loss": -1002.94,
+                "profit_factor": 0.8088,
+                "expectancy": -71.91,
+                "expectancy_ci95": [
+                  -647.73,
+                  503.91
+                ],
+                "net": -575.3,
+                "max_drawdown": 1510.0,
+                "daily_sharpe_annualized": -1.374,
+                "target_first_pct": 0.75,
+                "stop_first_pct": 0.25,
+                "timeout_pct": 0.25,
+                "outcomes": {
+                  "TP_THEN_STOP": 3,
+                  "STOP": 2,
+                  "TP2": 1,
+                  "TP_THEN_TIMEOUT": 1,
+                  "TIMEOUT": 1
+                }
+              },
+              "holdout": {
+                "trades": 10,
+                "win_rate": 0.5,
+                "avg_win": 1404.07,
+                "avg_loss": -1593.47,
+                "profit_factor": 0.8811,
+                "expectancy": -94.7,
+                "expectancy_ci95": [
+                  -1180.44,
+                  991.05
+                ],
+                "net": -946.97,
+                "max_drawdown": 2939.37,
+                "daily_sharpe_annualized": -0.858,
+                "target_first_pct": 0.7,
+                "stop_first_pct": 0.5,
+                "timeout_pct": 0.1,
+                "outcomes": {
+                  "STOP": 5,
+                  "TP2": 2,
+                  "TP_THEN_STOP": 2,
+                  "TP_THEN_TIMEOUT": 1
+                }
+              },
+              "all": {
+                "trades": 40,
+                "win_rate": 0.45,
+                "avg_win": 811.32,
+                "avg_loss": -1187.11,
+                "profit_factor": 0.5592,
+                "expectancy": -287.82,
+                "expectancy_ci95": [
+                  -664.31,
+                  88.68
+                ],
+                "net": -11512.67,
+                "max_drawdown": 16092.92,
+                "daily_sharpe_annualized": -3.761,
+                "target_first_pct": 0.525,
+                "stop_first_pct": 0.5,
+                "timeout_pct": 0.175,
+                "outcomes": {
+                  "STOP": 20,
+                  "TP_THEN_STOP": 7,
+                  "TP2": 6,
+                  "TIMEOUT": 5,
+                  "TP_THEN_TIMEOUT": 2
+                }
+              }
+            }
+          },
+          "intrabar_ordering_1m": {
+            "compared": 13,
+            "outcome_changed": 0,
+            "net_dollars_5m": -1161.38,
+            "net_dollars_1m": -261.38
+          },
+          "verdict": "INSUFFICIENT_SAMPLE"
+        },
+        "value_rejection": {
+          "signals": 26,
+          "by_slippage_ticks": {
+            "0.5": {
+              "development": {
+                "trades": 11,
+                "win_rate": 0.6364,
+                "avg_win": 782.86,
+                "avg_loss": -1478.75,
+                "profit_factor": 0.9265,
+                "expectancy": -39.55,
+                "expectancy_ci95": [
+                  -822.57,
+                  743.47
+                ],
+                "net": -435.0,
+                "max_drawdown": 5380.0,
+                "daily_sharpe_annualized": -0.474,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.3636,
+                "timeout_pct": 0.1818,
+                "outcomes": {
+                  "POC": 5,
+                  "STOP": 4,
+                  "TIMEOUT": 2
+                }
+              },
+              "validation": {
+                "trades": 7,
+                "win_rate": 0.7143,
+                "avg_win": 1265.0,
+                "avg_loss": -1047.5,
+                "profit_factor": 3.0191,
+                "expectancy": 604.29,
+                "expectancy_ci95": [
+                  -414.1,
+                  1622.67
+                ],
+                "net": 4230.0,
+                "max_drawdown": 2095.0,
+                "daily_sharpe_annualized": 6.978,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.2857,
+                "timeout_pct": 0.0,
+                "outcomes": {
+                  "POC": 5,
+                  "STOP": 2
+                }
+              },
+              "holdout": {
+                "trades": 8,
+                "win_rate": 0.5,
+                "avg_win": 1221.25,
+                "avg_loss": -835.0,
+                "profit_factor": 1.4626,
+                "expectancy": 193.12,
+                "expectancy_ci95": [
+                  -728.03,
+                  1114.28
+                ],
+                "net": 1545.0,
+                "max_drawdown": 2015.0,
+                "daily_sharpe_annualized": 2.306,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.5,
+                "timeout_pct": 0.125,
+                "outcomes": {
+                  "STOP": 4,
+                  "POC": 3,
+                  "TIMEOUT": 1
+                }
+              },
+              "all": {
+                "trades": 26,
+                "win_rate": 0.6154,
+                "avg_win": 1043.12,
+                "avg_loss": -1135.0,
+                "profit_factor": 1.4705,
+                "expectancy": 205.38,
+                "expectancy_ci95": [
+                  -298.96,
+                  709.73
+                ],
+                "net": 5340.0,
+                "max_drawdown": 6560.0,
+                "daily_sharpe_annualized": 2.485,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.3846,
+                "timeout_pct": 0.1154,
+                "outcomes": {
+                  "POC": 13,
+                  "STOP": 10,
+                  "TIMEOUT": 3
+                }
+              }
+            },
+            "1.0": {
+              "development": {
+                "trades": 11,
+                "win_rate": 0.6364,
+                "avg_win": 757.86,
+                "avg_loss": -1503.75,
+                "profit_factor": 0.882,
+                "expectancy": -64.55,
+                "expectancy_ci95": [
+                  -847.57,
+                  718.47
+                ],
+                "net": -710.0,
+                "max_drawdown": 5455.0,
+                "daily_sharpe_annualized": -0.773,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.3636,
+                "timeout_pct": 0.1818,
+                "outcomes": {
+                  "POC": 5,
+                  "STOP": 4,
+                  "TIMEOUT": 2
+                }
+              },
+              "validation": {
+                "trades": 7,
+                "win_rate": 0.7143,
+                "avg_win": 1240.0,
+                "avg_loss": -1072.5,
+                "profit_factor": 2.8904,
+                "expectancy": 579.29,
+                "expectancy_ci95": [
+                  -439.1,
+                  1597.67
+                ],
+                "net": 4055.0,
+                "max_drawdown": 2145.0,
+                "daily_sharpe_annualized": 6.689,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.2857,
+                "timeout_pct": 0.0,
+                "outcomes": {
+                  "POC": 5,
+                  "STOP": 2
+                }
+              },
+              "holdout": {
+                "trades": 8,
+                "win_rate": 0.5,
+                "avg_win": 1196.25,
+                "avg_loss": -860.0,
+                "profit_factor": 1.391,
+                "expectancy": 168.12,
+                "expectancy_ci95": [
+                  -753.03,
+                  1089.28
+                ],
+                "net": 1345.0,
+                "max_drawdown": 2115.0,
+                "daily_sharpe_annualized": 2.008,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.5,
+                "timeout_pct": 0.125,
+                "outcomes": {
+                  "STOP": 4,
+                  "POC": 3,
+                  "TIMEOUT": 1
+                }
+              },
+              "all": {
+                "trades": 26,
+                "win_rate": 0.6154,
+                "avg_win": 1018.12,
+                "avg_loss": -1160.0,
+                "profit_factor": 1.4043,
+                "expectancy": 180.38,
+                "expectancy_ci95": [
+                  -323.96,
+                  684.73
+                ],
+                "net": 4690.0,
+                "max_drawdown": 6710.0,
+                "daily_sharpe_annualized": 2.182,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.3846,
+                "timeout_pct": 0.1154,
+                "outcomes": {
+                  "POC": 13,
+                  "STOP": 10,
+                  "TIMEOUT": 3
+                }
+              },
+              "by_vix": {
+                "vix<15": {
+                  "trades": 4,
+                  "win_rate": 0.5,
+                  "avg_win": 540.0,
+                  "avg_loss": -1497.5,
+                  "profit_factor": 0.3606,
+                  "expectancy": -478.75,
+                  "expectancy_ci95": [
+                    -1882.38,
+                    924.88
+                  ],
+                  "net": -1915.0,
+                  "max_drawdown": 2435.0,
+                  "daily_sharpe_annualized": -5.306,
+                  "target_first_pct": 0.0,
+                  "stop_first_pct": 0.5,
+                  "timeout_pct": 0.0,
+                  "outcomes": {
+                    "STOP": 2,
+                    "POC": 2
+                  }
+                },
+                "15-25": {
+                  "trades": 22,
+                  "win_rate": 0.6364,
+                  "avg_win": 1086.43,
+                  "avg_loss": -1075.62,
+                  "profit_factor": 1.7676,
+                  "expectancy": 300.23,
+                  "expectancy_ci95": [
+                    -237.94,
+                    838.39
+                  ],
+                  "net": 6605.0,
+                  "max_drawdown": 4275.0,
+                  "daily_sharpe_annualized": 3.701,
+                  "target_first_pct": 0.0,
+                  "stop_first_pct": 0.3636,
+                  "timeout_pct": 0.1364,
+                  "outcomes": {
+                    "POC": 11,
+                    "STOP": 8,
+                    "TIMEOUT": 3
+                  }
+                },
+                "vix>25": {
+                  "trades": 0
+                }
+              }
+            },
+            "2.0": {
+              "development": {
+                "trades": 11,
+                "win_rate": 0.6364,
+                "avg_win": 707.86,
+                "avg_loss": -1553.75,
+                "profit_factor": 0.7973,
+                "expectancy": -114.55,
+                "expectancy_ci95": [
+                  -897.57,
+                  668.47
+                ],
+                "net": -1260.0,
+                "max_drawdown": 5605.0,
+                "daily_sharpe_annualized": -1.372,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.3636,
+                "timeout_pct": 0.1818,
+                "outcomes": {
+                  "POC": 5,
+                  "STOP": 4,
+                  "TIMEOUT": 2
+                }
+              },
+              "validation": {
+                "trades": 7,
+                "win_rate": 0.7143,
+                "avg_win": 1190.0,
+                "avg_loss": -1122.5,
+                "profit_factor": 2.6503,
+                "expectancy": 529.29,
+                "expectancy_ci95": [
+                  -489.1,
+                  1547.67
+                ],
+                "net": 3705.0,
+                "max_drawdown": 2245.0,
+                "daily_sharpe_annualized": 6.112,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.2857,
+                "timeout_pct": 0.0,
+                "outcomes": {
+                  "POC": 5,
+                  "STOP": 2
+                }
+              },
+              "holdout": {
+                "trades": 8,
+                "win_rate": 0.5,
+                "avg_win": 1146.25,
+                "avg_loss": -910.0,
+                "profit_factor": 1.2596,
+                "expectancy": 118.12,
+                "expectancy_ci95": [
+                  -803.03,
+                  1039.28
+                ],
+                "net": 945.0,
+                "max_drawdown": 2315.0,
+                "daily_sharpe_annualized": 1.411,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.5,
+                "timeout_pct": 0.125,
+                "outcomes": {
+                  "STOP": 4,
+                  "POC": 3,
+                  "TIMEOUT": 1
+                }
+              },
+              "all": {
+                "trades": 26,
+                "win_rate": 0.6154,
+                "avg_win": 968.12,
+                "avg_loss": -1210.0,
+                "profit_factor": 1.2802,
+                "expectancy": 130.38,
+                "expectancy_ci95": [
+                  -373.96,
+                  634.73
+                ],
+                "net": 3390.0,
+                "max_drawdown": 7010.0,
+                "daily_sharpe_annualized": 1.577,
+                "target_first_pct": 0.0,
+                "stop_first_pct": 0.3846,
+                "timeout_pct": 0.1154,
+                "outcomes": {
+                  "POC": 13,
+                  "STOP": 10,
+                  "TIMEOUT": 3
+                }
+              }
+            }
+          },
+          "intrabar_ordering_1m": {
+            "compared": 13,
+            "outcome_changed": 0,
+            "net_dollars_5m": 7545.0,
+            "net_dollars_1m": 7145.0
+          },
+          "verdict": "INSUFFICIENT_SAMPLE"
+        }
+      }
+    }
+  },
+  "trade_ledger": {
+    "path": "data\\studies\\phase3v\\strategy_trades.csv",
+    "rows": 217,
+    "sha256": "235b8f3c06f509c30ea134035835e1ed57fb63760a2992c9ef2a71761f88e8a5"
+  }
+}

@@ -1,0 +1,725 @@
+{
+  "generated_at": "2026-11-09T03:09:01.727972+00:00",
+  "dataset": "GLBX.MDP3",
+  "time_series_requested": false,
+  "credential": "loaded from private file into process env; never logged",
+  "authenticated": true,
+  "schemas": [
+    "mbo",
+    "mbp-1",
+    "mbp-10",
+    "tbbo",
+    "trades",
+    "bbo-1s",
+    "bbo-1m",
+    "ohlcv-1s",
+    "ohlcv-1m",
+    "ohlcv-1h",
+    "ohlcv-1d",
+    "definition",
+    "statistics",
+    "status",
+    "cmbp-1",
+    "cbbo-1s",
+    "cbbo-1m"
+  ],
+  "range": {
+    "start": "2010-06-06T00:00:00.000000000Z",
+    "end": "2026-11-08T19:09:03.167385000Z",
+    "by_schema": {
+      "mbo": {
+        "start": "2017-05-21T00:00:00.000000000Z",
+        "end": "2026-11-08T19:09:03.167385000Z"
+      },
+      "mbp-1": {
+        "start": "2010-06-06T00:00:00.000000000Z",
+        "end": "2026-11-08T19:09:03.167385000Z"
+      },
+      "tbbo": {
+        "start": "2010-06-06T00:00:00.000000000Z",
+        "end": "2026-11-08T19:09:03.167385000Z"
+      },
+      "trades": {
+        "start": "2010-06-06T00:00:00.000000000Z",
+        "end": "2026-11-08T19:09:03.167385000Z"
+      },
+      "ohlcv-1m": {
+        "start": "2010-06-06T00:00:00.000000000Z",
+        "end": "2026-11-08T19:09:03.167385000Z"
+      },
+      "definition": {
+        "start": "2010-06-06T00:00:00.000000000Z",
+        "end": "2026-11-08T19:09:03.167385000Z"
+      }
+    }
+  },
+  "unit_prices": [
+    {
+      "mode": "historical",
+      "unit_prices": {
+        "mbo": 1.8,
+        "mbp-1": 1.8,
+        "mbp-10": 0.5,
+        "tbbo": 28.0,
+        "trades": 28.0,
+        "bbo-1s": 18.0,
+        "bbo-1m": 18.0,
+        "ohlcv-1s": 70.0,
+        "ohlcv-1m": 70.0,
+        "ohlcv-1h": 190.0,
+        "ohlcv-1d": 190.0,
+        "definition": 1.7,
+        "statistics": 1.0,
+        "status": 4.0,
+        "cmbp-1": 1.8,
+        "cbbo-1s": 18.0,
+        "cbbo-1m": 18.0
+      }
+    },
+    {
+      "mode": "historical-streaming",
+      "unit_prices": {
+        "mbo": 1.8,
+        "mbp-1": 1.8,
+        "mbp-10": 0.5,
+        "tbbo": 28.0,
+        "trades": 28.0,
+        "bbo-1s": 18.0,
+        "bbo-1m": 18.0,
+        "ohlcv-1s": 70.0,
+        "ohlcv-1m": 70.0,
+        "ohlcv-1h": 190.0,
+        "ohlcv-1d": 190.0,
+        "definition": 1.7,
+        "statistics": 1.0,
+        "status": 4.0,
+        "cmbp-1": 1.8,
+        "cbbo-1s": 18.0,
+        "cbbo-1m": 18.0
+      }
+    },
+    {
+      "mode": "live",
+      "unit_prices": {
+        "mbo": 2.16,
+        "mbp-1": 2.16,
+        "mbp-10": 0.6,
+        "tbbo": 33.6,
+        "trades": 33.6,
+        "bbo-1s": 21.6,
+        "bbo-1m": 21.6,
+        "ohlcv-1s": 84.0,
+        "ohlcv-1m": 84.0,
+        "ohlcv-1h": 228.0,
+        "ohlcv-1d": 228.0,
+        "definition": 2.04,
+        "statistics": 1.2,
+        "status": 4.0,
+        "cmbp-1": 2.16,
+        "cbbo-1s": 21.6,
+        "cbbo-1m": 21.6
+      }
+    }
+  ],
+  "symbology": {
+    "status": 0,
+    "partial": [],
+    "not_found": [],
+    "intervals": {
+      "NQ.v.0": 67,
+      "ES.v.0": 67
+    },
+    "first": {
+      "NQ.v.0": {
+        "d0": "2010-06-04",
+        "d1": "2010-06-14",
+        "s": "6641"
+      },
+      "ES.v.0": {
+        "d0": "2010-06-04",
+        "d1": "2010-06-14",
+        "s": "6640"
+      }
+    },
+    "last": {
+      "NQ.v.0": {
+        "d0": "2026-09-16",
+        "d1": "2026-11-07",
+        "s": "261401"
+      },
+      "ES.v.0": {
+        "d0": "2026-09-16",
+        "d1": "2026-11-07",
+        "s": "10252"
+      }
+    }
+  },
+  "quotes": {
+    "pilot_ohlcv_1m_2w": {
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2026-10-26",
+        "end": "2026-11-07"
+      },
+      "cost_usd": "0.099885463715",
+      "billable_bytes": 1532160,
+      "record_count": 27360
+    },
+    "pilot_definition_2w": {
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "definition",
+        "start": "2026-10-26",
+        "end": "2026-11-07"
+      },
+      "cost_usd": "0.000018112361",
+      "billable_bytes": 11440,
+      "record_count": 22
+    },
+    "ohlcv_1m_2021_2026": {
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2021-01-01",
+        "end": "2026-11-07"
+      },
+      "cost_usd": "15.122830793262",
+      "billable_bytes": 231971656,
+      "record_count": 4142351
+    },
+    "ohlcv_1m_2010_2020": {
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2010-06-06",
+        "end": "2021-01-01"
+      },
+      "cost_usd": "26.165336742997",
+      "billable_bytes": 401354520,
+      "record_count": 7167045
+    },
+    "ohlcv_1m_all_expiries_parent_1y": {
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.FUT,ES.FUT",
+        "stype_in": "parent",
+        "schema": "ohlcv-1m",
+        "start": "2025-11-01",
+        "end": "2026-11-07"
+      },
+      "cost_usd": "4.078141674399",
+      "billable_bytes": 62555304,
+      "record_count": 1117059
+    },
+    "definition_2010_2026": {
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "definition",
+        "start": "2010-06-06",
+        "end": "2026-11-07"
+      },
+      "cost_usd": "0.008483171463",
+      "billable_bytes": 5358080,
+      "record_count": 10304
+    },
+    "trades_1m_month": {
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "trades",
+        "start": "2026-10-01",
+        "end": "2026-11-01"
+      },
+      "cost_usd": "26.55482840538",
+      "billable_bytes": 1018322496,
+      "record_count": 21215052
+    },
+    "tbbo_1_month": {
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "tbbo",
+        "start": "2026-10-01",
+        "end": "2026-11-01"
+      },
+      "cost_usd": "44.2580473423",
+      "billable_bytes": 1697204160,
+      "record_count": 21215052
+    },
+    "trades_2021_2026": {
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "trades",
+        "start": "2021-01-01",
+        "end": "2026-11-07"
+      },
+      "cost_usd": "1527.795685708523",
+      "billable_bytes": 58587790224,
+      "record_count": 1220578963
+    },
+    "mbp1_1_week": {
+      "request": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "mbp-1",
+        "start": "2026-10-26",
+        "end": "2026-11-02"
+      },
+      "cost_usd": "19.075675517321",
+      "billable_bytes": 11379083680,
+      "record_count": 142238546
+    }
+  },
+  "account_credit_balance": "NOT_EXPOSED_BY_HISTORICAL_API: confirm remaining credits in the Databento portal (Billing) before approving",
+  "metadata_receipts": [
+    {
+      "method": "metadata.list_datasets",
+      "parameters": {},
+      "body_sha256": "ddcbe2d588812af073863870408b55ad18b65d1ab721608cba9c4d107664f285",
+      "received_at": "2026-11-09T03:09:03.157268+00:00"
+    },
+    {
+      "method": "metadata.list_schemas",
+      "parameters": {
+        "dataset": "GLBX.MDP3"
+      },
+      "body_sha256": "17f6fd52da043e008518e971129555fbc04e38bd7ba81c35ef601bb574feb0c2",
+      "received_at": "2026-11-09T03:09:03.221160+00:00"
+    },
+    {
+      "method": "metadata.get_dataset_range",
+      "parameters": {
+        "dataset": "GLBX.MDP3"
+      },
+      "body_sha256": "f8c25cfe5bcc755c0657ffc8870627082dc28acd8d6be7171d0443acf85f1f8d",
+      "received_at": "2026-11-09T03:09:03.353382+00:00"
+    },
+    {
+      "method": "metadata.list_unit_prices",
+      "parameters": {
+        "dataset": "GLBX.MDP3"
+      },
+      "body_sha256": "e92ae039b08dc253fc6f2a053a4d12cb55dde31ed183da2b156227247374b231",
+      "received_at": "2026-11-09T03:09:03.400283+00:00"
+    },
+    {
+      "method": "symbology.resolve",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "stype_out": "instrument_id",
+        "start_date": "2010-06-06",
+        "end_date": "2026-11-07"
+      },
+      "body_sha256": "6832435f4b21e04f0b3f606d0a0c2b304dbca8bbf2180f3410e8609291fb3fa4",
+      "received_at": "2026-11-09T03:09:04.223905+00:00"
+    },
+    {
+      "method": "metadata.get_cost",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2026-10-26",
+        "end": "2026-11-07"
+      },
+      "body_sha256": "069e9eb4be445b84efa2abdca02461accac6cdb61e4ea4d3fc4d9b9add0c5211",
+      "received_at": "2026-11-09T03:09:04.438158+00:00"
+    },
+    {
+      "method": "metadata.get_billable_size",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2026-10-26",
+        "end": "2026-11-07"
+      },
+      "body_sha256": "2b76a9fc0a2d42aa9b3dba551e8e5f35d6599fc84b718945d7ade28749b91c02",
+      "received_at": "2026-11-09T03:09:04.636853+00:00"
+    },
+    {
+      "method": "metadata.get_record_count",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2026-10-26",
+        "end": "2026-11-07"
+      },
+      "body_sha256": "6718565d7063a43aed889d287bbc1813afbf2119eaa4cab580390520572e40f0",
+      "received_at": "2026-11-09T03:09:05.075890+00:00"
+    },
+    {
+      "method": "metadata.get_cost",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "definition",
+        "start": "2026-10-26",
+        "end": "2026-11-07"
+      },
+      "body_sha256": "fb6acc832a137a4ad221a8c067e5ac2cfd71dad0adb4eaa9f1554126324c7030",
+      "received_at": "2026-11-09T03:09:05.610854+00:00"
+    },
+    {
+      "method": "metadata.get_billable_size",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "definition",
+        "start": "2026-10-26",
+        "end": "2026-11-07"
+      },
+      "body_sha256": "db00b1295deb4aa9297bc1c29e06783fe03c393e2fb87b18d860cb62d755fc90",
+      "received_at": "2026-11-09T03:09:06.130989+00:00"
+    },
+    {
+      "method": "metadata.get_record_count",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "definition",
+        "start": "2026-10-26",
+        "end": "2026-11-07"
+      },
+      "body_sha256": "785f3ec7eb32f30b90cd0fcf3657d388b5ff4297f2f9716ff66e9b69c05ddd09",
+      "received_at": "2026-11-09T03:09:06.309770+00:00"
+    },
+    {
+      "method": "metadata.get_cost",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2021-01-01",
+        "end": "2026-11-07"
+      },
+      "body_sha256": "b5fdf70aa64e925aeaab062a7b0bac224c5f3cb92db5f3d8e07525f4e91d1d26",
+      "received_at": "2026-11-09T03:09:10.315549+00:00"
+    },
+    {
+      "method": "metadata.get_billable_size",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2021-01-01",
+        "end": "2026-11-07"
+      },
+      "body_sha256": "0f67935b00ecf419cfef40cc24f6f3a63c4b3429e66713006046b81c8017826d",
+      "received_at": "2026-11-09T03:09:12.269722+00:00"
+    },
+    {
+      "method": "metadata.get_record_count",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2021-01-01",
+        "end": "2026-11-07"
+      },
+      "body_sha256": "204d09a0b0d9766e263aa08ef1fd256fa7bc4591b9447020b30b7ead14f96c17",
+      "received_at": "2026-11-09T03:09:13.640875+00:00"
+    },
+    {
+      "method": "metadata.get_cost",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2010-06-06",
+        "end": "2021-01-01"
+      },
+      "body_sha256": "4c3afaf8c7b0a98c781c52d3eb85fe045730ef2e5001942d6ddb82c821fdcb0f",
+      "received_at": "2026-11-09T03:09:13.817441+00:00"
+    },
+    {
+      "method": "metadata.get_billable_size",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2010-06-06",
+        "end": "2021-01-01"
+      },
+      "body_sha256": "20e5bed6b783ff8dc2045d8c95454efc4aaade7e5326720101824019b9eaabae",
+      "received_at": "2026-11-09T03:09:14.544146+00:00"
+    },
+    {
+      "method": "metadata.get_record_count",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "ohlcv-1m",
+        "start": "2010-06-06",
+        "end": "2021-01-01"
+      },
+      "body_sha256": "13185ae11e50325ab40581e9f4035a228668ecde4687d9cd8473ace07e6c6dc0",
+      "received_at": "2026-11-09T03:09:15.255837+00:00"
+    },
+    {
+      "method": "metadata.get_cost",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.FUT,ES.FUT",
+        "stype_in": "parent",
+        "schema": "ohlcv-1m",
+        "start": "2025-11-01",
+        "end": "2026-11-07"
+      },
+      "body_sha256": "53a0e25fe71343a6fd868eb57dc4f3c3e5cb50a36ee035d11800de85b127c27a",
+      "received_at": "2026-11-09T03:09:27.668035+00:00"
+    },
+    {
+      "method": "metadata.get_billable_size",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.FUT,ES.FUT",
+        "stype_in": "parent",
+        "schema": "ohlcv-1m",
+        "start": "2025-11-01",
+        "end": "2026-11-07"
+      },
+      "body_sha256": "47df2e9ca65423d25c089de232b26a6e139a458cfeb1f5811dbb60db98bdbd4c",
+      "received_at": "2026-11-09T03:09:27.881160+00:00"
+    },
+    {
+      "method": "metadata.get_record_count",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.FUT,ES.FUT",
+        "stype_in": "parent",
+        "schema": "ohlcv-1m",
+        "start": "2025-11-01",
+        "end": "2026-11-07"
+      },
+      "body_sha256": "d013de518628329251851646d8b29572f53afb0d95cc8d1166ffd9e7814660e8",
+      "received_at": "2026-11-09T03:09:28.192214+00:00"
+    },
+    {
+      "method": "metadata.get_cost",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "definition",
+        "start": "2010-06-06",
+        "end": "2026-11-07"
+      },
+      "body_sha256": "4691829bf0e9c3e990d09bf4a41f0c404002b847011a9ce425ec049f4dc18c07",
+      "received_at": "2026-11-09T03:09:28.574992+00:00"
+    },
+    {
+      "method": "metadata.get_billable_size",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "definition",
+        "start": "2010-06-06",
+        "end": "2026-11-07"
+      },
+      "body_sha256": "e777c55e6e0f3863eeeb125e5c20663464b01376cbec900e079f597c4f15f31f",
+      "received_at": "2026-11-09T03:09:29.225076+00:00"
+    },
+    {
+      "method": "metadata.get_record_count",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "definition",
+        "start": "2010-06-06",
+        "end": "2026-11-07"
+      },
+      "body_sha256": "4a381e6eb9c1a4ec3b0240358a727f44ff25419f0f97e9db2fdf01520b4af2a3",
+      "received_at": "2026-11-09T03:09:29.734738+00:00"
+    },
+    {
+      "method": "metadata.get_cost",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "trades",
+        "start": "2026-10-01",
+        "end": "2026-11-01"
+      },
+      "body_sha256": "b45fca038140196fbab79ea15e9cd89b1056a71f24635ca78c4a8ba5eae6250b",
+      "received_at": "2026-11-09T03:09:29.907802+00:00"
+    },
+    {
+      "method": "metadata.get_billable_size",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "trades",
+        "start": "2026-10-01",
+        "end": "2026-11-01"
+      },
+      "body_sha256": "ab09dbd342c960913253c3a36a7731185e802149860c3bdb6b3cae5a5a4e9669",
+      "received_at": "2026-11-09T03:09:30.882809+00:00"
+    },
+    {
+      "method": "metadata.get_record_count",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "trades",
+        "start": "2026-10-01",
+        "end": "2026-11-01"
+      },
+      "body_sha256": "45e240d948fd0a911e5fdbf7c1e7c69add60cbfff5674ce9fcd7fb6ac77da44c",
+      "received_at": "2026-11-09T03:09:31.077570+00:00"
+    },
+    {
+      "method": "metadata.get_cost",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "tbbo",
+        "start": "2026-10-01",
+        "end": "2026-11-01"
+      },
+      "body_sha256": "4dd8498536dc71ff8a40ca06fc4dd80b39c4c030313dc1761a4af99f35e5a9cc",
+      "received_at": "2026-11-09T03:09:31.702666+00:00"
+    },
+    {
+      "method": "metadata.get_billable_size",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "tbbo",
+        "start": "2026-10-01",
+        "end": "2026-11-01"
+      },
+      "body_sha256": "cfacd0b66c1a05c6d1b40f781d2736f76b6ae6437be2eb1d31bb70acd6691a33",
+      "received_at": "2026-11-09T03:09:31.809319+00:00"
+    },
+    {
+      "method": "metadata.get_record_count",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "tbbo",
+        "start": "2026-10-01",
+        "end": "2026-11-01"
+      },
+      "body_sha256": "45e240d948fd0a911e5fdbf7c1e7c69add60cbfff5674ce9fcd7fb6ac77da44c",
+      "received_at": "2026-11-09T03:09:33.109477+00:00"
+    },
+    {
+      "method": "metadata.get_cost",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "trades",
+        "start": "2021-01-01",
+        "end": "2026-11-07"
+      },
+      "body_sha256": "5f551e507d51056b39908652db6d9540d92490f0657fd673b2dc74ed52a8283e",
+      "received_at": "2026-11-09T03:09:34.311418+00:00"
+    },
+    {
+      "method": "metadata.get_billable_size",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "trades",
+        "start": "2021-01-01",
+        "end": "2026-11-07"
+      },
+      "body_sha256": "9523abce50964096c68c6882120bdfd17ee32dba3b0df266239807bd21784a37",
+      "received_at": "2026-11-09T03:09:38.485287+00:00"
+    },
+    {
+      "method": "metadata.get_record_count",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "trades",
+        "start": "2021-01-01",
+        "end": "2026-11-07"
+      },
+      "body_sha256": "8deec733e7efa30f52b526d77a05a0ac890bfd2163d37edbb9483340ce038e66",
+      "received_at": "2026-11-09T03:09:38.727986+00:00"
+    },
+    {
+      "method": "metadata.get_cost",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "mbp-1",
+        "start": "2026-10-26",
+        "end": "2026-11-02"
+      },
+      "body_sha256": "743978967be7edec53f03087d5d8d0922ae089ec5ecc88eebe794f5c4face15d",
+      "received_at": "2026-11-09T03:09:38.852929+00:00"
+    },
+    {
+      "method": "metadata.get_billable_size",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "mbp-1",
+        "start": "2026-10-26",
+        "end": "2026-11-02"
+      },
+      "body_sha256": "c38f50b98178dc7bb7e2fd0cfa9d74c1c3bffef10b316ab3b43965a8e048fd38",
+      "received_at": "2026-11-09T03:09:39.120147+00:00"
+    },
+    {
+      "method": "metadata.get_record_count",
+      "parameters": {
+        "dataset": "GLBX.MDP3",
+        "symbols": "NQ.v.0,ES.v.0",
+        "stype_in": "continuous",
+        "schema": "mbp-1",
+        "start": "2026-10-26",
+        "end": "2026-11-02"
+      },
+      "body_sha256": "3724e253864fa827de3b5eb5a7d7642fbf2dd62a1ca24daa54426faec0fcce41",
+      "received_at": "2026-11-09T03:09:40.541393+00:00"
+    }
+  ]
+}

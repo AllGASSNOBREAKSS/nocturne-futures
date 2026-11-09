@@ -1,0 +1,312 @@
+{
+  "generated_at": "2026-11-09T04:01:29.614686+00:00",
+  "archive_root": "data\\history\\free",
+  "sources": {
+    "yahoo_futures": {
+      "status": "COLLECTED",
+      "seconds": 26.5,
+      "datasets": [
+        {
+          "dataset": "NQ_1d",
+          "status": "NEW",
+          "rows": 6600,
+          "first": "2000-09-18 04:00:00+00:00",
+          "last": "2026-11-06 05:00:00+00:00",
+          "appended_rows": 6600,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "7e6260bfb071ab0777ceffae84ed8a51337cab487ac897aad2e8277a46a6fee2",
+          "normalized_sha256": "c47b7364cde0e07482344bd473d516d691d614558e70afd7664055f07c7c1dff",
+          "raw_bytes": 372824,
+          "credibility": "UNOFFICIAL_RESEARCH_GRADE",
+          "pit_eligible": true,
+          "availability_rule": "bar end (lower bound; dissemination latency unknown)",
+          "limitation": "continuous front-month, unadjusted, Yahoo roll schedule; not raw contracts",
+          "url": "https://query2.finance.yahoo.com/v8/finance/chart/NQ=F?interval=1d&period1=946684800&period2=1794196863"
+        },
+        {
+          "dataset": "NQ_60m",
+          "status": "NEW",
+          "rows": 13678,
+          "first": "2024-06-17 04:00:00+00:00",
+          "last": "2026-11-09 03:00:00+00:00",
+          "appended_rows": 13678,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "3b541ba33bd9a3392682c2d4681cb95aed235cfc43189abc909fca2c09233d9b",
+          "normalized_sha256": "a5797f640a3f4c701bfca9b3425b4ebedf80a47dfc199805a2d8398eb667b752",
+          "raw_bytes": 878535,
+          "credibility": "UNOFFICIAL_RESEARCH_GRADE",
+          "pit_eligible": true,
+          "availability_rule": "bar end (lower bound; dissemination latency unknown)",
+          "limitation": "continuous front-month, unadjusted, Yahoo roll schedule; not raw contracts",
+          "url": "https://query2.finance.yahoo.com/v8/finance/chart/NQ=F?interval=60m&range=730d"
+        },
+        {
+          "dataset": "NQ_5m",
+          "status": "NEW",
+          "rows": 13443,
+          "first": "2026-08-30 22:10:00+00:00",
+          "last": "2026-11-09 03:50:00+00:00",
+          "appended_rows": 13443,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "b9521a9e0d70e40572aa4fbee2e0e75ba889929105d8aff9d82d48bd6feef933",
+          "normalized_sha256": "d71429d7fa7f79948d65b620a51393c22469cedc19d1713f8bea975f1bc098a1",
+          "raw_bytes": 800439,
+          "credibility": "UNOFFICIAL_RESEARCH_GRADE",
+          "pit_eligible": true,
+          "availability_rule": "bar end (lower bound; dissemination latency unknown)",
+          "limitation": "continuous front-month, unadjusted, Yahoo roll schedule; not raw contracts",
+          "url": "https://query2.finance.yahoo.com/v8/finance/chart/NQ=F?interval=5m&range=60d"
+        },
+        {
+          "dataset": "NQ_1m",
+          "status": "NEW",
+          "rows": 27229,
+          "first": "2026-10-12 04:02:00+00:00",
+          "last": "2026-11-09 03:51:00+00:00",
+          "appended_rows": 27229,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "73e43c2fb7989e176c97802327829aca5c42c6cf54daa38cbb31702f5c08790a",
+          "normalized_sha256": "efec45743d6eebf1cf1a3464e613ea1f8eb8b63fcc9c3e9db63509fb885eef49",
+          "raw_bytes": 1601842,
+          "credibility": "UNOFFICIAL_RESEARCH_GRADE",
+          "pit_eligible": true,
+          "availability_rule": "bar end (lower bound; dissemination latency unknown)",
+          "limitation": "continuous front-month, unadjusted, Yahoo roll schedule; not raw contracts",
+          "url": "chart?interval=1m (4 x 7-day windows)"
+        },
+        {
+          "dataset": "ES_1d",
+          "status": "NEW",
+          "rows": 6600,
+          "first": "2000-09-18 04:00:00+00:00",
+          "last": "2026-11-06 05:00:00+00:00",
+          "appended_rows": 6600,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "228b85a504dd0f08fa8e3ed8c8326788f3cea3210ac6d5e66366a0e612af0c05",
+          "normalized_sha256": "01c0874f9ecac6ec12bfbbd9aa45288aef9beec9b5ec7f5423e40c5e49e10353",
+          "raw_bytes": 370785,
+          "credibility": "UNOFFICIAL_RESEARCH_GRADE",
+          "pit_eligible": true,
+          "availability_rule": "bar end (lower bound; dissemination latency unknown)",
+          "limitation": "continuous front-month, unadjusted, Yahoo roll schedule; not raw contracts",
+          "url": "https://query2.finance.yahoo.com/v8/finance/chart/ES=F?interval=1d&period1=946684800&period2=1794196875"
+        },
+        {
+          "dataset": "ES_60m",
+          "status": "NEW",
+          "rows": 13683,
+          "first": "2024-06-17 04:00:00+00:00",
+          "last": "2026-11-09 03:00:00+00:00",
+          "appended_rows": 13683,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "079d5c765deed625a99b8fbff1be82427821f7e348694bfe092dad7e9c9ac274",
+          "normalized_sha256": "0874b6d2b2b3508c6330822ab7730450e9af55c6424418d4d87fb72c62565472",
+          "raw_bytes": 830542,
+          "credibility": "UNOFFICIAL_RESEARCH_GRADE",
+          "pit_eligible": true,
+          "availability_rule": "bar end (lower bound; dissemination latency unknown)",
+          "limitation": "continuous front-month, unadjusted, Yahoo roll schedule; not raw contracts",
+          "url": "https://query2.finance.yahoo.com/v8/finance/chart/ES=F?interval=60m&range=730d"
+        },
+        {
+          "dataset": "ES_5m",
+          "status": "NEW",
+          "rows": 13444,
+          "first": "2026-08-30 22:10:00+00:00",
+          "last": "2026-11-09 03:50:00+00:00",
+          "appended_rows": 13444,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "11ef2afb91f75c3e520745ccb5758cecaad3f046c3b20b2555902a0da2cc70e2",
+          "normalized_sha256": "1435d94214ead25d54e68b0f781d349fd31c5352f221045c87c4bee5493b279f",
+          "raw_bytes": 752868,
+          "credibility": "UNOFFICIAL_RESEARCH_GRADE",
+          "pit_eligible": true,
+          "availability_rule": "bar end (lower bound; dissemination latency unknown)",
+          "limitation": "continuous front-month, unadjusted, Yahoo roll schedule; not raw contracts",
+          "url": "https://query2.finance.yahoo.com/v8/finance/chart/ES=F?interval=5m&range=60d"
+        },
+        {
+          "dataset": "ES_1m",
+          "status": "NEW",
+          "rows": 27229,
+          "first": "2026-10-12 04:02:00+00:00",
+          "last": "2026-11-09 03:51:00+00:00",
+          "appended_rows": 27229,
+          "revised_rows": 0,
+          "removed_rows": 0,
+          "revised_examples": [],
+          "raw_sha256": "847fdef59d9af927bf9f260e5b62d0540d0df7d849119cfc58fd78708982acc3",
+          "normalized_sha256": "b63763042d4a4b746eab28eadf306d8ac6d78bc00f993c7222f72d9cef35a87f",
+          "raw_bytes": 1501534,
+          "credibility": "UNOFFICIAL_RESEARCH_GRADE",
+          "pit_eligible": true,
+          "availability_rule": "bar end (lower bound; dissemination latency unknown)",
+          "limitation": "continuous front-month, unadjusted, Yahoo roll schedule; not raw contracts",
+          "url": "chart?interval=1m (4 x 7-day windows)"
+        }
+      ]
+    }
+  },
+  "blocked_or_not_used": {
+    "eia": {
+      "status": "BLOCKED_KEY_REQUIRED",
+      "evidence": "api.eia.gov returned 403 API_KEY_MISSING",
+      "credential_env": "EIA_API_KEY"
+    },
+    "bea": {
+      "status": "BLOCKED_KEY_REQUIRED",
+      "evidence": "apps.bea.gov API requires UserID registration; keyless request returned empty body",
+      "credential_env": "BEA_API_KEY"
+    },
+    "nasdaq_data_link": {
+      "status": "BLOCKED_KEY_REQUIRED",
+      "evidence": "dataset access needs NASDAQ_DATA_LINK_API_KEY; premium index feeds not free",
+      "credential_env": "NASDAQ_DATA_LINK_API_KEY"
+    },
+    "nasdaq_web_api": {
+      "status": "NOT_USED_UNOFFICIAL_UNAVAILABLE",
+      "evidence": "api.nasdaq.com timed out from this host; undocumented site API without published terms"
+    },
+    "forexfactory": {
+      "status": "NOT_CRAWLED_TERMS_UNVERIFIED",
+      "evidence": "robots.txt permits, but permission for automated collection in site terms was not verified; official Fed/BLS sources used instead"
+    },
+    "bloomberg_reuters": {
+      "status": "LICENSED_NOT_ACCESSED",
+      "evidence": "paywalled/licensed; no bypass"
+    },
+    "databento": {
+      "status": "FUTURES_DATA_BLOCKED",
+      "evidence": "DATABENTO_API_KEY absent; USER_ACTION_REQUIRED"
+    }
+  },
+  "http_log": [
+    {
+      "domain": "query2.finance.yahoo.com",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": false,
+      "access": "api"
+    },
+    {
+      "domain": "query2.finance.yahoo.com",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": false,
+      "access": "api"
+    },
+    {
+      "domain": "query2.finance.yahoo.com",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": false,
+      "access": "api"
+    },
+    {
+      "domain": "query2.finance.yahoo.com",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": false,
+      "access": "api"
+    },
+    {
+      "domain": "query2.finance.yahoo.com",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": false,
+      "access": "api"
+    },
+    {
+      "domain": "query2.finance.yahoo.com",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": false,
+      "access": "api"
+    },
+    {
+      "domain": "query2.finance.yahoo.com",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": false,
+      "access": "api"
+    },
+    {
+      "domain": "query2.finance.yahoo.com",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": false,
+      "access": "api"
+    },
+    {
+      "domain": "query2.finance.yahoo.com",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": false,
+      "access": "api"
+    },
+    {
+      "domain": "query2.finance.yahoo.com",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": false,
+      "access": "api"
+    },
+    {
+      "domain": "query2.finance.yahoo.com",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": false,
+      "access": "api"
+    },
+    {
+      "domain": "query2.finance.yahoo.com",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": false,
+      "access": "api"
+    },
+    {
+      "domain": "query2.finance.yahoo.com",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": false,
+      "access": "api"
+    },
+    {
+      "domain": "query2.finance.yahoo.com",
+      "attempts": 1,
+      "status": 200,
+      "robots": "PARSED",
+      "robots_allows": false,
+      "access": "api"
+    }
+  ],
+  "policy": "official documented APIs follow published API terms; crawl access requires robots.txt permission; no paywall/CAPTCHA/auth bypass; rows with pit_eligible=false never enter backtests"
+}
