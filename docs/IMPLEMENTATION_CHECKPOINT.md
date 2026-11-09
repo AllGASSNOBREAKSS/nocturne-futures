@@ -1,6 +1,15 @@
 # Implementation Checkpoint
 
-## Current resume point — Phase 4 desktop, 2026-11-09
+## Current resume point — Phase 4C, 2026-11-09
+
+Branch `feat/phase4c`. Read `docs/PHASE4C_FINDINGS.md`. Authentic research dataset:
+`src/nocturne/studio/dataset.py` (session rows, causal baselines, contract-safe labels).
+Model Studio supports `source: databento` objectives incl. target_before_stop economics.
+UI acceptance: `desktop/qa/scenario-*.json` via `NOCTURNE_QA=<file> NOCTURNE_QA_OUT=<dir> npx electron .`
+(run 2 after run 1 to test restart). Re-install after changes with `scripts/install_desktop.ps1`.
+Do not re-tune on 2023–2026; it is a reused holdout.
+
+## Historical resume point — Phase 4 desktop, 2026-11-09
 
 Branch `feat/phase4-desktop`. Desktop app in `desktop/` (`npm install && npm run build && npm start`);
 backend `python -m nocturne.desktop_server --port N` with `NOCTURNE_DESKTOP_TOKEN`.

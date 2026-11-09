@@ -8,6 +8,17 @@
 
 ## What is implemented
 
+### Phase 4C — operating the terminal end to end
+
+The installed desktop app (`scripts/install_desktop.ps1`, Desktop/Start Menu shortcut) was
+driven through 142 real UI steps (0 failures) covering market data, training, cancellation,
+16-year backtests, custom rules, restart persistence and failure handling, with UI values
+verified against the backend and stored data. 110 walk-forward experiments on authentic
+NQ/ES sessions: **next-day direction is not predictable** (all rejected), while volatility
+regime, range thresholds and prior-level touches beat baselines (research-only). All 8
+tested strategies and all 69 ranked signals fail independent validation. 1-minute chart
+queries got ~1,000x faster. See [Phase 4C findings](docs/PHASE4C_FINDINGS.md).
+
 ### Phase 4 — Nocturne Terminal desktop app
 
 A Windows desktop research terminal (`desktop/`, Electron + React + TypeScript +

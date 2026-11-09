@@ -10,6 +10,17 @@ The app launches the Python backend itself; there is nothing to host.
   `pytest`). Set `NOCTURNE_PYTHON` if `python` on PATH is not that interpreter.
 - The repository checkout. The app finds it next to `desktop/`, or set `NOCTURNE_REPO`.
 
+## Install for everyday use (recommended)
+
+```powershell
+cd desktop; npm install; npm run build; npx electron-builder --win portable dir
+powershell -ExecutionPolicy Bypass -File ..\scripts\install_desktop.ps1
+```
+
+This copies the app to `%LOCALAPPDATA%\Programs\Nocturne Terminal`, records the repo and
+Python paths in `nocturne.json`, and adds **Nocturne Terminal** shortcuts to the Desktop and
+Start Menu. Re-run both lines after pulling updates.
+
 ## Run
 
 ```powershell
