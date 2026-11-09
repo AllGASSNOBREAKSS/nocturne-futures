@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-09T02:17:26.863294+00:00",
+  "generated_at": "2026-11-09T04:17:22.743317+00:00",
   "shadow": {
-    "generated_at": "2026-11-09T02:17:22.986945+00:00",
+    "generated_at": "2026-11-09T04:17:20.410051+00:00",
     "status": "degraded",
     "components": {
       "service_execution": {
@@ -74,12 +74,12 @@
         "LATEST_CYCLE_NOT_OK"
       ],
       "cycle_execution_status": "COMPLETED",
-      "last_attempt_age_seconds": 13.521882,
+      "last_attempt_age_seconds": 11.49391,
       "scope": "Completed-cycle heartbeat is separate from data integrity and predictive readiness; not host uptime",
       "last_run": "2026-11-06T04:47:10.415251+00:00",
-      "age_hours": 69.50349213722222,
+      "age_hours": 71.50277633333333,
       "last_success": "2026-11-06T04:47:10.415251+00:00",
-      "last_attempt": "2026-11-09T02:17:09.465063+00:00",
+      "last_attempt": "2026-11-09T04:17:08.916141+00:00",
       "last_attempt_event": "CYCLE_AUDIT_FAILED",
       "forecasts": 4,
       "matured": 2,
@@ -265,13 +265,13 @@
         "last_observed_at_epoch": 1793844396.0760748
       },
       {
-        "job_id": "2b38f82cd432bbafd092efd2",
+        "job_id": "a11962cc71bc20a287e06c43",
         "kind": "RESEARCH_REPORT",
         "lane": "research",
         "state": "SUCCEEDED",
         "status": "HEALTHY",
         "reason": "SUCCEEDED",
-        "last_observed_at_epoch": 1794190447.9825013
+        "last_observed_at_epoch": 1794191012.088002
       },
       {
         "job_id": "7cd1831eef7b20d18ffa1825",
@@ -344,14 +344,32 @@
         "status": "BLOCKED",
         "reason": "AUTHENTIC_CONTRACT_HISTORY_REQUIRED",
         "last_observed_at_epoch": 1793899807.6489239
+      },
+      {
+        "job_id": "5148e400917e09be6fc97a62",
+        "kind": "FREE_DATA_COLLECTION",
+        "lane": "research",
+        "state": "SUCCEEDED",
+        "status": "HEALTHY",
+        "reason": "SUCCEEDED",
+        "last_observed_at_epoch": 1794190975.1857677
+      },
+      {
+        "job_id": "240e6bb1f5d2d8f9a7d7c802",
+        "kind": "FREE_DATA_EXPERIMENT",
+        "lane": "research",
+        "state": "SUCCEEDED",
+        "status": "HEALTHY",
+        "reason": "SUCCEEDED",
+        "last_observed_at_epoch": 1794191008.742619
       }
     ],
     "counts": {
-      "HEALTHY": 15,
+      "HEALTHY": 17,
       "BLOCKED": 6
     },
     "historical_state_counts": {
-      "SUCCEEDED": 80,
+      "SUCCEEDED": 83,
       "BLOCKED": 15
     },
     "limits": "latest recorded result per lane/type/specification, not live host liveness or a market-data entitlement"
@@ -454,7 +472,7 @@
     ],
     "sample_warning": "descriptive observations only; no forward calibration or trading-edge claim",
     "trading_decision": "NO_TRADE",
-    "generated_at": "2026-11-09T02:17:16.863733+00:00",
+    "generated_at": "2026-11-09T04:17:15.018698+00:00",
     "issued": 4,
     "pending": 2,
     "baseline_sha256": "cf6984327158af5517c35ca5ad2cd2ccc865a40022e50b411f1cc5872eaf298d",
