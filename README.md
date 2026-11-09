@@ -8,6 +8,29 @@
 
 ## What is implemented
 
+### Phase 3U — free-data collection, backtest and forward cycle
+
+`nocturne.collector` gathers keyless official data with a declared user agent,
+per-domain rate limits, retry/backoff, content-addressed raw archives and a
+revision ledger: FRED (16 series), CFTC Traders in Financial Futures, Treasury
+DTS, SEC EDGAR filings, Federal Reserve press releases and BLS — **125,814
+rows**. GDELT was rate-limited (HTTP 429). EIA/BEA/Nasdaq Data Link need free
+keys. Every row carries a conservative `available_at`; revised macro series are
+context only.
+
+A pre-registered ^NDX walk-forward (2008–2026, 4,624 sessions) tested 14
+point-in-time macro/positioning/filing features. Direction: no model beats the
+frequency baseline (verdict INCONCLUSIVE, no skill). Range: base LightGBM
+quantiles beat trailing quantiles (mean pinball 0.00202 vs 0.00285 in
+development), but adding free features is worse in development (verdict FAIL).
+One real shadow cycle ran: 4 issued / 2 matured / 2 audit-blocked. FRED closes
+confirm both reference revisions are below published precision; outcomes
+remain unverified. **444 tests pass.** New research-lane jobs
+`FREE_DATA_COLLECTION` and `FREE_DATA_EXPERIMENT` run on the existing schedule.
+**NO_GO_FRONTEND / NO_PROMOTION / NO_TRADE / FUTURES_DATA_BLOCKED.** See
+[findings](docs/PHASE3U_FINDINGS.md), [backtest](reports/phase3u_backtest.md)
+and [free-data architecture](docs/architecture/free_data.md).
+
 ### Phase 3T — incident dispositions and quarantine isolation
 
 Both pending forecast incidents are classified as observed provider revisions with

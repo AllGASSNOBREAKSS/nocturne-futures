@@ -1,6 +1,24 @@
 # Implementation Checkpoint
 
-## Current resume point — Phase 3T, 2026-11-08 UTC
+## Current resume point — Phase 3U, 2026-11-09 UTC
+
+Branch `feat/phase3u`, base `632bcaf`. Read `PHASE3U_FINDINGS.md`,
+`reports/phase3u_backtest.md`, `reports/phase3u_collection.json`,
+`reports/phase3u_forward.json` and `reports/phase3u_reference_crosscheck.json`.
+
+- Collector: `src/nocturne/collector/` (http, store, sources). Committed snapshot
+  `data/history/free/` (do not refresh in place); scheduled runs write to ignored
+  `data/research/free/`. Run: `python scripts/phase3u_collect.py [--sources ...]`.
+- Experiment: `python scripts/phase3u_backtest.py` (fingerprint-cached; `--force`
+  re-scores). The protocol is fixed in `free_data_experiment.PROTOCOL`; do not
+  tune it against these results. The next honest test of the post-hoc
+  2011+ observation needs new forward data and a pre-declared protocol.
+- Forward: `python scripts/phase3u_forward.py` (read-only). The next issuance
+  for November 10 happens through the existing scheduler after the November 9 close.
+- Open: GDELT HTTP 429; EIA/BEA/Nasdaq Data Link keys; Databento; independent
+  final NDX high/low for the two AUDIT_BLOCKED forecasts. NO_GO_FRONTEND / NO_TRADE.
+
+## Historical resume point — Phase 3T, 2026-11-08 UTC
 
 Branch `feat/phase3t`, base `d69f853`, core implementation `fcac56c`, fix `6bd0f75`.
 Read `PHASE3T_FINDINGS.md`, `BACKEND_READINESS.md`, `reports/phase3t_acceptance.json`

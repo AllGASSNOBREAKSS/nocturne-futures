@@ -1,4 +1,25 @@
-# Backend readiness — Phase 3T
+# Backend readiness — Phase 3U
+
+## Phase 3U update — NO_GO_FRONTEND (November 9, 2026 UTC)
+
+Evidence: `PHASE3U_FINDINGS.md`, `reports/phase3u_*.json`. Phase 3T gates below
+still apply; 3U changes only the items listed here.
+
+**Engineering.** Free-data ingestion added: six keyless official sources
+collected (125,814 rows) through one polite client with rate limits,
+retry/backoff, robots enforcement for crawling, checksummed archives and a
+revision ledger. GDELT is blocked by rate limiting. Orchestrator gained
+`FREE_DATA_COLLECTION` and content-addressed `FREE_DATA_EXPERIMENT`
+(research lane, 900 s timeouts, single attempt); a real tick completed both in
+71 s. Experiment peak memory 226 MB. 444 tests pass with native parity.
+
+**Quantitative.** First end-to-end free-data historical study executed with
+point-in-time joins: direction INCONCLUSIVE (every configuration worse than the
+frequency baseline), free-feature range FAIL (base LightGBM range model beats
+trailing quantiles). Forward evidence unchanged at 2 matured observations;
+both pending forecasts still audit-blocked. Authentic futures data remains
+`FUTURES_DATA_BLOCKED`. No model is promoted; no readiness percentage is claimed.
+
 
 ## Phase 3T acceptance — NO_GO_FRONTEND (November 8, 2026 UTC)
 
