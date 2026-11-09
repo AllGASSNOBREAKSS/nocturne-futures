@@ -1,0 +1,23 @@
+{
+  "recorded_at": "2026-11-09T02:33:27.324479+00:00",
+  "tested_commit": "76fb02f (code identical to cfdab28/b139292)",
+  "local": {
+    "tests": 444,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 110.46
+  },
+  "isolated": {
+    "tests": 444,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 108.84
+  },
+  "isolated_environment": "C:/Users/huzai/AppData/Local/Temp/opencode/nocturne-phase3t-final (hash-locked venv, native parity included)",
+  "runtime_verification": "VERIFIED_ISOLATED_RUNTIME",
+  "typescript": "npm run typecheck passed 2026-11-09",
+  "new_tests": "tests/test_phase3u_collector.py (13)",
+  "warning": "httpx TestClient deprecation; unchanged"
+}

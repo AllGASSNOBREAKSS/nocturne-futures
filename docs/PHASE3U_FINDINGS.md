@@ -138,7 +138,8 @@ Mean pinball (n = 2, descriptive only): model 0.01016 vs trailing-250 baseline
 ## D. Backend health
 
 - **444 tests pass** locally with native parity (431 + 13 new collector/PIT/
-  verdict/job-lane tests). CI and isolated results: `reports/phase3u_ci.json`,
+  verdict/job-lane tests). 444 also pass in the isolated hash-locked environment; all five CI jobs green
+  at `cfdab28` (run 42551201560) and `76fb02f` (run 42551366785). Evidence: `reports/phase3u_ci.json`,
   `reports/phase3u_tests.json`.
 - Research lane executed `FREE_DATA_COLLECTION` (6/6 sources) and
   `FREE_DATA_EXPERIMENT` (fingerprint reuse) in 71 s. Experiment peak working
