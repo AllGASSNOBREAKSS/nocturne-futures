@@ -26,8 +26,10 @@ PRICE = ["ret_1", "ret_5", "ret_20", "vol_20", "range_pts", "atr20_pts", "range_
 COST_POINTS = 0.75
 
 
-def _intraday(root):
-    five, _ = market.bars(root, "5m", limit=50_000_000, source="databento")
+def _intraday(root, source="databento"):
+    five, _ = market.bars(root, "5m", limit=50_000_000, source=source)
+    if "instrument_id" not in five:
+        five["instrument_id"] = 0  # continuous proxy: contract identity unknown
     five["session"] = globex_session(five.timestamp)
     et = five.timestamp.dt.tz_convert("America/New_York")
     minute = et.dt.hour * 60 + et.dt.minute
@@ -82,11 +84,13 @@ def _tbs(five, rows):
     return pd.DataFrame({**labels, **rs}, index=rows.index)
 
 
-@lru_cache(maxsize=4)
-def build(root):
-    daily, meta = market.bars(root, "1d", limit=100000, source="databento")
+@lru_cache(maxsize=8)
+def build(root, source="databento"):
+    daily, meta = market.bars(root, "1d", limit=100000, source=source)
+    if "instrument_id" not in daily:
+        daily["instrument_id"] = 0
     daily = daily.assign(session=pd.to_datetime(daily.timestamp).dt.tz_convert("America/New_York").dt.date).set_index("session")
-    intraday, five = _intraday(root)
+    intraday, five = _intraday(root, source)
     d = daily.join(intraday, how="inner")
     same = d.instrument_id.eq(d.instrument_id.shift())
     c, h, l = d.close, d.high, d.low
@@ -110,11 +114,17 @@ def build(root):
     f["volume_z"] = (d.volume - d.volume.rolling(20).mean()) / d.volume.rolling(20).std()
     f["close"], f["contract_id"], f["year"] = c, d.instrument_id, pd.to_datetime(pd.Series(d.index, index=d.index)).dt.year
     f["prior_high"], f["prior_low"], f["prior_vwap"] = h, l, d.vwap
+    # Session-D reference levels (known at the cutoff) for the next-session level map.
+    for col in ("on_high", "on_low", "rth_high", "rth_low", "ib_high", "ib_low", "rth_open", "rth_close"):
+        f[f"lvl_{col}"] = d[col]
     # next-session labels (dropped when the next session is on another contract)
     nxt_same = d.instrument_id.shift(-1).eq(d.instrument_id)
     nh, nl, nc, no = h.shift(-1), l.shift(-1), c.shift(-1), d.open.shift(-1)
     nrange = (nh - nl).where(nxt_same)
     f["next_session"] = pd.Series(d.index, index=d.index).shift(-1)
+    # Directionless excursions of the next session from today's settle, in ATR units.
+    f["up_exc_atr"] = ((nh - c) / atr).where(nxt_same)
+    f["dn_exc_atr"] = ((c - nl) / atr).where(nxt_same)
     f["next_range"] = nrange
     labels = {"direction": (nc > c).astype(float), "compression": (nrange < 0.6 * atr).astype(float),
               "expansion": (nrange > 1.5 * atr).astype(float),
@@ -137,7 +147,7 @@ def build(root):
               + pd.Timedelta(hours=17, minutes=59)).dt.tz_convert("UTC")
     free, audit = free_features(market.archive(), cutoff.reset_index(drop=True))
     free.index = f.index
-    f = pd.concat([f, free], axis=1)
+    f = pd.concat([f, free], axis=1).copy()  # one contiguous block (avoids fragmentation)
     f.index.name = "date"
     f = f.reset_index()
     f["date"] = f.date.astype(str)

@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { Shell } from "./components/Shell";
 import Overview from "./pages/Overview";
+import Predict from "./pages/Predict";
 import Market from "./pages/Market";
 import Predictions from "./pages/Predictions";
 import ModelStudio from "./pages/ModelStudio";
@@ -15,7 +16,8 @@ export default function App() {
   return (
     <Shell>
       <Routes>
-        <Route path="/" element={<Overview />} />
+        <Route path="/" element={<Predict />} />
+        <Route path="/overview" element={<Overview />} />
         <Route path="/market" element={<Market />} />
         <Route path="/predictions" element={<Predictions />} />
         <Route path="/models" element={<ModelStudio />} />

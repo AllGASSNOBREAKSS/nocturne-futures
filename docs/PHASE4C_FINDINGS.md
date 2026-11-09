@@ -109,3 +109,18 @@ the installed copy was launched and all 10 views rendered with 0 errors.
 483 Python tests pass (incl. native parity; licensed-data tests skip in CI); `tsc` and
 `vite build` pass; portable exe + unpacked build produced. CI result recorded in the
 commit report.
+
+## H. Predict screen (follow-up)
+
+The app opens on **Predict** (`src/nocturne/studio/predictor.py`, `POST /v1/predict/{root}`).
+Upside/downside excursions from the last settle are modelled with LightGBM quantile
+regressors at 8 levels, conformal-corrected on the latest 500 sessions; level touch
+probabilities come from that distribution, or from the validated Phase 4C classifiers for
+prior high/low/VWAP. Direction is shown as "no edge".
+
+Walk-forward check of this exact method (annual refits, 2013–2026, 3,015 NQ sessions):
+the 10/50/90% excursion levels contained the realized high 10.4/49.7/89.1% of the time
+and the low 10.8/49.8/89.6%. Prior-high touch AUC 0.82 (Brier 0.170 vs 0.245 baseline);
+when the model said >70%, the prior high was touched 84% of the time (1,311 sessions).
+Navigation was cut to five primary views (Predict, Chart, Build & backtest, Models,
+Data & status) with research views grouped below.

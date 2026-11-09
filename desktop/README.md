@@ -32,7 +32,22 @@ npm run dev        # hot-reload UI (Vite on :5173) + Electron
 npm run dist       # portable Windows exe in desktop/release/
 ```
 
-Keyboard: F1–F10 switch views, Ctrl+K opens the command palette.
+Keyboard: F1–F11 switch views, Ctrl+K opens the command palette.
+
+## Predict (home screen)
+
+Pick NQ or ES and press **Predict next session**. One click runs the calibrated level
+models, the validated regime classifiers, the indicators and the strategy check, then shows:
+
+- the expected range and a calibrated 80% high/low band;
+- a level ladder (prior high/low/VWAP, overnight, RTH, initial balance, value area, POC,
+  5/20-session extremes, projected 50/25/10% zones) with the probability each is traded;
+- volatility outlook vs the usual rate, and direction reported as **no edge** (it failed
+  validation);
+- the measured 2013–2026 walk-forward accuracy of the same method.
+
+Each prediction is journaled once per target session and scored when that session's bars
+arrive. Models train in the background on first start (~25 s per instrument) and are cached.
 
 ## Security model
 

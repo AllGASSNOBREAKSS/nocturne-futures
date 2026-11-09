@@ -197,11 +197,11 @@ def _round(x, tick):
     return None if x is None or not np.isfinite(x) else round(round(x / tick) * tick, 2)
 
 
-def levels(root):
+def levels(root, source=None):
     """Reference levels for the latest completed session from stored bars."""
     spec = get_instrument(root)
-    daily, _ = bars(root, "1d", limit=400)
-    five, meta = bars(root, "5m", limit=20000)
+    daily, _ = bars(root, "1d", limit=400, source=source)
+    five, meta = bars(root, "5m", limit=20000, source=source)
     five["session"] = globex_session(five.timestamp)
     last_session = five.session.iloc[-1]
     sessions = sorted(five.session.unique())

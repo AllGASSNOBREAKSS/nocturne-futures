@@ -8,16 +8,17 @@ import { Dot } from "./ui";
 import { ErrorBoundary } from "./ErrorBoundary";
 
 export const NAV = [
-  { to: "/", code: "OVR", label: "Overview", icon: LayoutDashboard, key: "F1" },
-  { to: "/market", code: "MKT", label: "Market Analysis", icon: CandlestickChart, key: "F2" },
-  { to: "/predictions", code: "PRED", label: "Prediction Center", icon: Crosshair, key: "F3" },
-  { to: "/models", code: "ML", label: "ML Model Studio", icon: BrainCircuit, key: "F4" },
-  { to: "/lab", code: "LAB", label: "Strategy & Indicator Lab", icon: FlaskConical, key: "F5" },
-  { to: "/backtests", code: "BT", label: "Backtesting Center", icon: BarChart3, key: "F6" },
-  { to: "/signals", code: "SIG", label: "Signal Analytics", icon: Target, key: "F7" },
-  { to: "/performance", code: "PERF", label: "Model Performance", icon: Gauge, key: "F8" },
-  { to: "/intel", code: "INTL", label: "Market Intelligence", icon: Globe2, key: "F9" },
-  { to: "/ops", code: "OPS", label: "Data & Operations", icon: Server, key: "F10" },
+  { to: "/", code: "PRED", label: "Predict", icon: Crosshair, key: "F1", primary: true },
+  { to: "/market", code: "CHART", label: "Chart", icon: CandlestickChart, key: "F2", primary: true },
+  { to: "/lab", code: "TEST", label: "Build & backtest", icon: FlaskConical, key: "F3", primary: true },
+  { to: "/models", code: "ML", label: "Models", icon: BrainCircuit, key: "F4", primary: true },
+  { to: "/ops", code: "DATA", label: "Data & status", icon: Server, key: "F5", primary: true },
+  { to: "/backtests", code: "BT", label: "Backtest results", icon: BarChart3, key: "F6" },
+  { to: "/signals", code: "SIG", label: "Signal ranking", icon: Target, key: "F7" },
+  { to: "/performance", code: "PERF", label: "Model accuracy", icon: Gauge, key: "F8" },
+  { to: "/intel", code: "INTL", label: "Macro & news", icon: Globe2, key: "F9" },
+  { to: "/overview", code: "OVR", label: "Overview", icon: LayoutDashboard, key: "F10" },
+  { to: "/predictions", code: "SESS", label: "Session forecasts", icon: Activity, key: "F11" },
 ];
 
 function Clock({ zone, label }: { zone: string; label: string }) {
@@ -121,9 +122,10 @@ export function Shell({ children }: { children: ReactNode }) {
       </header>
       <div className="flex min-h-0 flex-1">
         <nav className="flex w-[58px] shrink-0 flex-col items-center gap-0.5 border-r border-ink-700/80 bg-ink-950 py-2">
-          {NAV.map((n) => (
-            <NavLink key={n.to} to={n.to} end={n.to === "/"} title={`${n.label} (${n.key})`}
-              className={({ isActive }) => cn("group relative flex h-11 w-12 flex-col items-center justify-center gap-0.5 rounded-[3px] transition-colors",
+          {NAV.map((n, i) => (<div key={n.to} className="contents">
+            {i === 5 && <div className="my-1 w-8 border-t border-ink-700" title="More research views" />}
+            <NavLink to={n.to} end={n.to === "/"} title={`${n.label} (${n.key})`}
+              className={({ isActive }) => cn("group relative flex w-12 flex-col items-center justify-center gap-0.5 rounded-[3px] transition-colors", n.primary ? "h-12" : "h-9 opacity-70 hover:opacity-100",
                 isActive ? "bg-amber-500/10 text-amber-400" : "text-ink-400 hover:bg-ink-800 hover:text-ink-100")}>
               {({ isActive }) => (<>
                 {isActive && <motion.span layoutId="rail" className="absolute left-[-5px] top-2 h-7 w-[3px] rounded-r bg-amber-500" />}
@@ -131,7 +133,7 @@ export function Shell({ children }: { children: ReactNode }) {
                 <span className="font-mono text-[8.5px] font-semibold tracking-wider">{n.code}</span>
               </>)}
             </NavLink>
-          ))}
+          </div>))}
         </nav>
         <main className="min-w-0 flex-1 overflow-hidden">
           {ready ? (

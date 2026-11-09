@@ -1,0 +1,18 @@
+{
+  "name": "predict-screen",
+  "steps": [
+    {"nav": "/", "settle": 4000, "shot": "P0-home"},
+    {"waitText": "Predict next session", "timeout": 20000},
+    {"click": "Predict next session", "exact": true},
+    {"waitText": "levels for", "timeout": 240000},
+    {"wait": 3500, "shot": "P1-nq-levels"},
+    {"api": {"method": "POST", "path": "/v1/predict/NQ"}, "save": "api_predict_nq"},
+    {"read": "levels for", "save": "ui_ladder_nq"},
+    {"click": "Market outlook", "exact": true, "wait": 2000, "shot": "P2-nq-outlook"},
+    {"click": "ES", "exact": true, "wait": 1500},
+    {"click": "Predict next session", "exact": true},
+    {"waitText": "Expected range", "timeout": 240000},
+    {"click": "Levels", "exact": true, "wait": 3500, "shot": "P3-es-levels"},
+    {"api": {"method": "POST", "path": "/v1/predict/ES"}, "save": "api_predict_es"}
+  ]
+}

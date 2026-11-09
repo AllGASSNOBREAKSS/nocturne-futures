@@ -25,14 +25,14 @@ from fastapi.responses import Response
 
 from .api.security import SecurityMiddleware, SecurityPolicy, TOKEN
 from .shadow.locking import FileLock
-from .studio import ROOT, STATE, backtest, dataset, forecasts, indicators, insights, jobs, market, rules, training
+from .studio import ROOT, STATE, backtest, dataset, forecasts, indicators, insights, jobs, market, predictor, rules, training
 
 VERSION = "4.0.0"
 ID = r"[a-f0-9]{24}"
 ROOT_RE = r"(NQ|ES)"
 MUTATIONS = (("POST", r"/v1/backtests"), ("POST", r"/v1/training-jobs"), ("POST", rf"/v1/jobs/{ID}/cancel"),
              ("POST", rf"/v1/forecasts/sessions/{ROOT_RE}/issue"), ("POST", r"/v1/configs/(strategy|model)"),
-             ("POST", r"/v1/data/refresh"))
+             ("POST", r"/v1/data/refresh"), ("POST", rf"/v1/predict/{ROOT_RE}"))
 ROUTES = ((rf"/v1/markets/{ROOT_RE}/[a-z]+", "/v1/markets/{root}/{view}"), (rf"/v1/levels/{ROOT_RE}", "/v1/levels/{root}"),
           (rf"/v1/(backtests|training-jobs|jobs)/{ID}(/[a-z.]+)?", "/v1/{jobs}/{id}"),
           (rf"/v1/forecasts/sessions/{ROOT_RE}/issue", "/v1/forecasts/sessions/{root}/issue"),
@@ -55,6 +55,22 @@ class RotatingAudit:
 
 
 _refresh = {"state": "IDLE"}
+_warm = {}
+
+
+def _warm_predictor():
+    """Train/load the prediction models in the background so the first click is instant."""
+    for root in market.ROOTS:
+        _warm[root] = "TRAINING"
+        try:
+            if market.databento_available(root):
+                predictor.load_or_train(root)
+                predictor.track_record(root)
+                _warm[root] = "READY"
+            else:
+                _warm[root] = "NO_DATABENTO_DATA"
+        except Exception as exc:  # report, never crash the server
+            _warm[root] = f"FAILED: {type(exc).__name__}"
 
 
 def _refresh_data():
@@ -195,6 +211,17 @@ def create_app(token: str, worker: jobs.Worker | None = None) -> FastAPI:
                     "status_at": status.get("generated_at"), "report": insights._report("phase3u_forward.json")}
         return guard(build)
 
+    @app.post("/v1/predict/{root}")
+    def predict(root: str):
+        """Run every validated model for the next session and journal the result once."""
+        if root not in market.ROOTS:
+            raise HTTPException(422, "unsupported instrument")
+        return guard(predictor.predict, root)
+
+    @app.get("/v1/predict/{root}/status")
+    def predict_status(root: str):
+        return {"ready": _warm.get(root) == "READY", "state": _warm.get(root, "PENDING")}
+
     @app.get("/v1/configs/{kind}")
     def configs(kind: str):
         return guard(insights.list_configs, kind)
@@ -298,6 +325,7 @@ def main():
     worker = jobs.Worker()
     app = create_app(token, worker)
     worker.start()
+    threading.Thread(target=_warm_predictor, daemon=True).start()
     import uvicorn
     uvicorn.run(app, host="127.0.0.1", port=args.port, log_level="warning", access_log=False)
 
